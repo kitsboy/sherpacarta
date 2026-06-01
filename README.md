@@ -1,16 +1,30 @@
-# React + Vite
+# SherpaCarta
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**The Global Digital Magna Carta for the 21st Century**
 
-Currently, two official plugins are available:
+A living charter of 114 articles protecting digital human rights, privacy, and data sovereignty for all 8 billion people.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+### ✨ Features
+- Immersive dark design with custom particle system
+- Interactive Articles Browser + Rights Calculator
+- Live global signing counter
+- Command palette (⌘K)
+- Full charter modal with search & read-aloud
+- Multi-language support
 
-## React Compiler
+### Tech Stack (Current)
+- Single HTML + Vanilla JS + CSS (for now)
+- Vite + Tailwind ready
+- Planning to migrate to React
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Quick Start
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+Visit: [http://localhost:5173](http://localhost:5173)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+**Made with passion for digital freedom.**
