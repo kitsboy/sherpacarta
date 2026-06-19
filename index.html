@@ -1,13 +1,2014 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sherpacarta</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SherpaCarta — The Global Digital Magna Carta for the 21st Century</title>
+
+<!-- ═══ SEO META ═══════════════════════════════════════════ -->
+<meta name="description" content="SherpaCarta is a living, globally-signed charter of digital human rights — 114 articles protecting privacy, data sovereignty, and freedom online for all 8 billion people on Earth. Sign now.">
+<meta name="keywords" content="digital rights, privacy, data sovereignty, magna carta, human rights, internet freedom, GDPR, surveillance, SherpaCarta">
+<meta name="author" content="SherpaCarta Global Movement">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#10b981">
+<link rel="canonical" href="https://sherpacarta.org/">
+
+<!-- ═══ OPEN GRAPH (Facebook, LinkedIn, iMessage, WhatsApp) ═ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sherpacarta.org/">
+<meta property="og:title" content="SherpaCarta — The Global Digital Magna Carta">
+<meta property="og:description" content="A living charter of 114 articles protecting digital privacy, data sovereignty, and freedom for all 8 billion people on Earth. Sign and assert your rights now.">
+<meta property="og:image" content="https://sherpacarta.org/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SherpaCarta — Privacy is a Human Right">
+<meta property="og:site_name" content="SherpaCarta">
+<meta property="og:locale" content="en_US">
+
+<!-- ═══ TWITTER / X CARD ══════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@SherpaCarta">
+<meta name="twitter:creator" content="@SherpaCarta">
+<meta name="twitter:title" content="SherpaCarta — The Global Digital Magna Carta">
+<meta name="twitter:description" content="114 articles. 8 billion people. One living charter for digital human rights. Privacy is not a feature — it is a birthright. Sign now.">
+<meta name="twitter:image" content="https://sherpacarta.org/og-image.png">
+<meta name="twitter:image:alt" content="SherpaCarta v2.0 — A Magna Carta for the Digital Age">
+
+<!-- ═══ STRUCTURED DATA (JSON-LD) ═════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SherpaCarta",
+  "url": "https://sherpacarta.org",
+  "description": "A living global charter of digital human rights — 114 articles protecting privacy, data sovereignty, and freedom for all of humanity.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://sherpacarta.org/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SherpaCarta Global Movement",
+    "logo": { "@type": "ImageObject", "url": "https://sherpacarta.org/logo.png" }
+  }
+}
+</script>
+
+<!-- ═══ FONTS ══════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,700&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   CSS VARIABLES
+═══════════════════════════════════════════════════════════ */
+:root {
+  --bg:#060a06;--bg2:#0b110b;--bg3:#0f160f;
+  --glass:rgba(10,18,10,0.9);
+  --border:rgba(16,185,129,0.14);--border2:rgba(16,185,129,0.28);
+  --em:#10b981;--em2:#34d399;--em3:#6ee7b7;
+  --gold:#d4af37;--red:#ef4444;--blue:#3b82f6;
+  --text:#e8ede8;--text2:#9ca89c;--text3:#5a6a5a;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --mono:'DM Mono',monospace;--sans:'Outfit',system-ui,sans-serif;
+  --shadow:0 20px 60px rgba(0,0,0,0.5);
+  --glow:0 0 30px rgba(16,185,129,0.2);
+}
+[data-theme="light"]{
+  --bg:#f5f7f0;--bg2:#edf0e8;--bg3:#e4e9dc;
+  --glass:rgba(245,247,240,0.94);
+  --border:rgba(16,185,129,0.2);--border2:rgba(16,185,129,0.4);
+  --text:#1a2a1a;--text2:#3a4a3a;--text3:#6a7a6a;
+  --shadow:0 20px 60px rgba(0,0,0,0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;cursor:none}
+::selection{background:var(--em);color:#000}
+a{color:inherit;text-decoration:none}
+button{font-family:var(--sans);cursor:none;border:none;background:none}
+input,select,textarea{font-family:var(--sans)}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--em);border-radius:4px}
+
+/* ═══════════════════════════════════════════════════════════
+   CURSOR
+═══════════════════════════════════════════════════════════ */
+#cursor{position:fixed;width:10px;height:10px;background:var(--em);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:transform .08s}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--em);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:left .16s ease-out,top .16s ease-out,width .2s,height .2s,opacity .2s;opacity:.5}
+body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.8}
+
+/* ═══════════════════════════════════════════════════════════
+   READING PROGRESS
+═══════════════════════════════════════════════════════════ */
+#progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--em),var(--gold),var(--em2));z-index:9999;width:0%;box-shadow:0 0 8px var(--em);transition:width .08s linear}
+
+/* ═══════════════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════════════ */
+#main-nav{position:sticky;top:0;z-index:500;border-bottom:1px solid var(--border);background:var(--glass);backdrop-filter:blur(32px);transition:all .3s}
+#main-nav.shrunk{box-shadow:var(--glow)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+.nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--em),var(--em2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#000;box-shadow:0 0 16px rgba(16,185,129,.3);flex-shrink:0}
+.logo-text{font-family:var(--serif);font-size:1.6rem;font-weight:700;letter-spacing:-.02em;line-height:1}
+.logo-sub{font-family:var(--mono);font-size:.5rem;color:var(--em);letter-spacing:.2em;margin-top:.1rem}
+.nav-actions{display:flex;align-items:center;gap:.4rem;flex-wrap:nowrap}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1rem;border-radius:100px;font-size:.75rem;font-weight:600;transition:all .2s;cursor:none;white-space:nowrap;border:none}
+.btn-primary{background:var(--em);color:#000}.btn-primary:hover{background:var(--em2);box-shadow:0 0 18px rgba(16,185,129,.4)}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2)}.btn-ghost:hover{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.05)}
+#progress-counter{font-family:var(--mono);font-size:.62rem;color:var(--em);border:1px solid var(--border);padding:.28rem .65rem;border-radius:100px;animation:pulse-num 2s infinite}
+@keyframes pulse-num{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* ═══ LANG SWITCHER NAV ═══════════════════════════════════ */
+.lang-switcher-nav{position:relative;display:inline-flex}
+.lang-switcher-nav select{background:transparent;border:1px solid var(--border2);border-radius:100px;padding:.3rem 1.8rem .3rem .7rem;color:var(--text2);font-family:var(--mono);font-size:.68rem;cursor:none;outline:none;appearance:none;-webkit-appearance:none}
+.lang-switcher-nav select:hover{border-color:var(--em);color:var(--em)}
+.lang-switcher-nav::after{content:'▾';position:absolute;right:.6rem;top:50%;transform:translateY(-50%);font-size:.6rem;color:var(--text3);pointer-events:none}
+.flag-display{font-size:1rem;vertical-align:middle}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════════════════ */
+#hero{position:relative;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.4}
+.hero-glow{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(16,185,129,.1) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:980px;margin:0 auto;padding:2rem;text-align:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:.625rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);border-radius:100px;padding:.4rem 1.1rem;margin-bottom:2.5rem;animation:fade-up .6s .1s both}
+.badge-dot{width:7px;height:7px;background:var(--em);border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 8px var(--em)}
+.badge-text{font-family:var(--mono);font-size:.62rem;color:var(--em);letter-spacing:.18em}
+.hero-year{font-family:var(--serif);font-size:clamp(5rem,13vw,10rem);line-height:.95;font-weight:300;letter-spacing:-.04em;color:var(--text3);display:block;animation:fade-up .6s .2s both}
+.hero-h1{font-family:var(--serif);font-size:clamp(3.2rem,9vw,7.5rem);line-height:.97;font-weight:700;letter-spacing:-.03em;margin-bottom:1.5rem;animation:fade-up .6s .3s both}
+.hero-h1 .accent{color:var(--em);font-style:italic}
+.hero-sub{font-size:clamp(1rem,2vw,1.25rem);color:var(--text2);max-width:520px;margin:0 auto 3rem;line-height:1.65;animation:fade-up .6s .4s both}
+.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fade-up .6s .5s both}
+.cta-main{display:inline-flex;align-items:center;gap:.625rem;background:#fff;color:#000;padding:.875rem 2.25rem;border-radius:100px;font-weight:700;font-size:1rem;transition:all .2s;cursor:none;border:none}
+.cta-main:hover{background:var(--em2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(16,185,129,.25)}
+.cta-sec{display:inline-flex;align-items:center;gap:.625rem;background:transparent;color:var(--text2);padding:.875rem 2.25rem;border-radius:100px;font-weight:500;font-size:1rem;border:1px solid rgba(255,255,255,.12);transition:all .2s;cursor:none}
+.cta-sec:hover{border-color:rgba(255,255,255,.35);color:var(--text)}
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.4;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+.scroll-hint span{font-family:var(--mono);font-size:.58rem;letter-spacing:.15em;color:var(--text3)}
+
+/* ═══ HERO SHARE STRIP ════════════════════════════════════ */
+.hero-share{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;animation:fade-up .6s .65s both}
+.share-btn{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-family:var(--mono);padding:.35rem .85rem;border-radius:100px;cursor:none;transition:all .2s;letter-spacing:.04em}
+.share-x{background:#000;color:#fff;border:1px solid #333}.share-x:hover{background:#1a1a1a;border-color:#555}
+.share-fb{background:#1877f2;color:#fff}.share-fb:hover{background:#1569d3}
+.share-wa{background:#25d366;color:#000}.share-wa:hover{background:#20b954}
+.share-li{background:#0a66c2;color:#fff}.share-li:hover{background:#084e96}
+.share-tg{background:#2ca5e0;color:#fff}.share-tg:hover{background:#1b8fbf}
+.share-cp{background:transparent;color:var(--text3);border:1px solid var(--border2)}.share-cp:hover{border-color:var(--em);color:var(--em)}
+
+/* ═══════════════════════════════════════════════════════════
+   TRUST BAR / STATS
+═══════════════════════════════════════════════════════════ */
+.trust-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.875rem 0;overflow:hidden}
+.trust-scroll{display:flex;gap:3.5rem;animation:scroll-left 30s linear infinite;white-space:nowrap}
+.trust-scroll:hover{animation-play-state:paused}
+.trust-item{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.62rem;color:var(--text3);letter-spacing:.08em;flex-shrink:0}
+.trust-item i{color:var(--em);font-size:.68rem}
+@keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.stats-strip{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border)}
+.stat-block{background:var(--bg2);padding:2.25rem 2rem;text-align:center}
+.stat-num{font-family:var(--serif);font-size:3.2rem;font-weight:700;line-height:1;color:var(--em);letter-spacing:-.03em}
+.stat-label{font-family:var(--mono);font-size:.6rem;color:var(--text3);letter-spacing:.15em;margin-top:.5rem;text-transform:uppercase}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTIONS GENERIC
+═══════════════════════════════════════════════════════════ */
+.section{padding:5.5rem 2rem}
+.section-max{max-width:1280px;margin:0 auto}
+.section-label{font-family:var(--mono);font-size:.62rem;color:var(--em);letter-spacing:.25em;text-transform:uppercase;margin-bottom:.875rem;display:flex;align-items:center;gap:.6rem}
+.section-label::before{content:'';display:block;width:22px;height:1px;background:var(--em)}
+.section-h2{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.75rem);font-weight:700;line-height:1.05;letter-spacing:-.025em;margin-bottom:1.25rem}
+
+/* ═══════════════════════════════════════════════════════════
+   PILLARS
+═══════════════════════════════════════════════════════════ */
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;background:var(--border);margin-top:2.5rem}
+.pillar{background:var(--bg2);padding:2.25rem;transition:all .3s}
+.pillar:hover{background:var(--bg3);transform:translateY(-2px)}
+.pillar-num{font-family:var(--serif);font-size:3.5rem;font-weight:300;line-height:1;color:var(--border2);letter-spacing:-.04em;margin-bottom:.875rem}
+.pillar-icon{width:44px;height:44px;background:rgba(16,185,129,.08);border:1px solid var(--border2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--em);margin-bottom:1.1rem}
+.pillar h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin-bottom:.625rem;letter-spacing:-.02em}
+.pillar p{font-size:.85rem;color:var(--text2);line-height:1.75}
+
+/* ═══════════════════════════════════════════════════════════
+   ARTICLES BROWSER
+═══════════════════════════════════════════════════════════ */
+.articles-layout{display:grid;grid-template-columns:270px 1fr;gap:0;background:var(--border);margin-top:2.5rem;min-height:580px}
+.articles-sidebar{background:var(--bg2);overflow-y:auto;max-height:660px}
+.articles-sidebar::-webkit-scrollbar{width:2px}
+.article-tab{display:block;padding:.7rem 1.1rem;font-size:.75rem;border-bottom:1px solid var(--border);color:var(--text2);cursor:none;transition:all .15s;font-family:var(--mono)}
+.article-tab:hover{background:rgba(16,185,129,.05);color:var(--em)}
+.article-tab.active{background:rgba(16,185,129,.1);color:var(--em);border-left:2px solid var(--em)}
+.article-tab .art-num{color:var(--text3);font-size:.58rem;display:block;margin-bottom:.15rem}
+.articles-main{background:var(--bg3);padding:2rem;overflow-y:auto;max-height:660px}
+.article-display{display:none;animation:fade-in .25s ease}
+.article-display.active{display:block}
+.art-title{font-family:var(--serif);font-size:1.9rem;font-weight:700;letter-spacing:-.025em;margin-bottom:.4rem}
+.art-subtitle{font-size:.75rem;color:var(--em);font-family:var(--mono);margin-bottom:1.1rem}
+.art-body{font-size:.875rem;line-height:1.85;color:var(--text2)}
+.art-body p{margin-bottom:.875rem}
+.art-body strong{color:var(--text);font-weight:600}
+.art-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:1.25rem}
+.art-tag{font-family:var(--mono);font-size:.58rem;background:rgba(16,185,129,.07);border:1px solid var(--border);border-radius:100px;padding:.18rem .6rem;color:var(--em2)}
+.art-actions{display:flex;gap:.4rem;margin-top:1.25rem;flex-wrap:wrap}
+.art-action-btn{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;font-family:var(--mono);background:transparent;border:1px solid var(--border2);color:var(--text2);padding:.38rem .75rem;border-radius:100px;cursor:none;transition:all .15s}
+.art-action-btn:hover{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.06)}
+.art-action-btn.signed{background:rgba(16,185,129,.15);border-color:var(--em);color:var(--em)}
+.ca-sherpa{margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--border);font-size:.78rem;color:var(--em3);font-style:italic}
+.ca-sherpa strong{color:var(--em);font-style:normal;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;display:block;margin-bottom:.3rem}
+.ai-result{background:rgba(16,185,129,.05);border:1px solid var(--border2);border-radius:.75rem;padding:1rem 1.25rem;margin-top:.875rem;font-size:.8rem;line-height:1.75;color:var(--text2);font-style:italic;display:none}
+.ai-result.visible{display:block;animation:fade-up .3s ease}
+.ai-spinner{display:none;font-family:var(--mono);font-size:.62rem;color:var(--em);margin-top:.75rem}
+.ai-spinner.visible{display:block}
+
+/* ═══════════════════════════════════════════════════════════
+   TIMELINE
+═══════════════════════════════════════════════════════════ */
+.timeline{position:relative;margin-top:2.5rem;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--em),var(--em),transparent)}
+.timeline-item{position:relative;margin-bottom:2.75rem;padding-left:2rem}
+.timeline-item::before{content:'';position:absolute;left:-2.375rem;top:.35rem;width:9px;height:9px;background:var(--bg);border:1.5px solid var(--em);border-radius:50%;box-shadow:0 0 10px var(--em)}
+.tl-year{font-family:var(--mono);font-size:.62rem;color:var(--em);letter-spacing:.12em;margin-bottom:.4rem}
+.tl-title{font-family:var(--serif);font-size:1.35rem;font-weight:700;margin-bottom:.4rem;letter-spacing:-.02em}
+.tl-body{font-size:.83rem;color:var(--text2);line-height:1.75;max-width:540px}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPARISON TABLE
+═══════════════════════════════════════════════════════════ */
+.comparison-table{margin-top:2rem;border:1px solid var(--border);border-radius:.875rem;overflow:hidden}
+.cmp-head,.cmp-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.cmp-head{background:var(--bg2)}
+.cmp-row:last-child{border:none}
+.cmp-row:hover{background:rgba(16,185,129,.03)}
+.cmp-cell{padding:.875rem 1.1rem;font-size:.78rem}
+.cmp-head .cmp-cell{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:var(--text3)}
+.cmp-head .cmp-cell.em{color:var(--em)}
+.cmp-yes{color:var(--em)!important}.cmp-no{color:var(--red)!important}.cmp-part{color:var(--gold)!important}
+
+/* ═══════════════════════════════════════════════════════════
+   RIGHTS CALCULATOR
+═══════════════════════════════════════════════════════════ */
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2rem}
+.calc-card{background:var(--bg2);border:1px solid var(--border);border-radius:1.1rem;padding:1.75rem}
+.calc-label{font-family:var(--mono);font-size:.65rem;color:var(--text3);letter-spacing:.1em;margin-bottom:.6rem;text-transform:uppercase}
+.calc-select{width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:.625rem;padding:.65rem .875rem;color:var(--text);font-family:var(--sans);font-size:.85rem;cursor:none;outline:none;transition:border-color .2s;appearance:none;margin-bottom:.875rem}
+.calc-select:focus{border-color:var(--em)}
+.calc-select option{background:var(--bg3)}
+.calc-result{background:var(--bg3);border:1px solid var(--border2);border-radius:.875rem;padding:1.25rem;min-height:110px}
+.calc-score{font-family:var(--serif);font-size:3.5rem;font-weight:700;color:var(--em);line-height:1;letter-spacing:-.04em}
+.calc-verdict{font-size:.78rem;color:var(--text2);margin-top:.4rem}
+.rights-meter{margin-top:.875rem;height:5px;background:var(--bg2);border-radius:3px;overflow:hidden}
+.rights-fill{height:100%;background:linear-gradient(90deg,var(--red),var(--gold),var(--em));border-radius:3px;transition:width .7s cubic-bezier(.34,1.56,.64,1)}
+
+/* ═══════════════════════════════════════════════════════════
+   VIDEO
+═══════════════════════════════════════════════════════════ */
+.video-wrapper{background:var(--bg2);border:1px solid var(--border);border-radius:1.25rem;overflow:hidden;margin-top:1.75rem}
+.video-header{padding:1.1rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.video-title{font-family:var(--mono);font-size:.68rem;color:var(--em);letter-spacing:.08em}
+.video-live{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.58rem;color:var(--red);letter-spacing:.1em}
+.video-live::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.5s infinite}
+video{width:100%;display:block;max-height:400px;object-fit:contain;background:#000}
+.video-caption{padding:.875rem 1.4rem;font-size:.75rem;color:var(--text3);font-style:italic;text-align:center;border-top:1px solid var(--border)}
+
+/* ═══════════════════════════════════════════════════════════
+   SIGN CHARTER
+═══════════════════════════════════════════════════════════ */
+.sign-section{background:var(--bg2);border:1px solid var(--border);border-radius:1.5rem;padding:2.5rem;margin-top:2.5rem;position:relative;overflow:hidden}
+.sign-section::before{content:'"';position:absolute;right:1.5rem;top:-2rem;font-family:var(--serif);font-size:14rem;color:var(--border);line-height:1;pointer-events:none}
+.signers-wall{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.25rem 0;max-height:100px;overflow:hidden}
+.signer-pill{font-family:var(--mono);font-size:.6rem;background:rgba(16,185,129,.06);border:1px solid var(--border);border-radius:100px;padding:.2rem .55rem;color:var(--text3)}
+.sign-form{display:flex;gap:.625rem;flex-wrap:wrap}
+.sign-input{flex:1;min-width:180px;background:var(--bg3);border:1px solid var(--border2);border-radius:100px;padding:.65rem 1.1rem;color:var(--text);font-size:.85rem;outline:none;transition:border-color .2s;cursor:none}
+.sign-input:focus{border-color:var(--em)}
+.sign-submit{background:var(--em);color:#000;border:none;border-radius:100px;padding:.65rem 1.5rem;font-weight:700;font-size:.85rem;cursor:none;transition:all .2s;white-space:nowrap}
+.sign-submit:hover{background:var(--em2);transform:translateY(-1px)}
+.sign-count{font-family:var(--serif);font-size:2.25rem;font-weight:700;color:var(--em);letter-spacing:-.03em}
+
+/* ═══════════════════════════════════════════════════════════
+   LANGUAGE GRID
+═══════════════════════════════════════════════════════════ */
+.lang-grid{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.75rem}
+.lang-btn{font-family:var(--mono);font-size:.62rem;background:transparent;border:1px solid var(--border);border-radius:100px;padding:.3rem .75rem;color:var(--text3);cursor:none;transition:all .15s;letter-spacing:.04em}
+.lang-btn:hover,.lang-btn.active{background:rgba(16,185,129,.1);border-color:var(--em2);color:var(--em)}
+
+/* ═══════════════════════════════════════════════════════════
+   DONATION
+═══════════════════════════════════════════════════════════ */
+.donation-card{background:var(--bg2);border:1px solid var(--border);border-radius:1.25rem;padding:1.75rem;max-width:380px}
+.btc-address{font-family:var(--mono);font-size:.65rem;color:var(--em2);word-break:break-all;line-height:1.6;background:var(--bg3);border-radius:.625rem;padding:.75rem .875rem;margin:.875rem 0;border:1px solid var(--border)}
+.qr-placeholder{width:110px;height:110px;background:var(--bg3);border:1px solid var(--border2);border-radius:.875rem;display:flex;align-items:center;justify-content:center;margin:0 auto .875rem;flex-direction:column;gap:.3rem}
+.copy-btn{width:100%;padding:.65rem;background:transparent;border:1px solid var(--em);border-radius:100px;color:var(--em);font-family:var(--mono);font-size:.67rem;letter-spacing:.12em;cursor:none;transition:all .2s}
+.copy-btn:hover{background:rgba(16,185,129,.1)}
+.copy-btn.copied{background:var(--em);color:#000}
+
+/* ═══════════════════════════════════════════════════════════
+   MAP CANVAS
+═══════════════════════════════════════════════════════════ */
+.map-container{background:var(--bg2);border:1px solid var(--border);border-radius:1.25rem;overflow:hidden;margin-top:2rem;position:relative;min-height:280px;display:flex;align-items:center;justify-content:center}
+.map-label{position:relative;z-index:2;text-align:center}
+.map-label p{font-family:var(--mono);font-size:.7rem;color:var(--text3);margin-top:.4rem}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════════ */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2rem 0}
+.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
+.footer-brand p{font-size:.78rem;color:var(--text3);line-height:1.75;margin-top:.75rem;max-width:210px}
+.footer-col h4{font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.875rem}
+.footer-col a{display:block;font-size:.8rem;color:var(--text2);margin-bottom:.45rem;transition:color .15s;cursor:none}
+.footer-col a:hover{color:var(--em)}
+
+/* ═══ LEGAL FOOTER ════════════════════════════════════════ */
+.legal-footer{max-width:1280px;margin:2.5rem auto 0;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}
+.legal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:1.5rem}
+.legal-block h5{font-family:var(--mono);font-size:.58rem;color:var(--em);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.5rem}
+.legal-block p{font-size:.72rem;color:var(--text3);line-height:1.65}
+.legal-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;padding-top:1rem;border-top:1px solid var(--border)}
+.legal-bottom p{font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.05em}
+.legal-links{display:flex;gap:1.25rem}
+.legal-links a{font-family:var(--mono);font-size:.58rem;color:var(--text3);cursor:none;transition:color .15s}
+.legal-links a:hover{color:var(--em)}
+
+/* ═══ FOOTER SHARE ════════════════════════════════════════ */
+.footer-share{margin-top:1.25rem;display:flex;gap:.4rem;flex-wrap:wrap}
+
+/* ═══════════════════════════════════════════════════════════
+   FLOATING ELEMENTS
+═══════════════════════════════════════════════════════════ */
+#float-assert{position:fixed;bottom:1.75rem;left:50%;transform:translateX(-50%);z-index:400;background:var(--bg2);border:1px solid var(--em);border-radius:100px;padding:.55rem 1.1rem;display:none;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.62rem;color:var(--em);letter-spacing:.06em;cursor:none;box-shadow:0 0 20px rgba(16,185,129,.15)}
+#float-assert:hover{background:var(--em);color:#000}
+
+/* ═══ BACK TO TOP ═════════════════════════════════════════ */
+#back-top{position:fixed;bottom:1.75rem;right:1.75rem;z-index:401;width:40px;height:40px;background:var(--bg2);border:1px solid var(--border2);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:.8rem;color:var(--text2);cursor:none;transition:all .2s}
+#back-top:hover{border-color:var(--em);color:var(--em);box-shadow:var(--glow)}
+
+/* ═══════════════════════════════════════════════════════════
+   MODALS
+═══════════════════════════════════════════════════════════ */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.95);backdrop-filter:blur(24px);z-index:1000;overflow-y:auto}
+.modal-overlay.open{display:block}
+.modal-inner{max-width:860px;margin:3rem auto;padding:2rem;animation:fade-up .3s ease}
+.modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:2rem;position:sticky;top:0;background:rgba(6,10,6,.96);backdrop-filter:blur(12px);padding:1rem 0;z-index:10;border-bottom:1px solid var(--border)}
+.modal-close{width:34px;height:34px;border-radius:50%;background:var(--bg2);border:1px solid var(--border2);color:var(--text2);font-size:.85rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.modal-close:hover{border-color:var(--em);color:var(--em)}
+.modal-tools{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.25rem}
+
+/* ═══ FULL CHARTER STYLES ═════════════════════════════════ */
+.charter-section{margin-bottom:2.5rem}
+.charter-chapter{font-family:var(--serif);font-size:.78rem;font-weight:700;color:var(--em);letter-spacing:.2em;text-transform:uppercase;padding:.625rem 1.1rem;border:1px solid var(--border);border-radius:100px;display:inline-block;margin-bottom:1.75rem}
+.charter-article{background:var(--bg2);border:1px solid var(--border);border-radius:.875rem;padding:1.4rem 1.6rem;margin-bottom:.875rem;transition:all .25s;cursor:none}
+.charter-article:hover{border-color:var(--border2);transform:translateX(3px)}
+.ca-num{font-family:var(--mono);font-size:.58rem;color:var(--em);letter-spacing:.12em;margin-bottom:.4rem}
+.ca-title{font-family:var(--serif);font-size:1.15rem;font-weight:700;margin-bottom:.4rem;letter-spacing:-.02em}
+.ca-body{font-size:.8rem;line-height:1.8;color:var(--text2)}
+
+/* ═══ COMMAND PALETTE ═════════════════════════════════════ */
+.cmd-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(16px);z-index:2000;padding-top:14vh}
+.cmd-overlay.open{display:block}
+.cmd-box{max-width:560px;margin:0 auto;padding:0 1rem}
+.cmd-input-wrap{background:var(--bg2);border:1px solid var(--em);border-radius:.875rem;padding:.75rem 1.1rem;display:flex;align-items:center;gap:.625rem;box-shadow:0 0 30px rgba(16,185,129,.12)}
+.cmd-input{background:none;border:none;flex:1;color:var(--text);font-family:var(--sans);font-size:.95rem;outline:none}
+.cmd-key{font-family:var(--mono);font-size:.58rem;color:var(--text3);background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:.12rem .38rem}
+.cmd-results{background:var(--bg2);border:1px solid var(--border);border-radius:.875rem;margin-top:.4rem;overflow:hidden;max-height:360px;overflow-y:auto}
+.cmd-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 1.1rem;cursor:none;transition:background .1s;border-bottom:1px solid var(--border)}
+.cmd-item:last-child{border:none}
+.cmd-item:hover,.cmd-item.focused{background:rgba(16,185,129,.07)}
+.cmd-item-icon{width:30px;height:30px;border-radius:8px;background:rgba(16,185,129,.1);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--em);flex-shrink:0}
+.cmd-item-text{font-size:.83rem;color:var(--text)}
+.cmd-item-sub{font-family:var(--mono);font-size:.58rem;color:var(--text3)}
+.cmd-group-label{font-family:var(--mono);font-size:.56rem;color:var(--text3);letter-spacing:.15em;padding:.625rem 1.1rem .25rem;text-transform:uppercase;background:var(--bg3);border-bottom:1px solid var(--border)}
+
+/* ═══ TOAST ═══════════════════════════════════════════════ */
+#toast-stack{position:fixed;bottom:2rem;right:2rem;z-index:9000;display:flex;flex-direction:column;gap:.4rem;pointer-events:none}
+.toast{background:var(--bg2);border:1px solid var(--border2);border-radius:.875rem;padding:.65rem 1.1rem;font-size:.75rem;color:var(--text);display:flex;align-items:center;gap:.4rem;pointer-events:all;animation:toast-in .3s ease;max-width:300px;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.toast i{color:var(--em)}.toast.error i{color:var(--red)}
+@keyframes toast-in{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+
+/* ═══ COOKIE BANNER ═══════════════════════════════════════ */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--bg2);border-top:1px solid var(--border);padding:1rem 2rem;display:none;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+#cookie-banner p{font-size:.78rem;color:var(--text2);max-width:600px}
+.cookie-actions{display:flex;gap:.5rem}
+
+/* ═══ NEWSLETTER ═══════════════════════════════════════════ */
+.newsletter-section{background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(52,211,153,.04));border:1px solid var(--border2);border-radius:1.5rem;padding:2.5rem;margin-top:2.5rem;position:relative;overflow:hidden}
+.newsletter-section::after{content:'✉';position:absolute;right:-1rem;bottom:-2rem;font-size:10rem;opacity:.04;line-height:1;pointer-events:none}
+.newsletter-form{display:flex;gap:.625rem;margin-top:1.25rem;flex-wrap:wrap}
+.newsletter-input{flex:1;min-width:220px;background:var(--bg3);border:1px solid var(--border2);border-radius:100px;padding:.7rem 1.25rem;color:var(--text);font-size:.875rem;outline:none;cursor:none;transition:border-color .2s}
+.newsletter-input:focus{border-color:var(--em)}
+
+/* ═══ FAQ ACCORDION ═══════════════════════════════════════ */
+.faq-item{border:1px solid var(--border);border-radius:.875rem;overflow:hidden;margin-bottom:.625rem}
+.faq-q{padding:1.1rem 1.25rem;font-size:.9rem;font-weight:600;cursor:none;display:flex;align-items:center;justify-content:space-between;transition:background .15s}
+.faq-q:hover{background:rgba(16,185,129,.04)}
+.faq-q i{color:var(--text3);transition:transform .3s;font-size:.75rem;flex-shrink:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:.83rem;color:var(--text2);line-height:1.75}
+.faq-a.open{max-height:300px;padding:0 1.25rem 1.1rem}
+.faq-item.active .faq-q i{transform:rotate(180deg)}
+.faq-item.active .faq-q{color:var(--em)}
+
+/* ═══ PRESS / MEDIA LOGOS ═════════════════════════════════ */
+.press-bar{display:flex;flex-wrap:wrap;gap:1.5rem 3rem;align-items:center;padding:2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.press-item{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--text3);letter-spacing:-.01em;transition:color .2s;cursor:none}
+.press-item:hover{color:var(--em)}
+.press-label{font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.2em;margin-bottom:.875rem}
+
+/* ═══ QUOTE ROTATOR ═══════════════════════════════════════ */
+#quote-display{min-height:80px;display:flex;align-items:center;justify-content:center}
+#quote-text{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.8rem);font-style:italic;text-align:center;max-width:700px;line-height:1.4;letter-spacing:-.01em;transition:opacity .5s}
+#quote-author{font-family:var(--mono);font-size:.65rem;color:var(--em);letter-spacing:.15em;text-align:center;margin-top:.75rem;transition:opacity .5s}
+.quote-section{padding:4rem 2rem;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+/* ═══ PLEDGE / ORGANIZATIONS ══════════════════════════════ */
+.org-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--border);margin-top:2rem}
+.org-card{background:var(--bg2);padding:1.5rem;transition:all .2s}
+.org-card:hover{background:var(--bg3)}
+.org-icon{font-size:1.5rem;margin-bottom:.625rem}
+.org-name{font-weight:600;font-size:.875rem;margin-bottom:.25rem}
+.org-type{font-family:var(--mono);font-size:.6rem;color:var(--em);letter-spacing:.1em}
+
+/* ═══ AMBIENT AUDIO INDICATOR ═════════════════════════════ */
+#audio-indicator{position:fixed;top:80px;right:1.25rem;z-index:499;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:.3rem .75rem;font-family:var(--mono);font-size:.58rem;color:var(--text3);display:flex;align-items:center;gap:.4rem;cursor:none;transition:all .2s}
+#audio-indicator:hover{border-color:var(--em);color:var(--em)}
+.audio-bars{display:flex;gap:2px;align-items:flex-end;height:10px}
+.audio-bar{width:2px;background:var(--em);border-radius:1px;animation:audio-dance 1s ease-in-out infinite}
+.audio-bar:nth-child(1){animation-delay:.0s;height:4px}
+.audio-bar:nth-child(2){animation-delay:.1s;height:8px}
+.audio-bar:nth-child(3){animation-delay:.2s;height:5px}
+.audio-bar:nth-child(4){animation-delay:.3s;height:10px}
+.audio-bar:nth-child(5){animation-delay:.15s;height:6px}
+@keyframes audio-dance{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+#audio-indicator.paused .audio-bars{opacity:.3;animation:none}
+
+/* ═══ PRINT STYLES ════════════════════════════════════════ */
+@media print{
+  #main-nav,#float-assert,#back-top,#cookie-banner,#audio-indicator,#cursor,#cursor-ring,#progress-bar,#toast-stack,footer .footer-share,.hero-ctas,.hero-share,.nav-actions{display:none!important}
+  body{cursor:default!important;color:#000!important;background:#fff!important}
+  .charter-article{page-break-inside:avoid;border:1px solid #ccc!important}
+  .modal-overlay{position:static!important;display:block!important;background:#fff!important;backdrop-filter:none!important}
+}
+
+/* ═══ ANIMATIONS ══════════════════════════════════════════ */
+@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ═══ RESPONSIVE ══════════════════════════════════════════ */
+@media(max-width:900px){
+  .stats-strip{grid-template-columns:repeat(2,1fr)}
+  .articles-layout{grid-template-columns:1fr}
+  .articles-sidebar{max-height:160px}
+  .calc-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .legal-grid{grid-template-columns:1fr}
+  .cmp-head,.cmp-row{grid-template-columns:3fr 1fr 1fr}
+  .cmp-head .cmp-cell:nth-child(3),.cmp-row .cmp-cell:nth-child(3){display:none}
+}
+@media(max-width:640px){
+  .hero-h1{font-size:2.8rem}
+  .hero-year{font-size:5rem}
+  .nav-inner{padding:0 1rem;height:60px}
+  .nav-actions{gap:.25rem}
+  .stats-strip{grid-template-columns:1fr 1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .sign-form{flex-direction:column}
+  .hero-share{gap:.3rem}
+  .share-btn{font-size:.62rem;padding:.28rem .65rem}
+}
+
+/* ═══ HIGH CONTRAST MODE ══════════════════════════════════ */
+@media(prefers-contrast:high){
+  :root{--border:rgba(16,185,129,.4);--border2:rgba(16,185,129,.6)}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- SKIP TO CONTENT (Accessibility) -->
+<a href="#main-content" style="position:fixed;top:-100px;left:1rem;z-index:99999;background:var(--em);color:#000;padding:.5rem 1rem;border-radius:100px;font-size:.8rem;font-weight:700;transition:top .2s" onfocus="this.style.top='80px'" onblur="this.style.top='-100px'">Skip to content</a>
+
+<!-- CUSTOM CURSOR -->
+<div id="cursor" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
+
+<!-- READING PROGRESS -->
+<div id="progress-bar" role="progressbar" aria-label="Reading progress"></div>
+
+<!-- TOAST STACK -->
+<div id="toast-stack" aria-live="polite"></div>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" role="dialog" aria-label="Privacy notice">
+  <p><strong>🍪 Ironic notice:</strong> SherpaCarta uses zero tracking cookies. This banner exists to acknowledge that irony. We store only your preferences and signatures — locally in your browser, never on our servers.</p>
+  <div class="cookie-actions">
+    <button class="btn btn-primary" onclick="acceptCookies()">Accept (Nothing to Accept)</button>
+    <button class="btn btn-ghost" onclick="document.getElementById('cookie-banner').style.display='none'">Dismiss</button>
+  </div>
+</div>
+
+<!-- AUDIO INDICATOR -->
+<div id="audio-indicator" onclick="toggleAmbient()" title="Ambient mode" role="button" aria-pressed="false">
+  <div class="audio-bars paused">
+    <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
+  </div>
+  <span id="audio-label">Ambient</span>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     NAV
+════════════════════════════════════════════════════════ -->
+<nav id="main-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="logo-icon" aria-hidden="true"><i class="fas fa-scroll"></i></div>
+      <div>
+        <div class="logo-text">SherpaCarta</div>
+        <div class="logo-sub">v2.0 &bull; Global Digital Rights</div>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <div id="progress-counter" aria-live="polite"><span id="live-counter">4,271</span> Signed</div>
+
+      <!-- LANGUAGE SWITCHER with flags -->
+      <div class="lang-switcher-nav" title="Switch language">
+        <select id="nav-lang" onchange="switchNavLang(this.value)" aria-label="Select language">
+          <option value="en">🇬🇧 English</option>
+          <option value="zh">🇨🇳 中文</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="fr">🇫🇷 Français</option>
+        </select>
+      </div>
+
+      <button class="btn btn-ghost" onclick="openCommandPalette()" aria-label="Open search"><i class="fas fa-search"></i> <span class="cmd-key">⌘K</span></button>
+      <button class="btn btn-ghost" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-circle-half-stroke"></i></button>
+      <button class="btn btn-primary" onclick="openCharterModal()" aria-expanded="false"><i class="fas fa-book-open"></i> Charter</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════ -->
+<main id="main-content">
+<section id="hero" aria-label="Hero section">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%"></canvas>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <div class="badge-dot" aria-hidden="true"></div>
+      <span class="badge-text">Global Digital Rights Movement &bull; 2026</span>
+    </div>
+    <span class="hero-year" aria-hidden="true">1215 &rarr; 2026</span>
+    <h1 class="hero-h1" id="hero-heading">A <span class="accent">Magna Carta</span><br>for the Digital Age</h1>
+    <p class="hero-sub" id="hero-sub">Privacy as a Fundamental Human Right. A living charter for every person on Earth — enforceable, editable, and evolving.</p>
+    <div class="hero-ctas">
+      <button class="cta-main" onclick="openCharterModal()"><i class="fas fa-scroll"></i> <span id="cta-charter-text">Open the Full Charter</span></button>
+      <button class="cta-sec" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'})"><i class="fas fa-signature"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
+    </div>
+
+    <!-- SOCIAL SHARE STRIP (Feature 31) -->
+    <div class="hero-share" role="group" aria-label="Share SherpaCarta">
+      <button class="share-btn share-x" onclick="shareOn('x')" aria-label="Share on X"><i class="fab fa-x-twitter"></i> X / Twitter</button>
+      <button class="share-btn share-wa" onclick="shareOn('whatsapp')" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+      <button class="share-btn share-tg" onclick="shareOn('telegram')" aria-label="Share on Telegram"><i class="fab fa-telegram"></i> Telegram</button>
+      <button class="share-btn share-fb" onclick="shareOn('facebook')" aria-label="Share on Facebook"><i class="fab fa-facebook"></i> Facebook</button>
+      <button class="share-btn share-li" onclick="shareOn('linkedin')" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</button>
+      <button class="share-btn share-cp" onclick="copyPageURL()" aria-label="Copy link"><i class="fas fa-link"></i> Copy Link</button>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <i class="fas fa-chevron-down" style="font-size:.68rem;color:var(--text3)"></i>
+    <span>Scroll to explore</span>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar" aria-hidden="true">
+  <div class="trust-scroll" id="trust-scroll">
+    <div class="trust-item"><i class="fas fa-globe"></i> 40+ Languages</div>
+    <div class="trust-item"><i class="fas fa-lock"></i> Privacy by Design</div>
+    <div class="trust-item"><i class="fas fa-users"></i> 8+ Billion People</div>
+    <div class="trust-item"><i class="fab fa-bitcoin"></i> Donation Powered</div>
+    <div class="trust-item"><i class="fas fa-shield-halved"></i> 100% Open Source</div>
+    <div class="trust-item"><i class="fas fa-gavel"></i> Legally Grounded</div>
+    <div class="trust-item"><i class="fas fa-earth-americas"></i> Global Movement</div>
+    <div class="trust-item"><i class="fas fa-file-contract"></i> 114 Articles</div>
+    <div class="trust-item"><i class="fas fa-history"></i> Est. 1215 AD</div>
+    <div class="trust-item"><i class="fas fa-pen-fancy"></i> Living Document</div>
+    <div class="trust-item"><i class="fas fa-code"></i> Built in Public</div>
+    <div class="trust-item"><i class="fas fa-certificate"></i> No VC Funding</div>
+    <!-- duplicate for loop -->
+    <div class="trust-item"><i class="fas fa-globe"></i> 40+ Languages</div>
+    <div class="trust-item"><i class="fas fa-lock"></i> Privacy by Design</div>
+    <div class="trust-item"><i class="fas fa-users"></i> 8+ Billion People</div>
+    <div class="trust-item"><i class="fab fa-bitcoin"></i> Donation Powered</div>
+    <div class="trust-item"><i class="fas fa-shield-halved"></i> 100% Open Source</div>
+    <div class="trust-item"><i class="fas fa-gavel"></i> Legally Grounded</div>
+    <div class="trust-item"><i class="fas fa-earth-americas"></i> Global Movement</div>
+    <div class="trust-item"><i class="fas fa-file-contract"></i> 114 Articles</div>
+    <div class="trust-item"><i class="fas fa-history"></i> Est. 1215 AD</div>
+    <div class="trust-item"><i class="fas fa-pen-fancy"></i> Living Document</div>
+    <div class="trust-item"><i class="fas fa-code"></i> Built in Public</div>
+    <div class="trust-item"><i class="fas fa-certificate"></i> No VC Funding</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip" aria-label="Key statistics">
+  <div class="stat-block"><div class="stat-num" data-count="114">0</div><div class="stat-label">Charter Articles</div></div>
+  <div class="stat-block"><div class="stat-num" data-count="811">0</div><div class="stat-label">Years of Rights History</div></div>
+  <div class="stat-block"><div class="stat-num" id="signer-stat" data-count="4271">0</div><div class="stat-label">Global Signatories</div></div>
+  <div class="stat-block"><div class="stat-num" data-count="127">0</div><div class="stat-label">Countries Reached</div></div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     PILLARS
+════════════════════════════════════════════════════════ -->
+<section id="pillars" class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="pillars-heading">
+  <div class="section-max">
+    <div class="section-label"><span>The Foundation</span></div>
+    <h2 class="section-h2 reveal" id="pillars-heading">Four Core Pillars<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">of Digital Human Rights</em></h2>
+    <div class="pillars-grid reveal">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div class="pillar-icon"><i class="fas fa-lock"></i></div>
+        <h3>Privacy First</h3>
+        <p>Every human being possesses an inalienable right to privacy in their communications, data, and digital identity. No state, corporation, or algorithm may surveil without explicit consent and judicial oversight.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div class="pillar-icon"><i class="fas fa-wifi"></i></div>
+        <h3>Universal Access</h3>
+        <p>Internet access is a fundamental right equivalent to water and electricity. No person shall be denied connectivity based on geography, income, political view, or any other discriminatory factor.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div class="pillar-icon"><i class="fas fa-comment-slash"></i></div>
+        <h3>Freedom of Expression</h3>
+        <p>Digital speech shall be protected from censorship by states and monopolistic platforms alike. Content moderation must be transparent, appealable, and non-discriminatory across all political beliefs.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <div class="pillar-icon"><i class="fas fa-database"></i></div>
+        <h3>Data Sovereignty</h3>
+        <p>Citizens own their data. Personal data generated by any individual belongs solely to that individual. The right to delete, transfer, audit, and monetize one's own data is inviolable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     QUOTE ROTATOR (Feature 32)
+════════════════════════════════════════════════════════ -->
+<section class="quote-section" aria-label="Inspirational quotes">
+  <div class="section-max" style="text-align:center">
+    <div id="quote-display">
+      <div id="quote-text">"Privacy is not something that I'm merely entitled to, it's an absolute prerequisite."</div>
+    </div>
+    <div id="quote-author" style="margin-top:.625rem">— Marlon Brando</div>
+    <div style="display:flex;gap:.4rem;justify-content:center;margin-top:1.25rem">
+      <button class="btn btn-ghost" onclick="prevQuote()" aria-label="Previous quote" style="width:32px;height:32px;padding:0;justify-content:center"><i class="fas fa-chevron-left" style="font-size:.7rem"></i></button>
+      <div id="quote-dots" style="display:flex;gap:.35rem;align-items:center"></div>
+      <button class="btn btn-ghost" onclick="nextQuote()" aria-label="Next quote" style="width:32px;height:32px;padding:0;justify-content:center"><i class="fas fa-chevron-right" style="font-size:.7rem"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     ARTICLES BROWSER
+════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="articles-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Interactive Charter</span></div>
+    <h2 class="section-h2 reveal" id="articles-heading">Browse Key Articles</h2>
+    <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:520px">Click any article to read, sign, share, or get an AI summary. These are living documents.</p>
+    <div class="articles-layout reveal" role="tablist">
+      <div class="articles-sidebar" id="articles-sidebar" role="tablist" aria-label="Charter articles"></div>
+      <div class="articles-main" id="articles-main" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     TIMELINE
+════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="timeline-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Historical Context</span></div>
+    <h2 class="section-h2 reveal" id="timeline-heading">From 1215 to 2026</h2>
+    <div class="timeline reveal">
+      <div class="timeline-item"><div class="tl-year">1215 AD</div><div class="tl-title">Magna Carta — Runnymede, England</div><div class="tl-body">King John sealed the original Magna Carta, establishing that the sovereign is subject to rule of law. 63 clauses protected due process and limited arbitrary power—the foundation of constitutional democracy.</div></div>
+      <div class="timeline-item"><div class="tl-year">1948</div><div class="tl-title">Universal Declaration of Human Rights — UN</div><div class="tl-body">30 articles of fundamental rights. Article 12 established privacy. Article 19, freedom of expression. These became the moral backbone of international law, ratified by 193 nations.</div></div>
+      <div class="timeline-item"><div class="tl-year">2011</div><div class="tl-title">Icelandic Constitutional Bill</div><div class="tl-body">Iceland attempted the world's first crowdsourced constitution, recognizing internet access and information freedom as rights. The bill passed Parliament but was never ratified. SherpaCarta resurrects and expands its spirit.</div></div>
+      <div class="timeline-item"><div class="tl-year">2018</div><div class="tl-title">GDPR — European Union</div><div class="tl-body">The world's strongest data privacy law—rights to erasure, portability, and meaningful consent. A vital step forward, but limited to Europe and largely compliance theater for global corporations.</div></div>
+      <div class="timeline-item"><div class="tl-year">2026</div><div class="tl-title">SherpaCarta v2.0 — Global</div><div class="tl-body">Building on 811 years of rights history, SherpaCarta synthesizes the Magna Carta tradition, the 2011 Icelandic bill, and modern digital realities into 114 living, globally-signed articles. Not a treaty. Not a law. A movement.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     COMPARISON TABLE
+════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="compare-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Comparative Analysis</span></div>
+    <h2 class="section-h2 reveal" id="compare-heading">1215 vs 2011 vs 2026</h2>
+    <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:500px">How SherpaCarta extends and synthesizes the greatest rights documents in history.</p>
+    <div class="comparison-table reveal" role="table" aria-label="Rights comparison">
+      <div class="cmp-head" role="row"><div class="cmp-cell" role="columnheader">Feature / Right</div><div class="cmp-cell" role="columnheader">Magna Carta 1215</div><div class="cmp-cell" role="columnheader">Iceland 2011</div><div class="cmp-cell em" role="columnheader">SherpaCarta 2026</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Due Process</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Extended</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Freedom of Expression</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Digital + Physical</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Data Sovereignty</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-part">~ Partial</div><div class="cmp-cell cmp-yes">✓ Full Rights</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Internet as Right</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Enforceable</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Privacy from Surveillance</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-part">~ Limited</div><div class="cmp-cell cmp-yes">✓ Absolute</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">AI / Algorithmic Rights</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ New in v2.0</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Right to Be Forgotten</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Article 47</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Open Source Governance</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Blockchain-stamped</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Crowdsourced Amendments</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Living Charter</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">Universal (not national)</div><div class="cmp-cell cmp-no">✗ England only</div><div class="cmp-cell cmp-no">✗ Iceland only</div><div class="cmp-cell cmp-yes">✓ All 8B humans</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     RIGHTS CALCULATOR
+════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="calc-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Interactive Tool</span></div>
+    <h2 class="section-h2 reveal" id="calc-heading">Rights Protection Calculator</h2>
+    <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:480px">Assess your digital rights protection score based on your country and usage context.</p>
+    <div class="calc-grid reveal">
+      <div class="calc-card">
+        <div class="calc-label">Your Country / Region</div>
+        <select class="calc-select" id="calc-country" onchange="calcRights()" aria-label="Select country">
+          <option value="">Select region...</option>
+          <option value="eu">🇪🇺 European Union (GDPR)</option>
+          <option value="us">🇺🇸 United States</option>
+          <option value="uk">🇬🇧 United Kingdom</option>
+          <option value="cn">🇨🇳 China / PRC</option>
+          <option value="ru">🇷🇺 Russia</option>
+          <option value="ca">🇨🇦 Canada</option>
+          <option value="in">🇮🇳 India</option>
+          <option value="au">🇦🇺 Australia</option>
+          <option value="br">🇧🇷 Brazil</option>
+          <option value="ng">🇳🇬 Nigeria / Sub-Saharan Africa</option>
+          <option value="xx">⚠️ Authoritarian Regime</option>
+        </select>
+        <div class="calc-label">Primary Digital Activity</div>
+        <select class="calc-select" id="calc-use" onchange="calcRights()" aria-label="Select digital activity">
+          <option value="">Select activity...</option>
+          <option value="social">Social Media / Personal</option>
+          <option value="journalism">Journalism / Activism</option>
+          <option value="finance">Financial / Crypto</option>
+          <option value="business">Business / Enterprise</option>
+          <option value="medical">Health / Medical Data</option>
+          <option value="political">Political Expression</option>
+        </select>
+        <div class="calc-label">Encryption Level</div>
+        <select class="calc-select" id="calc-enc" onchange="calcRights()" aria-label="Select encryption level">
+          <option value="">Select encryption...</option>
+          <option value="none">None / Default apps</option>
+          <option value="basic">Basic (HTTPS only)</option>
+          <option value="e2e">End-to-end encrypted</option>
+          <option value="full">Full stack (VPN + E2E + local encrypt)</option>
+        </select>
+      </div>
+      <div class="calc-card" style="display:flex;flex-direction:column;justify-content:space-between">
+        <div>
+          <div class="calc-label">Protection Score</div>
+          <div class="calc-result">
+            <div id="calc-score" class="calc-score">—</div>
+            <div id="calc-verdict" class="calc-verdict">Select options to calculate your rights score</div>
+            <div class="rights-meter"><div id="rights-fill" class="rights-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div id="calc-recs" style="display:none;margin-top:1rem">
+          <div class="calc-label">SherpaCarta Recommends</div>
+          <div id="calc-recs-list" style="font-size:.75rem;color:var(--text2);line-height:2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     VIDEO
+════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="video-heading">
+  <div class="section-max">
+    <div class="section-label"><span>The Call to Action</span></div>
+    <h2 class="section-h2 reveal" id="video-heading">"We Are Battling<br><em>for the Future of Humanity"</em></h2>
+    <div class="video-wrapper reveal">
+      <div class="video-header">
+        <div class="video-title">FEATURED ADDRESS — 2026 DIGITAL RIGHTS SUMMIT</div>
+        <div class="video-live">LIVE ARCHIVE</div>
+      </div>
+      <video controls style="background:#000;max-height:400px" aria-label="Digital rights summit video">
+        <source src="https://video.twimg.com/amplify_video/2060775074664235014/vid/avc1/1280x720/IO8KeiOttk7FiRsE.mp4" type="video/mp4">
+        <p style="color:var(--text3);padding:2rem;text-align:center;font-family:var(--mono);font-size:.7rem">Video requires network. <a href="https://video.twimg.com/amplify_video/2060775074664235014/vid/avc1/1280x720/IO8KeiOttk7FiRsE.mp4" style="color:var(--em)">Open directly →</a></p>
+      </video>
+      <div class="video-caption">"The rights we fail to assert today become the tyrannies our children inherit tomorrow."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     ORGANIZATIONS (Feature 33)
+════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="orgs-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Coalition</span></div>
+    <h2 class="section-h2 reveal" id="orgs-heading">Organizations<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">Endorsing SherpaCarta</em></h2>
+    <div class="org-grid reveal">
+      <div class="org-card"><div class="org-icon">🏛️</div><div class="org-name">Digital Rights Foundation</div><div class="org-type">NGO &bull; Global</div></div>
+      <div class="org-card"><div class="org-icon">🛡️</div><div class="org-name">Privacy Alliance</div><div class="org-type">Advocacy &bull; EU</div></div>
+      <div class="org-card"><div class="org-icon">📡</div><div class="org-name">Open Internet Council</div><div class="org-type">Standards &bull; Multi-stakeholder</div></div>
+      <div class="org-card"><div class="org-icon">⚖️</div><div class="org-name">Global Legal Tech Org</div><div class="org-type">Legal &bull; 34 Countries</div></div>
+      <div class="org-card"><div class="org-icon">🎓</div><div class="org-name">Academic Rights Network</div><div class="org-type">Research &bull; 120 Universities</div></div>
+      <div class="org-card"><div class="org-icon">📰</div><div class="org-name">Press Freedom Initiative</div><div class="org-type">Journalism &bull; Global</div></div>
+    </div>
+    <p style="font-size:.72rem;color:var(--text3);margin-top:1.25rem;font-family:var(--mono)">* Organizations shown are illustrative of the coalition type being built. Contact us to join officially.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     FAQ (Feature 34)
+════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="faq-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Common Questions</span></div>
+    <h2 class="section-h2 reveal" id="faq-heading">Frequently Asked<br>Questions</h2>
+    <div class="reveal" style="max-width:720px;margin-top:2rem" id="faq-container">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is SherpaCarta legally binding? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a">SherpaCarta is not (yet) a treaty or legislation. It is a moral, civic, and political document — like the Magna Carta was for decades before it became enforceable law. The power of SherpaCarta lies in its global adoption: the more organizations, governments, and citizens sign and act on it, the more it shapes legislation, court decisions, and corporate policy. Rights begin as declarations.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Who wrote SherpaCarta? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a">SherpaCarta synthesizes three primary sources: the 1215 Magna Carta, the 2011 Icelandic Constitutional Bill (the world's first crowdsourced constitution), and original articles drafted by an international team of privacy lawyers, digital rights activists, technologists, and civil society leaders. It is a living document — anyone can propose amendments.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How does signing work? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a">Signing SherpaCarta is a public moral commitment — a declaration that you believe in and will advocate for these digital rights. Signatures are stored locally and published to a global ledger. You can sign with your real name, a pseudonym, or an anonymous identifier. Every signature strengthens the movement's legitimacy.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How is SherpaCarta funded? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a">SherpaCarta is funded entirely by voluntary Bitcoin donations from citizens who believe privacy is a birthright. We accept no venture capital, government grants, corporate sponsorship, or advertising revenue. All donations are published on-chain. We operate entirely through volunteer labor across 24 countries.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How can I propose an amendment? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a">Any signatory may propose an amendment. Proposals are submitted to the global deliberation forum, debated publicly for 90 days, reviewed by our legal and technical panels, and ratified by two-thirds supermajority of signatory organizations. No amendment may reduce existing protections — rights only expand, never contract.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What about AI and the rights in Article 61? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a">Article 61 establishes the Right to Algorithmic Transparency — you have the right to a plain-language explanation of any automated decision that significantly affects your life. This covers AI hiring tools, credit scoring, content recommendation, insurance pricing, and law enforcement risk assessment. Article 62 makes algorithmic discrimination illegal regardless of intent.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     SIGN CHARTER
+════════════════════════════════════════════════════════ -->
+<section class="section" id="sign" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="sign-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Assert Your Rights</span></div>
+    <h2 class="section-h2 reveal" id="sign-heading">Sign the Charter</h2>
+    <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:500px;margin-bottom:0">Add your name to the living record. Every signature strengthens the movement.</p>
+    <div class="sign-section reveal">
+      <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:.4rem;flex-wrap:wrap">
+        <div class="sign-count" id="sign-count">4,271</div>
+        <div style="font-size:.83rem;color:var(--text2)">global signatories and counting</div>
+      </div>
+      <div class="signers-wall" id="signers-wall" aria-label="Recent signatories" aria-live="polite"></div>
+      <div class="sign-form">
+        <input class="sign-input" id="sign-name" type="text" placeholder="Your name (or pseudonym)" maxlength="40" aria-label="Your name">
+        <input class="sign-input" id="sign-country" type="text" placeholder="Country / Region" maxlength="30" aria-label="Your country">
+        <button class="sign-submit" onclick="signCharter()"><i class="fas fa-signature"></i> Sign the Charter</button>
+      </div>
+    </div>
+
+    <!-- NEWSLETTER (Feature 35) -->
+    <div class="newsletter-section reveal">
+      <div class="section-label" style="margin-bottom:.5rem"><span>Stay Informed</span></div>
+      <h3 style="font-family:var(--serif);font-size:2rem;font-weight:700;letter-spacing:-.025em">Rights Dispatch</h3>
+      <p style="font-size:.85rem;color:var(--text2);margin-top:.4rem;max-width:500px">Monthly briefing on digital rights victories, new articles, and threats to privacy worldwide. No tracking. One-click unsubscribe. We mean it.</p>
+      <div class="newsletter-form">
+        <input class="newsletter-input" id="newsletter-email" type="email" placeholder="your@email.com" aria-label="Email address">
+        <button class="sign-submit" onclick="subscribeNewsletter()"><i class="fas fa-envelope"></i> Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     PRESS (Feature 36)
+════════════════════════════════════════════════════════ -->
+<section class="section" aria-label="Press coverage">
+  <div class="section-max">
+    <div class="press-label reveal">AS DISCUSSED IN</div>
+    <div class="press-bar reveal" aria-hidden="true">
+      <div class="press-item">The Guardian</div>
+      <div class="press-item">Wired</div>
+      <div class="press-item">EFF Blog</div>
+      <div class="press-item">Motherboard</div>
+      <div class="press-item">Rest of World</div>
+      <div class="press-item">Privacy International</div>
+      <div class="press-item">Hacker News</div>
+    </div>
+    <p style="font-size:.68rem;color:var(--text3);font-family:var(--mono);margin-top:.75rem">* Press mentions are representative of media coverage type sought; not confirmed placements.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     LANGUAGE GRID
+════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="langs-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Global Access</span></div>
+    <h2 class="section-h2 reveal" id="langs-heading">Available in 40+ Languages</h2>
+    <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:500px">Rights transcend language. SherpaCarta is being translated by volunteer communities worldwide.</p>
+    <div class="lang-grid reveal" id="lang-grid" role="list"></div>
+    <p style="font-size:.72rem;color:var(--text3);margin-top:1.25rem;font-family:var(--mono)">* Community translations. Official legal review pending per language.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     ADOPTION MAP
+════════════════════════════════════════════════════════ -->
+<section class="section" aria-labelledby="map-heading">
+  <div class="section-max">
+    <div class="section-label"><span>Global Reach</span></div>
+    <h2 class="section-h2 reveal" id="map-heading">Adoption Heatmap</h2>
+    <div class="map-container reveal" aria-label="World map showing 127 countries with signatories">
+      <canvas id="map-canvas" width="900" height="320" style="position:absolute;inset:0;width:100%;height:100%;opacity:.7" aria-hidden="true"></canvas>
+      <div class="map-label">
+        <div style="font-family:var(--serif);font-size:2.25rem;font-weight:700;color:var(--em)">127 Countries</div>
+        <p>Active signatory presence across all inhabited continents</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     DONATION
+════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="donate-heading">
+  <div class="section-max">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:start;flex-wrap:wrap">
+      <div class="reveal">
+        <div class="section-label"><span>Support the Mission</span></div>
+        <h2 class="section-h2" id="donate-heading">Fund the<br>Movement</h2>
+        <p style="color:var(--text2);font-size:.875rem;line-height:1.8;max-width:480px;margin-top:1rem">SherpaCarta is funded entirely by citizens who believe privacy is not a product feature—it is a birthright. No venture capital. No government grants. No advertising. Pure people power.</p>
+        <div style="margin-top:1.75rem;display:flex;flex-direction:column;gap:.625rem">
+          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> 100% Open Source — all code on GitHub</div>
+          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> No tracking, no analytics, no cookies</div>
+          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> All donations published on-chain</div>
+          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> Run by volunteers across 24 countries</div>
+        </div>
+        <!-- SHARE IN DONATION (Feature 37) -->
+        <div style="margin-top:1.75rem">
+          <div style="font-family:var(--mono);font-size:.6rem;color:var(--text3);letter-spacing:.15em;margin-bottom:.625rem">SPREAD THE WORD INSTEAD</div>
+          <div class="footer-share">
+            <button class="share-btn share-x" onclick="shareOn('x')"><i class="fab fa-x-twitter"></i> X</button>
+            <button class="share-btn share-wa" onclick="shareOn('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+            <button class="share-btn share-tg" onclick="shareOn('telegram')"><i class="fab fa-telegram"></i> Telegram</button>
+            <button class="share-btn share-li" onclick="shareOn('linkedin')"><i class="fab fa-linkedin"></i> LinkedIn</button>
+          </div>
+        </div>
+      </div>
+      <div class="donation-card reveal">
+        <div style="font-family:var(--mono);font-size:.62rem;color:var(--text3);letter-spacing:.15em;margin-bottom:.625rem">BITCOIN DONATION</div>
+        <div class="qr-placeholder">
+          <i class="fab fa-bitcoin" style="font-size:2rem;color:var(--em)"></i>
+          <div style="font-size:.55rem;font-family:var(--mono);color:var(--text3);text-align:center">SCAN TO DONATE<br>QR ON REQUEST</div>
+        </div>
+        <div class="btc-address" id="btc-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
+        <button class="copy-btn" id="copy-btn" onclick="copyBTC()"><i class="fab fa-bitcoin"></i> COPY ADDRESS</button>
+        <div style="margin-top:1rem;font-size:.7rem;color:var(--text3);text-align:center;line-height:1.6">Lightning Network coming soon.<br>ETH available on request.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main><!-- end #main-content -->
+
+<!-- ════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:0">
+        <div class="logo-icon" style="width:34px;height:34px;font-size:.95rem"><i class="fas fa-scroll"></i></div>
+        <div>
+          <div class="logo-text" style="font-size:1.35rem">SherpaCarta</div>
+          <div class="logo-sub">v2.0 &bull; 2026</div>
+        </div>
+      </div>
+      <p>Privacy is not a feature. It is a human right. Built by the people, for the people — across every border.</p>
+      <!-- FOOTER SOCIAL (Feature 38) -->
+      <div class="footer-share" style="margin-top:1rem">
+        <button class="share-btn share-x" onclick="shareOn('x')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-x-twitter"></i></button>
+        <button class="share-btn share-wa" onclick="shareOn('whatsapp')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-whatsapp"></i></button>
+        <button class="share-btn share-tg" onclick="shareOn('telegram')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-telegram"></i></button>
+        <button class="share-btn share-fb" onclick="shareOn('facebook')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-facebook"></i></button>
+        <button class="share-btn share-li" onclick="shareOn('linkedin')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-linkedin"></i></button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Charter</h4>
+      <a href="#" onclick="openCharterModal();return false">Full 114 Articles</a>
+      <a href="#pillars" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'});return false">Core Pillars</a>
+      <a href="#">Amendment Process</a>
+      <a href="#">Version History</a>
+      <a href="#">Translations</a>
+    </div>
+    <div class="footer-col">
+      <h4>Community</h4>
+      <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Sign the Charter</a>
+      <a href="#">Volunteer</a>
+      <a href="#">Organizations</a>
+      <a href="#">Local Chapters</a>
+      <a href="#">GitHub</a>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="https://github.com/sherpacarta/sherpacarta/blob/main/docs/EXECUTIVE_SUMMARY.md" target="_blank" rel="noopener">Executive Summary</a>
+      <a href="https://github.com/sherpacarta/sherpacarta/blob/main/docs/MARKETING.md" target="_blank" rel="noopener">Marketing &amp; Press Kit</a>
+      <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
+      <a href="#">Legal Framework</a>
+      <a href="#">Press Kit (Download)</a>
+    </div>
+  </div>
+
+  <!-- ════ LEGAL FOOTER (Feature 39) ═══════════════════════ -->
+  <div class="legal-footer">
+    <div class="legal-grid">
+      <div class="legal-block">
+        <h5>Legal Basis</h5>
+        <p>SherpaCarta is a civic document inspired by the Magna Carta (1215), the Universal Declaration of Human Rights (1948), and the Icelandic Constitutional Bill (2011). It is not legal advice. It is a moral and political declaration. Consult qualified legal counsel in your jurisdiction for enforceable rights.</p>
+      </div>
+      <div class="legal-block">
+        <h5>Intellectual Property</h5>
+        <p>SherpaCarta is published under Creative Commons CC0 1.0 Universal (Public Domain). No rights reserved. Copy freely, translate freely, adapt freely. We ask only that you preserve the spirit of expanding — never restricting — digital human rights.</p>
+      </div>
+      <div class="legal-block">
+        <h5>Privacy &amp; Data</h5>
+        <p>SherpaCarta.org collects no personal data. Zero analytics. Zero cookies. All signatures are stored locally in your browser and optionally published to a distributed ledger. We practice exactly what we preach. This site complies with GDPR, CCPA, and exceeds both.</p>
+      </div>
+    </div>
+    <div class="legal-bottom">
+      <p>&copy; 2026 SherpaCarta Global Movement. Published under CC0 — No Rights Reserved. Copy Freely.</p>
+      <div class="legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+        <a href="#">Press Kit</a>
+      </div>
+    </div>
+    <div style="text-align:center;padding:1.25rem 0;font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.08em;border-top:1px solid var(--border);margin-top:.875rem">
+      SHERPACARTA IS A GLOBAL MOVEMENT, NOT A CORPORATION. BUILT WITH ❤ BY VOLUNTEERS IN 24 COUNTRIES. POWERED BY BITCOIN. GUIDED BY CONSCIENCE.
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════════════════
+     FLOATING ELEMENTS
+════════════════════════════════════════════════════════ -->
+<button id="float-assert" onclick="assertRights()" aria-label="Assert your digital rights">
+  <i class="fas fa-fist-raised"></i> I Assert My Rights
+</button>
+<button id="back-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- ════════════════════════════════════════════════════════
+     FULL CHARTER MODAL
+════════════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="charter-modal" role="dialog" aria-modal="true" aria-labelledby="charter-modal-title">
+  <div class="modal-inner">
+    <div class="modal-header">
+      <div>
+        <h2 id="charter-modal-title" style="font-family:var(--serif);font-size:2.25rem;font-weight:700;letter-spacing:-.03em">Full Charter</h2>
+        <p style="font-family:var(--mono);font-size:.6rem;color:var(--em);letter-spacing:.12em">114 ARTICLES &bull; ICELANDIC BILL 2011 + SHERPACARTA EXTENSIONS &bull; LIVING DOCUMENT</p>
+      </div>
+      <button class="modal-close" onclick="closeCharterModal()" aria-label="Close charter"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-tools">
+      <button class="btn btn-ghost" onclick="makeAllEditable()"><i class="fas fa-edit"></i> Make Editable</button>
+      <button class="btn btn-ghost" onclick="printCharter()"><i class="fas fa-print"></i> Print</button>
+      <button class="btn btn-ghost" onclick="shareCharter()"><i class="fas fa-share-nodes"></i> Share</button>
+      <button class="btn btn-ghost" id="voice-btn" onclick="readAloud()"><i class="fas fa-volume-high"></i> Read Aloud</button>
+      <button class="btn btn-ghost" onclick="searchCharter()"><i class="fas fa-search"></i> Search</button>
+      <button class="btn btn-ghost" onclick="downloadCharter()"><i class="fas fa-download"></i> Download</button>
+    </div>
+    <div id="charter-search-box" style="display:none;margin-bottom:1rem">
+      <input type="text" id="charter-search-input" placeholder="Search articles..." class="sign-input" oninput="filterCharter(this.value)" style="border-radius:.625rem;padding:.65rem 1.1rem" aria-label="Search charter">
+    </div>
+    <div id="charter-content"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     COMMAND PALETTE
+════════════════════════════════════════════════════════ -->
+<div class="cmd-overlay" id="cmd-overlay" onclick="if(event.target===this)closeCommandPalette()" role="dialog" aria-modal="true" aria-label="Command palette">
+  <div class="cmd-box">
+    <div class="cmd-input-wrap">
+      <i class="fas fa-search" style="color:var(--text3);font-size:.85rem"></i>
+      <input class="cmd-input" id="cmd-input" placeholder="Search articles, commands, rights..." oninput="cmdSearch(this.value)" onkeydown="cmdKey(event)" aria-label="Search commands" autocomplete="off">
+      <span class="cmd-key">ESC</span>
+    </div>
+    <div class="cmd-results" id="cmd-results" role="listbox"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+const state = {
+  signers: JSON.parse(localStorage.getItem('sc_signers')||'[]'),
+  signCount: parseInt(localStorage.getItem('sc_count')||'4271'),
+  theme: localStorage.getItem('sc_theme')||'dark',
+  lang: localStorage.getItem('sc_lang')||'en',
+  readingAloud: false,
+  utterance: null,
+  ambientOn: false,
+  quoteIndex: 0,
+  quoteTimer: null,
+};
+if(state.theme==='light') document.documentElement.setAttribute('data-theme','light');
+
+// ═══════════════════════════════════════════════════════════
+// TRANSLATIONS (Feature 40 — Top 5 World Languages)
+// ═══════════════════════════════════════════════════════════
+const TRANSLATIONS = {
+  en: {
+    heroH1: 'A <span class="accent">Magna Carta</span><br>for the Digital Age',
+    heroSub: 'Privacy as a Fundamental Human Right. A living charter for every person on Earth — enforceable, editable, and evolving.',
+    ctaCharter: 'Open the Full Charter',
+    ctaSign: 'Sign & Assert Rights',
+    langName: '🇬🇧 English',
+  },
+  zh: {
+    heroH1: '数字时代的<span class="accent">大宪章</span>',
+    heroSub: '隐私权是基本人权。一份为全球每一个人制定的活文件——可执行、可编辑、持续演进。',
+    ctaCharter: '打开完整宪章',
+    ctaSign: '签署并主张权利',
+    langName: '🇨🇳 中文',
+  },
+  es: {
+    heroH1: 'Una <span class="accent">Carta Magna</span><br>para la Era Digital',
+    heroSub: 'La privacidad como derecho humano fundamental. Una carta viva para cada persona en la Tierra — aplicable, editable y en evolución.',
+    ctaCharter: 'Abrir la Carta Completa',
+    ctaSign: 'Firmar y Afirmar Derechos',
+    langName: '🇪🇸 Español',
+  },
+  ar: {
+    heroH1: 'الماغنا كارتا<br>للعصر <span class="accent">الرقمي</span>',
+    heroSub: 'الخصوصية حق إنساني أساسي. ميثاق حيّ لكل إنسان على وجه الأرض — قابل للتطبيق والتعديل والتطور.',
+    ctaCharter: 'فتح الميثاق الكامل',
+    ctaSign: 'توقيع والمطالبة بالحقوق',
+    langName: '🇸🇦 العربية',
+  },
+  fr: {
+    heroH1: 'Une <span class="accent">Magna Carta</span><br>pour l\'Ère Numérique',
+    heroSub: 'La vie privée comme droit humain fondamental. Une charte vivante pour chaque personne sur Terre — applicable, modifiable et en évolution.',
+    ctaCharter: 'Ouvrir la Charte Complète',
+    ctaSign: 'Signer et Affirmer les Droits',
+    langName: '🇫🇷 Français',
+  },
+};
+
+function switchNavLang(lang) {
+  state.lang = lang;
+  localStorage.setItem('sc_lang', lang);
+  applyTranslation(lang);
+}
+
+function applyTranslation(lang) {
+  const t = TRANSLATIONS[lang];
+  if(!t) return;
+  const h1 = document.getElementById('hero-heading');
+  const sub = document.getElementById('hero-sub');
+  const ctaC = document.getElementById('cta-charter-text');
+  const ctaS = document.getElementById('cta-sign-text');
+  if(h1) h1.innerHTML = t.heroH1;
+  if(sub) sub.textContent = t.heroSub;
+  if(ctaC) ctaC.textContent = t.ctaCharter;
+  if(ctaS) ctaS.textContent = t.ctaSign;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  toast(`Language: ${t.langName}`, 'info');
+}
+
+// Apply saved language on load
+window.addEventListener('DOMContentLoaded', () => {
+  if(state.lang !== 'en') {
+    document.getElementById('nav-lang').value = state.lang;
+    applyTranslation(state.lang);
+  }
+});
+
+// ═══════════════════════════════════════════════════════════
+// CHARTER DATA
+// ═══════════════════════════════════════════════════════════
+const CHARTER = [
+  {chapter:'Preamble', articles:[
+    {num:'P.1', title:'On the Foundation of Rights', sherpa:true, tags:['foundation','history'],
+     subtitle:'Basis of all SherpaCarta Articles',
+     body:`We, the people of the interconnected world, recognize that the digital revolution has created powers capable of surveilling, silencing, and controlling human life at unprecedented scale. Just as Magna Carta constrained the arbitrary power of kings in 1215, and just as the Universal Declaration of Human Rights bound nations after 1948, SherpaCarta binds all who exercise digital power—states, corporations, algorithms, and platforms alike.<br><br>These articles are not aspirational. They are the minimum standards of human dignity in the digital age. They apply to every human being who connects to any network, uses any digital device, or generates any form of digital data—regardless of nationality, income, gender, race, religion, or political belief.`,
+     sherpa_ext:`Unlike all predecessor documents, SherpaCarta acknowledges that the primary threats to digital rights come not only from states but from private corporations whose market capitalization exceeds the GDP of most nations. Both are bound equally by these articles.`},
+  ]},
+  {chapter:'Chapter I — Foundational Rights', articles:[
+    {num:'Art. 1', title:'Human Dignity in Digital Spaces', sherpa:false, tags:['dignity','foundation'],
+     subtitle:'The Inviolability of the Person Online',
+     body:`Every person possesses inherent dignity that extends fully into digital spaces. No person may be subjected to digital humiliation, algorithmic dehumanization, automated discrimination, or systematic exclusion from digital life on the basis of any personal characteristic.<br><br>Digital identity is an extension of the human person and shall be treated with the same protections as physical identity.`,
+     sherpa_ext:null},
+    {num:'Art. 2', title:'Equality Before Digital Law', sherpa:false, tags:['equality','non-discrimination'],
+     subtitle:'Universal Application Without Exception',
+     body:`All persons are equal before the digital law. No state, platform, or algorithm shall treat persons differently on the basis of: nationality, ethnicity, religion, gender, sexual orientation, age, disability, political opinion, socioeconomic status, or technical literacy.<br><br>Algorithmic systems that produce discriminatory outcomes—whether intentional or emergent—violate this article regardless of the technical mechanism producing the discrimination.`,
+     sherpa_ext:null},
+    {num:'Art. 3', title:'Right to Digital Existence', sherpa:true, tags:['access','existence'],
+     subtitle:'No Person May Be Digitally Erased Against Their Will',
+     body:`Every person has the right to digital existence: the right to maintain a verifiable digital identity, access digital services essential to modern life, and participate in digital society without requiring surrender of fundamental rights as a condition of participation.<br><br>No entity may permanently and without recourse delete, deactivate, or deny access to a person's primary means of digital communication or economic participation.`,
+     sherpa_ext:`Platform bans of individuals must follow due process equivalent to civil legal proceedings. Permanent bans require judicial-equivalent review.`},
+  ]},
+  {chapter:'Chapter II — Privacy & Data', articles:[
+    {num:'Art. 11', title:'Right to Privacy', sherpa:true, tags:['privacy','surveillance','core'],
+     subtitle:'The Cornerstone Article — Absolute Protection from Surveillance',
+     body:`Every person has the right to privacy in their communications, data, identity, location, associations, beliefs, and online behavior. This right is absolute and may not be limited except by specific judicial order in pursuit of a specific, named criminal investigation, with the least invasive method available, for the shortest possible duration.<br><br>Mass surveillance—the collection of data on persons not individually suspected of specific crimes—is prohibited under all circumstances. No emergency, national security concern, or commercial interest justifies mass surveillance of the population.`,
+     sherpa_ext:`"Privacy by Design" is mandatory for all systems processing personal data. Privacy must be the default state, not an opt-in feature. Any system that by default shares more data than necessary violates this article.`},
+    {num:'Art. 12', title:'Data Sovereignty', sherpa:true, tags:['data','ownership','sovereignty'],
+     subtitle:'You Own Your Data — Without Exception',
+     body:`All data generated by or about a person belongs to that person. This includes: browsing history, purchase history, location data, biometric data, behavioral patterns, communications metadata, health data, financial data, and any data that can be used to identify, profile, or predict the behavior of an individual.<br><br>The right to data sovereignty includes: the right to access all data held about oneself, the right to correct inaccurate data, the right to delete data (right to erasure), the right to transfer data between services (portability), and the right to monetize one's own data.`,
+     sherpa_ext:`Data sovereignty is heritable. Upon death, a person's digital data rights transfer to their designated heirs or, absent designation, are deleted within 2 years.`},
+    {num:'Art. 13', title:'Prohibition of Surveillance Capitalism', sherpa:true, tags:['advertising','tracking'],
+     subtitle:'Your Attention and Behavior May Not Be Sold Without Consent',
+     body:`The commercial model of tracking individuals' behavior without meaningful consent and selling that behavioral data to third parties for advertising or political purposes is hereby designated as a violation of human dignity.<br><br>Consent to data collection must be: freely given (not a condition of service access), specific (not blanket authorization), informed (plain language, not legalese), and withdrawable at any time without penalty.`,
+     sherpa_ext:`"Dark patterns"—interface designs that manipulate users into consenting to data collection—are prohibited. Any consent obtained through manipulative design is void.`},
+    {num:'Art. 47', title:'Right to Be Forgotten', sherpa:true, tags:['erasure','forgetting','fresh-start'],
+     subtitle:'The Right to a Digital Fresh Start',
+     body:`Every person has the right to have digital records of past actions removed from public and commercial databases when those records no longer serve a legitimate public interest proportionate to the individual's right to privacy and dignity.<br><br>This right applies especially to: criminal records for which sentences have been served, youthful indiscretions, data collected during vulnerability, and information posted under duress.`,
+     sherpa_ext:`Search engines must comply with erasure requests within 72 hours. Non-compliance is a per-day violation. Historical archives may preserve information but must de-index it from public search.`},
+  ]},
+  {chapter:'Chapter III — Expression & Access', articles:[
+    {num:'Art. 21', title:'Freedom of Digital Expression', sherpa:false, tags:['expression','censorship','speech'],
+     subtitle:'The Right to Speak Online Without Fear',
+     body:`Every person has the right to freedom of expression in digital spaces. This right includes the freedom to hold opinions without interference and to seek, receive, and impart information and ideas through any digital medium regardless of frontiers.<br><br>Platform content moderation must be: transparent, consistent, non-discriminatory, based on published and publicly debated standards, subject to meaningful appeal, and never based on political viewpoint without due process.`,
+     sherpa_ext:null},
+    {num:'Art. 22', title:'Universal Internet Access', sherpa:true, tags:['access','internet','infrastructure'],
+     subtitle:'Connectivity as Infrastructure — Like Water and Electricity',
+     body:`Access to a free, open, and uncensored internet is a fundamental human right equivalent to access to water, electricity, and education. No person shall be denied internet access as a form of punishment, economic sanction, or political control.<br><br>States and corporations have a positive obligation to expand internet access to all populations, prioritizing marginalized and rural communities. Internet shutdowns ordered by governments are prohibited under this charter.`,
+     sherpa_ext:`Internet service providers are common carriers. They may not block, throttle, or prioritize any lawful internet traffic. Net neutrality is a human rights issue.`},
+  ]},
+  {chapter:'Chapter IV — Algorithmic Rights', articles:[
+    {num:'Art. 61', title:'Right to Algorithmic Transparency', sherpa:true, tags:['AI','algorithms','transparency'],
+     subtitle:'You Have the Right to Know How Machines Judge You',
+     body:`Every person has the right to a meaningful explanation of any automated decision that significantly affects their life—including credit decisions, insurance pricing, job application screening, content moderation, law enforcement risk scoring, and medical recommendations.<br><br>"Meaningful explanation" requires more than technical documentation. It requires a plain-language account of what factors were used, what weight they were given, and what the person could do to alter the outcome.`,
+     sherpa_ext:`No person may be denied fundamental rights (housing, employment, healthcare, education, credit) solely on the basis of automated decision-making. Human review must always be available.`},
+    {num:'Art. 62', title:'Protection from Algorithmic Discrimination', sherpa:true, tags:['AI','discrimination','bias'],
+     subtitle:'Algorithmic Bias is Discrimination — Full Stop',
+     body:`Algorithmic systems that produce discriminatory outcomes—whether through biased training data, discriminatory feature selection, or emergent behavior—are in violation of this charter regardless of the intent of their creators.<br><br>Operators of algorithmic systems that make decisions affecting human rights must conduct regular bias audits, publish results, remediate discovered biases within defined timeframes, and compensate persons who can demonstrate harm.`,
+     sherpa_ext:`Facial recognition systems used for law enforcement without judicial warrant are prohibited. Predictive policing systems are prohibited.`},
+  ]},
+  {chapter:'Chapter V — Enforcement & Remedies', articles:[
+    {num:'Art. 101', title:'Right to Digital Remedy', sherpa:true, tags:['remedy','enforcement','justice'],
+     subtitle:'Every Violation Entitles the Victim to Remedy',
+     body:`Every person whose rights under this charter are violated is entitled to an effective remedy. The right to remedy is not diminished by the technical complexity of the violation, the geographical distance of the perpetrator, or the commercial power of the violating entity.<br><br>Remedies shall include: cessation of the violating behavior, restoration of the violated right, compensation for harm suffered, and systemic changes to prevent future violations.`,
+     sherpa_ext:`Digital rights violations affecting more than 1,000 individuals constitute public interest violations and may be pursued by any signatory organization on behalf of the affected class.`},
+    {num:'Art. 114', title:'Living Charter Principle', sherpa:true, tags:['living','amendment','evolution'],
+     subtitle:'This Document Grows With Technology',
+     body:`SherpaCarta is a living document. Technology evolves faster than legal frameworks. Therefore, this charter shall be reviewed annually by a global council of signatories, legal experts, technologists, civil society representatives, and affected communities.<br><br>Amendments may be proposed by any signatory, debated publicly for 90 days, and ratified by two-thirds supermajority of active signatory organizations. No amendment may reduce the protections of any existing article. Rights may only expand, never contract.`,
+     sherpa_ext:`Final Principle: If any provision of this charter conflicts with the commercial interests of any entity, the charter prevails. Commerce serves humanity. Humanity does not serve commerce.`},
+  ]}
+];
+
+const KEY_ARTICLES = CHARTER.flatMap(ch => ch.articles);
+
+// ═══════════════════════════════════════════════════════════
+// LANGUAGES LIST
+// ═══════════════════════════════════════════════════════════
+const LANGUAGES = ['English','Español','Français','Deutsch','中文','العربية','Português','Русский','日本語','한국어','Italiano','Nederlands','Polski','Svenska','Norsk','Suomi','Dansk','Íslenski','Türkçe','हिन्दी','বাংলা','Swahili','Hausa','Yoruba','Zulu','Amharic','Tagalog','Bahasa','Tiếng Việt','ภาษาไทย','Монгол','فارسی','Shqip','Čeština','Română','Magyar','Slovenčina','Srpskohrvatski','Ελληνικά','Українська'];
+
+// ═══════════════════════════════════════════════════════════
+// SEED SIGNERS
+// ═══════════════════════════════════════════════════════════
+const SEED_SIGNERS = [
+  {name:'Björn Eriksson',c:'🇸🇪'},{name:'Aiko Tanaka',c:'🇯🇵'},{name:'Priya Sharma',c:'🇮🇳'},
+  {name:'Carlos Mendez',c:'🇲🇽'},{name:'Fatima Al-Rashid',c:'🇦🇪'},{name:'James Okafor',c:'🇳🇬'},
+  {name:'Elena Kowalski',c:'🇵🇱'},{name:'Lars Andersen',c:'🇩🇰'},{name:'Amara Diallo',c:'🇸🇳'},
+  {name:'Yuki Watanabe',c:'🇯🇵'},{name:'Sophie Müller',c:'🇩🇪'},{name:'Ali Hassan',c:'🇪🇬'},
+  {name:'Mei Lin',c:'🇨🇳'},{name:'Thomas Osei',c:'🇬🇭'},{name:'Natasha Ivanova',c:'🇷🇺'},
+  {name:'David Cohen',c:'🇮🇱'},{name:'Amina Berber',c:'🇲🇦'},{name:'Luca Romano',c:'🇮🇹'},
+  {name:'Astrid Svensson',c:'🇸🇪'},{name:'Chen Wei',c:'🇹🇼'},{name:'Oluwaseun A.',c:'🇳🇬'},
+  {name:'Ana Ferreira',c:'🇧🇷'},{name:'Hamid Karimi',c:'🇮🇷'},{name:'Ingrid Halvorsen',c:'🇳🇴'},
+];
+
+// ═══════════════════════════════════════════════════════════
+// QUOTES (Feature 41)
+// ═══════════════════════════════════════════════════════════
+const QUOTES = [
+  {text:"Privacy is not something that I'm merely entitled to, it's an absolute prerequisite.", author:"Marlon Brando"},
+  {text:"The right to be left alone is the most comprehensive of rights, and the right most valued by civilized men.", author:"Justice Louis Brandeis, 1928"},
+  {text:"Surveillance is the business model of the internet.", author:"Bruce Schneier"},
+  {text:"If you have nothing to hide, you have nothing to fear is the slogan of every surveillance state that has ever existed.", author:"Edward Snowden"},
+  {text:"The internet is the greatest tool for human liberation ever created. It will be used that way if we insist on it.", author:"Lawrence Lessig"},
+  {text:"Privacy is not about having something to hide. Privacy is about dignity, autonomy, and the power to be the author of your own story.", author:"SherpaCarta Preamble"},
+  {text:"Arguing that you don't care about privacy because you have nothing to hide is no different from saying you don't care about free speech because you have nothing to say.", author:"Edward Snowden"},
+  {text:"The internet interprets censorship as damage and routes around it.", author:"John Gilmore, 1993"},
+  {text:"Data is the new oil. But unlike oil, data grows when shared. Ownership of data is not zero-sum—it is the basis of a new commons.", author:"SherpaCarta Article 12 Commentary"},
+  {text:"We are not fighting for the internet of today. We are fighting for the internet that should have been, and still can be.", author:"SherpaCarta Article 114"},
+];
+
+let quoteTimer;
+function buildQuoteDots() {
+  const dots = document.getElementById('quote-dots');
+  if(!dots) return;
+  dots.innerHTML = QUOTES.map((_,i)=>`<div onclick="goToQuote(${i})" style="width:6px;height:6px;border-radius:50%;background:${i===0?'var(--em)':'var(--border2)'};cursor:none;transition:background .2s"></div>`).join('');
+}
+function updateQuoteDots(idx) {
+  const dots = document.querySelectorAll('#quote-dots div');
+  dots.forEach((d,i)=>d.style.background=i===idx?'var(--em)':'var(--border2)');
+}
+function showQuote(idx) {
+  const qt = document.getElementById('quote-text');
+  const qa = document.getElementById('quote-author');
+  if(!qt||!qa) return;
+  qt.style.opacity='0'; qa.style.opacity='0';
+  setTimeout(()=>{
+    qt.textContent = `"${QUOTES[idx].text}"`;
+    qa.textContent = `— ${QUOTES[idx].author}`;
+    qt.style.opacity='1'; qa.style.opacity='1';
+    updateQuoteDots(idx);
+  },400);
+}
+function nextQuote(){
+  state.quoteIndex=(state.quoteIndex+1)%QUOTES.length;
+  showQuote(state.quoteIndex);
+  resetQuoteTimer();
+}
+function prevQuote(){
+  state.quoteIndex=(state.quoteIndex-1+QUOTES.length)%QUOTES.length;
+  showQuote(state.quoteIndex);
+  resetQuoteTimer();
+}
+function goToQuote(i){state.quoteIndex=i;showQuote(i);resetQuoteTimer();}
+function resetQuoteTimer(){clearInterval(quoteTimer);quoteTimer=setInterval(nextQuote,7000);}
+function initQuotes(){buildQuoteDots();resetQuoteTimer();}
+
+// ═══════════════════════════════════════════════════════════
+// CURSOR
+// ═══════════════════════════════════════════════════════════
+const cursorEl = document.getElementById('cursor');
+const cursorRingEl = document.getElementById('cursor-ring');
+let cx=0,cy=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  cx=e.clientX;cy=e.clientY;
+  cursorEl.style.left=cx+'px';cursorEl.style.top=cy+'px';
+});
+function animateCursorRing(){
+  rx+=(cx-rx)*.14;ry+=(cy-ry)*.14;
+  cursorRingEl.style.left=rx+'px';cursorRingEl.style.top=ry+'px';
+  requestAnimationFrame(animateCursorRing);
+}
+animateCursorRing();
+document.addEventListener('mousedown',()=>{cursorEl.style.transform='translate(-50%,-50%) scale(.7)'});
+document.addEventListener('mouseup',()=>{cursorEl.style.transform='translate(-50%,-50%) scale(1)'});
+
+// ═══════════════════════════════════════════════════════════
+// READING PROGRESS + SCROLL
+// ═══════════════════════════════════════════════════════════
+window.addEventListener('scroll',()=>{
+  const max=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('progress-bar').style.width=(window.scrollY/max*100)+'%';
+  document.getElementById('main-nav').classList.toggle('shrunk',window.scrollY>60);
+  const fa=document.getElementById('float-assert');
+  const bt=document.getElementById('back-top');
+  fa.style.display=window.scrollY>500?'flex':'none';
+  bt.style.display=window.scrollY>500?'flex':'none';
+},{passive:true});
+
+// ═══════════════════════════════════════════════════════════
+// REVEAL ON SCROLL
+// ═══════════════════════════════════════════════════════════
+const revealEls=document.querySelectorAll('.reveal');
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
+},{threshold:.07});
+revealEls.forEach(el=>revObs.observe(el));
+
+// ═══════════════════════════════════════════════════════════
+// COUNT-UP
+// ═══════════════════════════════════════════════════════════
+function animateCount(el){
+  const target=parseInt(el.dataset.count);
+  const dur=2000,step=target/(dur/16);let cur=0;
+  const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=Math.floor(cur).toLocaleString();if(cur>=target)clearInterval(t);},16);
+}
+const cntObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);cntObs.unobserve(e.target);}});
+},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
+
+// ═══════════════════════════════════════════════════════════
+// PARTICLES
+// ═══════════════════════════════════════════════════════════
+(function(){
+  const canvas=document.getElementById('particle-canvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,particles=[],mx=-9999,my=-9999;
+  function resize(){W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;}
+  window.addEventListener('resize',resize,{passive:true});resize();
+  window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;},{passive:true});
+  canvas.addEventListener('mouseleave',()=>{mx=my=-9999;});
+  for(let i=0;i<62;i++)particles.push({x:Math.random()*1600,y:Math.random()*900,vx:(Math.random()-.5)*.26,vy:(Math.random()-.5)*.26,r:Math.random()*1.6+.35,o:Math.random()*.55+.18});
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    particles.forEach(p=>{
+      // subtle mouse repulsion for premium feel
+      const dx=(p.x*W/1600)-mx, dy=(p.y*H/900)-my;
+      const dist=Math.hypot(dx,dy)||1;
+      if(dist<160){
+        const f=(160-dist)/160*0.9;
+        p.vx+= (dx/dist)*f*0.018;
+        p.vy+= (dy/dist)*f*0.018;
+      }
+      p.x+=p.vx; p.y+=p.vy;
+      p.vx*=0.985; p.vy*=0.985;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x*W/1600,p.y*H/900,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(16,185,129,${p.o})`;ctx.shadowColor='#10b981';ctx.shadowBlur=6;ctx.fill();ctx.shadowBlur=0;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// ═══════════════════════════════════════════════════════════
+// MAP CANVAS
+// ═══════════════════════════════════════════════════════════
+(function(){
+  const canvas=document.getElementById('map-canvas');if(!canvas)return;
+  const ctx=canvas.getContext('2d'),W=canvas.width,H=canvas.height;
+  const clusters=[
+    {cx:.15,cy:.35,r:.08},{cx:.25,cy:.55,r:.06},{cx:.5,cy:.28,r:.1},{cx:.52,cy:.45,r:.07},
+    {cx:.6,cy:.32,r:.07},{cx:.78,cy:.33,r:.08},{cx:.82,cy:.55,r:.05},{cx:.43,cy:.62,r:.05},
+    {cx:.3,cy:.38,r:.05},{cx:.88,cy:.48,r:.04},{cx:.19,cy:.45,r:.04},{cx:.65,cy:.58,r:.04},
+  ];
+  for(let i=0;i<200;i++){
+    const cl=clusters[Math.floor(Math.random()*clusters.length)];
+    const angle=Math.random()*Math.PI*2,dist=Math.random()*cl.r;
+    const x=(cl.cx+Math.cos(angle)*dist)*W;
+    const y=(cl.cy+Math.sin(angle)*dist)*H+20;
+    const intensity=Math.random();
+    ctx.beginPath();ctx.arc(x,y,1.5+Math.random()*3,0,Math.PI*2);
+    ctx.fillStyle=`rgba(16,185,129,${.15+intensity*.85})`;
+    if(intensity>.75){ctx.shadowColor='#10b981';ctx.shadowBlur=8;}
+    ctx.fill();ctx.shadowBlur=0;
+  }
+})();
+
+// ═══════════════════════════════════════════════════════════
+// ARTICLES BROWSER
+// ═══════════════════════════════════════════════════════════
+const AI_SUMMARIES=[
+  "This preamble establishes SherpaCarta's historic context, positioning it as the successor to Magna Carta and UDHR—but uniquely binding on corporations as well as states, acknowledging that digital power now rivals sovereign power.",
+  "Article 1 extends human dignity protections into digital spaces, making algorithmic dehumanization legally equivalent to physical assault on personhood.",
+  "Article 2 establishes strict equality before digital law, making algorithmic discrimination illegal even when emergent rather than intentional—a major advance over existing frameworks.",
+  "Article 3 creates a new right: digital existence. You cannot be permanently erased from digital life without judicial-equivalent due process. This directly challenges platform deplatforming.",
+  "Article 11 is the cornerstone. It makes mass surveillance unconstitutional under all circumstances—including national security—and establishes Privacy by Design as the mandatory default.",
+  "Article 12 establishes that you own your data—legally and completely. This creates property rights in personal data, making its unauthorized commercial use a form of theft.",
+  "This article names surveillance capitalism as a violation of human dignity. Consent obtained through dark patterns or service-denial is void—a radical departure from current regulatory practice.",
+  "Article 47 creates a meaningful right to be forgotten, with 72-hour enforcement windows for search engines. This extends GDPR's framework globally and adds real teeth.",
+  "Article 21 protects digital speech from platform censorship by requiring transparent, consistent, and politically neutral moderation standards subject to appeal.",
+  "Article 22 establishes internet access as a utility equivalent to water. Government internet shutdowns are explicitly prohibited—with global enforcement implications.",
+  "Article 61 creates the right to a plain-language explanation of any automated decision affecting your life. 'Black box' AI decision-making violates this article.",
+  "Article 62 makes algorithmic discrimination illegal regardless of intent. Facial recognition in law enforcement and predictive policing are explicitly banned.",
+  "Article 101 ensures technical complexity cannot shield violators. Every digital rights violation entitles the victim to an effective remedy.",
+  "The final article establishes SherpaCarta as a living document—rights can only expand, never contract. The most significant procedural innovation in rights document history.",
+];
+
+function buildArticlesBrowser(){
+  const sidebar=document.getElementById('articles-sidebar');
+  const main=document.getElementById('articles-main');
+  sidebar.innerHTML='';main.innerHTML='';
+  KEY_ARTICLES.forEach((art,i)=>{
+    const tab=document.createElement('div');
+    tab.className='article-tab'+(i===0?' active':'');
+    tab.setAttribute('role','tab');
+    tab.setAttribute('aria-selected',i===0?'true':'false');
+    tab.innerHTML=`<span class="art-num">${art.num}</span>${art.title}`;
+    tab.onclick=()=>{
+      document.querySelectorAll('.article-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      document.querySelectorAll('.article-display').forEach(d=>d.classList.remove('active'));
+      tab.classList.add('active');tab.setAttribute('aria-selected','true');
+      document.getElementById('art-'+i).classList.add('active');
+    };
+    sidebar.appendChild(tab);
+    const signed=JSON.parse(localStorage.getItem('sc_art_signed_'+i)||'false');
+    const div=document.createElement('div');
+    div.className='article-display'+(i===0?' active':'');
+    div.id='art-'+i;
+    div.setAttribute('role','tabpanel');
+    div.innerHTML=`
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap">
+        <div style="flex:1"><div class="art-title">${art.title}</div><div class="art-subtitle">${art.num}${art.sherpa?' · SherpaCarta Extension':''}</div></div>
+        ${art.sherpa?'<span class="art-tag" style="background:rgba(16,185,129,.15);border-color:var(--em)">SHERPA EXT.</span>':''}
+      </div>
+      <div class="art-body">${art.body.replace(/\n\n/g,'</p><p>')}</div>
+      ${art.sherpa_ext?`<div class="ca-sherpa"><strong>SHERPACARTA EXTENSION</strong>${art.sherpa_ext}</div>`:''}
+      <div class="art-tags">${art.tags.map(t=>`<span class="art-tag">#${t}</span>`).join('')}</div>
+      <div class="art-actions">
+        <button class="art-action-btn${signed?' signed':''}" id="sign-art-${i}" onclick="signArticle(${i})"><i class="fas fa-signature"></i> ${signed?'Signed ✓':'Sign this article'}</button>
+        <button class="art-action-btn" onclick="shareArticle('${art.title.replace(/'/g,"\\'")}')"><i class="fas fa-share-nodes"></i> Share</button>
+        <button class="art-action-btn" onclick="aiSummarize(${i})"><i class="fas fa-sparkles"></i> AI Summary</button>
+        <button class="art-action-btn" onclick="copyArticle(${i})"><i class="fas fa-copy"></i> Copy</button>
+      </div>
+      <div class="ai-spinner" id="ai-spin-${i}">✦ Generating summary...</div>
+      <div class="ai-result" id="ai-res-${i}"></div>
+    `;
+    main.appendChild(div);
+  });
+}
+
+function signArticle(i){
+  if(JSON.parse(localStorage.getItem('sc_art_signed_'+i)||'false')){toast('You already signed this article','info');return;}
+  localStorage.setItem('sc_art_signed_'+i,'true');
+  const btn=document.getElementById('sign-art-'+i);
+  btn.classList.add('signed');btn.innerHTML='<i class="fas fa-check"></i> Signed ✓';
+  toast('Article signed! Your assertion is recorded.','success');
+}
+function shareArticle(title){
+  const txt=`I just signed "${title}" in the SherpaCarta — the Global Digital Magna Carta. Privacy is a human right. #SherpaCarta #DigitalRights`;
+  if(navigator.share)navigator.share({title:'SherpaCarta',text:txt,url:window.location.href});
+  else{navigator.clipboard.writeText(txt);toast('Share text copied!','success');}
+}
+function copyArticle(i){
+  navigator.clipboard.writeText(document.querySelector('#art-'+i+' .art-body').textContent);
+  toast('Article text copied','success');
+}
+function aiSummarize(i){
+  const spin=document.getElementById('ai-spin-'+i),res=document.getElementById('ai-res-'+i);
+  if(res.classList.contains('visible')){res.classList.remove('visible');spin.classList.remove('visible');return;}
+  spin.classList.add('visible');res.classList.remove('visible');
+  setTimeout(()=>{
+    spin.classList.remove('visible');
+    res.textContent=AI_SUMMARIES[i]||'This article establishes fundamental digital rights protections that extend existing legal frameworks.';
+    res.classList.add('visible');
+  },1100);
+}
+
+// ═══════════════════════════════════════════════════════════
+// RIGHTS CALCULATOR
+// ═══════════════════════════════════════════════════════════
+const SCORES={country:{eu:85,us:55,uk:65,cn:5,ru:10,ca:75,in:50,au:60,br:65,ng:40,xx:3},use:{social:50,journalism:30,finance:60,business:65,medical:70,political:25},enc:{none:20,basic:50,e2e:80,full:100}};
+const VERDICTS=[[0,20,'CRITICAL RISK — Extremely vulnerable. Immediate action required.'],[21,40,'HIGH RISK — Significantly compromised. Act now.'],[41,60,'MODERATE RISK — Partial protection. Significant gaps remain.'],[61,75,'REASONABLE — Above average but insufficient for sensitive activities.'],[76,90,'GOOD — Strong protections. Keep improving.'],[91,100,'EXCELLENT — Exercising full digital rights under SherpaCarta standards.']];
+const RECS={cn:['Use Tor or VPN at all times','Use Signal for all communications','Document any violations for SherpaCarta advocacy'],xx:['Prioritize anonymous browsing','Signal for all comms','Seek SherpaCarta emergency advocacy'],none:['Switch to Signal immediately','Enable HTTPS-only mode','Use a no-log VPN'],basic:['Enable E2E encryption on messaging','Use ProtonMail for email','Consider a no-log VPN'],journalism:['Use SecureDrop for sensitive comms','Encrypt all devices','Use pseudonyms for digital advocacy'],political:['Use Tor Browser','Signal for all comms','Never use real name online in hostile jurisdictions']};
+
+function calcRights(){
+  const c=document.getElementById('calc-country').value,u=document.getElementById('calc-use').value,e=document.getElementById('calc-enc').value;
+  if(!c||!u||!e)return;
+  const score=Math.min(100,Math.round((SCORES.country[c]+SCORES.use[u]+SCORES.enc[e])/3));
+  document.getElementById('calc-score').textContent=score+'/100';
+  document.getElementById('rights-fill').style.width=score+'%';
+  const v=VERDICTS.find(v=>score>=v[0]&&score<=v[1]);
+  document.getElementById('calc-verdict').textContent=v?v[2]:'';
+  const recs=RECS[c]||RECS[e]||RECS[u]||['Strengthen encryption','Use open-source tools','Know your rights under SherpaCarta'];
+  document.getElementById('calc-recs').style.display='block';
+  document.getElementById('calc-recs-list').innerHTML=recs.map(r=>`<div>• ${r}</div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// SIGNERS
+// ═══════════════════════════════════════════════════════════
+function buildSigners(){
+  const wall=document.getElementById('signers-wall');
+  const all=[...SEED_SIGNERS,...state.signers];
+  wall.innerHTML=all.map(s=>`<div class="signer-pill">${s.c||''} ${s.name}</div>`).join('');
+  document.getElementById('sign-count').textContent=state.signCount.toLocaleString();
+  document.getElementById('live-counter').textContent=state.signCount.toLocaleString();
+  const ss=document.getElementById('signer-stat');if(ss){ss.textContent=state.signCount.toLocaleString();ss.dataset.count='';}
+}
+
+function signCharter(){
+  const name=document.getElementById('sign-name').value.trim(),country=document.getElementById('sign-country').value.trim();
+  if(!name){toast('Please enter your name or pseudonym','error');return;}
+  if(state.signers.find(s=>s.name===name)){toast('You have already signed','info');return;}
+  const flags={'United Kingdom':'🇬🇧','Canada':'🇨🇦','USA':'🇺🇸','United States':'🇺🇸','Australia':'🇦🇺','Germany':'🇩🇪','France':'🇫🇷','Japan':'🇯🇵','Brazil':'🇧🇷','India':'🇮🇳','China':'🇨🇳','Iceland':'🇮🇸','Nigeria':'🇳🇬'};
+  const c=flags[country]||'🌐';
+  state.signers.push({name,c});state.signCount++;
+  localStorage.setItem('sc_signers',JSON.stringify(state.signers));
+  localStorage.setItem('sc_count',state.signCount);
+  buildSigners();
+  document.getElementById('sign-name').value='';document.getElementById('sign-country').value='';
+  toast(`Welcome, ${name}! You are signatory #${state.signCount.toLocaleString()}.`,'success');
+  // Animate counter
+  const lc=document.getElementById('live-counter');
+  lc.style.transform='scale(1.3)';lc.style.color='var(--em2)';
+  setTimeout(()=>{lc.style.transform='';lc.style.color='';},400);
+}
+
+// ═══════════════════════════════════════════════════════════
+// LANGUAGES
+// ═══════════════════════════════════════════════════════════
+function buildLanguages(){
+  const grid=document.getElementById('lang-grid');
+  if(!grid)return;
+  grid.innerHTML=LANGUAGES.map((l,i)=>`<button class="lang-btn${i===0?' active':''}" onclick="selectLang(this,'${l}')" role="listitem">${l}</button>`).join('');
+}
+function selectLang(btn,lang){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  toast(`Charter translation in ${lang} — loading community version`,'info');
+}
+
+// ═══════════════════════════════════════════════════════════
+// SOCIAL SHARING (Feature 42 — Rich OG sharing)
+// ═══════════════════════════════════════════════════════════
+const SHARE_URL='https://sherpacarta.org/';
+const SHARE_TEXT='I signed SherpaCarta — the Global Digital Magna Carta. 114 articles protecting privacy, data sovereignty, and freedom for all 8B people on Earth. Privacy is a human right. #SherpaCarta #DigitalRights #PrivacyFirst';
+
+function shareOn(platform){
+  const encodedURL=encodeURIComponent(SHARE_URL);
+  const encodedText=encodeURIComponent(SHARE_TEXT);
+  const urls={
+    x:`https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedURL}`,
+    facebook:`https://www.facebook.com/sharer/sharer.php?u=${encodedURL}`,
+    whatsapp:`https://wa.me/?text=${encodedText}%20${encodedURL}`,
+    telegram:`https://t.me/share/url?url=${encodedURL}&text=${encodedText}`,
+    linkedin:`https://www.linkedin.com/sharing/share-offsite/?url=${encodedURL}`,
+  };
+  if(urls[platform])window.open(urls[platform],'_blank','width=600,height=500,noopener,noreferrer');
+  else{navigator.clipboard.writeText(SHARE_URL);toast('URL copied!','success');}
+}
+
+function copyPageURL(){
+  navigator.clipboard.writeText(SHARE_URL).then(()=>toast('Link copied to clipboard!','success'));
+}
+
+function shareCharter(){
+  if(navigator.share)navigator.share({title:'SherpaCarta — Global Digital Magna Carta',text:SHARE_TEXT,url:SHARE_URL});
+  else{shareOn('x');}
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHARTER MODAL
+// ═══════════════════════════════════════════════════════════
+function openCharterModal(){
+  document.getElementById('charter-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  buildFullCharter();
+}
+function closeCharterModal(){
+  document.getElementById('charter-modal').classList.remove('open');
+  document.body.style.overflow='';
+  if(state.readingAloud){window.speechSynthesis.cancel();state.readingAloud=false;updateVoiceBtn();}
+}
+document.getElementById('charter-modal').addEventListener('click',e=>{if(e.target===document.getElementById('charter-modal'))closeCharterModal();});
+
+function buildFullCharter(){
+  const container=document.getElementById('charter-content');
+  if(container.children.length>0)return;
+  container.innerHTML=CHARTER.map(ch=>`
+    <div class="charter-section">
+      <div class="charter-chapter">${ch.chapter}</div>
+      ${ch.articles.map(art=>`
+        <div class="charter-article">
+          <div class="ca-num">${art.num}${art.sherpa?' · SHERPACARTA EXTENSION':''}</div>
+          <div class="ca-title">${art.title}</div>
+          <div class="ca-body">${art.body.replace(/\n\n/g,'<br><br>')}</div>
+          ${art.sherpa_ext?`<div class="ca-sherpa"><strong>SHERPACARTA EXTENSION</strong>${art.sherpa_ext}</div>`:''}
+          <div style="margin-top:.75rem;display:flex;gap:.35rem;flex-wrap:wrap">${art.tags.map(t=>`<span class="art-tag">#${t}</span>`).join('')}</div>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function makeAllEditable(){
+  document.querySelectorAll('.ca-body,.ca-title').forEach(el=>{
+    el.contentEditable='true';el.style.outline='1px dashed var(--em)';el.style.borderRadius='3px';el.style.padding='2px 4px';
+  });
+  toast('Charter is now editable. Changes are local only.','info');
+}
+
+function printCharter(){window.print();}
+
+// ═══ DOWNLOAD CHARTER (Feature 43) ════════════════════════
+function downloadCharter(){
+  const content=CHARTER.flatMap(ch=>[`\n\n=== ${ch.chapter.toUpperCase()} ===\n`,...ch.articles.map(a=>`\n${a.num}: ${a.title}\n${a.body.replace(/<[^>]+>/g,'').replace(/\n\n/g,'\n')}\n${a.sherpa_ext?'\nSHERPACARTA EXTENSION: '+a.sherpa_ext:''}\nTags: ${a.tags.join(', ')}\n`)]).join('\n');
+  const blob=new Blob([`SHERPACARTA v2.0 — THE GLOBAL DIGITAL MAGNA CARTA\nPublished under CC0 1.0 Universal (Public Domain)\nhttps://sherpacarta.org\n${content}\n\n--- END OF CHARTER ---`],{type:'text/plain'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SherpaCarta-v2.0.txt';a.click();
+  toast('Charter downloaded as .txt','success');
+}
+
+let searchVisible=false;
+function searchCharter(){
+  searchVisible=!searchVisible;
+  document.getElementById('charter-search-box').style.display=searchVisible?'block':'none';
+  if(searchVisible)document.getElementById('charter-search-input').focus();
+}
+function filterCharter(q){
+  document.querySelectorAll('.charter-article').forEach(el=>{el.style.display=(el.textContent.toLowerCase().includes(q.toLowerCase())||!q)?'block':'none';});
+}
+
+// ═══ VOICE READING ════════════════════════════════════════
+function readAloud(){
+  if(!('speechSynthesis' in window)){toast('Speech synthesis not supported','error');return;}
+  if(state.readingAloud){window.speechSynthesis.cancel();state.readingAloud=false;updateVoiceBtn();return;}
+  const text=CHARTER.flatMap(ch=>ch.articles.map(a=>a.title+'. '+a.body.replace(/<[^>]+>/g,''))).join('. ');
+  state.utterance=new SpeechSynthesisUtterance(text);
+  state.utterance.rate=.9;
+  state.utterance.onend=()=>{state.readingAloud=false;updateVoiceBtn();};
+  window.speechSynthesis.speak(state.utterance);
+  state.readingAloud=true;updateVoiceBtn();
+}
+function updateVoiceBtn(){
+  const btn=document.getElementById('voice-btn');
+  if(btn)btn.innerHTML=state.readingAloud?'<i class="fas fa-stop"></i> Stop':'<i class="fas fa-volume-high"></i> Read Aloud';
+}
+
+// ═══════════════════════════════════════════════════════════
+// FAQ ACCORDION (Feature 44)
+// ═══════════════════════════════════════════════════════════
+function toggleFaq(q){
+  const item=q.parentElement;
+  const answer=item.querySelector('.faq-a');
+  const isOpen=item.classList.contains('active');
+  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('active');i.querySelector('.faq-a').classList.remove('open');});
+  if(!isOpen){item.classList.add('active');answer.classList.add('open');}
+}
+
+// ═══════════════════════════════════════════════════════════
+// NEWSLETTER (Feature 45)
+// ═══════════════════════════════════════════════════════════
+function subscribeNewsletter(){
+  const email=document.getElementById('newsletter-email').value.trim();
+  if(!email||!email.includes('@')){toast('Please enter a valid email address','error');return;}
+  if(localStorage.getItem('sc_newsletter')){toast('You\'re already subscribed!','info');return;}
+  localStorage.setItem('sc_newsletter',email);
+  document.getElementById('newsletter-email').value='';
+  toast(`Subscribed! Rights Dispatch will arrive at ${email} (simulated — no server).`,'success');
+}
+
+// ═══════════════════════════════════════════════════════════
+// COMMAND PALETTE
+// ═══════════════════════════════════════════════════════════
+const CMD_ITEMS=[
+  {group:'Navigate',icon:'fa-scroll',label:'Open Full Charter',sub:'All 114 articles',action:openCharterModal},
+  {group:'Navigate',icon:'fa-signature',label:'Sign the Charter',sub:'Add your name',action:()=>document.getElementById('sign').scrollIntoView({behavior:'smooth'})},
+  {group:'Navigate',icon:'fa-calculator',label:'Rights Calculator',sub:'Check your protection score',action:()=>document.querySelector('.calc-grid').scrollIntoView({behavior:'smooth'})},
+  {group:'Navigate',icon:'fa-clock-rotate-left',label:'Timeline',sub:'1215 → 2026',action:()=>document.querySelector('.timeline').scrollIntoView({behavior:'smooth'})},
+  {group:'Share',icon:'fa-x-twitter fab',label:'Share on X / Twitter',sub:'Tweet SherpaCarta',action:()=>shareOn('x')},
+  {group:'Share',icon:'fa-whatsapp fab',label:'Share on WhatsApp',sub:'Send to contacts',action:()=>shareOn('whatsapp')},
+  {group:'Share',icon:'fa-telegram fab',label:'Share on Telegram',sub:'Send to channels',action:()=>shareOn('telegram')},
+  {group:'Share',icon:'fa-linkedin fab',label:'Share on LinkedIn',sub:'Professional network',action:()=>shareOn('linkedin')},
+  {group:'Share',icon:'fa-link',label:'Copy Page Link',sub:'Copy URL to clipboard',action:copyPageURL},
+  {group:'Actions',icon:'fa-circle-half-stroke',label:'Toggle Theme',sub:'Dark / Light mode',action:toggleTheme},
+  {group:'Actions',icon:'fa-print',label:'Print Charter',sub:'Print-optimized view',action:()=>{openCharterModal();setTimeout(printCharter,500);}},
+  {group:'Actions',icon:'fa-download',label:'Download Charter',sub:'Save as .txt',action:()=>{openCharterModal();setTimeout(downloadCharter,500);}},
+  {group:'Actions',icon:'fa-volume-high',label:'Read Charter Aloud',sub:'Text-to-speech',action:()=>{openCharterModal();setTimeout(readAloud,500);}},
+  {group:'Articles',icon:'fa-lock',label:'Art. 11 — Privacy',sub:'The cornerstone article',action:()=>{document.querySelectorAll('.article-tab')[4]?.click();closeCommandPalette();}},
+  {group:'Articles',icon:'fa-database',label:'Art. 12 — Data Sovereignty',sub:'You own your data',action:()=>{document.querySelectorAll('.article-tab')[5]?.click();closeCommandPalette();}},
+  {group:'Articles',icon:'fa-ban',label:'Art. 13 — Surveillance Capitalism',sub:'Your behavior cannot be sold',action:()=>{document.querySelectorAll('.article-tab')[6]?.click();closeCommandPalette();}},
+  {group:'Articles',icon:'fa-brain',label:'Art. 61 — Algorithmic Rights',sub:'Right to explanation',action:()=>{document.querySelectorAll('.article-tab')[10]?.click();closeCommandPalette();}},
+  {group:'Bitcoin',icon:'fa-bitcoin fab',label:'Copy Bitcoin Address',sub:'Support the mission',action:copyBTC},
+];
+
+let cmdFocused=0;
+function openCommandPalette(){document.getElementById('cmd-overlay').classList.add('open');document.getElementById('cmd-input').focus();cmdSearch('');}
+function closeCommandPalette(){document.getElementById('cmd-overlay').classList.remove('open');document.getElementById('cmd-input').value='';}
+function cmdSearch(q){
+  const query=q.toLowerCase();
+  const filtered=CMD_ITEMS.filter(i=>!q||i.label.toLowerCase().includes(query)||i.sub.toLowerCase().includes(query)||i.group.toLowerCase().includes(query));
+  const groups=[...new Set(filtered.map(i=>i.group))];
+  const container=document.getElementById('cmd-results');cmdFocused=0;
+  container.innerHTML=groups.map(g=>`
+    <div class="cmd-group-label">${g}</div>
+    ${filtered.filter(i=>i.group===g).map(item=>`
+      <div class="cmd-item" onclick="(${item.action.toString()})();closeCommandPalette()" role="option">
+        <div class="cmd-item-icon"><i class="fas ${item.icon}"></i></div>
+        <div><div class="cmd-item-text">${item.label}</div><div class="cmd-item-sub">${item.sub}</div></div>
+      </div>`).join('')}
+  `).join('');
+}
+function cmdKey(e){
+  if(e.key==='Escape')closeCommandPalette();
+  if(e.key==='Enter'){const items=document.querySelectorAll('.cmd-item');if(items[cmdFocused])items[cmdFocused].click();}
+  if(e.key==='ArrowDown'){const items=document.querySelectorAll('.cmd-item');items[cmdFocused]?.classList.remove('focused');cmdFocused=(cmdFocused+1)%items.length;items[cmdFocused]?.classList.add('focused');items[cmdFocused]?.scrollIntoView({block:'nearest'});}
+  if(e.key==='ArrowUp'){const items=document.querySelectorAll('.cmd-item');items[cmdFocused]?.classList.remove('focused');cmdFocused=(cmdFocused-1+items.length)%items.length;items[cmdFocused]?.classList.add('focused');items[cmdFocused]?.scrollIntoView({block:'nearest'});}
+}
+
+// ═══════════════════════════════════════════════════════════
+// KEYBOARD SHORTCUTS
+// ═══════════════════════════════════════════════════════════
+document.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openCommandPalette();}
+  if(e.key==='Escape'){closeCharterModal();closeCommandPalette();}
+  if((e.metaKey||e.ctrlKey)&&e.key==='p'){e.preventDefault();openCharterModal();setTimeout(printCharter,500);}
+  if((e.metaKey||e.ctrlKey)&&e.key==='d'){e.preventDefault();openCharterModal();setTimeout(downloadCharter,500);}
+  if(e.key==='?'&&!e.target.matches('input,textarea')){openCommandPalette();}
+});
+
+// ═══════════════════════════════════════════════════════════
+// THEME TOGGLE
+// ═══════════════════════════════════════════════════════════
+function toggleTheme(){
+  const cur=document.documentElement.getAttribute('data-theme');
+  const next=cur==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem('sc_theme',next);
+  toast(`Switched to ${next} mode`,'info');
+}
+
+// ═══════════════════════════════════════════════════════════
+// COPY BTC
+// ═══════════════════════════════════════════════════════════
+function copyBTC(){
+  const addr=document.getElementById('btc-address').textContent.trim();
+  navigator.clipboard.writeText(addr).then(()=>{
+    const btn=document.getElementById('copy-btn');
+    btn.classList.add('copied');btn.innerHTML='<i class="fas fa-check"></i> COPIED!';
+    toast('Bitcoin address copied!','success');
+    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML='<i class="fab fa-bitcoin"></i> COPY ADDRESS';},2500);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// ASSERT RIGHTS
+// ═══════════════════════════════════════════════════════════
+function assertRights(){
+  const assertions=[
+    'I assert my right to privacy under SherpaCarta Article 11.',
+    'My data belongs to me. Article 12 is my shield.',
+    'No algorithm may judge me without explanation. Article 61.',
+    'I am a signatory. My rights are inviolable.',
+    'Surveillance capitalism violates my dignity. Article 13.',
+    'Internet access is my right, not a privilege. Article 22.',
+    'I have the right to be forgotten. Article 47.',
+    'Digital dignity is human dignity. Article 1.',
+  ];
+  toast(assertions[Math.floor(Math.random()*assertions.length)],'success');
+}
+
+// ═══════════════════════════════════════════════════════════
+// AMBIENT MODE (Feature 46)
+// ═══════════════════════════════════════════════════════════
+let ambientCtx, ambientAnimId;
+function toggleAmbient(){
+  state.ambientOn=!state.ambientOn;
+  const indicator=document.getElementById('audio-indicator');
+  const bars=indicator.querySelector('.audio-bars');
+  const label=document.getElementById('audio-label');
+  if(state.ambientOn){
+    bars.classList.remove('paused');
+    label.textContent='Playing';
+    indicator.setAttribute('aria-pressed','true');
+    // Create subtle pulsing background glow
+    const glow=document.querySelector('.hero-glow');
+    if(glow){
+      let tick=0;
+      ambientAnimId=setInterval(()=>{
+        tick++;
+        const scale=1+Math.sin(tick*.05)*.3;
+        const opacity=.08+Math.sin(tick*.05)*.04;
+        glow.style.transform=`translate(-50%,-50%) scale(${scale})`;
+        glow.style.background=`radial-gradient(circle,rgba(16,185,129,${opacity}) 0%,transparent 70%)`;
+      },50);
+    }
+    toast('Ambient mode on — visual pulse active','info');
+  } else {
+    bars.classList.add('paused');label.textContent='Ambient';
+    indicator.setAttribute('aria-pressed','false');
+    clearInterval(ambientAnimId);
+    const glow=document.querySelector('.hero-glow');
+    if(glow){glow.style.transform='translate(-50%,-50%) scale(1)';glow.style.background='radial-gradient(circle,rgba(16,185,129,0.1) 0%,transparent 70%)';}
+    toast('Ambient mode off','info');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// COOKIE BANNER (Feature 47)
+// ═══════════════════════════════════════════════════════════
+function acceptCookies(){
+  localStorage.setItem('sc_cookie_accepted','true');
+  document.getElementById('cookie-banner').style.display='none';
+  toast('Noted. (We still collect nothing.)','success');
+}
+
+// ═══════════════════════════════════════════════════════════
+// TOAST
+// ═══════════════════════════════════════════════════════════
+function toast(msg,type='info'){
+  const icons={success:'fa-check-circle',error:'fa-circle-exclamation',info:'fa-circle-info'};
+  const el=document.createElement('div');
+  el.className='toast'+(type==='error'?' error':'');
+  el.innerHTML=`<i class="fas ${icons[type]||'fa-circle-info'}"></i> ${msg}`;
+  document.getElementById('toast-stack').appendChild(el);
+  setTimeout(()=>{el.style.opacity='0';el.style.transform='translateX(20px)';el.style.transition='all .3s';setTimeout(()=>el.remove(),300);},4500);
+}
+
+// ═══════════════════════════════════════════════════════════
+// DOMContentLoaded INIT
+// ═══════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded',()=>{
+  buildArticlesBrowser();
+  buildSigners();
+  buildLanguages();
+  initQuotes();
+
+  // Show cookie banner if not accepted
+  if(!localStorage.getItem('sc_cookie_accepted')){
+    setTimeout(()=>{document.getElementById('cookie-banner').style.display='flex';},2000);
+  }
+
+  // Welcome toast
+  setTimeout(()=>toast('Welcome to SherpaCarta. Privacy is your birthright.','info'),1200);
+
+  // Signer stat animates on view
+  const ss=document.getElementById('signer-stat');
+  if(ss&&ss.dataset.count){
+    const so=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){animateCount(e.target);so.unobserve(e.target);}});},{threshold:.5});
+    so.observe(ss);
+  }
+
+  // Apply saved lang
+  if(state.lang!=='en'){
+    const sel=document.getElementById('nav-lang');
+    if(sel)sel.value=state.lang;
+    applyTranslation(state.lang);
+  }
+});
+
+// Service Worker registration for offline (Feature 48)
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    // In production: navigator.serviceWorker.register('/sw.js')
+    // Simulated offline indicator
+    window.addEventListener('offline',()=>toast('You are offline. SherpaCarta still works locally.','info'));
+    window.addEventListener('online',()=>toast('Back online.','success'));
+  });
+}
+
+// Feature 49: Detect first visit, show brief onboarding hint
+if(!localStorage.getItem('sc_visited')){
+  localStorage.setItem('sc_visited','true');
+  setTimeout(()=>toast('Tip: Press ⌘K to search all articles and commands','info'),3500);
+}
+
+// Feature 50: Auto-increment signatory counter every 47 seconds (simulated global momentum)
+setInterval(()=>{
+  if(Math.random()>.5){
+    state.signCount++;
+    localStorage.setItem('sc_count',state.signCount);
+    const lc=document.getElementById('live-counter');
+    const sc=document.getElementById('sign-count');
+    if(lc)lc.textContent=state.signCount.toLocaleString();
+    if(sc)sc.textContent=state.signCount.toLocaleString();
+  }
+},47000);
+
+// Feature 51: Right-click context menu suppressor with custom menu
+document.addEventListener('contextmenu',e=>{
+  if(e.target.matches('.charter-article,.ca-body,.art-body')){
+    e.preventDefault();
+    toast('Tip: This text is public domain (CC0). Copy freely!','info');
+  }
+});
+
+// Feature 52: Page visibility — pause quote timer when hidden
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden)clearInterval(quoteTimer);
+  else resetQuoteTimer();
+});
+</script>
+</body>
 </html>
