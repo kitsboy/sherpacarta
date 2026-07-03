@@ -4,6 +4,58 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-02 (Session 6 — Sidebar Restore / Goodbye)
+
+**Machine:** M3 (Grok)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] Fixed landing dock layout across 3 commits (`fdfe8b9`, `5b8346b`, `d79065f`)
+- [x] Eliminated footer black gap (document-flow widgets after footer)
+- [x] Restored sidebar + BC Challenge — **HTML-first** inside `#left-ui-dock`
+- [x] BC Challenge enhanced (pulse, smooth scroll, always pinned top-left)
+- [x] Overrides for zen/reading/screenshot so sidebar never disappears
+- [x] BUILD `20260703-425`, SW `v3.6`, scripts `?v=425`
+- [x] `SESSION-SUMMARY-2026-07-02.md` written
+
+### Decisions
+
+- Sidebar widgets must live in HTML, not only JS-created — cached JS was hiding them via orphan CSS
+- Status dock stays top-right; left dock = BC + a11y below header
+- Orphan body widgets relocated off-screen, never `display:none`
+
+### What's Next
+
+- [ ] QA sherpacarta.org post-deploy (hard refresh)
+- [ ] Lightning live wallet
+- [ ] Walkthrough video
+- [ ] Kimi: integrate `SESSION-SUMMARY-2026-07-02.md` into Obsidian vault
+
+### Git State
+
+- Last commit SHA: d79065ff8b9b71e86671074ad60a6b2d4c4f9a40
+- Branch: main
+- Unpushed: none (handoff docs pending this commit)
+
+---
+
+## Latest Session Summary (from 2026-07-02 goodbye)
+
+**Chat topic:** Landing page sidebar/BC Challenge layout fixes — stuck at bottom, black gap, then total disappearance.
+
+**Finished:** HTML-first sidebar in `#left-ui-dock`, footer gap gone, docks pinned below header, BUILD 425 deployed.
+
+**Still to do:** Live QA after cache clear, Lightning wallet, walkthrough video, Kimi vault sync.
+
+**Next for Kimi:** Read `SESSION-SUMMARY-2026-07-02.md`. Update MASTER-BRAIN / Kanban. Do not sync M4 until Cam says go.
+
+---
+
+*Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*
+
+---
+
 ## Handoff to Kimi — 2026-07-02 (Session 5 — Landing Dock Layout)
 
 **Machine:** M3 (Grok)  

@@ -1,0 +1,1 @@
+[2026-07-02] Grok updated sherpacarta — sidebar restored HTML-first, see docs/KIMI-HANDOFF.md and SESSION-SUMMARY-2026-07-02.md
