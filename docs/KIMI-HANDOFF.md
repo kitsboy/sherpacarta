@@ -4,6 +4,48 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-02 (Session 3 — Branding Polish)
+
+**Machine:** M3 (Grok)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] Give A Bit orange brush logo in header + footer (`giveabit-logo.png`)
+- [x] Contact: hello@giveabit.io (subject: Sherpacarta) — footer, press kit, ⌘K
+- [x] Official socials only: Twitter @give_bit, Nostr NIP-05 kimi@giveabit.io, GitHub
+- [x] Hero + donation strips aligned to official socials (removed WA/TG/FB/LI)
+- [x] Footer dead links wired (CHANGELOG, I18N, orgs, legal, privacy anchors)
+- [x] Twitter meta + JSON-LD publisher → Give A Bit / @give_bit
+- [x] og-image.png (1200×630) for social crawlers
+- [x] BUILD 20260703-202, deployed to sherpacarta.org
+
+### Decisions
+
+- NIP-05 corrected to kimi@giveabit.io (not givaebit.io typo)
+- Hero share strip simplified to match footer policy — charter sharing still via ⌘K/native share
+- Legal footer links scroll to on-page blocks (no separate policy pages yet)
+
+### What's Next
+
+- [ ] Replace Lightning TEMP with live LNURL when Cam provides it
+- [ ] Important doc — institutional adoption / BC model bill pack
+- [ ] Full charter i18n beyond hero strings
+- [ ] Real signature ledger (optional, privacy-preserving)
+- [ ] Kimi: sync to Obsidian / MASTER-BRAIN
+
+### Git State
+
+- Last commit SHA: ee9cde0
+- Branch: main
+- Unpushed: none
+
+---
+
+*Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*
+
+---
+
 ## Handoff to Kimi — 2026-07-02 (Session 2)
 
 **Machine:** M3 (Grok)  

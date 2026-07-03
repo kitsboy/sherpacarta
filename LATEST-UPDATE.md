@@ -1,4 +1,4 @@
-# sherpacarta — Last Updated 2026-07-03 by Grok
+# sherpacarta — Last Updated 2026-07-02 by Grok
 
-Brief: Give A Bit logo, official socials, hello@giveabit.io contact
-Commit: 0e96e0b
+Brief: Official socials, footer links, og-image.png, BUILD 202
+Commit: ee9cde0
