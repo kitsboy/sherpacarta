@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v3.3';
+const CACHE = 'sherpacarta-v3.4';
 const ASSETS = ['/', '/index.html', '/favicon.svg', '/og-image.svg', '/og-image.png', '/giveabit-logo.png', '/giveabit-parent-logo.jpg', '/sc-enhancements.js', '/sc-enhancements-v2.js', '/sc-enhancements-v3.js', '/sc-enhancements-v4.js', '/sc-enhancements-v5.js', '/sc-enhancements-v6.js', '/manifest.json'];
 
 self.addEventListener('install', (e) => {

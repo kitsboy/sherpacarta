@@ -1,10 +1,10 @@
 /**
- * SherpaCarta Enhancements v3.3 — Features 376–405
+ * SherpaCarta Enhancements v3.3 — Features 376–415
  * UI dock fixes + 30 enhancements
  */
 (function SCEnhancementsV6() {
   'use strict';
-  const BUILD = '20260703-405';
+  const BUILD = '20260703-415';
   const FEATURES = [];
   const $ = (id) => document.getElementById(id);
   const toast = (msg, type) => window.toast?.(msg, type || 'info');
@@ -104,19 +104,21 @@
     }
   });
 
-  feat(383, 'BC tab reposition on resize', () => {
+  feat(383, 'Left dock viewport-centered on resize', () => {
     const sync = () => {
       const dock = $('left-ui-dock');
       if (!dock) return;
-      dock.style.top = `calc(var(--announce-h, 0px) + ${window.innerWidth < 768 ? 68 : 76}px)`;
+      dock.style.top = '50%';
+      dock.style.transform = 'translateY(-50%)';
+      dock.style.removeProperty('bottom');
     };
     sync();
     window.addEventListener('resize', sync);
   });
 
-  feat(384, 'Status dock above float-assert', () => {
+  feat(384, 'Status dock bottom-right + float-assert clear', () => {
     const s = document.createElement('style');
-    s.textContent = '#status-dock{z-index:460}#float-assert{z-index:400;bottom:calc(4.5rem + env(safe-area-inset-bottom,0))}#back-top{z-index:401}';
+    s.textContent = '#status-dock{z-index:460;left:auto;right:max(.75rem,env(safe-area-inset-right,0))}#float-assert{z-index:400;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}#back-top{z-index:461;bottom:calc(5.5rem + env(safe-area-inset-bottom,0))}';
     document.head.appendChild(s);
   });
 
@@ -165,15 +167,25 @@
 
   // ═══ GROUP 17: Polish (391–405) ══════════════════════════
 
-  feat(391, 'Section dots avoid left dock', () => {
+  feat(391, 'Section dots panel + mobile left placement', () => {
     const s = document.createElement('style');
-    s.textContent = '@media(min-width:769px){.section-dots{right:max(.6rem,env(safe-area-inset-right))}}@media(max-width:768px){.section-dots{right:calc(3.5rem + env(safe-area-inset-right,0))}}';
+    s.textContent = '@media(min-width:769px){.section-dots{right:max(.6rem,env(safe-area-inset-right))}}@media(max-width:768px){.section-dots{left:max(.35rem,env(safe-area-inset-left,0));right:auto}}';
     document.head.appendChild(s);
+    const dots = document.querySelector('.section-dots');
+    if (dots) {
+      const onScroll = () => {
+        const docH = document.documentElement.scrollHeight;
+        const nearFooter = window.scrollY + window.innerHeight > docH - 380;
+        dots.classList.toggle('near-footer', nearFooter);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
   });
 
-  feat(392, 'Footer clear status dock margin', () => {
+  feat(392, 'Footer padding trim — less void', () => {
     const s = document.createElement('style');
-    s.textContent = 'footer{padding-bottom:1rem}@media(min-width:769px){body{padding-bottom:5rem}}';
+    s.textContent = 'footer{padding-bottom:.5rem}@media(min-width:769px){body{padding-bottom:3rem}}';
     document.head.appendChild(s);
   });
 
@@ -246,7 +258,7 @@
         orig();
         const sec = $('usage-guide-modal')?.querySelector('.usage-sections');
         if (sec && !sec.querySelector('.dock-note')) {
-          sec.insertAdjacentHTML('beforeend', '<section class="dock-note"><h3>📌 Pinned UI</h3><p style="font-size:.82rem;color:var(--text2)"><strong>Left dock:</strong> BC Challenge tab + accessibility tools (pinned, scrollable).<br><strong>Bottom-left:</strong> BUILD badge + Online status — always visible, clickable.</p></section>');
+          sec.insertAdjacentHTML('beforeend', '<section class="dock-note"><h3>📌 Pinned UI</h3><p style="font-size:.82rem;color:var(--text2)"><strong>Left dock:</strong> BC Challenge tab + accessibility tools — fixed mid-page on the left; page scrolls behind.<br><strong>Bottom-right:</strong> BUILD badge + Online status — always visible, clickable.</p></section>');
         }
       };
     }
@@ -262,7 +274,7 @@
     window.SC = window.SC || {};
     SC.FEATURES_V6 = FEATURES;
     SC.BUILD = BUILD;
-    SC.totalFeatures = 405;
+    SC.totalFeatures = 415;
     SC.toggleA11yDock = SC6.toggleA11yDock;
     const origShow = SC.showFeatures;
     SC.showFeatures = function () {
@@ -271,7 +283,7 @@
       if (grid && !grid.dataset.v6merged) {
         grid.insertAdjacentHTML('beforeend', FEATURES.map((f) => `<div class="feat-item"><span>${f.id}</span> ${f.name}</div>`).join(''));
         grid.dataset.v6merged = '1';
-        $('features-modal')?.querySelector('h2').textContent = '405 Features';
+        $('features-modal')?.querySelector('h2').textContent = '415 Features';
         $('features-modal')?.querySelector('p').textContent = 'BUILD ' + BUILD;
       }
     };
@@ -281,12 +293,79 @@
 
   feat(405, 'v6 init toast', () => {
     setTimeout(() => {
-      if (!sessionStorage.getItem('sc_405_loaded')) {
-        sessionStorage.setItem('sc_405_loaded', '1');
-        toast('405 features — UI docks pinned · BUILD + Online now visible', 'success');
+      if (!sessionStorage.getItem('sc_415_loaded')) {
+        sessionStorage.setItem('sc_415_loaded', '1');
+        toast('Landing docks centered — left tools mid-page, status bottom-right', 'success');
       }
     }, 5200);
   });
 
-  console.log(`SherpaCarta v3.3 — features 376–405 loaded (${FEATURES.length})`);
+  feat(406, 'Left dock card chrome reinforce', () => {
+    const dock = $('left-ui-dock');
+    if (dock) {
+      dock.style.willChange = 'auto';
+      dock.style.pointerEvents = 'auto';
+    }
+  });
+
+  feat(407, 'Status dock right anchor on init', () => {
+    const dock = $('status-dock');
+    if (dock) {
+      dock.style.left = 'auto';
+      dock.style.right = `max(.75rem, env(safe-area-inset-right, 0))`;
+    }
+  });
+
+  feat(408, 'Float-assert center unobstructed', () => {
+    const fa = $('float-assert');
+    if (fa) fa.style.bottom = 'calc(1.25rem + env(safe-area-inset-bottom, 0))';
+  });
+
+  feat(409, 'Back-top stacks above status dock', () => {
+    const bt = $('back-top');
+    if (bt) bt.style.bottom = 'calc(5.5rem + env(safe-area-inset-bottom, 0))';
+  });
+
+  feat(410, 'A11y toolbar compact inside dock card', () => {
+    const s = document.createElement('style');
+    s.textContent = '#left-ui-dock .a11y-toolbar button{background:transparent;border-color:transparent}#left-ui-dock .a11y-toolbar button:hover{background:rgba(16,185,129,.08);border-color:var(--border2)}';
+    document.head.appendChild(s);
+  });
+
+  feat(411, 'Section dots fade near footer scroll', () => {
+    /* handled in feat 391 */
+  });
+
+  feat(412, 'Mobile dock + dots opposite sides', () => {
+    const s = document.createElement('style');
+    s.textContent = '@media(max-width:768px){#left-ui-dock{top:50%;transform:translateY(-50%)}.section-dots{left:max(.35rem,env(safe-area-inset-left,0));right:auto}}';
+    document.head.appendChild(s);
+  });
+
+  feat(413, 'Wave bg scrolls behind fixed docks', () => {
+    const wave = $('wave-bg');
+    if (wave) wave.style.zIndex = '0';
+    ['left-ui-dock', 'status-dock', 'back-top'].forEach((id) => {
+      const el = $(id);
+      if (el) el.style.isolation = 'isolate';
+    });
+  });
+
+  feat(414, 'Footer void padding reduced', () => {
+    const legal = document.querySelector('footer .legal-footer');
+    if (legal) legal.style.paddingBottom = 'max(1.75rem, env(safe-area-inset-bottom, 0))';
+  });
+
+  feat(415, 'Dock layout BUILD 415 merge', () => {
+    SC.totalFeatures = 415;
+    SC.BUILD = BUILD;
+    const bb = document.querySelector('.build-badge');
+    if (bb) bb.textContent = 'BUILD ' + BUILD;
+    if (SC3?.featRanges) {
+      const r = SC3.featRanges.find((x) => x.label === 'Dock 376–405');
+      if (r) { r.label = 'Dock 376–415'; r.max = 415; }
+    }
+  });
+
+  console.log(`SherpaCarta v3.3 — features 376–415 loaded (${FEATURES.length})`);
 })();
