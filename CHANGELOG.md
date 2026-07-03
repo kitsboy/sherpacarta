@@ -17,6 +17,17 @@ owner: Cam / Give A Bit
 
 All notable changes to this project are documented here.
 
+## [2.3.0] — 2026-07-03
+
+### Added
+- **Features 101–200** via `public/sc-enhancements-v2.js`
+- Performance: content-visibility, battery saver, particle reduction, idle defer
+- Engagement: article stars, calculator presets, legislative brief, MLA template
+- UX: section dots, zen/sepia/dyslexia modes, achievements, tag cloud
+- Marketing: Reddit/Bluesky/Nostr share, social card PNG, JSON/RSS feeds
+- `public/mcp.json` MCP tool descriptor
+- Give A Bit footer logo **+50%** (33px)
+
 ## [2.2.0] — 2026-07-02
 
 ### Added

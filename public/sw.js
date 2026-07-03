@@ -1,5 +1,5 @@
-const CACHE = 'sherpacarta-v2.2';
-const ASSETS = ['/', '/index.html', '/favicon.svg', '/og-image.svg', '/giveabit-logo.jpg'];
+const CACHE = 'sherpacarta-v2.3';
+const ASSETS = ['/', '/index.html', '/favicon.svg', '/og-image.svg', '/giveabit-logo.jpg', '/sc-enhancements.js', '/sc-enhancements-v2.js', '/manifest.json'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS).catch(() => {})));
