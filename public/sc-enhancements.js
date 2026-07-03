@@ -80,17 +80,22 @@
   feat(3, 'robots.txt via link', () => {}); // static file in public/
 
   feat(4, 'Accessibility toolbar', () => {
-    const bar = document.createElement('div');
-    bar.id = 'a11y-toolbar';
-    bar.className = 'a11y-toolbar';
-    bar.innerHTML = `
-      <button type="button" title="Font size +" onclick="SC.fontUp()">A+</button>
-      <button type="button" title="Font size -" onclick="SC.fontDown()">A−</button>
-      <button type="button" title="Reading mode" onclick="SC.toggleReading()"><i class="fas fa-book-open"></i></button>
-      <button type="button" title="High contrast" onclick="SC.toggleContrast()"><i class="fas fa-circle-half-stroke"></i></button>
-      <button type="button" title="Keyboard shortcuts" onclick="SC.showShortcuts()"><i class="fas fa-keyboard"></i></button>
-    `;
-    leftDock().appendChild(bar);
+    let bar = $('a11y-toolbar');
+    if (!bar) {
+      bar = document.createElement('div');
+      bar.id = 'a11y-toolbar';
+      bar.className = 'a11y-toolbar';
+      bar.innerHTML = `
+        <button type="button" title="Font size +" onclick="SC.fontUp()">A+</button>
+        <button type="button" title="Font size -" onclick="SC.fontDown()">A−</button>
+        <button type="button" title="Reading mode" onclick="SC.toggleReading()"><i class="fas fa-book-open"></i></button>
+        <button type="button" title="High contrast" onclick="SC.toggleContrast()"><i class="fas fa-circle-half-stroke"></i></button>
+        <button type="button" title="Keyboard shortcuts" onclick="SC.showShortcuts()"><i class="fas fa-keyboard"></i></button>
+      `;
+      leftDock().appendChild(bar);
+    } else if (bar.parentElement !== leftDock()) {
+      leftDock().appendChild(bar);
+    }
     window.SC = window.SC || {};
     let fontScale = parseFloat(localStorage.getItem('sc_font_scale') || '1');
     SC.fontUp = () => { fontScale = Math.min(1.4, fontScale + 0.05); applyFont(); };
@@ -302,12 +307,17 @@
   });
 
   feat(21, 'Sticky BC CTA', () => {
-    const c = document.createElement('a');
-    c.href = '#canada-bc';
-    c.className = 'sticky-bc-cta';
-    c.id = 'sticky-bc-cta';
-    c.innerHTML = '<i class="fas fa-maple-leaf"></i> BC Challenge';
-    leftDock().insertBefore(c, leftDock().firstChild);
+    let c = $('sticky-bc-cta') || document.querySelector('.sticky-bc-cta');
+    if (!c) {
+      c = document.createElement('a');
+      c.href = '#canada-bc';
+      c.className = 'sticky-bc-cta';
+      c.id = 'sticky-bc-cta';
+      c.innerHTML = '<i class="fas fa-maple-leaf"></i> BC Challenge';
+    }
+    const dock = leftDock();
+    if (c.parentElement !== dock) dock.insertBefore(c, dock.firstChild);
+    c.setAttribute('aria-label', 'Go to Canada and BC Challenge section');
   });
 
   feat(22, 'FAQ search filter', () => {

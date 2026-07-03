@@ -1,10 +1,10 @@
 /**
- * SherpaCarta Enhancements v3.4 — Features 376–420
+ * SherpaCarta Enhancements v3.5 — Features 376–425
  * UI dock fixes + 30 enhancements
  */
 (function SCEnhancementsV6() {
   'use strict';
-  const BUILD = '20260703-420';
+  const BUILD = '20260703-425';
   const FEATURES = [];
   const $ = (id) => document.getElementById(id);
   const toast = (msg, type) => window.toast?.(msg, type || 'info');
@@ -78,7 +78,10 @@
     };
     if (localStorage.getItem('sc_a11y_collapsed') === '1') {
       const a11y = $('a11y-toolbar');
-      if (a11y) { a11y.style.display = 'none'; a11y.classList.add('collapsed'); }
+      if (a11y) { a11y.classList.add('collapsed'); a11y.style.display = 'none'; }
+    } else {
+      const a11y = $('a11y-toolbar');
+      if (a11y) { a11y.style.display = 'flex'; a11y.classList.remove('collapsed'); }
     }
     const bc = document.querySelector('.sticky-bc-cta');
     if (bc && !$('a11y-toggle-chip')) {
@@ -108,7 +111,7 @@
 
   feat(384, 'Status dock top-right + float-assert clear', () => {
     const s = document.createElement('style');
-    s.textContent = '#left-ui-dock,#status-dock{position:fixed!important}#status-dock{top:calc(var(--announce-h,0px) + 4.5rem);right:max(.5rem,env(safe-area-inset-right,0));left:auto!important;bottom:auto!important;flex-direction:row}#float-assert{z-index:400;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}#back-top{z-index:461;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}body>#a11y-toolbar,body>.build-badge,body>#net-badge,body>.sticky-bc-cta{display:none!important}';
+    s.textContent = '#left-ui-dock,#status-dock{position:fixed!important;display:flex!important;visibility:visible!important;z-index:480}#left-ui-dock .sticky-bc-cta,#left-ui-dock .a11y-toolbar{display:flex!important;opacity:1!important}#status-dock{top:calc(var(--announce-h,0px) + 4.5rem);right:max(.5rem,env(safe-area-inset-right,0));left:auto!important;bottom:auto!important;flex-direction:row}body.zen-mode #left-ui-dock,body.reading-mode #left-ui-dock{display:flex!important}body.zen-mode .sticky-bc-cta,body.reading-mode .sticky-bc-cta{display:inline-flex!important}#float-assert{z-index:400;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}#back-top{z-index:461;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}';
     document.head.appendChild(s);
   });
 
@@ -131,13 +134,13 @@
 
   feat(387, 'Dock hides in zen mode', () => {
     const s = document.createElement('style');
-    s.textContent = 'body.zen-mode #left-ui-dock{display:none!important}body.zen-mode #status-dock{opacity:.5}';
+    s.textContent = 'body.zen-mode #left-ui-dock{display:flex!important}body.zen-mode #left-ui-dock .sticky-bc-cta{display:inline-flex!important}body.zen-mode #status-dock{opacity:.85}';
     document.head.appendChild(s);
   });
 
   feat(388, 'Screenshot mode dock rules', () => {
     const s = document.createElement('style');
-    s.textContent = 'body.screenshot-mode #left-ui-dock,body.screenshot-mode #status-dock{display:none!important}';
+    s.textContent = 'body.screenshot-mode #status-dock{display:none!important}body.screenshot-mode #left-ui-dock{display:flex!important}';
     document.head.appendChild(s);
   });
 
@@ -264,7 +267,7 @@
     window.SC = window.SC || {};
     SC.FEATURES_V6 = FEATURES;
     SC.BUILD = BUILD;
-    SC.totalFeatures = 420;
+    SC.totalFeatures = 425;
     SC.toggleA11yDock = SC6.toggleA11yDock;
     const origShow = SC.showFeatures;
     SC.showFeatures = function () {
@@ -273,7 +276,7 @@
       if (grid && !grid.dataset.v6merged) {
         grid.insertAdjacentHTML('beforeend', FEATURES.map((f) => `<div class="feat-item"><span>${f.id}</span> ${f.name}</div>`).join(''));
         grid.dataset.v6merged = '1';
-        $('features-modal')?.querySelector('h2').textContent = '420 Features';
+        $('features-modal')?.querySelector('h2').textContent = '425 Features';
         $('features-modal')?.querySelector('p').textContent = 'BUILD ' + BUILD;
       }
     };
@@ -283,8 +286,8 @@
 
   feat(405, 'v6 init toast', () => {
     setTimeout(() => {
-      if (!sessionStorage.getItem('sc_420_loaded')) {
-        sessionStorage.setItem('sc_420_loaded', '1');
+      if (!sessionStorage.getItem('sc_425_loaded')) {
+        sessionStorage.setItem('sc_425_loaded', '1');
         toast('UI docks pinned below header — hard refresh if layout looks wrong', 'success');
       }
     }, 5200);
@@ -350,7 +353,7 @@
   });
 
   feat(415, 'Dock layout BUILD 415 merge', () => {
-    SC.totalFeatures = 420;
+    SC.totalFeatures = 425;
     SC.BUILD = BUILD;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
@@ -403,10 +406,75 @@
 
   feat(420, 'Landing layout final BUILD 420', () => {
     SC.BUILD = BUILD;
-    SC.totalFeatures = 420;
+    SC.totalFeatures = 425;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
   });
 
-  console.log(`SherpaCarta v3.4 — features 376–420 loaded (${FEATURES.length})`);
+  feat(421, 'Sidebar always visible guard', () => {
+    const dock = $('left-ui-dock');
+    const bc = $('sticky-bc-cta');
+    if (dock) {
+      dock.style.display = 'flex';
+      dock.style.visibility = 'visible';
+      dock.style.opacity = '1';
+    }
+    if (bc) {
+      bc.style.display = 'inline-flex';
+      bc.style.visibility = 'visible';
+      bc.style.opacity = '1';
+    }
+    const a11y = $('a11y-toolbar');
+    if (a11y && localStorage.getItem('sc_a11y_collapsed') !== '1') {
+      a11y.style.display = 'flex';
+    }
+  });
+
+  feat(422, 'BC Challenge smooth scroll + persist', () => {
+    const bc = $('sticky-bc-cta');
+    if (!bc) return;
+    bc.addEventListener('click', (e) => {
+      const target = $('canada-bc');
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  feat(423, 'Override zen/reading hide on sidebar', () => {
+    const s = document.createElement('style');
+    s.id = 'sc-sidebar-persist';
+    s.textContent = 'body.zen-mode #left-ui-dock .sticky-bc-cta,body.reading-mode #left-ui-dock .sticky-bc-cta{display:inline-flex!important;opacity:1!important}body.zen-mode #left-ui-dock .a11y-toolbar,body.reading-mode #left-ui-dock .a11y-toolbar{display:flex!important;opacity:1!important}#left-ui-dock{display:flex!important;visibility:visible!important}';
+    document.head.appendChild(s);
+  });
+
+  feat(424, 'Sidebar stick on scroll', () => {
+    const dock = $('left-ui-dock');
+    if (!dock) return;
+    const pin = () => {
+      dock.style.position = 'fixed';
+      dock.style.top = `calc(var(--announce-h, 0px) + ${window.innerWidth < 768 ? 3.75 : 4.5}rem)`;
+    };
+    window.addEventListener('scroll', pin, { passive: true });
+    pin();
+  });
+
+  feat(425, 'Sidebar BUILD 425 final', () => {
+    SC.BUILD = BUILD;
+    SC.totalFeatures = 425;
+    const bb = document.querySelector('.build-badge');
+    if (bb) bb.textContent = 'BUILD ' + BUILD;
+    const relocate = () => {
+      const ld = $('left-ui-dock');
+      if (!ld) return;
+      document.querySelectorAll('body > .sticky-bc-cta, body > #sticky-bc-cta').forEach((el) => ld.insertBefore(el, ld.firstChild));
+      document.querySelectorAll('body > #a11y-toolbar').forEach((el) => ld.appendChild(el));
+    };
+    relocate();
+    setTimeout(relocate, 100);
+    setTimeout(relocate, 500);
+  });
+
+  console.log(`SherpaCarta v3.5 — features 376–425 loaded (${FEATURES.length})`);
 })();
