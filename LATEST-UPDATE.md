@@ -1,4 +1,4 @@
-# sherpacarta — Last Updated 2026-07-02 by Grok
+# sherpacarta — Last Updated 2026-07-03 by Grok
 
-Brief: Mission, Canada/BC, Nostr, Satohash, QR BTC, real wallet
-Commit: 404fe2e
+Brief: 200 features v2.3, logo +50%, performance + marketing
+Commit: 976d4e5
