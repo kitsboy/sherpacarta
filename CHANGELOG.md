@@ -17,6 +17,23 @@ owner: Cam / Give A Bit
 
 All notable changes to this project are documented here.
 
+## [2.2.0] — 2026-07-02
+
+### Added
+- **100 features** via `public/sc-enhancements.js` (4 groups × 25)
+- QR modal fix: backdrop click, close button, Escape, img fallback
+- PWA manifest, service worker, robots.txt, sitemap.xml
+- Accessibility toolbar (font size, reading mode, contrast)
+- Charter TOC, export JSON/Markdown, press kit download
+- Confetti + signature certificate on sign
+- Keyboard shortcuts (G/H/D/C/T), shortcuts modal
+- Click BUILD badge for full feature list
+- docs/FEATURES.md
+
+### Fixed
+- QR code not rendering (library load + fallback API)
+- QR popup could not close on mobile
+
 ## [2.0.1] — 2026-07-02
 
 ### Added

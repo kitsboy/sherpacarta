@@ -1,0 +1,12 @@
+{
+  "name": "SherpaCarta — Global Digital Magna Carta",
+  "short_name": "SherpaCarta",
+  "description": "114 articles of digital human rights. Privacy is a birthright.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060a06",
+  "theme_color": "#10b981",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
