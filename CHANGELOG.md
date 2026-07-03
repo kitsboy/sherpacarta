@@ -17,6 +17,15 @@ owner: Cam / Give A Bit
 
 All notable changes to this project are documented here.
 
+## [2.3.2] — 2026-07-02
+
+### Polish
+- Hero + donation strips use official socials only (@give_bit, Nostr NIP-05, GitHub)
+- Footer dead links wired (CHANGELOG, I18N, orgs, legal, privacy anchors)
+- Twitter meta + JSON-LD publisher → Give A Bit / @give_bit
+- og-image.png generated for social crawlers
+- BUILD 20260703-202
+
 ## [2.3.1] — 2026-07-03
 
 ### Changed

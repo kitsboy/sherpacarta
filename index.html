@@ -27,7 +27,8 @@
 <meta property="og:url" content="https://sherpacarta.org/">
 <meta property="og:title" content="SherpaCarta — The Global Digital Magna Carta">
 <meta property="og:description" content="A living charter of 114 articles protecting digital privacy, data sovereignty, and freedom for all 8 billion people on Earth. Sign and assert your rights now.">
-<meta property="og:image" content="https://sherpacarta.org/og-image.svg">
+<meta property="og:image" content="https://sherpacarta.org/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SherpaCarta — Privacy is a Human Right">
@@ -36,11 +37,11 @@
 
 <!-- ═══ TWITTER / X CARD ══════════════════════════════════ -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@SherpaCarta">
-<meta name="twitter:creator" content="@SherpaCarta">
+<meta name="twitter:site" content="@give_bit">
+<meta name="twitter:creator" content="@give_bit">
 <meta name="twitter:title" content="SherpaCarta — The Global Digital Magna Carta">
 <meta name="twitter:description" content="114 articles. 8 billion people. One living charter for digital human rights. Privacy is not a feature — it is a birthright. Sign now.">
-<meta name="twitter:image" content="https://sherpacarta.org/og-image.svg">
+<meta name="twitter:image" content="https://sherpacarta.org/og-image.png">
 <meta name="twitter:image:alt" content="SherpaCarta v2.0 — A Magna Carta for the Digital Age">
 
 <!-- ═══ STRUCTURED DATA (JSON-LD) ═════════════════════════ -->
@@ -58,8 +59,20 @@
   },
   "publisher": {
     "@type": "Organization",
-    "name": "SherpaCarta Global Movement",
-    "logo": { "@type": "ImageObject", "url": "https://sherpacarta.org/og-image.svg" }
+    "name": "Give A Bit",
+    "url": "https://giveabit.io",
+    "logo": { "@type": "ImageObject", "url": "https://sherpacarta.org/giveabit-logo.png" },
+    "sameAs": [
+      "https://twitter.com/give_bit",
+      "https://github.com/kitsboy/sherpacarta",
+      "https://giveabit.io"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@giveabit.io",
+      "contactType": "customer support",
+      "availableLanguage": ["English"]
+    }
   }
 }
 </script>
@@ -141,7 +154,9 @@ body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.8}
 .giveabit-brand-logo{height:40px;width:auto;display:block;flex-shrink:0;border-radius:6px}
 .footer-brand .giveabit-brand-logo{height:36px}
 .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--em),var(--em2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#000;box-shadow:0 0 16px rgba(16,185,129,.3);flex-shrink:0}
-.footer-social-official{display:flex;gap:.65rem;align-items:center;margin-top:1rem;flex-wrap:wrap}
+.hero-share-official,.footer-social-official{display:flex;gap:.65rem;align-items:center;justify-content:center;flex-wrap:wrap}
+.hero-share-official{margin-top:1.5rem;animation:fade-up .6s .65s both}
+.footer-social-official{margin-top:1rem}
 .social-official{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .75rem;border-radius:100px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;text-decoration:none;transition:all .2s;cursor:pointer}
 .social-official:hover{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.08)}
 .social-official i{font-size:.85rem}
@@ -414,7 +429,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 .announce-banner button{background:none;border:none;color:var(--text3);cursor:pointer;padding:.5rem}
 .sticky-bc-cta{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:450;background:var(--bg2);border:1px solid var(--em);border-left:none;border-radius:0 100px 100px 0;padding:.5rem .75rem .5rem .5rem;font-family:var(--mono);font-size:.58rem;color:var(--em);text-decoration:none;writing-mode:vertical-rl;letter-spacing:.08em;opacity:.85;transition:opacity .2s}
 .sticky-bc-cta:hover{opacity:1}
-body.reading-mode .trust-bar,body.reading-mode #particle-canvas,body.reading-mode .hero-share,body.reading-mode .sticky-bc-cta{display:none!important}
+body.reading-mode .trust-bar,body.reading-mode #particle-canvas,body.reading-mode .hero-share-official,body.reading-mode .sticky-bc-cta{display:none!important}
 body.reading-mode .section-max{max-width:680px}
 body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 .hash-footer{text-align:center;padding:.75rem 0;font-family:var(--mono);font-size:.55rem;color:var(--text3)}
@@ -606,7 +621,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 
 /* ═══ PRINT STYLES ════════════════════════════════════════ */
 @media print{
-  #main-nav,#float-assert,#back-top,#cookie-banner,#audio-indicator,#cursor,#cursor-ring,#progress-bar,#toast-stack,footer .footer-share,.hero-ctas,.hero-share,.nav-actions{display:none!important}
+  #main-nav,#float-assert,#back-top,#cookie-banner,#audio-indicator,#cursor,#cursor-ring,#progress-bar,#toast-stack,footer .footer-share,.hero-ctas,.hero-share-official,.nav-actions{display:none!important}
   body{cursor:default!important;color:#000!important;background:#fff!important}
   .charter-article{page-break-inside:avoid;border:1px solid #ccc!important}
   .modal-overlay{position:static!important;display:block!important;background:#fff!important;backdrop-filter:none!important}
@@ -789,14 +804,12 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
       <button class="cta-sec" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'})"><i class="fas fa-signature"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
     </div>
 
-    <!-- SOCIAL SHARE STRIP (Feature 31) -->
-    <div class="hero-share" role="group" aria-label="Share SherpaCarta">
-      <button class="share-btn share-x" onclick="shareOn('x')" aria-label="Share on X"><i class="fab fa-x-twitter"></i> X / Twitter</button>
-      <button class="share-btn share-wa" onclick="shareOn('whatsapp')" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-      <button class="share-btn share-tg" onclick="shareOn('telegram')" aria-label="Share on Telegram"><i class="fab fa-telegram"></i> Telegram</button>
-      <button class="share-btn share-fb" onclick="shareOn('facebook')" aria-label="Share on Facebook"><i class="fab fa-facebook"></i> Facebook</button>
-      <button class="share-btn share-li" onclick="shareOn('linkedin')" aria-label="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</button>
-      <button class="share-btn share-cp" onclick="copyPageURL()" aria-label="Copy link"><i class="fas fa-link"></i> Copy Link</button>
+    <!-- OFFICIAL CHANNELS -->
+    <div class="hero-share-official" role="group" aria-label="Official SherpaCarta channels">
+      <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
+      <button type="button" class="social-official" onclick="copyNostrNip()" title="Nostr NIP-05: kimi@giveabit.io"><i class="fas fa-user-secret"></i> kimi@giveabit.io</button>
+      <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
+      <button type="button" class="social-official" onclick="copyPageURL()" title="Copy sherpacarta.org"><i class="fas fa-link"></i> Copy Link</button>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">
@@ -1096,7 +1109,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 <!-- ════════════════════════════════════════════════════════
      ORGANIZATIONS (Feature 33)
 ════════════════════════════════════════════════════════ -->
-<section class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="orgs-heading">
+<section id="orgs" class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="orgs-heading">
   <div class="section-max">
     <div class="section-label"><span>Coalition</span></div>
     <h2 class="section-h2 reveal" id="orgs-heading">Organizations<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">Endorsing SherpaCarta</em></h2>
@@ -1115,7 +1128,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 <!-- ════════════════════════════════════════════════════════
      FAQ (Feature 34)
 ════════════════════════════════════════════════════════ -->
-<section class="section" aria-labelledby="faq-heading">
+<section id="faq" class="section" aria-labelledby="faq-heading">
   <div class="section-max">
     <div class="section-label"><span>Common Questions</span></div>
     <h2 class="section-h2 reveal" id="faq-heading">Frequently Asked<br>Questions</h2>
@@ -1266,12 +1279,11 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
         </div>
         <!-- SHARE IN DONATION (Feature 37) -->
         <div style="margin-top:1.75rem">
-          <div style="font-family:var(--mono);font-size:.6rem;color:var(--text3);letter-spacing:.15em;margin-bottom:.625rem">SPREAD THE WORD INSTEAD</div>
-          <div class="footer-share">
-            <button class="share-btn share-x" onclick="shareOn('x')"><i class="fab fa-x-twitter"></i> X</button>
-            <button class="share-btn share-wa" onclick="shareOn('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
-            <button class="share-btn share-tg" onclick="shareOn('telegram')"><i class="fab fa-telegram"></i> Telegram</button>
-            <button class="share-btn share-li" onclick="shareOn('linkedin')"><i class="fab fa-linkedin"></i> LinkedIn</button>
+          <div style="font-family:var(--mono);font-size:.6rem;color:var(--text3);letter-spacing:.15em;margin-bottom:.625rem">OFFICIAL CHANNELS</div>
+          <div class="footer-social-official" style="margin-top:0;justify-content:flex-start">
+            <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> @give_bit</a>
+            <button type="button" class="social-official" onclick="copyNostrNip()"><i class="fas fa-user-secret"></i> Nostr</button>
+            <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
       </div>
@@ -1313,7 +1325,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
         </div>
       </a>
       <p>Privacy is not a feature. It is a human right. Built by the people, for the people — across every border.</p>
-      <p class="footer-contact">Contact: <a href="mailto:hello@giveabit.io?subject=Sherpacarta">hello@giveabit.io</a></p>
+      <p class="footer-contact">Contact: <a href="mailto:hello@giveabit.io?subject=Sherpacarta">hello@giveabit.io</a> <span style="color:var(--text3)">(subject: Sherpacarta)</span></p>
 
       <!-- FOOTER PAYMENT TABS -->
       <div class="footer-pay" id="footer-pay">
@@ -1338,7 +1350,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
       <!-- OFFICIAL SOCIALS — Give A Bit / SherpaCarta -->
       <div class="footer-social-official" aria-label="Official social channels">
         <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-        <button type="button" class="social-official" onclick="copyNostrNip()" title="Nostr NIP-05: kimi@giveabit.io"><i class="fas fa-user-secret"></i> Nostr</button>
+        <button type="button" class="social-official" onclick="copyNostrNip()" title="Nostr NIP-05: kimi@giveabit.io"><i class="fas fa-user-secret"></i> kimi@giveabit.io</button>
         <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </div>
@@ -1347,15 +1359,15 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
       <a href="#" onclick="openCharterModal();return false">Full 114 Articles</a>
       <a href="#pillars" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'});return false">Core Pillars</a>
       <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Amendment Process</a>
-      <a href="#">Version History</a>
-      <a href="#">Translations</a>
+      <a href="https://github.com/kitsboy/sherpacarta/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Version History</a>
+      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/I18N.md" target="_blank" rel="noopener">Translations</a>
     </div>
     <div class="footer-col">
       <h4>Community</h4>
       <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Sign the Charter</a>
       <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Volunteer">Volunteer</a>
-      <a href="#">Organizations</a>
-      <a href="#">Local Chapters</a>
+      <a href="#orgs" onclick="document.getElementById('orgs').scrollIntoView({behavior:'smooth'});return false">Organizations</a>
+      <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Local%20Chapter">Local Chapters</a>
       <a href="https://github.com/kitsboy/sherpacarta" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="footer-col">
@@ -1365,7 +1377,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
       <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/CANADA-BC-CHALLENGE.md" target="_blank" rel="noopener">Canada &amp; BC Challenge</a>
       <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener">Platform Roadmap</a>
       <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
-      <a href="#">Legal Framework</a>
+      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/EXECUTIVE_SUMMARY.md" target="_blank" rel="noopener">Legal Framework</a>
       <a href="#" onclick="downloadPressKit();return false">Press Kit (Download)</a>
     </div>
   </div>
@@ -1373,15 +1385,15 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
   <!-- ════ LEGAL FOOTER (Feature 39) ═══════════════════════ -->
   <div class="legal-footer">
     <div class="legal-grid">
-      <div class="legal-block">
+      <div class="legal-block" id="legal-basis">
         <h5>Legal Basis</h5>
         <p>SherpaCarta is a civic document inspired by the Magna Carta (1215), the Universal Declaration of Human Rights (1948), and the Icelandic Constitutional Bill (2011). It is not legal advice. It is a moral and political declaration. Consult qualified legal counsel in your jurisdiction for enforceable rights.</p>
       </div>
-      <div class="legal-block">
+      <div class="legal-block" id="legal-terms">
         <h5>Intellectual Property</h5>
         <p>SherpaCarta is published under Creative Commons CC0 1.0 Universal (Public Domain). No rights reserved. Copy freely, translate freely, adapt freely. We ask only that you preserve the spirit of expanding — never restricting — digital human rights.</p>
       </div>
-      <div class="legal-block">
+      <div class="legal-block" id="legal-privacy">
         <h5>Privacy &amp; Data</h5>
         <p>SherpaCarta.org collects no personal data. Zero analytics. Zero cookies. All signatures are stored locally in your browser and optionally published to a distributed ledger. We practice exactly what we preach. This site complies with GDPR, CCPA, and exceeds both.</p>
       </div>
@@ -1393,10 +1405,10 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
         </a>
       </p>
       <div class="legal-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">Accessibility</a>
+        <a href="#legal-privacy" onclick="document.getElementById('legal-privacy').scrollIntoView({behavior:'smooth'});return false">Privacy Policy</a>
+        <a href="#legal-terms" onclick="document.getElementById('legal-terms').scrollIntoView({behavior:'smooth'});return false">Terms of Use</a>
+        <a href="#cookie-banner" onclick="document.getElementById('cookie-banner').scrollIntoView({behavior:'smooth'});return false">Cookie Policy</a>
+        <a href="#" onclick="focusA11yToolbar();return false">Accessibility</a>
         <a href="mailto:hello@giveabit.io?subject=Sherpacarta">Contact</a>
         <a href="#" onclick="downloadPressKit();return false">Press Kit</a>
       </div>
@@ -2154,6 +2166,18 @@ function copyNostrNip(){
 
 function contactEmail(){
   location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(CONTACT_SUBJECT);
+}
+
+function focusA11yToolbar(){
+  const bar=document.getElementById('a11y-toolbar');
+  if(bar){
+    bar.scrollIntoView({behavior:'smooth',block:'nearest'});
+    const btn=bar.querySelector('button');
+    if(btn) btn.focus();
+    toast('Accessibility toolbar — adjust font, contrast, and reading mode','info');
+  }else{
+    toast('Reload the page to enable the accessibility toolbar','info');
+  }
 }
 
 // ═══ NOSTR ════════════════════════════════════════════════

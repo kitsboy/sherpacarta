@@ -4,7 +4,7 @@
  */
 (function SCEnhancementsV2() {
   'use strict';
-  const BUILD = '20260703-200';
+  const BUILD = '20260703-202';
   const FEATURES = [];
   const $ = (id) => document.getElementById(id);
   const toast = (msg, type) => window.toast?.(msg, type || 'info');
