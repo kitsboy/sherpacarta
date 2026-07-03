@@ -17,6 +17,14 @@ owner: Cam / Give A Bit
 
 All notable changes to this project are documented here.
 
+## [2.3.1] — 2026-07-03
+
+### Changed
+- Give A Bit orange brush logo in header + footer (`giveabit-logo.png`)
+- Official socials only: Twitter @give_bit, Nostr NIP-05 kimi@giveabit.io, GitHub
+- Contact email: hello@giveabit.io (subject: Sherpacarta)
+- Footer contact line, GitHub links wired, press kit onclick
+
 ## [2.3.0] — 2026-07-03
 
 ### Added

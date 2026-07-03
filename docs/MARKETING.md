@@ -78,9 +78,12 @@ It is open source, CC0 public domain, funded only by Bitcoin donations, and desi
 - CC0 1.0 — copy, translate, adapt freely
 
 **Social Handles:**
-- X / Twitter: @SherpaCarta
+- Email: hello@giveabit.io (subject: Sherpacarta)
+- X / Twitter: @give_bit — https://twitter.com/give_bit
+- Nostr NIP-05: kimi@giveabit.io
+- GitHub: https://github.com/kitsboy/sherpacarta
 - Primary site: https://sherpacarta.org/
-- GitHub: (add when public)
+- Built by: https://giveabit.io
 - Bitcoin: `bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad`
 - Lightning: TEMP placeholder (do not send) until live
 - Stamp charter: [satohash.giveabit.io](https://satohash.giveabit.io) (OpenTimestamps on Bitcoin)

@@ -97,10 +97,9 @@
     document.querySelectorAll('img').forEach((img) => { img.decoding = 'async'; img.loading = 'lazy'; });
   });
 
-  feat(111, 'Give A Bit logo +50% size', () => {
-    document.querySelectorAll('.giveabit-footer img').forEach((img) => {
-      img.height = 33; img.width = 132;
-      img.style.height = '33px'; img.style.width = 'auto';
+  feat(111, 'Give A Bit logo sync PNG', () => {
+    document.querySelectorAll('.giveabit-brand-logo,.giveabit-footer img').forEach((img) => {
+      if (!img.src.includes('giveabit-logo.png')) img.src = '/giveabit-logo.png';
     });
   });
 
@@ -350,7 +349,7 @@
 
   feat(135, 'Legislative brief generator', () => {
     window.generateLegislativeBrief = () => {
-      const brief = `LEGISLATIVE BRIEF — SherpaCarta v2.0\nFor: BC / Canada policymakers\nDate: ${new Date().toISOString().split('T')[0]}\n\nEXECUTIVE SUMMARY\nSherpaCarta is a 114-article model Digital Rights Act synthesizing Magna Carta (1215), UDHR (1948), and Icelandic crowdsourced constitution (2011) for the algorithmic age.\n\nPRIORITY ARTICLES FOR ADOPTION\n• Art. 11 — Absolute privacy, ban mass surveillance\n• Art. 12 — Data sovereignty\n• Art. 13 — Prohibition of surveillance capitalism\n• Art. 61–62 — Algorithmic transparency and non-discrimination\n• Art. 114 — Living charter (rights only expand)\n\nPROOF\nStamp this version on Bitcoin: https://satohash.giveabit.io\n\nCONTACT\nhttps://sherpacarta.org\n\nCC0 Public Domain — adopt freely.`;
+      const brief = `LEGISLATIVE BRIEF — SherpaCarta v2.0\nFor: BC / Canada policymakers\nDate: ${new Date().toISOString().split('T')[0]}\n\nEXECUTIVE SUMMARY\nSherpaCarta is a 114-article model Digital Rights Act synthesizing Magna Carta (1215), UDHR (1948), and Icelandic crowdsourced constitution (2011) for the algorithmic age.\n\nPRIORITY ARTICLES FOR ADOPTION\n• Art. 11 — Absolute privacy, ban mass surveillance\n• Art. 12 — Data sovereignty\n• Art. 13 — Prohibition of surveillance capitalism\n• Art. 61–62 — Algorithmic transparency and non-discrimination\n• Art. 114 — Living charter (rights only expand)\n\nPROOF\nStamp this version on Bitcoin: https://satohash.giveabit.io\n\nCONTACT\nhello@giveabit.io (subject: Sherpacarta)\nhttps://sherpacarta.org\n\nCC0 Public Domain — adopt freely.`;
       const blob = new Blob([brief], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -467,7 +466,7 @@
 
   feat(147, 'Media inquiry mailto', () => {
     window.mediaInquiry = () => {
-      location.href = 'mailto:press@sherpacarta.org?subject=Media%20Inquiry%20—%20SherpaCarta&body=Publication:%0AAudience:%0ADeadline:';
+      location.href = 'mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Media%20Inquiry&body=Publication:%0AAudience:%0ADeadline:';
     };
   });
 
@@ -944,16 +943,8 @@
     );
   });
 
-  feat(189, 'Footer share row expanded', () => {
-    const row = document.createElement('div');
-    row.className = 'footer-share';
-    row.style.marginTop = '.5rem';
-    row.innerHTML = `
-      <button type="button" class="share-btn share-cp" onclick="shareReddit()"><i class="fab fa-reddit"></i></button>
-      <button type="button" class="share-btn share-cp" onclick="shareBluesky()"><i class="fas fa-cloud"></i></button>
-      <button type="button" class="share-btn share-cp" onclick="showPageQR()"><i class="fas fa-qrcode"></i></button>
-      <button type="button" class="share-btn share-cp" onclick="generateSocialCard()"><i class="fas fa-image"></i></button>`;
-    document.querySelector('.footer-brand .footer-share')?.after(row);
+  feat(189, 'Official socials only guard', () => {
+    document.querySelectorAll('.footer-brand .footer-share').forEach((el) => el.remove());
   });
 
   feat(190, 'RSS feed download', () => {

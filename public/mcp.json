@@ -3,6 +3,12 @@
   "version": "2.3.0",
   "description": "Global Digital Magna Carta — 114 articles of digital human rights",
   "url": "https://sherpacarta.org",
+  "contact": "hello@giveabit.io",
+  "sameAs": [
+    "https://twitter.com/give_bit",
+    "https://github.com/kitsboy/sherpacarta",
+    "https://giveabit.io"
+  ],
   "tools": [
     {
       "name": "search_charter",

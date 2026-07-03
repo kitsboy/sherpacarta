@@ -143,7 +143,11 @@ See the legal footer in the site for the full statement.
 ## Contact & Movement
 
 - Site: https://sherpacarta.org/
-- X: @SherpaCarta
+- Email: [hello@giveabit.io](mailto:hello@giveabit.io?subject=Sherpacarta)
+- X: [@give_bit](https://twitter.com/give_bit)
+- Nostr NIP-05: `kimi@giveabit.io`
+- GitHub: https://github.com/kitsboy/sherpacarta
+- Built by: https://giveabit.io
 - "SHERPACARTA IS A GLOBAL MOVEMENT, NOT A CORPORATION. BUILT WITH ❤ BY VOLUNTEERS IN 24 COUNTRIES. POWERED BY BITCOIN. GUIDED BY CONSCIENCE."
 
 ---

@@ -482,7 +482,7 @@
 
   feat(34, 'Email share mailto', () => {
     window.shareEmail = function () {
-      location.href = 'mailto:?subject=' + encodeURIComponent('Sign SherpaCarta — Digital Magna Carta') + '&body=' + encodeURIComponent('114 articles protecting digital human rights for everyone.\nhttps://sherpacarta.org');
+      location.href = 'mailto:hello@giveabit.io?subject=' + encodeURIComponent('Sherpacarta') + '&body=' + encodeURIComponent('114 articles protecting digital human rights for everyone.\nhttps://sherpacarta.org');
     };
   });
 
@@ -518,7 +518,7 @@
 
   feat(38, 'Press kit download txt', () => {
     window.downloadPressKit = function () {
-      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @SherpaCarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
+      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: kimi@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\nBuilt by: https://giveabit.io\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
       const blob = new Blob([kit], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -623,7 +623,7 @@
   feat(50, 'Contact mailto', () => {
     document.querySelectorAll('.legal-links a').forEach((a) => {
       if (a.textContent.trim() === 'Contact') {
-        a.href = 'mailto:hello@sherpacarta.org?subject=SherpaCarta%20Inquiry';
+        a.href = 'mailto:hello@giveabit.io?subject=Sherpacarta';
       }
     });
   });

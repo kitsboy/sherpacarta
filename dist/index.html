@@ -137,8 +137,17 @@ body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.8}
 #main-nav{position:sticky;top:0;z-index:500;border-bottom:1px solid var(--border);background:var(--glass);backdrop-filter:blur(32px);transition:all .3s}
 #main-nav.shrunk{box-shadow:var(--glow)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
-.nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0}
+.nav-logo{display:flex;align-items:center;gap:.75rem;flex-shrink:0;text-decoration:none;color:inherit}
+.giveabit-brand-logo{height:40px;width:auto;display:block;flex-shrink:0;border-radius:6px}
+.footer-brand .giveabit-brand-logo{height:36px}
 .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--em),var(--em2));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#000;box-shadow:0 0 16px rgba(16,185,129,.3);flex-shrink:0}
+.footer-social-official{display:flex;gap:.65rem;align-items:center;margin-top:1rem;flex-wrap:wrap}
+.social-official{display:inline-flex;align-items:center;gap:.4rem;padding:.4rem .75rem;border-radius:100px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;text-decoration:none;transition:all .2s;cursor:pointer}
+.social-official:hover{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.08)}
+.social-official i{font-size:.85rem}
+.footer-contact{margin-top:1rem;font-family:var(--mono);font-size:.68rem;color:var(--text3)}
+.footer-contact a{color:var(--em2);text-decoration:none}
+.footer-contact a:hover{color:var(--em);text-decoration:underline}
 .logo-text{font-family:var(--serif);font-size:1.6rem;font-weight:700;letter-spacing:-.02em;line-height:1}
 .logo-sub{font-family:var(--mono);font-size:.5rem;color:var(--em);letter-spacing:.2em;margin-top:.1rem}
 .nav-actions{display:flex;align-items:center;gap:.4rem;flex-wrap:nowrap}
@@ -486,7 +495,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 .amend-meta{font-family:var(--mono);font-size:.55rem;color:var(--text3);margin-top:.35rem}
 .giveabit-footer{display:inline-flex;align-items:center;gap:.5rem;margin-top:.75rem;opacity:.55;transition:opacity .2s}
 .giveabit-footer:hover{opacity:.85}
-.giveabit-footer img{height:33px;width:auto;border-radius:4px}
+.giveabit-footer img{height:36px;width:auto;border-radius:6px}
 
 /* ═══════════════════════════════════════════════════════════
    FLOATING ELEMENTS
@@ -728,13 +737,13 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 ════════════════════════════════════════════════════════ -->
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <div class="nav-logo">
-      <div class="logo-icon" aria-hidden="true"><i class="fas fa-scroll"></i></div>
+    <a href="https://giveabit.io" class="nav-logo" target="_blank" rel="noopener" title="Give A Bit — giveabit.io">
+      <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="40" height="40" decoding="async">
       <div>
         <div class="logo-text">SherpaCarta</div>
         <div class="logo-sub">v2.0 &bull; Global Digital Rights</div>
       </div>
-    </div>
+    </a>
     <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
       <i class="fas fa-bars" aria-hidden="true"></i>
     </button>
@@ -1099,7 +1108,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
       <div class="org-card"><div class="org-icon">🎓</div><div class="org-name">Academic Rights Network</div><div class="org-type">Research &bull; 120 Universities</div></div>
       <div class="org-card"><div class="org-icon">📰</div><div class="org-name">Press Freedom Initiative</div><div class="org-type">Journalism &bull; Global</div></div>
     </div>
-    <p style="font-size:.72rem;color:var(--text3);margin-top:1.25rem;font-family:var(--mono)">* Organizations shown are illustrative of the coalition type being built. Contact us to join officially.</p>
+    <p style="font-size:.72rem;color:var(--text3);margin-top:1.25rem;font-family:var(--mono)">* Organizations shown are illustrative of the coalition type being built. <a href="mailto:hello@giveabit.io?subject=Sherpacarta" style="color:var(--em)">Contact us</a> to join officially.</p>
   </div>
 </section>
 
@@ -1296,14 +1305,15 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 <footer role="contentinfo">
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="nav-logo" style="margin-bottom:0">
-        <div class="logo-icon" style="width:34px;height:34px;font-size:.95rem"><i class="fas fa-scroll"></i></div>
+      <a href="https://giveabit.io" class="nav-logo" style="margin-bottom:0" target="_blank" rel="noopener" title="Give A Bit — giveabit.io">
+        <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="36" height="36" decoding="async">
         <div>
           <div class="logo-text" style="font-size:1.35rem">SherpaCarta</div>
           <div class="logo-sub">v2.0 &bull; 2026</div>
         </div>
-      </div>
+      </a>
       <p>Privacy is not a feature. It is a human right. Built by the people, for the people — across every border.</p>
+      <p class="footer-contact">Contact: <a href="mailto:hello@giveabit.io?subject=Sherpacarta">hello@giveabit.io</a></p>
 
       <!-- FOOTER PAYMENT TABS -->
       <div class="footer-pay" id="footer-pay">
@@ -1325,13 +1335,11 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
         </div>
       </div>
 
-      <!-- FOOTER SOCIAL (Feature 38) -->
-      <div class="footer-share" style="margin-top:1rem">
-        <button class="share-btn share-x" onclick="shareOn('x')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-x-twitter"></i></button>
-        <button class="share-btn share-wa" onclick="shareOn('whatsapp')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-whatsapp"></i></button>
-        <button class="share-btn share-tg" onclick="shareOn('telegram')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-telegram"></i></button>
-        <button class="share-btn share-fb" onclick="shareOn('facebook')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-facebook"></i></button>
-        <button class="share-btn share-li" onclick="shareOn('linkedin')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-linkedin"></i></button>
+      <!-- OFFICIAL SOCIALS — Give A Bit / SherpaCarta -->
+      <div class="footer-social-official" aria-label="Official social channels">
+        <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
+        <button type="button" class="social-official" onclick="copyNostrNip()" title="Nostr NIP-05: kimi@giveabit.io"><i class="fas fa-user-secret"></i> Nostr</button>
+        <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </div>
     <div class="footer-col">
@@ -1345,10 +1353,10 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
     <div class="footer-col">
       <h4>Community</h4>
       <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Sign the Charter</a>
-      <a href="#">Volunteer</a>
+      <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Volunteer">Volunteer</a>
       <a href="#">Organizations</a>
       <a href="#">Local Chapters</a>
-      <a href="#">GitHub</a>
+      <a href="https://github.com/kitsboy/sherpacarta" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="footer-col">
       <h4>Resources</h4>
@@ -1358,7 +1366,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
       <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener">Platform Roadmap</a>
       <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
       <a href="#">Legal Framework</a>
-      <a href="#">Press Kit (Download)</a>
+      <a href="#" onclick="downloadPressKit();return false">Press Kit (Download)</a>
     </div>
   </div>
 
@@ -1380,8 +1388,8 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
     </div>
     <div class="legal-bottom">
       <p>&copy; 2026 SherpaCarta Global Movement. Published under CC0 — No Rights Reserved. Copy Freely.
-        <a href="https://giveabit.io" target="_blank" rel="noopener" class="giveabit-footer" title="Built by Give A Bit">
-          <img src="/giveabit-logo.jpg" alt="Give A Bit" width="132" height="33" loading="lazy">
+        <a href="https://giveabit.io" target="_blank" rel="noopener" class="giveabit-footer" title="Built by Give A Bit — giveabit.io">
+          <img src="/giveabit-logo.png" alt="Give A Bit" width="36" height="36" loading="lazy" decoding="async">
         </a>
       </p>
       <div class="legal-links">
@@ -1389,8 +1397,8 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
         <a href="#">Terms of Use</a>
         <a href="#">Cookie Policy</a>
         <a href="#">Accessibility</a>
-        <a href="#">Contact</a>
-        <a href="#">Press Kit</a>
+        <a href="mailto:hello@giveabit.io?subject=Sherpacarta">Contact</a>
+        <a href="#" onclick="downloadPressKit();return false">Press Kit</a>
       </div>
     </div>
     <div style="text-align:center;padding:1.25rem 0;font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.08em;border-top:1px solid var(--border);margin-top:.875rem">
@@ -1486,6 +1494,9 @@ const SHERPA_WALLETS = {
 window.SHERPA_WALLETS = SHERPA_WALLETS;
 const SATOHASH_URL = 'https://satohash.giveabit.io';
 const NOSTR_RELAYS = ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
+const CONTACT_EMAIL = 'hello@giveabit.io';
+const CONTACT_SUBJECT = 'Sherpacarta';
+const NOSTR_NIP05 = 'kimi@giveabit.io';
 let qrCurrentAddress = '';
 let qrCurrentType = 'btc';
 
@@ -2137,6 +2148,14 @@ function copyQRAddress(){
   navigator.clipboard.writeText(qrCurrentAddress).then(()=>toast('Address copied!','success'));
 }
 
+function copyNostrNip(){
+  navigator.clipboard.writeText(NOSTR_NIP05).then(()=>toast('Nostr NIP-05 copied: ' + NOSTR_NIP05,'success'));
+}
+
+function contactEmail(){
+  location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(CONTACT_SUBJECT);
+}
+
 // ═══ NOSTR ════════════════════════════════════════════════
 function updateNostrUI(){
   const badge=document.getElementById('nostr-badge');
@@ -2286,6 +2305,8 @@ const CMD_ITEMS=[
   {group:'Navigate',icon:'fa-signature',label:'Sign the Charter',sub:'Add your name',action:()=>document.getElementById('sign').scrollIntoView({behavior:'smooth'})},
   {group:'Navigate',icon:'fa-calculator',label:'Rights Calculator',sub:'Check your protection score',action:()=>document.querySelector('.calc-grid').scrollIntoView({behavior:'smooth'})},
   {group:'Navigate',icon:'fa-clock-rotate-left',label:'Timeline',sub:'1215 → 2026',action:()=>document.querySelector('.timeline').scrollIntoView({behavior:'smooth'})},
+  {group:'Contact',icon:'fa-envelope',label:'Email Give A Bit',sub:'hello@giveabit.io',action:contactEmail},
+  {group:'Contact',icon:'fa-user-secret',label:'Copy Nostr NIP-05',sub:'kimi@giveabit.io',action:copyNostrNip},
   {group:'Share',icon:'fa-x-twitter fab',label:'Share on X / Twitter',sub:'Tweet SherpaCarta',action:()=>shareOn('x')},
   {group:'Share',icon:'fa-whatsapp fab',label:'Share on WhatsApp',sub:'Send to contacts',action:()=>shareOn('whatsapp')},
   {group:'Share',icon:'fa-telegram fab',label:'Share on Telegram',sub:'Send to channels',action:()=>shareOn('telegram')},
