@@ -16,6 +16,8 @@
   function toast(msg, type) {
     if (typeof window.toast === 'function') window.toast(msg, type || 'info');
   }
+  function leftDock() { return $('left-ui-dock') || document.body; }
+  function statusDock() { return $('status-dock') || document.body; }
 
   // ═══ GROUP 1: Critical fixes + core UX (1-25) ═══════════
 
@@ -88,7 +90,7 @@
       <button type="button" title="High contrast" onclick="SC.toggleContrast()"><i class="fas fa-circle-half-stroke"></i></button>
       <button type="button" title="Keyboard shortcuts" onclick="SC.showShortcuts()"><i class="fas fa-keyboard"></i></button>
     `;
-    document.body.appendChild(bar);
+    leftDock().appendChild(bar);
     window.SC = window.SC || {};
     let fontScale = parseFloat(localStorage.getItem('sc_font_scale') || '1');
     SC.fontUp = () => { fontScale = Math.min(1.4, fontScale + 0.05); applyFont(); };
@@ -134,7 +136,7 @@
     b.className = 'build-badge';
     b.textContent = 'BUILD ' + BUILD;
     b.title = '100 features loaded';
-    document.body.appendChild(b);
+    statusDock().appendChild(b);
   });
 
   feat(7, 'Charter hash footer', () => {
@@ -162,7 +164,7 @@
     b.id = 'net-badge';
     b.className = 'net-badge online';
     b.innerHTML = '<i class="fas fa-wifi"></i> Online';
-    document.body.appendChild(b);
+    statusDock().appendChild(b);
     const upd = () => {
       b.className = 'net-badge ' + (navigator.onLine ? 'online' : 'offline');
       b.innerHTML = navigator.onLine ? '<i class="fas fa-wifi"></i> Online' : '<i class="fas fa-wifi-slash"></i> Offline';
@@ -305,7 +307,7 @@
     c.className = 'sticky-bc-cta';
     c.id = 'sticky-bc-cta';
     c.innerHTML = '<i class="fas fa-maple-leaf"></i> BC Challenge';
-    document.body.appendChild(c);
+    leftDock().insertBefore(c, leftDock().firstChild);
   });
 
   feat(22, 'FAQ search filter', () => {

@@ -1,10 +1,10 @@
 /**
- * SherpaCarta Enhancements v3.3 — Features 376–415
+ * SherpaCarta Enhancements v3.4 — Features 376–420
  * UI dock fixes + 30 enhancements
  */
 (function SCEnhancementsV6() {
   'use strict';
-  const BUILD = '20260703-415';
+  const BUILD = '20260703-420';
   const FEATURES = [];
   const $ = (id) => document.getElementById(id);
   const toast = (msg, type) => window.toast?.(msg, type || 'info');
@@ -19,27 +19,17 @@
   // ═══ GROUP 16: UI Dock Fixes (376–390) ═══════════════════
 
   feat(376, 'Left UI dock — pin a11y + BC tab', () => {
-    let dock = $('left-ui-dock');
-    if (!dock) {
-      dock = document.createElement('div');
-      dock.id = 'left-ui-dock';
-      dock.setAttribute('aria-label', 'Accessibility and quick links');
-      document.body.appendChild(dock);
-    }
+    const dock = $('left-ui-dock');
+    if (!dock) return;
     const bc = document.querySelector('.sticky-bc-cta');
     const a11y = $('a11y-toolbar');
-    if (bc && bc.parentElement !== dock) dock.appendChild(bc);
+    if (bc && bc.parentElement !== dock) dock.insertBefore(bc, dock.firstChild);
     if (a11y && a11y.parentElement !== dock) dock.appendChild(a11y);
   });
 
   feat(377, 'Status dock — BUILD + Online visible', () => {
-    let dock = $('status-dock');
-    if (!dock) {
-      dock = document.createElement('div');
-      dock.id = 'status-dock';
-      dock.setAttribute('aria-label', 'Build and connection status');
-      document.body.appendChild(dock);
-    }
+    const dock = $('status-dock');
+    if (!dock) return;
     const bb = document.querySelector('.build-badge');
     const net = $('net-badge');
     if (bb) {
@@ -104,21 +94,21 @@
     }
   });
 
-  feat(383, 'Left dock viewport-centered on resize', () => {
+  feat(383, 'Docks pinned below header on resize', () => {
     const sync = () => {
-      const dock = $('left-ui-dock');
-      if (!dock) return;
-      dock.style.top = '50%';
-      dock.style.transform = 'translateY(-50%)';
-      dock.style.removeProperty('bottom');
+      const top = `calc(var(--announce-h, 0px) + ${window.innerWidth < 768 ? 3.75 : 4.5}rem)`;
+      const ld = $('left-ui-dock');
+      const sd = $('status-dock');
+      if (ld) { ld.style.top = top; ld.style.bottom = 'auto'; ld.style.transform = 'none'; }
+      if (sd) { sd.style.top = top; sd.style.bottom = 'auto'; sd.style.left = 'auto'; }
     };
     sync();
     window.addEventListener('resize', sync);
   });
 
-  feat(384, 'Status dock bottom-right + float-assert clear', () => {
+  feat(384, 'Status dock top-right + float-assert clear', () => {
     const s = document.createElement('style');
-    s.textContent = '#status-dock{z-index:460;left:auto;right:max(.75rem,env(safe-area-inset-right,0))}#float-assert{z-index:400;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}#back-top{z-index:461;bottom:calc(5.5rem + env(safe-area-inset-bottom,0))}';
+    s.textContent = '#left-ui-dock,#status-dock{position:fixed!important}#status-dock{top:calc(var(--announce-h,0px) + 4.5rem);right:max(.5rem,env(safe-area-inset-right,0));left:auto!important;bottom:auto!important;flex-direction:row}#float-assert{z-index:400;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}#back-top{z-index:461;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}body>#a11y-toolbar,body>.build-badge,body>#net-badge,body>.sticky-bc-cta{display:none!important}';
     document.head.appendChild(s);
   });
 
@@ -183,9 +173,9 @@
     }
   });
 
-  feat(392, 'Footer padding trim — less void', () => {
+  feat(392, 'Footer padding trim — no black gap', () => {
     const s = document.createElement('style');
-    s.textContent = 'footer{padding-bottom:.5rem}@media(min-width:769px){body{padding-bottom:3rem}}';
+    s.textContent = 'footer{padding-bottom:0;margin-bottom:0}body{padding-bottom:max(1rem,env(safe-area-inset-bottom,0))!important}footer .legal-footer{padding-bottom:max(1rem,env(safe-area-inset-bottom,0))!important}';
     document.head.appendChild(s);
   });
 
@@ -258,7 +248,7 @@
         orig();
         const sec = $('usage-guide-modal')?.querySelector('.usage-sections');
         if (sec && !sec.querySelector('.dock-note')) {
-          sec.insertAdjacentHTML('beforeend', '<section class="dock-note"><h3>📌 Pinned UI</h3><p style="font-size:.82rem;color:var(--text2)"><strong>Left dock:</strong> BC Challenge tab + accessibility tools — fixed mid-page on the left; page scrolls behind.<br><strong>Bottom-right:</strong> BUILD badge + Online status — always visible, clickable.</p></section>');
+          sec.insertAdjacentHTML('beforeend', '<section class="dock-note"><h3>📌 Pinned UI</h3><p style="font-size:.82rem;color:var(--text2)"><strong>Top-left:</strong> BC Challenge + accessibility tools — fixed below header.<br><strong>Top-right:</strong> BUILD badge + Online status — always visible.</p></section>');
         }
       };
     }
@@ -274,7 +264,7 @@
     window.SC = window.SC || {};
     SC.FEATURES_V6 = FEATURES;
     SC.BUILD = BUILD;
-    SC.totalFeatures = 415;
+    SC.totalFeatures = 420;
     SC.toggleA11yDock = SC6.toggleA11yDock;
     const origShow = SC.showFeatures;
     SC.showFeatures = function () {
@@ -283,7 +273,7 @@
       if (grid && !grid.dataset.v6merged) {
         grid.insertAdjacentHTML('beforeend', FEATURES.map((f) => `<div class="feat-item"><span>${f.id}</span> ${f.name}</div>`).join(''));
         grid.dataset.v6merged = '1';
-        $('features-modal')?.querySelector('h2').textContent = '415 Features';
+        $('features-modal')?.querySelector('h2').textContent = '420 Features';
         $('features-modal')?.querySelector('p').textContent = 'BUILD ' + BUILD;
       }
     };
@@ -293,9 +283,9 @@
 
   feat(405, 'v6 init toast', () => {
     setTimeout(() => {
-      if (!sessionStorage.getItem('sc_415_loaded')) {
-        sessionStorage.setItem('sc_415_loaded', '1');
-        toast('Landing docks centered — left tools mid-page, status bottom-right', 'success');
+      if (!sessionStorage.getItem('sc_420_loaded')) {
+        sessionStorage.setItem('sc_420_loaded', '1');
+        toast('UI docks pinned below header — hard refresh if layout looks wrong', 'success');
       }
     }, 5200);
   });
@@ -308,11 +298,14 @@
     }
   });
 
-  feat(407, 'Status dock right anchor on init', () => {
+  feat(407, 'Status dock top-right anchor on init', () => {
     const dock = $('status-dock');
     if (dock) {
+      dock.style.position = 'fixed';
+      dock.style.top = 'calc(var(--announce-h, 0px) + 4.5rem)';
+      dock.style.bottom = 'auto';
       dock.style.left = 'auto';
-      dock.style.right = `max(.75rem, env(safe-area-inset-right, 0))`;
+      dock.style.right = 'max(.5rem, env(safe-area-inset-right, 0))';
     }
   });
 
@@ -321,9 +314,9 @@
     if (fa) fa.style.bottom = 'calc(1.25rem + env(safe-area-inset-bottom, 0))';
   });
 
-  feat(409, 'Back-top stacks above status dock', () => {
+  feat(409, 'Back-top bottom-right corner', () => {
     const bt = $('back-top');
-    if (bt) bt.style.bottom = 'calc(5.5rem + env(safe-area-inset-bottom, 0))';
+    if (bt) bt.style.bottom = 'calc(1.25rem + env(safe-area-inset-bottom, 0))';
   });
 
   feat(410, 'A11y toolbar compact inside dock card', () => {
@@ -336,9 +329,9 @@
     /* handled in feat 391 */
   });
 
-  feat(412, 'Mobile dock + dots opposite sides', () => {
+  feat(412, 'Mobile docks below header', () => {
     const s = document.createElement('style');
-    s.textContent = '@media(max-width:768px){#left-ui-dock{top:50%;transform:translateY(-50%)}.section-dots{left:max(.35rem,env(safe-area-inset-left,0));right:auto}}';
+    s.textContent = '@media(max-width:768px){#left-ui-dock,#status-dock{top:calc(var(--announce-h,0px) + 3.75rem)!important;transform:none!important}}';
     document.head.appendChild(s);
   });
 
@@ -357,15 +350,63 @@
   });
 
   feat(415, 'Dock layout BUILD 415 merge', () => {
-    SC.totalFeatures = 415;
+    SC.totalFeatures = 420;
     SC.BUILD = BUILD;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
     if (SC3?.featRanges) {
-      const r = SC3.featRanges.find((x) => x.label === 'Dock 376–405');
-      if (r) { r.label = 'Dock 376–415'; r.max = 415; }
+      const r = SC3.featRanges.find((x) => x.label?.includes('Dock'));
+      if (r) { r.label = 'Dock 376–420'; r.max = 420; }
     }
   });
 
-  console.log(`SherpaCarta v3.3 — features 376–415 loaded (${FEATURES.length})`);
+  feat(416, 'Relocate orphan UI into docks', () => {
+    const ld = $('left-ui-dock');
+    const sd = $('status-dock');
+    document.querySelectorAll('body > .sticky-bc-cta, body > #sticky-bc-cta').forEach((el) => {
+      if (ld && el.parentElement !== ld) ld.insertBefore(el, ld.firstChild);
+    });
+    document.querySelectorAll('body > #a11y-toolbar').forEach((el) => {
+      if (ld && el.parentElement !== ld) ld.appendChild(el);
+    });
+    document.querySelectorAll('body > .build-badge').forEach((el) => {
+      if (sd && el.parentElement !== sd) sd.appendChild(el);
+    });
+    document.querySelectorAll('body > #net-badge').forEach((el) => {
+      if (sd && el.parentElement !== sd) sd.appendChild(el);
+    });
+  });
+
+  feat(417, 'Left dock top anchor on init', () => {
+    const dock = $('left-ui-dock');
+    if (dock) {
+      dock.style.position = 'fixed';
+      dock.style.top = 'calc(var(--announce-h, 0px) + 4.5rem)';
+      dock.style.bottom = 'auto';
+      dock.style.transform = 'none';
+    }
+  });
+
+  feat(418, 'Second-pass orphan UI into docks', () => {
+    const ld = $('left-ui-dock');
+    const sd = $('status-dock');
+    if (!ld || !sd) return;
+    document.querySelectorAll('body > .sticky-bc-cta, body > #a11y-toolbar').forEach((el) => ld.appendChild(el));
+    document.querySelectorAll('body > .build-badge, body > #net-badge').forEach((el) => sd.appendChild(el));
+  });
+
+  feat(419, 'Section dots mid-right only', () => {
+    const s = document.createElement('style');
+    s.textContent = '@media(max-width:768px){.section-dots{right:max(.35rem,env(safe-area-inset-right,0));left:auto}}';
+    document.head.appendChild(s);
+  });
+
+  feat(420, 'Landing layout final BUILD 420', () => {
+    SC.BUILD = BUILD;
+    SC.totalFeatures = 420;
+    const bb = document.querySelector('.build-badge');
+    if (bb) bb.textContent = 'BUILD ' + BUILD;
+  });
+
+  console.log(`SherpaCarta v3.4 — features 376–420 loaded (${FEATURES.length})`);
 })();
