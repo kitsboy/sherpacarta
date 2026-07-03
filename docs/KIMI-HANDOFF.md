@@ -4,6 +4,45 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-02 (Session 5 — Landing Dock Layout)
+
+**Machine:** M3 (Grok)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] Left UI dock (BC tab + a11y toolbar) — viewport-centered mid-left, card chrome, scroll behind
+- [x] Status dock (BUILD + Online) — moved to bottom-right; back-top stacks above
+- [x] Removed resize JS that pinned left dock below header (feat 383)
+- [x] Section dots panel + fade near footer; mobile dots left / dock right
+- [x] Footer void padding reduced; float-assert center unobstructed
+- [x] Features 406–415, BUILD 20260703-415, SW cache v3.4
+- [x] Deployed: `fdfe8b9`
+
+### Decisions
+
+- Left dock mirrors section-dots pattern (`top: 50%; transform: translateY(-50%)`)
+- Status dock on right keeps left clear and avoids float-assert overlap
+- Mobile: opposite sides for dock vs dots to prevent collision
+
+### What's Next
+
+- [ ] Visual QA on sherpacarta.org after CDN cache clears
+- [ ] Lightning live wallet
+- [ ] Short walkthrough video
+
+### Git State
+
+- Last commit SHA: fdfe8b9d5218138996f3bed3af1db5a97567724b
+- Branch: main
+- Unpushed: none
+
+---
+
+*Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*
+
+---
+
 ## Handoff to Kimi — 2026-07-02 (Session 4 — 300 Features v3.0)
 
 **Machine:** M3 (Grok)  
