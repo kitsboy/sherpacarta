@@ -1,4 +1,4 @@
 # sherpacarta — Last Updated 2026-07-02 by Grok
 
-Brief: Centered 2× parent logo, 375 features
-Commit: ae5f506
+Brief: Fixed scroll dots, footer buffer, header clicks
+Commit: af7912b

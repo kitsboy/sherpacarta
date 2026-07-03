@@ -134,8 +134,7 @@
     b.className = 'build-badge';
     b.textContent = 'BUILD ' + BUILD;
     b.title = '100 features loaded';
-    const nav = $('main-nav');
-    if (nav) nav.appendChild(b);
+    document.body.appendChild(b);
   });
 
   feat(7, 'Charter hash footer', () => {
@@ -304,6 +303,7 @@
     const c = document.createElement('a');
     c.href = '#canada-bc';
     c.className = 'sticky-bc-cta';
+    c.id = 'sticky-bc-cta';
     c.innerHTML = '<i class="fas fa-maple-leaf"></i> BC Challenge';
     document.body.appendChild(c);
   });

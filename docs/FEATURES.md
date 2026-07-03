@@ -1,7 +1,7 @@
-# SherpaCarta — 375 Features (v3.2)
+# SherpaCarta — 405 Features (v3.3)
 
-**BUILD:** 20260703-375  
-**Modules:** `sc-enhancements.js` (1–100) + `v2` (101–200) + `v3` (201–300) + `v4` (301–325) + `v5` (326–375)  
+**BUILD:** 20260703-405  
+**Modules:** `sc-enhancements.js` (1–100) + `v2`–`v6` (101–405)  
 **How to use:** [USAGE.md](USAGE.md)
 
 ## Group 1 — Critical + Core UX (1–25)
@@ -51,4 +51,7 @@ Parent logo centered in copyright row at 2× (44px), CC0 badge, copy giveabit.io
 ## Group 15 — Advanced Power (351–375)
 Session tracker, article heatmap, top articles widget, amendment templates, BC outreach pack, petition bar, speech rate, Nostr relay picker, Satohash stamp, tag cloud, session export/import, Konami v2, BUILD 375
 
-*Click BUILD badge for 375 features. Parent logo: centered footer · giveabit.io*
+## Group 16–17 — UI Docks (376–405)
+Left dock pins BC tab + a11y toolbar; status dock shows BUILD + Online; no header overlap; 30 fixes
+
+*BUILD + Online: bottom-left status dock. A11y + BC: pinned left dock below header.*

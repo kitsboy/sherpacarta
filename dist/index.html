@@ -427,17 +427,23 @@ footer .legal-footer{padding-bottom:max(2.5rem,env(safe-area-inset-bottom,0))}
 .qr-close:hover{border-color:var(--em);color:var(--em);background:var(--bg2)}
 
 /* ═══ ENHANCEMENTS v2.2 ═════════════════════════════════ */
-.a11y-toolbar{position:fixed;left:1rem;bottom:calc(5rem + env(safe-area-inset-bottom,0));z-index:450;display:flex;flex-direction:column;gap:.35rem}
-.a11y-toolbar button{width:40px;height:40px;border-radius:10px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-size:.7rem;cursor:pointer;transition:all .2s}
-.a11y-toolbar button:hover{border-color:var(--em);color:var(--em)}
-.build-badge{position:fixed;bottom:.5rem;left:.5rem;font-family:var(--mono);font-size:.5rem;color:var(--text3);opacity:.4;letter-spacing:.08em;z-index:100}
-.net-badge{position:fixed;top:74px;left:.75rem;font-family:var(--mono);font-size:.52rem;padding:.2rem .5rem;border-radius:100px;border:1px solid var(--border);z-index:499;opacity:.7}
+/* ═══ PINNED LEFT DOCK (a11y + BC tab) ════════════════════ */
+#left-ui-dock{position:fixed;left:max(.35rem,env(safe-area-inset-left,0));top:calc(var(--announce-h,0px) + 76px);z-index:460;display:flex;flex-direction:column;align-items:flex-start;gap:.45rem;max-height:calc(100vh - var(--announce-h,0px) - 9rem);overflow-y:auto;overflow-x:hidden;pointer-events:auto;padding:.25rem 0;scrollbar-width:none}
+#left-ui-dock::-webkit-scrollbar{display:none}
+.a11y-toolbar{position:static;display:flex;flex-direction:column;gap:.35rem;flex-shrink:0}
+.a11y-toolbar button{width:40px;height:40px;min-width:40px;min-height:40px;border-radius:10px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-size:.65rem;cursor:pointer;transition:all .2s;pointer-events:auto;flex-shrink:0}
+.a11y-toolbar button:hover{border-color:var(--em);color:var(--em);background:var(--bg3)}
+/* ═══ STATUS DOCK (BUILD + Online) — below header ═══════ */
+#status-dock{position:fixed;bottom:max(.75rem,env(safe-area-inset-bottom,0));left:max(.75rem,env(safe-area-inset-left,0));z-index:460;display:flex;flex-direction:column;gap:.3rem;pointer-events:auto;background:rgba(11,17,11,.92);backdrop-filter:blur(12px);border:1px solid var(--border2);border-radius:.625rem;padding:.45rem .65rem;box-shadow:0 4px 20px rgba(0,0,0,.35)}
+.build-badge{position:static;font-family:var(--mono);font-size:.58rem;color:var(--text2);opacity:1;letter-spacing:.06em;cursor:pointer;pointer-events:auto;line-height:1.3;white-space:nowrap}
+.build-badge:hover{color:var(--em)}
+.net-badge{position:static;font-family:var(--mono);font-size:.58rem;padding:.2rem .45rem;border-radius:100px;border:1px solid var(--border2);opacity:1;color:var(--em2);pointer-events:auto;white-space:nowrap}
 .net-badge.offline{border-color:var(--red);color:#fca5a5}
 .announce-banner{position:fixed;top:0;left:0;right:0;z-index:600;background:linear-gradient(90deg,rgba(16,185,129,.15),rgba(212,175,55,.1));border-bottom:1px solid var(--border2);padding:.55rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.78rem}
 .announce-banner a{color:var(--em)}
 .announce-banner button{background:none;border:none;color:var(--text3);cursor:pointer;padding:.5rem}
-.sticky-bc-cta{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:450;background:var(--bg2);border:1px solid var(--em);border-left:none;border-radius:0 100px 100px 0;padding:.5rem .75rem .5rem .5rem;font-family:var(--mono);font-size:.58rem;color:var(--em);text-decoration:none;writing-mode:vertical-rl;letter-spacing:.08em;opacity:.85;transition:opacity .2s}
-.sticky-bc-cta:hover{opacity:1}
+.sticky-bc-cta{position:static;display:inline-flex;align-items:center;gap:.35rem;background:var(--bg2);border:1px solid var(--em);border-left:3px solid var(--em);border-radius:0 12px 12px 0;padding:.45rem .7rem .45rem .5rem;font-family:var(--mono);font-size:.6rem;color:var(--em);text-decoration:none;letter-spacing:.06em;opacity:1;transition:all .2s;writing-mode:horizontal-tb;transform:none;white-space:nowrap;flex-shrink:0;pointer-events:auto}
+.sticky-bc-cta:hover{background:rgba(16,185,129,.12);box-shadow:0 0 12px rgba(16,185,129,.2)}
 body.reading-mode .trust-bar,body.reading-mode #particle-canvas,body.reading-mode .hero-share-official,body.reading-mode .sticky-bc-cta{display:none!important}
 body.reading-mode .section-max{max-width:680px}
 body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
@@ -489,7 +495,17 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 .minimap-thumb{position:absolute;width:100%;height:20%;background:var(--em);border-radius:2px;left:0}
 .star-btn{background:none;border:none;color:var(--gold);cursor:pointer;font-size:.9rem;margin-left:.35rem;padding:0}
 .calc-presets{margin-bottom:1rem}
-@media(max-width:768px){.a11y-toolbar{left:auto;right:.5rem;bottom:calc(6rem + env(safe-area-inset-bottom,0))}.sticky-bc-cta,.scroll-minimap{display:none}.section-dots{right:max(.35rem,env(safe-area-inset-right,0));gap:.35rem}.dot-link{width:8px;height:8px}.announce-banner{font-size:.7rem;padding-top:calc(.55rem + env(safe-area-inset-top,0))}body{padding-bottom:max(5rem,env(safe-area-inset-bottom,0))}footer .legal-footer{padding-bottom:max(3.5rem,env(safe-area-inset-bottom,0))}}
+@media(max-width:768px){
+  #left-ui-dock{left:auto;right:max(.35rem,env(safe-area-inset-right,0));top:calc(var(--announce-h,0px) + 68px);max-height:calc(55vh - var(--announce-h,0px));align-items:flex-end}
+  #status-dock{bottom:max(5.5rem,env(safe-area-inset-bottom,0));left:max(.5rem,env(safe-area-inset-left,0));font-size:.55rem}
+  .sticky-bc-cta{border-radius:12px 0 0 12px;border-left:none;border-right:3px solid var(--em)}
+  .scroll-minimap{display:none}
+  .section-dots{right:max(.35rem,env(safe-area-inset-right,0));gap:.35rem}
+  .dot-link{width:8px;height:8px}
+  .announce-banner{font-size:.7rem;padding-top:calc(.55rem + env(safe-area-inset-top,0))}
+  body{padding-bottom:max(6rem,env(safe-area-inset-bottom,0))}
+  footer .legal-footer{padding-bottom:max(4rem,env(safe-area-inset-bottom,0))}
+}
 
 /* ═══ MISSION BLOCK ═══════════════════════════════════════ */
 .mission-block{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -2673,5 +2689,6 @@ document.addEventListener('visibilitychange',()=>{
 <script src="/sc-enhancements-v3.js"></script>
 <script src="/sc-enhancements-v4.js"></script>
 <script src="/sc-enhancements-v5.js"></script>
+<script src="/sc-enhancements-v6.js"></script>
 </body>
 </html>

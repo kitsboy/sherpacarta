@@ -17,6 +17,13 @@ owner: Cam / Give A Bit
 
 All notable changes to this project are documented here.
 
+## [3.3.0] — 2026-07-02
+
+### UI Dock Fixes + 30 Features
+- Left dock: BC Challenge tab above pinned a11y toolbar (no overlap)
+- Status dock: BUILD + Online visible bottom-left (not behind header)
+- Features 376–405, BUILD 20260703-405
+
 ## [3.2.0] — 2026-07-02
 
 ### Footer Center + 50 Features
