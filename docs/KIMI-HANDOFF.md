@@ -41,9 +41,9 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ### Git State
 
-- Last commit SHA: *(see commit after this session)*
+- Last commit SHA: `72aa297f19ac3d6615f3e80339198fd48acb5b14`
 - Branch: `main`
-- Unpushed: *(verify after push)*
+- Unpushed: none (pushed + deployed to Cloudflare Pages)
 
 ---
 
