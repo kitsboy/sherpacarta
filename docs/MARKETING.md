@@ -81,9 +81,33 @@ It is open source, CC0 public domain, funded only by Bitcoin donations, and desi
 - X / Twitter: @SherpaCarta
 - Primary site: https://sherpacarta.org/
 - GitHub: (add when public)
-- Bitcoin: bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh (example in code; replace with real)
+- Bitcoin: `bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad`
+- Lightning: TEMP placeholder (do not send) until live
+- Stamp charter: [satohash.giveabit.io](https://satohash.giveabit.io) (OpenTimestamps on Bitcoin)
+- Built by: [giveabit.io](https://giveabit.io)
 
-**Hashtags:** #SherpaCarta #DigitalRights #PrivacyIsAHumanRight #MagnaCarta2026
+**Hashtags:** #SherpaCarta #DigitalRights #PrivacyIsAHumanRight #MagnaCarta2026 #CanadaBCChallenge
+
+---
+
+## Canada & BC Challenge (Primary Launch Market)
+
+**Hook:** *"BC led on cannabis. BC can lead on digital dignity."*
+
+See [CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md) for MLA outreach, coalition building, and model legislation strategy.
+
+**Social post (Canada):**
+"I signed SherpaCarta — 114 articles for digital human rights. Canada & BC can be first to adopt them as law. Sign at https://sherpacarta.org/ #CanadaBCChallenge #SherpaCarta"
+
+---
+
+## Platform Features (Marketing Points)
+
+- **Editable charter** — local draft mode; Art. 114 living document
+- **Nostr sign-in** — publish amendments without accounts on our servers
+- **Bitcoin timestamp** — stamp charter hash via Satohash / OpenTimestamps
+- **QR donations** — scan Bitcoin address from any phone
+- **Zero tracking** — practice what we preach
 
 ---
 

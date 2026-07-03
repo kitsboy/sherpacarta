@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060a06"/>
+      <stop offset="100%" style="stop-color:#0f160f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g opacity="0.15" stroke="#10b981" stroke-width="1">
+    <path d="M0 80 H1200 M0 160 H1200 M0 240 H1200 M0 320 H1200 M0 400 H1200 M0 480 H1200 M0 560 H1200"/>
+    <path d="M80 0 V630 M160 0 V630 M240 0 V630 M320 0 V630 M400 0 V630 M480 0 V630 M560 0 V630 M640 0 V630 M720 0 V630 M800 0 V630 M880 0 V630 M960 0 V630 M1040 0 V630 M1120 0 V630"/>
+  </g>
+  <text x="600" y="200" text-anchor="middle" fill="#5a6a5a" font-family="Georgia, serif" font-size="72" font-weight="300">1215 → 2026</text>
+  <text x="600" y="310" text-anchor="middle" fill="#e8ede8" font-family="Georgia, serif" font-size="108" font-weight="700" letter-spacing="-3">SherpaCarta</text>
+  <text x="600" y="390" text-anchor="middle" fill="#34d399" font-family="Georgia, serif" font-size="42" font-style="italic">A Magna Carta for the Digital Age</text>
+  <text x="600" y="470" text-anchor="middle" fill="#9ca89c" font-family="monospace" font-size="22" letter-spacing="4">114 ARTICLES · 8 BILLION PEOPLE · ZERO TRACKING</text>
+  <rect x="450" y="510" width="300" height="4" rx="2" fill="#10b981" opacity="0.6"/>
+  <text x="600" y="580" text-anchor="middle" fill="#10b981" font-family="monospace" font-size="18" letter-spacing="6">SHERPACARTA.ORG</text>
+</svg>

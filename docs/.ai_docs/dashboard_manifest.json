@@ -1,0 +1,29 @@
+{
+  "projectName": "sherpacarta",
+  "projectType": "rights-declaration",
+  "deployType": "manual",
+  "primaryPort": "5173",
+  "version": "unknown",
+  "status": "active",
+  "framework": "vanilla-js",
+  "styling": "tailwind-v4",
+  "bundler": "vite-8",
+  "content": "114-articles",
+  "license": "cc0-public-domain",
+  "productionSize": "160kb-single-html",
+  "deployLock": "m4-only",
+  "lastDocAudit": "2026-07-03T03:15:33Z",
+  "automationReady": true,
+  "entryPoints": [
+    "index.html",
+    "docs/",
+    "deploy.sh"
+  ],
+  "features": [
+    "command-palette",
+    "rights-calculator",
+    "signing-wall",
+    "multi-language"
+  ],
+  "tracking": "zero"
+}

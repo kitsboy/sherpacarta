@@ -84,6 +84,8 @@ The site is intentionally a single rich `index.html` (with all critical CSS/JS i
 - [Deployment](docs/DEPLOYMENT.md) — Cloudflare Pages, build, deploy.sh
 - [Source of Truth](SOURCE-OF-TRUTH.md) — Canonical project state for all agents
 - [Kimi Handoff](docs/KIMI-HANDOFF.md) — Cross-machine session log
+- [Platform Roadmap](docs/ROADMAP.md) — Nostr, Satohash, API, i18n phases
+- [Canada & BC Challenge](docs/CANADA-BC-CHALLENGE.md) — First jurisdiction law-change strategy
 - The full 114-article charter is interactive inside the site (open the "Charter" button or use ⌘K)
 
 ---

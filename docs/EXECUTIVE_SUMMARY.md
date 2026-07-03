@@ -72,13 +72,38 @@ SherpaCarta **is**:
 
 ---
 
+## Canada & BC Challenge (First Jurisdiction)
+
+SherpaCarta launches globally but pilots law-change in **Canada and British Columbia**:
+
+- Model Digital Rights Act language for BC legislature
+- Federal PIPEDA modernization reference framework
+- Municipal Safe Harbour adoptions
+- Every official version stamped on Bitcoin via [Satohash](https://satohash.giveabit.io)
+
+Full strategy: [docs/CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md)
+
+---
+
+## Participation Stack (v2.1)
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| Read & sign | Local browser | Zero-tracking default |
+| Edit drafts | localStorage | Living document (Art. 114) |
+| Public discourse | Nostr (NIP-07) | Amendments & comments |
+| Proof of existence | OpenTimestamps / Satohash | Court-ready charter versions |
+| Funding | Bitcoin on-chain | Sovereign, transparent |
+
+---
+
 ## Call to Action
 
-1. **Sign the Charter** at sherpacarta.org (local + ledger)
-2. **Share** across every platform
-3. **Adopt** in organizations, local governments, and companies
-4. **Propose amendments** (open process)
-5. **Fund** via Bitcoin (no VC, no grants, no ads)
+1. **Sign the Charter** at sherpacarta.org (local + optional Nostr)
+2. **Stamp** the charter hash on Bitcoin (Satohash button)
+3. **Propose amendments** — rights only expand (Art. 114)
+4. **Share** — especially with BC/Canada policymakers
+5. **Fund** via Bitcoin (`bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad`)
 
 ---
 

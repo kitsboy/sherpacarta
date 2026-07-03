@@ -1,0 +1,30 @@
+{
+  "project": "sherpacarta",
+  "version": "0.0.0",
+  "stack": ["React", "Vite", "Tailwind CSS", "framer-motion"],
+  "type": "SPA",
+  "domain": "sherpacarta.giveabit.io",
+  "deploy": {
+    "target": "Cloudflare Pages",
+    "branch": "main",
+    "build_output": "dist",
+    "auto_deploy": true
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "runtime": ["react", "react-dom", "framer-motion", "lucide-react"],
+    "dev": ["vite", "@vitejs/plugin-react", "tailwindcss", "postcss", "autoprefixer", "eslint"]
+  },
+  "ports": {
+    "dev": 5173,
+    "preview": 4173
+  },
+  "features": ["SPA routing", "Tailwind CSS styling", "framer-motion animations"],
+  "env_vars": [],
+  "proxy_config": null
+}

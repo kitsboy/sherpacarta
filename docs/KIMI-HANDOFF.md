@@ -4,46 +4,52 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
-## Handoff to Kimi — 2026-07-02
+## Handoff to Kimi — 2026-07-02 (Session 2)
 
 **Machine:** M3 (Grok)  
 **Project:** sherpacarta
 
 ### Done
 
-- [x] Full project audit: code, docs, deploy pipeline, live site
-- [x] Mobile GUI pass for Pixel-class viewports (touch cursor fix, hamburger nav, hero framing, safe-area insets, donation grid stack)
-- [x] Footer Bitcoin + Lightning tabbed donation widget with copy buttons
-- [x] hreflang alternates for international SEO
-- [x] Fixed broken `deploy.sh` (`CLOUDFLARE_API_TOKEN` export was truncated)
-- [x] Filled `docs/MISSION.md`, `docs/SEO.md`, `MARKETING-ONELINER.md`, `CHANGELOG.md`, `LATEST-UPDATE.md`
-- [x] Updated `SOURCE-OF-TRUTH.md`, `README.md` doc index
-- [x] Corrected footer GitHub links to `kitsboy/sherpacarta`
+- [x] Real BTC address: `bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad`
+- [x] Lightning TEMP with DO NOT SEND warnings + QR popups (BTC + LN)
+- [x] Mission section on landing (Magna Carta 1215 → today, two quotes)
+- [x] Canada & BC Challenge section + `docs/CANADA-BC-CHALLENGE.md`
+- [x] Platform roadmap `docs/ROADMAP.md` (Nostr, Satohash, API, MCP plan)
+- [x] Nostr sign-in (NIP-07) + amendment proposals (local + relay publish)
+- [x] Satohash/OpenTimestamp integration — stamp charter hash on Bitcoin
+- [x] Charter Save Draft + enhanced Make Editable
+- [x] og-image.svg for social previews
+- [x] Give A Bit logo in copyright footer → giveabit.io
+- [x] FAQPage JSON-LD
+- [x] Updated MARKETING, EXECUTIVE_SUMMARY, MISSION, README, SOURCE-OF-TRUTH
 
 ### Decisions
 
-- Kept single-file `index.html` architecture — no React migration; `src/` remains legacy placeholder
-- Lightning address in footer is a **placeholder LNURL** — Cam must replace with live address before public fundraising push
-- Bitcoin on-chain address is still the well-known example `bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh` — **must be replaced with real treasury address**
-- Custom cursor disabled on touch/coarse pointers for usability
-- Wrangler `whoami` shows not logged in interactively; deploy relies on token in `deploy.sh` base64 blob
+- English-first for official text; amendments in any language accepted, English reviewed first
+- Lightning remains TEMP until Cam provides live LNURL — loud warnings everywhere
+- Nostr is optional — local-only remains default (privacy by design)
+- Canada/BC is first jurisdiction beachhead, not exclusive scope
 
 ### What's Next
 
-- Generate `public/og-image.png` (1200×630) and `logo.png` for social/JSON-LD
-- Replace BTC + Lightning addresses with production wallet/LNURL
-- Add `?lang=` URL param support on page load for SEO deep links
-- Wire FAQPage JSON-LD from existing FAQ section
-- Add `sitemap.xml` + `robots.txt`
-- Cam may enter **planning mode** for the "very important doc" (press kit / treaty brief / institutional adoption pack — scope TBD)
-- Integrate this handoff + updated SOURCE-OF-TRUTH into Obsidian / MASTER-BRAIN
-- Consider pruning unused React deps from `package.json` or document why they remain
+- [ ] Replace Lightning TEMP with live address
+- [ ] Press kit PDF export
+- [ ] MLA/MP outreach using CANADA-BC-CHALLENGE.md
+- [ ] Stamp charter v2.0 on Satohash before first political meeting
+- [ ] sitemap.xml + robots.txt
+- [ ] Full charter translation workflow (post-English stabilization)
 
 ### Git State
 
-- Last commit SHA: `72aa297f19ac3d6615f3e80339198fd48acb5b14`
 - Branch: `main`
-- Unpushed: none (pushed + deployed to Cloudflare Pages)
+- See latest commit after push
+
+---
+
+## Handoff to Kimi — 2026-07-02 (Session 1)
+
+*(Previous session: mobile polish, footer tabs, docs audit — see git history)*
 
 ---
 

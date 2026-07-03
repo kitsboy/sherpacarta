@@ -27,7 +27,7 @@
 <meta property="og:url" content="https://sherpacarta.org/">
 <meta property="og:title" content="SherpaCarta — The Global Digital Magna Carta">
 <meta property="og:description" content="A living charter of 114 articles protecting digital privacy, data sovereignty, and freedom for all 8 billion people on Earth. Sign and assert your rights now.">
-<meta property="og:image" content="https://sherpacarta.org/og-image.png">
+<meta property="og:image" content="https://sherpacarta.org/og-image.svg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SherpaCarta — Privacy is a Human Right">
@@ -40,7 +40,7 @@
 <meta name="twitter:creator" content="@SherpaCarta">
 <meta name="twitter:title" content="SherpaCarta — The Global Digital Magna Carta">
 <meta name="twitter:description" content="114 articles. 8 billion people. One living charter for digital human rights. Privacy is not a feature — it is a birthright. Sign now.">
-<meta name="twitter:image" content="https://sherpacarta.org/og-image.png">
+<meta name="twitter:image" content="https://sherpacarta.org/og-image.svg">
 <meta name="twitter:image:alt" content="SherpaCarta v2.0 — A Magna Carta for the Digital Age">
 
 <!-- ═══ STRUCTURED DATA (JSON-LD) ═════════════════════════ -->
@@ -59,8 +59,19 @@
   "publisher": {
     "@type": "Organization",
     "name": "SherpaCarta Global Movement",
-    "logo": { "@type": "ImageObject", "url": "https://sherpacarta.org/logo.png" }
+    "logo": { "@type": "ImageObject", "url": "https://sherpacarta.org/og-image.svg" }
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is SherpaCarta legally binding?","acceptedAnswer":{"@type":"Answer","text":"SherpaCarta is not yet legislation. It is a moral and civic declaration whose power grows through global adoption — the same path Magna Carta took before becoming enforceable law."}},
+    {"@type":"Question","name":"How does signing work?","acceptedAnswer":{"@type":"Answer","text":"Signing is a public moral commitment stored locally in your browser. Connect Nostr to publish your signature or amendments to the public deliberation layer."}},
+    {"@type":"Question","name":"How is SherpaCarta funded?","acceptedAnswer":{"@type":"Answer","text":"Exclusively by voluntary Bitcoin donations. No venture capital, government grants, or advertising."}}
+  ]
 }
 </script>
 
@@ -68,6 +79,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,700&family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js" defer></script>
 
 <style>
 /* ═══════════════════════════════════════════════════════════
@@ -366,6 +378,48 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 .pay-copy:hover{background:rgba(16,185,129,.1)}
 .pay-copy.copied{background:var(--em);color:#000}
 .pay-note{font-size:.68rem;color:var(--text3);margin-top:.5rem;line-height:1.5}
+.pay-warning{background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.35);border-radius:.625rem;padding:.55rem .75rem;font-size:.68rem;color:#fca5a5;margin-bottom:.6rem;line-height:1.5}
+.pay-qr-btn{width:100%;margin-top:.5rem;padding:.55rem;background:rgba(16,185,129,.08);border:1px solid var(--border2);border-radius:100px;color:var(--em2);font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;transition:all .2s;min-height:44px}
+.pay-qr-btn:hover{border-color:var(--em);background:rgba(16,185,129,.15)}
+
+/* ═══ QR MODAL ════════════════════════════════════════════ */
+#qr-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(20px);z-index:2000;align-items:center;justify-content:center;padding:1.5rem}
+#qr-modal.open{display:flex}
+.qr-card{background:var(--bg2);border:1px solid var(--border2);border-radius:1.25rem;padding:2rem;max-width:360px;width:100%;text-align:center;box-shadow:var(--shadow)}
+.qr-card h3{font-family:var(--serif);font-size:1.75rem;margin-bottom:.25rem}
+.qr-canvas-wrap{background:#fff;border-radius:.875rem;padding:1rem;margin:1rem auto;display:inline-block}
+.qr-close{position:absolute;top:1.25rem;right:1.25rem;width:44px;height:44px;border:1px solid var(--border2);border-radius:50%;color:var(--text2);background:var(--bg2)}
+
+/* ═══ MISSION BLOCK ═══════════════════════════════════════ */
+.mission-block{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.mission-inner{max-width:900px;margin:0 auto}
+.mission-quote{border-left:3px solid var(--em);padding:1.25rem 1.5rem;margin:2rem 0;background:rgba(16,185,129,.05);border-radius:0 .875rem .875rem 0}
+.mission-quote p{font-family:var(--serif);font-size:clamp(1.2rem,2.5vw,1.55rem);font-style:italic;line-height:1.55;color:var(--text)}
+.mission-quote cite{display:block;margin-top:.75rem;font-family:var(--mono);font-size:.62rem;color:var(--text3);letter-spacing:.12em;font-style:normal}
+.mission-prose{font-size:.92rem;color:var(--text2);line-height:1.85}
+.mission-prose p{margin-bottom:1.1rem}
+.mission-prose strong{color:var(--em2)}
+
+/* ═══ CANADA BC CHALLENGE ═════════════════════════════════ */
+.challenge-banner{background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(212,175,55,.06));border:1px solid var(--border2);border-radius:1.25rem;padding:2rem;margin-top:2rem}
+.challenge-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
+.challenge-step{background:var(--bg3);border:1px solid var(--border);border-radius:.875rem;padding:1.25rem}
+.challenge-step-num{font-family:var(--serif);font-size:2rem;color:var(--em);line-height:1}
+.challenge-step h4{font-size:.85rem;margin:.5rem 0 .35rem}
+.challenge-step p{font-size:.75rem;color:var(--text3);line-height:1.6}
+
+/* ═══ NOSTR + AMENDMENTS ══════════════════════════════════ */
+.nostr-panel{background:var(--bg3);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin-top:1.5rem}
+.nostr-status{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-bottom:1rem}
+.nostr-badge{font-family:var(--mono);font-size:.6rem;padding:.3rem .7rem;border-radius:100px;border:1px solid var(--border2);color:var(--text3)}
+.nostr-badge.connected{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.08)}
+.amend-form textarea{width:100%;min-height:90px;background:var(--bg2);border:1px solid var(--border);border-radius:.75rem;padding:.875rem;color:var(--text);font-size:.82rem;resize:vertical;margin:.75rem 0}
+.amend-list{margin-top:1rem;display:flex;flex-direction:column;gap:.5rem;max-height:200px;overflow-y:auto}
+.amend-item{background:var(--bg2);border:1px solid var(--border);border-radius:.625rem;padding:.75rem;font-size:.78rem;color:var(--text2);line-height:1.6}
+.amend-meta{font-family:var(--mono);font-size:.55rem;color:var(--text3);margin-top:.35rem}
+.giveabit-footer{display:inline-flex;align-items:center;gap:.5rem;margin-top:.75rem;opacity:.55;transition:opacity .2s}
+.giveabit-footer:hover{opacity:.85}
+.giveabit-footer img{height:22px;width:auto;border-radius:4px}
 
 /* ═══════════════════════════════════════════════════════════
    FLOATING ELEMENTS
@@ -715,6 +769,63 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 </div>
 
 <!-- ════════════════════════════════════════════════════════
+     MISSION — Why SherpaCarta Exists
+════════════════════════════════════════════════════════ -->
+<section id="mission" class="section mission-block" aria-labelledby="mission-heading">
+  <div class="section-max mission-inner reveal">
+    <div class="section-label"><span>Our Mission</span></div>
+    <h2 class="section-h2" id="mission-heading">From Runnymede<br>to the <em style="font-weight:300;font-size:.82em;color:var(--text2)">Algorithmic Age</em></h2>
+
+    <div class="mission-quote">
+      <p>"No free man shall be seized or imprisoned, or stripped of his rights or possessions, or outlawed or exiled, or deprived of his standing in any way… except by the lawful judgment of his equals or by the law of the land."</p>
+      <cite>— Magna Carta, Clause 39, 1215</cite>
+    </div>
+
+    <div class="mission-prose">
+      <p>In 1215, barons forced King John to accept limits on arbitrary power. That parchment did not bind kings overnight — but it planted an idea that outlived empires: <strong>the powerful are not above the law</strong>. Eight centuries later, the Universal Declaration of Human Rights extended that promise to every nation. In 2011, Iceland crowdsourced a constitution — proof that the people can write their own founding text.</p>
+      <p>Today, the greatest powers over human life are not only governments. They are algorithms, platforms, and data brokers whose reach exceeds most states. They profile, predict, and punish at scale — often without explanation, appeal, or consent. <strong>SherpaCarta is the document those powers were never forced to sign.</strong></p>
+      <p>We publish 114 articles as a living charter: readable by anyone, editable by contributors, signable by citizens, timestampable on Bitcoin, discussable on Nostr. It is not yet law. It is the moral architecture law must catch up to — the way Magna Carta was long before it became enforceable.</p>
+    </div>
+
+    <div class="mission-quote" style="margin-top:2.5rem">
+      <p>"The rights we fail to assert today become the tyrannies our children inherit tomorrow."</p>
+      <cite>— SherpaCarta Preamble, 2026</cite>
+    </div>
+
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+      <button class="cta-main" onclick="openCharterModal()"><i class="fas fa-book-open"></i> Read All 114 Articles</button>
+      <button class="cta-sec" onclick="stampCharterOnBitcoin()"><i class="fas fa-stamp"></i> Stamp on Bitcoin (Satohash)</button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     CANADA & BC CHALLENGE
+════════════════════════════════════════════════════════ -->
+<section id="canada-bc" class="section" style="background:var(--bg);border-bottom:1px solid var(--border)" aria-labelledby="challenge-heading">
+  <div class="section-max reveal">
+    <div class="section-label"><span>First Jurisdiction</span></div>
+    <h2 class="section-h2" id="challenge-heading">The Canada &amp; BC<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">Digital Rights Challenge</em></h2>
+    <p style="color:var(--text2);font-size:.9rem;max-width:640px;line-height:1.8;margin-top:1rem">SherpaCarta is global — but every movement needs a first beachhead. We begin in <strong style="color:var(--em2)">Canada and British Columbia</strong>: strong privacy culture, active civil society, and governments that can adopt model language before the world catches up.</p>
+
+    <div class="challenge-banner">
+      <div style="font-family:var(--mono);font-size:.62rem;color:var(--gold);letter-spacing:.15em;margin-bottom:.5rem">🇨🇦 CHALLENGE #1 — CHANGE LAW, THEN CHANGE THE WORLD</div>
+      <p style="font-size:.88rem;color:var(--text2);line-height:1.75;max-width:700px">Adopt SherpaCarta as model legislation for a BC Digital Rights Act, federal PIPEDA modernization, and municipal Safe Harbour standards. Stamp every submission version on Bitcoin. Sign with Nostr. Build the coalition that makes privacy law inevitable.</p>
+      <div class="challenge-steps">
+        <div class="challenge-step"><div class="challenge-step-num">01</div><h4>Sign &amp; Share</h4><p>Add your name. Share with one BC MLA or MP contact.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">02</div><h4>Stamp the Charter</h4><p>Anchor this version on Bitcoin via OpenTimestamps / Satohash.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">03</div><h4>Propose Amendments</h4><p>Submit ideas via Nostr or local draft — rights only expand.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">04</div><h4>Build Coalition</h4><p>NGOs, universities, municipalities endorse publicly.</p></div>
+      </div>
+      <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
+        <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/CANADA-BC-CHALLENGE.md" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-file-lines"></i> Full BC Strategy Doc</a>
+        <button class="btn btn-ghost" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'})"><i class="fas fa-signature"></i> Sign for Canada</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
      PILLARS
 ════════════════════════════════════════════════════════ -->
 <section id="pillars" class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="pillars-heading">
@@ -977,8 +1088,25 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
       <div class="signers-wall" id="signers-wall" aria-label="Recent signatories" aria-live="polite"></div>
       <div class="sign-form">
         <input class="sign-input" id="sign-name" type="text" placeholder="Your name (or pseudonym)" maxlength="40" aria-label="Your name">
-        <input class="sign-input" id="sign-country" type="text" placeholder="Country / Region" maxlength="30" aria-label="Your country">
+        <input class="sign-input" id="sign-country" type="text" placeholder="Country / Region (e.g. Canada, BC)" maxlength="30" aria-label="Your country">
         <button class="sign-submit" onclick="signCharter()"><i class="fas fa-signature"></i> Sign the Charter</button>
+      </div>
+
+      <!-- NOSTR IDENTITY + AMENDMENTS -->
+      <div class="nostr-panel">
+        <div class="nostr-status">
+          <span class="nostr-badge" id="nostr-badge"><i class="fas fa-user-secret"></i> Nostr: Not connected</span>
+          <button class="btn btn-ghost" id="nostr-connect-btn" onclick="nostrConnect()"><i class="fas fa-plug"></i> Sign in with Nostr</button>
+          <button class="btn btn-ghost" id="nostr-disconnect-btn" onclick="nostrDisconnect()" style="display:none"><i class="fas fa-right-from-bracket"></i> Disconnect</button>
+        </div>
+        <p style="font-size:.78rem;color:var(--text3);line-height:1.65">Connect a Nostr extension (Alby, nos2x, Primal) to publish amendments and comments to the public deliberation layer. No account on our servers — ever.</p>
+        <div class="calc-label" style="margin-top:1rem">Propose an Amendment (Art. 114)</div>
+        <div class="amend-form">
+          <input class="sign-input" id="amend-article" type="text" placeholder="Article reference (e.g. Art. 11)" maxlength="20" style="margin-bottom:.5rem">
+          <textarea id="amend-text" placeholder="Your amendment proposal — rights may only expand, never contract. Any language welcome; English reviewed first for official versions."></textarea>
+          <button class="sign-submit" onclick="submitAmendment()"><i class="fas fa-pen-fancy"></i> Submit Proposal</button>
+        </div>
+        <div class="amend-list" id="amend-list" aria-live="polite"></div>
       </div>
     </div>
 
@@ -1072,14 +1200,22 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
         </div>
       </div>
       <div class="donation-card reveal">
-        <div style="font-family:var(--mono);font-size:.62rem;color:var(--text3);letter-spacing:.15em;margin-bottom:.625rem">BITCOIN DONATION</div>
-        <div class="qr-placeholder">
-          <i class="fab fa-bitcoin" style="font-size:2rem;color:var(--em)"></i>
-          <div style="font-size:.55rem;font-family:var(--mono);color:var(--text3);text-align:center">SCAN TO DONATE<br>QR ON REQUEST</div>
+        <div class="pay-tabs" role="tablist" aria-label="Donation method">
+          <button class="pay-tab active" type="button" onclick="switchDonateTab('btc')" id="donate-tab-btc"><i class="fab fa-bitcoin"></i> Bitcoin</button>
+          <button class="pay-tab" type="button" onclick="switchDonateTab('ln')" id="donate-tab-ln"><i class="fas fa-bolt"></i> Lightning</button>
         </div>
-        <div class="btc-address" id="btc-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
-        <button class="copy-btn" id="copy-btn" onclick="copyBTC()"><i class="fab fa-bitcoin"></i> COPY ADDRESS</button>
-        <div style="margin-top:1rem;font-size:.7rem;color:var(--text3);text-align:center;line-height:1.6">Lightning Network coming soon.<br>ETH available on request.</div>
+        <div id="donate-pane-btc">
+          <div class="btc-address" id="btc-address"></div>
+          <button class="copy-btn" id="copy-btn" onclick="copyBTC()"><i class="fab fa-bitcoin"></i> COPY ADDRESS</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('btc')"><i class="fas fa-qrcode"></i> SHOW QR CODE</button>
+          <p class="pay-note">On-chain only. All donations published transparently.</p>
+        </div>
+        <div id="donate-pane-ln" hidden>
+          <div class="pay-warning"><i class="fas fa-triangle-exclamation"></i> <strong>TEMP ADDRESS — DO NOT SEND.</strong> Lightning wallet not yet live. This is a placeholder for testing QR only.</div>
+          <div class="btc-address" id="donate-ln-address"></div>
+          <button class="copy-btn" id="copy-ln-btn" onclick="copyPayAddress('ln',document.getElementById('donate-ln-address'),document.getElementById('copy-ln-btn'),'<i class=\'fas fa-bolt\'></i> COPY LIGHTNING')"><i class="fas fa-bolt"></i> COPY LIGHTNING</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> SHOW QR CODE (TEMP)</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1109,14 +1245,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
           <button class="pay-tab" type="button" role="tab" aria-selected="false" aria-controls="pay-pane-ln" id="pay-tab-ln" onclick="switchPayTab('ln')"><i class="fas fa-bolt"></i> Lightning</button>
         </div>
         <div class="pay-pane active" id="pay-pane-btc" role="tabpanel" aria-labelledby="pay-tab-btc">
-          <div class="pay-address" id="footer-btc-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
-          <button class="pay-copy" type="button" id="footer-copy-btc" onclick="copyPayAddress('btc')"><i class="fab fa-bitcoin"></i> Copy Bitcoin Address</button>
+          <div class="pay-address" id="footer-btc-address"></div>
+          <button class="pay-copy" type="button" id="footer-copy-btc" onclick="copyPayAddress('btc')"><i class="fab fa-bitcoin"></i> Copy Bitcoin</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('btc')"><i class="fas fa-qrcode"></i> QR Code</button>
           <p class="pay-note">On-chain donations only. Published transparently.</p>
         </div>
         <div class="pay-pane" id="pay-pane-ln" role="tabpanel" aria-labelledby="pay-tab-ln" hidden>
-          <div class="pay-address" id="footer-ln-address">lnurl1dp68gurn8ghj7ampd3kx2ar0veekzar0wd5xjtnrdakj7tnhv4kxctttdehhwm30d3h82unvwqhhxarpw3jkc3e3w463kqcmmv4k5h</div>
-          <button class="pay-copy" type="button" id="footer-copy-ln" onclick="copyPayAddress('ln')"><i class="fas fa-bolt"></i> Copy Lightning Address</button>
-          <p class="pay-note">Lightning Network — instant, low-fee support. Replace with your live LNURL/LN address before launch.</p>
+          <div class="pay-warning"><i class="fas fa-triangle-exclamation"></i> <strong>TEMP — DO NOT SEND.</strong> Placeholder Lightning address for UI testing only.</div>
+          <div class="pay-address" id="footer-ln-address"></div>
+          <button class="pay-copy" type="button" id="footer-copy-ln" onclick="copyPayAddress('ln')"><i class="fas fa-bolt"></i> Copy Lightning</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> QR (TEMP)</button>
         </div>
       </div>
 
@@ -1133,7 +1271,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
       <h4>Charter</h4>
       <a href="#" onclick="openCharterModal();return false">Full 114 Articles</a>
       <a href="#pillars" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'});return false">Core Pillars</a>
-      <a href="#">Amendment Process</a>
+      <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Amendment Process</a>
       <a href="#">Version History</a>
       <a href="#">Translations</a>
     </div>
@@ -1149,6 +1287,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
       <h4>Resources</h4>
       <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/EXECUTIVE_SUMMARY.md" target="_blank" rel="noopener">Executive Summary</a>
       <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/MARKETING.md" target="_blank" rel="noopener">Marketing &amp; Press Kit</a>
+      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/CANADA-BC-CHALLENGE.md" target="_blank" rel="noopener">Canada &amp; BC Challenge</a>
+      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener">Platform Roadmap</a>
       <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
       <a href="#">Legal Framework</a>
       <a href="#">Press Kit (Download)</a>
@@ -1172,7 +1312,11 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
       </div>
     </div>
     <div class="legal-bottom">
-      <p>&copy; 2026 SherpaCarta Global Movement. Published under CC0 — No Rights Reserved. Copy Freely.</p>
+      <p>&copy; 2026 SherpaCarta Global Movement. Published under CC0 — No Rights Reserved. Copy Freely.
+        <a href="https://giveabit.io" target="_blank" rel="noopener" class="giveabit-footer" title="Built by Give A Bit">
+          <img src="/giveabit-logo.jpg" alt="Give A Bit" width="88" height="22" loading="lazy">
+        </a>
+      </p>
       <div class="legal-links">
         <a href="#">Privacy Policy</a>
         <a href="#">Terms of Use</a>
@@ -1197,6 +1341,21 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 <button id="back-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 
 <!-- ════════════════════════════════════════════════════════
+     QR CODE MODAL
+════════════════════════════════════════════════════════ -->
+<div id="qr-modal" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+  <button class="qr-close" onclick="closeQRModal()" aria-label="Close QR code"><i class="fas fa-times"></i></button>
+  <div class="qr-card">
+    <h3 id="qr-modal-title">Scan to Donate</h3>
+    <p id="qr-modal-sub" style="font-family:var(--mono);font-size:.62rem;color:var(--text3);letter-spacing:.1em"></p>
+    <div id="qr-warning" class="pay-warning" style="display:none;text-align:left"></div>
+    <div class="qr-canvas-wrap"><canvas id="qr-canvas"></canvas></div>
+    <div id="qr-address-display" class="pay-address" style="text-align:left;font-size:.58rem"></div>
+    <button class="pay-copy" type="button" id="qr-copy-btn" onclick="copyQRAddress()"><i class="fas fa-copy"></i> Copy Address</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════
      FULL CHARTER MODAL
 ════════════════════════════════════════════════════════ -->
 <div class="modal-overlay" id="charter-modal" role="dialog" aria-modal="true" aria-labelledby="charter-modal-title">
@@ -1210,6 +1369,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
     </div>
     <div class="modal-tools">
       <button class="btn btn-ghost" onclick="makeAllEditable()"><i class="fas fa-edit"></i> Make Editable</button>
+      <button class="btn btn-ghost" onclick="stampCharterOnBitcoin()"><i class="fas fa-stamp"></i> Stamp (Satohash)</button>
+      <button class="btn btn-ghost" onclick="saveCharterDraft()"><i class="fas fa-floppy-disk"></i> Save Draft</button>
       <button class="btn btn-ghost" onclick="printCharter()"><i class="fas fa-print"></i> Print</button>
       <button class="btn btn-ghost" onclick="shareCharter()"><i class="fas fa-share-nodes"></i> Share</button>
       <button class="btn btn-ghost" id="voice-btn" onclick="readAloud()"><i class="fas fa-volume-high"></i> Read Aloud</button>
@@ -1244,6 +1405,18 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 'use strict';
 
 // ═══════════════════════════════════════════════════════════
+// WALLETS & INTEGRATIONS
+// ═══════════════════════════════════════════════════════════
+const SHERPA_WALLETS = {
+  btc: 'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad',
+  lnTemp: 'TEMP-LIGHTNING-DO-NOT-SEND@sherpacarta.temp.giveabit.io',
+};
+const SATOHASH_URL = 'https://satohash.giveabit.io';
+const NOSTR_RELAYS = ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
+let qrCurrentAddress = '';
+let qrCurrentType = 'btc';
+
+// ═══════════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════════
 const state = {
@@ -1256,6 +1429,9 @@ const state = {
   ambientOn: false,
   quoteIndex: 0,
   quoteTimer: null,
+  nostrPubkey: localStorage.getItem('sc_nostr_pk')||null,
+  amendments: JSON.parse(localStorage.getItem('sc_amendments')||'[]'),
+  charterHash: localStorage.getItem('sc_charter_hash')||null,
 };
 if(state.theme==='light') document.documentElement.setAttribute('data-theme','light');
 
@@ -1814,7 +1990,166 @@ function makeAllEditable(){
   document.querySelectorAll('.ca-body,.ca-title').forEach(el=>{
     el.contentEditable='true';el.style.outline='1px dashed var(--em)';el.style.borderRadius='3px';el.style.padding='2px 4px';
   });
-  toast('Charter is now editable. Changes are local only.','info');
+  toast('Charter is now editable. Save draft locally or stamp on Bitcoin when ready.','info');
+}
+
+function saveCharterDraft(){
+  const draft={saved:Date.now(),articles:[]};
+  document.querySelectorAll('.charter-article').forEach(el=>{
+    draft.articles.push({title:el.querySelector('.ca-title')?.textContent||'',body:el.querySelector('.ca-body')?.innerHTML||''});
+  });
+  if(!draft.articles.length){toast('Open the full charter first','error');return;}
+  localStorage.setItem('sc_charter_draft',JSON.stringify(draft));
+  toast('Draft saved locally. Rights may only expand (Art. 114).','success');
+}
+
+function getCharterPlainText(){
+  return CHARTER.flatMap(ch=>ch.articles.map(a=>`${a.num}: ${a.title}\n${a.body.replace(/<[^>]+>/g,'')}\n${a.sherpa_ext||''}`)).join('\n\n');
+}
+
+async function stampCharterOnBitcoin(){
+  try{
+    const text=getCharterPlainText();
+    const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
+    const hash=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    state.charterHash=hash;
+    localStorage.setItem('sc_charter_hash',hash);
+    toast('Charter hashed. Opening Satohash to stamp on Bitcoin…','info');
+    window.open(`${SATOHASH_URL}?ref=sherpacarta&hash=${hash}`,'_blank','noopener');
+  }catch(e){toast('Could not compute charter hash','error');}
+}
+
+function initWalletAddresses(){
+  const els={
+    btc:['btc-address','footer-btc-address'],
+    ln:['donate-ln-address','footer-ln-address']
+  };
+  els.btc.forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=SHERPA_WALLETS.btc;});
+  els.ln.forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=SHERPA_WALLETS.lnTemp;});
+}
+
+function switchDonateTab(tab){
+  const isBtc=tab==='btc';
+  document.getElementById('donate-tab-btc').classList.toggle('active',isBtc);
+  document.getElementById('donate-tab-ln').classList.toggle('active',!isBtc);
+  document.getElementById('donate-pane-btc').hidden=!isBtc;
+  document.getElementById('donate-pane-ln').hidden=isBtc;
+}
+
+function showQRModal(type){
+  qrCurrentType=type;
+  qrCurrentAddress=type==='btc'?SHERPA_WALLETS.btc:SHERPA_WALLETS.lnTemp;
+  const modal=document.getElementById('qr-modal');
+  const title=document.getElementById('qr-modal-title');
+  const sub=document.getElementById('qr-modal-sub');
+  const warn=document.getElementById('qr-warning');
+  const display=document.getElementById('qr-address-display');
+  title.textContent=type==='btc'?'Bitcoin Donation':'Lightning (TEMP)';
+  sub.textContent=type==='btc'?'ON-CHAIN · SCAN TO DONATE':'TEST PLACEHOLDER ONLY';
+  warn.style.display=type==='ln'?'block':'none';
+  warn.innerHTML=type==='ln'?'<i class="fas fa-triangle-exclamation"></i> <strong>TEMP ADDRESS — DO NOT SEND.</strong> Lightning is not live yet.':'';
+  display.textContent=qrCurrentAddress;
+  modal.classList.add('open');
+  document.body.style.overflow='hidden';
+  const canvas=document.getElementById('qr-canvas');
+  if(typeof QRCode!=='undefined'){
+    QRCode.toCanvas(canvas,qrCurrentAddress,{width:220,margin:2,color:{dark:'#000000',light:'#ffffff'}},err=>{if(err)toast('QR generation failed','error');});
+  }else{
+    setTimeout(()=>showQRModal(type),200);
+  }
+}
+
+function closeQRModal(){
+  document.getElementById('qr-modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function copyQRAddress(){
+  navigator.clipboard.writeText(qrCurrentAddress).then(()=>toast('Address copied!','success'));
+}
+
+document.getElementById('qr-modal')?.addEventListener('click',e=>{if(e.target.id==='qr-modal')closeQRModal();});
+
+// ═══ NOSTR ════════════════════════════════════════════════
+function updateNostrUI(){
+  const badge=document.getElementById('nostr-badge');
+  const connect=document.getElementById('nostr-connect-btn');
+  const disconnect=document.getElementById('nostr-disconnect-btn');
+  if(state.nostrPubkey){
+    badge.className='nostr-badge connected';
+    badge.innerHTML=`<i class="fas fa-check"></i> Nostr: ${state.nostrPubkey.slice(0,8)}…${state.nostrPubkey.slice(-4)}`;
+    if(connect)connect.style.display='none';
+    if(disconnect)disconnect.style.display='inline-flex';
+  }else{
+    badge.className='nostr-badge';
+    badge.innerHTML='<i class="fas fa-user-secret"></i> Nostr: Not connected';
+    if(connect)connect.style.display='inline-flex';
+    if(disconnect)disconnect.style.display='none';
+  }
+}
+
+async function nostrConnect(){
+  if(!window.nostr){toast('Install a Nostr browser extension (Alby, nos2x, or Primal)','error');return;}
+  try{
+    const pk=await window.nostr.getPublicKey();
+    state.nostrPubkey=pk;
+    localStorage.setItem('sc_nostr_pk',pk);
+    updateNostrUI();
+    toast('Connected via Nostr — your keys never touch our servers','success');
+  }catch(e){toast('Nostr connection declined','error');}
+}
+
+function nostrDisconnect(){
+  state.nostrPubkey=null;
+  localStorage.removeItem('sc_nostr_pk');
+  updateNostrUI();
+  toast('Nostr disconnected','info');
+}
+
+async function publishToNostr(content,tags=[]){
+  if(!window.nostr||!state.nostrPubkey)return false;
+  const event={kind:1,created_at:Math.floor(Date.now()/1000),tags:[['t','sherpacarta'],...tags],content,pubkey:state.nostrPubkey};
+  try{
+    const signed=await window.nostr.signEvent(event);
+    for(const relay of NOSTR_RELAYS){
+      try{
+        const ws=new WebSocket(relay);
+        ws.onopen=()=>{ws.send(JSON.stringify(['EVENT',signed]));setTimeout(()=>ws.close(),800);};
+      }catch(_){}
+    }
+    return true;
+  }catch(e){return false;}
+}
+
+function renderAmendments(){
+  const list=document.getElementById('amend-list');
+  if(!list)return;
+  const items=[...state.amendments].reverse().slice(0,12);
+  list.innerHTML=items.length?items.map(a=>`
+    <div class="amend-item">
+      <strong>${a.article||'General'}</strong> — ${a.text}
+      <div class="amend-meta">${a.author||'Anonymous'} · ${new Date(a.ts).toLocaleDateString()}${a.nostr?' · Nostr':''}</div>
+    </div>
+  `).join(''):'<div class="amend-item" style="color:var(--text3)">No proposals yet. Be the first to suggest an expansion of rights.</div>';
+}
+
+async function submitAmendment(){
+  const article=document.getElementById('amend-article').value.trim();
+  const text=document.getElementById('amend-text').value.trim();
+  if(!text){toast('Enter your amendment proposal','error');return;}
+  const name=document.getElementById('sign-name').value.trim()||'Anonymous';
+  const entry={article,text,author:name,ts:Date.now(),nostr:false};
+  const nostrMsg=`[SherpaCarta Amendment${article?' '+article:''}]\n${text}\n\n— ${name}\nhttps://sherpacarta.org`;
+  if(state.nostrPubkey){
+    const ok=await publishToNostr(nostrMsg,[['t','amendment'],...(article?[['article',article]]:[])]);
+    if(ok)entry.nostr=true;
+  }
+  state.amendments.push(entry);
+  localStorage.setItem('sc_amendments',JSON.stringify(state.amendments));
+  document.getElementById('amend-text').value='';
+  document.getElementById('amend-article').value='';
+  renderAmendments();
+  toast(entry.nostr?'Amendment saved and published to Nostr':'Amendment saved locally. Connect Nostr to publish publicly.','success');
 }
 
 function printCharter(){window.print();}
@@ -1972,7 +2307,7 @@ function switchPayTab(tab){
 function copyPayAddress(kind, addrEl, btnEl, resetHtml){
   const map={
     btc:{el:addrEl||document.getElementById('footer-btc-address'),btn:btnEl||document.getElementById('footer-copy-btc'),reset:resetHtml||'<i class="fab fa-bitcoin"></i> Copy Bitcoin Address',msg:'Bitcoin address copied!'},
-    ln:{el:document.getElementById('footer-ln-address'),btn:document.getElementById('footer-copy-ln'),reset:'<i class="fas fa-bolt"></i> Copy Lightning Address',msg:'Lightning address copied!'}
+    ln:{el:document.getElementById('footer-ln-address')||document.getElementById('donate-ln-address'),btn:btnEl||document.getElementById('footer-copy-ln'),reset:resetHtml||'<i class="fas fa-bolt"></i> Copy Lightning',msg:'Lightning address copied (TEMP — do not send)'}
   };
   const cfg=map[kind];
   if(!cfg||!cfg.el||!cfg.btn)return;
@@ -2089,6 +2424,9 @@ function toast(msg,type='info'){
 // DOMContentLoaded INIT
 // ═══════════════════════════════════════════════════════════
 document.addEventListener('DOMContentLoaded',()=>{
+  initWalletAddresses();
+  updateNostrUI();
+  renderAmendments();
   buildArticlesBrowser();
   buildSigners();
   buildLanguages();

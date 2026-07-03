@@ -2,7 +2,7 @@
 
 **Project Name:** SherpaCarta  
 **Date:** 2026-07-02  
-**BUILD:** 20260702-001
+**BUILD:** 20260702-002
 
 ## Project Overview (Simple Pitch)
 SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living, globally-signed charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights for every person on Earth (all 8 billion). 
@@ -44,8 +44,8 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 Directly advances Bitcoin sovereignty, privacy, and human dignity in the digital age. The charter itself and the website embody Give A Bit values: privacy by design (zero data collection), user sovereignty (local-only signatures + CC0), approachable tools for normal people to assert rights, and resistance to surveillance capitalism and centralized control. Future potential: Lightning donations, Nostr integration for amendments/discussion, on-chain signature anchoring, Safe Harbour legal templates for adopters. Ties beautifully into the broader Give A Bit mission of private, feel-good, empowering tools.
 
 ## Current Gaps & Next Priorities
-- **og-image.png** and **logo.png** — referenced in meta/JSON-LD but not yet in `public/`.
-- **Real BTC treasury address** — on-page address is still a placeholder example; Lightning LNURL is placeholder too.
+- **Lightning live wallet** — TEMP placeholder with DO NOT SEND warning; replace when ready.
+- **og-image.svg** — created; PNG variant optional for older social crawlers.
 - **Important doc** (Cam planning) — likely institutional adoption pack / press treaty brief; scope TBD.
 - `?lang=` deep-link on load for hreflang SEO URLs.
 - FAQPage JSON-LD, sitemap.xml, robots.txt.
