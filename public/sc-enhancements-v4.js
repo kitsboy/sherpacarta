@@ -110,7 +110,10 @@
       requestAnimationFrame(() => {
         const y = window.scrollY * 0.04;
         const wb = $('wave-bg');
-        if (wb) wb.style.transform = `translateY(${y}px)`;
+        if (wb) {
+          wb.style.transform = `translateY(${y}px)`;
+          wb.style.pointerEvents = 'none';
+        }
         ticking = false;
       });
     }, { passive: true });

@@ -149,8 +149,17 @@
   });
 
   feat(118, 'Fix announcement banner layout shift', () => {
-    const b = $('announce-banner');
-    if (b) document.body.style.paddingTop = b.offsetHeight + 'px';
+    const syncBanner = () => {
+      const b = $('announce-banner');
+      const h = b ? b.offsetHeight : 0;
+      document.documentElement.style.setProperty('--announce-h', h + 'px');
+      if (b) document.body.classList.add('has-announce-banner');
+      else document.body.classList.remove('has-announce-banner');
+    };
+    syncBanner();
+    window.addEventListener('resize', syncBanner);
+    const obs = new MutationObserver(syncBanner);
+    obs.observe(document.body, { childList: true, subtree: false });
   });
 
   feat(119, 'SW cache bust v2.3', () => {
@@ -519,11 +528,26 @@
     const nav = document.createElement('nav');
     nav.className = 'section-dots';
     nav.setAttribute('aria-label', 'Section navigation');
-    ['hero', 'mission', 'canada-bc', 'pillars', 'sign'].forEach((id) => {
+    const sections = [
+      { id: 'hero', label: 'Hero' },
+      { id: 'mission', label: 'Mission' },
+      { id: 'canada-bc', label: 'Canada BC' },
+      { id: 'pillars', label: 'Pillars' },
+      { id: 'sign', label: 'Sign' },
+      { id: 'faq', label: 'FAQ' },
+    ];
+    sections.forEach(({ id, label }) => {
       const a = document.createElement('a');
       a.href = '#' + id;
-      a.title = id;
-      a.className = 'dot-link';
+      a.title = label;
+      a.className = 'dot-link section-dot';
+      a.dataset.section = id;
+      a.setAttribute('aria-label', 'Go to ' + label);
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
       nav.appendChild(a);
     });
     document.body.appendChild(nav);

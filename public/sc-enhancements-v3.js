@@ -953,15 +953,29 @@
   });
 
   feat(274, 'Section nav highlight active', () => {
-    const sections = ['hero', 'mission', 'canada-bc', 'pillars', 'sign', 'faq'];
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) document.querySelectorAll('.section-dot').forEach((d) => {
-          d.classList.toggle('active', d.dataset.section === e.target.id);
-        });
+    const sectionIds = ['hero', 'mission', 'canada-bc', 'pillars', 'sign', 'faq'];
+    const dots = () => document.querySelectorAll('.section-dots .dot-link, .section-dots .section-dot');
+    const updateActive = () => {
+      const marker = window.scrollY + window.innerHeight * 0.33;
+      let current = sectionIds[0];
+      sectionIds.forEach((id) => {
+        const el = $(id);
+        if (el && el.offsetTop <= marker) current = id;
       });
-    }, { threshold: 0.3 });
-    sections.forEach((id) => { const el = $(id); if (el) obs.observe(el); });
+      dots().forEach((d) => {
+        const sid = d.dataset.section || d.getAttribute('href')?.slice(1);
+        d.classList.toggle('active', sid === current);
+        d.setAttribute('aria-current', sid === current ? 'true' : 'false');
+      });
+    };
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => { updateActive(); ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+    updateActive();
   });
 
   feat(275, 'Personalization ⌘K group', () => {
