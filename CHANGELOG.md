@@ -17,6 +17,14 @@ owner: Cam / Give A Bit
 
 All notable changes to this project are documented here.
 
+## [3.1.0] — 2026-07-02
+
+### Visual + Parent Brand
+- Copyright footer: giveaBit.io parent logo → giveabit.io
+- Dynamic wave background motion at 36% opacity
+- Features 301–325 (`sc-enhancements-v4.js`)
+- BUILD 20260703-325
+
 ## [3.0.0] — 2026-07-02
 
 ### 100 New Features (201–300)

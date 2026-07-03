@@ -1,7 +1,7 @@
-# SherpaCarta — 300 Features (v3.0)
+# SherpaCarta — 325 Features (v3.1)
 
-**BUILD:** 20260703-300  
-**Modules:** `sc-enhancements.js` (1–100) + `sc-enhancements-v2.js` (101–200) + `sc-enhancements-v3.js` (201–300)  
+**BUILD:** 20260703-325  
+**Modules:** `sc-enhancements.js` (1–100) + `v2` (101–200) + `v3` (201–300) + `v4` (301–325)  
 **How to use:** [USAGE.md](USAGE.md)
 
 ## Group 1 — Critical + Core UX (1–25)
@@ -42,4 +42,7 @@ Theme tri-state, accent picker, font family, read width, focus mode, warm tint, 
 ## Group 12 — Distribution (276–300)
 Page QR, Nostr QR, email excerpt, embed snippet, referral/campaign links, article social card, Nostr/Bluesky composers, press release, screenshot mode, brand manifest, API link, RSS/JSON buttons, integration panel, partner badge, Distribute ⌘K group, native share, share reminder, MCP v3, charter ⌘K search, BUILD 300 merge, init toast
 
-*Click BUILD badge on site to see live feature list. Press ? or nav ? for usage guide.*
+## Group 13 — Visual + Parent Brand (301–325)
+giveaBit.io parent logo in copyright footer, wave background 36% opacity, reduced-motion/battery respect, theme sync, wave toggle ⌘K, parallax, mobile layer trim, screenshot/print hide, press kit parent branding, dual-brand tooltips, BUILD 325
+
+*Click BUILD badge on site to see live feature list. Press ? or nav ? for usage guide. Toggle waves: ⌘K → Toggle Wave Background.*
