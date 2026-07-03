@@ -2,7 +2,7 @@
 
 **Project Name:** SherpaCarta  
 **Date:** 2026-07-02  
-**BUILD:** 20260703-202
+**BUILD:** 20260703-300
 
 ## Project Overview (Simple Pitch)
 SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living, globally-signed charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights for every person on Earth (all 8 billion). 

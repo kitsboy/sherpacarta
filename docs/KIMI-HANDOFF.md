@@ -4,6 +4,41 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-02 (Session 4 — 300 Features v3.0)
+
+**Machine:** M3 (Grok)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] `sc-enhancements-v3.js` — features 201–300 (4 groups × 25)
+- [x] `docs/USAGE.md` — full how-to + video script outline
+- [x] Nav ? button → usage guide modal
+- [x] BUILD badge → 300 features, searchable + category tabs
+- [x] ⌘K expanded: Help, Personalize, Distribute, Charter groups
+- [x] SW cache v3.0, deployed
+
+### Decisions
+
+- Video tutorial: recommended 2–3 min; CTA banner + notify button until recorded
+- Groups 9–12 themed: Help, Charter Depth, Personalization, Distribution
+
+### What's Next
+
+- [ ] Record short walkthrough video per USAGE.md script
+- [ ] Lightning live wallet
+- [ ] Institutional adoption doc
+
+### Git State
+
+- See latest commit after push
+
+---
+
+*Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*
+
+---
+
 ## Handoff to Kimi — 2026-07-02 (Session 3 — Branding Polish)
 
 **Machine:** M3 (Grok)  

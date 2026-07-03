@@ -86,6 +86,8 @@ The site is intentionally a single rich `index.html` (with all critical CSS/JS i
 - [Kimi Handoff](docs/KIMI-HANDOFF.md) — Cross-machine session log
 - [Platform Roadmap](docs/ROADMAP.md) — Nostr, Satohash, API, i18n phases
 - [Canada & BC Challenge](docs/CANADA-BC-CHALLENGE.md) — First jurisdiction law-change strategy
+- [Usage Guide](docs/USAGE.md) — How to use all 300 features + video script outline
+- [Features List](docs/FEATURES.md) — All 300 enhancements by group
 - The full 114-article charter is interactive inside the site (open the "Charter" button or use ⌘K)
 
 ---

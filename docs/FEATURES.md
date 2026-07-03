@@ -1,7 +1,8 @@
-# SherpaCarta — 200 Features (v2.3)
+# SherpaCarta — 300 Features (v3.0)
 
-**BUILD:** 20260703-200  
-**Modules:** `public/sc-enhancements.js` (1–100) + `public/sc-enhancements-v2.js` (101–200)
+**BUILD:** 20260703-300  
+**Modules:** `sc-enhancements.js` (1–100) + `sc-enhancements-v2.js` (101–200) + `sc-enhancements-v3.js` (201–300)  
+**How to use:** [USAGE.md](USAGE.md)
 
 ## Group 1 — Critical + Core UX (1–25)
 QR fix, Escape close, a11y toolbar, auto theme, BUILD badge, charter hash footer, online badge, PWA manifest, service worker, export JSON/MD, import draft, BTC URI, jump to article, bookmarks, copy article, deep links, announcement banner, sticky BC CTA, FAQ search, scroll spy, copy summary, dynamic theme-color
@@ -29,4 +30,16 @@ Section nav dots, scroll %, read counter, streak, charter progress bar, zen/sepi
 ## Group 8 — Marketing + Distribution (176–200)
 Reddit/Bluesky/Mastodon/Nostr share, page QR, vCard, ICS calendar, social card PNG, MCP descriptor, UTM campaigns, expanded ⌘K, RSS/Atom feeds, BUILD 200 badge
 
-*Click BUILD badge on site to see live feature list.*
+## Group 9 — Onboarding & Help (201–225)
+Usage guide modal, nav ? button, quick start checklist, feature search/tabs, video CTA, print quick ref, mobile tips, signing walkthrough, Nostr wizard, amendment how-to, BC progress tracker, donation/calc explainers, charter tips, Help ⌘K group, cheat sheet download, feature spotlight, auto-guide, BUILD tooltip, a11y tooltips, email guide, usage counter, SW v3
+
+## Group 10 — Charter Depth (226–250)
+Full-text search, difficulty tags, reading level, glossary, cross-refs, highlight search, last-read restore, reading time, collections, flashcards, trivia quiz, audio queue, breadcrumb, score compare, weekly digest, article export/print, law map, impact score, pin article, discussion notes, completeness meter, essential bar, hash display, resume button
+
+## Group 11 — Personalization (251–275)
+Theme tri-state, accent picker, font family, read width, focus mode, warm tint, compact footer, hero minimal, dashboard, video toggle, particles, haptic sign, sounds, cursor toggle, trust speed, quote speed, fav section, swipe gestures, pull hint, home message, prefs export/import, line height, section nav, Personalize ⌘K group
+
+## Group 12 — Distribution (276–300)
+Page QR, Nostr QR, email excerpt, embed snippet, referral/campaign links, article social card, Nostr/Bluesky composers, press release, screenshot mode, brand manifest, API link, RSS/JSON buttons, integration panel, partner badge, Distribute ⌘K group, native share, share reminder, MCP v3, charter ⌘K search, BUILD 300 merge, init toast
+
+*Click BUILD badge on site to see live feature list. Press ? or nav ? for usage guide.*

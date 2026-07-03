@@ -17,6 +17,16 @@ owner: Cam / Give A Bit
 
 All notable changes to this project are documented here.
 
+## [3.0.0] — 2026-07-02
+
+### 100 New Features (201–300)
+- Group 9: Onboarding & Help (usage guide, checklist, video CTA)
+- Group 10: Charter Depth (search, flashcards, resume reading)
+- Group 11: Personalization (dashboard, prefs export, themes)
+- Group 12: Distribution (QR, press release, campaign links)
+- `docs/USAGE.md` — full how-to guide + video script outline
+- BUILD 20260703-300
+
 ## [2.3.2] — 2026-07-02
 
 ### Polish
