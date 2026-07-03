@@ -1,35 +1,13 @@
----
-title: Executive Summary
-project: [Project Name]
-version: 0.1.0
-audience: investors
-last_updated: YYYY-MM-DD
-owner: Nova (Product Management & Documentation)
----
+# SherpaCarta — Executive Summary (Pointer)
 
-# [Project Name] — Executive Summary
+The canonical executive summary lives at:
 
-## Problem
-[The problem this project solves]
+**[docs/EXECUTIVE_SUMMARY.md](docs/EXECUTIVE_SUMMARY.md)**
 
-## Solution
-[How this project solves it, using Bitcoin]
+Quick pitch: A living global charter of 114 digital human rights articles — CC0, Bitcoin-funded, zero tracking — successor to the Magna Carta for the age of AI and surveillance capitalism.
 
-## Traction
-- [Metric 1]
-- [Metric 2]
-- [Metric 3]
-
-## Market
-[Market size, target audience]
-
-## Team
-[Core contributors]
-
-## Ask
-[What's needed — funding, contributors, partnerships]
+Live: https://sherpacarta.org
 
 ---
 
-**Safe Harbour:** This document is provided for informational and educational purposes only. It does not constitute financial, legal, or investment advice.
-Part of the [Give A Bit](https://giveabit.io) family.
+*Part of the [Give A Bit](https://giveabit.io) family.*

@@ -76,7 +76,14 @@ The site is intentionally a single rich `index.html` (with all critical CSS/JS i
 ## Documentation
 
 - [Executive Summary](docs/EXECUTIVE_SUMMARY.md) — Problem, solution, pillars, current state, strategy
+- [Mission](docs/MISSION.md) — Purpose, values, who we serve
 - [Marketing & Press Guide](docs/MARKETING.md) — Voice, key messages, one-pagers, social templates, FAQs for press
+- [Marketing One-Liner](MARKETING-ONELINER.md) — Tagline, pitch, CTA
+- [SEO Strategy](docs/SEO.md) — Keywords, meta audit, i18n SEO index (+ locale files `SEO-*.md`)
+- [I18N Reference](docs/I18N.md) — Translation system
+- [Deployment](docs/DEPLOYMENT.md) — Cloudflare Pages, build, deploy.sh
+- [Source of Truth](SOURCE-OF-TRUTH.md) — Canonical project state for all agents
+- [Kimi Handoff](docs/KIMI-HANDOFF.md) — Cross-machine session log
 - The full 114-article charter is interactive inside the site (open the "Charter" button or use ⌘K)
 
 ---

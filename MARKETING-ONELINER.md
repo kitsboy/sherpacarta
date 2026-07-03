@@ -1,19 +1,21 @@
 ---
 title: Marketing One-Liner
-project: [Project Name]
-version: 0.1.0
+project: sherpacarta
+version: 2.0.0
 audience: users
-last_updated: YYYY-MM-DD
-owner: Nova (Product Management & Documentation)
+last_updated: 2026-07-02
+owner: Cam / Give A Bit
 ---
 
-# [Project Name] — Marketing One-Liner
+# SherpaCarta — Marketing One-Liner
 
-**Tagline:** [One punchy sentence — 8-12 words]
+**Tagline:** Privacy is not a feature. It is a birthright.
 
-**Pitch:** [2-3 sentence value proposition — what, why, who]
+**Pitch:** SherpaCarta is a living global charter of 114 articles protecting digital privacy, data sovereignty, and freedom from algorithmic tyranny — for every person on Earth. It is CC0 public domain, funded only by Bitcoin, and built with zero tracking. Sign it, share it, translate it, and help turn moral force into law.
 
-**Call to Action:** [What you want people to do]
+**Call to Action:** Open the charter at [sherpacarta.org](https://sherpacarta.org), sign locally, and share with one person who needs to hear it today.
+
+**Extended one-liner (social):** 114 articles. 8 billion people. One living Magna Carta for the digital age. No VC. No tracking. Pure people power.
 
 ---
 

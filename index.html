@@ -12,6 +12,15 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#10b981">
 <link rel="canonical" href="https://sherpacarta.org/">
+<link rel="alternate" hreflang="en" href="https://sherpacarta.org/">
+<link rel="alternate" hreflang="es" href="https://sherpacarta.org/?lang=es">
+<link rel="alternate" hreflang="fr" href="https://sherpacarta.org/?lang=fr">
+<link rel="alternate" hreflang="de" href="https://sherpacarta.org/?lang=de">
+<link rel="alternate" hreflang="zh" href="https://sherpacarta.org/?lang=zh">
+<link rel="alternate" hreflang="pt" href="https://sherpacarta.org/?lang=pt">
+<link rel="alternate" hreflang="sw" href="https://sherpacarta.org/?lang=sw">
+<link rel="alternate" hreflang="ar" href="https://sherpacarta.org/?lang=ar">
+<link rel="alternate" hreflang="x-default" href="https://sherpacarta.org/">
 
 <!-- ═══ OPEN GRAPH (Facebook, LinkedIn, iMessage, WhatsApp) ═ -->
 <meta property="og:type" content="website">
@@ -88,8 +97,8 @@
    RESET & BASE
 ═══════════════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;cursor:none}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;overflow-x:hidden;cursor:none;padding-bottom:env(safe-area-inset-bottom,0)}
 ::selection{background:var(--em);color:#000}
 a{color:inherit;text-decoration:none}
 button{font-family:var(--sans);cursor:none;border:none;background:none}
@@ -137,10 +146,10 @@ body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.8}
 /* ═══════════════════════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════════════════════ */
-#hero{position:relative;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#hero{position:relative;min-height:100svh;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:calc(68px + env(safe-area-inset-top,0)) 0 5rem}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.4}
 .hero-glow{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(16,185,129,.1) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:980px;margin:0 auto;padding:2rem;text-align:center;position:relative;z-index:2}
+.hero-inner{max-width:980px;margin:0 auto;padding:clamp(1rem,4vw,2rem);text-align:center;position:relative;z-index:2;width:100%}
 .hero-badge{display:inline-flex;align-items:center;gap:.625rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);border-radius:100px;padding:.4rem 1.1rem;margin-bottom:2.5rem;animation:fade-up .6s .1s both}
 .badge-dot{width:7px;height:7px;background:var(--em);border-radius:50%;animation:pulse 2s infinite;box-shadow:0 0 8px var(--em)}
 .badge-text{font-family:var(--mono);font-size:.62rem;color:var(--em);letter-spacing:.18em}
@@ -153,7 +162,7 @@ body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.8}
 .cta-main:hover{background:var(--em2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(16,185,129,.25)}
 .cta-sec{display:inline-flex;align-items:center;gap:.625rem;background:transparent;color:var(--text2);padding:.875rem 2.25rem;border-radius:100px;font-weight:500;font-size:1rem;border:1px solid rgba(255,255,255,.12);transition:all .2s;cursor:none}
 .cta-sec:hover{border-color:rgba(255,255,255,.35);color:var(--text)}
-.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.4;animation:bounce 2s infinite}
+.scroll-hint{position:absolute;bottom:max(1.25rem,env(safe-area-inset-bottom,0));left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.4;animation:bounce 2s infinite;pointer-events:none}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 .scroll-hint span{font-family:var(--mono);font-size:.58rem;letter-spacing:.15em;color:var(--text3)}
 
@@ -344,14 +353,28 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 /* ═══ FOOTER SHARE ════════════════════════════════════════ */
 .footer-share{margin-top:1.25rem;display:flex;gap:.4rem;flex-wrap:wrap}
 
+/* ═══ FOOTER PAYMENT TABS ═════════════════════════════════ */
+.footer-pay{margin-top:1.5rem;max-width:340px}
+.pay-tabs{display:flex;gap:.35rem;margin-bottom:.75rem}
+.pay-tab{flex:1;padding:.5rem .75rem;border-radius:100px;border:1px solid var(--border2);background:transparent;color:var(--text3);font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;transition:all .2s;min-height:44px}
+.pay-tab:hover{border-color:var(--em);color:var(--em)}
+.pay-tab.active{background:rgba(16,185,129,.12);border-color:var(--em);color:var(--em)}
+.pay-pane{display:none}
+.pay-pane.active{display:block}
+.pay-address{font-family:var(--mono);font-size:.62rem;color:var(--em2);word-break:break-all;line-height:1.55;background:var(--bg3);border-radius:.625rem;padding:.7rem .8rem;border:1px solid var(--border)}
+.pay-copy{width:100%;margin-top:.6rem;padding:.6rem;background:transparent;border:1px solid var(--em);border-radius:100px;color:var(--em);font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;transition:all .2s;min-height:44px}
+.pay-copy:hover{background:rgba(16,185,129,.1)}
+.pay-copy.copied{background:var(--em);color:#000}
+.pay-note{font-size:.68rem;color:var(--text3);margin-top:.5rem;line-height:1.5}
+
 /* ═══════════════════════════════════════════════════════════
    FLOATING ELEMENTS
 ═══════════════════════════════════════════════════════════ */
-#float-assert{position:fixed;bottom:1.75rem;left:50%;transform:translateX(-50%);z-index:400;background:var(--bg2);border:1px solid var(--em);border-radius:100px;padding:.55rem 1.1rem;display:none;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.62rem;color:var(--em);letter-spacing:.06em;cursor:none;box-shadow:0 0 20px rgba(16,185,129,.15)}
+#float-assert{position:fixed;bottom:calc(1.25rem + env(safe-area-inset-bottom,0));left:50%;transform:translateX(-50%);z-index:400;background:var(--bg2);border:1px solid var(--em);border-radius:100px;padding:.65rem 1.1rem;display:none;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.62rem;color:var(--em);letter-spacing:.06em;cursor:none;box-shadow:0 0 20px rgba(16,185,129,.15);max-width:calc(100vw - 2rem);white-space:nowrap}
 #float-assert:hover{background:var(--em);color:#000}
 
 /* ═══ BACK TO TOP ═════════════════════════════════════════ */
-#back-top{position:fixed;bottom:1.75rem;right:1.75rem;z-index:401;width:40px;height:40px;background:var(--bg2);border:1px solid var(--border2);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:.8rem;color:var(--text2);cursor:none;transition:all .2s}
+#back-top{position:fixed;bottom:calc(1.25rem + env(safe-area-inset-bottom,0));right:calc(1rem + env(safe-area-inset-right,0));z-index:401;width:44px;height:44px;background:var(--bg2);border:1px solid var(--border2);border-radius:50%;display:none;align-items:center;justify-content:center;font-size:.8rem;color:var(--text2);cursor:none;transition:all .2s}
 #back-top:hover{border-color:var(--em);color:var(--em);box-shadow:var(--glow)}
 
 /* ═══════════════════════════════════════════════════════════
@@ -397,7 +420,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 @keyframes toast-in{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
 
 /* ═══ COOKIE BANNER ═══════════════════════════════════════ */
-#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--bg2);border-top:1px solid var(--border);padding:1rem 2rem;display:none;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:800;background:var(--bg2);border-top:1px solid var(--border);padding:1rem max(1rem,env(safe-area-inset-left,0)) calc(1rem + env(safe-area-inset-bottom,0)) max(1rem,env(safe-area-inset-right,0));display:none;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 #cookie-banner p{font-size:.78rem;color:var(--text2);max-width:600px}
 .cookie-actions{display:flex;gap:.5rem}
 
@@ -466,6 +489,19 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
+/* ═══ MOBILE NAV ══════════════════════════════════════════ */
+.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--border2);border-radius:12px;color:var(--text2);background:transparent;flex-shrink:0;transition:all .2s}
+.nav-toggle:hover,.nav-toggle[aria-expanded="true"]{border-color:var(--em);color:var(--em)}
+.donate-layout{display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:start}
+.cmd-key{display:inline}
+
+/* ═══ TOUCH DEVICES — disable custom cursor ═══════════════ */
+@media(hover:none),(pointer:coarse){
+  body{cursor:auto}
+  button,a,select,input,textarea{cursor:pointer}
+  #cursor,#cursor-ring{display:none!important}
+}
+
 /* ═══ RESPONSIVE ══════════════════════════════════════════ */
 @media(max-width:900px){
   .stats-strip{grid-template-columns:repeat(2,1fr)}
@@ -476,17 +512,53 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
   .legal-grid{grid-template-columns:1fr}
   .cmp-head,.cmp-row{grid-template-columns:3fr 1fr 1fr}
   .cmp-head .cmp-cell:nth-child(3),.cmp-row .cmp-cell:nth-child(3){display:none}
+  .donate-layout{grid-template-columns:1fr;gap:2rem}
+  .donation-card{max-width:100%}
+}
+@media(max-width:768px){
+  .nav-toggle{display:flex}
+  .nav-inner{padding:0 1rem;height:60px;position:relative}
+  .nav-logo .logo-sub{display:none}
+  .nav-logo .logo-text{font-size:1.3rem}
+  .nav-actions,#nav-menu{
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--glass);backdrop-filter:blur(32px);
+    border-bottom:1px solid var(--border);
+    padding:.75rem 1rem 1rem;gap:.5rem;
+    flex-wrap:wrap;justify-content:flex-end;
+    display:none;box-shadow:var(--shadow)
+  }
+  .nav-actions.open,#nav-menu.open{display:flex}
+  #progress-counter{order:-1;width:100%;text-align:center}
+  .btn{min-height:44px;padding:.55rem 1rem}
+  .section{padding:3.5rem 1.25rem}
+  .hero-year{font-size:clamp(3.5rem,18vw,5rem);margin-bottom:.25rem}
+  .hero-h1{margin-bottom:1rem}
+  .hero-sub{margin-bottom:2rem}
+  .hero-ctas{flex-direction:column;width:100%;max-width:320px;margin:0 auto}
+  .cta-main,.cta-sec{width:100%;justify-content:center;min-height:48px}
+  .hero-share{margin-top:1rem}
+  #audio-indicator{top:auto;bottom:calc(5.5rem + env(safe-area-inset-bottom,0));right:calc(.75rem + env(safe-area-inset-right,0))}
+  #float-assert{font-size:.58rem;padding:.55rem .9rem}
 }
 @media(max-width:640px){
-  .hero-h1{font-size:2.8rem}
-  .hero-year{font-size:5rem}
-  .nav-inner{padding:0 1rem;height:60px}
-  .nav-actions{gap:.25rem}
+  .hero-h1{font-size:clamp(2.2rem,10vw,2.8rem)}
   .stats-strip{grid-template-columns:1fr 1fr}
   .footer-inner{grid-template-columns:1fr}
   .sign-form{flex-direction:column}
   .hero-share{gap:.3rem}
-  .share-btn{font-size:.62rem;padding:.28rem .65rem}
+  .share-btn{font-size:.62rem;padding:.35rem .7rem;min-height:40px}
+  .stat-block{padding:1.5rem 1rem}
+  .stat-num{font-size:2.4rem}
+  .cmd-key{display:none}
+  .scroll-hint{display:none}
+}
+@media(max-width:420px){
+  .hero-badge{padding:.35rem .85rem;margin-bottom:1.5rem}
+  .badge-text{font-size:.55rem;letter-spacing:.12em}
+  .hero-year{font-size:3.25rem}
+  .nav-actions .btn{font-size:.7rem}
+  .lang-switcher-nav select{max-width:130px}
 }
 
 /* ═══ HIGH CONTRAST MODE ══════════════════════════════════ */
@@ -542,7 +614,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
         <div class="logo-sub">v2.0 &bull; Global Digital Rights</div>
       </div>
     </div>
-    <div class="nav-actions">
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+      <i class="fas fa-bars" aria-hidden="true"></i>
+    </button>
+    <div class="nav-actions" id="nav-menu">
       <div id="progress-counter" aria-live="polite"><span id="live-counter">4,271</span> Signed</div>
 
       <!-- LANGUAGE SWITCHER with flags -->
@@ -974,7 +1049,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
 ════════════════════════════════════════════════════════ -->
 <section class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="donate-heading">
   <div class="section-max">
-    <div style="display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:start;flex-wrap:wrap">
+    <div class="donate-layout">
       <div class="reveal">
         <div class="section-label"><span>Support the Mission</span></div>
         <h2 class="section-h2" id="donate-heading">Fund the<br>Movement</h2>
@@ -1026,6 +1101,25 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
         </div>
       </div>
       <p>Privacy is not a feature. It is a human right. Built by the people, for the people — across every border.</p>
+
+      <!-- FOOTER PAYMENT TABS -->
+      <div class="footer-pay" id="footer-pay">
+        <div class="pay-tabs" role="tablist" aria-label="Donation methods">
+          <button class="pay-tab active" type="button" role="tab" aria-selected="true" aria-controls="pay-pane-btc" id="pay-tab-btc" onclick="switchPayTab('btc')"><i class="fab fa-bitcoin"></i> Bitcoin</button>
+          <button class="pay-tab" type="button" role="tab" aria-selected="false" aria-controls="pay-pane-ln" id="pay-tab-ln" onclick="switchPayTab('ln')"><i class="fas fa-bolt"></i> Lightning</button>
+        </div>
+        <div class="pay-pane active" id="pay-pane-btc" role="tabpanel" aria-labelledby="pay-tab-btc">
+          <div class="pay-address" id="footer-btc-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</div>
+          <button class="pay-copy" type="button" id="footer-copy-btc" onclick="copyPayAddress('btc')"><i class="fab fa-bitcoin"></i> Copy Bitcoin Address</button>
+          <p class="pay-note">On-chain donations only. Published transparently.</p>
+        </div>
+        <div class="pay-pane" id="pay-pane-ln" role="tabpanel" aria-labelledby="pay-tab-ln" hidden>
+          <div class="pay-address" id="footer-ln-address">lnurl1dp68gurn8ghj7ampd3kx2ar0veekzar0wd5xjtnrdakj7tnhv4kxctttdehhwm30d3h82unvwqhhxarpw3jkc3e3w463kqcmmv4k5h</div>
+          <button class="pay-copy" type="button" id="footer-copy-ln" onclick="copyPayAddress('ln')"><i class="fas fa-bolt"></i> Copy Lightning Address</button>
+          <p class="pay-note">Lightning Network — instant, low-fee support. Replace with your live LNURL/LN address before launch.</p>
+        </div>
+      </div>
+
       <!-- FOOTER SOCIAL (Feature 38) -->
       <div class="footer-share" style="margin-top:1rem">
         <button class="share-btn share-x" onclick="shareOn('x')" style="font-size:.6rem;padding:.28rem .65rem"><i class="fab fa-x-twitter"></i></button>
@@ -1053,8 +1147,8 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:3.5rem 2r
     </div>
     <div class="footer-col">
       <h4>Resources</h4>
-      <a href="https://github.com/sherpacarta/sherpacarta/blob/main/docs/EXECUTIVE_SUMMARY.md" target="_blank" rel="noopener">Executive Summary</a>
-      <a href="https://github.com/sherpacarta/sherpacarta/blob/main/docs/MARKETING.md" target="_blank" rel="noopener">Marketing &amp; Press Kit</a>
+      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/EXECUTIVE_SUMMARY.md" target="_blank" rel="noopener">Executive Summary</a>
+      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/MARKETING.md" target="_blank" rel="noopener">Marketing &amp; Press Kit</a>
       <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
       <a href="#">Legal Framework</a>
       <a href="#">Press Kit (Download)</a>
@@ -1228,11 +1322,14 @@ function applyTranslation(lang) {
   toast(`Language: ${t.langName}`, 'info');
 }
 
-// Apply saved language on load
+// Apply saved or URL language on load
 window.addEventListener('DOMContentLoaded', () => {
-  if(state.lang !== 'en') {
-    document.getElementById('nav-lang').value = state.lang;
-    applyTranslation(state.lang);
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  const lang = (urlLang && TRANSLATIONS[urlLang]) ? urlLang : state.lang;
+  if(lang !== 'en') {
+    state.lang = lang;
+    document.getElementById('nav-lang').value = lang;
+    applyTranslation(lang);
   }
 });
 
@@ -1853,14 +1950,66 @@ function toggleTheme(){
 // COPY BTC
 // ═══════════════════════════════════════════════════════════
 function copyBTC(){
-  const addr=document.getElementById('btc-address').textContent.trim();
+  copyPayAddress('btc', document.getElementById('btc-address'), document.getElementById('copy-btn'), '<i class="fab fa-bitcoin"></i> COPY ADDRESS');
+}
+
+function switchPayTab(tab){
+  const btcTab=document.getElementById('pay-tab-btc');
+  const lnTab=document.getElementById('pay-tab-ln');
+  const btcPane=document.getElementById('pay-pane-btc');
+  const lnPane=document.getElementById('pay-pane-ln');
+  const isBtc=tab==='btc';
+  btcTab.classList.toggle('active',isBtc);
+  lnTab.classList.toggle('active',!isBtc);
+  btcTab.setAttribute('aria-selected',isBtc);
+  lnTab.setAttribute('aria-selected',!isBtc);
+  btcPane.classList.toggle('active',isBtc);
+  lnPane.classList.toggle('active',!isBtc);
+  btcPane.hidden=!isBtc;
+  lnPane.hidden=isBtc;
+}
+
+function copyPayAddress(kind, addrEl, btnEl, resetHtml){
+  const map={
+    btc:{el:addrEl||document.getElementById('footer-btc-address'),btn:btnEl||document.getElementById('footer-copy-btc'),reset:resetHtml||'<i class="fab fa-bitcoin"></i> Copy Bitcoin Address',msg:'Bitcoin address copied!'},
+    ln:{el:document.getElementById('footer-ln-address'),btn:document.getElementById('footer-copy-ln'),reset:'<i class="fas fa-bolt"></i> Copy Lightning Address',msg:'Lightning address copied!'}
+  };
+  const cfg=map[kind];
+  if(!cfg||!cfg.el||!cfg.btn)return;
+  const addr=cfg.el.textContent.trim();
   navigator.clipboard.writeText(addr).then(()=>{
-    const btn=document.getElementById('copy-btn');
-    btn.classList.add('copied');btn.innerHTML='<i class="fas fa-check"></i> COPIED!';
-    toast('Bitcoin address copied!','success');
-    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML='<i class="fab fa-bitcoin"></i> COPY ADDRESS';},2500);
+    cfg.btn.classList.add('copied');
+    cfg.btn.innerHTML='<i class="fas fa-check"></i> Copied!';
+    toast(cfg.msg,'success');
+    setTimeout(()=>{cfg.btn.classList.remove('copied');cfg.btn.innerHTML=cfg.reset;},2500);
   });
 }
+
+(function initMobileNav(){
+  const toggle=document.getElementById('nav-toggle');
+  const actions=document.getElementById('nav-menu');
+  if(!toggle||!actions)return;
+  toggle.addEventListener('click',()=>{
+    const open=toggle.getAttribute('aria-expanded')==='true';
+    toggle.setAttribute('aria-expanded',open?'false':'true');
+    actions.classList.toggle('open',!open);
+    toggle.innerHTML=open?'<i class="fas fa-bars" aria-hidden="true"></i>':'<i class="fas fa-xmark" aria-hidden="true"></i>';
+  });
+  actions.querySelectorAll('button,select').forEach(el=>{
+    el.addEventListener('click',()=>{
+      toggle.setAttribute('aria-expanded','false');
+      actions.classList.remove('open');
+      toggle.innerHTML='<i class="fas fa-bars" aria-hidden="true"></i>';
+    });
+  });
+  document.addEventListener('click',e=>{
+    if(!toggle.contains(e.target)&&!actions.contains(e.target)){
+      toggle.setAttribute('aria-expanded','false');
+      actions.classList.remove('open');
+      toggle.innerHTML='<i class="fas fa-bars" aria-hidden="true"></i>';
+    }
+  });
+})();
 
 // ═══════════════════════════════════════════════════════════
 // ASSERT RIGHTS

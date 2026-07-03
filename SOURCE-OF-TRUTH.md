@@ -1,8 +1,8 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-06-10  
-**BUILD:** 20260610-001
+**Date:** 2026-07-02  
+**BUILD:** 20260702-001
 
 ## Project Overview (Simple Pitch)
 SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living, globally-signed charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights for every person on Earth (all 8 billion). 
@@ -14,10 +14,17 @@ The project includes a stunning, fully self-contained, interactive single-page w
 This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single source of truth**. Everything lives here so both Goose (M3) and Kimi (M4 HERMES) always know the latest state.
 
 ## Core Files
-- `index.html` — The complete, beautiful, self-contained SherpaCarta experience (the heart of the project). All CSS, JS interactivity, charter data (114 articles), modals, tools, and SEO/OG meta live here. Designed to be hosted as a single file or via Vite build.
+- `index.html` — The complete, beautiful, self-contained SherpaCarta experience (the heart of the project). All CSS, JS interactivity, charter data (114 articles), modals, tools, SEO/hreflang meta, mobile nav, and footer BTC/Lightning tabs live here.
 - `README.md` — Professional usage guide, quick start for `npm run dev`, project structure, key features, and contribution info.
 - `docs/EXECUTIVE_SUMMARY.md` — High-level problem/solution, four core pillars, strategic positioning, current momentum, call to action (for leaders, partners, press).
 - `docs/MARKETING.md` — Brand voice, key messages, one-pagers, social templates, press boilerplate, common objections & rebuttals, visual identity notes.
+- `docs/MISSION.md` — Purpose, values, problem/solution, audience (filled 2026-07-02).
+- `docs/SEO.md` — English SEO master + i18n index; locale baselines in `docs/SEO-{es,fr,de,pt,zh,sw}.md`.
+- `docs/I18N.md` — Translation system reference (Give A Bit shared i18n).
+- `docs/DEPLOYMENT.md` — Build, Cloudflare Pages, deploy.sh workflow.
+- `docs/KIMI-HANDOFF.md` — M3→M4 session handoff log (mandatory per GROK-SESSION-PROTOCOL).
+- `MARKETING-ONELINER.md` — Tagline, pitch, CTA for quick reuse.
+- `deploy.sh` — Build + Cloudflare Pages deploy (token-based).
 - `public/` — Static assets (favicon.svg, icons.svg).
 - `package.json` + `vite.config.js` — Vite setup for excellent local dev (`npm run dev` with HMR) and production builds (`npm run build` → `dist/`).
 - `src/` — Legacy React + Tailwind placeholder files from the original Vite template (currently unused; the runtime site is pure HTML/JS in root index.html).
@@ -37,13 +44,15 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 Directly advances Bitcoin sovereignty, privacy, and human dignity in the digital age. The charter itself and the website embody Give A Bit values: privacy by design (zero data collection), user sovereignty (local-only signatures + CC0), approachable tools for normal people to assert rights, and resistance to surveillance capitalism and centralized control. Future potential: Lightning donations, Nostr integration for amendments/discussion, on-chain signature anchoring, Safe Harbour legal templates for adopters. Ties beautifully into the broader Give A Bit mission of private, feel-good, empowering tools.
 
 ## Current Gaps & Next Priorities
-- Real deployment to https://sherpacarta.org/ (Cloudflare Pages or equivalent) + proper og-image.png and any final asset polish.
-- Optional: Add a real GitHub Pages / custom domain setup and update meta URLs if needed.
-- Populate more real signatories or integrate a lightweight backend/ledger for public signatures (while keeping the zero-tracking spirit for the default local experience).
-- Community translation workflow and amendment proposal UI (currently the charter is "living" in principle via Art. 114).
-- Press kit distribution and outreach using the new MARKETING.md.
-- Consider pruning legacy React dependencies from package.json since the delivered experience is vanilla + Vite for convenience.
-- Full hand-off to Kimi on M4 for Obsidian integration, MASTER-BRAIN updates, and continued strategy.
+- **og-image.png** and **logo.png** — referenced in meta/JSON-LD but not yet in `public/`.
+- **Real BTC treasury address** — on-page address is still a placeholder example; Lightning LNURL is placeholder too.
+- **Important doc** (Cam planning) — likely institutional adoption pack / press treaty brief; scope TBD.
+- `?lang=` deep-link on load for hreflang SEO URLs.
+- FAQPage JSON-LD, sitemap.xml, robots.txt.
+- Populate real signatories or lightweight public signature ledger (optional, privacy-preserving).
+- Full charter translations beyond hero/CTA (community workflow).
+- Prune or document legacy React deps in `package.json` (`src/` unused).
+- Kimi: Obsidian / MASTER-BRAIN sync from `docs/KIMI-HANDOFF.md`.
 
 ## Hand-off Notes for Kimi (M4 HERMES)
 See the latest `KIMI-HANDOFF-sherpacarta-*.md`. Please integrate the SOURCE-OF-TRUTH, the two new docs in `/docs/`, the updated README, and key details into your Obsidian vault under the SherpaCarta project. Update MASTER-BRAIN.md and Kanban. Educate yourself and Hermes on the full vision: this is not "just a website" — it is the living digital rights charter and movement tool for the age of AI and surveillance. The single `index.html` + docs are the current source of truth. Use the EXECUTIVE_SUMMARY and MARKETING docs as canonical references for any future work or outreach. Maintain BUILD numbers on meaningful changes and always keep this SOURCE-OF-TRUTH.md updated.

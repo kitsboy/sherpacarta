@@ -1,26 +1,44 @@
 ---
 title: Changelog
-project: [Project Name]
+project: sherpacarta
 version_history:
-  - version: 0.1.0
-    date: YYYY-MM-DD
-    summary: Initial project scaffold
+  - version: 2.0.1
+    date: 2026-07-02
+    summary: Mobile polish, footer pay tabs, docs audit
+  - version: 2.0.0
+    date: 2026-06-10
+    summary: Full single-page charter site, marketing docs
 audience: devs
-last_updated: YYYY-MM-DD
-owner: Nova (Product Management & Documentation)
+last_updated: 2026-07-02
+owner: Cam / Give A Bit
 ---
 
 # Changelog
 
 All notable changes to this project are documented here.
 
-## [0.1.0] — YYYY-MM-DD
+## [2.0.1] — 2026-07-02
 
 ### Added
-- Initial project scaffold
+- Footer Bitcoin + Lightning tabbed donation widget with copy buttons
+- hreflang alternates for international SEO (en, es, fr, de, zh, pt, sw, ar)
+- Mobile hamburger navigation for narrow viewports
+- `docs/MISSION.md`, `docs/DEPLOYMENT.md`, `docs/KIMI-HANDOFF.md` (filled)
+- Filled `docs/SEO.md`, `MARKETING-ONELINER.md`, `LATEST-UPDATE.md`
 
 ### Changed
-- None
+- Hero and layout tuned for Pixel-class mobile (safe-area, touch cursor, stacked CTAs)
+- `SOURCE-OF-TRUTH.md` and `README.md` doc index updated
+- Footer GitHub links → `kitsboy/sherpacarta`
 
 ### Fixed
-- None
+- `deploy.sh` broken `CLOUDFLARE_API_TOKEN` export line
+- Donation section grid stacks on mobile
+- Custom cursor disabled on touch devices
+
+## [2.0.0] — 2026-06-10
+
+### Added
+- Full self-contained `index.html` charter experience (114 articles)
+- `docs/EXECUTIVE_SUMMARY.md`, `docs/MARKETING.md`
+- Cloudflare Pages deployment via Vite build

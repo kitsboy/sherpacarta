@@ -1,32 +1,43 @@
 ---
 title: Mission
-project: [Project Name]
-version: 0.1.0
+project: sherpacarta
+version: 2.0.0
 audience: internal
-tags: [project, mission, purpose, values]
-last_updated: YYYY-MM-DD
-owner: Nova (Product Management & Documentation)
+tags: [project, mission, purpose, values, digital-rights]
+last_updated: 2026-07-02
+owner: Cam / Give A Bit
 ---
 
-# [Project Name] — Mission
+# SherpaCarta — Mission
 
 ## Our Purpose
-[One paragraph — why this project exists. What gap does it fill in the world?]
+
+SherpaCarta exists because eight billion people live under digital systems that surveil, profile, and control them — often with more reach than any government — yet no unified, living charter binds those powers to human dignity. We publish a global digital Magna Carta: 114 articles that anyone can read, sign, translate, and carry into law, policy, and practice.
 
 ## Core Values
-1. **Bitcoin Sovereignty First** — [How this project puts Bitcoin self-custody and permissionless access first]
-2. **Privacy by Design** — [Zero-knowledge, client-side, no tracking]
-3. **Open Source** — [License, community model]
-4. **Safe Harbour** — [How it protects users legally and ethically]
+
+1. **Bitcoin Sovereignty First** — The movement is funded only by voluntary on-chain Bitcoin donations. No venture capital, no ad revenue, no paywalls on rights.
+2. **Privacy by Design** — Zero tracking, zero analytics, zero cookies. Signatures and preferences stay local unless a signer chooses otherwise.
+3. **Open Source** — CC0 public domain. Copy, translate, adapt, fork. Rights may only expand, never contract (Art. 114).
+4. **Safe Harbour** — SherpaCarta is a moral and political declaration, not legal advice. We urge adopters to consult qualified counsel in their jurisdiction.
 
 ## The Problem We Solve
-[What broken system or unmet need does this address?]
+
+- GDPR and national laws are fragmented, geographically limited, and outdated for AI and platform power.
+- Corporations and algorithms exercise sovereignty over people's data, attention, and digital existence without binding human-rights obligations.
+- Citizens lack a single, memorable, shareable document they can rally around internationally.
 
 ## Our Solution
-[How Bitcoin + the specific project architecture solves it]
+
+A beautiful, self-contained, multilingual single-page experience hosting the full charter — with signing, sharing, rights calculator, historical context, and Bitcoin/Lightning donation paths. The site practices what it preaches: no surveillance, full transparency, local-first data.
 
 ## Who It Serves
-[Target users, communities, or use cases]
+
+- Digital rights activists and NGOs
+- Journalists and policymakers seeking model language
+- Technologists building privacy-first tools
+- Everyday citizens who want to assert dignity online
+- International communities needing translated, culturally grounded rights language
 
 ---
 
