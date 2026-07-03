@@ -1,4 +1,4 @@
 # sherpacarta — Last Updated 2026-07-02 by Grok
 
-Brief: 300 features v3.0 + USAGE.md guide
-Commit: 2791e3e
+Brief: Parent logo footer, wave backdrop, 325 features
+Commit: 03d2e11

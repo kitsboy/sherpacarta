@@ -17,6 +17,13 @@ owner: Cam / Give A Bit
 
 All notable changes to this project are documented here.
 
+## [3.2.0] — 2026-07-02
+
+### Footer Center + 50 Features
+- giveaBit.io parent logo 2× (44px), centered in copyright row
+- Features 326–375 (`sc-enhancements-v5.js`)
+- BUILD 20260703-375
+
 ## [3.1.0] — 2026-07-02
 
 ### Visual + Parent Brand

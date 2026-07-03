@@ -1,7 +1,7 @@
-# SherpaCarta — 325 Features (v3.1)
+# SherpaCarta — 375 Features (v3.2)
 
-**BUILD:** 20260703-325  
-**Modules:** `sc-enhancements.js` (1–100) + `v2` (101–200) + `v3` (201–300) + `v4` (301–325)  
+**BUILD:** 20260703-375  
+**Modules:** `sc-enhancements.js` (1–100) + `v2` (101–200) + `v3` (201–300) + `v4` (301–325) + `v5` (326–375)  
 **How to use:** [USAGE.md](USAGE.md)
 
 ## Group 1 — Critical + Core UX (1–25)
@@ -43,6 +43,12 @@ Theme tri-state, accent picker, font family, read width, focus mode, warm tint, 
 Page QR, Nostr QR, email excerpt, embed snippet, referral/campaign links, article social card, Nostr/Bluesky composers, press release, screenshot mode, brand manifest, API link, RSS/JSON buttons, integration panel, partner badge, Distribute ⌘K group, native share, share reminder, MCP v3, charter ⌘K search, BUILD 300 merge, init toast
 
 ## Group 13 — Visual + Parent Brand (301–325)
-giveaBit.io parent logo in copyright footer, wave background 36% opacity, reduced-motion/battery respect, theme sync, wave toggle ⌘K, parallax, mobile layer trim, screenshot/print hide, press kit parent branding, dual-brand tooltips, BUILD 325
+giveaBit.io parent logo, wave background 36%, wave toggle ⌘K, parallax, press kit branding, BUILD 325
 
-*Click BUILD badge on site to see live feature list. Press ? or nav ? for usage guide. Toggle waves: ⌘K → Toggle Wave Background.*
+## Group 14 — Footer Center Brand (326–350)
+Parent logo centered in copyright row at 2× (44px), CC0 badge, copy giveabit.io, entrance animation, responsive stack, ⌘K scroll to parent, print layout
+
+## Group 15 — Advanced Power (351–375)
+Session tracker, article heatmap, top articles widget, amendment templates, BC outreach pack, petition bar, speech rate, Nostr relay picker, Satohash stamp, tag cloud, session export/import, Konami v2, BUILD 375
+
+*Click BUILD badge for 375 features. Parent logo: centered footer · giveabit.io*
