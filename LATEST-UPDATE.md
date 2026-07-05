@@ -1,4 +1,4 @@
 # sherpacarta — Last Updated 2026-07-04 by Grok
 
-Brief: Sprint 4 Canada & BC legal — 20 upgrades, BUILD 567
-Commit: cae84b2
+Brief: Sprint 5 i18n expansion — 20 upgrades, BUILD 587
+Commit: pending

@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v4.2';
+const CACHE = 'sherpacarta-v4.3';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html',
   '/report/2026-report.html', '/status.html', '/accessibility.html',
@@ -7,7 +7,8 @@ const ASSETS = [
   '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',
   '/sc-enhancements.js', '/sc-enhancements-v2.js', '/sc-enhancements-v3.js',
   '/sc-enhancements-v4.js', '/sc-enhancements-v5.js', '/sc-enhancements-v6.js',
-  '/sc-upgrades-b1.js', '/sc-upgrades-b2.js', '/sc-upgrades-b3.js', '/sc-upgrades-b4.js', '/sc-upgrades-b5.js', '/sc-upgrades-b6.js', '/sc-upgrades-b7.js',
+  '/sc-upgrades-b1.js', '/sc-upgrades-b2.js', '/sc-upgrades-b3.js', '/sc-upgrades-b4.js', '/sc-upgrades-b5.js', '/sc-upgrades-b6.js', '/sc-upgrades-b7.js', '/sc-upgrades-b8.js',
+  '/locales/de.json', '/locales/pt.json', '/locales/sw.json', '/locales/es-charter.json', '/locales/fr-charter.json', '/locales/ar-charter.json',
   '/bc/model-bill.html', '/bc/safe-harbour.html', '/bc/indigenous-data.html', '/bc/town-hall-kit.html',
   '/api/v1/charter.json', '/api/v1/hash.json', '/api/v1/openapi.json',
   '/embed/sign-widget.html',

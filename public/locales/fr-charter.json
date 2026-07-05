@@ -1,0 +1,10 @@
+{
+  "code": "fr",
+  "articles": {
+    "1": { "title": "Dignité Humaine dans les Espaces Numériques", "summary": "Chaque personne possède une dignité inhérente en ligne et hors ligne." },
+    "11": { "title": "Droit à la Vie Privée", "summary": "Droit inaliénable à la vie privée dans les communications et les données." },
+    "12": { "title": "Souveraineté des Données", "summary": "Les individus possèdent et contrôlent leurs données personnelles." },
+    "13": { "title": "Interdiction du Capitalisme de Surveillance", "summary": "Vente de données comportementales sans consentement explicite interdite." },
+    "61": { "title": "Droit à la Transparence Algorithmique", "summary": "Explication en langage clair des décisions automatisées." }
+  }
+}

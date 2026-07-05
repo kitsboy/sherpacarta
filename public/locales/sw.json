@@ -1,0 +1,26 @@
+{
+  "code": "sw",
+  "name": "🇰🇪 Kiswahili",
+  "dir": "ltr",
+  "ui": {
+    "heroH1": "<span class=\"accent\">Magna Carta</span><br>kwa Enzi ya Kidijitali",
+    "heroSub": "Faragha kama haki ya msingi ya binadamu. Hati hai kwa kila mtu duniani.",
+    "ctaCharter": "Fungua Hati Kamili",
+    "ctaSign": "Saini na Thibitisha Haki",
+    "navSign": "Saini",
+    "navDonate": "Changia",
+    "missionLabel": "Dhamira Yetu",
+    "signHeading": "Saini Hati",
+    "donateHeading": "Saidia Harakati",
+    "faqHeading": "Maswali Yanayoulizwa Mara kwa Mara"
+  },
+  "articles": {
+    "11": { "title": "Haki ya Faragha", "summary": "Kila mtu ana haki isiyoweza kupondwa ya faragha katika nafasi ya kidijitali." },
+    "12": { "title": "Uhuru wa Data", "summary": "Watu wanamiliki na kudhibiti data zao za kibinafsi." }
+  },
+  "glossary": {
+    "privacy": "faragha",
+    "data sovereignty": "uhuru wa data",
+    "algorithm": "algoriti"
+  }
+}

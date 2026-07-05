@@ -1,0 +1,27 @@
+{
+  "code": "pt",
+  "name": "🇧🇷 Português",
+  "dir": "ltr",
+  "ui": {
+    "heroH1": "Uma <span class=\"accent\">Magna Carta</span><br>para a Era Digital",
+    "heroSub": "Privacidade como direito humano fundamental. Uma carta viva para cada pessoa na Terra.",
+    "ctaCharter": "Abrir a Carta Completa",
+    "ctaSign": "Assinar e Afirmar Direitos",
+    "navSign": "Assinar",
+    "navDonate": "Doar",
+    "missionLabel": "Nossa Missão",
+    "signHeading": "Assinar a Carta",
+    "donateHeading": "Apoiar o Movimento",
+    "faqHeading": "Perguntas Frequentes"
+  },
+  "articles": {
+    "11": { "title": "Direito à Privacidade", "summary": "Toda pessoa tem direito inalienável à privacidade no espaço digital." },
+    "12": { "title": "Soberania de Dados", "summary": "Os indivíduos possuem e controlam seus dados pessoais." },
+    "13": { "title": "Proibição do Capitalismo de Vigilância", "summary": "A venda de dados comportamentais sem consentimento explícito é proibida." }
+  },
+  "glossary": {
+    "privacy": "privacidade",
+    "data sovereignty": "soberania de dados",
+    "algorithm": "algoritmo"
+  }
+}

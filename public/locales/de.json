@@ -1,0 +1,27 @@
+{
+  "code": "de",
+  "name": "🇩🇪 Deutsch",
+  "dir": "ltr",
+  "ui": {
+    "heroH1": "Eine <span class=\"accent\">Magna Carta</span><br>für das digitale Zeitalter",
+    "heroSub": "Privatsphäre als grundlegendes Menschenrecht. Eine lebendige Charta für jeden Menschen auf der Erde.",
+    "ctaCharter": "Charta öffnen",
+    "ctaSign": "Unterschreiben & Rechte geltend machen",
+    "navSign": "Unterschreiben",
+    "navDonate": "Spenden",
+    "missionLabel": "Unsere Mission",
+    "signHeading": "Charta unterzeichnen",
+    "donateHeading": "Bewegung unterstützen",
+    "faqHeading": "Häufige Fragen"
+  },
+  "articles": {
+    "11": { "title": "Recht auf Privatsphäre", "summary": "Jeder Mensch hat ein unveräußerliches Recht auf Privatsphäre in der digitalen Welt." },
+    "12": { "title": "Datenhoheit", "summary": "Personen besitzen ihre Daten und entscheiden über Erhebung und Nutzung." },
+    "13": { "title": "Verbot des Überwachungskapitalismus", "summary": "Der Handel mit Verhaltensdaten ohne ausdrückliche Zustimmung ist verboten." }
+  },
+  "glossary": {
+    "privacy": "Privatsphäre",
+    "data sovereignty": "Datenhoheit",
+    "algorithm": "Algorithmus"
+  }
+}

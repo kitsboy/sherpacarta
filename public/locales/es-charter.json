@@ -1,0 +1,12 @@
+{
+  "code": "es",
+  "articles": {
+    "1": { "title": "Dignidad Humana en Espacios Digitales", "summary": "Toda persona posee dignidad inherente en línea e offline." },
+    "2": { "title": "Igualdad ante la Ley Digital", "summary": "Nadie será discriminado por algoritmos o datos." },
+    "11": { "title": "Derecho a la Privacidad", "summary": "Derecho inalienable a la privacidad en comunicaciones y datos." },
+    "12": { "title": "Soberanía de Datos", "summary": "Los individuos poseen y controlan sus datos personales." },
+    "13": { "title": "Prohibición del Capitalismo de Vigilancia", "summary": "Venta de datos conductuales sin consentimiento explícito prohibida." },
+    "61": { "title": "Derecho a la Transparencia Algorítmica", "summary": "Explicación en lenguaje claro de decisiones automatizadas." },
+    "62": { "title": "No Discriminación Algorítmica", "summary": "La discriminación por algoritmo es ilegal independientemente de la intención." }
+  }
+}
