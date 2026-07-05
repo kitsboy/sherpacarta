@@ -494,6 +494,10 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 .minimap-thumb{position:absolute;width:100%;height:20%;background:var(--em);border-radius:2px;left:0}
 .star-btn{background:none;border:none;color:var(--gold);cursor:pointer;font-size:.9rem;margin-left:.35rem;padding:0}
 .calc-presets{margin-bottom:1rem}
+.i18n-status-panel{margin-top:2rem;padding:1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:1rem;max-width:480px}
+.i18n-bar-row{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.58rem;color:var(--text2);margin:.35rem 0}
+.i18n-bar{flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden}
+.i18n-bar-fill{height:100%;background:var(--em);border-radius:3px}
 @media(max-width:768px){
   #status-dock{top:calc(var(--announce-h,0px) + 3.75rem);right:max(.35rem,env(safe-area-inset-right,0));font-size:.55rem;padding:.3rem .55rem}
   .a11y-toolbar{bottom:calc(4.5rem + env(safe-area-inset-bottom,0))}
@@ -1684,7 +1688,7 @@ window.addEventListener('DOMContentLoaded', () => {
 // ═══════════════════════════════════════════════════════════
 // CHARTER DATA
 // ═══════════════════════════════════════════════════════════
-const CHARTER = [
+window.CHARTER = [
   {chapter:'Preamble', articles:[
     {num:'P.1', title:'On the Foundation of Rights', sherpa:true, tags:['foundation','history'],
      subtitle:'Basis of all SherpaCarta Articles',
@@ -1754,6 +1758,7 @@ const CHARTER = [
      sherpa_ext:`Final Principle: If any provision of this charter conflicts with the commercial interests of any entity, the charter prevails. Commerce serves humanity. Humanity does not serve commerce.`},
   ]}
 ];
+const CHARTER = window.CHARTER;
 
 const KEY_ARTICLES = CHARTER.flatMap(ch => ch.articles);
 
@@ -2072,6 +2077,7 @@ function signCharter(){
   state.signers.push({name,c});state.signCount++;
   localStorage.setItem('sc_signers',JSON.stringify(state.signers));
   localStorage.setItem('sc_count',state.signCount);
+  localStorage.setItem('sc_last_signer',name);
   buildSigners();
   document.getElementById('sign-name').value='';document.getElementById('sign-country').value='';
   toast(`Welcome, ${name}! You are signatory #${state.signCount.toLocaleString()}.`,'success');
@@ -2687,11 +2693,12 @@ document.addEventListener('visibilitychange',()=>{
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-<script src="/sc-enhancements.js?v=426"></script>
-<script src="/sc-enhancements-v2.js?v=426"></script>
-<script src="/sc-enhancements-v3.js?v=426"></script>
-<script src="/sc-enhancements-v4.js?v=426"></script>
-<script src="/sc-enhancements-v5.js?v=426"></script>
-<script src="/sc-enhancements-v6.js?v=426"></script>
+<script src="/sc-enhancements.js?v=447"></script>
+<script src="/sc-enhancements-v2.js?v=447"></script>
+<script src="/sc-enhancements-v3.js?v=447"></script>
+<script src="/sc-enhancements-v4.js?v=447"></script>
+<script src="/sc-enhancements-v5.js?v=447"></script>
+<script src="/sc-enhancements-v6.js?v=447"></script>
+<script src="/sc-upgrades-b1.js?v=447"></script>
 </body>
 </html>

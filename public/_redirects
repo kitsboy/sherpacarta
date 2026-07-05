@@ -1,1 +1,14 @@
-# No SPA redirects — HashRouter handles routing
+/es    /?lang=es   302
+/es/   /?lang=es   302
+/fr    /?lang=fr   302
+/fr/   /?lang=fr   302
+/de    /?lang=de   302
+/de/   /?lang=de   302
+/zh    /?lang=zh   302
+/zh/   /?lang=zh   302
+/pt    /?lang=pt   302
+/pt/   /?lang=pt   302
+/ar    /?lang=ar   302
+/ar/   /?lang=ar   302
+/sw    /?lang=sw   302
+/sw/   /?lang=sw   302
