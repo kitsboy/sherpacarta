@@ -1,0 +1,10 @@
+Contact: mailto:hello@giveabit.io?subject=Sherpacarta%20Security
+Expires: 2027-07-04T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://sherpacarta.org/.well-known/security.txt
+Policy: https://sherpacarta.org/accessibility.html
+Acknowledgments: https://github.com/kitsboy/sherpacarta
+
+# SherpaCarta security disclosure
+# We take privacy and security seriously. Report responsibly.
+# Part of the Give A Bit family — giveabit.io

@@ -2429,6 +2429,7 @@ const CMD_ITEMS=[
   {group:'Articles',icon:'fa-brain',label:'Art. 61 — Algorithmic Rights',sub:'Right to explanation',action:()=>{document.querySelectorAll('.article-tab')[10]?.click();closeCommandPalette();}},
   {group:'Bitcoin',icon:'fa-bitcoin fab',label:'Copy Bitcoin Address',sub:'Support the mission',action:copyBTC},
 ];
+window.CMD_ITEMS = CMD_ITEMS;
 
 let cmdFocused=0;
 function openCommandPalette(){document.getElementById('cmd-overlay').classList.add('open');document.getElementById('cmd-input').focus();cmdSearch('');}
@@ -2666,17 +2667,8 @@ if(!localStorage.getItem('sc_visited')){
   setTimeout(()=>toast('Tip: Press ⌘K to search all articles and commands','info'),3500);
 }
 
-// Feature 50: Auto-increment signatory counter every 47 seconds (simulated global momentum)
-setInterval(()=>{
-  if(Math.random()>.5){
-    state.signCount++;
-    localStorage.setItem('sc_count',state.signCount);
-    const lc=document.getElementById('live-counter');
-    const sc=document.getElementById('sign-count');
-    if(lc)lc.textContent=state.signCount.toLocaleString();
-    if(sc)sc.textContent=state.signCount.toLocaleString();
-  }
-},47000);
+// Feature 50: Simulated auto-increment removed BUILD 507 — real local signatures only
+localStorage.setItem('sc_real_counts_only','1');
 
 // Feature 51: Right-click context menu suppressor with custom menu
 document.addEventListener('contextmenu',e=>{
@@ -2693,14 +2685,15 @@ document.addEventListener('visibilitychange',()=>{
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-<script src="/sc-enhancements.js?v=487"></script>
-<script src="/sc-enhancements-v2.js?v=487"></script>
-<script src="/sc-enhancements-v3.js?v=487"></script>
-<script src="/sc-enhancements-v4.js?v=487"></script>
-<script src="/sc-enhancements-v5.js?v=487"></script>
-<script src="/sc-enhancements-v6.js?v=487"></script>
-<script src="/sc-upgrades-b1.js?v=487"></script>
-<script src="/sc-upgrades-b2.js?v=487"></script>
-<script src="/sc-upgrades-b3.js?v=487"></script>
+<script src="/sc-enhancements.js?v=507"></script>
+<script src="/sc-enhancements-v2.js?v=507"></script>
+<script src="/sc-enhancements-v3.js?v=507"></script>
+<script src="/sc-enhancements-v4.js?v=507"></script>
+<script src="/sc-enhancements-v5.js?v=507"></script>
+<script src="/sc-enhancements-v6.js?v=507"></script>
+<script src="/sc-upgrades-b1.js?v=507"></script>
+<script src="/sc-upgrades-b2.js?v=507"></script>
+<script src="/sc-upgrades-b3.js?v=507"></script>
+<script src="/sc-upgrades-b4.js?v=507"></script>
 </body>
 </html>

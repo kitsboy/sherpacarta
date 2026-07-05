@@ -1,6 +1,26 @@
 # sherpacarta.org — Cloudflare Pages _headers
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
 /assets/*.css
   Content-Type: text/css
+  Cache-Control: public, max-age=31536000, immutable
 
 /assets/*.js
   Content-Type: application/javascript
+  Cache-Control: public, max-age=31536000, immutable
+
+/sc-enhancements*.js
+  Cache-Control: public, max-age=3600
+
+/sc-upgrades*.js
+  Cache-Control: public, max-age=3600
+
+/api/v1/*
+  Cache-Control: public, max-age=300
+  Access-Control-Allow-Origin: *
+
+/index.html
+  Cache-Control: public, max-age=300
