@@ -16,6 +16,10 @@ const staticUrls = [
   { loc: 'https://sherpacarta.org/comparison.html', priority: '0.75', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/press.html', priority: '0.75', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/report/2026-report.html', priority: '0.7', changefreq: 'yearly' },
+  { loc: 'https://sherpacarta.org/bc/model-bill.html', priority: '0.75', changefreq: 'monthly' },
+  { loc: 'https://sherpacarta.org/bc/safe-harbour.html', priority: '0.7', changefreq: 'monthly' },
+  { loc: 'https://sherpacarta.org/bc/indigenous-data.html', priority: '0.7', changefreq: 'monthly' },
+  { loc: 'https://sherpacarta.org/bc/town-hall-kit.html', priority: '0.7', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/status.html', priority: '0.5', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/accessibility.html', priority: '0.5', changefreq: 'monthly' },
   ...['es', 'fr', 'de', 'zh', 'pt', 'ar', 'sw'].map((l) => ({
