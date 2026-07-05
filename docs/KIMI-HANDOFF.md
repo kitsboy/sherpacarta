@@ -252,9 +252,28 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ### Git State
 
-- Last commit SHA: 8c77248
+- Last commit SHA: 4307692
 - Branch: main
-- Unpushed: none (LATEST-UPDATE handoff commit pending)
+- Unpushed: none
+
+---
+
+## Latest Session Summary (from 2026-07-04 goodbye)
+
+**Chat topic:** Finished Sprint 5 i18n (BUILD 587), deployed, closed session with reminder to do Sprint 6 later.
+
+**Finished in this session:**
+- Sprint 5 i18n — `sc-upgrades-b8.js`, 6 locale files, i18n-audit script, SW v4.3
+- Built, committed (`8c77248`), pushed, deployed to sherpacarta.org
+- Handoff docs (`4307692`), `SESSION-SUMMARY-2026-07-04.md`
+
+**Still to do (Cam: "remember to do this later"):**
+- **Sprint 6** — split `index.html`, bundle JS, Lighthouse CI
+- Sprint 7 — treasury dashboard, bug bounty
+- Sprint 8 — MCP server, npm SDK
+- Lightning live wallet when LNURL provided
+
+**Next for Kimi:** Integrate `SESSION-SUMMARY-2026-07-04.md` into MASTER-BRAIN / Obsidian. Do not sync to M4 until Cam or Kimi says it's time.
 
 ---
 
