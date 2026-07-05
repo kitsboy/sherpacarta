@@ -1,12 +1,13 @@
-const CACHE = 'sherpacarta-v3.9';
+const CACHE = 'sherpacarta-v4.0';
 const ASSETS = [
-  '/', '/index.html', '/changelog.html', '/status.html', '/accessibility.html',
+  '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html',
+  '/report/2026-report.html', '/status.html', '/accessibility.html',
   '/favicon.svg', '/og-image.svg', '/og-image.png',
   '/giveabit-logo.png', '/giveabit-parent-logo.jpg', '/manifest.json', '/mcp.json',
-  '/.well-known/security.txt',
+  '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',
   '/sc-enhancements.js', '/sc-enhancements-v2.js', '/sc-enhancements-v3.js',
   '/sc-enhancements-v4.js', '/sc-enhancements-v5.js', '/sc-enhancements-v6.js',
-  '/sc-upgrades-b1.js', '/sc-upgrades-b2.js', '/sc-upgrades-b3.js', '/sc-upgrades-b4.js',
+  '/sc-upgrades-b1.js', '/sc-upgrades-b2.js', '/sc-upgrades-b3.js', '/sc-upgrades-b4.js', '/sc-upgrades-b5.js',
   '/api/v1/charter.json', '/api/v1/hash.json', '/api/v1/openapi.json',
   '/embed/sign-widget.html',
 ];

@@ -1,4 +1,4 @@
 # sherpacarta — Last Updated 2026-07-04 by Grok
 
-Brief: Sprint 1 batch 4 — 20 quick wins, BUILD 507
-Commit: 9b3b81a
+Brief: Sprint 2 SEO & growth — 20 upgrades, BUILD 527
+Commit: pending

@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sherpacarta.org/sitemap.xml
+
+# Static pages: /comparison.html /press.html /report/2026-report.html
+# Article deep links: /?article=N

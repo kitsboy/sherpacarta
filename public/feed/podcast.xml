@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Rights Dispatch — SherpaCarta</title>
+    <link>https://sherpacarta.org</link>
+    <description>Monthly briefing on digital rights, SherpaCarta charter updates, and privacy victories worldwide. A Give A Bit production.</description>
+    <language>en-us</language>
+    <copyright>CC0 — SherpaCarta Global Movement</copyright>
+    <itunes:author>SherpaCarta / Give A Bit</itunes:author>
+    <itunes:category text="News"/>
+    <item>
+      <title>Welcome to SherpaCarta — Why a Digital Magna Carta?</title>
+      <link>https://sherpacarta.org/#mission</link>
+      <guid isPermaLink="true">https://sherpacarta.org/#mission</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Introduction to the 114-article charter, the Canada/BC Challenge, and how to sign. Audio episodes coming soon — subscribe for updates.</description>
+    </item>
+    <item>
+      <title>Article 11 — The Right to Privacy</title>
+      <link>https://sherpacarta.org/?article=11</link>
+      <guid isPermaLink="true">https://sherpacarta.org/?article=11</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Deep dive into SherpaCarta Article 11 — the cornerstone privacy article. Read at sherpacarta.org/?article=11</description>
+    </item>
+    <item>
+      <title>Canada &amp; BC Challenge — Change Law First</title>
+      <link>https://sherpacarta.org/#canada-bc</link>
+      <guid isPermaLink="true">https://sherpacarta.org/#canada-bc</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Why British Columbia is the first jurisdiction beachhead for digital rights legislation modeled on SherpaCarta.</description>
+    </item>
+  </channel>
+</rss>
