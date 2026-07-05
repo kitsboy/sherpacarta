@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v4.0';
+const CACHE = 'sherpacarta-v4.1';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html',
   '/report/2026-report.html', '/status.html', '/accessibility.html',
@@ -7,7 +7,7 @@ const ASSETS = [
   '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',
   '/sc-enhancements.js', '/sc-enhancements-v2.js', '/sc-enhancements-v3.js',
   '/sc-enhancements-v4.js', '/sc-enhancements-v5.js', '/sc-enhancements-v6.js',
-  '/sc-upgrades-b1.js', '/sc-upgrades-b2.js', '/sc-upgrades-b3.js', '/sc-upgrades-b4.js', '/sc-upgrades-b5.js',
+  '/sc-upgrades-b1.js', '/sc-upgrades-b2.js', '/sc-upgrades-b3.js', '/sc-upgrades-b4.js', '/sc-upgrades-b5.js', '/sc-upgrades-b6.js',
   '/api/v1/charter.json', '/api/v1/hash.json', '/api/v1/openapi.json',
   '/embed/sign-widget.html',
 ];
