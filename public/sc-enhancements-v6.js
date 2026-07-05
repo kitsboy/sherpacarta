@@ -4,7 +4,7 @@
  */
 (function SCEnhancementsV6() {
   'use strict';
-  const BUILD = '20260703-425';
+  const BUILD = '20260704-426';
   const FEATURES = [];
   const $ = (id) => document.getElementById(id);
   const toast = (msg, type) => window.toast?.(msg, type || 'info');
@@ -66,34 +66,20 @@
     });
   });
 
-  feat(382, 'A11y dock collapse toggle', () => {
+  feat(382, 'A11y toolbar toggle (footer / ⌘K)', () => {
     SC6.toggleA11yDock = () => {
       const a11y = $('a11y-toolbar');
       if (!a11y) return;
-      a11y.classList.toggle('collapsed');
-      const collapsed = a11y.classList.contains('collapsed');
-      a11y.style.display = collapsed ? 'none' : 'flex';
-      localStorage.setItem('sc_a11y_collapsed', collapsed ? '1' : '0');
-      toast(collapsed ? 'A11y toolbar hidden' : 'A11y toolbar shown', 'info');
+      const show = a11y.style.display === 'none' || !a11y.classList.contains('visible');
+      a11y.classList.toggle('visible', show);
+      a11y.style.display = show ? 'flex' : 'none';
+      localStorage.setItem('sc_a11y_collapsed', show ? '0' : '1');
+      toast(show ? 'A11y toolbar shown' : 'A11y toolbar hidden', 'info');
     };
-    if (localStorage.getItem('sc_a11y_collapsed') === '1') {
-      const a11y = $('a11y-toolbar');
-      if (a11y) { a11y.classList.add('collapsed'); a11y.style.display = 'none'; }
-    } else {
-      const a11y = $('a11y-toolbar');
-      if (a11y) { a11y.style.display = 'flex'; a11y.classList.remove('collapsed'); }
-    }
-    const bc = document.querySelector('.sticky-bc-cta');
-    if (bc && !$('a11y-toggle-chip')) {
-      const chip = document.createElement('button');
-      chip.id = 'a11y-toggle-chip';
-      chip.type = 'button';
-      chip.className = 'btn btn-ghost';
-      chip.style.cssText = 'font-size:.55rem;padding:.2rem .4rem;margin-top:.15rem;width:40px';
-      chip.title = 'Toggle accessibility toolbar';
-      chip.innerHTML = '<i class="fas fa-universal-access"></i>';
-      chip.onclick = () => SC6.toggleA11yDock();
-      $('left-ui-dock')?.appendChild(chip);
+    const a11y = $('a11y-toolbar');
+    if (a11y && localStorage.getItem('sc_a11y_collapsed') === '1') {
+      a11y.style.display = 'none';
+      a11y.classList.remove('visible');
     }
   });
 
@@ -111,7 +97,7 @@
 
   feat(384, 'Status dock top-right + float-assert clear', () => {
     const s = document.createElement('style');
-    s.textContent = '#left-ui-dock,#status-dock{position:fixed!important;display:flex!important;visibility:visible!important;z-index:480}#left-ui-dock .sticky-bc-cta,#left-ui-dock .a11y-toolbar{display:flex!important;opacity:1!important}#status-dock{top:calc(var(--announce-h,0px) + 4.5rem);right:max(.5rem,env(safe-area-inset-right,0));left:auto!important;bottom:auto!important;flex-direction:row}body.zen-mode #left-ui-dock,body.reading-mode #left-ui-dock{display:flex!important}body.zen-mode .sticky-bc-cta,body.reading-mode .sticky-bc-cta{display:inline-flex!important}#float-assert{z-index:400;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}#back-top{z-index:461;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}';
+    s.textContent = '#status-dock{position:fixed!important;display:flex!important;visibility:visible!important;z-index:480;top:calc(var(--announce-h,0px) + 4.5rem);right:max(.5rem,env(safe-area-inset-right,0));left:auto!important;bottom:auto!important;flex-direction:row}#left-ui-dock,.sticky-bc-cta,#sticky-bc-cta{display:none!important}#float-assert{z-index:400;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}#back-top{z-index:461;bottom:calc(1.25rem + env(safe-area-inset-bottom,0))}';
     document.head.appendChild(s);
   });
 
@@ -132,22 +118,22 @@
     }
   });
 
-  feat(387, 'Dock hides in zen mode', () => {
+  feat(387, 'Status dock zen mode', () => {
     const s = document.createElement('style');
-    s.textContent = 'body.zen-mode #left-ui-dock{display:flex!important}body.zen-mode #left-ui-dock .sticky-bc-cta{display:inline-flex!important}body.zen-mode #status-dock{opacity:.85}';
+    s.textContent = 'body.zen-mode #status-dock{opacity:.85}';
     document.head.appendChild(s);
   });
 
-  feat(388, 'Screenshot mode dock rules', () => {
+  feat(388, 'Screenshot mode status dock', () => {
     const s = document.createElement('style');
-    s.textContent = 'body.screenshot-mode #status-dock{display:none!important}body.screenshot-mode #left-ui-dock{display:flex!important}';
+    s.textContent = 'body.screenshot-mode #status-dock{display:none!important}';
     document.head.appendChild(s);
   });
 
-  feat(389, '⌘K dock commands', () => {
+  feat(389, '⌘K a11y + BC nav commands', () => {
     if (typeof CMD_ITEMS === 'undefined') return;
     CMD_ITEMS.push(
-      { group: 'Personalize', icon: 'fa-universal-access', label: 'Toggle A11y Toolbar', sub: 'Show/hide left dock', action: () => SC6.toggleA11yDock?.() },
+      { group: 'Personalize', icon: 'fa-universal-access', label: 'Toggle A11y Toolbar', sub: 'Show/hide bottom bar', action: () => SC6.toggleA11yDock?.() },
       { group: 'Navigate', icon: 'fa-maple-leaf', label: 'BC Challenge', sub: 'Canada section', action: () => $('canada-bc')?.scrollIntoView({ behavior: 'smooth' }) }
     );
   });
@@ -251,7 +237,7 @@
         orig();
         const sec = $('usage-guide-modal')?.querySelector('.usage-sections');
         if (sec && !sec.querySelector('.dock-note')) {
-          sec.insertAdjacentHTML('beforeend', '<section class="dock-note"><h3>📌 Pinned UI</h3><p style="font-size:.82rem;color:var(--text2)"><strong>Top-left:</strong> BC Challenge + accessibility tools — fixed below header.<br><strong>Top-right:</strong> BUILD badge + Online status — always visible.</p></section>');
+          sec.insertAdjacentHTML('beforeend', '<section class="dock-note"><h3>📌 Quick UI</h3><p style="font-size:.82rem;color:var(--text2)"><strong>Top-right:</strong> BUILD badge + Online status.<br><strong>Footer → Accessibility:</strong> opens the a11y toolbar. <kbd>⌘K</kbd> for all commands.</p></section>');
         }
       };
     }
@@ -288,7 +274,7 @@
     setTimeout(() => {
       if (!sessionStorage.getItem('sc_425_loaded')) {
         sessionStorage.setItem('sc_425_loaded', '1');
-        toast('UI docks pinned below header — hard refresh if layout looks wrong', 'success');
+        toast('Sidebar removed — BUILD 426. Hard refresh if layout looks stale.', 'success');
       }
     }, 5200);
   });
@@ -460,21 +446,27 @@
     pin();
   });
 
-  feat(425, 'Sidebar BUILD 425 final', () => {
+  feat(425, 'Sidebar BUILD 425 final', () => {});
+
+  feat(426, 'Remove sidebar + sticky BC CTA', () => {
+    $('left-ui-dock')?.remove();
+    document.querySelectorAll('.sticky-bc-cta, #sticky-bc-cta, #a11y-toggle-chip').forEach((el) => el.remove());
+    const a11y = $('a11y-toolbar');
+    if (a11y && a11y.parentElement !== document.body) document.body.appendChild(a11y);
+    if (a11y && localStorage.getItem('sc_a11y_collapsed') !== '0') {
+      a11y.style.display = 'none';
+      a11y.classList.remove('visible');
+    }
+    const s = document.createElement('style');
+    s.id = 'sc-no-sidebar';
+    s.textContent = '#left-ui-dock,.sticky-bc-cta,#sticky-bc-cta,#a11y-toggle-chip{display:none!important;visibility:hidden!important}';
+    document.head.appendChild(s);
     SC.BUILD = BUILD;
-    SC.totalFeatures = 425;
+    SC.totalFeatures = 426;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    const relocate = () => {
-      const ld = $('left-ui-dock');
-      if (!ld) return;
-      document.querySelectorAll('body > .sticky-bc-cta, body > #sticky-bc-cta').forEach((el) => ld.insertBefore(el, ld.firstChild));
-      document.querySelectorAll('body > #a11y-toolbar').forEach((el) => ld.appendChild(el));
-    };
-    relocate();
-    setTimeout(relocate, 100);
-    setTimeout(relocate, 500);
+    if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then((r) => r.forEach((reg) => reg.update()));
   });
 
-  console.log(`SherpaCarta v3.5 — features 376–425 loaded (${FEATURES.length})`);
+  console.log(`SherpaCarta v3.6 — features 376–426 loaded (${FEATURES.length})`);
 })();

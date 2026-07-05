@@ -1,4 +1,4 @@
-# sherpacarta — Last Updated 2026-07-02 by Grok
+# sherpacarta — Last Updated 2026-07-04 by Grok
 
-Brief: Sidebar + BC Challenge restored HTML-first, pinned below header, BUILD 425
-Commit: d79065f
+Brief: Removed left sidebar and sticky BC Challenge button, BUILD 426
+Commit: pending

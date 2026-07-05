@@ -16,7 +16,6 @@
   function toast(msg, type) {
     if (typeof window.toast === 'function') window.toast(msg, type || 'info');
   }
-  function leftDock() { return $('left-ui-dock') || document.body; }
   function statusDock() { return $('status-dock') || document.body; }
 
   // ═══ GROUP 1: Critical fixes + core UX (1-25) ═══════════
@@ -92,9 +91,10 @@
         <button type="button" title="High contrast" onclick="SC.toggleContrast()"><i class="fas fa-circle-half-stroke"></i></button>
         <button type="button" title="Keyboard shortcuts" onclick="SC.showShortcuts()"><i class="fas fa-keyboard"></i></button>
       `;
-      leftDock().appendChild(bar);
-    } else if (bar.parentElement !== leftDock()) {
-      leftDock().appendChild(bar);
+      bar.style.display = 'none';
+      document.body.appendChild(bar);
+    } else if (bar.parentElement !== document.body) {
+      document.body.appendChild(bar);
     }
     window.SC = window.SC || {};
     let fontScale = parseFloat(localStorage.getItem('sc_font_scale') || '1');
@@ -306,18 +306,9 @@
     document.body.insertBefore(b, document.body.firstChild);
   });
 
-  feat(21, 'Sticky BC CTA', () => {
-    let c = $('sticky-bc-cta') || document.querySelector('.sticky-bc-cta');
-    if (!c) {
-      c = document.createElement('a');
-      c.href = '#canada-bc';
-      c.className = 'sticky-bc-cta';
-      c.id = 'sticky-bc-cta';
-      c.innerHTML = '<i class="fas fa-maple-leaf"></i> BC Challenge';
-    }
-    const dock = leftDock();
-    if (c.parentElement !== dock) dock.insertBefore(c, dock.firstChild);
-    c.setAttribute('aria-label', 'Go to Canada and BC Challenge section');
+  feat(21, 'Sticky BC CTA removed (BUILD 426)', () => {
+    document.querySelectorAll('.sticky-bc-cta, #sticky-bc-cta').forEach((el) => el.remove());
+    $('left-ui-dock')?.remove();
   });
 
   feat(22, 'FAQ search filter', () => {

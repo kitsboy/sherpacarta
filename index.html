@@ -427,22 +427,14 @@ footer .legal-footer{padding-bottom:max(1.75rem,env(safe-area-inset-bottom,0))}
 .qr-close:hover{border-color:var(--em);color:var(--em);background:var(--bg2)}
 
 /* ═══ ENHANCEMENTS v2.2 ═════════════════════════════════ */
-/* ═══ PINNED UI DOCKS — fixed below header, always visible ═ */
-#left-ui-dock,#status-dock{position:fixed!important;z-index:480;pointer-events:auto;visibility:visible!important;opacity:1!important}
-#left-ui-dock{left:max(.5rem,env(safe-area-inset-left,0));top:calc(var(--announce-h,0px) + 4.5rem);bottom:auto!important;transform:none!important;display:flex!important;flex-direction:column;align-items:stretch;gap:.4rem;min-width:48px;max-height:calc(100vh - var(--announce-h,0px) - 5.5rem);overflow-y:auto;overflow-x:hidden;padding:.5rem;scrollbar-width:none;background:rgba(11,17,11,.94);backdrop-filter:blur(14px);border:1px solid rgba(16,185,129,.25);border-radius:.75rem;box-shadow:0 4px 28px rgba(0,0,0,.45),0 0 0 1px rgba(16,185,129,.08)}
-#left-ui-dock::-webkit-scrollbar{display:none}
-#status-dock{right:max(.5rem,env(safe-area-inset-right,0));top:calc(var(--announce-h,0px) + 4.5rem);bottom:auto!important;left:auto!important;display:flex!important;flex-direction:row;align-items:center;gap:.45rem;background:rgba(11,17,11,.92);backdrop-filter:blur(12px);border:1px solid var(--border2);border-radius:100px;padding:.35rem .7rem;box-shadow:0 4px 20px rgba(0,0,0,.35)}
-/* Relocate strays into dock — never hide sidebar widgets */
-body>.a11y-toolbar,body>.build-badge,body>#net-badge,body>.sticky-bc-cta,body>#sticky-bc-cta{position:absolute!important;left:-9999px!important;opacity:0!important;pointer-events:none!important;height:0!important;overflow:hidden!important}
-#left-ui-dock .sticky-bc-cta,#left-ui-dock .a11y-toolbar,#left-ui-dock #a11y-toggle-chip{display:flex!important;opacity:1!important;visibility:visible!important;pointer-events:auto!important;position:static!important}
-#left-ui-dock .sticky-bc-cta{display:inline-flex!important}
-body.zen-mode #left-ui-dock,body.reading-mode #left-ui-dock,body.screenshot-mode #left-ui-dock{display:flex!important}
-body.zen-mode #left-ui-dock .sticky-bc-cta,body.reading-mode #left-ui-dock .sticky-bc-cta{display:inline-flex!important}
-.a11y-toolbar{position:static!important;display:flex;flex-direction:column;gap:.3rem;flex-shrink:0}
-.a11y-toolbar button{width:40px;height:40px;min-width:40px;min-height:40px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--text2);font-size:.65rem;cursor:pointer;transition:all .2s;pointer-events:auto;flex-shrink:0}
+/* ═══ STATUS DOCK — BUILD + Online (sidebar removed BUILD 426) ═ */
+#status-dock{position:fixed!important;z-index:480;pointer-events:auto;visibility:visible!important;opacity:1!important;right:max(.5rem,env(safe-area-inset-right,0));top:calc(var(--announce-h,0px) + 4.5rem);bottom:auto!important;left:auto!important;display:flex!important;flex-direction:row;align-items:center;gap:.45rem;background:rgba(11,17,11,.92);backdrop-filter:blur(12px);border:1px solid var(--border2);border-radius:100px;padding:.35rem .7rem;box-shadow:0 4px 20px rgba(0,0,0,.35)}
+#left-ui-dock,.sticky-bc-cta,#sticky-bc-cta,#a11y-toggle-chip{display:none!important;visibility:hidden!important;pointer-events:none!important}
+body>.build-badge,body>#net-badge{position:absolute!important;left:-9999px!important;opacity:0!important;pointer-events:none!important;height:0!important;overflow:hidden!important}
+.a11y-toolbar{position:fixed;bottom:calc(1.25rem + env(safe-area-inset-bottom,0));left:max(.5rem,env(safe-area-inset-left,0));z-index:455;display:none;flex-direction:row;align-items:center;gap:.25rem;padding:.35rem .5rem;background:rgba(11,17,11,.94);backdrop-filter:blur(14px);border:1px solid var(--border2);border-radius:100px;box-shadow:0 4px 20px rgba(0,0,0,.35)}
+.a11y-toolbar.visible{display:flex}
+.a11y-toolbar button{width:36px;height:36px;min-width:36px;min-height:36px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--text2);font-size:.65rem;cursor:pointer;transition:all .2s;pointer-events:auto;flex-shrink:0}
 .a11y-toolbar button:hover{border-color:var(--border2);color:var(--em);background:rgba(16,185,129,.08)}
-#left-ui-dock #a11y-toggle-chip{width:40px;min-width:40px;padding:0;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--text2)}
-#left-ui-dock #a11y-toggle-chip:hover{border-color:var(--border2);color:var(--em);background:rgba(16,185,129,.08)}
 .build-badge{position:static;font-family:var(--mono);font-size:.58rem;color:var(--text2);opacity:1;letter-spacing:.06em;cursor:pointer;pointer-events:auto;line-height:1.3;white-space:nowrap}
 .build-badge:hover{color:var(--em)}
 .net-badge{position:static;font-family:var(--mono);font-size:.58rem;padding:.2rem .45rem;border-radius:100px;border:1px solid var(--border2);opacity:1;color:var(--em2);pointer-events:auto;white-space:nowrap}
@@ -450,9 +442,7 @@ body.zen-mode #left-ui-dock .sticky-bc-cta,body.reading-mode #left-ui-dock .stic
 .announce-banner{position:fixed;top:0;left:0;right:0;z-index:600;background:linear-gradient(90deg,rgba(16,185,129,.15),rgba(212,175,55,.1));border-bottom:1px solid var(--border2);padding:.55rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.78rem}
 .announce-banner a{color:var(--em)}
 .announce-banner button{background:none;border:none;color:var(--text3);cursor:pointer;padding:.5rem}
-.sticky-bc-cta{position:static;display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,rgba(16,185,129,.14),rgba(16,185,129,.06));border:1px solid var(--em);border-left:3px solid var(--em);border-radius:0 10px 10px 0;padding:.5rem .75rem .5rem .5rem;font-family:var(--mono);font-size:.62rem;font-weight:600;color:var(--em);text-decoration:none;letter-spacing:.07em;opacity:1;transition:all .2s;writing-mode:horizontal-tb;transform:none;white-space:nowrap;flex-shrink:0;pointer-events:auto;box-shadow:0 0 14px rgba(16,185,129,.12)}
-.sticky-bc-cta:hover{background:rgba(16,185,129,.22);box-shadow:0 0 16px rgba(16,185,129,.28);transform:translateX(2px)}
-.sticky-bc-cta i{font-size:.75rem}
+
 body.reading-mode .trust-bar,body.reading-mode #particle-canvas,body.reading-mode .hero-share-official{display:none!important}
 body.reading-mode .section-max{max-width:680px}
 body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
@@ -475,8 +465,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 .toc-art{display:inline-block;margin:.15rem .35rem .15rem 0;color:var(--text2);cursor:pointer}
 .toc-art:hover{color:var(--em)}
 .wc-badge{font-family:var(--mono);font-size:.5rem;color:var(--text3);margin-left:.5rem}
-.pulse-cta{animation:pulse-cta 2.5s ease infinite}
-@keyframes pulse-cta{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}50%{box-shadow:0 0 0 12px rgba(16,185,129,0)}}
+
 .shortcuts-list div{padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.85rem;display:flex;justify-content:space-between}
 .shortcuts-list kbd{background:var(--bg3);border:1px solid var(--border2);border-radius:4px;padding:.15rem .45rem;font-family:var(--mono);font-size:.7rem}
 .features-grid{display:grid;grid-template-columns:1fr 1fr;gap:.35rem;font-size:.72rem}
@@ -506,9 +495,8 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 .star-btn{background:none;border:none;color:var(--gold);cursor:pointer;font-size:.9rem;margin-left:.35rem;padding:0}
 .calc-presets{margin-bottom:1rem}
 @media(max-width:768px){
-  #left-ui-dock{left:max(.35rem,env(safe-area-inset-left,0));right:auto;top:calc(var(--announce-h,0px) + 3.75rem);max-height:calc(100vh - var(--announce-h,0px) - 4.5rem)}
   #status-dock{top:calc(var(--announce-h,0px) + 3.75rem);right:max(.35rem,env(safe-area-inset-right,0));font-size:.55rem;padding:.3rem .55rem}
-  .sticky-bc-cta{border-radius:10px 0 0 10px;border-left:none;border-right:3px solid var(--em)}
+  .a11y-toolbar{bottom:calc(4.5rem + env(safe-area-inset-bottom,0))}
   .scroll-minimap{display:none}
   .section-dots{right:max(.35rem,env(safe-area-inset-right,0));left:auto;gap:.35rem}
   .dot-link{width:8px;height:8px}
@@ -808,19 +796,7 @@ body.battery-saver #wave-bg,#wave-bg.waves-paused{display:none}
 <!-- READING PROGRESS -->
 <div id="progress-bar" role="progressbar" aria-label="Reading progress"></div>
 
-<!-- PINNED UI DOCKS (fixed below header — HTML-first, always visible) -->
-<div id="left-ui-dock" aria-label="Accessibility and quick links">
-  <a href="#canada-bc" class="sticky-bc-cta pulse-cta" id="sticky-bc-cta" aria-label="Go to Canada and BC Challenge section" onclick="var t=document.getElementById('canada-bc');if(t){t.scrollIntoView({behavior:'smooth'});return false;}">
-    <i class="fas fa-maple-leaf"></i> BC Challenge
-  </a>
-  <div id="a11y-toolbar" class="a11y-toolbar" role="toolbar" aria-label="Accessibility tools">
-    <button type="button" title="Font size +" aria-label="Increase font size" onclick="window.SC&&SC.fontUp()">A+</button>
-    <button type="button" title="Font size −" aria-label="Decrease font size" onclick="window.SC&&SC.fontDown()">A−</button>
-    <button type="button" title="Reading mode" aria-label="Toggle reading mode" onclick="window.SC&&SC.toggleReading()"><i class="fas fa-book-open"></i></button>
-    <button type="button" title="High contrast" aria-label="Toggle high contrast" onclick="window.SC&&SC.toggleContrast()"><i class="fas fa-circle-half-stroke"></i></button>
-    <button type="button" title="Keyboard shortcuts" aria-label="Keyboard shortcuts" onclick="window.SC&&SC.showShortcuts()"><i class="fas fa-keyboard"></i></button>
-  </div>
-</div>
+<!-- STATUS DOCK — BUILD + Online (top-right) -->
 <div id="status-dock" aria-label="Build and connection status" role="status"></div>
 
 <!-- TOAST STACK -->
@@ -2269,10 +2245,10 @@ function contactEmail(){
 }
 
 function focusA11yToolbar(){
-  const dock=document.getElementById('left-ui-dock');
   const bar=document.getElementById('a11y-toolbar');
-  if(dock) dock.scrollIntoView({behavior:'smooth',block:'nearest'});
   if(bar){
+    bar.classList.add('visible');
+    bar.style.display='flex';
     const btn=bar.querySelector('button');
     if(btn) btn.focus();
     toast('Accessibility toolbar — adjust font, contrast, and reading mode','info');
@@ -2711,11 +2687,11 @@ document.addEventListener('visibilitychange',()=>{
 });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-<script src="/sc-enhancements.js?v=425"></script>
-<script src="/sc-enhancements-v2.js?v=425"></script>
-<script src="/sc-enhancements-v3.js?v=425"></script>
-<script src="/sc-enhancements-v4.js?v=425"></script>
-<script src="/sc-enhancements-v5.js?v=425"></script>
-<script src="/sc-enhancements-v6.js?v=425"></script>
+<script src="/sc-enhancements.js?v=426"></script>
+<script src="/sc-enhancements-v2.js?v=426"></script>
+<script src="/sc-enhancements-v3.js?v=426"></script>
+<script src="/sc-enhancements-v4.js?v=426"></script>
+<script src="/sc-enhancements-v5.js?v=426"></script>
+<script src="/sc-enhancements-v6.js?v=426"></script>
 </body>
 </html>
