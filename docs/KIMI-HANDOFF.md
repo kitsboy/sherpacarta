@@ -221,4 +221,41 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-04
+
+**Machine:** M3 (Grok)
+**Project:** sherpacarta
+
+### Done
+
+- [x] Sprint 5 i18n expansion — 20 upgrades, BUILD 587 (`sc-upgrades-b8.js`)
+- [x] New locales: de, pt, sw (full UI JSON) + es/fr/ar charter overlays
+- [x] Nav language picker expanded (de, pt, sw)
+- [x] Glossary modal, charter lang toggle, ⌘K language switchers, RTL fixes, TTS lang
+- [x] `scripts/i18n-audit.mjs` + `npm run i18n-audit`
+- [x] Service worker v4.3 with locale assets cached
+- [x] Committed, pushed, deployed to sherpacarta.org
+
+### Decisions
+
+- Charter overlays (es/fr/ar) ship as partial translations — full article coverage deferred
+- de/pt/sw get UI strings + sample articles; expand via locale JSON workflow
+- i18n-audit script validates hreflang, nav langs, and locale file coverage
+
+### What's Next
+
+- [ ] Sprint 6: Architecture & performance (split index.html, bundle JS, Lighthouse CI)
+- [ ] Sprint 7: Trust & transparency (treasury dashboard, bug bounty)
+- [ ] Sprint 8: Distribution & integrations (MCP server, npm SDK)
+- [ ] Replace Lightning TEMP with live LNURL when Cam provides it
+- [ ] Kimi: sync Sprint 5 i18n to Obsidian / MASTER-BRAIN
+
+### Git State
+
+- Last commit SHA: 8c77248
+- Branch: main
+- Unpushed: none (LATEST-UPDATE handoff commit pending)
+
+---
+
 *Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*
