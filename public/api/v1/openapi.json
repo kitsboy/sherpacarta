@@ -1,0 +1,46 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SherpaCarta API",
+    "version": "1.0.0",
+    "description": "Static read-only charter API"
+  },
+  "servers": [
+    {
+      "url": "https://sherpacarta.org/api/v1"
+    }
+  ],
+  "paths": {
+    "/charter.json": {
+      "get": {
+        "summary": "Full charter index",
+        "responses": {
+          "200": {
+            "description": "JSON charter"
+          }
+        }
+      }
+    },
+    "/hash.json": {
+      "get": {
+        "summary": "Canonical SHA-256",
+        "responses": {
+          "200": {
+            "description": "Hash metadata"
+          }
+        }
+      }
+    },
+    "/articles/{num}.json": {
+      "get": {
+        "summary": "Single article",
+        "parameters": [
+          {
+            "name": "num",
+            "in": "path"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "version": "2.0",
+  "build": "20260704-487",
+  "articleCount": 14,
+  "chapters": [
+    "Preamble",
+    "Chapter I — Foundational Rights",
+    "Chapter II — Privacy & Data",
+    "Chapter III — Expression & Access",
+    "Chapter IV — Algorithmic Rights",
+    "Chapter V — Enforcement & Remedies"
+  ],
+  "articles": [
+    {
+      "num": "P.1",
+      "title": "On the Foundation of Rights",
+      "chapter": "Preamble",
+      "tags": [
+        "foundation",
+        "history"
+      ]
+    },
+    {
+      "num": "Art. 1",
+      "title": "Human Dignity in Digital Spaces",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": [
+        "dignity",
+        "foundation"
+      ]
+    },
+    {
+      "num": "Art. 2",
+      "title": "Equality Before Digital Law",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": [
+        "equality",
+        "non-discrimination"
+      ]
+    },
+    {
+      "num": "Art. 3",
+      "title": "Right to Digital Existence",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": [
+        "access",
+        "existence"
+      ]
+    },
+    {
+      "num": "Art. 11",
+      "title": "Right to Privacy",
+      "chapter": "Chapter II — Privacy & Data",
+      "tags": [
+        "privacy",
+        "surveillance",
+        "core"
+      ]
+    },
+    {
+      "num": "Art. 12",
+      "title": "Data Sovereignty",
+      "chapter": "Chapter II — Privacy & Data",
+      "tags": [
+        "data",
+        "ownership",
+        "sovereignty"
+      ]
+    },
+    {
+      "num": "Art. 13",
+      "title": "Prohibition of Surveillance Capitalism",
+      "chapter": "Chapter II — Privacy & Data",
+      "tags": [
+        "advertising",
+        "tracking"
+      ]
+    },
+    {
+      "num": "Art. 47",
+      "title": "Right to Be Forgotten",
+      "chapter": "Chapter II — Privacy & Data",
+      "tags": [
+        "erasure",
+        "forgetting",
+        "fresh-start"
+      ]
+    },
+    {
+      "num": "Art. 21",
+      "title": "Freedom of Digital Expression",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": [
+        "expression",
+        "censorship",
+        "speech"
+      ]
+    },
+    {
+      "num": "Art. 22",
+      "title": "Universal Internet Access",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": [
+        "access",
+        "internet",
+        "infrastructure"
+      ]
+    },
+    {
+      "num": "Art. 61",
+      "title": "Right to Algorithmic Transparency",
+      "chapter": "Chapter IV — Algorithmic Rights",
+      "tags": [
+        "AI",
+        "algorithms",
+        "transparency"
+      ]
+    },
+    {
+      "num": "Art. 62",
+      "title": "Protection from Algorithmic Discrimination",
+      "chapter": "Chapter IV — Algorithmic Rights",
+      "tags": [
+        "AI",
+        "discrimination",
+        "bias"
+      ]
+    },
+    {
+      "num": "Art. 101",
+      "title": "Right to Digital Remedy",
+      "chapter": "Chapter V — Enforcement & Remedies",
+      "tags": [
+        "remedy",
+        "enforcement",
+        "justice"
+      ]
+    },
+    {
+      "num": "Art. 114",
+      "title": "Living Charter Principle",
+      "chapter": "Chapter V — Enforcement & Remedies",
+      "tags": [
+        "living",
+        "amendment",
+        "evolution"
+      ]
+    }
+  ]
+}
