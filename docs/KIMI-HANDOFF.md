@@ -4,6 +4,53 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-07 (Goodbye)
+
+**Machine:** M3 (Grok)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] Press outlets BUILD 688 — links, icons, mobile marquee, SW v5.3 (`0d71baa`, deployed)
+- [x] All docs synced to BUILD 688 (`fb69bc6`)
+- [x] `SESSION-SUMMARY-2026-07-07.md` updated for clean recovery
+
+### Decisions
+
+- Custom SVG fallbacks for outlets not in Simple Icons (Wired, EFF, VICE, RoW, PI)
+- Docs commit excluded timestamp-only build artifacts
+
+### What's Next
+
+- [ ] Lightning LNURL when Cam provides it
+- [ ] `npm run publish:packages` after `npm login`
+- [ ] Federal e-petition (MP sponsor)
+- [ ] Kimi: integrate this summary into MASTER-BRAIN / Obsidian — **do not sync to M4 until Cam or Kimi says it's time**
+
+### Git State
+
+- Last commit SHA: fb69bc6
+- Branch: main
+- Unpushed: none
+
+---
+
+## Latest Session Summary (from 2026-07-07 goodbye)
+
+**Chat topic:** Finish press section follow-ups, sync all docs, close session cleanly.
+
+**Finished in this session:**
+- Press outlets BUILD 688 live at sherpacarta.org
+- 23 documentation files updated to current architecture and BUILD state
+- Goodbye handoff + session summary written
+
+**Still to do:**
+- Lightning wallet, npm publish, federal e-petition, Satohash template submit, Kimi vault sync
+
+**Next for Kimi:** Read `SESSION-SUMMARY-2026-07-07.md` and top handoff section. Integrate into MASTER-BRAIN / Kanban. Use giveabit-project-handoff skill for future updates.
+
+---
+
 ## Handoff to Kimi — 2026-07-07 (Session 8 — Press Outlets / Docs Sync)
 
 **Machine:** M3 (Grok)  

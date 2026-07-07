@@ -1,4 +1,5 @@
-# sherpacarta — Last Updated 2026-07-07 by Grok
+# sherpacarta — Last Updated 2026-07-07 by Grok (goodbye)
 
-Brief: Press outlets — linked cards, brand icons, mobile marquee — BUILD 688
-Commit: 0d71baa (deployed to sherpacarta.org)
+Brief: Session closed — press outlets BUILD 688 live, all docs synced
+Commit: fb69bc6 · Deployed: sherpacarta.org
+Recovery: `/whatsup` or read SESSION-SUMMARY-2026-07-07.md
