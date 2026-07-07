@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en-CA" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign for Canada — SherpaCarta Digital Rights Petition</title>
+<meta name="description" content="I signed SherpaCarta for Canada — 114 articles protecting digital privacy, data sovereignty, and freedom online. Privacy is a birthright. SHA-256 proof. Zero tracking.">
+<link rel="canonical" href="https://sherpacarta.org/canada/sign.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sherpacarta.org/canada/sign.html">
+<meta property="og:title" content="I Signed SherpaCarta for Canada">
+<meta property="og:description" content="114 articles for digital human rights. Canada &amp; BC Digital Rights Challenge. Moral sign + SHA-256 cryptographic proof. Privacy by design. #CanadaBCChallenge #SherpaCarta #DigitalRights #PrivacyFirst">
+<meta property="og:image" content="https://sherpacarta.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sign SherpaCarta for Canada">
+<meta name="twitter:description" content="Digital Magna Carta for Canada. Passkey · Nostr · SHA-256 receipt. We store nothing on our servers.">
+<meta name="twitter:image" content="https://sherpacarta.org/og-image.png">
+<link rel="stylesheet" href="/sc-main.css?v=687">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+body{max-width:640px;margin:0 auto;padding:2rem 1.25rem;font-family:var(--sans);background:var(--bg);color:var(--text)}
+h1{font-family:var(--serif);color:var(--em2);font-size:1.75rem}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin:1rem 0}
+input,button{font-family:var(--sans);font-size:.9rem}
+input{width:100%;padding:.75rem 1rem;margin:.5rem 0;background:var(--bg3);border:1px solid var(--border);border-radius:8px;color:var(--text)}
+button{width:100%;padding:.85rem;margin:.35rem 0;border-radius:8px;border:none;cursor:pointer;font-weight:600}
+.btn-moral{background:var(--em);color:#000}
+.btn-proof{background:var(--bg3);color:var(--em2);border:1px solid var(--border)!important}
+.receipt{font-family:var(--mono);font-size:.7rem;background:var(--bg3);padding:1rem;border-radius:8px;word-break:break-all;margin-top:1rem;display:none}
+.badge{display:inline-block;padding:.2rem .5rem;background:rgba(16,185,129,.15);border-radius:4px;font-size:.65rem;color:var(--em);margin-left:.5rem}
+a{color:var(--em2)}
+</style>
+</head>
+<body>
+<p><a href="/canada/">← Canada Petition</a></p>
+<h1>🇨🇦 Sign for Canada <span class="badge">AUTO-CANADIAN</span></h1>
+<p style="color:var(--text2);font-size:.88rem">Every signature is automatically recorded as a <strong>Canadian</strong> civic commitment. BC signers are tagged <strong>Canada · BC</strong>. We store nothing on our servers.</p>
+
+<div class="card">
+  <h2 style="font-size:.95rem;color:var(--em)">Layer 1 — Moral Sign</h2>
+  <input id="name" type="text" placeholder="Your name or pseudonym" maxlength="40" aria-label="Name">
+  <button class="btn-moral" id="btn-moral"><i class="fas fa-pen"></i> Sign as Canadian Citizen</button>
+</div>
+
+<div class="card">
+  <h2 style="font-size:.95rem;color:var(--em)">Layer 2 — Cryptographic Proof (optional)</h2>
+  <p style="font-size:.75rem;color:var(--text3)">Adds SHA-256 receipt. Still zero server data. Choose one:</p>
+  <button class="btn-proof" id="btn-passkey"><i class="fas fa-fingerprint"></i> Sign with Passkey (Face ID)</button>
+  <button class="btn-proof" id="btn-nostr"><i class="fas fa-user-secret"></i> Sign with Nostr</button>
+  <button class="btn-proof" id="btn-ed25519"><i class="fas fa-key"></i> Sign with Anonymous Key</button>
+</div>
+
+<div class="card">
+  <h2 style="font-size:.95rem;color:var(--em)">Layer 3 — Official Government (when ready)</h2>
+  <p style="font-size:.8rem;color:var(--text2)">Parliament requires verified email on <em>their</em> site — we never see it.</p>
+  <a href="https://www.ourcommons.ca/petitions/en/Home/Index" target="_blank" rel="noopener" style="display:block;padding:.75rem;text-align:center;background:var(--bg3);border-radius:8px;text-decoration:none;margin-top:.5rem">Federal e-Petition (Parliament) →</a>
+  <a href="https://www.leg.bc.ca/parliamentary-business/parliamentary-procedure/petitions" target="_blank" rel="noopener" style="display:block;padding:.75rem;text-align:center;background:var(--bg3);border-radius:8px;text-decoration:none;margin-top:.5rem">BC Legislature Petition →</a>
+</div>
+
+<div class="receipt" id="receipt"></div>
+
+<p style="margin-top:1.5rem">
+  <button class="btn-proof" id="btn-share" style="display:none">Share my signature</button>
+  <button class="btn-proof" id="btn-stamp">Stamp proofs on Bitcoin (Satohash)</button>
+</p>
+
+<script src="/js/sc-petition-canada.js"></script>
+<script>
+let lastSig=null;
+const receiptEl=document.getElementById('receipt');
+const params=new URLSearchParams(location.search);
+
+function showReceipt(sig){
+  lastSig=sig;
+  receiptEl.style.display='block';
+  receiptEl.innerHTML=`<strong>✓ Canadian Signature Receipt</strong><br>
+    ID: ${sig.id}<br>
+    Country: ${sig.countryName}${sig.province?' · '+sig.province:''}<br>
+    Methods: ${sig.methods.join(', ')}<br>
+    SHA-256: ${sig.receiptHash?.slice(0,32)}…<br>
+    <a href="/canada/proof.html">View proof page →</a>`;
+  document.getElementById('btn-share').style.display='block';
+}
+
+document.getElementById('btn-moral').onclick=async()=>{
+  const r=await SHERPA_PETITION.signMoral(document.getElementById('name').value);
+  showReceipt(r.signature);
+  alert(r.duplicate?'Already signed on this device':'Signed for Canada! Receipt: '+r.signature.id);
+};
+
+document.getElementById('btn-passkey').onclick=async()=>{
+  try{showReceipt(await SHERPA_PETITION.signPasskey());alert('Passkey proof added');}
+  catch(e){alert(e.message||'Passkey failed');}
+};
+
+document.getElementById('btn-nostr').onclick=async()=>{
+  try{showReceipt(await SHERPA_PETITION.signNostr(document.getElementById('name').value));alert('Published to Nostr');}
+  catch(e){alert(e.message||'Nostr failed — install Alby or nos2x');}
+};
+
+document.getElementById('btn-ed25519').onclick=async()=>{
+  try{showReceipt(await SHERPA_PETITION.signEd25519(document.getElementById('name').value));alert('Anonymous key signature added');}
+  catch(e){alert('Ed25519 not supported in this browser');}
+};
+
+document.getElementById('btn-share').onclick=()=>{
+  const txt=SHERPA_PETITION.shareText(lastSig);
+  if(navigator.share)navigator.share({title:'SherpaCarta Canada',text:txt,url:'https://sherpacarta.org/canada/sign.html'});
+  else{navigator.clipboard.writeText(txt);alert('Copied to clipboard');}
+};
+
+document.getElementById('btn-stamp').onclick=()=>SHERPA_PETITION.stampOnSatohash();
+
+if(params.get('receipt')){
+  const store=JSON.parse(localStorage.getItem('sc_petition_ca_v1')||'{}');
+  const found=(store.signatures||[]).find(s=>s.id===params.get('receipt'));
+  if(found)showReceipt(found);
+}
+</script>
+</body>
+</html>

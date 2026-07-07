@@ -1,0 +1,48 @@
+{
+  "id": "sherpacarta-canada-v1",
+  "version": "1.0.0",
+  "build": "20260707-687",
+  "title": "SherpaCarta Canada Digital Rights Petition",
+  "subtitle": "Adopt 114 articles as model law — starting in British Columbia",
+  "jurisdiction": {
+    "country": "CA",
+    "countryName": "Canada",
+    "defaultProvince": "BC",
+    "defaultProvinceName": "British Columbia",
+    "scope": "All signatures are Canadian civic commitments. BC is our first provincial beachhead within Canada."
+  },
+  "petitionText": "We, residents and citizens of Canada, petition the House of Commons, the Government of Canada, and the Legislative Assembly of British Columbia to adopt SherpaCarta — the Global Digital Magna Carta — as model legislation for digital human rights, including but not limited to: absolute privacy and prohibition of mass surveillance (Art. 11), full data sovereignty (Art. 12), prohibition of surveillance capitalism (Art. 13), right to be forgotten (Art. 47), algorithmic transparency and non-discrimination (Arts. 61–62), and the living charter principle that rights may only expand (Art. 114). We request concrete action to modernize PIPEDA, establish a BC Digital Rights Act, and require Privacy by Design in all public-sector and vendor systems serving Canadians.",
+  "priorityArticles": ["Art. 11", "Art. 12", "Art. 13", "Art. 47", "Art. 61", "Art. 62", "Art. 114"],
+  "officialChannels": {
+    "federal": {
+      "name": "House of Commons e-Petition",
+      "url": "https://www.ourcommons.ca/petitions/en/Home/Index",
+      "requirements": "500+ validated signatures; MP authorization; name, unique email, province, postal code, phone, email confirmation",
+      "note": "SherpaCarta never collects this data — sign officially on Parliament's site when our e-petition is live."
+    },
+    "bc": {
+      "name": "BC Legislative Assembly Petition",
+      "url": "https://www.leg.bc.ca/parliamentary-business/parliamentary-procedure/petitions",
+      "requirements": "Paper petition format; presented by MLA",
+      "kitUrl": "/bc/town-hall-kit.html"
+    }
+  },
+  "signatureMethods": ["moral", "passkey", "nostr", "ed25519", "sha256-receipt"],
+  "privacy": {
+    "serverCollection": "none",
+    "storage": "browser-localStorage-only",
+    "officialSeparation": "Federal and BC official petitions are separate voluntary steps on government websites"
+  },
+  "satohash": {
+    "templateId": "sherpacarta-canada-referendum-v1",
+    "templateUrl": "/data/satohash-templates/sherpacarta-canada-referendum.json",
+    "stampUrl": "https://satohash.giveabit.io",
+    "submitTemplatesUrl": "https://satohash.io/templates/"
+  },
+  "share": {
+    "hashtags": ["CanadaBCChallenge", "SherpaCarta", "DigitalRights", "PrivacyFirst", "BC", "Canada"],
+    "ogImage": "https://sherpacarta.org/og-image.png",
+    "defaultText": "I signed SherpaCarta for Canada — 114 articles protecting digital privacy and data sovereignty. BC leads, Canada follows. Privacy is a birthright. #CanadaBCChallenge #SherpaCarta"
+  },
+  "updated": "2026-07-07T00:00:00.000Z"
+}

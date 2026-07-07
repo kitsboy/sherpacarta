@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-CA" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proof &amp; Satohash — Canada Petition</title>
+<meta name="description" content="SHA-256 petition proofs, OpenTimestamps Bitcoin anchors, and Satohash template for SherpaCarta Canada referendum.">
+<link rel="canonical" href="https://sherpacarta.org/canada/proof.html">
+<meta property="og:title" content="SherpaCarta Canada — Cryptographic Proof">
+<meta property="og:description" content="SHA-256 merkle roots · OpenTimestamps · Satohash Bitcoin anchor. Privacy-preserving Canadian petition proofs.">
+<meta property="og:image" content="https://sherpacarta.org/og-image.png">
+<link rel="stylesheet" href="/sc-main.css?v=687">
+<style>
+body{max-width:720px;margin:0 auto;padding:2rem 1.25rem;font-family:var(--sans);background:var(--bg);color:var(--text)}
+h1{font-family:var(--serif);color:var(--em2)}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin:1rem 0;font-family:var(--mono);font-size:.75rem}
+.stat{display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--border)}
+.btn{display:inline-block;padding:.7rem 1.2rem;background:var(--em);color:#000;border-radius:8px;text-decoration:none;font-weight:600;margin:.5rem .5rem 0 0;border:none;cursor:pointer;font-family:var(--sans)}
+a{color:var(--em2)}
+</style>
+</head>
+<body>
+<p><a href="/canada/">← Canada Petition</a></p>
+<h1><i class="fas fa-stamp"></i> Proof &amp; Satohash</h1>
+<p style="font-size:.88rem;color:var(--text2)">Cryptographic integrity for journalists, MLAs, and MPs — without exposing signer identities on our servers.</p>
+
+<div class="card">
+  <div class="stat"><span>Petition hash (SHA-256)</span><span id="pet-hash">…</span></div>
+  <div class="stat"><span>Signatures (this device)</span><span id="sig-count">0</span></div>
+  <div class="stat"><span>Jurisdiction</span><span>Canada (CA)</span></div>
+  <div class="stat"><span>Merkle root</span><span id="merkle">—</span></div>
+  <div class="stat"><span>Methods used</span><span id="methods">—</span></div>
+</div>
+
+<button class="btn" id="btn-merkle">Compute Merkle Root</button>
+<button class="btn" id="btn-stamp" style="background:var(--bg3);color:var(--em2);border:1px solid var(--border)">Stamp on Bitcoin (Satohash)</button>
+
+<div class="card" style="font-family:var(--sans);font-size:.85rem">
+  <h2 style="font-size:1rem;color:var(--em)">Satohash Template</h2>
+  <p>Ready for submission to <a href="https://satohash.io/templates/">satohash.io/templates</a> when robust:</p>
+  <p><a href="/data/satohash-templates/sherpacarta-canada-referendum.json">sherpacarta-canada-referendum-v1.json</a></p>
+  <p style="font-size:.75rem;color:var(--text3)">Supports: moral · SHA-256 · passkey · Nostr · Ed25519 · OpenTimestamps · future EU eIDAS expansion</p>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<script src="/js/sc-petition-canada.js"></script>
+<script>
+(async()=>{
+  const h=await SHERPA_PETITION.getPetitionHash();
+  document.getElementById('pet-hash').textContent=h.slice(0,20)+'…';
+  const s=SHERPA_PETITION.getStats();
+  document.getElementById('sig-count').textContent=s.total;
+  document.getElementById('merkle').textContent=s.merkleRoot?s.merkleRoot.slice(0,20)+'…':'—';
+  document.getElementById('methods').textContent=s.methods.join(', ')||'moral';
+})();
+document.getElementById('btn-merkle').onclick=async()=>{
+  const r=await SHERPA_PETITION.computeMerkleRoot();
+  document.getElementById('merkle').textContent=r?r.slice(0,20)+'…':'—';
+  alert(r?'Merkle root computed':'No signatures yet');
+};
+document.getElementById('btn-stamp').onclick=()=>SHERPA_PETITION.stampOnSatohash();
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-CA" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — SherpaCarta Canada</title>
+<meta name="description" content="About SherpaCarta Canada petition: 114 digital human rights articles, zero tracking, Bitcoin-funded, CC0. Self-updating from BUILD system.">
+<link rel="canonical" href="https://sherpacarta.org/canada/about.html">
+<meta property="og:title" content="About SherpaCarta Canada">
+<meta property="og:description" content="Global Digital Magna Carta. Canada first. BC beachhead. Privacy by design. Living document — rights only expand.">
+<meta property="og:image" content="https://sherpacarta.org/og-image.png">
+<link rel="stylesheet" href="/sc-main.css?v=687">
+<style>
+body{max-width:720px;margin:0 auto;padding:2rem 1.25rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75}
+h1{font-family:var(--serif);color:var(--em2)}
+h2{font-size:1.05rem;color:var(--em);margin-top:1.75rem}
+.meta{font-family:var(--mono);font-size:.7rem;color:var(--text3)}
+a{color:var(--em2)}
+</style>
+</head>
+<body>
+<p><a href="/canada/">← Canada</a> · <a href="/press.html">Press</a></p>
+<h1>About SherpaCarta Canada</h1>
+<p class="meta" id="build-meta">Loading BUILD info…</p>
+
+<h2>What we are</h2>
+<p>SherpaCarta is the <strong>Global Digital Magna Carta</strong> — 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights for every person on Earth. We begin in <strong>Canada</strong>, with <strong>British Columbia</strong> as our first provincial beachhead.</p>
+
+<h2>How signing works</h2>
+<p><strong>Layer 1 — Moral:</strong> Your name or pseudonym, stored on your device only. Automatically tagged <strong>Canadian</strong>.</p>
+<p><strong>Layer 2 — Proof:</strong> Optional passkey, Nostr, or anonymous key. SHA-256 receipt. We never see your data.</p>
+<p><strong>Layer 3 — Official:</strong> Parliament or BC Legislature — separate government websites when e-petition is live.</p>
+
+<h2>Referendum &amp; polling vision</h2>
+<p>We are building a privacy-preserving referendum mechanism: SHA-256 ballot hashes, Nostr uniqueness, passkeys, and OpenTimestamps anchors via <a href="https://satohash.giveabit.io">Satohash</a>. Template ready for <a href="https://satohash.io/templates/">satohash.io/templates</a>. EU eIDAS expansion planned.</p>
+
+<h2>Self-evolving docs</h2>
+<p>This page updates with each BUILD. Press kit: <a href="/press.html">/press.html</a>. Strategy: <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/CANADA-BC-CHALLENGE.md">CANADA-BC-CHALLENGE.md</a>.</p>
+
+<h2>Principles</h2>
+<ul>
+  <li>Zero tracking · Zero cookies · CC0 public domain</li>
+  <li>Bitcoin-funded only · No VC · No ads</li>
+  <li>Rights may only expand (Art. 114)</li>
+  <li>Privacy is a birthright, not a feature</li>
+</ul>
+
+<p style="margin-top:2rem;font-size:.8rem;color:var(--text3)">Contact: <a href="mailto:hello@giveabit.io">hello@giveabit.io</a> · Parent: <a href="https://giveabit.io">Give A Bit</a></p>
+
+<script>
+fetch('/api/v1/charter.json').then(r=>r.json()).then(d=>{
+  document.getElementById('build-meta').textContent=`BUILD ${d.build} · ${d.articleCount} articles · Canada campaign v1`;
+}).catch(()=>{document.getElementById('build-meta').textContent='BUILD 687 · Canada campaign v1';});
+</script>
+</body>
+</html>

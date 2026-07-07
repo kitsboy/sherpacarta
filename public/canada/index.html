@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-CA" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canada Digital Rights Petition — SherpaCarta</title>
+<meta name="description" content="Sign SherpaCarta for Canada — 114 articles protecting digital privacy, data sovereignty, and algorithmic rights. BC leads, Canada follows. Zero tracking. SHA-256 proof.">
+<link rel="canonical" href="https://sherpacarta.org/canada/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sherpacarta.org/canada/">
+<meta property="og:title" content="SherpaCarta Canada — Digital Rights Petition">
+<meta property="og:description" content="114 articles. Privacy is a birthright. Sign for Canada — starting in BC. Moral commitment + cryptographic proof. No data stored on our servers. #CanadaBCChallenge">
+<meta property="og:image" content="https://sherpacarta.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SherpaCarta Canada Petition">
+<meta name="twitter:description" content="Adopt the Global Digital Magna Carta in Canada. SHA-256 · Nostr · Passkey signing. Zero server data.">
+<meta name="twitter:image" content="https://sherpacarta.org/og-image.png">
+<meta name="keywords" content="Canada petition, BC digital rights, privacy law, PIPEDA, SherpaCarta, digital human rights, Magna Carta, OpenTimestamps, Nostr">
+<link rel="stylesheet" href="/sc-main.css?v=687">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+body{max-width:800px;margin:0 auto;padding:2rem 1.25rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75}
+h1{font-family:var(--serif);font-size:2.2rem;color:var(--em2);line-height:1.2}
+.flag{font-size:1.5rem}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin:1.25rem 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin-top:1rem}
+.step{padding:1rem;background:var(--bg3);border-radius:10px;font-size:.8rem}
+.step strong{color:var(--em);display:block;margin-bottom:.35rem}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.1rem;border-radius:8px;font-size:.85rem;text-decoration:none;margin:.25rem .25rem .25rem 0;cursor:pointer;border:none;font-family:var(--sans)}
+.btn-primary{background:var(--em);color:#000;font-weight:600}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--em2)}
+a{color:var(--em2)}
+.legal{font-size:.72rem;color:var(--text3);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--border)}
+</style>
+</head>
+<body>
+<p><a href="/">← SherpaCarta</a> · <a href="/canada/bc/">BC Challenge</a></p>
+<h1><span class="flag">🇨🇦</span> Canada Digital Rights Petition</h1>
+<p style="color:var(--text2);font-size:.95rem">SherpaCarta is global — but <strong>Canada is our first jurisdiction</strong>. Every signature on this campaign is automatically a <strong>Canadian civic commitment</strong>. British Columbia is our provincial beachhead within Canada.</p>
+
+<div class="card">
+  <h2 style="font-size:1rem;color:var(--em);margin:0 0 .75rem"><i class="fas fa-scroll"></i> The Ask</h2>
+  <p style="font-size:.88rem;color:var(--text2)" id="petition-preview">Loading petition text…</p>
+</div>
+
+<div class="card">
+  <h2 style="font-size:1rem;color:var(--em);margin:0 0 .75rem"><i class="fas fa-route"></i> Three-Layer Process</h2>
+  <div class="steps">
+    <div class="step"><strong>1 · Moral Sign</strong>Name or pseudonym. Stored on your device only. Auto-tagged Canada.</div>
+    <div class="step"><strong>2 · Proof Sign</strong>Passkey, Nostr, or Ed25519. SHA-256 receipt. Still zero server data.</div>
+    <div class="step"><strong>3 · Official</strong>Parliament e-petition or BC paper — separate, on government sites only.</div>
+  </div>
+</div>
+
+<div class="card" id="stats-card">
+  <strong>Your signatures on this device:</strong> <span id="local-count">0</span> · <span id="local-prov">Canada</span>
+</div>
+
+<p>
+  <a href="/canada/sign.html" class="btn btn-primary"><i class="fas fa-signature"></i> Sign for Canada</a>
+  <a href="/canada/bc/" class="btn btn-ghost"><i class="fas fa-map-location-dot"></i> BC Challenge</a>
+  <a href="/canada/proof.html" class="btn btn-ghost"><i class="fas fa-stamp"></i> Proof &amp; Satohash</a>
+  <a href="/canada/about.html" class="btn btn-ghost"><i class="fas fa-circle-info"></i> About</a>
+</p>
+
+<div class="card">
+  <h2 style="font-size:1rem;color:var(--em)">Official Government Channels</h2>
+  <p style="font-size:.85rem"><strong>Federal:</strong> <a href="https://www.ourcommons.ca/petitions/en/Home/Index" target="_blank" rel="noopener">House of Commons e-Petitions</a> — requires MP sponsor, 500+ validated signatures, email verification on Parliament's site.</p>
+  <p style="font-size:.85rem"><strong>BC:</strong> <a href="https://www.leg.bc.ca/parliamentary-business/parliamentary-procedure/petitions" target="_blank" rel="noopener">Legislative Assembly petitions</a> — paper format, presented by MLA. <a href="/bc/town-hall-kit.html">Town hall kit →</a></p>
+</div>
+
+<p class="legal">SherpaCarta collects nothing on our servers. Canadian signatures are stored locally in your browser. Cryptographic proofs use SHA-256, optional Nostr (kind 1978), WebAuthn passkeys, and OpenTimestamps via <a href="https://satohash.giveabit.io">Satohash</a>. Template: <a href="/data/satohash-templates/sherpacarta-canada-referendum.json">satohash.io submission ready</a>. CC0 · <a href="https://giveabit.io">Give A Bit</a></p>
+
+<script src="/js/sc-petition-canada.js"></script>
+<script>
+fetch('/data/campaign-canada.json').then(r=>r.json()).then(d=>{
+  document.getElementById('petition-preview').textContent=d.petitionText.slice(0,320)+'…';
+});
+const s=SHERPA_PETITION.getStats();
+document.getElementById('local-count').textContent=s.total;
+document.getElementById('local-prov').textContent=s.province==='BC'?'Canada · BC':'Canada';
+</script>
+</body>
+</html>

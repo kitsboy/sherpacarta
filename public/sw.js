@@ -1,8 +1,11 @@
-const CACHE = 'sherpacarta-v5.1';
+const CACHE = 'sherpacarta-v5.2';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html',
   '/report/2026-report.html', '/status.html', '/accessibility.html',
   '/treasury.html', '/security.html',
+  '/canada/index.html', '/canada/sign.html', '/canada/proof.html', '/canada/about.html', '/canada/bc/index.html',
+  '/js/sc-petition-canada.js', '/data/campaign-canada.json', '/data/proof-canada.json',
+  '/data/satohash-templates/sherpacarta-canada-referendum.json',
   '/favicon.svg', '/og-image.svg', '/og-image.png',
   '/giveabit-logo.png', '/giveabit-parent-logo.jpg', '/manifest.json', '/mcp.json',
   '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',

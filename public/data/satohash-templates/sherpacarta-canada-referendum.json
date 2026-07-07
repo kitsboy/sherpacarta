@@ -1,0 +1,84 @@
+{
+  "$schema": "https://satohash.io/schemas/template-v1.json",
+  "templateId": "sherpacarta-canada-referendum-v1",
+  "name": "SherpaCarta Canada Referendum & Petition",
+  "description": "Privacy-preserving civic petition and referendum template for Canadian digital rights adoption. SHA-256 anchored proofs with optional Nostr, passkey, and ed25519 signature layers. Zero server data collection.",
+  "version": "1.0.0",
+  "author": {
+    "name": "SherpaCarta / Give A Bit",
+    "url": "https://sherpacarta.org",
+    "contact": "hello@giveabit.io"
+  },
+  "license": "CC0-1.0",
+  "jurisdiction": {
+    "primary": "CA",
+    "regions": ["CA", "CA-BC"],
+    "expandable": ["EU", "GLOBAL"]
+  },
+  "document": {
+    "type": "petition",
+    "canonicalUrl": "https://sherpacarta.org/canada/",
+    "hashAlgorithm": "SHA-256",
+    "textSource": "/data/campaign-canada.json#petitionText"
+  },
+  "signatureLayers": [
+    {
+      "id": "moral",
+      "name": "Moral Sign",
+      "description": "Name or pseudonym stored locally only. Auto-tagged Canadian.",
+      "requiresServer": false,
+      "uniqueness": "per-browser"
+    },
+    {
+      "id": "sha256-receipt",
+      "name": "SHA-256 Receipt",
+      "description": "Cryptographic receipt hash of signature commitment without PII on chain.",
+      "requiresServer": false,
+      "uniqueness": "per-receipt"
+    },
+    {
+      "id": "passkey",
+      "name": "WebAuthn Passkey",
+      "description": "Device-bound pseudonymous credential. Face ID / fingerprint.",
+      "requiresServer": false,
+      "uniqueness": "per-credential",
+      "standard": "W3C WebAuthn"
+    },
+    {
+      "id": "nostr",
+      "name": "Nostr Event",
+      "description": "NIP-07 signed kind-1978 petition event. One pubkey per petition hash.",
+      "requiresServer": false,
+      "uniqueness": "per-pubkey",
+      "standard": "NIP-07, NIP-78"
+    },
+    {
+      "id": "ed25519",
+      "name": "Local Ed25519 Key",
+      "description": "Browser-generated keypair signs petition commitment message.",
+      "requiresServer": false,
+      "uniqueness": "per-keypair"
+    },
+    {
+      "id": "opentimestamps",
+      "name": "OpenTimestamps Anchor",
+      "description": "Merkle root of signature batch anchored via Bitcoin through Satohash.",
+      "requiresServer": false,
+      "standard": "OpenTimestamps"
+    }
+  ],
+  "referendumMode": {
+    "enabled": true,
+    "description": "Future polling/voting using same proof stack. EU eIDAS expansion planned.",
+    "ballotHashIncluded": true,
+    "voterUniqueness": ["passkey", "nostr", "ed25519"]
+  },
+  "officialBridge": {
+    "federal": "https://www.ourcommons.ca/petitions/en/Home/Index",
+    "bc": "https://www.leg.bc.ca/parliamentary-business/parliamentary-procedure/petitions",
+    "note": "Official government petitions require separate identity verification on government sites."
+  },
+  "demoUrl": "https://sherpacarta.org/canada/sign.html",
+  "status": "beta",
+  "submitTo": "https://satohash.io/templates/"
+}

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 import { createHash } from 'crypto';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const BUILD = '20260707-667';
+const BUILD = '20260707-687';
 
 function extractCharter() {
   const jsonPath = join(root, 'data/charter.json');
