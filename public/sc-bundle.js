@@ -1,4 +1,4 @@
-/* SherpaCarta bundled enhancements — generated 2026-07-07T18:21:02.094Z */
+/* SherpaCarta bundled enhancements — generated 2026-07-07T18:39:29.370Z */
 
 /* ── sc-enhancements.js ── */
 /**
@@ -6389,8 +6389,8 @@
 
   // 523 — Press contact strip
   feat(523, 'Press contact strip', () => {
-    const press = document.querySelector('.press-bar')?.closest('.section-max');
-    if (!press || press.querySelector('.press-contact')) return;
+    const press = document.querySelector('.press-section-inner') || document.querySelector('.press-bar')?.closest('.section-max');
+    if (!press || press.querySelector('.press-contact') || press.querySelector('.press-footer')) return;
     const c = document.createElement('div');
     c.className = 'press-contact';
     c.style.cssText = 'margin-top:1.5rem;text-align:center;font-size:.82rem;color:var(--text2)';
