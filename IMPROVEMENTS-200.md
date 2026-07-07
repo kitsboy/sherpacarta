@@ -1,16 +1,16 @@
 # SherpaCarta — 200 Improvements, Updates & Fixes
 
-**Generated:** 2026-07-07 · **BUILD:** 647 · **Live:** https://sherpacarta.org
+**Generated:** 2026-07-07 · **Updated:** 2026-07-07 · **BUILD:** 688 · **Live:** https://sherpacarta.org
 
-Prioritized backlog for future sprints. Items marked 🔴 are high-impact gaps discovered during Sprints 6–8.
+Prioritized backlog for future sprints. Items marked ✅ are done; 🔴 are high-impact gaps remaining.
 
 ---
 
 ## Charter Content & Data (1–25)
 
-1. 🔴 **Add remaining 100 charter articles** — only 14 of 114 are in `sc-core.js` CHARTER array
+1. ✅ **Add remaining 100 charter articles** — BUILD 667; `data/charter.json` + inject into `sc-core.js`
 2. Split CHARTER into chapter JSON files for maintainability
-3. Add full article body text to `/api/v1/articles/{num}.json` for all 114 articles
+3. ✅ Add full article body text to `/api/v1/articles/{num}.json` for all 114 articles — BUILD 667
 4. Validate article numbering continuity (no gaps Art. 1–114)
 5. Add `version` field per article for amendment tracking
 6. Add `effectiveDate` metadata per article
@@ -110,8 +110,8 @@ Prioritized backlog for future sprints. Items marked 🔴 are high-impact gaps d
 
 ## API, MCP & SDK (91–110)
 
-91. Publish `@giveabit/sherpacarta` to npm registry
-92. Publish `@giveabit/sherpacarta-mcp` to npm registry
+91. ⏳ Publish `@giveabit/sherpacarta` to npm registry — package ready; `npm login` pending
+92. ⏳ Publish `@giveabit/sherpacarta-mcp` to npm registry — package ready; `npm login` pending
 93. Add TypeScript types package `@giveabit/sherpacarta-types`
 94. Add GraphQL read-only endpoint (optional)
 95. Add webhook for charter hash changes
@@ -133,7 +133,7 @@ Prioritized backlog for future sprints. Items marked 🔴 are high-impact gaps d
 
 ## SEO & Distribution (111–130)
 
-111. Add per-article canonical URLs in sitemap (all 114)
+111. ✅ Add per-article canonical URLs in sitemap (all 114) — BUILD 667; 143 URLs total
 112. Add `NewsArticle` schema for press releases
 113. Add `PodcastEpisode` schema for feed items
 114. Add Google Search Console verification meta

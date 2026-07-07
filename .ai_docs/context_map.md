@@ -1,54 +1,45 @@
 # Sherpacarta — Context Map
 
+**BUILD:** 688 · **Updated:** 2026-07-07
+
 ## Directory Structure
 ```
 sherpacarta/
-├── src/           # React source code
-├── public/        # Static assets
-├── dist/          # Build output (gitignored)
-├── docs/          # Documentation
-├── archive/       # Legacy/backup files
-├── .ai_docs/      # Auto-generated agent docs
-├── index.html     # Entry point
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-├── eslint.config.js
-├── wrangler.toml
-└── deploy.sh
+├── index.html              # Main landing (~77 KB)
+├── data/charter.json       # 114 articles source of truth
+├── public/
+│   ├── sc-main.css         # Styles
+│   ├── sc-core.js          # Core JS (CHARTER injected)
+│   ├── sc-bundle.js        # Enhancements + upgrades b1–b13
+│   ├── js/                 # Canada + press scripts
+│   ├── canada/             # Campaign pages
+│   └── api/v1/             # Public JSON API
+├── packages/               # SDK + MCP (npm publish pending)
+├── scripts/                # Build generators
+├── docs/                   # Documentation
+├── dist/                   # Build output (gitignored)
+└── deploy.sh               # Cloudflare Pages deploy
 ```
-
-## Dependencies
-| Package | Type |
-|---------|------|
-| react, react-dom | Runtime |
-| framer-motion | Runtime |
-| lucide-react | Runtime |
-| vite, @vitejs/plugin-react | Dev |
-| tailwindcss, postcss, autoprefixer | Dev |
-| eslint | Dev |
 
 ## Build Chain
 ```
-src/ (React JSX) → Vite + React plugin + Tailwind → dist/ (static SPA)
+npm run build =
+  generate-charter → inject-charter → generate-campaign
+  → bundle-js → generate-api → generate-sitemap → vite build
 ```
 
 ## Configuration
+- **Vite:** `vite.config.js` — builds `index.html` → `dist/`
+- **Wrangler:** `wrangler.toml` — `pages_build_output_dir = "dist"`
+- **SW:** `public/sw.js` — cache `sherpacarta-v5.3`
 
-### Vite (vite.config.js)
-- Plugin: @vitejs/plugin-react
-- Tailwind CSS via PostCSS
+## Ports
+- Dev: 5173 · Preview: 4173
 
-### Wrangler (wrangler.toml)
-- project: sherpacarta
-- build output: dist/
-- compatibility_date: 2026-06-15
+## Deployment
+- **Production:** Cloudflare Pages — `./deploy.sh`
+- **URL:** https://sherpacarta.org
+- **Git:** https://github.com/kitsboy/sherpacarta.git
 
-### Ports
-- Dev: 5173 (Vite default)
-- Preview: 4173 (Vite preview default)
-
-## Deployment Targets
-- Production: Cloudflare Pages (auto-deploy on push to main)
-- URL: sherpacarta.giveabit.io
+## Agent Docs
+See `SOURCE-OF-TRUTH.md` and `docs/KIMI-HANDOFF.md` for canonical state.

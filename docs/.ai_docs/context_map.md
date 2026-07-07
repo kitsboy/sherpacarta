@@ -1,44 +1,59 @@
 # sherpacarta — Context Map
 
+**BUILD:** 688 · **Updated:** 2026-07-07
+
 ## Stack
 | Layer | Technology |
 |-------|-----------|
 | Bundler | Vite 8 |
-| Styling | Tailwind CSS v4 |
-| Production | Self-contained `index.html` (vanilla JS/CSS, 160 KB) |
-| Legacy src/ | Vite scaffold (React 19 placeholder — unused in production) |
-| Runtime | Fully client-side, no server |
+| Runtime | HTML-first: `index.html` + external CSS/JS |
+| Core | `public/sc-core.js` (CHARTER injected at build) |
+| Bundle | `public/sc-bundle.js` (enhancements + b1–b13) |
+| Legacy src/ | React 19 scaffold — unused in production |
+| Hosting | Cloudflare Pages → sherpacarta.org |
 
 ## Ports
 | Service | Port |
 |---------|------|
-| Vite dev server | 5173 |
+| Vite dev | 5173 |
+| Vite preview | 4173 |
 
 ## Content
 | Feature | Details |
 |---------|---------|
-| Articles | 114 articles protecting digital privacy |
-| License | CC0 Public Domain (all 114 articles) |
-| Multi-language | UI supports multiple languages |
-| Interactive features | Command palette, rights calculator, signing wall |
-| Tracking | Zero — no analytics, no cookies, no tracking pixels |
+| Articles | 114 + preamble in `data/charter.json` |
+| API | `/api/v1/` — 114 article JSON files, hash, OpenAPI |
+| Canada | `/canada/` + `sc-petition-canada.js` |
+| Press | `sc-press-outlets.js` — icons + mobile marquee |
+| Sitemap | 143 URLs |
+| License | CC0 Public Domain |
+| Tracking | Zero |
 
-## Key Architecture
-- Self-contained 160 KB `index.html` — the entire production site
-- Vite build primarily exists for dev server experience
-- React `src/` directory is a legacy scaffold and NOT used in production
-- No backend, no database, no external dependencies at runtime
-- On-chain provenance for article versions (via Satohash, planned)
+## Build Chain
+```
+data/charter.json
+  → generate-charter.mjs
+  → inject-charter.mjs (sc-core.js)
+  → generate-campaign.mjs
+  → bundle-js.mjs (sc-bundle.js)
+  → generate-api.mjs
+  → generate-sitemap.mjs
+  → vite build → dist/
+```
 
 ## Entry Points
 | Path | Purpose |
 |------|---------|
-| index.html | Production site (self-contained) |
-| src/ | Legacy React scaffold (unused) |
-| docs/ | Project documentation |
-| deploy.sh | M4-only deploy script |
+| index.html | Main landing page |
+| public/canada/ | Canada petition campaign |
+| treasury.html | Mempool treasury dashboard |
+| security.html | Bug bounty |
+| packages/sherpacarta | npm SDK (publish pending) |
+| packages/sherpacarta-mcp | MCP server |
+| deploy.sh | Build + Cloudflare Pages deploy |
 
-## Hosting
-Cloudflare Pages — manual deploy from M4 only
-Custom domain: sherpacarta.org
-CF token: Base64 encoded in deploy.sh (M4 only — never expose)
+## Key Docs
+- `SOURCE-OF-TRUTH.md` — canonical agent state
+- `docs/KIMI-HANDOFF.md` — M3→M4 handoff log
+- `IMPROVEMENTS-200.md` — backlog
+- `SESSION-SUMMARY-2026-07-07.md` — latest session

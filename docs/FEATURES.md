@@ -1,7 +1,7 @@
-# SherpaCarta — 405 Features (v3.3)
+# SherpaCarta — Features
 
-**BUILD:** 20260703-405  
-**Modules:** `sc-enhancements.js` (1–100) + `v2`–`v6` (101–405)  
+**BUILD:** 20260707-688  
+**Modules:** `sc-enhancements.js` (1–100) + `v2`–`v6` (101–405) + `sc-upgrades-b1`–`b13` (406–687) + press outlets (688)  
 **How to use:** [USAGE.md](USAGE.md)
 
 ## Group 1 — Critical + Core UX (1–25)
@@ -53,5 +53,23 @@ Session tracker, article heatmap, top articles widget, amendment templates, BC o
 
 ## Group 16–17 — UI Docks (376–405)
 Left dock pins BC tab + a11y toolbar; status dock shows BUILD + Online; no header overlap; 30 fixes
+
+## Group 18 — Sprint 6 Architecture (588–607, BUILD 607)
+CSS/JS extraction, `sc-bundle.js`, Lighthouse CI, preload hints, cache headers, bundle size badge
+
+## Group 19 — Sprint 7 Treasury & Security (608–627, BUILD 627)
+`treasury.html` mempool widget, donate widget embed, `security.html` bug bounty, hall of fame, security.txt link
+
+## Group 20 — Sprint 8 API & SDK (628–647, BUILD 647)
+`embed.js`, `@giveabit/sherpacarta` SDK, MCP server, per-article API, sitemap generator, SW v5.0
+
+## Group 21 — Full Charter (648–667, BUILD 667)
+`data/charter.json`, generate/inject scripts, chapter browser, article search, 114 API files, npm package scaffold
+
+## Group 22 — Canada Petition (668–687, BUILD 687)
+`/canada/` pages, `sc-petition-canada.js`, moral sign, passkey, Nostr kind 1978, merkle root, Satohash stamp, campaign JSON
+
+## Group 23 — Press Outlets (BUILD 688)
+Centered press grid, outbound links, Simple Icons + SVG fallbacks (`sc-press-outlets.js`), mobile marquee, SW v5.3
 
 *BUILD + Online: bottom-left status dock. A11y + BC: pinned left dock below header.*

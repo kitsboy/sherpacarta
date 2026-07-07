@@ -1,6 +1,6 @@
-# SherpaCarta — How to Use (v3.0)
+# SherpaCarta — How to Use
 
-**300 features** · **BUILD 20260703-300** · [sherpacarta.org](https://sherpacarta.org)
+**688 features** · **BUILD 20260707-688** · [sherpacarta.org](https://sherpacarta.org)
 
 This guide covers everyday use. Power features live behind **⌘K** and the **BUILD** badge.
 

@@ -6,7 +6,8 @@ A living charter of **114 articles** protecting privacy, data sovereignty, freed
 
 > Privacy is not a feature. It is a birthright.
 
-**Live site:** [https://sherpacarta.org](https://sherpacarta.org)
+**Live site:** [https://sherpacarta.org](https://sherpacarta.org)  
+**BUILD:** 688 · **Last commit:** `0d71baa`
 
 ---
 
@@ -21,137 +22,122 @@ It is:
 - 100% open source, zero tracking, zero analytics, zero cookies
 - A **living document** — rights may only expand, never contract
 
-This repository contains the complete, beautiful, self-contained single-page experience (HTML + CSS + JS) plus supporting documentation.
-
 ---
 
 ## Quick Start (Development)
 
-This project uses **Vite** for an excellent local development experience (fast refresh, even for a mostly static site).
-
 ```bash
-# Install (only needed once)
-npm install
-
-# Run the site locally with hot reload
-npm run dev
+npm install          # once
+npm run dev          # http://localhost:5173
 ```
 
-Open the URL printed in the terminal (usually **http://localhost:5173**).
-
-The beautiful custom cursor, command palette (⌘K or ?), interactive articles browser, rights calculator, signing wall, and everything else will work immediately.
-
-### Production build
+### Production build & deploy
 
 ```bash
-npm run build
-npm run preview   # locally test the production build
+npm run build        # full pipeline → dist/
+npm run preview      # test production build locally
+./deploy.sh          # build + Cloudflare Pages deploy
 ```
 
-The output goes to `dist/` and is ready to deploy anywhere (Netlify, Vercel, GitHub Pages, static hosting, even as a single `index.html` file).
+The build pipeline: `generate-charter` → `inject-charter` → `generate-campaign` → `bundle-js` → `generate-api` → `generate-sitemap` → `vite build`.
 
 ---
 
 ## Project Structure
 
 ```
-/Users/cam/projects/sherpacarta
-├── index.html          # The complete, self-contained SherpaCarta experience (the main thing)
-├── src/                # (Legacy React placeholder — currently unused; safe to ignore or remove)
-├── docs/
-│   ├── EXECUTIVE_SUMMARY.md   # High-level overview for leaders, funders, partners
-│   └── MARKETING.md           # Brand voice, messaging, press kit, social templates, objections
-├── public/             # Static assets (favicon, etc.)
-├── package.json
-└── vite.config.js
+sherpacarta/
+├── index.html                 # Main landing page
+├── data/
+│   ├── charter.json           # Source of truth: 114 articles + preamble
+│   └── campaign-canada.json   # Canada petition campaign
+├── public/
+│   ├── sc-main.css            # Extracted styles
+│   ├── sc-core.js             # Core JS (CHARTER injected at build)
+│   ├── sc-bundle.js           # Enhancements + upgrades b1–b13
+│   ├── js/
+│   │   ├── sc-petition-canada.js
+│   │   └── sc-press-outlets.js
+│   ├── canada/                # Canada campaign pages
+│   ├── api/v1/                # Public JSON API
+│   └── sw.js                  # Service worker (v5.3)
+├── packages/
+│   ├── sherpacarta/           # @giveabit/sherpacarta SDK
+│   └── sherpacarta-mcp/       # MCP server
+├── scripts/                   # Build generators
+├── treasury.html              # Live mempool dashboard
+├── security.html              # Bug bounty
+├── docs/                      # Full documentation
+└── IMPROVEMENTS-200.md        # Prioritized backlog
 ```
-
-The site is intentionally a single rich `index.html` (with all critical CSS/JS inline) because:
-- It matches the "living public document" philosophy
-- It can be hosted or shared as a single file
-- It has zero build-step complexity for the core experience
 
 ---
 
 ## Documentation
 
-- [Executive Summary](docs/EXECUTIVE_SUMMARY.md) — Problem, solution, pillars, current state, strategy
-- [Mission](docs/MISSION.md) — Purpose, values, who we serve
-- [Marketing & Press Guide](docs/MARKETING.md) — Voice, key messages, one-pagers, social templates, FAQs for press
-- [Marketing One-Liner](MARKETING-ONELINER.md) — Tagline, pitch, CTA
-- [SEO Strategy](docs/SEO.md) — Keywords, meta audit, i18n SEO index (+ locale files `SEO-*.md`)
-- [I18N Reference](docs/I18N.md) — Translation system
-- [Deployment](docs/DEPLOYMENT.md) — Cloudflare Pages, build, deploy.sh
-- [Source of Truth](SOURCE-OF-TRUTH.md) — Canonical project state for all agents
-- [Kimi Handoff](docs/KIMI-HANDOFF.md) — Cross-machine session log
-- [Platform Roadmap](docs/ROADMAP.md) — Nostr, Satohash, API, i18n phases
-- [Canada & BC Challenge](docs/CANADA-BC-CHALLENGE.md) — First jurisdiction law-change strategy
-- [Usage Guide](docs/USAGE.md) — How to use all 300 features + video script outline
-- [Features List](docs/FEATURES.md) — All 300 enhancements by group
-- The full 114-article charter is interactive inside the site (open the "Charter" button or use ⌘K)
+| Doc | Purpose |
+|-----|---------|
+| [Executive Summary](docs/EXECUTIVE_SUMMARY.md) | Problem, solution, pillars, strategy |
+| [Mission](docs/MISSION.md) | Purpose, values, audience |
+| [Marketing & Press](docs/MARKETING.md) | Voice, templates, press boilerplate |
+| [Canada & BC Challenge](docs/CANADA-BC-CHALLENGE.md) | First jurisdiction strategy |
+| [Roadmap](docs/ROADMAP.md) | Platform phases (Nostr, API, i18n) |
+| [Deployment](docs/DEPLOYMENT.md) | Cloudflare Pages, build, deploy.sh |
+| [Features](docs/FEATURES.md) | All enhancements by group (405 + sprints) |
+| [Usage](docs/USAGE.md) | How-to guide + video script outline |
+| [Source of Truth](SOURCE-OF-TRUTH.md) | Canonical state for all agents |
+| [Kimi Handoff](docs/KIMI-HANDOFF.md) | Cross-machine session log |
+| [Changelog](CHANGELOG.md) | Version history |
+| [Improvements Backlog](IMPROVEMENTS-200.md) | 200 prioritized items |
 
 ---
 
-## Key Features (in the live site)
+## Key Features (live site)
 
-- Stunning dark (default) / light theme with custom cursor and reading progress
-- Interactive 114-article browser with local signing, sharing, and "AI" summaries
-- Historical timeline + comparison table (1215 / 2011 / 2026)
-- Rights Protection Calculator (country + usage + encryption)
-- Global signatory wall + live counter (persisted locally + simulated momentum)
-- Command palette (⌘K) for everything
-- Full charter modal with print, download .txt, read-aloud, search, and "make editable"
-- Multi-language UI switcher (top 5 + 40+ community translations grid)
-- Bitcoin donation card + rich social sharing (X, WhatsApp, Telegram, LinkedIn, FB, copy)
-- Ambient visual mode, quote rotator, FAQ, newsletter (local only), press mentions bar
-- Excellent SEO / Open Graph / Twitter Card / JSON-LD structured data
-- Fully keyboard accessible + print-optimized + reduced-motion aware
+- Dark/light theme, custom cursor, command palette (⌘K)
+- **114-article charter** — chapter browser, search, sign, share, Satohash stamp
+- **Canada petition** — moral sign, passkey, Nostr, merkle proof ([/canada/](https://sherpacarta.org/canada/))
+- Rights Protection Calculator, historical timeline, adoption heatmap
+- **Press section** — linked outlet cards, brand icons, mobile marquee
+- Treasury dashboard, bug bounty page, embeddable sign widget
+- Public API (`/api/v1/`), MCP server, npm SDK (publish pending)
+- Nostr sign-in (NIP-07), amendment proposals, local-first privacy
+- Bitcoin donation + PWA service worker, 143-URL sitemap
 
 ---
 
-## How to Contribute (Movement, not just code)
+## How to Contribute
 
-1. **Sign the charter** on the live site
-2. Open issues or PRs for improvements to this site/experience
-3. Propose new articles or amendments (see the living charter process in Art. 114)
-4. Translate (see the languages grid)
-5. Start or join a local chapter
-6. Donate Bitcoin (address in the site footer / donation section)
+1. **Sign the charter** at [sherpacarta.org](https://sherpacarta.org)
+2. Open issues or PRs for site improvements
+3. Propose amendments (Art. 114 — rights only expand)
+4. Translate (see languages grid)
+5. Donate Bitcoin (footer / donation section)
 
-All code changes are welcome. The spirit of the charter applies to the project itself: expand rights and access, never restrict.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
 ## Tech Notes
 
-- Pure modern HTML5 + CSS + vanilla JS (no framework required at runtime)
-- Vite for dev server + production bundling (you still get HMR and a great `dist/`)
-- External dependencies only for fonts (Google) and icons (Font Awesome CDN) — intentional for zero-build simplicity
-- All signatures, preferences, and state are stored in `localStorage` only (exactly as the charter preaches)
-
-If you want to evolve this into a more componentized app later (e.g. React/TS for the admin or translation tooling), the current Vite setup makes that straightforward.
+- HTML-first architecture: external CSS/JS, zero framework at runtime
+- Vite for dev server + production bundling to `dist/`
+- Charter content in `data/charter.json`, injected into `sc-core.js` at build
+- All signatures and prefs in `localStorage` only
+- Fonts (Google) and icons (Font Awesome CDN) — intentional for simplicity
 
 ---
 
 ## License
 
-The charter content and this site are published under **CC0 1.0 Universal** (Public Domain Dedication).  
-No rights reserved. Copy freely.
-
-See the legal footer in the site for the full statement.
+CC0 1.0 Universal (Public Domain). No rights reserved.
 
 ---
 
-## Contact & Movement
+## Contact
 
 - Site: https://sherpacarta.org/
 - Email: [hello@giveabit.io](mailto:hello@giveabit.io?subject=Sherpacarta)
 - X: [@give_bit](https://twitter.com/give_bit)
-- Nostr NIP-05: `kimi@giveabit.io`
 - GitHub: https://github.com/kitsboy/sherpacarta
 - Built by: https://giveabit.io
-- "SHERPACARTA IS A GLOBAL MOVEMENT, NOT A CORPORATION. BUILT WITH ❤ BY VOLUNTEERS IN 24 COUNTRIES. POWERED BY BITCOIN. GUIDED BY CONSCIENCE."
-
----
-
-*This README and the docs/ folder were added as part of the initial public release preparation.*

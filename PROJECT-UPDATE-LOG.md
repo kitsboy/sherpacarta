@@ -1,1 +1,2 @@
 [2026-07-02] Grok updated sherpacarta — sidebar restored HTML-first, see docs/KIMI-HANDOFF.md and SESSION-SUMMARY-2026-07-02.md
+[2026-07-07] Grok updated sherpacarta — Sprints 6–8 (BUILD 647), full charter (667), Canada petition (687), press outlets (688); all docs synced — see SESSION-SUMMARY-2026-07-07.md

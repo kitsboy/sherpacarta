@@ -4,6 +4,79 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-07 (Session 8 — Press Outlets / Docs Sync)
+
+**Machine:** M3 (Grok)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] Press outlets BUILD 688 — linked cards, `sc-press-outlets.js`, mobile marquee, SW v5.3
+- [x] Committed `0d71baa`, pushed, deployed to sherpacarta.org
+- [x] All project docs updated to BUILD 688 state
+
+### Decisions
+
+- Simple Icons CDN for Guardian + Hacker News; custom SVG fallbacks for Wired, EFF, VICE, Rest of World, Privacy International (not in Simple Icons set)
+- Mobile marquee clones grid cards; non-interactive in marquee; grid hidden below 640px
+
+### What's Next
+
+- [ ] Lightning LNURL when Cam provides it
+- [ ] `npm run publish:packages` after `npm login`
+- [ ] Federal e-petition (MP sponsor)
+- [ ] Kimi: sync BUILD 647–688 + updated docs to Obsidian / MASTER-BRAIN
+
+### Git State
+
+- Last commit SHA: 0d71baa
+- Branch: main
+- Unpushed: none (docs commit pending this session)
+
+---
+
+## Handoff to Kimi — 2026-07-07 (Session 7 — Canada Petition)
+
+**Machine:** M3 (Grok)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] Canada petition BUILD 687 — `/canada/` pages, `sc-petition-canada.js`, campaign JSON
+- [x] Moral sign (auto-Canadian), passkey, Nostr kind 1978, merkle root, Satohash stamp
+- [x] `sc-upgrades-b13.js` features 668–687
+- [x] Press section centered card grid (`c06716f`)
+
+### What's Next
+
+- [x] Press outlets follow-up (links, icons, marquee) — done BUILD 688
+- [ ] Satohash template submit when ready
+
+### Git State
+
+- Commits: `dbe8bd2` (687), `c06716f` (press grid), `0d71baa` (688)
+
+---
+
+## Handoff to Kimi — 2026-07-07 (Session 6 — Full Charter)
+
+**Machine:** M3 (Grok)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] Full 114-article charter BUILD 667 — `data/charter.json`, generate/inject scripts
+- [x] Chapter browser + search; 114 API article files; sitemap 143 URLs
+- [x] `sc-upgrades-b12.js` features 648–667
+- [x] npm packages scaffolded in `packages/`
+
+### What's Next
+
+- [x] Canada petition — done BUILD 687
+- [ ] npm publish
+
+---
+
 ## Handoff to Kimi — 2026-07-02 (Session 6 — Sidebar Restore / Goodbye)
 
 **Machine:** M3 (Grok)  
@@ -313,13 +386,13 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ## Latest Session Summary (from 2026-07-07)
 
-**Chat topic:** Complete Sprints 6–8 autonomously + 200-item improvement list.
+**Chat topic:** Sprints 6–8, full charter, Canada petition, press outlets, docs sync.
 
-**Finished:** All three sprints, BUILD 647, architecture split, treasury/bounty pages, MCP/SDK packages, IMPROVEMENTS-200.md.
+**Finished:** BUILD 647–688 — architecture split, treasury/bounty, API/SDK/MCP, 114 articles, Canada petition, press linked cards + icons + marquee. All docs updated. Deployed.
 
-**Still to do:** Deploy, npm publish, Lightning wallet, full 114-article charter content, Kimi sync.
+**Still to do:** Lightning LNURL, npm publish, federal e-petition, Kimi Obsidian sync.
 
-**Next for Kimi:** Integrate `SESSION-SUMMARY-2026-07-07.md` + `IMPROVEMENTS-200.md`. Do not sync to M4 until Cam or Kimi says it's time.
+**Next for Kimi:** Integrate `SESSION-SUMMARY-2026-07-07.md` + updated `SOURCE-OF-TRUTH.md`. Do not sync to M4 until Cam or Kimi says it's time.
 
 ---
 

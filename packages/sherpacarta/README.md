@@ -2,6 +2,8 @@
 
 JavaScript SDK for the [SherpaCarta](https://sherpacarta.org) Global Digital Magna Carta API.
 
+**Status:** Package scaffolded locally (BUILD 647). Not yet published to npm — run `npm run publish:packages` from repo root after `npm login`.
+
 ## Install
 
 ```bash

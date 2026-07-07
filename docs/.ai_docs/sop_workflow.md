@@ -1,10 +1,12 @@
 # sherpacarta — Standard Operating Procedure
 
+**BUILD:** 688 · **Updated:** 2026-07-07
+
 ## Build
 ```bash
 cd ~/projects/sherpacarta && npm run build
 ```
-Outputs to `dist/`. Note: React `src/` is legacy. The production site is a self-contained 160 KB `index.html` with inline vanilla JS/CSS.
+Full pipeline: charter → inject → campaign → bundle → API → sitemap → Vite → `dist/`.
 
 ## Dev Server
 ```bash
@@ -14,23 +16,26 @@ Vite dev server on port 5173.
 
 ## Pre-Deploy Checks
 ```bash
-cd ~/projects/sherpacarta && git status && npm run build && ls dist/index.html
+cd ~/projects/sherpacarta && git status && npm run build && ls dist/index.html dist/js/sc-press-outlets.js
 ```
 
-## Deploy (Manual — from M4 only)
+## Deploy
 ```bash
-# On M4:
 cd ~/projects/sherpacarta && ./deploy.sh
 ```
-The `deploy.sh` script contains base64-encoded CF API token (M4 only).
-Alternative: `npx wrangler pages deploy dist/ --project-name sherpacarta`
+Builds and deploys `dist/` to Cloudflare Pages (`sherpacarta` project).
 
 ## Post-Deploy Verify
 ```bash
-curl -sI https://sherpacarta.org | grep -q '200'
+curl -sI https://sherpacarta.org | head -1
+curl -s https://sherpacarta.org/api/v1/hash.json | head -c 200
 ```
 
-## Sync dist from M3 to M4
-```bash
-rsync -avz --delete ~/projects/sherpacarta/dist/ m4:~/tmp-sherpacarta-dist/
-```
+## Charter Content Edits
+Edit `data/charter.json`, then `npm run build` — never edit injected CHARTER in `sc-core.js` directly.
+
+## Docs to Update on Meaningful Changes
+- `SOURCE-OF-TRUTH.md`
+- `LATEST-UPDATE.md`
+- `CHANGELOG.md`
+- `docs/KIMI-HANDOFF.md` (session end)

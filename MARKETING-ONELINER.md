@@ -3,7 +3,7 @@ title: Marketing One-Liner
 project: sherpacarta
 version: 2.0.0
 audience: users
-last_updated: 2026-07-02
+last_updated: 2026-07-07
 owner: Cam / Give A Bit
 ---
 

@@ -2,61 +2,91 @@
 
 **Project Name:** SherpaCarta  
 **Date:** 2026-07-07  
-**BUILD:** 20260707-647
+**BUILD:** 20260707-688  
+**Live:** https://sherpacarta.org
 
 ## Project Overview (Simple Pitch)
-SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living, globally-signed charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights for every person on Earth (all 8 billion). 
+SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living, globally-signed charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights for every person on Earth (all 8 billion).
 
-It is a moral and political declaration and modern successor to the 1215 Magna Carta and the 2011 Icelandic Constitutional Bill (the first crowdsourced constitution). It explicitly binds both states *and* powerful private corporations/algorithms whose reach now exceeds most nations. 
+It is a moral and political declaration and modern successor to the 1215 Magna Carta and the 2011 Icelandic Constitutional Bill. The project includes an interactive single-page site, a Canada/BC petition system, treasury and security pages, a public API, npm SDK + MCP server, and zero-tracking privacy by design. CC0 public domain. Bitcoin-funded only.
 
-The project includes a stunning, fully self-contained, interactive single-page website (custom cursor, command palette ⌘K, article browser with local signing, Rights Protection Calculator, historical timeline, donation via Bitcoin, rich social sharing, multi-language support, print/read-aloud/download features, and more). Everything is published under CC0 (public domain). The site practices what it preaches: zero tracking, zero cookies, zero analytics. Funded exclusively by voluntary Bitcoin donations (published on-chain). Privacy is a birthright, not a feature.
-
-This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single source of truth**. Everything lives here so both Goose (M3) and Kimi (M4 HERMES) always know the latest state.
+This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single source of truth**.
 
 ## Core Files
-- `index.html` — The complete, beautiful, self-contained SherpaCarta experience (the heart of the project). All CSS, JS interactivity, charter data (114 articles), modals, tools, SEO/hreflang meta, mobile nav, and footer BTC/Lightning tabs live here.
-- `README.md` — Professional usage guide, quick start for `npm run dev`, project structure, key features, and contribution info.
-- `docs/EXECUTIVE_SUMMARY.md` — High-level problem/solution, four core pillars, strategic positioning, current momentum, call to action (for leaders, partners, press).
-- `docs/MARKETING.md` — Brand voice, key messages, one-pagers, social templates, press boilerplate, common objections & rebuttals, visual identity notes.
-- `docs/MISSION.md` — Purpose, values, problem/solution, audience (filled 2026-07-02).
-- `docs/SEO.md` — English SEO master + i18n index; locale baselines in `docs/SEO-{es,fr,de,pt,zh,sw}.md`.
-- `docs/I18N.md` — Translation system reference (Give A Bit shared i18n).
-- `docs/DEPLOYMENT.md` — Build, Cloudflare Pages, deploy.sh workflow.
-- `docs/KIMI-HANDOFF.md` — M3→M4 session handoff log (mandatory per GROK-SESSION-PROTOCOL).
-- `MARKETING-ONELINER.md` — Tagline, pitch, CTA for quick reuse.
-- `deploy.sh` — Build + Cloudflare Pages deploy (token-based).
-- `public/` — Static assets (favicon.svg, icons.svg).
-- `package.json` + `vite.config.js` — Vite setup for excellent local dev (`npm run dev` with HMR) and production builds (`npm run build` → `dist/`).
-- `src/` — Legacy React + Tailwind placeholder files from the original Vite template (currently unused; the runtime site is pure HTML/JS in root index.html).
+
+### Site
+- `index.html` — Main landing page (~77 KB; links external CSS/JS)
+- `public/sc-main.css` — Extracted styles
+- `public/sc-core.js` — Core interactivity; CHARTER array injected at build from `data/charter.json`
+- `public/sc-bundle.js` — Concatenated enhancements + `sc-upgrades-b1.js` … `b13.js`
+- `public/js/sc-petition-canada.js` — Canada petition (passkey, Nostr, merkle, Satohash)
+- `public/js/sc-press-outlets.js` — Press section icons + mobile marquee
+- `public/sw.js` — Service worker cache v5.3
+- `public/canada/` — Canada campaign pages (index, sign, proof, about, bc/)
+- `treasury.html`, `security.html` — Sprint 7 pages
+- `embed.js` — Embeddable sign widget
+
+### Data & API
+- `data/charter.json` — Source of truth for all 114 articles + preamble
+- `data/campaign-canada.json` — Canada petition campaign metadata
+- `public/api/v1/` — Charter JSON, per-article files, hash, OpenAPI, index
+- `public/sitemap.xml` — 143 URLs (114 articles + pages)
+- `public/robots.txt`
+
+### Build Scripts
+- `scripts/generate-charter.mjs` — charter.json from source
+- `scripts/inject-charter.mjs` — inject CHARTER into sc-core.js
+- `scripts/generate-campaign.mjs` — campaign JSON + proof
+- `scripts/bundle-js.mjs` — sc-bundle.js
+- `scripts/generate-api.mjs` — API article files
+- `scripts/generate-sitemap.mjs` — sitemap.xml
+- `npm run build` — full pipeline + Vite → `dist/`
+
+### Packages (local, publish pending)
+- `packages/sherpacarta` — `@giveabit/sherpacarta` JS SDK
+- `packages/sherpacarta-mcp` — MCP server (stdio JSON-RPC)
+
+### Documentation
+- `README.md`, `CHANGELOG.md`, `IMPROVEMENTS-200.md`
+- `docs/EXECUTIVE_SUMMARY.md`, `docs/MARKETING.md`, `docs/MISSION.md`
+- `docs/ROADMAP.md`, `docs/DEPLOYMENT.md`, `docs/FEATURES.md`, `docs/USAGE.md`
+- `docs/CANADA-BC-CHALLENGE.md`, `docs/KIMI-HANDOFF.md`
+- `docs/SEO.md` + locale `docs/SEO-*.md`
+- `deploy.sh` — build + Cloudflare Pages deploy
 
 ## Git & Deployment
-- **GitHub (source of truth):** https://github.com/kitsboy/sherpacarta.git
-- Remote is configured. Recent work: cleanup, professional README, .gitignore updates, and integration of the full site experience.
-- **Deployment:** Pure static. Run `npm run build` (outputs to `dist/`). Deploy `dist/` (or the single `index.html` for ultimate simplicity) to:
-  - Cloudflare Pages (recommended)
-  - Vercel / Netlify / GitHub Pages
-  - Any static host, IPFS, or even a simple web server.
-- Build command: `npm run build`
-- Dev command: `npm run dev` (opens at http://localhost:5173 by default)
-- The site has excellent built-in SEO (Open Graph, Twitter Cards, JSON-LD, canonical, theme-color, etc.) pointing to https://sherpacarta.org/
+- **GitHub:** https://github.com/kitsboy/sherpacarta.git
+- **Branch:** `main`
+- **Last commit:** `0d71baa` (BUILD 688 press outlets)
+- **Deploy:** `./deploy.sh` → Cloudflare Pages project `sherpacarta`
+- **Dev:** `npm run dev` (http://localhost:5173)
+- **Build:** `npm run build` → `dist/`
+
+## Upgrade Module Stack
+`sc-enhancements.js` (v1–v6) + `sc-upgrades-b1.js` … `b13.js` → `sc-bundle.js`
+
+| Batch | Features | BUILD |
+|-------|----------|-------|
+| b9 | 588–607 | 607 (Sprint 6) |
+| b10 | 608–627 | 627 (Sprint 7) |
+| b11 | 628–647 | 647 (Sprint 8) |
+| b12 | 648–667 | 667 (full charter) |
+| b13 | 668–687 | 687 (Canada) |
+| press | — | 688 (outlets UI, standalone script) |
 
 ## Mission Alignment (Give A Bit)
-Directly advances Bitcoin sovereignty, privacy, and human dignity in the digital age. The charter itself and the website embody Give A Bit values: privacy by design (zero data collection), user sovereignty (local-only signatures + CC0), approachable tools for normal people to assert rights, and resistance to surveillance capitalism and centralized control. Future potential: Lightning donations, Nostr integration for amendments/discussion, on-chain signature anchoring, Safe Harbour legal templates for adopters. Ties beautifully into the broader Give A Bit mission of private, feel-good, empowering tools.
+Bitcoin sovereignty, privacy, human dignity. Zero tracking. Local-first signing. OpenTimestamps via Satohash. Nostr for public discourse. Canada/BC as first law-change beachhead.
 
 ## Current Gaps & Next Priorities
-- **Lightning live wallet** — TEMP placeholder with DO NOT SEND warning; replace when ready.
-- **og-image.svg** — created; PNG variant optional for older social crawlers.
-- **Important doc** (Cam planning) — likely institutional adoption pack / press treaty brief; scope TBD.
-- `?lang=` deep-link on load for hreflang SEO URLs.
-- FAQPage JSON-LD, sitemap.xml, robots.txt.
-- Populate real signatories or lightweight public signature ledger (optional, privacy-preserving).
-- Full charter translations beyond hero/CTA (community workflow).
-- Prune or document legacy React deps in `package.json` (`src/` unused).
-- Kimi: Obsidian / MASTER-BRAIN sync from `docs/KIMI-HANDOFF.md`.
+- **Lightning live wallet** — TEMP placeholder; replace when Cam provides LNURL
+- **npm publish** — `npm login && npm run publish:packages`
+- **Federal e-petition** — needs MP sponsor + official e-### number
+- **Satohash template** — submit `sherpacarta-canada-referendum.json` when ready
+- **Full charter i18n** — UI locales exist; 114-article translations mostly sample-only
+- **Press kit PDF** — export from MARKETING.md (IMPROVEMENTS #119)
+- **Kimi sync** — Obsidian / MASTER-BRAIN from `docs/KIMI-HANDOFF.md`
 
 ## Hand-off Notes for Kimi (M4 HERMES)
-See the latest `KIMI-HANDOFF-sherpacarta-*.md`. Please integrate the SOURCE-OF-TRUTH, the two new docs in `/docs/`, the updated README, and key details into your Obsidian vault under the SherpaCarta project. Update MASTER-BRAIN.md and Kanban. Educate yourself and Hermes on the full vision: this is not "just a website" — it is the living digital rights charter and movement tool for the age of AI and surveillance. The single `index.html` + docs are the current source of truth. Use the EXECUTIVE_SUMMARY and MARKETING docs as canonical references for any future work or outreach. Maintain BUILD numbers on meaningful changes and always keep this SOURCE-OF-TRUTH.md updated.
+See latest section in `docs/KIMI-HANDOFF.md` and `SESSION-SUMMARY-2026-07-07.md`. Integrate BUILD 647–688 into vault. This file is the perpetual source of truth — all agents must update it on meaningful changes.
 
-**This file is the perpetual source of truth. All agents must respect and update it.**
-
-— Generated as part of update-kimi sherpacarta on 2026-06-10 (following giveabit-project-handoff skill)
+— Updated 2026-07-07 (BUILD 688)

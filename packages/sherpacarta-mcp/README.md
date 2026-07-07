@@ -2,6 +2,8 @@
 
 MCP (Model Context Protocol) server for [SherpaCarta](https://sherpacarta.org).
 
+**Status:** Package scaffolded locally (BUILD 647). Not yet published to npm — run `npm run publish:packages` from repo root after `npm login`.
+
 ## Run
 
 ```bash

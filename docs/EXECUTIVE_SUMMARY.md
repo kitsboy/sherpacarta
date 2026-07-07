@@ -41,13 +41,16 @@ It synthesizes:
 
 ---
 
-## Current Momentum (as of launch)
+## Current Momentum (as of BUILD 688 — July 2026)
 
-- **4,271+** global signatories (simulated + real local storage)
+- **114** articles live in `data/charter.json` with full API + sitemap (143 URLs)
+- **Canada petition** — moral sign, passkey, Nostr, Satohash proof at `/canada/`
+- **4,271+** global signatories (local + simulated momentum)
 - **127** countries reached
-- **40+** language translations in progress (community)
-- **114** articles
+- **40+** language UI translations in progress (community)
 - **811** years of rights tradition (1215 → 2026)
+- Public API, npm SDK, MCP server (packages ready; npm publish pending)
+- Treasury dashboard, bug bounty page, press outlet grid with linked media cards
 - 100% open source, Bitcoin-funded, zero tracking, CC0 public domain
 
 ---

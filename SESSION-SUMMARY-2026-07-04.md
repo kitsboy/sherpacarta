@@ -60,7 +60,7 @@ This session continued the SherpaCarta improvement sprint plan — finishing Spr
 
 ## Update / Status
 
-As of 2026-07-04, SherpaCarta is at **BUILD 587** on `main`, fully pushed and deployed. Sprint 5 i18n is live. The upgrade module stack runs `sc-enhancements.js` through `sc-upgrades-b8.js`. Next planned work is **Sprint 6** (architecture & performance) — explicitly deferred per Cam's "remember to do this later."
+As of 2026-07-04, SherpaCarta was at **BUILD 587** on `main`. **Superseded** by `SESSION-SUMMARY-2026-07-07.md` — current BUILD **688** (Sprints 6–8, full charter, Canada petition, press outlets).
 
 ---
 

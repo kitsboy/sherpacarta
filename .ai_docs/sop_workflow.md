@@ -1,57 +1,28 @@
-# Sherpacarta — SOP & Workflow
+# Sherpacarta — Standard Operating Procedure
 
-## Stack
-React 18 SPA, Vite, Tailwind CSS, framer-motion. Deployed to Cloudflare Pages.
+**BUILD:** 688 · **Updated:** 2026-07-07
 
-## Quick Start
-
-### Install
+## Build
 ```bash
-npm install
+cd ~/projects/sherpacarta && npm run build
 ```
 
-### Development
+## Dev
 ```bash
-npm run dev
-# Starts Vite dev server at http://localhost:5173
+npm run dev    # port 5173
 ```
 
-### Build
+## Deploy
 ```bash
-npm run build
-# Outputs to dist/
+./deploy.sh    # build + Cloudflare Pages
 ```
 
-### Lint
-```bash
-npm run lint
-```
+## Key Paths
+- Charter source: `data/charter.json`
+- Core JS: `public/sc-core.js` (injected at build)
+- Bundle: `public/sc-bundle.js`
+- Canada: `public/js/sc-petition-canada.js`
+- Press: `public/js/sc-press-outlets.js`
 
-### Preview
-```bash
-npm run preview
-# Serves dist/ locally
-```
-
-## Deployment
-
-### Manual (wrangler)
-```bash
-npm run build
-wrangler pages deploy dist --project-name=sherpacarta --branch=main
-```
-
-### Via deploy.sh
-```bash
-./deploy.sh
-```
-
-### Auto-deploy
-Push to origin main triggers Cloudflare Pages auto-deploy.
-
-## Project Structure
-- src/ — React source
-- public/ — static assets
-- dist/ — build output
-- docs/ — project docs
-- archive/ — legacy files
+## Agent Canonical State
+`SOURCE-OF-TRUTH.md` · `docs/KIMI-HANDOFF.md`

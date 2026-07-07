@@ -1,42 +1,55 @@
-# Contributing to [Project Name]
+# Contributing to SherpaCarta
 
-## Welcome
-
-Thank you for considering contributing to this Give A Bit project!
+Thank you for helping build the Global Digital Magna Carta.
 
 ## How to Contribute
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+1. Fork https://github.com/kitsboy/sherpacarta
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Make changes; run `npm run build` before committing
+4. Commit with a clear message (`feat:`, `fix:`, `ui:`, `docs:`)
 5. Open a Pull Request
 
 ## Code of Conduct
 
 - Be respectful and constructive
-- Focus on Bitcoin sovereignty and education
+- Focus on digital rights, privacy, and human dignity
 - Keep Safe Harbour principles in mind
+- Rights only expand, never contract (Art. 114)
 
 ## Development Setup
 
 ```bash
-git clone https://github.com/kitsboy/[project-name].git
-cd [project-name]
+git clone https://github.com/kitsboy/sherpacarta.git
+cd sherpacarta
 npm install
-npm run dev
+npm run dev          # http://localhost:5173
+npm run build        # full pipeline → dist/
 ```
+
+## Charter Content Changes
+
+Article text lives in `data/charter.json`. After editing:
+
+```bash
+npm run build        # regenerates sc-core.js, API files, sitemap
+```
+
+Do not edit the injected CHARTER array in `sc-core.js` directly.
 
 ## Pull Request Guidelines
 
-- Keep PRs focused on a single feature or fix
-- Update documentation (README, CHANGELOG) alongside code
-- Ensure Safe Harbour + giveabit.io linkage in public docs
-- Follow existing code style
+- One logical change per PR
+- Update `CHANGELOG.md` for user-visible changes
+- Update `SOURCE-OF-TRUTH.md` for architectural changes
+- No tracking, analytics, or cookies — ever
 
-## Questions?
+## Movement Contributions (non-code)
 
-Open an issue or reach out via the Give A Bit community.
+- Sign the charter at https://sherpacarta.org
+- Propose amendments via Nostr or local form
+- Translate articles (see `docs/I18N.md`)
+- Share with policymakers (see `docs/CANADA-BC-CHALLENGE.md`)
 
 ---
 
