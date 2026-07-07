@@ -1,0 +1,9 @@
+{
+  "num": "Art. 40",
+  "title": "Age-Appropriate Design Defaults",
+  "chapter": "Chapter IV — Identity & Consent",
+  "tags": [],
+  "body": "All digital services likely to be accessed by minors must default to highest privacy settings, no profiling, no behavioral advertising, and no contact from unknown adults.<br><br>Age verification systems must not create surveillance databases of minors.",
+  "slug": "art-40",
+  "url": "/api/v1/articles/art-40.json"
+}

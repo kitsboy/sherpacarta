@@ -1,0 +1,9 @@
+{
+  "num": "Art. 59",
+  "title": "Right to Verify Software Integrity",
+  "chapter": "Chapter VI — Security & Encryption",
+  "tags": [],
+  "body": "Persons have the right to verify that software on their devices matches published source code through reproducible builds and code signing.<br><br>Tamper-evident boot and user-controlled root of trust are protected.",
+  "slug": "art-59",
+  "url": "/api/v1/articles/art-59.json"
+}

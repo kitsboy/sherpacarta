@@ -1,0 +1,9 @@
+{
+  "num": "Art. 6",
+  "title": "Protection of Minors in Digital Spaces",
+  "chapter": "Chapter I — Foundational Rights",
+  "tags": [],
+  "body": "Children and adolescents possess enhanced digital rights protections. Profiling, behavioral advertising, and data collection targeting minors is prohibited without explicit parental consent and independent child-welfare review.<br><br>Design features that exploit developmental vulnerability—infinite scroll, variable reward mechanics, social comparison pressure—shall not be deployed in services primarily used by minors.",
+  "slug": "art-6",
+  "url": "/api/v1/articles/art-6.json"
+}

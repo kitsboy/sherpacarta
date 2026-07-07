@@ -25,6 +25,7 @@ const files = [
   'sc-upgrades-b9.js',
   'sc-upgrades-b10.js',
   'sc-upgrades-b11.js',
+  'sc-upgrades-b12.js',
 ];
 
 let bundle = `/* SherpaCarta bundled enhancements — generated ${new Date().toISOString()} */\n`;

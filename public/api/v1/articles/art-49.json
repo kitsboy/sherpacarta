@@ -1,0 +1,9 @@
+{
+  "num": "Art. 49",
+  "title": "Open Public Data",
+  "chapter": "Chapter V — Data Governance & Erasure",
+  "tags": [],
+  "body": "Non-sensitive government data must be published in open formats by default. Citizens have the right to access data about decisions affecting them.<br><br>Trade secret claims may not shield public safety or rights-violation data.",
+  "slug": "art-49",
+  "url": "/api/v1/articles/art-49.json"
+}

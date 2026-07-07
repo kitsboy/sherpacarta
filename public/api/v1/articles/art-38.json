@@ -1,0 +1,9 @@
+{
+  "num": "Art. 38",
+  "title": "Prohibition of Emotional Manipulation",
+  "chapter": "Chapter IV — Identity & Consent",
+  "tags": [],
+  "body": "Design patterns that exploit fear, urgency, guilt, or social pressure to extract consent, purchases, or engagement are prohibited.<br><br>A/B testing on vulnerable populations without ethics review violates this article.",
+  "slug": "art-38",
+  "url": "/api/v1/articles/art-38.json"
+}

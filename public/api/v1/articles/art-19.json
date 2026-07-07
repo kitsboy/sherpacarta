@@ -1,0 +1,9 @@
+{
+  "num": "Art. 19",
+  "title": "Financial Data Privacy",
+  "chapter": "Chapter II — Privacy & Data Sovereignty",
+  "tags": [],
+  "body": "Transaction data, credit behavior, and financial metadata belong exclusively to the person who generates them. Open banking APIs must be person-initiated, not institution-initiated.<br><br>Financial surveillance of populations not individually suspected of crimes is prohibited.",
+  "slug": "art-19",
+  "url": "/api/v1/articles/art-19.json"
+}

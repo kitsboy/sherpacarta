@@ -1,0 +1,9 @@
+{
+  "num": "Art. 77",
+  "title": "Prohibition of Dark Patterns",
+  "chapter": "Chapter VIII — Platform Accountability",
+  "tags": [],
+  "body": "User interfaces that trick, coerce, or manipulate users into actions against their interest are prohibited. Regulatory fines scale with conversion rate of dark patterns.<br><br>Canceling subscriptions must be as easy as starting them.",
+  "slug": "art-77",
+  "url": "/api/v1/articles/art-77.json"
+}

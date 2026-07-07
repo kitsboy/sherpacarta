@@ -1,0 +1,9 @@
+{
+  "num": "Art. 42",
+  "title": "Right to Data Portability",
+  "chapter": "Chapter V — Data Governance & Erasure",
+  "tags": [],
+  "body": "Every person may export all personal data in machine-readable, open-standard formats within 30 days of request, free of charge.<br><br>Portability must include content, metadata, social graphs, and algorithmic inferences made about the person.",
+  "slug": "art-42",
+  "url": "/api/v1/articles/art-42.json"
+}

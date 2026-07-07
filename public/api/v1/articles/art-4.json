@@ -1,0 +1,9 @@
+{
+  "num": "Art. 4",
+  "title": "Freedom from Digital Servitude",
+  "chapter": "Chapter I — Foundational Rights",
+  "tags": [],
+  "body": "No person shall be compelled to perform unpaid digital labor—content moderation, data labeling, training data contribution, or attention harvesting—as a condition of accessing essential digital services.<br><br>Terms of service that require users to surrender intellectual property, perpetual license to personal content, or mandatory participation in surveillance economies as price of admission are void ab initio.",
+  "slug": "art-4",
+  "url": "/api/v1/articles/art-4.json"
+}

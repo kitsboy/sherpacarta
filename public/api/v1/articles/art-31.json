@@ -1,0 +1,9 @@
+{
+  "num": "Art. 31",
+  "title": "Self-Sovereign Identity",
+  "chapter": "Chapter IV — Identity & Consent",
+  "tags": [],
+  "body": "Every person has the right to create, control, and revoke digital identities without dependency on any single corporation or state registry.<br><br>Decentralized identity standards must be supported by public services. No monopoly identity provider shall be mandated.",
+  "slug": "art-31",
+  "url": "/api/v1/articles/art-31.json"
+}

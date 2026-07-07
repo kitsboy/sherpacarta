@@ -1,0 +1,9 @@
+{
+  "num": "Art. 32",
+  "title": "Meaningful Consent",
+  "chapter": "Chapter IV — Identity & Consent",
+  "tags": [],
+  "body": "Consent to data processing must be granular, revocable, and obtained through affirmative action—not pre-checked boxes, dark patterns, or continued use after buried policy changes.<br><br>Bundled consent covering unrelated purposes is void.",
+  "slug": "art-32",
+  "url": "/api/v1/articles/art-32.json"
+}

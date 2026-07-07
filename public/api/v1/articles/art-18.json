@@ -1,0 +1,9 @@
+{
+  "num": "Art. 18",
+  "title": "Health Data Sovereignty",
+  "chapter": "Chapter II — Privacy & Data Sovereignty",
+  "tags": [],
+  "body": "Health, genetic, and disability data receive the highest protection tier. No commercial use without explicit opt-in renewed annually. No sharing with insurers, employers, or governments without judicial order.<br><br>Health apps and wearables must operate in local-first mode by default, with cloud sync as opt-in only.",
+  "slug": "art-18",
+  "url": "/api/v1/articles/art-18.json"
+}

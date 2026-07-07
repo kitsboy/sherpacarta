@@ -1,0 +1,9 @@
+{
+  "num": "Art. 46",
+  "title": "Data Protection Impact Assessments",
+  "chapter": "Chapter V — Data Governance & Erasure",
+  "tags": [],
+  "body": "High-risk data processing requires public impact assessments before launch, including consultation with affected communities.<br><br>Post-deployment harm discovered triggers mandatory remediation within 90 days.",
+  "slug": "art-46",
+  "url": "/api/v1/articles/art-46.json"
+}

@@ -1,0 +1,9 @@
+{
+  "num": "Art. 52",
+  "title": "Security by Default",
+  "chapter": "Chapter VI — Security & Encryption",
+  "tags": [],
+  "body": "Software and hardware must ship with security enabled by default: automatic updates, secure defaults, minimal attack surface.<br><br>Vendors liable for foreseeable harm from negligent security design.",
+  "slug": "art-52",
+  "url": "/api/v1/articles/art-52.json"
+}

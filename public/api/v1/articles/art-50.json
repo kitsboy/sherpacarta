@@ -1,0 +1,9 @@
+{
+  "num": "Art. 50",
+  "title": "Sunset Clauses on Data Retention",
+  "chapter": "Chapter V — Data Governance & Erasure",
+  "tags": [],
+  "body": "Personal data must be deleted when the purpose for collection expires, unless specific legal retention applies. Default maximum retention: two years for behavioral data, five years for transactional records.<br><br>Indefinite retention without justification violates this article.",
+  "slug": "art-50",
+  "url": "/api/v1/articles/art-50.json"
+}

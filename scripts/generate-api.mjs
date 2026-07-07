@@ -1,14 +1,19 @@
 #!/usr/bin/env node
 /** Extract CHARTER metadata → static API JSON + per-article files */
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createHash } from 'crypto';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const BUILD = '20260707-647';
+const BUILD = '20260707-667';
 
 function extractCharter() {
+  const jsonPath = join(root, 'data/charter.json');
+  if (existsSync(jsonPath)) {
+    const data = JSON.parse(readFileSync(jsonPath, 'utf8'));
+    if (data.chapters) return data.chapters;
+  }
   for (const file of ['public/sc-core.js', 'index.html']) {
     const html = readFileSync(join(root, file), 'utf8');
     const startMarker = 'window.CHARTER = [';
@@ -43,6 +48,7 @@ const articleBodies = {};
 
 CHARTER.forEach((ch) => {
   (ch.articles || []).forEach((a) => {
+    if (String(a.num).startsWith('P.')) return;
     articles.push({ num: a.num, title: a.title, chapter: ch.chapter, tags: a.tags || [] });
     articleBodies[a.num] = {
       num: a.num,

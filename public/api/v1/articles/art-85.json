@@ -1,0 +1,9 @@
+{
+  "num": "Art. 85",
+  "title": "Digital Voting Integrity",
+  "chapter": "Chapter IX — State & Governance",
+  "tags": [],
+  "body": "Electronic voting must be auditable, recountable, and open to independent verification. Online-only voting without paper backup is prohibited for national elections.<br><br>Voter data may not be used for non-electoral purposes.",
+  "slug": "art-85",
+  "url": "/api/v1/articles/art-85.json"
+}

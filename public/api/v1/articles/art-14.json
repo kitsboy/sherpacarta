@@ -1,0 +1,9 @@
+{
+  "num": "Art. 14",
+  "title": "Right to Communications Secrecy",
+  "chapter": "Chapter II — Privacy & Data Sovereignty",
+  "tags": [],
+  "body": "The content and metadata of private communications shall not be accessed, stored, analyzed, or disclosed without specific judicial authorization naming the individual and the crime under investigation.<br><br>End-to-end encryption is a human right. No state or corporation may mandate backdoors in secure communications systems available to the general public.",
+  "slug": "art-14",
+  "url": "/api/v1/articles/art-14.json"
+}

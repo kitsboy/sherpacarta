@@ -1,25 +1,22 @@
 {
   "version": "2.0",
-  "build": "20260707-647",
-  "articleCount": 14,
+  "build": "20260707-667",
+  "articleCount": 114,
   "chapters": [
     "Preamble",
     "Chapter I — Foundational Rights",
-    "Chapter II — Privacy & Data",
+    "Chapter II — Privacy & Data Sovereignty",
     "Chapter III — Expression & Access",
-    "Chapter IV — Algorithmic Rights",
-    "Chapter V — Enforcement & Remedies"
+    "Chapter IV — Identity & Consent",
+    "Chapter V — Data Governance & Erasure",
+    "Chapter VI — Security & Encryption",
+    "Chapter VII — Algorithmic Rights",
+    "Chapter VIII — Platform Accountability",
+    "Chapter IX — State & Governance",
+    "Chapter X — Global & Cross-Border",
+    "Chapter XI — Enforcement & Remedies"
   ],
   "articles": [
-    {
-      "num": "P.1",
-      "title": "On the Foundation of Rights",
-      "chapter": "Preamble",
-      "tags": [
-        "foundation",
-        "history"
-      ]
-    },
     {
       "num": "Art. 1",
       "title": "Human Dignity in Digital Spaces",
@@ -48,9 +45,51 @@
       ]
     },
     {
+      "num": "Art. 4",
+      "title": "Freedom from Digital Servitude",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 5",
+      "title": "Right to Informed Digital Citizenship",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 6",
+      "title": "Protection of Minors in Digital Spaces",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 7",
+      "title": "Right to Digital Sanctuary",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 8",
+      "title": "Prohibition of Digital Caste Systems",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 9",
+      "title": "Right to Technological Literacy",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 10",
+      "title": "Binding of Private Power",
+      "chapter": "Chapter I — Foundational Rights",
+      "tags": []
+    },
+    {
       "num": "Art. 11",
       "title": "Right to Privacy",
-      "chapter": "Chapter II — Privacy & Data",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
       "tags": [
         "privacy",
         "surveillance",
@@ -60,7 +99,7 @@
     {
       "num": "Art. 12",
       "title": "Data Sovereignty",
-      "chapter": "Chapter II — Privacy & Data",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
       "tags": [
         "data",
         "ownership",
@@ -70,21 +109,53 @@
     {
       "num": "Art. 13",
       "title": "Prohibition of Surveillance Capitalism",
-      "chapter": "Chapter II — Privacy & Data",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
       "tags": [
         "advertising",
         "tracking"
       ]
     },
     {
-      "num": "Art. 47",
-      "title": "Right to Be Forgotten",
-      "chapter": "Chapter II — Privacy & Data",
-      "tags": [
-        "erasure",
-        "forgetting",
-        "fresh-start"
-      ]
+      "num": "Art. 14",
+      "title": "Right to Communications Secrecy",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
+      "tags": []
+    },
+    {
+      "num": "Art. 15",
+      "title": "Biometric Data Protection",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
+      "tags": []
+    },
+    {
+      "num": "Art. 16",
+      "title": "Location Privacy",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
+      "tags": []
+    },
+    {
+      "num": "Art. 17",
+      "title": "Prohibition of Shadow Profiles",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
+      "tags": []
+    },
+    {
+      "num": "Art. 18",
+      "title": "Health Data Sovereignty",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
+      "tags": []
+    },
+    {
+      "num": "Art. 19",
+      "title": "Financial Data Privacy",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
+      "tags": []
+    },
+    {
+      "num": "Art. 20",
+      "title": "Right to Anonymous Digital Participation",
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
+      "tags": []
     },
     {
       "num": "Art. 21",
@@ -107,9 +178,241 @@
       ]
     },
     {
+      "num": "Art. 23",
+      "title": "Net Neutrality as Human Right",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": []
+    },
+    {
+      "num": "Art. 24",
+      "title": "Right to Platform Due Process",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": []
+    },
+    {
+      "num": "Art. 25",
+      "title": "Protection of Whistleblowers",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": []
+    },
+    {
+      "num": "Art. 26",
+      "title": "Right to Receive Information",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": []
+    },
+    {
+      "num": "Art. 27",
+      "title": "Journalist and Researcher Protections",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": []
+    },
+    {
+      "num": "Art. 28",
+      "title": "Cultural and Linguistic Expression",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": []
+    },
+    {
+      "num": "Art. 29",
+      "title": "Right to Satire and Parody",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": []
+    },
+    {
+      "num": "Art. 30",
+      "title": "Academic and Scientific Freedom Online",
+      "chapter": "Chapter III — Expression & Access",
+      "tags": []
+    },
+    {
+      "num": "Art. 31",
+      "title": "Self-Sovereign Identity",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 32",
+      "title": "Meaningful Consent",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 33",
+      "title": "Right to Disconnect",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 34",
+      "title": "Prohibition of Coerced Biometric Enrollment",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 35",
+      "title": "Digital Will and Succession",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 36",
+      "title": "Right to Gender Identity Online",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 37",
+      "title": "Neurodiversity and Accessibility by Design",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 38",
+      "title": "Prohibition of Emotional Manipulation",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 39",
+      "title": "Right to Digital Intimacy",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 40",
+      "title": "Age-Appropriate Design Defaults",
+      "chapter": "Chapter IV — Identity & Consent",
+      "tags": []
+    },
+    {
+      "num": "Art. 41",
+      "title": "Data Minimization Mandate",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 42",
+      "title": "Right to Data Portability",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 43",
+      "title": "Prohibition of Data Laundering",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 44",
+      "title": "Research Data Ethics",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 45",
+      "title": "Right to Human Review",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 46",
+      "title": "Data Protection Impact Assessments",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 47",
+      "title": "Right to Be Forgotten",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": [
+        "erasure",
+        "forgetting",
+        "fresh-start"
+      ]
+    },
+    {
+      "num": "Art. 48",
+      "title": "Collective Data Rights",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 49",
+      "title": "Open Public Data",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 50",
+      "title": "Sunset Clauses on Data Retention",
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "tags": []
+    },
+    {
+      "num": "Art. 51",
+      "title": "Right to Strong Encryption",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 52",
+      "title": "Security by Default",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 53",
+      "title": "Responsible Disclosure Protection",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 54",
+      "title": "Breach Notification",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 55",
+      "title": "Right to Offline Functionality",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 56",
+      "title": "Prohibition of Preemptive Device Compromise",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 57",
+      "title": "Digital Infrastructure Resilience",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 58",
+      "title": "Open Source Security Preference",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 59",
+      "title": "Right to Verify Software Integrity",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
+      "num": "Art. 60",
+      "title": "Cyber Peace Principles",
+      "chapter": "Chapter VI — Security & Encryption",
+      "tags": []
+    },
+    {
       "num": "Art. 61",
       "title": "Right to Algorithmic Transparency",
-      "chapter": "Chapter IV — Algorithmic Rights",
+      "chapter": "Chapter VII — Algorithmic Rights",
       "tags": [
         "AI",
         "algorithms",
@@ -119,7 +422,7 @@
     {
       "num": "Art. 62",
       "title": "Protection from Algorithmic Discrimination",
-      "chapter": "Chapter IV — Algorithmic Rights",
+      "chapter": "Chapter VII — Algorithmic Rights",
       "tags": [
         "AI",
         "discrimination",
@@ -127,9 +430,237 @@
       ]
     },
     {
+      "num": "Art. 63",
+      "title": "Prohibition of Manipulative Algorithms",
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 64",
+      "title": "Right to Opt Out of Profiling",
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 65",
+      "title": "AI Training Data Consent",
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 66",
+      "title": "Synthetic Media Labeling",
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 67",
+      "title": "Human Oversight of High-Risk AI",
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 68",
+      "title": "Algorithmic Impact Audits",
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 69",
+      "title": "Right to Contest Automated Decisions",
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 70",
+      "title": "Open Algorithm Standards",
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "tags": []
+    },
+    {
+      "num": "Art. 71",
+      "title": "Duty of Care for Platforms",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 72",
+      "title": "Interoperability Rights",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 73",
+      "title": "Prohibition of Self-Preferencing",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 74",
+      "title": "Advertising Transparency",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 75",
+      "title": "Worker Rights in the Gig Economy",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 76",
+      "title": "Right to Repair and Modify",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 77",
+      "title": "Prohibition of Dark Patterns",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 78",
+      "title": "Collective Bargaining for Users",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 79",
+      "title": "Environmental Disclosure of AI",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 80",
+      "title": "Anti-Monopoly Digital Markets",
+      "chapter": "Chapter VIII — Platform Accountability",
+      "tags": []
+    },
+    {
+      "num": "Art. 81",
+      "title": "Limits on State Digital Surveillance",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 82",
+      "title": "Digital Due Process",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 83",
+      "title": "Prohibition of Social Credit Systems",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 84",
+      "title": "E-Government Transparency",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 85",
+      "title": "Digital Voting Integrity",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 86",
+      "title": "Protection from Extraterritorial Overreach",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 87",
+      "title": "Digital Rights Ombudsman",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 88",
+      "title": "Prohibition of Forced Device Access",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 89",
+      "title": "Public Interest Digital Defense",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 90",
+      "title": "Democratic Oversight of Spyware",
+      "chapter": "Chapter IX — State & Governance",
+      "tags": []
+    },
+    {
+      "num": "Art. 91",
+      "title": "Universal Jurisdiction for Digital Harm",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 92",
+      "title": "Data Transfer Adequacy",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 93",
+      "title": "Global Digital Rights Treaty Framework",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 94",
+      "title": "Protection of Digital Refugees",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 95",
+      "title": "Development Rights Online",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 96",
+      "title": "Multilingual Internet Governance",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 97",
+      "title": "Cross-Border Evidence Protocols",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 98",
+      "title": "Sanctions and Digital Rights",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 99",
+      "title": "Corporate Extraterritorial Accountability",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
+      "num": "Art. 100",
+      "title": "Solidarity Among Signatories",
+      "chapter": "Chapter X — Global & Cross-Border",
+      "tags": []
+    },
+    {
       "num": "Art. 101",
       "title": "Right to Digital Remedy",
-      "chapter": "Chapter V — Enforcement & Remedies",
+      "chapter": "Chapter XI — Enforcement & Remedies",
       "tags": [
         "remedy",
         "enforcement",
@@ -137,9 +668,81 @@
       ]
     },
     {
+      "num": "Art. 102",
+      "title": "Class Action and Collective Redress",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 103",
+      "title": "Punitive Damages for Willful Violations",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 104",
+      "title": "Injunctive Relief",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 105",
+      "title": "Whistleblower Rewards",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 106",
+      "title": "Public Enforcement Actions",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 107",
+      "title": "Sunset of Immunity Provisions",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 108",
+      "title": "Victim Compensation Funds",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 109",
+      "title": "International Enforcement Cooperation",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 110",
+      "title": "Charter Supremacy Clause",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 111",
+      "title": "Signatory Registry",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 112",
+      "title": "Education and Enforcement Funding",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
+      "num": "Art. 113",
+      "title": "Non-Regression Principle",
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "tags": []
+    },
+    {
       "num": "Art. 114",
       "title": "Living Charter Principle",
-      "chapter": "Chapter V — Enforcement & Remedies",
+      "chapter": "Chapter XI — Enforcement & Remedies",
       "tags": [
         "living",
         "amendment",

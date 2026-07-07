@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v5.0';
+const CACHE = 'sherpacarta-v5.1';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html',
   '/report/2026-report.html', '/status.html', '/accessibility.html',
@@ -6,7 +6,7 @@ const ASSETS = [
   '/favicon.svg', '/og-image.svg', '/og-image.png',
   '/giveabit-logo.png', '/giveabit-parent-logo.jpg', '/manifest.json', '/mcp.json',
   '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',
-  '/sc-main.css', '/sc-core.js', '/sc-bundle.js', '/embed.js',
+  '/sc-main.css', '/sc-core.js', '/sc-bundle.js', '/embed.js', '/data/charter.json',
   '/locales/de.json', '/locales/pt.json', '/locales/sw.json',
   '/locales/es-charter.json', '/locales/fr-charter.json', '/locales/ar-charter.json',
   '/bc/model-bill.html', '/bc/safe-harbour.html', '/bc/indigenous-data.html', '/bc/town-hall-kit.html',

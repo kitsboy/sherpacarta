@@ -1,0 +1,9 @@
+{
+  "num": "Art. 68",
+  "title": "Algorithmic Impact Audits",
+  "chapter": "Chapter VII — Algorithmic Rights",
+  "tags": [],
+  "body": "Deployers of algorithmic systems affecting more than 100,000 persons must publish annual bias, accuracy, and harm audits.<br><br>Third-party auditors must have access sufficient to verify claims.",
+  "slug": "art-68",
+  "url": "/api/v1/articles/art-68.json"
+}

@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "build": "20260707-647",
+  "build": "20260707-667",
   "endpoints": {
     "charter": "/api/v1/charter.json",
     "hash": "/api/v1/hash.json",

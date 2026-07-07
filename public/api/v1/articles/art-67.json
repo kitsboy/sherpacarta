@@ -1,0 +1,9 @@
+{
+  "num": "Art. 67",
+  "title": "Human Oversight of High-Risk AI",
+  "chapter": "Chapter VII — Algorithmic Rights",
+  "tags": [],
+  "body": "High-risk AI systems—those affecting liberty, health, or livelihood—require human-in-the-loop oversight, kill switches, and incident logging.<br><br>Autonomous weapons systems targeting humans are prohibited.",
+  "slug": "art-67",
+  "url": "/api/v1/articles/art-67.json"
+}

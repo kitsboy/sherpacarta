@@ -1,0 +1,1155 @@
+{
+  "version": "2.0",
+  "build": "20260707-667",
+  "articleCount": 114,
+  "preambleCount": 1,
+  "totalEntries": 114,
+  "chapters": [
+    {
+      "chapter": "Preamble",
+      "articles": [
+        {
+          "num": "P.1",
+          "title": "On the Foundation of Rights",
+          "subtitle": "Basis of all SherpaCarta Articles",
+          "body": "We, the people of the interconnected world, recognize that the digital revolution has created powers capable of surveilling, silencing, and controlling human life at unprecedented scale. Just as Magna Carta constrained the arbitrary power of kings in 1215, and just as the Universal Declaration of Human Rights bound nations after 1948, SherpaCarta binds all who exercise digital power—states, corporations, algorithms, and platforms alike.<br><br>These articles are not aspirational. They are the minimum standards of human dignity in the digital age. They apply to every human being who connects to any network, uses any digital device, or generates any form of digital data—regardless of nationality, income, gender, race, religion, or political belief.",
+          "sherpa": true,
+          "sherpa_ext": "Unlike all predecessor documents, SherpaCarta acknowledges that the primary threats to digital rights come not only from states but from private corporations whose market capitalization exceeds the GDP of most nations. Both are bound equally by these articles.",
+          "tags": [
+            "foundation",
+            "history"
+          ]
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter I — Foundational Rights",
+      "articles": [
+        {
+          "num": "Art. 1",
+          "title": "Human Dignity in Digital Spaces",
+          "subtitle": "The Inviolability of the Person Online",
+          "body": "Every person possesses inherent dignity that extends fully into digital spaces. No person may be subjected to digital humiliation, algorithmic dehumanization, automated discrimination, or systematic exclusion from digital life on the basis of any personal characteristic.<br><br>Digital identity is an extension of the human person and shall be treated with the same protections as physical identity.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": [
+            "dignity",
+            "foundation"
+          ]
+        },
+        {
+          "num": "Art. 2",
+          "title": "Equality Before Digital Law",
+          "subtitle": "Universal Application Without Exception",
+          "body": "All persons are equal before the digital law. No state, platform, or algorithm shall treat persons differently on the basis of: nationality, ethnicity, religion, gender, sexual orientation, age, disability, political opinion, socioeconomic status, or technical literacy.<br><br>Algorithmic systems that produce discriminatory outcomes—whether intentional or emergent—violate this article regardless of the technical mechanism producing the discrimination.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": [
+            "equality",
+            "non-discrimination"
+          ]
+        },
+        {
+          "num": "Art. 3",
+          "title": "Right to Digital Existence",
+          "subtitle": "No Person May Be Digitally Erased Against Their Will",
+          "body": "Every person has the right to digital existence: the right to maintain a verifiable digital identity, access digital services essential to modern life, and participate in digital society without requiring surrender of fundamental rights as a condition of participation.<br><br>No entity may permanently and without recourse delete, deactivate, or deny access to a person's primary means of digital communication or economic participation.",
+          "sherpa": true,
+          "sherpa_ext": "Platform bans of individuals must follow due process equivalent to civil legal proceedings. Permanent bans require judicial-equivalent review.",
+          "tags": [
+            "access",
+            "existence"
+          ]
+        },
+        {
+          "num": "Art. 4",
+          "title": "Freedom from Digital Servitude",
+          "subtitle": "No Coerced Labor Through Platforms",
+          "body": "No person shall be compelled to perform unpaid digital labor—content moderation, data labeling, training data contribution, or attention harvesting—as a condition of accessing essential digital services.<br><br>Terms of service that require users to surrender intellectual property, perpetual license to personal content, or mandatory participation in surveillance economies as price of admission are void ab initio.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 5",
+          "title": "Right to Informed Digital Citizenship",
+          "subtitle": "Understanding the Systems That Govern You",
+          "body": "Every person has the right to understand, in plain language, how digital systems affecting their rights operate—including algorithms that rank, recommend, moderate, price, or exclude them.<br><br>States and corporations must publish citizen-readable explanations of digital governance systems. Technical complexity is not a shield against accountability.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 6",
+          "title": "Protection of Minors in Digital Spaces",
+          "subtitle": "Childhood Cannot Be Monetized",
+          "body": "Children and adolescents possess enhanced digital rights protections. Profiling, behavioral advertising, and data collection targeting minors is prohibited without explicit parental consent and independent child-welfare review.<br><br>Design features that exploit developmental vulnerability—infinite scroll, variable reward mechanics, social comparison pressure—shall not be deployed in services primarily used by minors.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 7",
+          "title": "Right to Digital Sanctuary",
+          "subtitle": "Spaces Free from Commercial Surveillance",
+          "body": "Every person has the right to digital spaces free from commercial surveillance, behavioral tracking, and attention extraction—whether in education, healthcare, worship, grief, or intimate communication.<br><br>Sanctuary spaces must be technically enforced, not merely promised in privacy policies.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 8",
+          "title": "Prohibition of Digital Caste Systems",
+          "subtitle": "No Permanent Digital Underclass",
+          "body": "No system shall permanently classify persons into tiers of digital access, creditworthiness, social visibility, or civic participation based on past behavior, associations, or algorithmic scores without recourse.<br><br>Digital caste—permanent exclusion from employment, housing, finance, or civic life through unappealable digital markers—is prohibited.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 9",
+          "title": "Right to Technological Literacy",
+          "subtitle": "Education as Prerequisite for Sovereignty",
+          "body": "States have a positive obligation to ensure all persons can understand, configure, and defend their digital rights. Digital literacy is a component of basic education equivalent to reading and numeracy.<br><br>No person shall be deemed to have waived rights through ignorance of technology.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 10",
+          "title": "Binding of Private Power",
+          "subtitle": "Corporations Are Bound Equally With States",
+          "body": "Any entity whose digital systems affect more than one million persons—whether state, corporation, or platform—is bound by SherpaCarta with equal force.<br><br>Market capitalization, user count, or technical sophistication does not confer immunity from human rights obligations.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter II — Privacy & Data Sovereignty",
+      "articles": [
+        {
+          "num": "Art. 11",
+          "title": "Right to Privacy",
+          "subtitle": "The Cornerstone Article — Absolute Protection from Surveillance",
+          "body": "Every person has the right to privacy in their communications, data, identity, location, associations, beliefs, and online behavior. This right is absolute and may not be limited except by specific judicial order in pursuit of a specific, named criminal investigation, with the least invasive method available, for the shortest possible duration.<br><br>Mass surveillance—the collection of data on persons not individually suspected of specific crimes—is prohibited under all circumstances. No emergency, national security concern, or commercial interest justifies mass surveillance of the population.",
+          "sherpa": true,
+          "sherpa_ext": "\"Privacy by Design\" is mandatory for all systems processing personal data. Privacy must be the default state, not an opt-in feature. Any system that by default shares more data than necessary violates this article.",
+          "tags": [
+            "privacy",
+            "surveillance",
+            "core"
+          ]
+        },
+        {
+          "num": "Art. 12",
+          "title": "Data Sovereignty",
+          "subtitle": "You Own Your Data — Without Exception",
+          "body": "All data generated by or about a person belongs to that person. This includes: browsing history, purchase history, location data, biometric data, behavioral patterns, communications metadata, health data, financial data, and any data that can be used to identify, profile, or predict the behavior of an individual.<br><br>The right to data sovereignty includes: the right to access all data held about oneself, the right to correct inaccurate data, the right to delete data (right to erasure), the right to transfer data between services (portability), and the right to monetize one's own data.",
+          "sherpa": true,
+          "sherpa_ext": "Data sovereignty is heritable. Upon death, a person's digital data rights transfer to their designated heirs or, absent designation, are deleted within 2 years.",
+          "tags": [
+            "data",
+            "ownership",
+            "sovereignty"
+          ]
+        },
+        {
+          "num": "Art. 13",
+          "title": "Prohibition of Surveillance Capitalism",
+          "subtitle": "Your Attention and Behavior May Not Be Sold Without Consent",
+          "body": "The commercial model of tracking individuals' behavior without meaningful consent and selling that behavioral data to third parties for advertising or political purposes is hereby designated as a violation of human dignity.<br><br>Consent to data collection must be: freely given (not a condition of service access), specific (not blanket authorization), informed (plain language, not legalese), and withdrawable at any time without penalty.",
+          "sherpa": true,
+          "sherpa_ext": "\"Dark patterns\"—interface designs that manipulate users into consenting to data collection—are prohibited. Any consent obtained through manipulative design is void.",
+          "tags": [
+            "advertising",
+            "tracking"
+          ]
+        },
+        {
+          "num": "Art. 14",
+          "title": "Right to Communications Secrecy",
+          "subtitle": "Private Messages Stay Private",
+          "body": "The content and metadata of private communications shall not be accessed, stored, analyzed, or disclosed without specific judicial authorization naming the individual and the crime under investigation.<br><br>End-to-end encryption is a human right. No state or corporation may mandate backdoors in secure communications systems available to the general public.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 15",
+          "title": "Biometric Data Protection",
+          "subtitle": "Your Body Is Not a Password for Corporations",
+          "body": "Biometric identifiers—face, voice, gait, retina, DNA-derived markers—may not be collected without informed consent, may not be sold, and must be deletable on demand.<br><br>Biometric surveillance in public spaces requires democratic authorization through referendum or supermajority legislative vote, renewed every two years.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 16",
+          "title": "Location Privacy",
+          "subtitle": "Where You Go Is Your Business",
+          "body": "Continuous location tracking of persons not individually suspected of specific crimes is prohibited. Location data belongs to the person who generates it.<br><br>Aggregated mobility data may not be sold to third parties. Historical location data must be deletable within 30 days of request.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 17",
+          "title": "Prohibition of Shadow Profiles",
+          "subtitle": "You Cannot Be Profiled Without Knowledge",
+          "body": "Creating profiles of persons who are not users of a service—through data broker aggregation, social graph inference, or cross-platform tracking—is prohibited.<br><br>Every person has the right to know if a profile exists about them and to demand its deletion.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 18",
+          "title": "Health Data Sovereignty",
+          "subtitle": "Medical Data Is Sacred",
+          "body": "Health, genetic, and disability data receive the highest protection tier. No commercial use without explicit opt-in renewed annually. No sharing with insurers, employers, or governments without judicial order.<br><br>Health apps and wearables must operate in local-first mode by default, with cloud sync as opt-in only.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 19",
+          "title": "Financial Data Privacy",
+          "subtitle": "Your Money Trail Is Private",
+          "body": "Transaction data, credit behavior, and financial metadata belong exclusively to the person who generates them. Open banking APIs must be person-initiated, not institution-initiated.<br><br>Financial surveillance of populations not individually suspected of crimes is prohibited.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 20",
+          "title": "Right to Anonymous Digital Participation",
+          "subtitle": "Pseudonymity Is Not Suspicion",
+          "body": "Every person has the right to participate in digital society under pseudonym without forfeiting rights or facing presumption of criminal intent.<br><br>States may not require real-name registration for general internet access, social participation, or political expression.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter III — Expression & Access",
+      "articles": [
+        {
+          "num": "Art. 21",
+          "title": "Freedom of Digital Expression",
+          "subtitle": "The Right to Speak Online Without Fear",
+          "body": "Every person has the right to freedom of expression in digital spaces. This right includes the freedom to hold opinions without interference and to seek, receive, and impart information and ideas through any digital medium regardless of frontiers.<br><br>Platform content moderation must be: transparent, consistent, non-discriminatory, based on published and publicly debated standards, subject to meaningful appeal, and never based on political viewpoint without due process.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": [
+            "expression",
+            "censorship",
+            "speech"
+          ]
+        },
+        {
+          "num": "Art. 22",
+          "title": "Universal Internet Access",
+          "subtitle": "Connectivity as Infrastructure — Like Water and Electricity",
+          "body": "Access to a free, open, and uncensored internet is a fundamental human right equivalent to access to water, electricity, and education. No person shall be denied internet access as a form of punishment, economic sanction, or political control.<br><br>States and corporations have a positive obligation to expand internet access to all populations, prioritizing marginalized and rural communities. Internet shutdowns ordered by governments are prohibited under this charter.",
+          "sherpa": true,
+          "sherpa_ext": "Internet service providers are common carriers. They may not block, throttle, or prioritize any lawful internet traffic. Net neutrality is a human rights issue.",
+          "tags": [
+            "access",
+            "internet",
+            "infrastructure"
+          ]
+        },
+        {
+          "num": "Art. 23",
+          "title": "Net Neutrality as Human Right",
+          "subtitle": "All Bits Are Equal",
+          "body": "Internet service providers and platforms shall not block, throttle, prioritize, or degrade lawful traffic based on source, destination, content, or commercial relationship.<br><br>Zero-rating schemes that create tiered internet access based on corporate partnerships violate this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 24",
+          "title": "Right to Platform Due Process",
+          "subtitle": "Bans Require Justice, Not Moderator Whim",
+          "body": "Permanent exclusion from platforms exceeding one million users requires: published rules, specific violation citation, meaningful appeal to independent review, and proportionality assessment.<br><br>Shadow-banning, reach suppression without notification, and demonetization without appeal violate due process.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 25",
+          "title": "Protection of Whistleblowers",
+          "subtitle": "Truth Needs Courage and Shield",
+          "body": "Persons who disclose evidence of digital rights violations, mass surveillance, or corporate malfeasance receive SherpaCarta safe harbor protection from retaliation.<br><br>Encryption tools for whistleblower communication shall not be criminalized.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 26",
+          "title": "Right to Receive Information",
+          "subtitle": "The Right to Read Is the Right to Know",
+          "body": "No state or platform may block access to lawful information based on political viewpoint. Filtering must be user-controlled, transparent, and off by default.<br><br>Internet shutdowns and DNS blocking of news sources are prohibited under all circumstances except named judicial orders against specific illegal content.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 27",
+          "title": "Journalist and Researcher Protections",
+          "subtitle": "Investigation Requires Independence",
+          "body": "Journalists, researchers, and civil society investigators have enhanced protections for data access, source confidentiality, and freedom from platform retaliation when reporting in the public interest.<br><br>Scraping publicly available data for accountability research is a protected activity.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 28",
+          "title": "Cultural and Linguistic Expression",
+          "subtitle": "No Language Is a Second Class Online",
+          "body": "Digital platforms must support equitable access for all languages and writing systems. Automated translation must not replace human cultural expression rights.<br><br>Minority language communities have the right to digital presence without algorithmic demotion.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 29",
+          "title": "Right to Satire and Parody",
+          "subtitle": "Mockery of Power Is Protected Speech",
+          "body": "Satire, parody, and political caricature directed at states, corporations, and public figures are protected expression. Automated content moderation must not remove satire without human review.<br><br>SLAPP suits and strategic litigation against digital critics are discouraged and subject to accelerated dismissal.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 30",
+          "title": "Academic and Scientific Freedom Online",
+          "subtitle": "Knowledge Cannot Be Paywalled by Censorship",
+          "body": "Academic research, scientific preprints, and educational materials may not be suppressed by corporate or state pressure. Open access to publicly funded research is mandatory.<br><br>Researchers have the right to publish findings about algorithmic harm without prior platform approval.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter IV — Identity & Consent",
+      "articles": [
+        {
+          "num": "Art. 31",
+          "title": "Self-Sovereign Identity",
+          "subtitle": "You Control Who You Are Online",
+          "body": "Every person has the right to create, control, and revoke digital identities without dependency on any single corporation or state registry.<br><br>Decentralized identity standards must be supported by public services. No monopoly identity provider shall be mandated.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 32",
+          "title": "Meaningful Consent",
+          "subtitle": "Silence Is Not Agreement",
+          "body": "Consent to data processing must be granular, revocable, and obtained through affirmative action—not pre-checked boxes, dark patterns, or continued use after buried policy changes.<br><br>Bundled consent covering unrelated purposes is void.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 33",
+          "title": "Right to Disconnect",
+          "subtitle": "You May Log Off Without Penalty",
+          "body": "No employer, platform, or service may penalize persons for declining always-on connectivity, after-hours messaging, or perpetual availability.<br><br>Right to disconnect is enforceable against gig economy platforms and remote work surveillance.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 34",
+          "title": "Prohibition of Coerced Biometric Enrollment",
+          "subtitle": "Your Face Is Not a Ticket",
+          "body": "Biometric identification may not be required for access to housing, employment, education, healthcare, or public transportation.<br><br>Alternative non-biometric access methods must always be available at equal convenience.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 35",
+          "title": "Digital Will and Succession",
+          "subtitle": "Your Digital Life Outlives You With Dignity",
+          "body": "Every person may designate digital heirs, deletion instructions, and memorial preferences. Platforms must honor digital wills within 30 days.<br><br>Commercial use of deceased persons' data without heir consent is prohibited.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 36",
+          "title": "Right to Gender Identity Online",
+          "subtitle": "Self-Identification Is Sovereign",
+          "body": "Persons have the right to define and change their gender identity in digital systems without medical gatekeeping, platform verification hurdles, or algorithmic misgendering.<br><br>Deadnaming and forced outing through platform design violate this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 37",
+          "title": "Neurodiversity and Accessibility by Design",
+          "subtitle": "Different Minds, Equal Rights",
+          "body": "Digital systems must accommodate cognitive, sensory, and neurological differences as default—not as afterthought accessibility patches.<br><br>Autoplay, infinite scroll, and notification bombardment must be off by default.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 38",
+          "title": "Prohibition of Emotional Manipulation",
+          "subtitle": "Interfaces Must Not Weaponize Psychology",
+          "body": "Design patterns that exploit fear, urgency, guilt, or social pressure to extract consent, purchases, or engagement are prohibited.<br><br>A/B testing on vulnerable populations without ethics review violates this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 39",
+          "title": "Right to Digital Intimacy",
+          "subtitle": "Private Relationships Are Not Training Data",
+          "body": "Communications between intimate partners, families, and confidential counselors may not be used for advertising, AI training, or behavioral profiling.<br><br>End-to-end encrypted family and health messaging receives absolute protection.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 40",
+          "title": "Age-Appropriate Design Defaults",
+          "subtitle": "Safety First for the Young",
+          "body": "All digital services likely to be accessed by minors must default to highest privacy settings, no profiling, no behavioral advertising, and no contact from unknown adults.<br><br>Age verification systems must not create surveillance databases of minors.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter V — Data Governance & Erasure",
+      "articles": [
+        {
+          "num": "Art. 41",
+          "title": "Data Minimization Mandate",
+          "subtitle": "Collect Only What You Need",
+          "body": "Data collection must be limited to what is strictly necessary for the stated purpose. Purpose creep—using data collected for one reason for another—is prohibited without fresh consent.<br><br>Annual data minimization audits are mandatory for entities processing data on more than 100,000 persons.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 42",
+          "title": "Right to Data Portability",
+          "subtitle": "Take Your Data and Leave",
+          "body": "Every person may export all personal data in machine-readable, open-standard formats within 30 days of request, free of charge.<br><br>Portability must include content, metadata, social graphs, and algorithmic inferences made about the person.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 43",
+          "title": "Prohibition of Data Laundering",
+          "subtitle": "You Cannot Sell What You Stole",
+          "body": "Data obtained without meaningful consent may not be laundered through mergers, sublicensing, anonymization claims, or synthetic reconstruction.<br><br>Data brokers must maintain chain-of-consent documentation auditable by any data subject.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 44",
+          "title": "Research Data Ethics",
+          "subtitle": "Science Serves Humanity",
+          "body": "Research use of personal data requires ethics board approval, informed consent, and right of withdrawal. Public interest research on algorithmic harm receives safe harbor.<br><br>IRB standards apply to corporate AI research on human subjects.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 45",
+          "title": "Right to Human Review",
+          "subtitle": "No Fully Automated Life Decisions",
+          "body": "Decisions significantly affecting housing, employment, credit, healthcare, education, liberty, or immigration must include meaningful human review upon request.<br><br>Fully automated rejection without appeal path violates this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 46",
+          "title": "Data Protection Impact Assessments",
+          "subtitle": "Measure Harm Before Deployment",
+          "body": "High-risk data processing requires public impact assessments before launch, including consultation with affected communities.<br><br>Post-deployment harm discovered triggers mandatory remediation within 90 days.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 47",
+          "title": "Right to Be Forgotten",
+          "subtitle": "The Right to a Digital Fresh Start",
+          "body": "Every person has the right to have digital records of past actions removed from public and commercial databases when those records no longer serve a legitimate public interest proportionate to the individual's right to privacy and dignity.<br><br>This right applies especially to: criminal records for which sentences have been served, youthful indiscretions, data collected during vulnerability, and information posted under duress.",
+          "sherpa": true,
+          "sherpa_ext": "Search engines must comply with erasure requests within 72 hours. Non-compliance is a per-day violation. Historical archives may preserve information but must de-index it from public search.",
+          "tags": [
+            "erasure",
+            "forgetting",
+            "fresh-start"
+          ]
+        },
+        {
+          "num": "Art. 48",
+          "title": "Collective Data Rights",
+          "subtitle": "Communities Own Community Data",
+          "body": "Indigenous nations, local communities, and defined groups have collective data sovereignty over information about their members, lands, and cultural practices.<br><br>Extractive data harvesting from marginalized communities without benefit-sharing is prohibited.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 49",
+          "title": "Open Public Data",
+          "subtitle": "Government Data Belongs to Citizens",
+          "body": "Non-sensitive government data must be published in open formats by default. Citizens have the right to access data about decisions affecting them.<br><br>Trade secret claims may not shield public safety or rights-violation data.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 50",
+          "title": "Sunset Clauses on Data Retention",
+          "subtitle": "Data Must Expire",
+          "body": "Personal data must be deleted when the purpose for collection expires, unless specific legal retention applies. Default maximum retention: two years for behavioral data, five years for transactional records.<br><br>Indefinite retention without justification violates this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter VI — Security & Encryption",
+      "articles": [
+        {
+          "num": "Art. 51",
+          "title": "Right to Strong Encryption",
+          "subtitle": "Math Is Not a Crime",
+          "body": "Every person has the right to use strong encryption without restriction. States may not ban, weaken, or mandate backdoors in encryption available to the public.<br><br>Export controls on encryption tools violate this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 52",
+          "title": "Security by Default",
+          "subtitle": "Unsafe Systems Are Defective Products",
+          "body": "Software and hardware must ship with security enabled by default: automatic updates, secure defaults, minimal attack surface.<br><br>Vendors liable for foreseeable harm from negligent security design.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 53",
+          "title": "Responsible Disclosure Protection",
+          "subtitle": "Security Researchers Are Allies",
+          "body": "Good-faith security research and vulnerability disclosure receive safe harbor. Criminalizing security research harms everyone.<br><br>Vendors must acknowledge reports within 5 business days.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 54",
+          "title": "Breach Notification",
+          "subtitle": "You Must Be Told When You Are Hacked",
+          "body": "Data breaches affecting personal information must be disclosed to affected persons within 72 hours, with remediation steps and accountability measures.<br><br>Delayed disclosure to protect stock prices is an aggravating factor.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 55",
+          "title": "Right to Offline Functionality",
+          "subtitle": "Cloud Failure Must Not Erase Life",
+          "body": "Essential digital services must provide offline-capable alternatives. Dependence on perpetual connectivity for access to personal data violates sovereignty.<br><br>Local-first architecture is the preferred design pattern.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 56",
+          "title": "Prohibition of Preemptive Device Compromise",
+          "subtitle": "Your Phone Is Not a Surveillance Endpoint",
+          "body": "States may not require manufacturers to pre-install surveillance software on consumer devices. Supply chain integrity is a human right.<br><br>Citizen devices may not be remotely accessed without judicial warrant.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 57",
+          "title": "Digital Infrastructure Resilience",
+          "subtitle": "Critical Systems Must Survive Attack",
+          "body": "States and operators of critical digital infrastructure must maintain redundancy, incident response, and public reporting of major outages affecting rights.<br><br>Ransomware payment from public funds requires transparency review.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 58",
+          "title": "Open Source Security Preference",
+          "subtitle": "Transparency Builds Trust",
+          "body": "Public sector procurement must prefer auditable open-source solutions where security-equivalent. Security through obscurity is not a defense.<br><br>Source code for systems processing public data should be publicly reviewable.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 59",
+          "title": "Right to Verify Software Integrity",
+          "subtitle": "You May Audit What Runs on Your Device",
+          "body": "Persons have the right to verify that software on their devices matches published source code through reproducible builds and code signing.<br><br>Tamper-evident boot and user-controlled root of trust are protected.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 60",
+          "title": "Cyber Peace Principles",
+          "subtitle": "Digital War Has Civilian Casualties",
+          "body": "Offensive cyber operations against civilian infrastructure violate this charter. Critical healthcare, water, power, and financial systems are protected digital spaces.<br><br>Nation-state malware hoarding without disclosure endangers global security.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter VII — Algorithmic Rights",
+      "articles": [
+        {
+          "num": "Art. 61",
+          "title": "Right to Algorithmic Transparency",
+          "subtitle": "You Have the Right to Know How Machines Judge You",
+          "body": "Every person has the right to a meaningful explanation of any automated decision that significantly affects their life—including credit decisions, insurance pricing, job application screening, content moderation, law enforcement risk scoring, and medical recommendations.<br><br>\"Meaningful explanation\" requires more than technical documentation. It requires a plain-language account of what factors were used, what weight they were given, and what the person could do to alter the outcome.",
+          "sherpa": true,
+          "sherpa_ext": "No person may be denied fundamental rights (housing, employment, healthcare, education, credit) solely on the basis of automated decision-making. Human review must always be available.",
+          "tags": [
+            "AI",
+            "algorithms",
+            "transparency"
+          ]
+        },
+        {
+          "num": "Art. 62",
+          "title": "Protection from Algorithmic Discrimination",
+          "subtitle": "Algorithmic Bias is Discrimination — Full Stop",
+          "body": "Algorithmic systems that produce discriminatory outcomes—whether through biased training data, discriminatory feature selection, or emergent behavior—are in violation of this charter regardless of the intent of their creators.<br><br>Operators of algorithmic systems that make decisions affecting human rights must conduct regular bias audits, publish results, remediate discovered biases within defined timeframes, and compensate persons who can demonstrate harm.",
+          "sherpa": true,
+          "sherpa_ext": "Facial recognition systems used for law enforcement without judicial warrant are prohibited. Predictive policing systems are prohibited.",
+          "tags": [
+            "AI",
+            "discrimination",
+            "bias"
+          ]
+        },
+        {
+          "num": "Art. 63",
+          "title": "Prohibition of Manipulative Algorithms",
+          "subtitle": "Your Feed Must Not Be a Weapon",
+          "body": "Recommendation and ranking algorithms may not be designed to maximize addiction, outrage, or compulsive engagement at the expense of user wellbeing.<br><br>Users must have chronological and algorithm-free feed options on platforms exceeding 10 million users.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 64",
+          "title": "Right to Opt Out of Profiling",
+          "subtitle": "You Are Not a Prediction",
+          "body": "Every person may opt out of behavioral profiling, interest inference, and psychographic targeting without loss of core service functionality.<br><br>Profiling opt-out must be as easy as profiling opt-in.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 65",
+          "title": "AI Training Data Consent",
+          "subtitle": "Your Life Is Not Free Training Data",
+          "body": "Use of personal data, creative works, or communications to train AI systems requires explicit opt-in consent, with fair compensation mechanisms for commercial use.<br><br>Scraping copyrighted or personal content for model training without consent is prohibited.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 66",
+          "title": "Synthetic Media Labeling",
+          "subtitle": "Deepfakes Must Be Identified",
+          "body": "AI-generated media presented as factual must be clearly labeled. Non-consensual intimate synthetic imagery is prohibited.<br><br>Political deepfakes during election periods face enhanced penalties.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 67",
+          "title": "Human Oversight of High-Risk AI",
+          "subtitle": "Machines Advise, Humans Decide",
+          "body": "High-risk AI systems—those affecting liberty, health, or livelihood—require human-in-the-loop oversight, kill switches, and incident logging.<br><br>Autonomous weapons systems targeting humans are prohibited.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 68",
+          "title": "Algorithmic Impact Audits",
+          "subtitle": "Test Before You Deploy on Millions",
+          "body": "Deployers of algorithmic systems affecting more than 100,000 persons must publish annual bias, accuracy, and harm audits.<br><br>Third-party auditors must have access sufficient to verify claims.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 69",
+          "title": "Right to Contest Automated Decisions",
+          "subtitle": "Challenge the Machine",
+          "body": "Every automated adverse decision must include a clear pathway to human review, correction, and explanation within 14 days.<br><br>Class action rights apply to systematic algorithmic harm.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 70",
+          "title": "Open Algorithm Standards",
+          "subtitle": "Public Interest Algorithms Deserve Public Scrutiny",
+          "body": "Algorithms used in public services, elections, and judicial support must use open, auditable standards. Trade secret protection does not apply to public-sector algorithms.<br><br>Citizens may request algorithmic audits of government systems.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter VIII — Platform Accountability",
+      "articles": [
+        {
+          "num": "Art. 71",
+          "title": "Duty of Care for Platforms",
+          "subtitle": "Size Brings Responsibility",
+          "body": "Platforms exceeding 10 million active users owe a duty of care to prevent foreseeable harm—including harassment campaigns, viral misinformation with physical consequences, and exploitation of minors.<br><br>Immunity from liability does not extend to willful indifference.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 72",
+          "title": "Interoperability Rights",
+          "subtitle": "You May Leave and Take Your Network",
+          "body": "Dominant platforms must provide interoperable APIs enabling users to communicate across platforms and export social graphs.<br><br>Walled gardens that lock in users through network effects violate this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 73",
+          "title": "Prohibition of Self-Preferencing",
+          "subtitle": "The Referee Cannot Play",
+          "body": "Platforms may not prioritize their own products in search, recommendations, or app stores in ways that harm competitors.<br><br>App store monopolies must allow alternative payment and distribution.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 74",
+          "title": "Advertising Transparency",
+          "subtitle": "You May Know Who Paid to Influence You",
+          "body": "All digital political and commercial advertising must disclose funder identity, targeting criteria, and spend. Microtargeting based on sensitive categories is prohibited.<br><br>Ad archives must be publicly searchable for seven years.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 75",
+          "title": "Worker Rights in the Gig Economy",
+          "subtitle": "Algorithmic Bosses Owe Fairness",
+          "body": "Gig workers have the right to know how algorithms set pay, assign work, and terminate accounts. Opaque algorithmic management is prohibited.<br><br>Minimum wage and safety standards apply regardless of platform classification.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 76",
+          "title": "Right to Repair and Modify",
+          "subtitle": "You Own Your Devices",
+          "body": "Digital locks, DRM, and terms of service may not prevent persons from repairing, modifying, or repurposing devices they own.<br><br>Right to repair extends to software and firmware.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 77",
+          "title": "Prohibition of Dark Patterns",
+          "subtitle": "Honest Design Only",
+          "body": "User interfaces that trick, coerce, or manipulate users into actions against their interest are prohibited. Regulatory fines scale with conversion rate of dark patterns.<br><br>Canceling subscriptions must be as easy as starting them.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 78",
+          "title": "Collective Bargaining for Users",
+          "subtitle": "Users May Organize",
+          "body": "Users of dominant platforms have the right to organize, collectively negotiate terms of service, and appoint ombudspersons without retaliation.<br><br>Platform union busting violates this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 79",
+          "title": "Environmental Disclosure of AI",
+          "subtitle": "Compute Has a Carbon Cost",
+          "body": "Operators of large AI systems must disclose energy consumption and carbon footprint. Public sector AI procurement must consider environmental impact.<br><br>Water usage for data centers in drought regions requires community consent.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 80",
+          "title": "Anti-Monopoly Digital Markets",
+          "subtitle": "Competition Is a Right",
+          "body": "States must prevent digital market monopolies through structural separation, data portability mandates, and prohibition of killer acquisitions.<br><br>Merger review must assess data concentration risk.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter IX — State & Governance",
+      "articles": [
+        {
+          "num": "Art. 81",
+          "title": "Limits on State Digital Surveillance",
+          "subtitle": "Governments Serve Citizens, Not the Reverse",
+          "body": "State digital surveillance requires judicial warrant naming individuals and crimes. Mass surveillance programs are prohibited regardless of national security claims.<br><br>Surveillance budgets must be publicly disclosed annually.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 82",
+          "title": "Digital Due Process",
+          "subtitle": "The Fourth Amendment Applies Online",
+          "body": "Search of digital devices, cloud accounts, and communications requires the same due process as physical search. Border device searches require probable cause.<br><br>Parallel construction from illegal surveillance is prohibited.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 83",
+          "title": "Prohibition of Social Credit Systems",
+          "subtitle": "Citizens Are Not Scores",
+          "body": "Government or corporate systems that rank citizens for access to services, travel, or rights based on behavioral scoring are prohibited.<br><br>Reputation systems without appeal and correction rights violate this article.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 84",
+          "title": "E-Government Transparency",
+          "subtitle": "Public Services Must Be Open",
+          "body": "Government digital services must be open source where security allows, accessible without proprietary software, and usable offline where feasible.<br><br>Citizens may not be forced onto single-vendor platforms for civic participation.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 85",
+          "title": "Digital Voting Integrity",
+          "subtitle": "Democracy Requires Verifiable Systems",
+          "body": "Electronic voting must be auditable, recountable, and open to independent verification. Online-only voting without paper backup is prohibited for national elections.<br><br>Voter data may not be used for non-electoral purposes.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 86",
+          "title": "Protection from Extraterritorial Overreach",
+          "subtitle": "No Empire in the Cloud",
+          "body": "States may not assert jurisdiction over foreign persons' data without treaty basis and proportionality. Cloud providers must resist unlawful foreign data orders.<br><br>Data localization requirements must respect human rights.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 87",
+          "title": "Digital Rights Ombudsman",
+          "subtitle": "Every Nation Needs an Advocate",
+          "body": "States shall establish independent digital rights ombudspersons with authority to investigate complaints, issue binding recommendations, and refer violations for prosecution.<br><br>Ombudspersons must be funded independently of surveillance agencies.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 88",
+          "title": "Prohibition of Forced Device Access",
+          "subtitle": "Passwords Stay With the Person",
+          "body": "States may not compel persons to disclose encryption passwords, device passcodes, or biometric unlock except with judicial order in specific criminal investigations.<br><br>Contempt charges for silence protected where self-incrimination applies.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 89",
+          "title": "Public Interest Digital Defense",
+          "subtitle": "Legal Aid for Digital Rights",
+          "body": "States must fund legal aid for persons pursuing digital rights claims against powerful entities.<br><br>Public interest litigation receives fee-shifting when rights violations are proven.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 90",
+          "title": "Democratic Oversight of Spyware",
+          "subtitle": "Pegasus Has Victims",
+          "body": "Government purchase and use of commercial spyware requires legislative approval, judicial oversight, and public annual reporting of targets and outcomes.<br><br>Zero-day stockpiling by governments endangers global security.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter X — Global & Cross-Border",
+      "articles": [
+        {
+          "num": "Art. 91",
+          "title": "Universal Jurisdiction for Digital Harm",
+          "subtitle": "Borders Do Not Block Justice",
+          "body": "Courts may exercise jurisdiction over digital rights violations affecting their residents regardless of where the violating entity is headquartered.<br><br>Victims may sue in their home jurisdiction.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 92",
+          "title": "Data Transfer Adequacy",
+          "subtitle": "Your Data Cannot Be Exported to Surveillance States",
+          "body": "Transfer of personal data to jurisdictions without adequate privacy protections is prohibited unless person-initiated and informed.<br><br>Adequacy assessments must be public and revocable.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 93",
+          "title": "Global Digital Rights Treaty Framework",
+          "subtitle": "SherpaCarta as Model Law",
+          "body": "Nations are encouraged to adopt SherpaCarta articles as binding national law through treaty, legislation, or constitutional amendment.<br><br>International monitoring body recommended for compliance reporting.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 94",
+          "title": "Protection of Digital Refugees",
+          "subtitle": "Exile From Digital Life Deserves Sanctuary",
+          "body": "Persons persecuted for digital expression have the right to seek asylum. States must not deport persons to jurisdictions where digital persecution is likely.<br><br>VPN and encryption tools for refugees must not be restricted.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 95",
+          "title": "Development Rights Online",
+          "subtitle": "The Global South Must Not Be Digital Colonies",
+          "body": "Developing nations have the right to digital infrastructure sovereignty, local data storage, and freedom from extractive data colonialism.<br><br>Technology transfer and open standards support required from dominant nations.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 96",
+          "title": "Multilingual Internet Governance",
+          "subtitle": "ICANN Serves Humanity",
+          "body": "Internet governance institutions must reflect global demographic diversity. English-only policy development is insufficient.<br><br>Nations may establish multilingual root governance participation.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 97",
+          "title": "Cross-Border Evidence Protocols",
+          "subtitle": "Justice Without Data Raids",
+          "body": "Cross-border digital evidence requests must follow treaty procedures with proportionality review. Bulk data requests are prohibited.<br><br>Mutual legal assistance must not become mass surveillance pipeline.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 98",
+          "title": "Sanctions and Digital Rights",
+          "subtitle": "Punish Regimes, Not People",
+          "body": "Sanctions may not block access to communication tools, encryption, or human rights documentation for civilian populations.<br><br>General license for digital rights tools in sanctioned regions required.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 99",
+          "title": "Corporate Extraterritorial Accountability",
+          "subtitle": "Multinationals Answer to All They Harm",
+          "body": "Corporations operating globally are accountable in every jurisdiction where they cause digital rights harm, regardless of incorporation location.<br><br>Forum shopping to evade liability is prohibited.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 100",
+          "title": "Solidarity Among Signatories",
+          "subtitle": "A Global Movement, Not a Website",
+          "body": "Signatories to SherpaCarta form a global solidarity network obligated to support one another's digital rights advocacy, translation, and legal defense.<br><br>Local chapters may form with autonomy under charter principles.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "chapter": "Chapter XI — Enforcement & Remedies",
+      "articles": [
+        {
+          "num": "Art. 101",
+          "title": "Right to Digital Remedy",
+          "subtitle": "Every Violation Entitles the Victim to Remedy",
+          "body": "Every person whose rights under this charter are violated is entitled to an effective remedy. The right to remedy is not diminished by the technical complexity of the violation, the geographical distance of the perpetrator, or the commercial power of the violating entity.<br><br>Remedies shall include: cessation of the violating behavior, restoration of the violated right, compensation for harm suffered, and systemic changes to prevent future violations.",
+          "sherpa": true,
+          "sherpa_ext": "Digital rights violations affecting more than 1,000 individuals constitute public interest violations and may be pursued by any signatory organization on behalf of the affected class.",
+          "tags": [
+            "remedy",
+            "enforcement",
+            "justice"
+          ]
+        },
+        {
+          "num": "Art. 102",
+          "title": "Class Action and Collective Redress",
+          "subtitle": "Millions Harmed, One Lawsuit",
+          "body": "Systematic digital rights violations affecting groups qualify for collective redress without requiring each victim to litigate individually.<br><br>Representative actions by civil society organizations are authorized.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 103",
+          "title": "Punitive Damages for Willful Violations",
+          "subtitle": "Profit Must Not Exceed Penalty",
+          "body": "Willful, repeated, or profit-motivated digital rights violations face punitive damages up to 4% of global annual revenue.<br><br>Executive personal liability applies for directed violations.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 104",
+          "title": "Injunctive Relief",
+          "subtitle": "Stop the Harm First",
+          "body": "Courts may issue immediate injunctions halting ongoing digital rights violations without requiring victims to prove damages first.<br><br>Temporary restraining orders available within 48 hours for surveillance emergencies.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 105",
+          "title": "Whistleblower Rewards",
+          "subtitle": "Incentivize Truth",
+          "body": "Persons who expose systematic digital rights violations may receive a portion of recovered damages or fines.<br><br>Retaliation against whistleblowers triggers automatic investigation.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 106",
+          "title": "Public Enforcement Actions",
+          "subtitle": "Regulators Must Act",
+          "body": "Data protection authorities must investigate credible complaints within 30 days and publish outcomes. Regulatory capture is an actionable violation.<br><br>Underfunded enforcement is not an excuse for inaction.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 107",
+          "title": "Sunset of Immunity Provisions",
+          "subtitle": "Section 230 Must Evolve",
+          "body": "Platform liability immunity does not extend to willful facilitation of trafficking, exploitation, or systematic rights violations with actual knowledge.<br><br>Immunity frameworks must be reviewed every five years.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 108",
+          "title": "Victim Compensation Funds",
+          "subtitle": "Harm Creates Obligation to Repair",
+          "body": "Fines from digital rights violations fund victim compensation pools administered transparently.<br><br>Priority to marginalized communities disproportionately harmed.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 109",
+          "title": "International Enforcement Cooperation",
+          "subtitle": "Justice Without Borders",
+          "body": "Nations shall cooperate in enforcement against digital rights violators through information sharing, asset freezing, and extradition where appropriate.<br><br>Safe havens for digital rights violators should be eliminated through treaty.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 110",
+          "title": "Charter Supremacy Clause",
+          "subtitle": "Rights Over Profits",
+          "body": "When SherpaCarta conflicts with commercial contracts, terms of service, or trade agreements, the charter prevails to the extent of the conflict.<br><br>Waivers of fundamental digital rights in adhesion contracts are void.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 111",
+          "title": "Signatory Registry",
+          "subtitle": "Public Record of Commitment",
+          "body": "Organizations and governments adopting SherpaCarta must register publicly, report compliance annually, and accept community review.<br><br>False adoption claims are actionable misrepresentation.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 112",
+          "title": "Education and Enforcement Funding",
+          "subtitle": "Rights Require Resources",
+          "body": "States adopting SherpaCarta commit to funding digital rights education, legal aid, and enforcement at minimum 0.1% of digital economy GDP.<br><br>Private signatories contribute proportionally to revenue.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 113",
+          "title": "Non-Regression Principle",
+          "subtitle": "Rights Never Go Backward",
+          "body": "No law, policy, or terms of service may reduce digital rights below SherpaCarta baseline once adopted.<br><br>Regression triggers automatic review and public hearing.",
+          "sherpa": false,
+          "sherpa_ext": null,
+          "tags": []
+        },
+        {
+          "num": "Art. 114",
+          "title": "Living Charter Principle",
+          "subtitle": "This Document Grows With Technology",
+          "body": "SherpaCarta is a living document. Technology evolves faster than legal frameworks. Therefore, this charter shall be reviewed annually by a global council of signatories, legal experts, technologists, civil society representatives, and affected communities.<br><br>Amendments may be proposed by any signatory, debated publicly for 90 days, and ratified by two-thirds supermajority of active signatory organizations. No amendment may reduce the protections of any existing article. Rights may only expand, never contract.",
+          "sherpa": true,
+          "sherpa_ext": "Final Principle: If any provision of this charter conflicts with the commercial interests of any entity, the charter prevails. Commerce serves humanity. Humanity does not serve commerce.",
+          "tags": [
+            "living",
+            "amendment",
+            "evolution"
+          ]
+        }
+      ]
+    }
+  ]
+}

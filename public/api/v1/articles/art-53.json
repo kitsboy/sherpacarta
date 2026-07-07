@@ -1,0 +1,9 @@
+{
+  "num": "Art. 53",
+  "title": "Responsible Disclosure Protection",
+  "chapter": "Chapter VI — Security & Encryption",
+  "tags": [],
+  "body": "Good-faith security research and vulnerability disclosure receive safe harbor. Criminalizing security research harms everyone.<br><br>Vendors must acknowledge reports within 5 business days.",
+  "slug": "art-53",
+  "url": "/api/v1/articles/art-53.json"
+}

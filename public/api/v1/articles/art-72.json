@@ -1,0 +1,9 @@
+{
+  "num": "Art. 72",
+  "title": "Interoperability Rights",
+  "chapter": "Chapter VIII — Platform Accountability",
+  "tags": [],
+  "body": "Dominant platforms must provide interoperable APIs enabling users to communicate across platforms and export social graphs.<br><br>Walled gardens that lock in users through network effects violate this article.",
+  "slug": "art-72",
+  "url": "/api/v1/articles/art-72.json"
+}

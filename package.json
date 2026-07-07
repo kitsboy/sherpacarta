@@ -2,12 +2,17 @@
   "name": "sherpacarta",
   "private": true,
   "version": "0.0.0",
+  "workspaces": [
+    "packages/sherpacarta",
+    "packages/sherpacarta-mcp"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
     "extract": "node scripts/extract-assets.mjs",
     "bundle": "node scripts/bundle-js.mjs",
-    "build": "node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && vite build",
+    "build": "node scripts/generate-charter.mjs && node scripts/inject-charter.mjs && node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && vite build",
+    "publish:packages": "node scripts/publish-packages.mjs",
     "seo-audit": "node scripts/seo-audit.mjs",
     "i18n-audit": "node scripts/i18n-audit.mjs",
     "lighthouse:ci": "lhci autorun",

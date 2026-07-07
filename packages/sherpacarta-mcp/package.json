@@ -15,5 +15,8 @@
     "url": "https://github.com/kitsboy/sherpacarta.git",
     "directory": "packages/sherpacarta-mcp"
   },
-  "engines": { "node": ">=18" }
+  "engines": { "node": ">=18" },
+  "publishConfig": {
+    "access": "public"
+  }
 }

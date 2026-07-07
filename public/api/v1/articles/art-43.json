@@ -1,0 +1,9 @@
+{
+  "num": "Art. 43",
+  "title": "Prohibition of Data Laundering",
+  "chapter": "Chapter V — Data Governance & Erasure",
+  "tags": [],
+  "body": "Data obtained without meaningful consent may not be laundered through mergers, sublicensing, anonymization claims, or synthetic reconstruction.<br><br>Data brokers must maintain chain-of-consent documentation auditable by any data subject.",
+  "slug": "art-43",
+  "url": "/api/v1/articles/art-43.json"
+}

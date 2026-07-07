@@ -1,0 +1,9 @@
+{
+  "num": "Art. 44",
+  "title": "Research Data Ethics",
+  "chapter": "Chapter V — Data Governance & Erasure",
+  "tags": [],
+  "body": "Research use of personal data requires ethics board approval, informed consent, and right of withdrawal. Public interest research on algorithmic harm receives safe harbor.<br><br>IRB standards apply to corporate AI research on human subjects.",
+  "slug": "art-44",
+  "url": "/api/v1/articles/art-44.json"
+}

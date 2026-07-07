@@ -1,0 +1,9 @@
+{
+  "num": "Art. 41",
+  "title": "Data Minimization Mandate",
+  "chapter": "Chapter V — Data Governance & Erasure",
+  "tags": [],
+  "body": "Data collection must be limited to what is strictly necessary for the stated purpose. Purpose creep—using data collected for one reason for another—is prohibited without fresh consent.<br><br>Annual data minimization audits are mandatory for entities processing data on more than 100,000 persons.",
+  "slug": "art-41",
+  "url": "/api/v1/articles/art-41.json"
+}

@@ -16,5 +16,8 @@
     "url": "https://github.com/kitsboy/sherpacarta.git",
     "directory": "packages/sherpacarta"
   },
-  "homepage": "https://sherpacarta.org"
+  "homepage": "https://sherpacarta.org",
+  "publishConfig": {
+    "access": "public"
+  }
 }

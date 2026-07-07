@@ -1,0 +1,9 @@
+{
+  "num": "Art. 26",
+  "title": "Right to Receive Information",
+  "chapter": "Chapter III — Expression & Access",
+  "tags": [],
+  "body": "No state or platform may block access to lawful information based on political viewpoint. Filtering must be user-controlled, transparent, and off by default.<br><br>Internet shutdowns and DNS blocking of news sources are prohibited under all circumstances except named judicial orders against specific illegal content.",
+  "slug": "art-26",
+  "url": "/api/v1/articles/art-26.json"
+}

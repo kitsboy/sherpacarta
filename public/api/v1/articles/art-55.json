@@ -1,0 +1,9 @@
+{
+  "num": "Art. 55",
+  "title": "Right to Offline Functionality",
+  "chapter": "Chapter VI — Security & Encryption",
+  "tags": [],
+  "body": "Essential digital services must provide offline-capable alternatives. Dependence on perpetual connectivity for access to personal data violates sovereignty.<br><br>Local-first architecture is the preferred design pattern.",
+  "slug": "art-55",
+  "url": "/api/v1/articles/art-55.json"
+}

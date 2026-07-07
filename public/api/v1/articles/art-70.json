@@ -1,0 +1,9 @@
+{
+  "num": "Art. 70",
+  "title": "Open Algorithm Standards",
+  "chapter": "Chapter VII — Algorithmic Rights",
+  "tags": [],
+  "body": "Algorithms used in public services, elections, and judicial support must use open, auditable standards. Trade secret protection does not apply to public-sector algorithms.<br><br>Citizens may request algorithmic audits of government systems.",
+  "slug": "art-70",
+  "url": "/api/v1/articles/art-70.json"
+}

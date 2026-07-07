@@ -1,0 +1,9 @@
+{
+  "num": "Art. 58",
+  "title": "Open Source Security Preference",
+  "chapter": "Chapter VI — Security & Encryption",
+  "tags": [],
+  "body": "Public sector procurement must prefer auditable open-source solutions where security-equivalent. Security through obscurity is not a defense.<br><br>Source code for systems processing public data should be publicly reviewable.",
+  "slug": "art-58",
+  "url": "/api/v1/articles/art-58.json"
+}

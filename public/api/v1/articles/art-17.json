@@ -1,0 +1,9 @@
+{
+  "num": "Art. 17",
+  "title": "Prohibition of Shadow Profiles",
+  "chapter": "Chapter II — Privacy & Data Sovereignty",
+  "tags": [],
+  "body": "Creating profiles of persons who are not users of a service—through data broker aggregation, social graph inference, or cross-platform tracking—is prohibited.<br><br>Every person has the right to know if a profile exists about them and to demand its deletion.",
+  "slug": "art-17",
+  "url": "/api/v1/articles/art-17.json"
+}

@@ -1,0 +1,9 @@
+{
+  "num": "Art. 15",
+  "title": "Biometric Data Protection",
+  "chapter": "Chapter II — Privacy & Data Sovereignty",
+  "tags": [],
+  "body": "Biometric identifiers—face, voice, gait, retina, DNA-derived markers—may not be collected without informed consent, may not be sold, and must be deletable on demand.<br><br>Biometric surveillance in public spaces requires democratic authorization through referendum or supermajority legislative vote, renewed every two years.",
+  "slug": "art-15",
+  "url": "/api/v1/articles/art-15.json"
+}

@@ -1,0 +1,9 @@
+{
+  "num": "Art. 65",
+  "title": "AI Training Data Consent",
+  "chapter": "Chapter VII — Algorithmic Rights",
+  "tags": [],
+  "body": "Use of personal data, creative works, or communications to train AI systems requires explicit opt-in consent, with fair compensation mechanisms for commercial use.<br><br>Scraping copyrighted or personal content for model training without consent is prohibited.",
+  "slug": "art-65",
+  "url": "/api/v1/articles/art-65.json"
+}

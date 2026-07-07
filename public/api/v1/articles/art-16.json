@@ -1,0 +1,9 @@
+{
+  "num": "Art. 16",
+  "title": "Location Privacy",
+  "chapter": "Chapter II — Privacy & Data Sovereignty",
+  "tags": [],
+  "body": "Continuous location tracking of persons not individually suspected of specific crimes is prohibited. Location data belongs to the person who generates it.<br><br>Aggregated mobility data may not be sold to third parties. Historical location data must be deletable within 30 days of request.",
+  "slug": "art-16",
+  "url": "/api/v1/articles/art-16.json"
+}
