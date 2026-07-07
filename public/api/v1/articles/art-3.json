@@ -1,0 +1,12 @@
+{
+  "num": "Art. 3",
+  "title": "Right to Digital Existence",
+  "chapter": "Chapter I — Foundational Rights",
+  "tags": [
+    "access",
+    "existence"
+  ],
+  "body": "Every person has the right to digital existence: the right to maintain a verifiable digital identity, access digital services essential to modern life, and participate in digital society without requiring surrender of fundamental rights as a condition of participation.<br><br>No entity may permanently and without recourse delete, deactivate, or deny access to a person's primary means of digital communication or economic participation.",
+  "slug": "art-3",
+  "url": "/api/v1/articles/art-3.json"
+}

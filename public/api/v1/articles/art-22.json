@@ -1,0 +1,13 @@
+{
+  "num": "Art. 22",
+  "title": "Universal Internet Access",
+  "chapter": "Chapter III — Expression & Access",
+  "tags": [
+    "access",
+    "internet",
+    "infrastructure"
+  ],
+  "body": "Access to a free, open, and uncensored internet is a fundamental human right equivalent to access to water, electricity, and education. No person shall be denied internet access as a form of punishment, economic sanction, or political control.<br><br>States and corporations have a positive obligation to expand internet access to all populations, prioritizing marginalized and rural communities. Internet shutdowns ordered by governments are prohibited under this charter.",
+  "slug": "art-22",
+  "url": "/api/v1/articles/art-22.json"
+}

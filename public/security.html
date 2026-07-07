@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bug Bounty & Security — SherpaCarta</title>
+<meta name="description" content="SherpaCarta responsible disclosure and bug bounty program. Privacy-first security research welcome.">
+<link rel="canonical" href="https://sherpacarta.org/security.html">
+<link rel="stylesheet" href="/sc-main.css?v=647">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+body{max-width:720px;margin:0 auto;padding:2rem 1.5rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7}
+h1{font-family:var(--serif);color:var(--em2);font-size:2rem}
+h2{font-size:1.1rem;color:var(--em);margin-top:2rem}
+.sub{font-family:var(--mono);font-size:.7rem;color:var(--text3);margin-bottom:2rem}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin:1rem 0}
+ul{padding-left:1.25rem}
+li{margin:.35rem 0}
+.tier{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.85rem}
+.back{display:inline-block;margin-bottom:1.5rem;color:var(--em2)}
+code{background:var(--bg3);padding:.15rem .4rem;border-radius:4px;font-size:.8rem}
+</style>
+</head>
+<body>
+<a href="/" class="back">← SherpaCarta</a>
+<h1><i class="fas fa-shield-halved"></i> Security & Bug Bounty</h1>
+<p class="sub">Responsible disclosure · Safe harbor for good-faith research</p>
+
+<p>SherpaCarta practices extreme privacy by design. We welcome security researchers who help us keep the charter and site safe for everyone.</p>
+
+<h2>Report a vulnerability</h2>
+<div class="card">
+  <p><strong>Email:</strong> <a href="mailto:hello@giveabit.io?subject=SherpaCarta%20Security%20Report">hello@giveabit.io</a></p>
+  <p>Include: description, reproduction steps, impact assessment, and your preferred disclosure timeline.</p>
+</div>
+
+<h2>Safe harbor</h2>
+<p>Good-faith security research that follows this policy will not face legal action from Give A Bit, provided you:</p>
+<ul>
+  <li>Do not access data belonging to other users</li>
+  <li>Do not perform denial-of-service attacks</li>
+  <li>Give us reasonable time to fix before public disclosure</li>
+  <li>Do not exploit findings beyond proof-of-concept</li>
+</ul>
+
+<h2>Scope</h2>
+<div class="card">
+  <p><strong>In scope:</strong></p>
+  <ul>
+    <li><code>sherpacarta.org</code> and all subpaths</li>
+    <li><code>github.com/kitsboy/sherpacarta</code></li>
+    <li>Public API at <code>/api/v1/*</code></li>
+    <li>MCP server package <code>@giveabit/sherpacarta-mcp</code></li>
+  </ul>
+  <p><strong>Out of scope:</strong> Third-party CDNs, social engineering, physical attacks, spam.</p>
+</div>
+
+<h2>Reward tiers</h2>
+<div class="card">
+  <div class="tier"><span>Critical (RCE, fund theft, mass data leak)</span><span>Recognition + priority fix + public thanks</span></div>
+  <div class="tier"><span>High (XSS, auth bypass, signature forgery)</span><span>Recognition + public thanks</span></div>
+  <div class="tier"><span>Medium (CSRF, info disclosure)</span><span>Hall of fame acknowledgment</span></div>
+  <div class="tier"><span>Low (minor issues, best practices)</span><span>Acknowledgment</span></div>
+</div>
+<p><em>SherpaCarta is a volunteer-funded movement. Rewards are recognition-based until a formal bounty fund is established.</em></p>
+
+<h2>Disclosure timeline</h2>
+<ol>
+  <li>Report to hello@giveabit.io</li>
+  <li>Acknowledgment within 5 business days</li>
+  <li>Fix timeline based on severity</li>
+  <li>Coordinated public disclosure with reporter</li>
+</ol>
+
+<h2 id="hall-of-fame">Hall of fame</h2>
+<div class="card" id="hof">
+  <p style="color:var(--text3);font-size:.85rem">No public reports yet. Be the first to help protect digital rights for 8 billion people.</p>
+</div>
+
+<p style="margin-top:2rem;font-size:.75rem;color:var(--text3)">
+  Also see <a href="/.well-known/security.txt">security.txt</a> · <a href="/treasury.html">Treasury</a>
+</p>
+</body>
+</html>

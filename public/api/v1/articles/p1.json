@@ -1,0 +1,12 @@
+{
+  "num": "P.1",
+  "title": "On the Foundation of Rights",
+  "chapter": "Preamble",
+  "tags": [
+    "foundation",
+    "history"
+  ],
+  "body": "We, the people of the interconnected world, recognize that the digital revolution has created powers capable of surveilling, silencing, and controlling human life at unprecedented scale. Just as Magna Carta constrained the arbitrary power of kings in 1215, and just as the Universal Declaration of Human Rights bound nations after 1948, SherpaCarta binds all who exercise digital power—states, corporations, algorithms, and platforms alike.<br><br>These articles are not aspirational. They are the minimum standards of human dignity in the digital age. They apply to every human being who connects to any network, uses any digital device, or generates any form of digital data—regardless of nationality, income, gender, race, religion, or political belief.",
+  "slug": "p1",
+  "url": "/api/v1/articles/p1.json"
+}

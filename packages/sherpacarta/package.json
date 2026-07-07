@@ -1,0 +1,20 @@
+{
+  "name": "@giveabit/sherpacarta",
+  "version": "1.0.0",
+  "description": "SherpaCarta SDK — search charter articles, get hashes, integrate digital rights API",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": ["index.js", "README.md"],
+  "keywords": ["sherpacarta", "digital-rights", "charter", "privacy", "giveabit"],
+  "author": "Give A Bit <hello@giveabit.io>",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kitsboy/sherpacarta.git",
+    "directory": "packages/sherpacarta"
+  },
+  "homepage": "https://sherpacarta.org"
+}

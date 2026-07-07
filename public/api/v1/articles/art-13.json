@@ -1,0 +1,12 @@
+{
+  "num": "Art. 13",
+  "title": "Prohibition of Surveillance Capitalism",
+  "chapter": "Chapter II — Privacy & Data",
+  "tags": [
+    "advertising",
+    "tracking"
+  ],
+  "body": "The commercial model of tracking individuals' behavior without meaningful consent and selling that behavioral data to third parties for advertising or political purposes is hereby designated as a violation of human dignity.<br><br>Consent to data collection must be: freely given (not a condition of service access), specific (not blanket authorization), informed (plain language, not legalese), and withdrawable at any time without penalty.",
+  "slug": "art-13",
+  "url": "/api/v1/articles/art-13.json"
+}

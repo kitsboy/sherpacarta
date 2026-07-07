@@ -1,0 +1,13 @@
+{
+  "num": "Art. 11",
+  "title": "Right to Privacy",
+  "chapter": "Chapter II — Privacy & Data",
+  "tags": [
+    "privacy",
+    "surveillance",
+    "core"
+  ],
+  "body": "Every person has the right to privacy in their communications, data, identity, location, associations, beliefs, and online behavior. This right is absolute and may not be limited except by specific judicial order in pursuit of a specific, named criminal investigation, with the least invasive method available, for the shortest possible duration.<br><br>Mass surveillance—the collection of data on persons not individually suspected of specific crimes—is prohibited under all circumstances. No emergency, national security concern, or commercial interest justifies mass surveillance of the population.",
+  "slug": "art-11",
+  "url": "/api/v1/articles/art-11.json"
+}

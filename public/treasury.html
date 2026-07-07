@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treasury Dashboard — SherpaCarta</title>
+<meta name="description" content="Live on-chain Bitcoin treasury transparency for SherpaCarta. Zero tracking, fully auditable donations.">
+<link rel="canonical" href="https://sherpacarta.org/treasury.html">
+<link rel="stylesheet" href="/sc-main.css?v=647">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<style>
+body{max-width:720px;margin:0 auto;padding:2rem 1.5rem;font-family:var(--sans);background:var(--bg);color:var(--text)}
+h1{font-family:var(--serif);color:var(--em2);font-size:2rem;margin-bottom:.25rem}
+.sub{font-family:var(--mono);font-size:.7rem;color:var(--text3);margin-bottom:2rem}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin-bottom:1rem}
+.stat{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.8rem}
+.stat:last-child{border:none}
+.stat span:last-child{color:var(--em)}
+.addr{font-size:.65rem;word-break:break-all;color:var(--text2)}
+.tx-list{margin-top:1rem;font-size:.75rem}
+.tx-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+a{color:var(--em2)}
+.note{font-size:.7rem;color:var(--text3);margin-top:2rem;line-height:1.6}
+.back{display:inline-block;margin-bottom:1.5rem;color:var(--em2);font-size:.85rem}
+</style>
+</head>
+<body>
+<a href="/" class="back">← SherpaCarta</a>
+<h1><i class="fas fa-scale-balanced"></i> Treasury Dashboard</h1>
+<p class="sub">Live on-chain transparency · BUILD 627</p>
+
+<div class="card">
+  <div class="stat"><span>Balance</span><span id="bal">Loading…</span></div>
+  <div class="stat"><span>Total transactions</span><span id="txs">—</span></div>
+  <div class="stat"><span>Last updated</span><span id="updated">—</span></div>
+  <div class="stat"><span>BTC address</span><span class="addr" id="addr"></span></div>
+</div>
+
+<div class="card">
+  <h2 style="font-size:1rem;color:var(--em2);margin:0 0 1rem">Recent transactions</h2>
+  <div id="tx-list" class="tx-list">Loading…</div>
+</div>
+
+<p class="note">
+  SherpaCarta is funded exclusively by voluntary Bitcoin donations. No VC, no ads, no grants.
+  Data fetched live from <a href="https://mempool.space" target="_blank" rel="noopener">mempool.space</a>.
+  This is not an audited financial statement — it is on-chain proof anyone can verify.
+</p>
+
+<script>
+const BTC = 'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad';
+document.getElementById('addr').textContent = BTC;
+
+async function load() {
+  try {
+    const [addrRes, txsRes] = await Promise.all([
+      fetch(`https://mempool.space/api/address/${BTC}`),
+      fetch(`https://mempool.space/api/address/${BTC}/txs`),
+    ]);
+    const addr = await addrRes.json();
+    const txs = await txsRes.json();
+    const funded = addr.chain_stats?.funded_txo_sum || 0;
+    const spent = addr.chain_stats?.spent_txo_sum || 0;
+    const balance = (funded - spent) / 1e8;
+    const count = (addr.chain_stats?.tx_count || 0) + (addr.mempool_stats?.tx_count || 0);
+    document.getElementById('bal').textContent = balance.toFixed(8) + ' BTC';
+    document.getElementById('txs').textContent = String(count);
+    document.getElementById('updated').textContent = new Date().toLocaleString();
+    const list = document.getElementById('tx-list');
+    if (!txs.length) { list.textContent = 'No transactions yet.'; return; }
+    list.innerHTML = txs.slice(0, 10).map((tx) => {
+      const sats = tx.vout?.reduce((s, o) => s + (o.value || 0), 0) || 0;
+      return `<div class="tx-item"><a href="https://mempool.space/tx/${tx.txid}" target="_blank" rel="noopener">${tx.txid.slice(0, 16)}…</a> · ${(sats/1e8).toFixed(8)} BTC · ${new Date(tx.status?.block_time * 1000 || Date.now()).toLocaleDateString()}</div>`;
+    }).join('');
+  } catch (e) {
+    document.getElementById('bal').textContent = 'Unavailable';
+    document.getElementById('tx-list').innerHTML = `<a href="https://mempool.space/address/${BTC}" target="_blank" rel="noopener">View on mempool.space →</a>`;
+  }
+}
+load();
+setInterval(load, 120000);
+</script>
+</body>
+</html>

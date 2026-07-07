@@ -1,0 +1,13 @@
+{
+  "num": "Art. 101",
+  "title": "Right to Digital Remedy",
+  "chapter": "Chapter V — Enforcement & Remedies",
+  "tags": [
+    "remedy",
+    "enforcement",
+    "justice"
+  ],
+  "body": "Every person whose rights under this charter are violated is entitled to an effective remedy. The right to remedy is not diminished by the technical complexity of the violation, the geographical distance of the perpetrator, or the commercial power of the violating entity.<br><br>Remedies shall include: cessation of the violating behavior, restoration of the violated right, compensation for harm suffered, and systemic changes to prevent future violations.",
+  "slug": "art-101",
+  "url": "/api/v1/articles/art-101.json"
+}

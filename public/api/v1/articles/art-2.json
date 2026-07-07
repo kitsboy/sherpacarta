@@ -1,0 +1,12 @@
+{
+  "num": "Art. 2",
+  "title": "Equality Before Digital Law",
+  "chapter": "Chapter I — Foundational Rights",
+  "tags": [
+    "equality",
+    "non-discrimination"
+  ],
+  "body": "All persons are equal before the digital law. No state, platform, or algorithm shall treat persons differently on the basis of: nationality, ethnicity, religion, gender, sexual orientation, age, disability, political opinion, socioeconomic status, or technical literacy.<br><br>Algorithmic systems that produce discriminatory outcomes—whether intentional or emergent—violate this article regardless of the technical mechanism producing the discrimination.",
+  "slug": "art-2",
+  "url": "/api/v1/articles/art-2.json"
+}

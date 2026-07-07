@@ -1,0 +1,12 @@
+{
+  "num": "Art. 1",
+  "title": "Human Dignity in Digital Spaces",
+  "chapter": "Chapter I — Foundational Rights",
+  "tags": [
+    "dignity",
+    "foundation"
+  ],
+  "body": "Every person possesses inherent dignity that extends fully into digital spaces. No person may be subjected to digital humiliation, algorithmic dehumanization, automated discrimination, or systematic exclusion from digital life on the basis of any personal characteristic.<br><br>Digital identity is an extension of the human person and shall be treated with the same protections as physical identity.",
+  "slug": "art-1",
+  "url": "/api/v1/articles/art-1.json"
+}

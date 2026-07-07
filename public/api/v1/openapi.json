@@ -31,13 +31,24 @@
         }
       }
     },
+    "/index.json": {
+      "get": {
+        "summary": "API catalog",
+        "responses": {
+          "200": {
+            "description": "Endpoint index"
+          }
+        }
+      }
+    },
     "/articles/{num}.json": {
       "get": {
         "summary": "Single article",
         "parameters": [
           {
             "name": "num",
-            "in": "path"
+            "in": "path",
+            "required": true
           }
         ]
       }

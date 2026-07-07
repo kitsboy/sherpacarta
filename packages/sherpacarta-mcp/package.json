@@ -1,0 +1,19 @@
+{
+  "name": "@giveabit/sherpacarta-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for SherpaCarta — search charter, get articles, verify hash",
+  "type": "module",
+  "bin": {
+    "sherpacarta-mcp": "./server.mjs"
+  },
+  "files": ["server.mjs", "README.md"],
+  "keywords": ["mcp", "sherpacarta", "digital-rights", "model-context-protocol"],
+  "author": "Give A Bit <hello@giveabit.io>",
+  "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kitsboy/sherpacarta.git",
+    "directory": "packages/sherpacarta-mcp"
+  },
+  "engines": { "node": ">=18" }
+}

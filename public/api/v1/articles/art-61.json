@@ -1,0 +1,13 @@
+{
+  "num": "Art. 61",
+  "title": "Right to Algorithmic Transparency",
+  "chapter": "Chapter IV — Algorithmic Rights",
+  "tags": [
+    "AI",
+    "algorithms",
+    "transparency"
+  ],
+  "body": "Every person has the right to a meaningful explanation of any automated decision that significantly affects their life—including credit decisions, insurance pricing, job application screening, content moderation, law enforcement risk scoring, and medical recommendations.<br><br>\"Meaningful explanation\" requires more than technical documentation. It requires a plain-language account of what factors were used, what weight they were given, and what the person could do to alter the outcome.",
+  "slug": "art-61",
+  "url": "/api/v1/articles/art-61.json"
+}

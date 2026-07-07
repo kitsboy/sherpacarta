@@ -1,0 +1,13 @@
+{
+  "num": "Art. 21",
+  "title": "Freedom of Digital Expression",
+  "chapter": "Chapter III — Expression & Access",
+  "tags": [
+    "expression",
+    "censorship",
+    "speech"
+  ],
+  "body": "Every person has the right to freedom of expression in digital spaces. This right includes the freedom to hold opinions without interference and to seek, receive, and impart information and ideas through any digital medium regardless of frontiers.<br><br>Platform content moderation must be: transparent, consistent, non-discriminatory, based on published and publicly debated standards, subject to meaningful appeal, and never based on political viewpoint without due process.",
+  "slug": "art-21",
+  "url": "/api/v1/articles/art-21.json"
+}

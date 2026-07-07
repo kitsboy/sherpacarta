@@ -1,0 +1,13 @@
+{
+  "num": "Art. 62",
+  "title": "Protection from Algorithmic Discrimination",
+  "chapter": "Chapter IV — Algorithmic Rights",
+  "tags": [
+    "AI",
+    "discrimination",
+    "bias"
+  ],
+  "body": "Algorithmic systems that produce discriminatory outcomes—whether through biased training data, discriminatory feature selection, or emergent behavior—are in violation of this charter regardless of the intent of their creators.<br><br>Operators of algorithmic systems that make decisions affecting human rights must conduct regular bias audits, publish results, remediate discovered biases within defined timeframes, and compensate persons who can demonstrate harm.",
+  "slug": "art-62",
+  "url": "/api/v1/articles/art-62.json"
+}

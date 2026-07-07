@@ -277,4 +277,50 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-07
+
+**Machine:** M3 (Grok)
+**Project:** sherpacarta
+
+### Done
+
+- [x] Sprint 6 — split CSS/JS, sc-bundle.js, Lighthouse CI, b9 (588–607)
+- [x] Sprint 7 — treasury.html, security.html, live mempool widget, b10 (608–627)
+- [x] Sprint 8 — embed.js, SDK, MCP server, API articles, b11 (628–647)
+- [x] BUILD 647, index.html 212KB→72KB, SW v5.0
+- [x] IMPROVEMENTS-200.md backlog
+
+### Decisions
+
+- HTML-first preserved; extraction + bundle not full SPA migration
+- Treasury/bounty client-side only (no backend)
+- npm packages local in packages/ — publish pending
+
+### What's Next
+
+- [ ] Deploy BUILD 647
+- [ ] Publish @giveabit/sherpacarta + mcp to npm
+- [ ] Lightning LNURL (needs Cam)
+- [ ] Add 100 missing charter articles (IMPROVEMENTS #1)
+- [ ] Kimi: sync Sprints 6–8 to Obsidian
+
+### Git State
+
+- Branch: main
+- See commit after push
+
+---
+
+## Latest Session Summary (from 2026-07-07)
+
+**Chat topic:** Complete Sprints 6–8 autonomously + 200-item improvement list.
+
+**Finished:** All three sprints, BUILD 647, architecture split, treasury/bounty pages, MCP/SDK packages, IMPROVEMENTS-200.md.
+
+**Still to do:** Deploy, npm publish, Lightning wallet, full 114-article charter content, Kimi sync.
+
+**Next for Kimi:** Integrate `SESSION-SUMMARY-2026-07-07.md` + `IMPROVEMENTS-200.md`. Do not sync to M4 until Cam or Kimi says it's time.
+
+---
+
 *Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*

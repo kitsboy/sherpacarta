@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0",
+  "build": "20260707-647",
+  "endpoints": {
+    "charter": "/api/v1/charter.json",
+    "hash": "/api/v1/hash.json",
+    "openapi": "/api/v1/openapi.json",
+    "articles": "/api/v1/articles/{num}.json",
+    "treasury": "/treasury.html",
+    "mcp": "/mcp.json",
+    "embed": "/embed.js"
+  },
+  "sdk": "@giveabit/sherpacarta",
+  "mcpPackage": "@giveabit/sherpacarta-mcp"
+}

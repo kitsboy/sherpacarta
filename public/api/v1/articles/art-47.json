@@ -1,0 +1,13 @@
+{
+  "num": "Art. 47",
+  "title": "Right to Be Forgotten",
+  "chapter": "Chapter II — Privacy & Data",
+  "tags": [
+    "erasure",
+    "forgetting",
+    "fresh-start"
+  ],
+  "body": "Every person has the right to have digital records of past actions removed from public and commercial databases when those records no longer serve a legitimate public interest proportionate to the individual's right to privacy and dignity.<br><br>This right applies especially to: criminal records for which sentences have been served, youthful indiscretions, data collected during vulnerability, and information posted under duress.",
+  "slug": "art-47",
+  "url": "/api/v1/articles/art-47.json"
+}

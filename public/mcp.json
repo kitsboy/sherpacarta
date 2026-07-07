@@ -1,9 +1,18 @@
 {
   "name": "sherpacarta",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "description": "Global Digital Magna Carta — 114 articles of digital human rights",
   "url": "https://sherpacarta.org",
   "contact": "hello@giveabit.io",
+  "server": {
+    "package": "@giveabit/sherpacarta-mcp",
+    "run": "npx @giveabit/sherpacarta-mcp",
+    "transport": "stdio"
+  },
+  "sdk": {
+    "package": "@giveabit/sherpacarta",
+    "npm": "https://www.npmjs.com/package/@giveabit/sherpacarta"
+  },
   "sameAs": [
     "https://twitter.com/give_bit",
     "https://github.com/kitsboy/sherpacarta",
@@ -18,11 +27,15 @@
     {
       "name": "get_article",
       "description": "Retrieve a specific charter article by number",
-      "parameters": { "num": { "type": "string", "description": "Article number e.g. Art. 11" } }
+      "parameters": { "num": { "type": "string", "description": "Article number e.g. 11" } }
     },
     {
       "name": "get_charter_hash",
       "description": "Get SHA-256 hash of canonical charter text for OpenTimestamp stamping via Satohash"
+    },
+    {
+      "name": "list_articles",
+      "description": "List all charter articles with titles and chapters"
     }
   ]
 }

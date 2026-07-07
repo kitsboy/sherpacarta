@@ -18,6 +18,15 @@
 /sc-upgrades*.js
   Cache-Control: public, max-age=3600
 
+/sc-bundle.js
+  Cache-Control: public, max-age=3600
+
+/sc-core.js
+  Cache-Control: public, max-age=3600
+
+/sc-main.css
+  Cache-Control: public, max-age=3600
+
 /api/v1/*
   Cache-Control: public, max-age=300
   Access-Control-Allow-Origin: *
