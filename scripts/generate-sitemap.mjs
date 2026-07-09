@@ -23,6 +23,8 @@ const staticUrls = [
   { loc: 'https://sherpacarta.org/canada/join', priority: '0.95', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/canada/paper.html', priority: '0.9', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/canada/official.html', priority: '0.85', changefreq: 'weekly' },
+  { loc: 'https://sherpacarta.org/canada/organizer.html', priority: '0.75', changefreq: 'monthly' },
+  { loc: 'https://sherpacarta.org/canada/proof.html', priority: '0.8', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/canada/bc/', priority: '0.9', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/canada/proof.html', priority: '0.85', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/canada/about.html', priority: '0.8', changefreq: 'monthly' },

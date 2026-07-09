@@ -4,19 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Canada Digital Rights Petition — SherpaCarta</title>
-<meta name="description" content="Sign SherpaCarta for Canada: campaign commitments, printable paper petitions, and bridge to the official House of Commons e-petition. Dual-track. Zero tracking.">
+<meta name="description" content="Sign SherpaCarta for Canada: campaign commitments, federal paper petition, official Commons e-petition bridge. Zero tracking.">
 <link rel="canonical" href="https://sherpacarta.org/canada/">
 <meta property="og:title" content="SherpaCarta Canada — Digital Rights Petition">
-<meta property="og:description" content="Campaign · Paper · Parliament. Privacy is a birthright. #CanadaBCChallenge">
+<meta property="og:description" content="Campaign · Federal paper · Parliament. Privacy is a birthright.">
 <meta property="og:image" content="https://sherpacarta.org/og-image.png">
 <meta name="theme-color" content="#050806">
-<link rel="stylesheet" href="/fonts/fonts.css?v=721">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=721">
-<link rel="stylesheet" href="/sc-main.css?v=721">
+<link rel="stylesheet" href="/fonts/fonts.css?v=724">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=724">
+<link rel="stylesheet" href="/sc-main.css?v=724">
 <style>
-  body.ca{max-width:840px;margin:0 auto;padding:1.5rem 1.25rem 4rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75}
+  body.ca{max-width:880px;margin:0 auto;padding:1.5rem 1.25rem 4rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75}
   .ca h1{font-family:var(--serif);font-size:clamp(2rem,5vw,2.75rem);color:var(--em2);line-height:1.15;letter-spacing:-.02em}
   .ca .lead{color:var(--text2);font-size:1.05rem;max-width:640px}
+  .badge-row{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}
+  .badge{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .65rem;border-radius:100px;border:1px solid var(--border2);color:var(--text3)}
+  .badge.em{border-color:var(--em);color:var(--em)}
   .ca-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1.75rem 0}
   .ca-tile{background:linear-gradient(165deg,var(--bg2),var(--bg));border:1px solid var(--border);border-radius:1rem;padding:1.25rem;display:flex;flex-direction:column;gap:.5rem}
   .ca-tile h2{font-family:var(--serif);font-size:1.25rem;margin:0;color:var(--text)}
@@ -26,41 +29,60 @@
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.7rem 1.1rem;border-radius:100px;font-size:.85rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;min-height:44px}
   .btn-primary{background:var(--em);color:#041208}
   .btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--em2)}
-  .stats{display:flex;flex-wrap:wrap;gap:1rem;margin:1.5rem 0;padding:1rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:1rem}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1rem;margin:1.5rem 0;padding:1.15rem 1.25rem;background:var(--bg2);border:1px solid var(--border);border-radius:1rem}
   .stat strong{display:block;font-family:var(--serif);font-size:1.75rem;color:var(--em);line-height:1}
-  .stat span{font-family:var(--mono);font-size:.55rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase}
+  .stat span{font-family:var(--mono);font-size:.52rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase}
+  .goal-bar{height:6px;background:var(--bg3);border-radius:3px;margin-top:.5rem;overflow:hidden;grid-column:1/-1}
+  .goal-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--em),var(--gold));width:0;transition:width .6s}
+  .map{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:.35rem;margin-top:.75rem}
+  .map-cell{background:var(--bg3);border:1px solid var(--border);border-radius:.5rem;padding:.4rem .25rem;text-align:center;font-family:var(--mono);font-size:.55rem;color:var(--text3)}
+  .map-cell.on{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.1)}
+  .map-cell .n{display:block;font-size:.85rem;font-family:var(--serif);color:var(--em2);line-height:1.2}
+  .wall{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.75rem}
+  .pill{font-family:var(--mono);font-size:.62rem;padding:.3rem .65rem;border-radius:100px;border:1px solid var(--border);background:var(--bg3);color:var(--text2)}
   .legal{font-size:.75rem;color:var(--text3);margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--border);line-height:1.65}
   a{color:var(--em2)}
+  h3.sec{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--em);margin:2rem 0 .5rem}
 </style>
 </head>
 <body class="ca">
-<p><a href="/">← SherpaCarta</a> · <a href="/canada/bc/">BC Challenge</a> · <a href="/canada/about.html">About</a></p>
+<p><a href="/">← SherpaCarta</a> · <a href="/canada/bc/">BC Challenge</a> · <a href="/canada/about.html">About</a> · <a href="/canada/organizer.html">Organizer</a></p>
 <h1>🇨🇦 Canada Digital Rights Petition</h1>
 <p class="lead">Three honest ways to stand up for privacy, data sovereignty, and algorithmic rights — with the <strong>least friction the law actually allows</strong>.</p>
 
+<div class="badge-row">
+  <span class="badge em">Zero tracking</span>
+  <span class="badge em">No ID required</span>
+  <span class="badge em">No minimum age</span>
+  <span class="badge">Hash + province only</span>
+  <span class="badge">Federal paper · all provinces</span>
+</div>
+
 <div class="stats" id="stats">
-  <div class="stat"><strong id="camp-total">—</strong><span>Campaign commitments</span></div>
+  <div class="stat"><strong id="camp-total">—</strong><span>Campaign (not Parliament)</span></div>
   <div class="stat"><strong id="local-total">0</strong><span>On this device</span></div>
+  <div class="stat"><strong id="paper-total">0</strong><span>Paper batches logged</span></div>
   <div class="stat"><strong id="off-status">…</strong><span>Official e-petition</span></div>
+  <div class="goal-bar" title="Toward first goal"><i id="goal-fill"></i></div>
 </div>
 
 <div class="ca-grid">
   <div class="ca-tile">
     <span class="tag">Track A · Lowest friction</span>
     <h2>Campaign sign</h2>
-    <p>Name or pseudonym, province, citizen/resident checkbox. Optional Passkey, Nostr, or device key. SHA-256 receipt. <strong>Not counted by Parliament</strong> — builds the movement.</p>
+    <p>Name or pseudonym, province, citizen/resident checkbox. Optional Passkey or Nostr. <strong>Not counted by Parliament</strong> — builds the movement.</p>
     <a class="btn btn-primary" href="/canada/sign.html"><i class="fas fa-signature"></i> Sign in ~30 seconds</a>
   </div>
   <div class="ca-tile">
     <span class="tag">Track B · Legal today</span>
-    <h2>Paper petition</h2>
-    <p>One <strong>federal</strong> Commons sheet for all of Canada. A BC (or any province) resident already counts as federal — they write city + province. Original ink · min 25 · MP presents.</p>
+    <h2>Federal paper</h2>
+    <p>One Commons sheet for all of Canada. BC (or any province) residents already count federally. Original ink · min 25 · MP presents.</p>
     <a class="btn btn-ghost" href="/canada/paper.html"><i class="fas fa-print"></i> Print federal sheet</a>
   </div>
   <div class="ca-tile official">
     <span class="tag">Track B · Parliament</span>
     <h2>Official e-petition</h2>
-    <p>Only on <em>ourcommons.ca</em> after an MP authorizes it. Email confirm, no ID photo, no age minimum, 500 signatures. We deep-link when e-### is live.</p>
+    <p>Only on <em>ourcommons.ca</em> after an MP authorizes it. Email confirm, no ID, 500 signatures. We deep-link when e-### is live.</p>
     <a class="btn btn-ghost" href="/canada/official.html"><i class="fas fa-landmark"></i> Official status</a>
   </div>
 </div>
@@ -70,34 +92,64 @@
   <p id="petition-preview" style="font-size:.9rem;color:var(--text2)">Loading…</p>
 </div>
 
-<p style="display:flex;flex-wrap:wrap;gap:.5rem">
+<h3 class="sec">Campaign by province / territory</h3>
+<p style="font-size:.8rem;color:var(--text3);margin:0">Self-reported on digital campaign only — not Parliamentary counts.</p>
+<div class="map" id="prov-map" aria-label="Province heatmap"></div>
+
+<h3 class="sec">Recent campaign commitments</h3>
+<div class="wall" id="recent-wall"><span class="pill">Loading…</span></div>
+
+<p style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem">
   <a href="/canada/sign.html" class="btn btn-primary"><i class="fas fa-signature"></i> Sign campaign</a>
-  <a href="/canada/join" class="btn btn-ghost"><i class="fas fa-qrcode"></i> QR join page</a>
-  <a href="/canada/paper.html" class="btn btn-ghost"><i class="fas fa-print"></i> Print sheets</a>
+  <a href="/canada/join" class="btn btn-ghost"><i class="fas fa-qrcode"></i> QR join</a>
+  <a href="/canada/paper.html" class="btn btn-ghost"><i class="fas fa-print"></i> Print sheet</a>
   <a href="/canada/proof.html" class="btn btn-ghost"><i class="fas fa-stamp"></i> Proofs</a>
-  <a href="/bc/town-hall-kit.html" class="btn btn-ghost"><i class="fas fa-people-group"></i> Town hall kit</a>
+  <a href="/canada/organizer.html" class="btn btn-ghost"><i class="fas fa-clipboard-list"></i> Organizer</a>
+  <a href="/bc/town-hall-kit.html" class="btn btn-ghost"><i class="fas fa-people-group"></i> Town hall</a>
 </p>
 
 <p class="legal">
-  <strong>Eligibility (campaign &amp; official):</strong> Canadian citizen or resident — <em>no minimum age, no government ID</em> for Parliamentary e-petitions.
-  Campaign data: receipt hash, province, method only on our API when configured.
+  <strong>Eligibility:</strong> Canadian citizen or resident — no minimum age, no government ID for Parliamentary e-petitions.
+  <strong>BC beachhead:</strong> organizing story, not a separate federal paper form.
   Full model: <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/CANADA-PETITION-LEGAL.md">CANADA-PETITION-LEGAL.md</a>.
   Parent: <a href="https://giveabit.io">Give A Bit</a> · CC0
 </p>
 
-<script src="/js/sc-petition-canada.js?v=721"></script>
+<script src="/js/sc-petition-canada.js?v=724"></script>
 <script>
+const PROV_ORDER = ['BC','AB','SK','MB','ON','QC','NB','NS','PE','NL','YT','NT','NU','ABROAD'];
+const PROV_LABEL = { ABROAD: 'INTL' };
 SHERPA_PETITION.getCampaign().then((d) => {
   if (!d) return;
   document.getElementById('petition-preview').textContent = (d.prayers?.campaign || d.petitionText || '').slice(0, 420) + '…';
 });
 document.getElementById('local-total').textContent = SHERPA_PETITION.getStats().total;
+
+function renderMap(by) {
+  const el = document.getElementById('prov-map');
+  el.innerHTML = PROV_ORDER.map((code) => {
+    const n = (by && by[code]) || 0;
+    const label = PROV_LABEL[code] || code;
+    return `<div class="map-cell${n ? ' on' : ''}" title="${code}: ${n}"><span class="n">${n || '·'}</span>${label}</div>`;
+  }).join('');
+}
+
 SHERPA_PETITION.fetchRemoteStats().then((s) => {
-  document.getElementById('camp-total').textContent = s && typeof s.total === 'number' ? s.total : '—';
+  const n = s && typeof s.total === 'number' ? s.total : 0;
+  document.getElementById('camp-total').textContent = n.toLocaleString();
+  const paper = (s?.byMethod && (s.byMethod.paper || s.byMethod.paper_batch)) || 0;
+  document.getElementById('paper-total').textContent = paper;
+  const goal = n >= 100 ? 1000 : 100;
+  document.getElementById('goal-fill').style.width = Math.min(100, Math.round((n / goal) * 100)) + '%';
+  renderMap(s?.byProvince || {});
+  const wall = document.getElementById('recent-wall');
+  const recent = (s?.recent || []).filter((r) => r.displayName && !/test/i.test(r.displayName));
+  wall.innerHTML = recent.length
+    ? recent.slice(0, 16).map((r) => `<span class="pill">${r.displayName}${r.province ? ' · ' + r.province : ''}</span>`).join('')
+    : '<span class="pill">Be the first named campaign signer (opt-in on sign form)</span>';
 });
 SHERPA_PETITION.officialStatus().then((o) => {
-  document.getElementById('off-status').textContent = o.live ? o.ePetitionId : (o.status || 'seeking MP');
-  document.getElementById('off-status').style.fontSize = o.live ? '1.25rem' : '1rem';
+  document.getElementById('off-status').textContent = o.live ? o.ePetitionId : (o.status || 'seeking MP').replace(/_/g, ' ');
 });
 </script>
 </body>

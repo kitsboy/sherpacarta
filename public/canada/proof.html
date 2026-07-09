@@ -4,61 +4,94 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proof &amp; Satohash — Canada Petition</title>
-<meta name="description" content="SHA-256 petition proofs, OpenTimestamps Bitcoin anchors, and Satohash template for SherpaCarta Canada referendum.">
+<meta name="description" content="SHA-256 petition proofs, merkle roots, OpenTimestamps Bitcoin anchors for SherpaCarta Canada campaign.">
 <link rel="canonical" href="https://sherpacarta.org/canada/proof.html">
-<meta property="og:title" content="SherpaCarta Canada — Cryptographic Proof">
-<meta property="og:description" content="SHA-256 merkle roots · OpenTimestamps · Satohash Bitcoin anchor. Privacy-preserving Canadian petition proofs.">
-<meta property="og:image" content="https://sherpacarta.org/og-image.png">
-<link rel="stylesheet" href="/sc-main.css?v=687">
+<meta name="theme-color" content="#050806">
+<link rel="stylesheet" href="/fonts/fonts.css?v=724">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=724">
+<link rel="stylesheet" href="/sc-main.css?v=724">
 <style>
-body{max-width:720px;margin:0 auto;padding:2rem 1.25rem;font-family:var(--sans);background:var(--bg);color:var(--text)}
-h1{font-family:var(--serif);color:var(--em2)}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin:1rem 0;font-family:var(--mono);font-size:.75rem}
-.stat{display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px solid var(--border)}
-.btn{display:inline-block;padding:.7rem 1.2rem;background:var(--em);color:#000;border-radius:8px;text-decoration:none;font-weight:600;margin:.5rem .5rem 0 0;border:none;cursor:pointer;font-family:var(--sans)}
-a{color:var(--em2)}
+  body{max-width:720px;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7}
+  h1{font-family:var(--serif);color:var(--em2);font-size:2rem}
+  h2{font-size:1rem;color:var(--em);margin:1.5rem 0 .75rem;font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin:1rem 0}
+  .stat{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--border);font-size:.85rem}
+  .stat:last-child{border:none}
+  .stat span:last-child{font-family:var(--mono);font-size:.72rem;color:var(--em2);word-break:break-all;text-align:right}
+  .btn{display:inline-flex;gap:.4rem;padding:.7rem 1.15rem;background:var(--em);color:#041208;border-radius:100px;text-decoration:none;font-weight:600;margin:.35rem .35rem 0 0;border:none;cursor:pointer;font-family:var(--sans);min-height:44px;align-items:center}
+  .btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--em2)}
+  .badge{display:inline-block;font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .65rem;border-radius:100px;border:1px solid var(--em);color:var(--em);margin-bottom:.75rem}
+  a{color:var(--em2)}
+  .how{font-size:.85rem;color:var(--text2)}
+  .how li{margin:.35rem 0}
 </style>
 </head>
 <body>
-<p><a href="/canada/">← Canada Petition</a></p>
+<p><a href="/canada/">← Canada hub</a> · <a href="/canada/sign.html">Sign</a></p>
+<span class="badge">Zero tracking · verify without identities</span>
 <h1><i class="fas fa-stamp"></i> Proof &amp; Satohash</h1>
-<p style="font-size:.88rem;color:var(--text2)">Cryptographic integrity for journalists, MLAs, and MPs — without exposing signer identities on our servers.</p>
+<p style="font-size:.9rem;color:var(--text2)">Cryptographic integrity for journalists, MPs, and organizers — without putting signer names on our servers by default.</p>
 
 <div class="card">
-  <div class="stat"><span>Petition hash (SHA-256)</span><span id="pet-hash">…</span></div>
-  <div class="stat"><span>Signatures (this device)</span><span id="sig-count">0</span></div>
-  <div class="stat"><span>Jurisdiction</span><span>Canada (CA)</span></div>
-  <div class="stat"><span>Merkle root</span><span id="merkle">—</span></div>
-  <div class="stat"><span>Methods used</span><span id="methods">—</span></div>
+  <div class="stat"><span>Petition text hash (SHA-256)</span><span id="pet-hash">…</span></div>
+  <div class="stat"><span>Campaign total (API)</span><span id="api-total">—</span></div>
+  <div class="stat"><span>Signatures on this device</span><span id="sig-count">0</span></div>
+  <div class="stat"><span>Jurisdiction</span><span>Canada (CA) · federal campaign</span></div>
+  <div class="stat"><span>Merkle root (this device)</span><span id="merkle">—</span></div>
+  <div class="stat"><span>Methods used (this device)</span><span id="methods">—</span></div>
 </div>
 
-<button class="btn" id="btn-merkle">Compute Merkle Root</button>
-<button class="btn" id="btn-stamp" style="background:var(--bg3);color:var(--em2);border:1px solid var(--border)">Stamp on Bitcoin (Satohash)</button>
+<button class="btn" id="btn-merkle"><i class="fas fa-project-diagram"></i> Compute merkle root</button>
+<button class="btn btn-ghost" id="btn-stamp"><i class="fas fa-bitcoin"></i> Stamp on Bitcoin (Satohash)</button>
+<button class="btn btn-ghost" id="btn-copy-hash"><i class="fas fa-copy"></i> Copy full petition hash</button>
 
-<div class="card" style="font-family:var(--sans);font-size:.85rem">
-  <h2 style="font-size:1rem;color:var(--em)">Satohash Template</h2>
-  <p>Ready for submission to <a href="https://satohash.io/templates/">satohash.io/templates</a> when robust:</p>
+<h2>How verification works</h2>
+<div class="card how">
+  <ol>
+    <li><strong>Petition hash</strong> — SHA-256 of the canonical campaign prayer text. Same text → same hash for everyone.</li>
+    <li><strong>Receipt hash</strong> — each campaign sign produces a local SHA-256 receipt (optional sync of hash + province + method only).</li>
+    <li><strong>Merkle root</strong> — combine this device’s receipts into one root; stamp via Satohash / OpenTimestamps on Bitcoin.</li>
+    <li><strong>Not Parliamentary proof</strong> — official e-petition signatures live only on ourcommons.ca after MP authorization.</li>
+  </ol>
+</div>
+
+<h2>Satohash template</h2>
+<div class="card" style="font-size:.85rem">
+  <p>Ready for <a href="https://satohash.io/templates/">satohash.io/templates</a>:</p>
   <p><a href="/data/satohash-templates/sherpacarta-canada-referendum.json">sherpacarta-canada-referendum-v1.json</a></p>
-  <p style="font-size:.75rem;color:var(--text3)">Supports: moral · SHA-256 · passkey · Nostr · Ed25519 · OpenTimestamps · future EU eIDAS expansion</p>
+  <p style="font-size:.75rem;color:var(--text3);margin:0">Supports moral · SHA-256 · passkey · Nostr · Ed25519 · OpenTimestamps</p>
 </div>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-<script src="/js/sc-petition-canada.js"></script>
+<p style="margin-top:1.5rem">
+  <a class="btn" href="/canada/sign.html">Sign campaign</a>
+  <a class="btn btn-ghost" href="/canada/paper.html">Print federal sheet</a>
+</p>
+
+<script src="/js/sc-petition-canada.js?v=724"></script>
 <script>
-(async()=>{
-  const h=await SHERPA_PETITION.getPetitionHash();
-  document.getElementById('pet-hash').textContent=h.slice(0,20)+'…';
-  const s=SHERPA_PETITION.getStats();
-  document.getElementById('sig-count').textContent=s.total;
-  document.getElementById('merkle').textContent=s.merkleRoot?s.merkleRoot.slice(0,20)+'…':'—';
-  document.getElementById('methods').textContent=s.methods.join(', ')||'moral';
+let fullHash = '';
+(async () => {
+  fullHash = await SHERPA_PETITION.getPetitionHash();
+  document.getElementById('pet-hash').textContent = fullHash.slice(0, 24) + '…';
+  const s = SHERPA_PETITION.getStats();
+  document.getElementById('sig-count').textContent = s.total;
+  document.getElementById('merkle').textContent = s.merkleRoot ? s.merkleRoot.slice(0, 24) + '…' : '—';
+  document.getElementById('methods').textContent = (s.methods && s.methods.length) ? s.methods.join(', ') : '—';
+  const remote = await SHERPA_PETITION.fetchRemoteStats();
+  if (remote && typeof remote.total === 'number') {
+    document.getElementById('api-total').textContent = remote.total.toLocaleString() + ' commitments';
+  }
 })();
-document.getElementById('btn-merkle').onclick=async()=>{
-  const r=await SHERPA_PETITION.computeMerkleRoot();
-  document.getElementById('merkle').textContent=r?r.slice(0,20)+'…':'—';
-  alert(r?'Merkle root computed':'No signatures yet');
+document.getElementById('btn-merkle').onclick = async () => {
+  const r = await SHERPA_PETITION.computeMerkleRoot();
+  document.getElementById('merkle').textContent = r ? r.slice(0, 24) + '…' : '—';
+  alert(r ? 'Merkle root computed for this device' : 'No local signatures yet — sign first');
 };
-document.getElementById('btn-stamp').onclick=()=>SHERPA_PETITION.stampOnSatohash();
+document.getElementById('btn-stamp').onclick = () => SHERPA_PETITION.stampOnSatohash();
+document.getElementById('btn-copy-hash').onclick = () => {
+  if (!fullHash) return;
+  navigator.clipboard.writeText(fullHash).then(() => alert('Petition hash copied'));
+};
 </script>
 </body>
 </html>

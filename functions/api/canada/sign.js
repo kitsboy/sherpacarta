@@ -84,7 +84,7 @@ export async function onRequest(context) {
     await env.PETITION_KV.put('stats:v1', JSON.stringify(stats));
 
     // optional recent list (no PII beyond optional displayName)
-    if (displayName) {
+    if (displayName && !/^test|testcam|demo|asdf|xxx|foo\b/i.test(displayName)) {
       const recentRaw = await env.PETITION_KV.get('recent:v1');
       const recent = recentRaw ? JSON.parse(recentRaw) : [];
       recent.unshift({ id, displayName, province, method, ts });

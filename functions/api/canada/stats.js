@@ -26,13 +26,19 @@ export async function onRequest(context) {
     const statsRaw = await env.PETITION_KV.get('stats:v1');
     const recentRaw = await env.PETITION_KV.get('recent:v1');
     const stats = statsRaw ? JSON.parse(statsRaw) : { total: 0, byProvince: {}, byMethod: {} };
-    const recent = recentRaw ? JSON.parse(recentRaw) : [];
+    const recent = (recentRaw ? JSON.parse(recentRaw) : []).filter((r) => {
+      const n = (r.displayName || '').toLowerCase();
+      if (!n) return false;
+      if (/^test|testcam|demo|asdf|xxx|foo\b/.test(n)) return false;
+      return true;
+    });
     return json({
       track: 'campaign',
       legalNote: 'These are SherpaCarta campaign commitments, not House of Commons e-petition signatures.',
       total: stats.total || 0,
       byProvince: stats.byProvince || {},
       byMethod: stats.byMethod || {},
+      paperBatches: stats.paperBatches || 0,
       recent: recent.slice(0, 20),
       updated: stats.updated || null,
       store: 'kv',

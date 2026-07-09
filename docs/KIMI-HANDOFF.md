@@ -4,6 +4,31 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-09 (Canada petition finish)
+
+**Machine:** M3 (Grok 4.5)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] Dual-track Canada petition v2 (campaign API + paper + official bridge)
+- [x] Federal-only paper sheet (no BC tab; all provinces count federally)
+- [x] QR join landing, organizer paper-batch API, hub heatmap/recent wall
+- [x] Sign confetti/SMS share, proof redesign, official MP checklist
+- [x] PETITION_KV bound; `/api/canada/sign|stats|batch`
+
+### Cam still needs
+
+- [ ] MP to authorize federal e-petition → set e-### in campaign-canada.json
+- [ ] Print sheets + field collection
+- [ ] 5 supporters for e-petition creation
+
+### Git
+
+- Branch: main · see latest commits after deploy
+
+---
+
 ## Handoff to Kimi — 2026-07-09 (Design Sprint BUILD 720)
 
 **Machine:** M3 (Grok 4.5)  

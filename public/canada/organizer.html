@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-CA" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizer tools — SherpaCarta Canada</title>
+<meta name="description" content="Log paper petition batches, print federal sheets, MP outreach. For field organizers.">
+<link rel="canonical" href="https://sherpacarta.org/canada/organizer.html">
+<link rel="stylesheet" href="/fonts/fonts.css?v=724">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=724">
+<link rel="stylesheet" href="/sc-main.css?v=724">
+<style>
+  body{max-width:640px;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7}
+  h1{font-family:var(--serif);color:var(--em2);font-size:2rem}
+  h2{font-size:.95rem;color:var(--em);font-family:var(--mono);letter-spacing:.08em;text-transform:uppercase;margin:1.75rem 0 .75rem}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin:1rem 0}
+  label{display:block;font-family:var(--mono);font-size:.6rem;color:var(--text3);letter-spacing:.08em;margin:.65rem 0 .3rem;text-transform:uppercase}
+  input,select{width:100%;padding:.7rem .9rem;background:var(--bg3);border:1px solid var(--border2);border-radius:.75rem;color:var(--text);font-size:.9rem;box-sizing:border-box}
+  .btn{display:inline-flex;gap:.4rem;padding:.7rem 1.15rem;background:var(--em);color:#041208;border-radius:100px;border:none;font-weight:700;cursor:pointer;margin-top:.75rem;min-height:44px;align-items:center;font-family:var(--sans);text-decoration:none}
+  .btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--em2)}
+  .check{display:flex;gap:.5rem;align-items:flex-start;font-size:.82rem;color:var(--text2);margin:.75rem 0}
+  .note{font-size:.78rem;color:var(--text3);margin-top:.75rem;line-height:1.55}
+  a{color:var(--em2)}
+  #result{font-family:var(--mono);font-size:.75rem;color:var(--em);margin-top:.75rem;display:none}
+</style>
+</head>
+<body>
+<p><a href="/canada/">← Canada hub</a></p>
+<h1>Organizer tools</h1>
+<p style="color:var(--text2);font-size:.9rem">Field kit for people collecting <strong>federal paper sheets</strong> or running town halls. Paper batch logs are <em>campaign aggregates</em> — they do not replace an MP presenting original sheets.</p>
+
+<h2>Quick links</h2>
+<div class="card" style="display:flex;flex-wrap:wrap;gap:.5rem">
+  <a class="btn" href="/canada/paper.html"><i class="fas fa-print"></i> Print federal sheet</a>
+  <a class="btn btn-ghost" href="/canada/join"><i class="fas fa-qrcode"></i> QR landing</a>
+  <a class="btn btn-ghost" href="/canada/official.html"><i class="fas fa-landmark"></i> MP path</a>
+  <a class="btn btn-ghost" href="/bc/town-hall-kit.html"><i class="fas fa-people-group"></i> Town hall kit</a>
+</div>
+
+<h2>Log a paper batch</h2>
+<div class="card">
+  <p class="note" style="margin-top:0">After a clipboards event, log how many <strong>wet signatures</strong> you collected. We store count + province + optional event label only — not the names from the sheets (you keep the paper).</p>
+  <label for="count">Signatures collected</label>
+  <input id="count" type="number" min="1" max="500" value="12" inputmode="numeric">
+  <label for="province">Primary province of event</label>
+  <select id="province"></select>
+  <label for="event">Event label (optional)</label>
+  <input id="event" type="text" maxlength="80" placeholder="e.g. Vancouver library table · Sat">
+  <label class="check">
+    <input type="checkbox" id="attest">
+    <span>I confirm these are original ink signatures on federal petition sheets, collected in good faith from people who appeared to be Canadian citizens or residents.</span>
+  </label>
+  <button type="button" class="btn" id="btn-log"><i class="fas fa-cloud-arrow-up"></i> Log batch to campaign total</button>
+  <div id="result"></div>
+  <p class="note">Still present the physical sheets via an MP for Parliamentary effect. This log only strengthens the public campaign counter.</p>
+</div>
+
+<h2>Clipboard script (30 seconds)</h2>
+<div class="card" style="font-size:.88rem;color:var(--text2)">
+  <p>“Hi — we’re collecting a federal petition to modernize digital privacy rights in Canada. One sheet for the whole country: if you’re in BC, Ontario, anywhere, you just write your city and province. No ID needed, any age. Ink here counts for Parliament when an MP presents it; you can also scan the QR to join the online campaign.”</p>
+</div>
+
+<script src="/js/sc-petition-canada.js?v=724"></script>
+<script>
+const sel = document.getElementById('province');
+SHERPA_PETITION.PROVINCES.forEach((p) => {
+  const o = document.createElement('option');
+  o.value = p.code; o.textContent = p.name;
+  sel.appendChild(o);
+});
+sel.value = 'BC';
+
+document.getElementById('btn-log').onclick = async () => {
+  const count = parseInt(document.getElementById('count').value, 10);
+  const province = sel.value;
+  const event = document.getElementById('event').value.trim();
+  const attestation = document.getElementById('attest').checked;
+  const out = document.getElementById('result');
+  out.style.display = 'block';
+  if (!attestation) { out.textContent = 'Please confirm the attestation.'; return; }
+  if (!count || count < 1) { out.textContent = 'Enter a valid count.'; return; }
+  try {
+    const res = await fetch('/api/canada/batch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ count, province, event, attestation: true }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      out.textContent = data.error || 'Failed — API may be offline';
+      // local fallback log
+      const key = 'sc_paper_batches';
+      const list = JSON.parse(localStorage.getItem(key) || '[]');
+      list.push({ count, province, event, ts: Date.now() });
+      localStorage.setItem(key, JSON.stringify(list));
+      out.textContent += ' · Saved locally on this device as backup.';
+      return;
+    }
+    out.textContent = `Logged ${data.count} · campaign total now ${data.total} · id ${data.id}`;
+  } catch (e) {
+    out.textContent = 'Network error: ' + (e.message || e);
+  }
+};
+</script>
+</body>
+</html>

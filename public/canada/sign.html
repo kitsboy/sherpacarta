@@ -10,11 +10,17 @@
 <meta property="og:description" content="Campaign commitment for digital rights in Canada. No ID required. Official Parliament petition is separate when live.">
 <meta property="og:image" content="https://sherpacarta.org/og-image.png">
 <meta name="theme-color" content="#050806">
-<link rel="stylesheet" href="/fonts/fonts.css?v=721">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=721">
-<link rel="stylesheet" href="/sc-main.css?v=721">
+<link rel="stylesheet" href="/fonts/fonts.css?v=724">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=724">
+<link rel="stylesheet" href="/sc-main.css?v=724">
 <style>
   body.ca-sign{max-width:560px;margin:0 auto;padding:1.5rem 1.15rem 4rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.65}
+  details.ca-card summary{cursor:pointer;list-style:none;font-family:var(--mono);font-size:.85rem;color:var(--em);letter-spacing:.06em;text-transform:uppercase}
+  details.ca-card summary::-webkit-details-marker{display:none}
+  details.ca-card[open] summary{margin-bottom:.75rem}
+  .confetti-bit{position:fixed;width:8px;height:10px;top:-12px;z-index:9999;pointer-events:none;animation:cf-fall 2.2s ease-in forwards}
+  @keyframes cf-fall{to{transform:translateY(100vh) rotate(720deg);opacity:0}}
+  .hint{font-size:.7rem;color:var(--text3);margin-top:.35rem;min-height:1em}
   .ca-sign h1{font-family:var(--serif);font-size:clamp(1.75rem,5vw,2.25rem);color:var(--em2);letter-spacing:-.02em;margin:.35rem 0}
   .ca-badge{display:inline-block;font-family:var(--mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--border-gold,rgba(212,175,55,.35));padding:.25rem .6rem;border-radius:100px}
   .ca-card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin:1rem 0}
@@ -92,15 +98,15 @@
     <p class="ca-note" style="margin-top:.75rem;margin-bottom:0">Stored as a SHA-256 receipt. Optionally synced to our privacy-first campaign total (hash + province + method only).</p>
   </div>
 
-  <div class="ca-card" id="step-proof" style="opacity:.55;pointer-events:none">
-    <h2>Add cryptographic proof (optional)</h2>
-    <p class="ca-note">Still campaign-only. Strengthens your receipt.</p>
+  <details class="ca-card" id="step-proof">
+    <summary><i class="fas fa-shield-halved"></i> Make it stronger (optional crypto)</summary>
+    <p class="ca-note">Still campaign-only. Passkey, Nostr, or device key strengthens your receipt.</p>
     <div class="row-btns">
       <button type="button" class="btn-block btn-sub" id="btn-passkey"><i class="fas fa-fingerprint"></i> Passkey / Face ID</button>
       <button type="button" class="btn-block btn-sub" id="btn-nostr"><i class="fas fa-user-secret"></i> Nostr (public optional)</button>
       <button type="button" class="btn-block btn-sub" id="btn-ed25519"><i class="fas fa-key"></i> Anonymous device key</button>
     </div>
-  </div>
+  </details>
 
   <div class="ca-card" id="step-official">
     <h2>Make it count officially</h2>
@@ -112,9 +118,11 @@
   <div class="receipt" id="receipt" role="status" aria-live="polite"></div>
   <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem">
     <button type="button" class="btn-block btn-sub" id="btn-share" style="display:none;width:auto;flex:1"><i class="fas fa-share-nodes"></i> Share</button>
+    <a class="btn-block btn-sub" id="btn-sms" style="display:none;width:auto;flex:1;text-decoration:none" href="#"><i class="fas fa-comment-sms"></i> Text a friend</a>
     <button type="button" class="btn-block btn-sub" id="btn-dl" style="display:none;width:auto;flex:1"><i class="fas fa-download"></i> Receipt JSON</button>
     <button type="button" class="btn-block btn-sub" id="btn-stamp" style="width:auto;flex:1"><i class="fas fa-stamp"></i> Stamp Bitcoin</button>
   </div>
+  <p class="hint" id="form-hint">Enter name, province, and check the citizenship box to unlock Sign.</p>
 
   <p style="margin-top:2rem;font-size:.72rem;color:var(--text3)">
     <span class="status-pill" id="api-pill">API…</span>
@@ -123,7 +131,7 @@
     · Local on this device: <strong id="local-n">0</strong>
   </p>
 
-<script src="/js/sc-petition-canada.js?v=721"></script>
+<script src="/js/sc-petition-canada.js?v=724"></script>
 <script>
 (function(){
   const $ = (id) => document.getElementById(id);
@@ -134,7 +142,11 @@
     o.value = p.code; o.textContent = p.name;
     provSel.appendChild(o);
   });
-  // default BC if path suggests
+  // Soft BC default only when referred from BC paths (optional prefill)
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    if (/Vancouver|Whitehorse/.test(tz) && !provSel.value) provSel.value = 'BC';
+  } catch (_) {}
   if (location.search.includes('province=BC') || document.referrer.includes('/bc')) provSel.value = 'BC';
 
   function opts() {
@@ -146,14 +158,27 @@
     };
   }
 
-  function unlockProof() {
-    const el = $('step-proof');
-    el.style.opacity = '1';
-    el.style.pointerEvents = 'auto';
-    $('s2').classList.add('on');
+  function confetti() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const colors = ['#10b981', '#d4af37', '#34d399', '#fff', '#6ee7b7'];
+    for (let i = 0; i < 36; i++) {
+      const el = document.createElement('div');
+      el.className = 'confetti-bit';
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.background = colors[i % colors.length];
+      el.style.animationDelay = (Math.random() * 0.4) + 's';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 2400);
+    }
   }
 
-  function showReceipt(sig, extra) {
+  function unlockProof() {
+    $('s2').classList.add('on');
+    const d = $('step-proof');
+    if (d && !d.open) d.open = true;
+  }
+
+  function showReceipt(sig, extra, celebrate) {
     lastSig = sig;
     const r = $('receipt');
     r.classList.add('open');
@@ -169,22 +194,35 @@
       <a href="/canada/proof.html">Proof page →</a>`;
     $('btn-share').style.display = 'inline-flex';
     $('btn-dl').style.display = 'inline-flex';
+    const sms = $('btn-sms');
+    sms.style.display = 'inline-flex';
+    const msg = encodeURIComponent(SHERPA_PETITION.shareText(sig));
+    sms.href = 'sms:?&body=' + msg;
     $('s3').classList.add('on');
     unlockProof();
     $('local-n').textContent = SHERPA_PETITION.getStats().total;
+    if (celebrate) confetti();
   }
 
   function refreshBtn() {
-    $('btn-sign').disabled = !($('attest').checked && $('name').value.trim() && provSel.value);
+    const ok = $('attest').checked && $('name').value.trim() && provSel.value;
+    $('btn-sign').disabled = !ok;
+    const h = $('form-hint');
+    if (!h) return;
+    if (ok) h.textContent = 'Ready — your campaign commitment stays private by default.';
+    else if (!$('name').value.trim()) h.textContent = 'Enter a name or pseudonym.';
+    else if (!provSel.value) h.textContent = 'Select your province or territory.';
+    else h.textContent = 'Confirm you are a Canadian citizen or resident.';
   }
   $('attest').onchange = refreshBtn;
   $('name').oninput = refreshBtn;
   provSel.onchange = refreshBtn;
+  setTimeout(() => $('name').focus(), 200);
 
   $('btn-sign').onclick = async () => {
     try {
       const r = await SHERPA_PETITION.signMoral($('name').value, opts());
-      showReceipt(r.signature, r);
+      showReceipt(r.signature, r, !r.duplicate);
       if (r.duplicate) alert('Already signed on this device with this name/province.');
     } catch (e) {
       alert(e.message || 'Sign failed');
