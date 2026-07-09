@@ -1,6 +1,6 @@
-const CACHE = 'sherpacarta-v5.8';
+const CACHE = 'sherpacarta-v5.9';
 const ASSETS = [
-  '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
+  '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html', '/briefing.html',
   '/report/2026-report.html', '/status.html', '/accessibility.html',
   '/treasury.html', '/security.html',
   '/canada/index.html', '/canada/sign.html', '/canada/proof.html', '/canada/about.html', '/canada/bc/index.html',
