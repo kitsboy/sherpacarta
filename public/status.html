@@ -1,51 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SherpaCarta Status</title>
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
+<title>System Status — SherpaCarta</title>
+<meta name="description" content="Live connectivity checks for SherpaCarta pages, APIs, charter hash, Canada petition, and funding rails. Zero tracking.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SherpaCarta">
-<meta property="og:locale" content="en_CA">
-<meta property="og:url" content="https://sherpacarta.org/status.html">
+<meta property="og:url" content="https://sherpacarta.org/status">
 <meta property="og:title" content="Status — SherpaCarta">
-<meta property="og:description" content="Service status for the SherpaCarta Global Digital Magna Carta.">
-<meta property="og:image" content="https://sherpacarta.org/og/default.png?v=724">
-<meta property="og:image:secure_url" content="https://sherpacarta.org/og/default.png?v=724">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Status — SherpaCarta">
+<meta property="og:description" content="Live service checks for the Global Digital Magna Carta.">
+<meta property="og:image" content="https://sherpacarta.org/og/default.png?v=731">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@give_bit">
-<meta name="twitter:creator" content="@give_bit">
-<meta name="twitter:url" content="https://sherpacarta.org/status.html">
 <meta name="twitter:title" content="Status — SherpaCarta">
-<meta name="twitter:description" content="Service status for the SherpaCarta Global Digital Magna Carta.">
-<meta name="twitter:image" content="https://sherpacarta.org/og/default.png?v=724">
-<meta name="twitter:image:alt" content="Status — SherpaCarta">
-<meta name="description" content="Service status for the SherpaCarta Global Digital Magna Carta.">
-<!-- ═══ /SOCIAL PREVIEW META ═══ -->
-<link rel="canonical" href="https://sherpacarta.org/status.html">
+<meta name="twitter:image" content="https://sherpacarta.org/og/default.png?v=731">
+<link rel="canonical" href="https://sherpacarta.org/status">
+<meta name="theme-color" content="#050806">
+<link rel="stylesheet" href="/fonts/fonts.css?v=731">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=731">
+<link rel="stylesheet" href="/sc-main.css?v=731">
 <style>
-  body{font-family:system-ui,sans-serif;max-width:560px;margin:2rem auto;padding:1rem;background:#060a06;color:#e8ede8;line-height:1.6}
-  h1{color:#10b981;font-size:1.5rem}
-  .ok{color:#10b981}.warn{color:#d4af37}
-  a{color:#34d399}
+  body.st{max-width:640px;margin:0 auto;padding:1.5rem 1.15rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+  .st h1{font-family:var(--serif);color:var(--em2);font-size:clamp(1.6rem,4vw,2rem);margin:.25rem 0 .5rem}
+  .st a{color:var(--em2)}
+  .nav-mini{font-size:.85rem;margin-bottom:1rem}
+  #main-status{font-family:var(--mono);font-size:.85rem;padding:.75rem 1rem;border-radius:.75rem;border:1px solid var(--border);margin:1rem 0 1.5rem}
+  #main-status.ok{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.06)}
+  #main-status.warn{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.06)}
+  #main-status.bad{border-color:#ef4444;color:#f87171;background:rgba(239,68,68,.08)}
+  .row{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--border);font-size:.85rem}
+  .row:last-child{border:none}
+  .label{color:var(--text2)}
+  .dot{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;white-space:nowrap}
+  .dot.ok{color:var(--em)}.dot.warn{color:var(--gold)}.dot.bad{color:#f87171}.dot.skip{color:var(--text3)}
+  .meta{font-size:.72rem;color:var(--text3);margin-top:1.5rem;line-height:1.55}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1rem 1.15rem;margin-bottom:1rem}
+  .card h2{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em);margin:0 0 .75rem}
 </style>
 </head>
-<body>
-  <h1>SherpaCarta Status</h1>
-  <p><a href="/">← sherpacarta.org</a></p>
-  <p id="main-status" class="ok">● All systems operational</p>
-  <ul>
-    <li>CDN / Cloudflare Pages — <span class="ok">operational</span></li>
-    <li>Static API — <span class="ok">operational</span></li>
-    <li>Nostr relays — <span class="warn">third-party</span></li>
-    <li>Lightning donations — <span class="warn">BTC live · LN pending</span></li>
-  </ul>
-  <p style="font-size:.8rem;color:#5a6a5a">Last checked: <span id="ts"></span>. Zero server-side tracking.</p>
-  <script>document.getElementById('ts').textContent=new Date().toISOString();fetch('/api/v1/hash.json').then(r=>r.ok?null:Promise.reject()).catch(()=>{document.getElementById('main-status').className='warn';document.getElementById('main-status').textContent='● API check failed — site may be updating'});</script>
+<body class="st">
+  <p class="nav-mini"><a href="/">← Home</a> · <a href="/treasury">Treasury</a> · <a href="/jurisdictions">Jurisdictions</a></p>
+  <h1><i class="fas fa-heart-pulse" style="color:var(--em)"></i> System status</h1>
+  <p style="color:var(--text2);font-size:.9rem">Live checks from your browser. No cookies. No analytics. Third-party services noted honestly.</p>
+  <div id="main-status" class="warn">● Running checks…</div>
+
+  <div class="card">
+    <h2>Core site</h2>
+    <div id="core-rows"></div>
+  </div>
+  <div class="card">
+    <h2>Canada petition</h2>
+    <div id="ca-rows"></div>
+  </div>
+  <div class="card">
+    <h2>Funding &amp; identity rails</h2>
+    <div id="fund-rows"></div>
+  </div>
+
+  <p class="meta">Checked at <span id="ts">—</span>. Refresh to re-run. Lightning and Silent Payments stay <strong>pending</strong> until Cam configures live wallets. NIP-05 lives on <strong>giveabit.io</strong> (parent domain).</p>
+
+<script>
+const checks = {
+  core: [
+    { id: 'home', label: 'Home', url: '/', expect: 'html' },
+    { id: 'css', label: 'Main CSS', url: '/sc-main.css', expect: 'text' },
+    { id: 'corejs', label: 'sc-core.js', url: '/sc-core.js', expect: 'text' },
+    { id: 'bundle', label: 'sc-bundle.js', url: '/sc-bundle.js', expect: 'text' },
+    { id: 'hash', label: 'Charter hash API', url: '/api/v1/hash.json', expect: 'json' },
+    { id: 'charter', label: 'Charter JSON', url: '/api/v1/charter.json', expect: 'json' },
+    { id: 'fonts', label: 'Self-hosted fonts', url: '/fonts/fonts.css', expect: 'text' },
+  ],
+  ca: [
+    { id: 'sign', label: 'Canada sign page', url: '/canada/sign', expect: 'html' },
+    { id: 'stats', label: 'Campaign stats API', url: '/api/canada/stats', expect: 'json' },
+    { id: 'campaign', label: 'Campaign config', url: '/data/campaign-canada.json', expect: 'json' },
+    { id: 'paper', label: 'Federal paper page', url: '/canada/paper', expect: 'html' },
+  ],
+  fund: [
+    { id: 'wallets', label: 'Wallets registry', url: '/data/wallets.json', expect: 'json' },
+    { id: 'treasury', label: 'Treasury page', url: '/treasury', expect: 'html' },
+    { id: 'jdx', label: 'Jurisdictions map', url: '/data/jurisdictions.json', expect: 'json' },
+    { id: 'nip05', label: 'NIP-05 (giveabit.io)', url: 'https://giveabit.io/.well-known/nostr.json?name=kimi', expect: 'json', external: true },
+    { id: 'mempool', label: 'On-chain explorer API', url: null, expect: 'mempool', external: true },
+  ],
+};
+
+function row(label, state, detail) {
+  return `<div class="row"><span class="label">${label}</span><span class="dot ${state}">${detail}</span></div>`;
+}
+
+async function probe(c) {
+  const t0 = performance.now();
+  try {
+    if (c.expect === 'mempool') {
+      const w = await fetch('/data/wallets.json').then((r) => r.json());
+      const addr = w.bitcoin?.address;
+      if (!addr) return { state: 'warn', detail: 'NO BTC ADDR' };
+      const r = await fetch(`https://mempool.space/api/address/${addr}`);
+      if (!r.ok) return { state: 'warn', detail: `MEMPOOL ${r.status}` };
+      const j = await r.json();
+      const bal = ((j.chain_stats?.funded_txo_sum || 0) - (j.chain_stats?.spent_txo_sum || 0)) / 1e8;
+      return { state: 'ok', detail: `OK · ${bal.toFixed(8)} BTC` };
+    }
+    const r = await fetch(c.url, { cache: 'no-cache', mode: c.external ? 'cors' : 'same-origin' });
+    const ms = Math.round(performance.now() - t0);
+    if (!r.ok) return { state: 'bad', detail: `HTTP ${r.status}` };
+    if (c.expect === 'json') {
+      const j = await r.json();
+      if (c.id === 'wallets') {
+        const ln = j.lightning?.status || '?';
+        const btc = j.bitcoin?.status || '?';
+        return { state: ln === 'live' ? 'ok' : 'warn', detail: `BTC ${btc} · LN ${ln} · ${ms}ms` };
+      }
+      if (c.id === 'stats') {
+        return { state: 'ok', detail: `OK · ${j.total ?? '—'} campaign · ${ms}ms` };
+      }
+      if (c.id === 'nip05') {
+        const names = j.names || {};
+        return names.kimi ? { state: 'ok', detail: `OK · kimi mapped · ${ms}ms` } : { state: 'warn', detail: 'JSON ok, kimi missing' };
+      }
+      return { state: 'ok', detail: `OK · ${ms}ms` };
+    }
+    const text = await r.text();
+    if (text.length < 20) return { state: 'warn', detail: `thin · ${ms}ms` };
+    return { state: 'ok', detail: `OK · ${ms}ms` };
+  } catch (e) {
+    return { state: c.external ? 'warn' : 'bad', detail: c.external ? 'THIRD-PARTY FAIL' : 'FAIL' };
+  }
+}
+
+async function runGroup(key, elId) {
+  const el = document.getElementById(elId);
+  const list = checks[key];
+  el.innerHTML = list.map((c) => row(c.label, 'skip', '…')).join('');
+  const results = [];
+  for (let i = 0; i < list.length; i++) {
+    const c = list[i];
+    const res = await probe(c);
+    results.push(res);
+    // re-render progressive
+    let html = '';
+    for (let j = 0; j <= i; j++) {
+      html += row(list[j].label, results[j].state, results[j].detail);
+    }
+    for (let j = i + 1; j < list.length; j++) {
+      html += row(list[j].label, 'skip', '…');
+    }
+    el.innerHTML = html;
+  }
+  return results;
+}
+
+(async function () {
+  document.getElementById('ts').textContent = new Date().toISOString();
+  const all = [
+    ...(await runGroup('core', 'core-rows')),
+    ...(await runGroup('ca', 'ca-rows')),
+    ...(await runGroup('fund', 'fund-rows')),
+  ];
+  const bad = all.filter((r) => r.state === 'bad').length;
+  const warn = all.filter((r) => r.state === 'warn').length;
+  const main = document.getElementById('main-status');
+  if (bad) {
+    main.className = 'bad';
+    main.textContent = `● ${bad} critical failure(s) · ${warn} warning(s)`;
+  } else if (warn) {
+    main.className = 'warn';
+    main.textContent = `● Core operational · ${warn} expected warning(s) (Lightning pending / third-party)`;
+  } else {
+    main.className = 'ok';
+    main.textContent = '● All checks passed';
+  }
+})();
+</script>
 </body>
 </html>

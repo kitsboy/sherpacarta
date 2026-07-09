@@ -3,77 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Treasury Dashboard — SherpaCarta</title>
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
+<title>Treasury — Transparent Bitcoin Funding — SherpaCarta</title>
+<meta name="description" content="Bitcoin-funded only. Live on-chain transparency. Lightning pending. No VC, no ads, no government grants.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SherpaCarta">
-<meta property="og:locale" content="en_CA">
-<meta property="og:url" content="https://sherpacarta.org/treasury.html">
+<meta property="og:url" content="https://sherpacarta.org/treasury">
 <meta property="og:title" content="Treasury — SherpaCarta">
-<meta property="og:description" content="Bitcoin-funded only. Live on-chain transparency. No VC, no ads, no government grants. Fund digital human rights.">
-<meta property="og:image" content="https://sherpacarta.org/og/treasury.png?v=724">
-<meta property="og:image:secure_url" content="https://sherpacarta.org/og/treasury.png?v=724">
-<meta property="og:image:type" content="image/png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Treasury — SherpaCarta">
+<meta property="og:description" content="Bitcoin-funded only. Live on-chain transparency. No VC, no ads, no government grants.">
+<meta property="og:image" content="https://sherpacarta.org/og/treasury.png?v=731">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@give_bit">
-<meta name="twitter:creator" content="@give_bit">
-<meta name="twitter:url" content="https://sherpacarta.org/treasury.html">
 <meta name="twitter:title" content="Treasury — SherpaCarta">
-<meta name="twitter:description" content="Bitcoin-funded only. Live on-chain transparency. No VC, no ads, no government grants. Fund digital human rights.">
-<meta name="twitter:image" content="https://sherpacarta.org/og/treasury.png?v=724">
-<meta name="twitter:image:alt" content="Treasury — SherpaCarta">
-<meta name="description" content="Bitcoin-funded only. Live on-chain transparency. No VC, no ads, no government grants. Fund digital human rights.">
-<!-- ═══ /SOCIAL PREVIEW META ═══ -->
-<link rel="canonical" href="https://sherpacarta.org/treasury.html">
-<link rel="stylesheet" href="/sc-main.css?v=647">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<meta name="twitter:image" content="https://sherpacarta.org/og/treasury.png?v=731">
+<link rel="canonical" href="https://sherpacarta.org/treasury">
+<meta name="theme-color" content="#050806">
+<link rel="stylesheet" href="/fonts/fonts.css?v=731">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=731">
+<link rel="stylesheet" href="/sc-main.css?v=731">
 <style>
-body{max-width:720px;margin:0 auto;padding:2rem 1.5rem;font-family:var(--sans);background:var(--bg);color:var(--text)}
-h1{font-family:var(--serif);color:var(--em2);font-size:2rem;margin-bottom:.25rem}
-.sub{font-family:var(--mono);font-size:.7rem;color:var(--text3);margin-bottom:2rem}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin-bottom:1rem}
-.stat{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.8rem}
+body.tr{max-width:720px;margin:0 auto;padding:1.5rem 1.15rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
+.tr h1{font-family:var(--serif);color:var(--em2);font-size:clamp(1.75rem,4vw,2.15rem);margin:.25rem 0}
+.sub{font-family:var(--mono);font-size:.68rem;color:var(--text3);letter-spacing:.08em;margin-bottom:1.5rem}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin-bottom:1rem}
+.stat{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.8rem}
 .stat:last-child{border:none}
-.stat span:last-child{color:var(--em)}
+.stat span:last-child{color:var(--em);text-align:right}
 .addr{font-size:.65rem;word-break:break-all;color:var(--text2)}
-.tx-list{margin-top:1rem;font-size:.75rem}
-.tx-item{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.tx-list{margin-top:.5rem;font-size:.78rem}
+.tx-item{padding:.55rem 0;border-bottom:1px solid var(--border)}
+.tx-item:last-child{border:none}
 a{color:var(--em2)}
-.note{font-size:.7rem;color:var(--text3);margin-top:2rem;line-height:1.6}
-.back{display:inline-block;margin-bottom:1.5rem;color:var(--em2);font-size:.85rem}
+.note{font-size:.75rem;color:var(--text3);margin-top:1.25rem;line-height:1.65}
+.back{display:inline-block;margin-bottom:1.25rem;font-size:.85rem}
+.rails{display:grid;gap:.65rem;margin-top:.5rem}
+.rail{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.65rem .85rem;border-radius:.75rem;border:1px solid var(--border2);background:var(--bg3);font-size:.82rem}
+.rail .tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;border-radius:100px;border:1px solid var(--border2)}
+.rail .tag.live{color:var(--em);border-color:var(--em)}
+.rail .tag.pend{color:var(--gold);border-color:var(--gold)}
+.rail .tag.plan{color:var(--text3)}
+.btns{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.btns a,.btns button{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1rem;border-radius:100px;border:1px solid var(--border2);background:var(--bg3);color:var(--em2);font-size:.8rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:42px;font-family:var(--sans)}
+.btns a.primary{background:linear-gradient(135deg,var(--em),var(--em2));color:#041208;border:none}
+.warn-box{font-size:.78rem;color:var(--gold);border:1px solid rgba(212,175,55,.3);background:rgba(212,175,55,.07);padding:.75rem .9rem;border-radius:.75rem;margin-top:.75rem;line-height:1.55}
 </style>
 </head>
-<body>
+<body class="tr">
 <a href="/" class="back">← SherpaCarta</a>
-<h1><i class="fas fa-scale-balanced"></i> Treasury Dashboard</h1>
-<p class="sub">Live on-chain transparency · BUILD 627</p>
+<h1><i class="fas fa-scale-balanced" style="color:var(--em)"></i> Treasury</h1>
+<p class="sub">ON-CHAIN TRANSPARENCY · BITCOIN ONLY · ZERO ADS</p>
 
 <div class="card">
   <div class="stat"><span>Balance</span><span id="bal">Loading…</span></div>
   <div class="stat"><span>Total transactions</span><span id="txs">—</span></div>
-  <div class="stat"><span>Last updated</span><span id="updated">—</span></div>
-  <div class="stat"><span>BTC address</span><span class="addr" id="addr"></span></div>
+  <div class="stat"><span>Last checked</span><span id="updated">—</span></div>
+  <div class="stat"><span>BTC address</span><span class="addr" id="addr">—</span></div>
+  <div class="btns">
+    <a class="primary" id="explorer" href="#" target="_blank" rel="noopener"><i class="fab fa-bitcoin"></i> Open mempool.space</a>
+    <button type="button" id="copy-btc"><i class="fas fa-copy"></i> Copy address</button>
+    <a href="/status"><i class="fas fa-heart-pulse"></i> System status</a>
+  </div>
 </div>
 
 <div class="card">
-  <h2 style="font-size:1rem;color:var(--em2);margin:0 0 1rem">Recent transactions</h2>
+  <h2 style="font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em);margin:0 0 .85rem">Funding rails</h2>
+  <div class="rails" id="rails">
+    <div class="rail"><span><i class="fab fa-bitcoin"></i> On-chain Bitcoin</span><span class="tag live">Live</span></div>
+    <div class="rail"><span><i class="fas fa-bolt"></i> Lightning (LNURL / address)</span><span class="tag pend">Pending</span></div>
+    <div class="rail"><span><i class="fas fa-user-secret"></i> Silent Payments (BIP-352)</span><span class="tag plan">Planned</span></div>
+  </div>
+  <div class="warn-box" id="ln-note">
+    <strong>Lightning is not live.</strong> Do not send to any TEMP placeholder on the homepage. When Cam publishes an LNURL-pay or Lightning Address, it will appear here and in <code>/data/wallets.json</code>.
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em);margin:0 0 .85rem">Recent transactions</h2>
   <div id="tx-list" class="tx-list">Loading…</div>
 </div>
 
 <p class="note">
   SherpaCarta is funded exclusively by voluntary Bitcoin donations. No VC, no ads, no grants.
-  Data fetched live from <a href="https://mempool.space" target="_blank" rel="noopener">mempool.space</a>.
-  This is not an audited financial statement — it is on-chain proof anyone can verify.
+  Data from <a href="https://mempool.space" target="_blank" rel="noopener">mempool.space</a>.
+  This is <strong>not</strong> an audited financial statement — it is on-chain proof anyone can verify.
+  Public registry: <a href="/data/wallets.json">/data/wallets.json</a> ·
+  Identity (NIP-05): <code>kimi@giveabit.io</code> on parent domain giveabit.io ·
+  <a href="/jurisdictions">Jurisdictions path</a>
 </p>
 
 <script>
-const BTC = 'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad';
-document.getElementById('addr').textContent = BTC;
+let BTC = 'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad';
+let explorer = 'https://mempool.space/address/' + BTC;
+
+async function initWallets() {
+  try {
+    const w = await fetch('/data/wallets.json', { cache: 'no-cache' }).then((r) => r.json());
+    if (w.bitcoin?.address) {
+      BTC = w.bitcoin.address;
+      explorer = w.bitcoin.explorer || ('https://mempool.space/address/' + BTC);
+    }
+    document.getElementById('addr').textContent = BTC;
+    document.getElementById('explorer').href = explorer;
+    const ln = w.lightning?.status || 'pending';
+    const sp = w.silentPayments?.status || 'planned';
+    const rails = document.getElementById('rails');
+    rails.innerHTML = `
+      <div class="rail"><span><i class="fab fa-bitcoin"></i> On-chain Bitcoin</span><span class="tag ${w.bitcoin?.status === 'live' ? 'live' : 'pend'}">${(w.bitcoin?.status || 'unknown').toUpperCase()}</span></div>
+      <div class="rail"><span><i class="fas fa-bolt"></i> Lightning</span><span class="tag ${ln === 'live' ? 'live' : 'pend'}">${ln.toUpperCase()}</span></div>
+      <div class="rail"><span><i class="fas fa-user-secret"></i> Silent Payments</span><span class="tag plan">${sp.toUpperCase()}</span></div>`;
+    if (ln === 'live' && (w.lightning?.lnurl || w.lightning?.lud16 || w.lightning?.address)) {
+      document.getElementById('ln-note').innerHTML = `<strong>Lightning live.</strong> ${w.lightning.lud16 || w.lightning.lnurl || w.lightning.address}`;
+      document.getElementById('ln-note').style.color = 'var(--em)';
+      document.getElementById('ln-note').style.borderColor = 'rgba(16,185,129,.35)';
+      document.getElementById('ln-note').style.background = 'rgba(16,185,129,.08)';
+    }
+  } catch (_) {
+    document.getElementById('addr').textContent = BTC;
+    document.getElementById('explorer').href = explorer;
+  }
+}
+
+document.getElementById('copy-btc').addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(BTC);
+    document.getElementById('copy-btc').innerHTML = '<i class="fas fa-check"></i> Copied';
+    setTimeout(() => { document.getElementById('copy-btc').innerHTML = '<i class="fas fa-copy"></i> Copy address'; }, 1600);
+  } catch (_) {}
+});
 
 async function load() {
+  await initWallets();
   try {
     const [addrRes, txsRes] = await Promise.all([
       fetch(`https://mempool.space/api/address/${BTC}`),
@@ -90,17 +147,18 @@ async function load() {
     document.getElementById('updated').textContent = new Date().toLocaleString();
     const list = document.getElementById('tx-list');
     if (!txs.length) { list.textContent = 'No transactions yet.'; return; }
-    list.innerHTML = txs.slice(0, 10).map((tx) => {
-      const sats = tx.vout?.reduce((s, o) => s + (o.value || 0), 0) || 0;
-      return `<div class="tx-item"><a href="https://mempool.space/tx/${tx.txid}" target="_blank" rel="noopener">${tx.txid.slice(0, 16)}…</a> · ${(sats/1e8).toFixed(8)} BTC · ${new Date(tx.status?.block_time * 1000 || Date.now()).toLocaleDateString()}</div>`;
+    list.innerHTML = txs.slice(0, 12).map((tx) => {
+      const val = tx.vout?.filter((o) => o.scriptpubkey_address === BTC).reduce((s, o) => s + (o.value || 0), 0)
+        || tx.vout?.reduce((s, o) => s + (o.value || 0), 0) || 0;
+      const t = tx.status?.block_time ? new Date(tx.status.block_time * 1000).toLocaleDateString() : 'mempool';
+      return `<div class="tx-item"><a href="https://mempool.space/tx/${tx.txid}" target="_blank" rel="noopener">${tx.txid.slice(0, 16)}…</a> · ${(val / 1e8).toFixed(8)} BTC · ${t}</div>`;
     }).join('');
   } catch (e) {
     document.getElementById('bal').textContent = 'Unavailable';
-    document.getElementById('tx-list').innerHTML = `<a href="https://mempool.space/address/${BTC}" target="_blank" rel="noopener">View on mempool.space →</a>`;
+    document.getElementById('tx-list').innerHTML = `<a href="${explorer}" target="_blank" rel="noopener">View on mempool.space →</a>`;
   }
 }
 load();
-setInterval(load, 120000);
 </script>
 </body>
 </html>

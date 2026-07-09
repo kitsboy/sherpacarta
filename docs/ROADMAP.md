@@ -73,11 +73,18 @@ See **[CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md)**.
 | MCP server | ✅ | `packages/sherpacarta-mcp` (stdio) |
 | npm SDK | ✅ Local | `@giveabit/sherpacarta` — publish pending |
 | Embed widget | ✅ | `embed.js` |
+| Jurisdictions map | ✅ | `/jurisdictions` + `data/jurisdictions.json` — CA live, UK/EU planned |
+| Wallets registry | ✅ | `data/wallets.json` — BTC live, LN pending, SP planned |
+| Live status probes | ✅ | `/status` browser-side checks |
 | Full charter i18n | ⏳ | UI locales exist; article bodies mostly English |
 | Dedicated locale routes | ⏳ | `/es/`, `/fr/` with hreflang |
+| UK petition path | ⏳ | After Canada traction — UK-specific legal brief |
+| EU pilot states | ⏳ | Pick 1–2 + FR/DE briefings |
 | Public signature ledger | ⏳ | Privacy-preserving aggregate counts |
 | Organization endorsement portal | ⏳ | Verified institutional signers |
 | Annual global council (Art. 114) | ⏳ | Nostr + on-chain minutes |
+| Lightning LNURL live | ⏳ | Cam provides address/LNURL |
+| Silent Payments address | ⏳ | Optional privacy-preserving donate path |
 
 ---
 

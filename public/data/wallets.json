@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "updated": "2026-07-09",
+  "org": "SherpaCarta / Give A Bit",
+  "contact": "hello@giveabit.io",
+  "bitcoin": {
+    "status": "live",
+    "network": "mainnet",
+    "address": "bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad",
+    "type": "P2WSH-or-descriptor-native-segwit",
+    "label": "SherpaCarta on-chain treasury",
+    "explorer": "https://mempool.space/address/bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad",
+    "policy": "Voluntary donations only. No VC, no ads, no government grants. Balance and txs are public on-chain."
+  },
+  "lightning": {
+    "status": "pending",
+    "address": null,
+    "lnurl": null,
+    "lud16": null,
+    "note": "Not live. Do not send. Cam must publish LNURL-pay or Lightning Address when wallet is ready."
+  },
+  "silentPayments": {
+    "status": "planned",
+    "address": null,
+    "note": "BIP-352 Silent Payments optional later for stronger donor privacy. Requires SP-capable wallet."
+  },
+  "nostr": {
+    "nip05": "kimi@giveabit.io",
+    "nip05Host": "giveabit.io",
+    "nip05Url": "https://giveabit.io/.well-known/nostr.json?name=kimi",
+    "note": "NIP-05 is verified on giveabit.io (parent), not on sherpacarta.org. Browser NIP-07 sign-in is client-side only."
+  },
+  "transparency": {
+    "treasuryPage": "/treasury",
+    "statusPage": "/status",
+    "github": "https://github.com/kitsboy/sherpacarta",
+    "audit": "Not an audited financial statement — on-chain proof anyone can verify."
+  }
+}

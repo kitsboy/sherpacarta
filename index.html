@@ -90,13 +90,12 @@
 <!-- ═══ FONTS & ICONS — self-hosted (zero third-party tracking) ═ -->
 <link rel="preload" href="/fonts/outfit-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=730">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=730">
+<link rel="stylesheet" href="/fonts/fonts.css?v=731">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=731">
 
-<link rel="stylesheet" href="/sc-main.css?v=730">
-<link rel="preload" href="/sc-core.js?v=730" as="script">
-<link rel="preload" href="/sc-bundle.js?v=730" as="script">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="/sc-main.css?v=731">
+<link rel="preload" href="/sc-core.js?v=731" as="script">
+<link rel="preload" href="/sc-bundle.js?v=731" as="script">
 </head>
 <body>
 
@@ -330,7 +329,13 @@
         <a href="/leave-behind.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file"></i> 1-page leave-behind</a>
         <a href="/canada/paper" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-print"></i> Federal paper</a>
         <a href="/canada/" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-flag"></i> Canada hub</a>
+        <a href="/jurisdictions" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-globe"></i> UK &amp; EU path</a>
       </div>
+      <p style="margin-top:1.15rem;font-size:.78rem;color:var(--text3);line-height:1.6;max-width:640px">
+        <strong style="color:var(--text2)">Global structure:</strong> Canada is the live beachhead.
+        United Kingdom and European Union are next — each with its own legal path, not copy-pasted forms.
+        <a href="/jurisdictions" style="color:var(--em2)">See the jurisdictions map →</a>
+      </p>
     </div>
   </div>
 </section>
@@ -756,9 +761,13 @@
         <div style="margin-top:1.75rem;display:flex;flex-direction:column;gap:.625rem">
           <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> 100% Open Source — all code on GitHub</div>
           <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> No tracking, no analytics, no cookies</div>
-          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> All donations published on-chain</div>
-          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> Run by volunteers across 24 countries</div>
+          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> On-chain treasury anyone can verify</div>
+          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> Lightning pending · Silent Payments planned</div>
+          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> Volunteer-built · open source · no VC</div>
         </div>
+        <p style="margin-top:1rem;font-size:.78rem"><a href="/treasury" style="color:var(--em2)"><i class="fas fa-scale-balanced"></i> Open treasury dashboard →</a>
+          · <a href="/status" style="color:var(--em2)">System status</a>
+          · <a href="/data/wallets.json" style="color:var(--em2)">wallets.json</a></p>
         <!-- SHARE IN DONATION (Feature 37) -->
         <div style="margin-top:1.75rem">
           <div style="font-family:var(--mono);font-size:.6rem;color:var(--text3);letter-spacing:.15em;margin-bottom:.625rem">OFFICIAL CHANNELS</div>
@@ -859,10 +868,12 @@
       <a href="/briefing-fr.html">Note FR (breffage)</a>
       <a href="/canada/">Canada Petition Hub</a>
       <a href="/canada/paper">Federal Paper Sheet</a>
+      <a href="/jurisdictions">Jurisdictions (CA · UK · EU)</a>
       <a href="/press-kit.html">Press Kit</a>
       <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener">Platform Roadmap</a>
       <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
-      <a href="/treasury.html">Treasury</a>
+      <a href="/treasury">Treasury</a>
+      <a href="/status">Status</a>
       <a href="/security.html">Security</a>
     </div>
   </div>
@@ -979,10 +990,10 @@
   </div>
 </div>
 
-<script src="/js/sc-petition-canada.js?v=730" defer></script>
-<script src="/js/sc-press-outlets.js?v=730" defer></script>
-<script src="/sc-core.js?v=730" defer></script>
-<script src="/sc-bundle.js?v=730" defer></script>
+<script src="/js/sc-petition-canada.js?v=731" defer></script>
+<script src="/js/sc-press-outlets.js?v=731" defer></script>
+<script src="/sc-core.js?v=731" defer></script>
+<script src="/sc-bundle.js?v=731" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

@@ -1,9 +1,10 @@
-const CACHE = 'sherpacarta-v6.1';
+const CACHE = 'sherpacarta-v6.2';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/briefing.html', '/briefing-fr.html', '/leave-behind.html',
   '/report/2026-report.html', '/status.html', '/accessibility.html',
-  '/treasury.html', '/security.html',
+  '/treasury.html', '/security.html', '/jurisdictions.html',
+  '/data/wallets.json', '/data/jurisdictions.json',
   '/canada/index.html', '/canada/sign', '/canada/proof', '/canada/about', '/canada/bc/index.html',
   '/canada/paper', '/canada/official', '/canada/join', '/canada/organizer',
   '/canada/qr/join-federal.png', '/canada/qr/join-bc.png', '/canada/qr/join.png',

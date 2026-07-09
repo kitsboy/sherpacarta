@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "updated": "2026-07-09",
+  "principle": "One global charter. Local law-change beachheads. Rights only expand (Art. 114).",
+  "active": "CA",
+  "jurisdictions": [
+    {
+      "id": "CA",
+      "name": "Canada",
+      "flag": "🇨🇦",
+      "status": "live",
+      "phase": "petition + briefings",
+      "summary": "Federal campaign commitment, federal Commons paper petition, MP briefing pack, official e-petition pending MP sponsor.",
+      "hub": "/canada/",
+      "actions": [
+        { "label": "Sign campaign", "href": "/canada/sign" },
+        { "label": "Print federal sheet", "href": "/canada/paper" },
+        { "label": "MP briefing", "href": "/briefing" },
+        { "label": "Official path", "href": "/canada/official" }
+      ],
+      "legalNote": "Campaign signatures are civic commitments, not House of Commons e-petition signatures until an e-### is live.",
+      "nextMilestone": "MP authorizes federal e-petition (e-###)"
+    },
+    {
+      "id": "UK",
+      "name": "United Kingdom",
+      "flag": "🇬🇧",
+      "status": "planned",
+      "phase": "scaffolding",
+      "summary": "Next English-language beachhead after Canada traction. Likely path: UK Parliament petitions + model language for Online Safety / privacy alignment — not copy-paste of Canadian paper forms.",
+      "hub": null,
+      "actions": [],
+      "legalNote": "UK petition rules, data protection (UK GDPR), and Parliamentary process differ from Canada. Do not collect wet signatures under Canadian forms for UK use.",
+      "nextMilestone": "Publish UK-specific legal brief + petition path after Canada proof points"
+    },
+    {
+      "id": "EU",
+      "name": "European Union",
+      "flag": "🇪🇺",
+      "status": "planned",
+      "phase": "scaffolding",
+      "summary": "EU path is multi-member-state: GDPR alignment narrative is strong, but petitions and legislation run through national and EU institutions. Charter remains model language, not a regulation draft.",
+      "hub": null,
+      "actions": [],
+      "legalNote": "No EU-wide paper petition equivalent to Canadian Commons sheets. Member-state campaigns must be designed per country with counsel.",
+      "nextMilestone": "Pick 1–2 pilot member states + FR/DE briefing packs"
+    },
+    {
+      "id": "GLOBAL",
+      "name": "Global charter",
+      "flag": "🌍",
+      "status": "live",
+      "phase": "moral + open source",
+      "summary": "Anyone on Earth can read, sign locally, stamp the hash, and translate. No nationality required for the moral charter.",
+      "hub": "/#sign",
+      "actions": [
+        { "label": "Sign the charter", "href": "/#sign" },
+        { "label": "Read 114 articles", "href": "/#mission" },
+        { "label": "charter.txt", "href": "/charter.txt" }
+      ],
+      "legalNote": "Moral signature is not a court filing or government petition.",
+      "nextMilestone": "Human-reviewed full legal i18n (ES/FR bodies)"
+    }
+  ]
+}

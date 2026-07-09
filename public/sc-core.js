@@ -6,8 +6,36 @@
 const SHERPA_WALLETS = {
   btc: 'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad',
   lnTemp: 'TEMP-LIGHTNING-DO-NOT-SEND@sherpacarta.temp.giveabit.io',
+  lnUrl: null,
+  silentPayments: null,
+  /** Public registry (single source of truth for status/treasury). Load optional. */
+  registryUrl: '/data/wallets.json',
 };
 window.SHERPA_WALLETS = SHERPA_WALLETS;
+// Optional: hydrate live Lightning / Silent Payments from wallets.json without rebuild
+fetch(SHERPA_WALLETS.registryUrl, { cache: 'no-cache' })
+  .then((r) => (r.ok ? r.json() : null))
+  .then((w) => {
+    if (!w) return;
+    if (w.bitcoin?.address) SHERPA_WALLETS.btc = w.bitcoin.address;
+    if (w.lightning?.status === 'live') {
+      const live = w.lightning.lud16 || w.lightning.lnurl || w.lightning.address;
+      if (live) {
+        SHERPA_WALLETS.lnUrl = live;
+        SHERPA_WALLETS.lnTemp = live;
+        if (typeof window.applyLiveLightning === 'function') window.applyLiveLightning(live);
+        else {
+          document.querySelectorAll('.pay-warning').forEach((el) => el.remove());
+          ['donate-ln-address', 'footer-ln-address'].forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = live;
+          });
+        }
+      }
+    }
+    if (w.silentPayments?.address) SHERPA_WALLETS.silentPayments = w.silentPayments.address;
+  })
+  .catch(() => {});
 const SATOHASH_URL = 'https://satohash.giveabit.io';
 const NOSTR_RELAYS = ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
 const CONTACT_EMAIL = 'hello@giveabit.io';
