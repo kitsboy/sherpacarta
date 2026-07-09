@@ -13,11 +13,13 @@ function json(data, status = 200) {
   return new Response(JSON.stringify(data), { status, headers: CORS });
 }
 
-export async function onRequestOptions() {
-  return new Response(null, { status: 204, headers: CORS });
-}
-
-export async function onRequestGet(context) {
+export async function onRequest(context) {
+  if (context.request.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers: CORS });
+  }
+  if (context.request.method !== 'GET') {
+    return json({ error: 'Method not allowed' }, 405);
+  }
   const { env } = context;
 
   if (env.PETITION_KV) {

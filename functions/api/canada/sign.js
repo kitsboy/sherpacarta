@@ -16,12 +16,14 @@ function json(data, status = 200) {
   return new Response(JSON.stringify(data), { status, headers: CORS });
 }
 
-export async function onRequestOptions() {
-  return new Response(null, { status: 204, headers: CORS });
-}
-
-export async function onRequestPost(context) {
+export async function onRequest(context) {
   const { request, env } = context;
+  if (request.method === 'OPTIONS') {
+    return new Response(null, { status: 204, headers: CORS });
+  }
+  if (request.method !== 'POST') {
+    return json({ error: 'Method not allowed' }, 405);
+  }
 
   let body;
   try {
