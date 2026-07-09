@@ -39,7 +39,7 @@
     "federalPaper": {
       "name": "House of Commons paper petition",
       "status": "available",
-      "url": "/canada/paper.html#federal",
+      "url": "/canada/paper#federal",
       "threshold": 25,
       "note": "Printable sheets; original signatures; MP presents."
     },
@@ -47,7 +47,7 @@
       "name": "BC Legislative Assembly Petition",
       "status": "available_paper",
       "url": "https://www.leg.bc.ca/parliamentary-business/parliamentary-procedure/petitions",
-      "sheetUrl": "/canada/paper.html#bc",
+      "sheetUrl": "/canada/paper#bc",
       "kitUrl": "/bc/town-hall-kit.html",
       "requirements": "Paper format only for presentation; original signatures; MLA presents"
     }
@@ -92,7 +92,7 @@
   },
   "mpOutreach": {
     "subject": "Request to authorize SherpaCarta digital rights e-petition",
-    "body": "Dear [MP Name],\n\nI am writing to request that you authorize an electronic petition on the House of Commons petitions website concerning modernization of federal privacy and digital rights law, using the SherpaCarta charter as a reference framework.\n\nAuthorizing publication does not require you to endorse every view in the petition. It allows Canadians to sign on Parliament's official system.\n\nDraft prayer and briefing: https://sherpacarta.org/canada/official.html\nContact: hello@giveabit.io\n\nThank you for considering this request.\n\n[Your name]\n[City, Province]"
+    "body": "Dear [MP Name],\n\nI am writing to request that you authorize an electronic petition on the House of Commons petitions website concerning modernization of federal privacy and digital rights law, using the SherpaCarta charter as a reference framework.\n\nAuthorizing publication does not require you to endorse every view in the petition. It allows Canadians to sign on Parliament's official system.\n\nDraft prayer and briefing: https://sherpacarta.org/canada/official\nContact: hello@giveabit.io\n\nThank you for considering this request.\n\n[Your name]\n[City, Province]"
   },
   "updated": "2026-07-09T00:00:00.000Z"
 }

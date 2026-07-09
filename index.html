@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SherpaCarta — The Global Digital Magna Carta for the 21st Century</title>
+<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SherpaCarta">
 <meta property="og:locale" content="en_CA">
@@ -25,6 +26,7 @@
 <meta name="twitter:image" content="https://sherpacarta.org/og/default.png?v=724">
 <meta name="twitter:image:alt" content="SherpaCarta — The Global Digital Magna Carta">
 <meta name="description" content="114 living articles protecting privacy, data sovereignty, and freedom online for every person on Earth. Zero tracking. Bitcoin-funded. Sign the charter.">
+<!-- ═══ /SOCIAL PREVIEW META ═══ -->
 <!-- ═══ SEO META ═══════════════════════════════════════════ -->
 <meta name="keywords" content="digital rights, privacy, data sovereignty, magna carta, human rights, internet freedom, GDPR, surveillance, SherpaCarta">
 <meta name="author" content="SherpaCarta Global Movement">
@@ -88,12 +90,12 @@
 <!-- ═══ FONTS & ICONS — self-hosted (zero third-party tracking) ═ -->
 <link rel="preload" href="/fonts/outfit-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=720">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=720">
+<link rel="stylesheet" href="/fonts/fonts.css?v=730">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=730">
 
-<link rel="stylesheet" href="/sc-main.css?v=728">
-<link rel="preload" href="/sc-core.js?v=728" as="script">
-<link rel="preload" href="/sc-bundle.js?v=728" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=730">
+<link rel="preload" href="/sc-core.js?v=730" as="script">
+<link rel="preload" href="/sc-bundle.js?v=730" as="script">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 </head>
 <body>
@@ -216,7 +218,7 @@
     <div class="hero-ctas">
       <button class="cta-main" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),500)"><i class="fas fa-signature"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
       <button class="cta-sec" onclick="openCharterModal()"><i class="fas fa-scroll"></i> <span id="cta-charter-text">Read the Full Charter</span></button>
-      <a class="cta-canada" href="/canada/sign.html" id="cta-canada-btn"><i class="fas fa-flag" aria-hidden="true"></i><span>Canada Petition</span></a>
+      <a class="cta-canada" href="/canada/sign" id="cta-canada-btn"><i class="fas fa-flag" aria-hidden="true"></i><span>Canada Petition</span></a>
     </div>
     <p class="hero-urgency">⚡ <strong>114 articles</strong> live · Zero cookies · Bitcoin-funded · Sign in under 30 seconds</p>
 
@@ -323,10 +325,10 @@
         <div class="challenge-step"><div class="challenge-step-num">04</div><h4>Official path</h4><p>When an MP authorizes, the e-petition goes live on Parliament’s site.</p></div>
       </div>
       <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
-        <a href="/canada/sign.html" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-signature"></i> Sign Canada Campaign</a>
+        <a href="/canada/sign" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-signature"></i> Sign Canada Campaign</a>
         <a href="/briefing.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file-pdf"></i> MP Briefing</a>
         <a href="/leave-behind.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file"></i> 1-page leave-behind</a>
-        <a href="/canada/paper.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-print"></i> Federal paper</a>
+        <a href="/canada/paper" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-print"></i> Federal paper</a>
         <a href="/canada/" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-flag"></i> Canada hub</a>
       </div>
     </div>
@@ -856,7 +858,7 @@
       <a href="/leave-behind.html">1-page leave-behind</a>
       <a href="/briefing-fr.html">Note FR (breffage)</a>
       <a href="/canada/">Canada Petition Hub</a>
-      <a href="/canada/paper.html">Federal Paper Sheet</a>
+      <a href="/canada/paper">Federal Paper Sheet</a>
       <a href="/press-kit.html">Press Kit</a>
       <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener">Platform Roadmap</a>
       <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
@@ -977,10 +979,10 @@
   </div>
 </div>
 
-<script src="/js/sc-petition-canada.js?v=720" defer></script>
-<script src="/js/sc-press-outlets.js?v=720" defer></script>
-<script src="/sc-core.js?v=728" defer></script>
-<script src="/sc-bundle.js?v=728" defer></script>
+<script src="/js/sc-petition-canada.js?v=730" defer></script>
+<script src="/js/sc-press-outlets.js?v=730" defer></script>
+<script src="/sc-core.js?v=730" defer></script>
+<script src="/sc-bundle.js?v=730" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

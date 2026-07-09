@@ -428,7 +428,7 @@
   };
 
   SHERPA_PETITION.getReceiptUrl = function (sig) {
-    return `https://sherpacarta.org/canada/sign.html?receipt=${sig.id}`;
+    return `https://sherpacarta.org/canada/sign?receipt=${sig.id}`;
   };
 
   SHERPA_PETITION.shareText = function (sig) {

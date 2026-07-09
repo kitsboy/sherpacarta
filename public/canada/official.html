@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Official e-Petition Status — SherpaCarta Canada</title>
+<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SherpaCarta">
 <meta property="og:locale" content="en_CA">
-<meta property="og:url" content="https://sherpacarta.org/canada/official.html">
+<meta property="og:url" content="https://sherpacarta.org/canada/official">
 <meta property="og:title" content="Official e-Petition Path — SherpaCarta Canada">
 <meta property="og:description" content="Status of the House of Commons e-petition, MP outreach tools, and federal prayer text. Campaign and paper sheets available now.">
-<meta property="og:image" content="https://sherpacarta.org/og/canada.png?v=729">
-<meta property="og:image:secure_url" content="https://sherpacarta.org/og/canada.png?v=729">
+<meta property="og:image" content="https://sherpacarta.org/og/canada.png?v=724">
+<meta property="og:image:secure_url" content="https://sherpacarta.org/og/canada.png?v=724">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -19,17 +20,17 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@give_bit">
 <meta name="twitter:creator" content="@give_bit">
-<meta name="twitter:url" content="https://sherpacarta.org/canada/official.html">
+<meta name="twitter:url" content="https://sherpacarta.org/canada/official">
 <meta name="twitter:title" content="Official e-Petition Path — SherpaCarta Canada">
 <meta name="twitter:description" content="Status of the House of Commons e-petition, MP outreach tools, and federal prayer text. Campaign and paper sheets available now.">
-<meta name="twitter:image" content="https://sherpacarta.org/og/canada.png?v=729">
+<meta name="twitter:image" content="https://sherpacarta.org/og/canada.png?v=724">
 <meta name="twitter:image:alt" content="Official e-Petition Path — SherpaCarta Canada">
 <meta name="description" content="Status of the House of Commons e-petition, MP outreach tools, and federal prayer text. Campaign and paper sheets available now.">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
-<link rel="canonical" href="https://sherpacarta.org/canada/official.html">
-<link rel="stylesheet" href="/fonts/fonts.css?v=729">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=729">
-<link rel="stylesheet" href="/sc-main.css?v=729">
+<link rel="canonical" href="https://sherpacarta.org/canada/official">
+<link rel="stylesheet" href="/fonts/fonts.css?v=730">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=730">
+<link rel="stylesheet" href="/sc-main.css?v=730">
 <style>
   body{max-width:720px;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75}
   h1{font-family:var(--serif);color:var(--em2);font-size:2rem}
@@ -59,8 +60,8 @@
   <p id="status-detail" style="margin:0;color:var(--text2);font-size:.9rem"></p>
   <p style="margin:1rem 0 0">
     <a class="btn" id="cta-main" href="https://petitions.ourcommons.ca/">Open petitions.ourcommons.ca</a>
-    <a class="btn btn-ghost" href="/canada/sign.html">Sign campaign</a>
-    <a class="btn btn-ghost" href="/canada/paper.html">Print federal sheet</a>
+    <a class="btn btn-ghost" href="/canada/sign">Sign campaign</a>
+    <a class="btn btn-ghost" href="/canada/paper">Print federal sheet</a>
     <a class="btn btn-ghost" href="/briefing.html">Executive briefing (print)</a>
   </p>
 </div>
@@ -143,7 +144,7 @@ fetch('/data/campaign-canada.json').then(r=>r.json()).then(d=>{
     cta.textContent='Sign official '+fed.ePetitionId;
   }else{
     pill.textContent='STATUS · '+(fed.status||'seeking_mp').replace(/_/g,' ');
-    detail.innerHTML=`No e-### yet. Use the checklist, find an MP, and keep collecting <a href="/canada/paper.html">federal paper</a> + <a href="/canada/sign.html">campaign</a> commitments.`;
+    detail.innerHTML=`No e-### yet. Use the checklist, find an MP, and keep collecting <a href="/canada/paper">federal paper</a> + <a href="/canada/sign">campaign</a> commitments.`;
     cta.href=fed.createUrl||'https://petitions.ourcommons.ca/';
   }
   document.getElementById('fed-prayer').textContent=prayer;

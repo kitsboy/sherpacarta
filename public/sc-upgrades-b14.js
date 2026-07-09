@@ -64,7 +64,7 @@
       <div class="mbn-inner">
         <button type="button" class="mbn-btn" data-go="charter" aria-label="Open charter"><i class="fas fa-scroll"></i><span>Charter</span></button>
         <button type="button" class="mbn-btn primary" data-go="sign" aria-label="Sign the charter"><i class="fas fa-signature"></i><span>Sign</span></button>
-        <a class="mbn-btn" href="/canada/sign.html" aria-label="Canada petition"><i class="fab fa-canadian-maple-leaf"></i><span>Canada</span></a>
+        <a class="mbn-btn" href="/canada/sign" aria-label="Canada petition"><i class="fab fa-canadian-maple-leaf"></i><span>Canada</span></a>
         <!-- always .html to avoid CF redirect loops -->
         <button type="button" class="mbn-btn" data-go="donate" aria-label="Donate"><i class="fab fa-bitcoin"></i><span>Fund</span></button>
       </div>`;
@@ -115,7 +115,7 @@
           <p>${s.body}</p>
           <div class="onboard-actions">
             <button type="button" class="cta-main" id="onboard-next">${s.cta}</button>
-            ${i < steps.length - 1 ? '<button type="button" class="cta-sec" id="onboard-sign-now">Skip to Sign</button>' : '<a class="cta-canada" href="/canada/sign.html">Canada Petition →</a>'}
+            ${i < steps.length - 1 ? '<button type="button" class="cta-sec" id="onboard-sign-now">Skip to Sign</button>' : '<a class="cta-canada" href="/canada/sign">Canada Petition →</a>'}
           </div>
           <button type="button" class="onboard-skip" id="onboard-skip">Dismiss</button>
         </div>`;

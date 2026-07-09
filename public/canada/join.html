@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Join the Canada Petition — SherpaCarta</title>
+<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SherpaCarta">
 <meta property="og:locale" content="en_CA">
 <meta property="og:url" content="https://sherpacarta.org/canada/join">
 <meta property="og:title" content="Join SherpaCarta Canada — You Scanned a Sheet">
 <meta property="og:description" content="Add your digital campaign commitment and keep the ink on the paper petition. Dual-track: movement + Parliament.">
-<meta property="og:image" content="https://sherpacarta.org/og/join.png?v=729">
-<meta property="og:image:secure_url" content="https://sherpacarta.org/og/join.png?v=729">
+<meta property="og:image" content="https://sherpacarta.org/og/join.png?v=724">
+<meta property="og:image:secure_url" content="https://sherpacarta.org/og/join.png?v=724">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -22,16 +23,16 @@
 <meta name="twitter:url" content="https://sherpacarta.org/canada/join">
 <meta name="twitter:title" content="Join SherpaCarta Canada — You Scanned a Sheet">
 <meta name="twitter:description" content="Add your digital campaign commitment and keep the ink on the paper petition. Dual-track: movement + Parliament.">
-<meta name="twitter:image" content="https://sherpacarta.org/og/join.png?v=729">
+<meta name="twitter:image" content="https://sherpacarta.org/og/join.png?v=724">
 <meta name="twitter:image:alt" content="Join SherpaCarta Canada — You Scanned a Sheet">
 <meta name="description" content="Add your digital campaign commitment and keep the ink on the paper petition. Dual-track: movement + Parliament.">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
 <link rel="canonical" href="https://sherpacarta.org/canada/join">
 <meta name="theme-color" content="#050806">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="/fonts/fonts.css?v=729">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=729">
-<link rel="stylesheet" href="/sc-main.css?v=729">
+<link rel="stylesheet" href="/fonts/fonts.css?v=730">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=730">
+<link rel="stylesheet" href="/sc-main.css?v=730">
 <style>
   body.join{
     margin:0;min-height:100dvh;font-family:var(--sans);background:var(--bg);color:var(--text);
@@ -110,13 +111,13 @@
       </div>
     </div>
 
-    <a class="cta cta-main" id="cta-sign" href="/canada/sign.html?from=paper">
+    <a class="cta cta-main" id="cta-sign" href="/canada/sign?from=paper">
       <i class="fas fa-signature"></i> Sign the campaign
     </a>
-    <a class="cta cta-sec" href="/canada/paper.html">
+    <a class="cta cta-sec" href="/canada/paper">
       <i class="fas fa-print"></i> Print more sheets
     </a>
-    <a class="cta cta-sec" id="cta-official" href="/canada/official.html">
+    <a class="cta cta-sec" id="cta-official" href="/canada/official">
       <i class="fas fa-landmark"></i> Official Parliament path
     </a>
 
@@ -136,13 +137,13 @@
 
     <div class="links">
       <a href="/canada/">Hub</a>
-      <a href="/canada/proof.html">Proofs</a>
+      <a href="/canada/proof">Proofs</a>
       <a href="/">Full charter</a>
       <a href="https://giveabit.io">Give A Bit</a>
     </div>
   </div>
 
-<script src="/js/sc-petition-canada.js?v=729"></script>
+<script src="/js/sc-petition-canada.js?v=730"></script>
 <script>
 (function () {
   const params = new URLSearchParams(location.search);
@@ -156,7 +157,7 @@
   const sign = document.getElementById('cta-sign');
   // Province only if user is actually in BC — optional prefill, not a separate petition
   const bcHint = params.get('province') === 'BC' ? '&province=BC' : '';
-  sign.href = '/canada/sign.html?from=' + encodeURIComponent(from) + bcHint;
+  sign.href = '/canada/sign?from=' + encodeURIComponent(from) + bcHint;
 
   const GOAL = 100;
   function topProvince(by) {

@@ -78,7 +78,7 @@
     "bc": "https://www.leg.bc.ca/parliamentary-business/parliamentary-procedure/petitions",
     "note": "Official government petitions require separate identity verification on government sites."
   },
-  "demoUrl": "https://sherpacarta.org/canada/sign.html",
+  "demoUrl": "https://sherpacarta.org/canada/sign",
   "status": "beta",
   "submitTo": "https://satohash.io/templates/"
 }

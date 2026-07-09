@@ -45,9 +45,9 @@
     cta.className = 'ca-petition-cta';
     cta.style.cssText = 'margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap';
     cta.innerHTML = `
-      <a href="/canada/sign.html" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-signature"></i> Sign Canada Petition</a>
+      <a href="/canada/sign" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-signature"></i> Sign Canada Petition</a>
       <a href="/canada/bc/" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-map-location-dot"></i> BC Challenge</a>
-      <a href="/canada/proof.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-stamp"></i> SHA-256 Proof</a>`;
+      <a href="/canada/proof" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-stamp"></i> SHA-256 Proof</a>`;
     section.querySelector('.challenge-banner')?.appendChild(cta);
   });
 
@@ -58,7 +58,7 @@
       icon: 'fa-flag',
       label: 'Canada Petition',
       sub: 'Sign as Canadian · zero server data',
-      action: () => { window.location.href = '/canada/sign.html'; },
+      action: () => { window.location.href = '/canada/sign'; },
     });
   });
 
@@ -102,9 +102,9 @@
   feat(678, 'Share Canada OG URLs', () => {
     window.SHERPA_SHARE_URLS = {
       canada: 'https://sherpacarta.org/canada/',
-      sign: 'https://sherpacarta.org/canada/sign.html',
+      sign: 'https://sherpacarta.org/canada/sign',
       bc: 'https://sherpacarta.org/canada/bc/',
-      proof: 'https://sherpacarta.org/canada/proof.html',
+      proof: 'https://sherpacarta.org/canada/proof',
     };
   });
 
@@ -118,7 +118,7 @@
   feat(680, 'About page link', () => {
     document.querySelector('.legal-links')?.insertAdjacentHTML(
       'beforeend',
-      '<a href="/canada/about.html">About</a>'
+      '<a href="/canada/about">About</a>'
     );
   });
 
@@ -130,13 +130,13 @@
   });
 
   feat(682, 'Merkle root public API stub', () => {
-    window.SHERPA_PROOF_API = '/canada/proof.html';
+    window.SHERPA_PROOF_API = '/canada/proof';
   });
 
   feat(683, 'Sign section Canada badge', () => {
     const sign = document.getElementById('sign-heading');
     if (sign && !sign.dataset.ca) {
-      sign.insertAdjacentHTML('afterend', '<p style="font-size:.75rem;color:var(--em);margin-top:-.5rem">🇨🇦 All signatures count as Canadian · <a href="/canada/sign.html" style="color:var(--em2)">Full petition flow →</a></p>');
+      sign.insertAdjacentHTML('afterend', '<p style="font-size:.75rem;color:var(--em);margin-top:-.5rem">🇨🇦 All signatures count as Canadian · <a href="/canada/sign" style="color:var(--em2)">Full petition flow →</a></p>');
       sign.dataset.ca = '1';
     }
   });

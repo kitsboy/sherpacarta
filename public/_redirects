@@ -1,6 +1,7 @@
 # Language shortcuts only.
-# Do NOT rewrite /canada/sign → sign.html (causes 308 redirect loops with Cloudflare pretty URLs).
-# Always link to .html files in the app; Cloudflare will serve them reliably.
+# Cloudflare Pages pretty URLs serve /canada/sign from sign.html automatically.
+# Prefer extensionless links in the app (canonical form). Do NOT add
+# /canada/sign  /canada/sign.html  200  rewrites — they loop with pretty-URL stripping.
 
 /es    /?lang=es   302
 /es/   /?lang=es   302

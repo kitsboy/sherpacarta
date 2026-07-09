@@ -52,7 +52,7 @@ const PAGES = {
     description:
       '30-second campaign commitment for digital human rights. Privacy-first receipt. Not the Parliamentary e-petition until an MP authorizes e-###.',
     image: '/og/sign.png',
-    path: '/canada/sign.html',
+    path: '/canada/sign',
   },
   'public/canada/join.html': {
     title: 'Join SherpaCarta Canada — You Scanned a Sheet',
@@ -66,35 +66,35 @@ const PAGES = {
     description:
       'One House of Commons sheet for all of Canada. Every province counts. Original ink · QR to join online · MP presents.',
     image: '/og/paper.png',
-    path: '/canada/paper.html',
+    path: '/canada/paper',
   },
   'public/canada/official.html': {
     title: 'Official e-Petition Path — SherpaCarta Canada',
     description:
       'Status of the House of Commons e-petition, MP outreach tools, and federal prayer text. Campaign and paper sheets available now.',
     image: '/og/canada.png',
-    path: '/canada/official.html',
+    path: '/canada/official',
   },
   'public/canada/proof.html': {
     title: 'Cryptographic Proof — SherpaCarta Canada',
     description:
       'SHA-256 petition hash, merkle roots, and Satohash Bitcoin stamps. Verify integrity without exposing identities.',
     image: '/og/canada.png',
-    path: '/canada/proof.html',
+    path: '/canada/proof',
   },
   'public/canada/organizer.html': {
     title: 'Organizer Tools — SherpaCarta Canada',
     description:
       'Log paper batches, print federal sheets, and run town halls for the Canada digital rights petition.',
     image: '/og/paper.png',
-    path: '/canada/organizer.html',
+    path: '/canada/organizer',
   },
   'public/canada/about.html': {
     title: 'About SherpaCarta Canada',
     description:
       'Global Digital Magna Carta. Canada first. Dual-track petition. Zero tracking. Living document — rights only expand.',
     image: '/og/canada.png',
-    path: '/canada/about.html',
+    path: '/canada/about',
   },
   'public/canada/bc/index.html': {
     title: 'BC Digital Rights Challenge — SherpaCarta',
