@@ -1,4 +1,4 @@
-/* SherpaCarta bundled enhancements — generated 2026-07-09T14:56:33.047Z */
+/* SherpaCarta bundled enhancements — generated 2026-07-09T14:57:39.605Z */
 
 /* ── sc-enhancements.js ── */
 /**
@@ -8613,7 +8613,7 @@
       <div class="mbn-inner">
         <button type="button" class="mbn-btn" data-go="charter" aria-label="Open charter"><i class="fas fa-scroll"></i><span>Charter</span></button>
         <button type="button" class="mbn-btn primary" data-go="sign" aria-label="Sign the charter"><i class="fas fa-signature"></i><span>Sign</span></button>
-        <a class="mbn-btn" href="/canada/sign.html" aria-label="Canada petition"><i class="fas fa-maple-leaf"></i><span>Canada</span></a>
+        <a class="mbn-btn" href="/canada/sign.html" aria-label="Canada petition"><i class="fab fa-canadian-maple-leaf"></i><span>Canada</span></a>
         <button type="button" class="mbn-btn" data-go="donate" aria-label="Donate"><i class="fab fa-bitcoin"></i><span>Fund</span></button>
       </div>`;
     document.body.appendChild(nav);

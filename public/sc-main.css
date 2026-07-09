@@ -1031,3 +1031,31 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 /* Utility */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 .text-balance{text-wrap:balance}
+
+/* ═══ SIGN MAGNET + CONVERSION MICRO-UX ═══════════════════ */
+@keyframes sign-glow-pulse{
+  0%,100%{box-shadow:0 4px 20px rgba(16,185,129,.25)}
+  50%{box-shadow:0 4px 36px rgba(16,185,129,.5),0 0 0 6px rgba(16,185,129,.08)}
+}
+#sign .sign-submit{animation:sign-glow-pulse 2.8s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){
+  #sign .sign-submit{animation:none}
+}
+.hero-ctas .cta-main{
+  position:relative;
+}
+.hero-ctas .cta-main::after{
+  content:'Free · 30 seconds';
+  position:absolute;bottom:-1.35rem;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:.5rem;letter-spacing:.12em;color:var(--text3);
+  white-space:nowrap;opacity:.85;
+}
+@media(max-width:640px){
+  .hero-ctas .cta-main::after{bottom:-1.2rem}
+  .hero-ctas{margin-bottom:1.25rem}
+}
+/* Constitutional seal vignette on hero */
+#hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(ellipse 80% 60% at 50% 40%,transparent 30%,rgba(5,8,6,.55) 100%);
+}

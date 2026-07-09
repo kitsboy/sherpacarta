@@ -4,6 +4,42 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Handoff to Kimi — 2026-07-09 (Design Sprint BUILD 720)
+
+**Machine:** M3 (Grok 4.5)  
+**Project:** sherpacarta
+
+### Done
+
+- [x] World-class design tokens + hero conversion (Sign primary, Canada CTA, proof chips)
+- [x] Self-hosted fonts (Outfit, Cormorant, DM Mono) + Font Awesome — zero Google Fonts CDN
+- [x] Honest local signatures (no inflated 4,271 global claim)
+- [x] Coalition “seats open” honesty redesign
+- [x] Mobile bottom nav, first-visit onboarding, high-contrast + dyslexia themes
+- [x] Charter export TXT/MD, press-kit.html, charter.txt, humans.txt, offline.html
+- [x] Spanish + French locale expansion; SW v5.4; features 688–720 (`sc-upgrades-b14.js`)
+
+### Decisions
+
+- Signatures are browser-local only; marketing must not invent global counts
+- Organizational grid is aspirational seats, never fake endorsements
+- Self-host type/icons to match zero-tracking claim
+
+### What's Next
+
+- [ ] Lightning LNURL when Cam provides it
+- [ ] `npm run publish:packages` after `npm login`
+- [ ] Federal e-petition (MP sponsor)
+- [ ] Human-reviewed full legal i18n (ES/FR bodies)
+- [ ] Kimi: integrate BUILD 720 into MASTER-BRAIN — **do not sync M4 until Cam says go**
+
+### Git State
+
+- Branch: main
+- See latest commit after push/deploy
+
+---
+
 ## Handoff to Kimi — 2026-07-07 (Goodbye)
 
 **Machine:** M3 (Grok)  

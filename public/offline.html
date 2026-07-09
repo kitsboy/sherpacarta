@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offline — SherpaCarta</title>
+<meta name="theme-color" content="#050806">
+<style>
+  :root{--bg:#050806;--em:#10b981;--text:#eef2ee;--text2:#a8b4a8;--serif:Georgia,serif;--sans:system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{min-height:100dvh;display:flex;align-items:center;justify-content:center;background:var(--bg);color:var(--text);font-family:var(--sans);padding:1.5rem;text-align:center}
+  h1{font-family:var(--serif);font-size:clamp(2rem,6vw,3rem);margin-bottom:1rem}
+  p{color:var(--text2);max-width:420px;line-height:1.7;margin:0 auto 1.5rem}
+  a{color:var(--em);text-decoration:none;border:1px solid rgba(16,185,129,.4);padding:.75rem 1.5rem;border-radius:100px;display:inline-block}
+  a:hover{background:rgba(16,185,129,.12)}
+</style>
+</head>
+<body>
+  <div>
+    <h1>You are offline</h1>
+    <p>SherpaCarta still works offline for reading and local signing when the service worker has cached the site. Reconnect to sync Nostr or stamp on Bitcoin.</p>
+    <a href="/">Try home page</a>
+  </div>
+</body>
+</html>

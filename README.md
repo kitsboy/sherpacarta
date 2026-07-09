@@ -7,7 +7,7 @@ A living charter of **114 articles** protecting privacy, data sovereignty, freed
 > Privacy is not a feature. It is a birthright.
 
 **Live site:** [https://sherpacarta.org](https://sherpacarta.org)  
-**BUILD:** 688 · **Last commit:** `0d71baa`
+**BUILD:** 720 · **Design sprint:** conversion UX, self-hosted fonts, honest local signing
 
 ---
 

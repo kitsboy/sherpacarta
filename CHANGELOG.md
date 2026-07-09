@@ -2,6 +2,9 @@
 title: Changelog
 project: sherpacarta
 version_history:
+  - version: 5.0.0
+    date: 2026-07-09
+    summary: World-class design sprint — conversion UX, self-host fonts, honest signing (BUILD 720)
   - version: 4.3.0
     date: 2026-07-07
     summary: Press outlets — linked cards, icons, mobile marquee (BUILD 688)
@@ -21,13 +24,25 @@ version_history:
     date: 2026-06-10
     summary: Full single-page charter site, marketing docs
 audience: devs
-last_updated: 2026-07-07
+last_updated: 2026-07-09
 owner: Cam / Give A Bit
 ---
 
 # Changelog
 
 All notable changes to this project are documented here.
+
+## [5.0.0] — 2026-07-09
+
+### Design & Conversion Sprint (BUILD 720)
+- Self-hosted Outfit / Cormorant Garamond / DM Mono + Font Awesome (no Google Fonts CDN)
+- Expanded design tokens; high-contrast + dyslexia-friendly modes
+- Hero conversion: Sign primary CTA, Canada petition path, proof chips, urgency line
+- Honest local-only signatures (removed inflated global 4,271 claim)
+- Coalition section reframed as open seats seeking real endorsements
+- Mobile bottom nav; first-visit onboarding tour
+- Charter export (TXT/MD), deep links, press-kit.html, humans.txt, charter.txt, offline.html
+- ES/FR charter locale expansion; SW cache v5.4; `sc-upgrades-b14.js` features 688–720
 
 ## [4.3.0] — 2026-07-07
 

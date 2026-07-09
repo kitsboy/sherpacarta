@@ -1,10 +1,570 @@
 {
   "code": "fr",
+  "note": "Traductions de base peaufinées; le reste est community-draft — révision humaine en attente.",
   "articles": {
-    "1": { "title": "Dignité Humaine dans les Espaces Numériques", "summary": "Chaque personne possède une dignité inhérente en ligne et hors ligne." },
-    "11": { "title": "Droit à la Vie Privée", "summary": "Droit inaliénable à la vie privée dans les communications et les données." },
-    "12": { "title": "Souveraineté des Données", "summary": "Les individus possèdent et contrôlent leurs données personnelles." },
-    "13": { "title": "Interdiction du Capitalisme de Surveillance", "summary": "Vente de données comportementales sans consentement explicite interdite." },
-    "61": { "title": "Droit à la Transparence Algorithmique", "summary": "Explication en langage clair des décisions automatisées." }
+    "1": {
+      "title": "Dignité humaine dans les espaces numériques",
+      "summary": "Toute personne possède une dignité inhérente en ligne et hors ligne."
+    },
+    "2": {
+      "title": "Égalité devant le droit numérique",
+      "summary": "Nul ne sera discriminé par des algorithmes ou des données."
+    },
+    "3": {
+      "title": "Right to Digital Existence",
+      "summary": "Every person has the right to digital existence: the right to maintain a verifiable digital identity, access digital services essential to m…",
+      "status": "community-draft"
+    },
+    "4": {
+      "title": "Freedom from Digital Servitude",
+      "summary": "No person shall be compelled to perform unpaid digital labor—content moderation, data labeling, training data contribution, or attention har…",
+      "status": "community-draft"
+    },
+    "5": {
+      "title": "Right to Informed Digital Citizenship",
+      "summary": "Every person has the right to understand, in plain language, how digital systems affecting their rights operate—including algorithms that ra…",
+      "status": "community-draft"
+    },
+    "6": {
+      "title": "Protection of Minors in Digital Spaces",
+      "summary": "Children and adolescents possess enhanced digital rights protections. Profiling, behavioral advertising, and data collection targeting minor…",
+      "status": "community-draft"
+    },
+    "7": {
+      "title": "Right to Digital Sanctuary",
+      "summary": "Every person has the right to digital spaces free from commercial surveillance, behavioral tracking, and attention extraction—whether in edu…",
+      "status": "community-draft"
+    },
+    "8": {
+      "title": "Prohibition of Digital Caste Systems",
+      "summary": "No system shall permanently classify persons into tiers of digital access, creditworthiness, social visibility, or civic participation based…",
+      "status": "community-draft"
+    },
+    "9": {
+      "title": "Right to Technological Literacy",
+      "summary": "States have a positive obligation to ensure all persons can understand, configure, and defend their digital rights. Digital literacy is a co…",
+      "status": "community-draft"
+    },
+    "10": {
+      "title": "Binding of Private Power",
+      "summary": "Any entity whose digital systems affect more than one million persons—whether state, corporation, or platform—is bound by SherpaCarta with e…",
+      "status": "community-draft"
+    },
+    "11": {
+      "title": "Droit à la vie privée",
+      "summary": "Droit inaliénable à la vie privée dans les communications et les données."
+    },
+    "12": {
+      "title": "Souveraineté des données",
+      "summary": "Les individus possèdent et contrôlent leurs données personnelles."
+    },
+    "13": {
+      "title": "Interdiction du capitalisme de surveillance",
+      "summary": "Vente de données comportementales sans consentement explicite interdite."
+    },
+    "14": {
+      "title": "Right to Communications Secrecy",
+      "summary": "The content and metadata of private communications shall not be accessed, stored, analyzed, or disclosed without specific judicial authoriza…",
+      "status": "community-draft"
+    },
+    "15": {
+      "title": "Droit au chiffrement",
+      "summary": "Toute personne a droit à des communications chiffrées de bout en bout."
+    },
+    "16": {
+      "title": "Location Privacy",
+      "summary": "Continuous location tracking of persons not individually suspected of specific crimes is prohibited. Location data belongs to the person who…",
+      "status": "community-draft"
+    },
+    "17": {
+      "title": "Prohibition of Shadow Profiles",
+      "summary": "Creating profiles of persons who are not users of a service—through data broker aggregation, social graph inference, or cross-platform track…",
+      "status": "community-draft"
+    },
+    "18": {
+      "title": "Health Data Sovereignty",
+      "summary": "Health, genetic, and disability data receive the highest protection tier. No commercial use without explicit opt-in renewed annually. No sha…",
+      "status": "community-draft"
+    },
+    "19": {
+      "title": "Financial Data Privacy",
+      "summary": "Transaction data, credit behavior, and financial metadata belong exclusively to the person who generates them. Open banking APIs must be per…",
+      "status": "community-draft"
+    },
+    "20": {
+      "title": "Liberté d'expression numérique",
+      "summary": "L'expression en ligne est protégée contre la censure et les monopoles."
+    },
+    "21": {
+      "title": "Freedom of Digital Expression",
+      "summary": "Every person has the right to freedom of expression in digital spaces. This right includes the freedom to hold opinions without interference…",
+      "status": "community-draft"
+    },
+    "22": {
+      "title": "Universal Internet Access",
+      "summary": "Access to a free, open, and uncensored internet is a fundamental human right equivalent to access to water, electricity, and education. No p…",
+      "status": "community-draft"
+    },
+    "23": {
+      "title": "Net Neutrality as Human Right",
+      "summary": "Internet service providers and platforms shall not block, throttle, prioritize, or degrade lawful traffic based on source, destination, cont…",
+      "status": "community-draft"
+    },
+    "24": {
+      "title": "Right to Platform Due Process",
+      "summary": "Permanent exclusion from platforms exceeding one million users requires: published rules, specific violation citation, meaningful appeal to …",
+      "status": "community-draft"
+    },
+    "25": {
+      "title": "Protection of Whistleblowers",
+      "summary": "Persons who disclose evidence of digital rights violations, mass surveillance, or corporate malfeasance receive SherpaCarta safe harbor prot…",
+      "status": "community-draft"
+    },
+    "26": {
+      "title": "Right to Receive Information",
+      "summary": "No state or platform may block access to lawful information based on political viewpoint. Filtering must be user-controlled, transparent, an…",
+      "status": "community-draft"
+    },
+    "27": {
+      "title": "Journalist and Researcher Protections",
+      "summary": "Journalists, researchers, and civil society investigators have enhanced protections for data access, source confidentiality, and freedom fro…",
+      "status": "community-draft"
+    },
+    "28": {
+      "title": "Cultural and Linguistic Expression",
+      "summary": "Digital platforms must support equitable access for all languages and writing systems. Automated translation must not replace human cultural…",
+      "status": "community-draft"
+    },
+    "29": {
+      "title": "Right to Satire and Parody",
+      "summary": "Satire, parody, and political caricature directed at states, corporations, and public figures are protected expression. Automated content mo…",
+      "status": "community-draft"
+    },
+    "30": {
+      "title": "Academic and Scientific Freedom Online",
+      "summary": "Academic research, scientific preprints, and educational materials may not be suppressed by corporate or state pressure. Open access to publ…",
+      "status": "community-draft"
+    },
+    "31": {
+      "title": "Self-Sovereign Identity",
+      "summary": "Every person has the right to create, control, and revoke digital identities without dependency on any single corporation or state registry.…",
+      "status": "community-draft"
+    },
+    "32": {
+      "title": "Meaningful Consent",
+      "summary": "Consent to data processing must be granular, revocable, and obtained through affirmative action—not pre-checked boxes, dark patterns, or con…",
+      "status": "community-draft"
+    },
+    "33": {
+      "title": "Right to Disconnect",
+      "summary": "No employer, platform, or service may penalize persons for declining always-on connectivity, after-hours messaging, or perpetual availabilit…",
+      "status": "community-draft"
+    },
+    "34": {
+      "title": "Prohibition of Coerced Biometric Enrollment",
+      "summary": "Biometric identification may not be required for access to housing, employment, education, healthcare, or public transportation. Alternative…",
+      "status": "community-draft"
+    },
+    "35": {
+      "title": "Digital Will and Succession",
+      "summary": "Every person may designate digital heirs, deletion instructions, and memorial preferences. Platforms must honor digital wills within 30 days…",
+      "status": "community-draft"
+    },
+    "36": {
+      "title": "Right to Gender Identity Online",
+      "summary": "Persons have the right to define and change their gender identity in digital systems without medical gatekeeping, platform verification hurd…",
+      "status": "community-draft"
+    },
+    "37": {
+      "title": "Neurodiversity and Accessibility by Design",
+      "summary": "Digital systems must accommodate cognitive, sensory, and neurological differences as default—not as afterthought accessibility patches. Auto…",
+      "status": "community-draft"
+    },
+    "38": {
+      "title": "Prohibition of Emotional Manipulation",
+      "summary": "Design patterns that exploit fear, urgency, guilt, or social pressure to extract consent, purchases, or engagement are prohibited. A/B testi…",
+      "status": "community-draft"
+    },
+    "39": {
+      "title": "Right to Digital Intimacy",
+      "summary": "Communications between intimate partners, families, and confidential counselors may not be used for advertising, AI training, or behavioral …",
+      "status": "community-draft"
+    },
+    "40": {
+      "title": "Age-Appropriate Design Defaults",
+      "summary": "All digital services likely to be accessed by minors must default to highest privacy settings, no profiling, no behavioral advertising, and …",
+      "status": "community-draft"
+    },
+    "41": {
+      "title": "Data Minimization Mandate",
+      "summary": "Data collection must be limited to what is strictly necessary for the stated purpose. Purpose creep—using data collected for one reason for …",
+      "status": "community-draft"
+    },
+    "42": {
+      "title": "Right to Data Portability",
+      "summary": "Every person may export all personal data in machine-readable, open-standard formats within 30 days of request, free of charge. Portability …",
+      "status": "community-draft"
+    },
+    "43": {
+      "title": "Prohibition of Data Laundering",
+      "summary": "Data obtained without meaningful consent may not be laundered through mergers, sublicensing, anonymization claims, or synthetic reconstructi…",
+      "status": "community-draft"
+    },
+    "44": {
+      "title": "Research Data Ethics",
+      "summary": "Research use of personal data requires ethics board approval, informed consent, and right of withdrawal. Public interest research on algorit…",
+      "status": "community-draft"
+    },
+    "45": {
+      "title": "Right to Human Review",
+      "summary": "Decisions significantly affecting housing, employment, credit, healthcare, education, liberty, or immigration must include meaningful human …",
+      "status": "community-draft"
+    },
+    "46": {
+      "title": "Data Protection Impact Assessments",
+      "summary": "High-risk data processing requires public impact assessments before launch, including consultation with affected communities. Post-deploymen…",
+      "status": "community-draft"
+    },
+    "47": {
+      "title": "Droit à l'oubli",
+      "summary": "Droit de demander l'effacement des données personnelles dans des conditions justes."
+    },
+    "48": {
+      "title": "Collective Data Rights",
+      "summary": "Indigenous nations, local communities, and defined groups have collective data sovereignty over information about their members, lands, and …",
+      "status": "community-draft"
+    },
+    "49": {
+      "title": "Open Public Data",
+      "summary": "Non-sensitive government data must be published in open formats by default. Citizens have the right to access data about decisions affecting…",
+      "status": "community-draft"
+    },
+    "50": {
+      "title": "Sunset Clauses on Data Retention",
+      "summary": "Personal data must be deleted when the purpose for collection expires, unless specific legal retention applies. Default maximum retention: t…",
+      "status": "community-draft"
+    },
+    "51": {
+      "title": "Right to Strong Encryption",
+      "summary": "Every person has the right to use strong encryption without restriction. States may not ban, weaken, or mandate backdoors in encryption avai…",
+      "status": "community-draft"
+    },
+    "52": {
+      "title": "Security by Default",
+      "summary": "Software and hardware must ship with security enabled by default: automatic updates, secure defaults, minimal attack surface. Vendors liable…",
+      "status": "community-draft"
+    },
+    "53": {
+      "title": "Responsible Disclosure Protection",
+      "summary": "Good-faith security research and vulnerability disclosure receive safe harbor. Criminalizing security research harms everyone. Vendors must …",
+      "status": "community-draft"
+    },
+    "54": {
+      "title": "Breach Notification",
+      "summary": "Data breaches affecting personal information must be disclosed to affected persons within 72 hours, with remediation steps and accountabilit…",
+      "status": "community-draft"
+    },
+    "55": {
+      "title": "Right to Offline Functionality",
+      "summary": "Essential digital services must provide offline-capable alternatives. Dependence on perpetual connectivity for access to personal data viola…",
+      "status": "community-draft"
+    },
+    "56": {
+      "title": "Prohibition of Preemptive Device Compromise",
+      "summary": "States may not require manufacturers to pre-install surveillance software on consumer devices. Supply chain integrity is a human right. Citi…",
+      "status": "community-draft"
+    },
+    "57": {
+      "title": "Digital Infrastructure Resilience",
+      "summary": "States and operators of critical digital infrastructure must maintain redundancy, incident response, and public reporting of major outages a…",
+      "status": "community-draft"
+    },
+    "58": {
+      "title": "Open Source Security Preference",
+      "summary": "Public sector procurement must prefer auditable open-source solutions where security-equivalent. Security through obscurity is not a defense…",
+      "status": "community-draft"
+    },
+    "59": {
+      "title": "Right to Verify Software Integrity",
+      "summary": "Persons have the right to verify that software on their devices matches published source code through reproducible builds and code signing. …",
+      "status": "community-draft"
+    },
+    "60": {
+      "title": "Cyber Peace Principles",
+      "summary": "Offensive cyber operations against civilian infrastructure violate this charter. Critical healthcare, water, power, and financial systems ar…",
+      "status": "community-draft"
+    },
+    "61": {
+      "title": "Droit à la transparence algorithmique",
+      "summary": "Explication en langage clair des décisions automatisées."
+    },
+    "62": {
+      "title": "Non-discrimination algorithmique",
+      "summary": "La discrimination algorithmique est illégale indépendamment de l'intention."
+    },
+    "63": {
+      "title": "Prohibition of Manipulative Algorithms",
+      "summary": "Recommendation and ranking algorithms may not be designed to maximize addiction, outrage, or compulsive engagement at the expense of user we…",
+      "status": "community-draft"
+    },
+    "64": {
+      "title": "Right to Opt Out of Profiling",
+      "summary": "Every person may opt out of behavioral profiling, interest inference, and psychographic targeting without loss of core service functionality…",
+      "status": "community-draft"
+    },
+    "65": {
+      "title": "AI Training Data Consent",
+      "summary": "Use of personal data, creative works, or communications to train AI systems requires explicit opt-in consent, with fair compensation mechani…",
+      "status": "community-draft"
+    },
+    "66": {
+      "title": "Synthetic Media Labeling",
+      "summary": "AI-generated media presented as factual must be clearly labeled. Non-consensual intimate synthetic imagery is prohibited. Political deepfake…",
+      "status": "community-draft"
+    },
+    "67": {
+      "title": "Human Oversight of High-Risk AI",
+      "summary": "High-risk AI systems—those affecting liberty, health, or livelihood—require human-in-the-loop oversight, kill switches, and incident logging…",
+      "status": "community-draft"
+    },
+    "68": {
+      "title": "Algorithmic Impact Audits",
+      "summary": "Deployers of algorithmic systems affecting more than 100,000 persons must publish annual bias, accuracy, and harm audits. Third-party audito…",
+      "status": "community-draft"
+    },
+    "69": {
+      "title": "Right to Contest Automated Decisions",
+      "summary": "Every automated adverse decision must include a clear pathway to human review, correction, and explanation within 14 days. Class action righ…",
+      "status": "community-draft"
+    },
+    "70": {
+      "title": "Open Algorithm Standards",
+      "summary": "Algorithms used in public services, elections, and judicial support must use open, auditable standards. Trade secret protection does not app…",
+      "status": "community-draft"
+    },
+    "71": {
+      "title": "Duty of Care for Platforms",
+      "summary": "Platforms exceeding 10 million active users owe a duty of care to prevent foreseeable harm—including harassment campaigns, viral misinformat…",
+      "status": "community-draft"
+    },
+    "72": {
+      "title": "Interoperability Rights",
+      "summary": "Dominant platforms must provide interoperable APIs enabling users to communicate across platforms and export social graphs. Walled gardens t…",
+      "status": "community-draft"
+    },
+    "73": {
+      "title": "Prohibition of Self-Preferencing",
+      "summary": "Platforms may not prioritize their own products in search, recommendations, or app stores in ways that harm competitors. App store monopolie…",
+      "status": "community-draft"
+    },
+    "74": {
+      "title": "Advertising Transparency",
+      "summary": "All digital political and commercial advertising must disclose funder identity, targeting criteria, and spend. Microtargeting based on sensi…",
+      "status": "community-draft"
+    },
+    "75": {
+      "title": "Worker Rights in the Gig Economy",
+      "summary": "Gig workers have the right to know how algorithms set pay, assign work, and terminate accounts. Opaque algorithmic management is prohibited.…",
+      "status": "community-draft"
+    },
+    "76": {
+      "title": "Right to Repair and Modify",
+      "summary": "Digital locks, DRM, and terms of service may not prevent persons from repairing, modifying, or repurposing devices they own. Right to repair…",
+      "status": "community-draft"
+    },
+    "77": {
+      "title": "Prohibition of Dark Patterns",
+      "summary": "User interfaces that trick, coerce, or manipulate users into actions against their interest are prohibited. Regulatory fines scale with conv…",
+      "status": "community-draft"
+    },
+    "78": {
+      "title": "Collective Bargaining for Users",
+      "summary": "Users of dominant platforms have the right to organize, collectively negotiate terms of service, and appoint ombudspersons without retaliati…",
+      "status": "community-draft"
+    },
+    "79": {
+      "title": "Environmental Disclosure of AI",
+      "summary": "Operators of large AI systems must disclose energy consumption and carbon footprint. Public sector AI procurement must consider environmenta…",
+      "status": "community-draft"
+    },
+    "80": {
+      "title": "Anti-Monopoly Digital Markets",
+      "summary": "States must prevent digital market monopolies through structural separation, data portability mandates, and prohibition of killer acquisitio…",
+      "status": "community-draft"
+    },
+    "81": {
+      "title": "Limits on State Digital Surveillance",
+      "summary": "State digital surveillance requires judicial warrant naming individuals and crimes. Mass surveillance programs are prohibited regardless of …",
+      "status": "community-draft"
+    },
+    "82": {
+      "title": "Digital Due Process",
+      "summary": "Search of digital devices, cloud accounts, and communications requires the same due process as physical search. Border device searches requi…",
+      "status": "community-draft"
+    },
+    "83": {
+      "title": "Prohibition of Social Credit Systems",
+      "summary": "Government or corporate systems that rank citizens for access to services, travel, or rights based on behavioral scoring are prohibited. Rep…",
+      "status": "community-draft"
+    },
+    "84": {
+      "title": "E-Government Transparency",
+      "summary": "Government digital services must be open source where security allows, accessible without proprietary software, and usable offline where fea…",
+      "status": "community-draft"
+    },
+    "85": {
+      "title": "Digital Voting Integrity",
+      "summary": "Electronic voting must be auditable, recountable, and open to independent verification. Online-only voting without paper backup is prohibite…",
+      "status": "community-draft"
+    },
+    "86": {
+      "title": "Protection from Extraterritorial Overreach",
+      "summary": "States may not assert jurisdiction over foreign persons' data without treaty basis and proportionality. Cloud providers must resist unlawful…",
+      "status": "community-draft"
+    },
+    "87": {
+      "title": "Digital Rights Ombudsman",
+      "summary": "States shall establish independent digital rights ombudspersons with authority to investigate complaints, issue binding recommendations, and…",
+      "status": "community-draft"
+    },
+    "88": {
+      "title": "Prohibition of Forced Device Access",
+      "summary": "States may not compel persons to disclose encryption passwords, device passcodes, or biometric unlock except with judicial order in specific…",
+      "status": "community-draft"
+    },
+    "89": {
+      "title": "Public Interest Digital Defense",
+      "summary": "States must fund legal aid for persons pursuing digital rights claims against powerful entities. Public interest litigation receives fee-shi…",
+      "status": "community-draft"
+    },
+    "90": {
+      "title": "Democratic Oversight of Spyware",
+      "summary": "Government purchase and use of commercial spyware requires legislative approval, judicial oversight, and public annual reporting of targets …",
+      "status": "community-draft"
+    },
+    "91": {
+      "title": "Universal Jurisdiction for Digital Harm",
+      "summary": "Courts may exercise jurisdiction over digital rights violations affecting their residents regardless of where the violating entity is headqu…",
+      "status": "community-draft"
+    },
+    "92": {
+      "title": "Data Transfer Adequacy",
+      "summary": "Transfer of personal data to jurisdictions without adequate privacy protections is prohibited unless person-initiated and informed. Adequacy…",
+      "status": "community-draft"
+    },
+    "93": {
+      "title": "Global Digital Rights Treaty Framework",
+      "summary": "Nations are encouraged to adopt SherpaCarta articles as binding national law through treaty, legislation, or constitutional amendment. Inter…",
+      "status": "community-draft"
+    },
+    "94": {
+      "title": "Protection of Digital Refugees",
+      "summary": "Persons persecuted for digital expression have the right to seek asylum. States must not deport persons to jurisdictions where digital perse…",
+      "status": "community-draft"
+    },
+    "95": {
+      "title": "Development Rights Online",
+      "summary": "Developing nations have the right to digital infrastructure sovereignty, local data storage, and freedom from extractive data colonialism. T…",
+      "status": "community-draft"
+    },
+    "96": {
+      "title": "Multilingual Internet Governance",
+      "summary": "Internet governance institutions must reflect global demographic diversity. English-only policy development is insufficient. Nations may est…",
+      "status": "community-draft"
+    },
+    "97": {
+      "title": "Cross-Border Evidence Protocols",
+      "summary": "Cross-border digital evidence requests must follow treaty procedures with proportionality review. Bulk data requests are prohibited. Mutual …",
+      "status": "community-draft"
+    },
+    "98": {
+      "title": "Sanctions and Digital Rights",
+      "summary": "Sanctions may not block access to communication tools, encryption, or human rights documentation for civilian populations. General license f…",
+      "status": "community-draft"
+    },
+    "99": {
+      "title": "Corporate Extraterritorial Accountability",
+      "summary": "Corporations operating globally are accountable in every jurisdiction where they cause digital rights harm, regardless of incorporation loca…",
+      "status": "community-draft"
+    },
+    "100": {
+      "title": "Solidarity Among Signatories",
+      "summary": "Signatories to SherpaCarta form a global solidarity network obligated to support one another's digital rights advocacy, translation, and leg…",
+      "status": "community-draft"
+    },
+    "101": {
+      "title": "Right to Digital Remedy",
+      "summary": "Every person whose rights under this charter are violated is entitled to an effective remedy. The right to remedy is not diminished by the t…",
+      "status": "community-draft"
+    },
+    "102": {
+      "title": "Class Action and Collective Redress",
+      "summary": "Systematic digital rights violations affecting groups qualify for collective redress without requiring each victim to litigate individually.…",
+      "status": "community-draft"
+    },
+    "103": {
+      "title": "Punitive Damages for Willful Violations",
+      "summary": "Willful, repeated, or profit-motivated digital rights violations face punitive damages up to 4% of global annual revenue. Executive personal…",
+      "status": "community-draft"
+    },
+    "104": {
+      "title": "Injunctive Relief",
+      "summary": "Courts may issue immediate injunctions halting ongoing digital rights violations without requiring victims to prove damages first. Temporary…",
+      "status": "community-draft"
+    },
+    "105": {
+      "title": "Whistleblower Rewards",
+      "summary": "Persons who expose systematic digital rights violations may receive a portion of recovered damages or fines. Retaliation against whistleblow…",
+      "status": "community-draft"
+    },
+    "106": {
+      "title": "Public Enforcement Actions",
+      "summary": "Data protection authorities must investigate credible complaints within 30 days and publish outcomes. Regulatory capture is an actionable vi…",
+      "status": "community-draft"
+    },
+    "107": {
+      "title": "Sunset of Immunity Provisions",
+      "summary": "Platform liability immunity does not extend to willful facilitation of trafficking, exploitation, or systematic rights violations with actua…",
+      "status": "community-draft"
+    },
+    "108": {
+      "title": "Victim Compensation Funds",
+      "summary": "Fines from digital rights violations fund victim compensation pools administered transparently. Priority to marginalized communities disprop…",
+      "status": "community-draft"
+    },
+    "109": {
+      "title": "International Enforcement Cooperation",
+      "summary": "Nations shall cooperate in enforcement against digital rights violators through information sharing, asset freezing, and extradition where a…",
+      "status": "community-draft"
+    },
+    "110": {
+      "title": "Charter Supremacy Clause",
+      "summary": "When SherpaCarta conflicts with commercial contracts, terms of service, or trade agreements, the charter prevails to the extent of the confl…",
+      "status": "community-draft"
+    },
+    "111": {
+      "title": "Signatory Registry",
+      "summary": "Organizations and governments adopting SherpaCarta must register publicly, report compliance annually, and accept community review. False ad…",
+      "status": "community-draft"
+    },
+    "112": {
+      "title": "Education and Enforcement Funding",
+      "summary": "States adopting SherpaCarta commit to funding digital rights education, legal aid, and enforcement at minimum 0.1% of digital economy GDP. P…",
+      "status": "community-draft"
+    },
+    "113": {
+      "title": "Non-Regression Principle",
+      "summary": "No law, policy, or terms of service may reduce digital rights below SherpaCarta baseline once adopted. Regression triggers automatic review …",
+      "status": "community-draft"
+    },
+    "114": {
+      "title": "Expansion seule des droits",
+      "summary": "Aucune amendement ne peut réduire les protections existantes."
+    },
+    "P.1": {
+      "title": "On the Foundation of Rights",
+      "summary": "We, the people of the interconnected world, recognize that the digital revolution has created powers capable of surveilling, silencing, and …",
+      "status": "community-draft"
+    }
   }
 }

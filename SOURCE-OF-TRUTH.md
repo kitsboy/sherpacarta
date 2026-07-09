@@ -1,8 +1,8 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-07-07  
-**BUILD:** 20260707-688  
+**Date:** 2026-07-09  
+**BUILD:** 20260709-720  
 **Live:** https://sherpacarta.org
 
 ## Project Overview (Simple Pitch)
@@ -21,7 +21,9 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/sc-bundle.js` — Concatenated enhancements + `sc-upgrades-b1.js` … `b13.js`
 - `public/js/sc-petition-canada.js` — Canada petition (passkey, Nostr, merkle, Satohash)
 - `public/js/sc-press-outlets.js` — Press section icons + mobile marquee
-- `public/sw.js` — Service worker cache v5.3
+- `public/sw.js` — Service worker cache v5.4
+- `public/fonts/` + `public/vendor/fontawesome/` — self-hosted type & icons
+- `public/press-kit.html`, `public/charter.txt`, `public/humans.txt`, `public/offline.html`
 - `public/canada/` — Canada campaign pages (index, sign, proof, about, bc/)
 - `treasury.html`, `security.html` — Sprint 7 pages
 - `embed.js` — Embeddable sign widget
@@ -57,7 +59,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 ## Git & Deployment
 - **GitHub:** https://github.com/kitsboy/sherpacarta.git
 - **Branch:** `main`
-- **Last commit:** `0d71baa` (BUILD 688 press outlets)
+- **Last commit:** see `main` (BUILD 720 design sprint)
 - **Deploy:** `./deploy.sh` → Cloudflare Pages project `sherpacarta`
 - **Dev:** `npm run dev` (http://localhost:5173)
 - **Build:** `npm run build` → `dist/`
@@ -73,6 +75,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 | b12 | 648–667 | 667 (full charter) |
 | b13 | 668–687 | 687 (Canada) |
 | press | — | 688 (outlets UI, standalone script) |
+| b14 | 688–720 | 720 (design/conversion sprint) |
 
 ## Mission Alignment (Give A Bit)
 Bitcoin sovereignty, privacy, human dignity. Zero tracking. Local-first signing. OpenTimestamps via Satohash. Nostr for public discourse. Canada/BC as first law-change beachhead.
@@ -82,8 +85,8 @@ Bitcoin sovereignty, privacy, human dignity. Zero tracking. Local-first signing.
 - **npm publish** — `npm login && npm run publish:packages`
 - **Federal e-petition** — needs MP sponsor + official e-### number
 - **Satohash template** — submit `sherpacarta-canada-referendum.json` when ready
-- **Full charter i18n** — UI locales exist; 114-article translations mostly sample-only
-- **Press kit PDF** — export from MARKETING.md (IMPROVEMENTS #119)
+- **Full charter i18n** — ES/FR expanded; full human-reviewed legal translations still needed
+- **Official org endorsements** — coalition seats open (no fake claims)
 - **Kimi sync** — Obsidian / MASTER-BRAIN from `docs/KIMI-HANDOFF.md`
 
 ## Hand-off Notes for Kimi (M4 HERMES)

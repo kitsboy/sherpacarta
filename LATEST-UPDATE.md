@@ -1,5 +1,5 @@
-# sherpacarta — Last Updated 2026-07-07 by Grok (goodbye)
+# sherpacarta — Last Updated 2026-07-09 by Grok
 
-Brief: Session closed — press outlets BUILD 688 live, all docs synced
-Commit: fb69bc6 · Deployed: sherpacarta.org
-Recovery: `/whatsup` or read SESSION-SUMMARY-2026-07-07.md
+Brief: World-class design sprint BUILD 720 — conversion, trust, self-host, press kit
+Commit: (see main) · Deploy: pending / after this session
+Recovery: `/whatsup` or read SESSION-SUMMARY / docs/KIMI-HANDOFF.md

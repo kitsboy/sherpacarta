@@ -9,7 +9,7 @@ const ASSETS = [
   '/favicon.svg', '/og-image.svg', '/og-image.png',
   '/giveabit-logo.png', '/giveabit-parent-logo.jpg', '/manifest.json', '/mcp.json',
   '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',
-  '/humans.txt', '/charter.txt',
+  '/humans.txt', '/charter.txt', '/offline.html',
   '/sc-main.css', '/sc-core.js', '/sc-bundle.js', '/embed.js', '/data/charter.json',
   '/fonts/fonts.css',
   '/fonts/outfit-400.woff2', '/fonts/outfit-600.woff2', '/fonts/outfit-700.woff2',
@@ -45,6 +45,6 @@ self.addEventListener('fetch', (e) => {
         caches.open(CACHE).then((c) => c.put(e.request, clone));
       }
       return res;
-    }).catch(() => cached))
+    }).catch(() => cached || caches.match('/offline.html') || caches.match('/')))
   );
 });
