@@ -14,5 +14,5 @@
     "sha256-receipt"
   ],
   "note": "Aggregate counts are device-local unless Nostr relay aggregation is enabled. Merkle roots stamped via Satohash.",
-  "updated": "2026-07-09T14:56:10.837Z"
+  "updated": "2026-07-09T14:58:13.126Z"
 }
