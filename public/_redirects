@@ -1,3 +1,7 @@
+# Language shortcuts only.
+# Do NOT rewrite /canada/sign → sign.html (causes 308 redirect loops with Cloudflare pretty URLs).
+# Always link to .html files in the app; Cloudflare will serve them reliably.
+
 /es    /?lang=es   302
 /es/   /?lang=es   302
 /fr    /?lang=fr   302
@@ -12,18 +16,3 @@
 /ar/   /?lang=ar   302
 /sw    /?lang=sw   302
 /sw/   /?lang=sw   302
-
-# Pretty Canada / handout URLs (extensionless)
-/canada/join              /canada/join.html              200
-/canada/sign              /canada/sign.html              200
-/canada/paper             /canada/paper.html             200
-/canada/official          /canada/official.html          200
-/canada/proof             /canada/proof.html             200
-/canada/organizer         /canada/organizer.html         200
-/canada/about             /canada/about.html             200
-/briefing                 /briefing.html                 200
-/briefing-fr              /briefing-fr.html              200
-/leave-behind             /leave-behind.html             200
-/press-kit                /press-kit.html                200
-/treasury                 /treasury.html                 200
-/security                 /security.html                 200

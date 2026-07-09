@@ -232,11 +232,14 @@ function esc(s) {
 }
 
 function stripOldSocial(html) {
-  // Remove prior auto block
+  // Remove all prior auto blocks (full or empty)
   html = html.replace(
-    new RegExp(`${MARKER_START}[\\s\\S]*?${MARKER_END}\\n?`, 'g'),
+    new RegExp(`${MARKER_START}[\s\S]*?${MARKER_END}\s*`, 'g'),
     ''
   );
+  // Remove orphan empty markers
+  html = html.replace(new RegExp(`${MARKER_START}\s*`, 'g'), '');
+  html = html.replace(new RegExp(`${MARKER_END}\s*`, 'g'), '');
   // Remove common hand-written social tags (keep title element)
   const patterns = [
     /<meta\s+property="og:[^"]+"\s+content="[^"]*"\s*\/?>\s*/gi,
@@ -245,7 +248,6 @@ function stripOldSocial(html) {
     /<!--\s*═══\s*TWITTER[\s\S]*?-->\s*/gi,
   ];
   for (const p of patterns) html = html.replace(p, '');
-  // Only strip name="description" if we'll replace — do carefully once
   return html;
 }
 
