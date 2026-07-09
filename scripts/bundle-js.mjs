@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Concatenate enhancement + upgrade scripts → public/sc-bundle.js */
+/** Concatenate enhancement + upgrade scripts → public/sc-bundle.js (per-file minify) */
 import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -30,32 +30,56 @@ const files = [
   'sc-upgrades-b14.js',
 ];
 
-let bundle = `/* SherpaCarta bundled enhancements — generated ${new Date().toISOString()} */\n`;
+let minifyFn = null;
+try {
+  minifyFn = (await import('terser')).minify;
+} catch {
+  console.warn('terser not available — writing unminified bundle');
+}
+
+let out = `/* SherpaCarta bundled enhancements — generated ${new Date().toISOString()} */\n`;
 let total = 0;
+let rawBytes = 0;
+let outBytes = 0;
+
 for (const f of files) {
   try {
     const src = readFileSync(join(publicDir, f), 'utf8');
-    bundle += `\n/* ── ${f} ── */\n${src}\n`;
+    rawBytes += src.length;
     total++;
+    let body = src;
+    let tag = f;
+    if (minifyFn) {
+      try {
+        const min = await minifyFn(src, {
+          compress: { passes: 1, drop_console: false },
+          mangle: true,
+          format: { comments: false },
+          ecma: 2020,
+        });
+        if (min.code) {
+          body = min.code;
+          tag = f;
+        } else if (min.error) {
+          console.warn(`Minify skip ${f}:`, min.error.message);
+          tag = `${f} (raw)`;
+        }
+      } catch (e) {
+        console.warn(`Minify skip ${f}:`, e.message);
+        tag = `${f} (raw)`;
+      }
+    }
+    out += `\n/* ── ${tag} ── */\n${body}\n`;
+    outBytes += body.length;
   } catch {
     console.warn(`Skip missing: ${f}`);
   }
 }
-writeFileSync(join(publicDir, 'sc-bundle.js'), bundle);
-console.log(`Bundled ${total} files → public/sc-bundle.js (${(bundle.length / 1024).toFixed(1)} KB)`);
 
-// Minify for production (source modules stay readable; bundle is generated)
-try {
-  const { minify } = await import('terser');
-  const min = await minify(bundle, {
-    compress: { passes: 1, drop_console: false },
-    mangle: true,
-    format: { comments: false },
-  });
-  if (min.code) {
-    writeFileSync(join(publicDir, 'sc-bundle.js'), min.code);
-    console.log(`Minified sc-bundle.js → ${(min.code.length / 1024).toFixed(1)} KB (${Math.round((1 - min.code.length / bundle.length) * 100)}% smaller)`);
-  }
-} catch (e) {
-  console.warn('Minify skipped:', e.message);
-}
+writeFileSync(join(publicDir, 'sc-bundle.js'), out);
+const pct = rawBytes ? Math.round((1 - outBytes / rawBytes) * 100) : 0;
+console.log(
+  `Bundled ${total} files → public/sc-bundle.js (${(outBytes / 1024).toFixed(1)} KB` +
+    (pct > 0 ? `, ~${pct}% smaller` : '') +
+    `)`
+);

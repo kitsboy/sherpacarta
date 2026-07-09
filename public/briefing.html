@@ -27,6 +27,8 @@
 <meta name="twitter:image:alt" content="SherpaCarta — Executive Briefing for Decision-Makers">
 <meta name="description" content="Two-page print briefing: what SherpaCarta is, why digital rights matter, how it works, Canada petition path, and key links for elected officials.">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
+<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
+<!-- ═══ /SOCIAL PREVIEW META ═══ -->
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://sherpacarta.org/briefing.html">
 <style>
@@ -328,6 +330,16 @@
   .foot .right { text-align: right; line-height: 1.4; }
 
   .muted { color: var(--muted); font-size: 0.72rem; }
+  .prepared {
+    display: none;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.35rem;
+  }
+  .prepared.show { display: block; }
 
   /* ── Print: continuous flow, ~2 full pages, no forced empty breaks ── */
   @media print {
@@ -367,13 +379,13 @@
 <body>
 
 <div class="screen-bar">
-  <span><a href="/">← SherpaCarta</a> · Executive briefing (designed for <strong>2 full letter pages</strong>)</span>
+  <span><a href="/">← SherpaCarta</a> · <a href="/briefing-fr.html">Français</a> · <a href="/leave-behind.html">1-page leave-behind</a></span>
   <button type="button" class="btn-print" onclick="window.print()">Print / Save as PDF</button>
 </div>
-<p class="hint">Tip: In the print dialog, use <strong>Letter</strong>, scale <strong>100%</strong>, margins default. Background graphics: On (if available).</p>
+<p class="hint">Tip: <strong>Letter</strong>, scale <strong>100%</strong>. Personalize: <code>?for=Name&amp;riding=Riding</code> — e.g. <code>/briefing.html?for=Alex%20Chen&amp;riding=Vancouver%20Centre</code></p>
 
 <article class="sheet">
-
+  <p class="prepared" id="prepared"></p>
   <header class="masthead">
     <div class="brand">
       <img src="/giveabit-logo.png" alt="Give A Bit" width="42" height="42">
@@ -536,5 +548,21 @@
 
 </article>
 
+<script>
+(function () {
+  const p = new URLSearchParams(location.search);
+  const name = (p.get('for') || p.get('name') || '').trim();
+  const riding = (p.get('riding') || p.get('riding_name') || '').trim();
+  if (!name && !riding) return;
+  const el = document.getElementById('prepared');
+  let t = 'Prepared for ';
+  if (name) t += name;
+  if (name && riding) t += ' · ';
+  if (riding) t += riding;
+  el.textContent = t;
+  el.classList.add('show');
+  document.title = (name ? name + ' — ' : '') + 'SherpaCarta Executive Briefing';
+})();
+</script>
 </body>
 </html>

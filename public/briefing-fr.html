@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SherpaCarta — Note de breffage pour décideurs</title>
+<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SherpaCarta">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="https://sherpacarta.org/briefing-fr.html">
+<meta property="og:title" content="SherpaCarta — Note de breffage pour décideurs">
+<meta property="og:description" content="Note imprimable : qu’est-ce que SherpaCarta, pourquoi c’est important, pétition canadienne et liens clés pour les élus.">
+<meta property="og:image" content="https://sherpacarta.org/og/default.png?v=724">
+<meta property="og:image:secure_url" content="https://sherpacarta.org/og/default.png?v=724">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SherpaCarta — Note de breffage pour décideurs">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@give_bit">
+<meta name="twitter:creator" content="@give_bit">
+<meta name="twitter:url" content="https://sherpacarta.org/briefing-fr.html">
+<meta name="twitter:title" content="SherpaCarta — Note de breffage pour décideurs">
+<meta name="twitter:description" content="Note imprimable : qu’est-ce que SherpaCarta, pourquoi c’est important, pétition canadienne et liens clés pour les élus.">
+<meta name="twitter:image" content="https://sherpacarta.org/og/default.png?v=724">
+<meta name="twitter:image:alt" content="SherpaCarta — Note de breffage pour décideurs">
+<meta name="description" content="Note imprimable : qu’est-ce que SherpaCarta, pourquoi c’est important, pétition canadienne et liens clés pour les élus.">
+<!-- ═══ /SOCIAL PREVIEW META ═══ -->
+<link rel="canonical" href="https://sherpacarta.org/briefing-fr.html">
+<style>
+  :root {
+    --ink: #121a12; --muted: #3d4d3d; --line: #c8d2c8; --em: #0c6b48;
+    --em-soft: #e6f4ed; --gold: #8a6e16; --paper: #fbfcf8;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans); background: #1a221a; color: var(--ink); line-height: 1.45;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .screen-bar {
+    max-width: 7.5in; margin: 0 auto; padding: 0.85rem 1rem; color: #c8d4c8; font-size: 0.85rem;
+    display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: space-between;
+  }
+  .screen-bar a { color: #6ee7b7; }
+  .btn-print {
+    background: #10b981; color: #041208; border: none; padding: 0.5rem 1.1rem; border-radius: 999px;
+    font-weight: 700; cursor: pointer; font-family: var(--sans); font-size: 0.85rem;
+  }
+  .hint { max-width: 7.5in; margin: 0 auto 0.75rem; padding: 0 1rem; font-size: 0.75rem; color: #8a9a8a; }
+  .sheet {
+    width: 8.5in; max-width: 100%; margin: 0 auto 2rem; background: var(--paper);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35); padding: 0.48in 0.55in 0.45in;
+  }
+  .prepared {
+    display: none; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem;
+  }
+  .prepared.show { display: block; }
+  .masthead {
+    display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
+    border-bottom: 2.5px solid var(--em); padding-bottom: 0.5rem; margin-bottom: 0.55rem;
+  }
+  .brand { display: flex; gap: 0.65rem; align-items: center; }
+  .brand img { height: 42px; width: auto; border-radius: 7px; }
+  .brand h1 { font-family: var(--serif); font-size: 1.45rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
+  .brand .tag { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--em); margin-top: 0.15rem; }
+  .mast-meta { text-align: right; font-size: 0.65rem; color: var(--muted); line-height: 1.4; }
+  .mast-meta strong { display: block; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+  .kicker { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; margin: 0 0 0.2rem; letter-spacing: -0.02em; }
+  .lede { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.45rem; }
+  .hook {
+    font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--em);
+    background: var(--em-soft); border-left: 3px solid var(--em); padding: 0.4rem 0.65rem; margin: 0 0 0.55rem;
+  }
+  h2 {
+    font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--em); margin: 0.65rem 0 0.3rem; padding-bottom: 0.15rem; border-bottom: 1px solid var(--line);
+  }
+  p { font-size: 0.8rem; margin: 0 0 0.4rem; text-align: justify; hyphens: auto; }
+  ul { margin: 0.15rem 0 0.4rem; padding-left: 1.05rem; }
+  li { font-size: 0.78rem; margin: 0.12rem 0; }
+  .cols-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 0.75rem; }
+  .cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.4rem; }
+  .box { border: 1px solid var(--line); border-radius: 5px; padding: 0.4rem 0.5rem; background: #fff; break-inside: avoid; }
+  .box h3 { font-family: var(--serif); font-size: 0.85rem; margin: 0 0 0.2rem; }
+  .box.is { background: #f3f9f5; border-color: #a8d4bc; }
+  .box.is-not { background: #fafafa; }
+  .box li, .box p { font-size: 0.74rem; }
+  .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 0.65rem; }
+  .pillar { display: flex; gap: 0.35rem; font-size: 0.75rem; align-items: flex-start; }
+  .pillar .num { font-family: var(--serif); color: var(--em); font-size: 0.95rem; line-height: 1.1; min-width: 1.25rem; }
+  .step { border: 1px solid var(--line); border-radius: 5px; padding: 0.4rem 0.45rem; background: #fff; break-inside: avoid; }
+  .step .n { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; }
+  .step strong { display: block; font-size: 0.78rem; margin: 0.1rem 0; }
+  .step span { font-size: 0.7rem; color: var(--muted); line-height: 1.35; display: block; }
+  .articles { width: 100%; border-collapse: collapse; font-size: 0.72rem; margin: 0.25rem 0 0.45rem; }
+  .articles th {
+    text-align: left; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding: 0.2rem 0.3rem;
+  }
+  .articles td { border-bottom: 1px solid #e4ebe4; padding: 0.22rem 0.3rem; vertical-align: top; }
+  .articles td:first-child { font-family: var(--mono); color: var(--em); white-space: nowrap; width: 4.2rem; }
+  .ask {
+    background: linear-gradient(135deg, #f3f9f5, #fffef8); border: 1px solid #b5d6c4;
+    border-radius: 6px; padding: 0.5rem 0.65rem; margin: 0.35rem 0 0.45rem; break-inside: avoid;
+  }
+  .ask p { margin: 0; font-size: 0.78rem; text-align: left; }
+  .ask strong { color: var(--em); }
+  .links-wrap { display: grid; grid-template-columns: 1fr auto; gap: 0.65rem; align-items: start; }
+  .link-list { list-style: none; padding: 0; }
+  .link-list li {
+    display: grid; grid-template-columns: 1fr auto; gap: 0.4rem; padding: 0.22rem 0;
+    border-bottom: 1px solid var(--line); font-size: 0.74rem;
+  }
+  .link-list a { color: var(--em); font-weight: 600; text-decoration: none; }
+  .link-list .url { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); }
+  .qr-block { display: flex; flex-direction: column; gap: 0.4rem; align-items: center; }
+  .qr-item { text-align: center; font-family: var(--mono); font-size: 0.55rem; color: var(--muted); }
+  .qr-item img { width: 78px; height: 78px; border: 1px solid var(--line); display: block; margin-bottom: 0.15rem; }
+  .foot {
+    margin-top: 0.55rem; padding-top: 0.4rem; border-top: 1.5px solid var(--em);
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 0.75rem;
+    font-size: 0.65rem; color: var(--muted);
+  }
+  .foot img { height: 26px; }
+  .foot a { color: var(--em); }
+  .foot .right { text-align: right; line-height: 1.4; }
+  .muted { color: var(--muted); font-size: 0.72rem; }
+  @media print {
+    @page { size: letter; margin: 0.45in 0.5in; }
+    html, body { background: #fff !important; margin: 0; padding: 0; }
+    .screen-bar, .hint { display: none !important; }
+    .sheet { width: auto; max-width: none; margin: 0; padding: 0; box-shadow: none; background: #fff; }
+    .box, .step, .ask, .articles, .links-wrap, .masthead { break-inside: avoid; }
+    h2 { break-after: avoid; }
+  }
+  @media screen and (max-width: 900px) {
+    .sheet { width: auto; margin: 0 0.5rem 2rem; padding: 1.1rem; }
+    .cols-2, .cols-3, .pillars, .links-wrap { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="screen-bar">
+  <span><a href="/">← SherpaCarta</a> · <a href="/briefing.html">English</a> · <a href="/leave-behind.html">1 page</a></span>
+  <button type="button" class="btn-print" onclick="window.print()">Imprimer / PDF</button>
+</div>
+<p class="hint">Conseil : format <strong>Lettre</strong>, échelle <strong>100 %</strong>. Environ 2 pages pleines.</p>
+
+<article class="sheet">
+  <p class="prepared" id="prepared"></p>
+  <header class="masthead">
+    <div class="brand">
+      <img src="/giveabit-logo.png" alt="Give A Bit" width="42" height="42">
+      <div>
+        <h1>SherpaCarta</h1>
+        <div class="tag">Magna Carta numérique mondiale · famille Give A Bit</div>
+      </div>
+    </div>
+    <div class="mast-meta">
+      <strong>Note pour décideurs</strong>
+      Juillet 2026 · domaine public CC0<br>
+      sherpacarta.org
+    </div>
+  </header>
+
+  <p class="kicker">Sommaire exécutif et introduction</p>
+  <p class="lede">Aperçu clair du projet, de son objectif, du mode de participation et des prochaines étapes au Canada — pour le service public, les élus et les leaders communautaires de toutes les langues et traditions.</p>
+  <p class="hook">« La vie privée n’est pas une fonctionnalité. C’est un droit de naissance. »</p>
+
+  <h2>Pourquoi c’est important maintenant</h2>
+  <p>
+    Le pouvoir public et privé sur la vie quotidienne passe de plus en plus par les <strong>données, plateformes et algorithmes</strong>. Le profilage, les décisions automatisées et la surveillance à grande échelle se font souvent sans explication claire, consentement réel ou recours égal. Les cadres existants aident — mais restent fragmentés, lents face à l’IA et inégaux d’un territoire à l’autre.
+  </p>
+  <p>
+    <strong>SherpaCarta</strong> répond à un besoin civique simple : une déclaration vivante et partagée des droits humains numériques que chacun peut lire, signer, traduire, améliorer et porter dans la fabrication de la loi — avec humilité, transparence et respect de toutes les communautés.
+  </p>
+
+  <h2>Ce qu’est SherpaCarta — et ce qu’elle n’est pas</h2>
+  <div class="cols-2">
+    <div class="box is">
+      <h3>C’est</h3>
+      <ul>
+        <li>Une <strong>charte vivante</strong> de <strong>114 articles</strong> sur la vie privée, la souveraineté des données, l’expression et les droits algorithmiques</li>
+        <li>Une déclaration morale et politique dans la lignée de la Magna Carta de 1215 et de la constitution islandaise participative de 2011</li>
+        <li><strong>Domaine public CC0</strong> — libre de copier, traduire et adapter</li>
+        <li>Financée uniquement par des dons <strong>Bitcoin</strong> volontaires ; code ouvert ; <strong>zéro pistage</strong></li>
+        <li>Ouverte à toutes et tous : toute langue ; conversation sans compte obligatoire</li>
+      </ul>
+    </div>
+    <div class="box is-not">
+      <h3>Ce n’est pas (encore)</h3>
+      <ul>
+        <li>Une loi ou un traité contraignant à elle seule</li>
+        <li>Un projet partisan ou un produit de conformité d’entreprise</li>
+        <li>Un système de surveillance — nous ne constituons pas de dossiers de signataires sur nos serveurs</li>
+        <li>Une prétention que la techno remplace le processus démocratique soigneux</li>
+      </ul>
+      <p class="muted" style="margin-top:0.25rem">Sa force grandit par l’adoption : personnes, organisations et lois qui en reprennent les principes.</p>
+    </div>
+  </div>
+
+  <h2>L’objectif</h2>
+  <p>
+    Établir une <strong>référence claire, mondiale et appartenant aux gens</strong> pour les droits numériques — et aider à transformer cette clarté morale en <strong>meilleures lois et pratiques</strong>, là où des partenaires sont prêts. Selon l’art. 114, les droits ne peuvent que <strong>s’élargir</strong>, jamais se réduire.
+  </p>
+
+  <h2>Quatre piliers</h2>
+  <div class="pillars">
+    <div class="pillar"><span class="num">01</span><div><strong>Vie privée d’abord</strong> — communications, données et identité protégées par défaut</div></div>
+    <div class="pillar"><span class="num">02</span><div><strong>Accès universel</strong> — connectivité comme infrastructure essentielle</div></div>
+    <div class="pillar"><span class="num">03</span><div><strong>Liberté d’expression</strong> — parole protégée du pouvoir arbitraire</div></div>
+    <div class="pillar"><span class="num">04</span><div><strong>Souveraineté des données</strong> — les personnes contrôlent leurs données</div></div>
+  </div>
+
+  <h2>Comment ça fonctionne</h2>
+  <div class="cols-3">
+    <div class="step">
+      <div class="n">Étape 1</div>
+      <strong>Lire la charte</strong>
+      <span>Texte intégral en ligne et API publique. Chercher, partager, étudier — sans compte.</span>
+    </div>
+    <div class="step">
+      <div class="n">Étape 2</div>
+      <strong>Signer et soutenir</strong>
+      <span>Engagements de campagne respectueux de la vie privée. Pétitions papier et officielles selon les règles parlementaires.</span>
+    </div>
+    <div class="step">
+      <div class="n">Étape 3</div>
+      <strong>Façonner la loi avec soin</strong>
+      <span>Langage modèle, pétitions et notes aident les législateurs à adopter des principes avec un mandat public transparent.</span>
+    </div>
+  </div>
+
+  <h2>Honnêteté sur les signatures</h2>
+  <p>
+    Nous séparons le <strong>soutien de campagne</strong> (mouvement, reçus cryptographiques, débat public) des <strong>instruments parlementaires officiels</strong> (pétition électronique de la Chambre des communes ou pétitions papier originales présentées par un député). Cette honnêteté protège la procédure démocratique et la crédibilité du projet.
+  </p>
+
+  <h2>Articles d’intérêt pour les législateurs</h2>
+  <table class="articles">
+    <thead><tr><th>Article</th><th>Objet</th></tr></thead>
+    <tbody>
+      <tr><td>Art. 11</td><td>Vie privée par conception — pas des réglages enfouis</td></tr>
+      <tr><td>Art. 12</td><td>Souveraineté des données personnelles</td></tr>
+      <tr><td>Art. 13</td><td>Limites au capitalisme de surveillance sans consentement réel</td></tr>
+      <tr><td>Art. 47</td><td>Droit à l’effacement / à l’oubli dans des conditions justes</td></tr>
+      <tr><td>Art. 61–62</td><td>Transparence algorithmique et non-discrimination</td></tr>
+      <tr><td>Art. 114</td><td>Charte vivante — les droits ne s’élargissent qu’à la hausse</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Canada — une tête de pont concrète</h2>
+  <p>
+    SherpaCarta est mondiale. Le <strong>Canada</strong> est une première juridiction naturelle : culture de la vie privée, partage fédéral–provincial des compétences, modernisation possible de cadres comme la LPRPDE à l’ère de l’IA. La Colombie-Britannique est souvent notre foyer d’organisation — non parce que les autres provinces comptent moins, mais parce qu’un mouvement a besoin d’un début. Sur une <strong>pétition papier fédérale</strong>, une signature de toute province ou territoire est déjà une signature fédérale canadienne.
+  </p>
+  <div class="ask">
+    <p>
+      <strong>Demande respectueuse aux élus :</strong>
+      (1) Examiner la charte et cette note ;
+      (2) Envisager d’autoriser ou de présenter une pétition fédérale lorsque le texte est prêt ;
+      (3) Utiliser SherpaCarta comme <em>langage modèle</em> pour moderniser la vie privée numérique et la responsabilité algorithmique — sans exiger l’accord sur chaque article d’emblée.
+    </p>
+  </div>
+
+  <h2>Liens importants</h2>
+  <div class="links-wrap">
+    <ul class="link-list">
+      <li><a href="https://sherpacarta.org/">Charte complète</a><span class="url">sherpacarta.org</span></li>
+      <li><a href="https://sherpacarta.org/canada/">Pétition Canada</a><span class="url">/canada/</span></li>
+      <li><a href="https://sherpacarta.org/canada/sign.html">Signature campagne</a><span class="url">/canada/sign</span></li>
+      <li><a href="https://sherpacarta.org/canada/paper.html">Feuille papier fédérale</a><span class="url">/canada/paper</span></li>
+      <li><a href="https://sherpacarta.org/canada/official.html">Voie e-pétition officielle</a><span class="url">/canada/official</span></li>
+      <li><a href="https://sherpacarta.org/briefing.html">Note en anglais</a><span class="url">/briefing</span></li>
+      <li><a href="https://sherpacarta.org/leave-behind.html">Feuille 1 page</a><span class="url">/leave-behind</span></li>
+      <li><a href="https://github.com/kitsboy/sherpacarta">Code ouvert</a><span class="url">GitHub</span></li>
+    </ul>
+    <div class="qr-block">
+      <div class="qr-item"><img src="/og/qr-home.png" width="78" height="78" alt="QR accueil">Accueil</div>
+      <div class="qr-item"><img src="/og/qr-canada.png" width="78" height="78" alt="QR Canada">Canada</div>
+    </div>
+  </div>
+
+  <h2>En conclusion</h2>
+  <p>
+    Nous ne prétendons pas à la perfection. Nous proposons un <strong>point de départ commun</strong> : la dignité humaine en ligne mérite le sérieux autrefois accordé à la liberté sur parchemin. Nous accueillons la critique, la traduction, les amendements (les droits ne s’élargissent qu’à la hausse) et le partenariat de toute tradition qui défend la personne face au pouvoir arbitraire.
+  </p>
+  <p class="muted">Document public — pas un avis juridique. Contact : <strong>hello@giveabit.io</strong> · Objet : Sherpacarta.</p>
+
+  <footer class="foot">
+    <div>
+      <img src="/giveabit-logo.png" alt="Give A Bit">
+      <div style="margin-top:0.2rem">Give A Bit · éducation Bitcoin, services et espoir · giveabit.io</div>
+    </div>
+    <div class="right">
+      <strong style="color:var(--em);font-family:var(--mono);font-size:0.58rem;letter-spacing:0.08em">MERCI DE VOTRE LECTURE</strong><br>
+      sherpacarta.org/briefing-fr.html
+    </div>
+  </footer>
+</article>
+
+<script>
+(function () {
+  const p = new URLSearchParams(location.search);
+  const name = (p.get('for') || p.get('name') || '').trim();
+  const riding = (p.get('riding') || '').trim();
+  if (!name && !riding) return;
+  const el = document.getElementById('prepared');
+  let t = 'Préparé pour ';
+  if (name) t += name;
+  if (name && riding) t += ' · ';
+  if (riding) t += riding;
+  el.textContent = t;
+  el.classList.add('show');
+})();
+</script>
+</body>
+</html>

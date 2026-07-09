@@ -26,6 +26,20 @@ const PAGES = {
     image: '/og/default.png',
     path: '/briefing.html',
   },
+  'public/briefing-fr.html': {
+    title: 'SherpaCarta — Note de breffage pour décideurs',
+    description:
+      'Note imprimable : qu’est-ce que SherpaCarta, pourquoi c’est important, pétition canadienne et liens clés pour les élus.',
+    image: '/og/default.png',
+    path: '/briefing-fr.html',
+  },
+  'public/leave-behind.html': {
+    title: 'SherpaCarta — One-Page Leave-Behind',
+    description:
+      'One-page handout for staffers: what it is, the Canada ask, key articles, and links. Privacy is a birthright.',
+    image: '/og/default.png',
+    path: '/leave-behind.html',
+  },
   'public/canada/index.html': {
     title: 'Canada Digital Rights Petition — SherpaCarta',
     description:

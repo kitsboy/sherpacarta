@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SherpaCarta — One-Page Leave-Behind</title>
+<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SherpaCarta">
+<meta property="og:locale" content="en_CA">
+<meta property="og:url" content="https://sherpacarta.org/leave-behind.html">
+<meta property="og:title" content="SherpaCarta — One-Page Leave-Behind">
+<meta property="og:description" content="One-page handout for staffers: what it is, the Canada ask, key articles, and links. Privacy is a birthright.">
+<meta property="og:image" content="https://sherpacarta.org/og/default.png?v=724">
+<meta property="og:image:secure_url" content="https://sherpacarta.org/og/default.png?v=724">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SherpaCarta — One-Page Leave-Behind">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@give_bit">
+<meta name="twitter:creator" content="@give_bit">
+<meta name="twitter:url" content="https://sherpacarta.org/leave-behind.html">
+<meta name="twitter:title" content="SherpaCarta — One-Page Leave-Behind">
+<meta name="twitter:description" content="One-page handout for staffers: what it is, the Canada ask, key articles, and links. Privacy is a birthright.">
+<meta name="twitter:image" content="https://sherpacarta.org/og/default.png?v=724">
+<meta name="twitter:image:alt" content="SherpaCarta — One-Page Leave-Behind">
+<meta name="description" content="One-page handout for staffers: what it is, the Canada ask, key articles, and links. Privacy is a birthright.">
+<!-- ═══ /SOCIAL PREVIEW META ═══ -->
+<link rel="canonical" href="https://sherpacarta.org/leave-behind.html">
+<style>
+  :root {
+    --ink: #121a12; --muted: #3d4d3d; --line: #c8d2c8; --em: #0c6b48;
+    --em-soft: #e6f4ed; --gold: #8a6e16; --paper: #fbfcf8;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans); background: #1a221a; color: var(--ink); line-height: 1.4;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .bar {
+    max-width: 7.5in; margin: 0 auto; padding: 0.75rem 1rem; color: #c8d4c8; font-size: 0.85rem;
+    display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: space-between; align-items: center;
+  }
+  .bar a { color: #6ee7b7; }
+  .btn {
+    background: #10b981; color: #041208; border: none; padding: 0.5rem 1rem; border-radius: 999px;
+    font-weight: 700; cursor: pointer; font-family: var(--sans);
+  }
+  .sheet {
+    width: 8.5in; max-width: 100%; margin: 0 auto 2rem; background: var(--paper);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35); padding: 0.5in 0.55in 0.45in;
+  }
+  .prepared {
+    display: none; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem;
+  }
+  .prepared.show { display: block; }
+  .mast {
+    display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;
+    border-bottom: 2.5px solid var(--em); padding-bottom: 0.45rem; margin-bottom: 0.5rem;
+  }
+  .brand { display: flex; gap: 0.55rem; align-items: center; }
+  .brand img { height: 40px; border-radius: 6px; }
+  .brand h1 { font-family: var(--serif); font-size: 1.35rem; letter-spacing: -0.02em; line-height: 1.05; }
+  .brand .tag { font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--em); margin-top: 0.12rem; }
+  .meta { text-align: right; font-size: 0.62rem; color: var(--muted); line-height: 1.35; }
+  .meta strong { display: block; font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+  .hook {
+    font-family: var(--serif); font-style: italic; font-size: 0.95rem; color: var(--em);
+    background: var(--em-soft); border-left: 3px solid var(--em); padding: 0.35rem 0.55rem; margin: 0 0 0.5rem;
+  }
+  h2 {
+    font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--em); margin: 0.55rem 0 0.25rem; padding-bottom: 0.12rem; border-bottom: 1px solid var(--line);
+  }
+  p { font-size: 0.78rem; margin: 0 0 0.35rem; text-align: justify; }
+  ul { margin: 0.15rem 0 0.35rem; padding-left: 1rem; }
+  li { font-size: 0.75rem; margin: 0.1rem 0; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem 0.7rem; }
+  .box { border: 1px solid var(--line); border-radius: 5px; padding: 0.4rem 0.5rem; background: #fff; }
+  .box h3 { font-family: var(--serif); font-size: 0.82rem; margin: 0 0 0.15rem; }
+  .box.is { background: #f3f9f5; border-color: #a8d4bc; }
+  .ask {
+    background: linear-gradient(135deg, #f3f9f5, #fffef8); border: 1px solid #b5d6c4;
+    border-radius: 6px; padding: 0.45rem 0.55rem; margin: 0.4rem 0;
+  }
+  .ask p { margin: 0; font-size: 0.76rem; text-align: left; }
+  .ask strong { color: var(--em); }
+  .links { list-style: none; padding: 0; }
+  .links li {
+    display: flex; justify-content: space-between; gap: 0.4rem; padding: 0.18rem 0;
+    border-bottom: 1px solid var(--line); font-size: 0.72rem;
+  }
+  .links a { color: var(--em); font-weight: 600; text-decoration: none; }
+  .links span { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); }
+  .foot {
+    margin-top: 0.45rem; padding-top: 0.35rem; border-top: 1.5px solid var(--em);
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 0.5rem;
+    font-size: 0.62rem; color: var(--muted);
+  }
+  .foot img { height: 24px; }
+  .foot a { color: var(--em); }
+  .foot .r { text-align: right; }
+  .qr { display: flex; gap: 0.5rem; align-items: center; }
+  .qr img { width: 64px; height: 64px; border: 1px solid var(--line); }
+  @media print {
+    @page { size: letter; margin: 0.5in; }
+    body { background: #fff; }
+    .bar { display: none !important; }
+    .sheet { width: auto; margin: 0; padding: 0; box-shadow: none; }
+  }
+  @media (max-width: 900px) {
+    .sheet { width: auto; margin: 0 0.5rem 2rem; padding: 1rem; }
+    .cols { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <span><a href="/">← Home</a> · <a href="/briefing.html">Full 2-page briefing</a> · <a href="/briefing-fr.html">Français</a></span>
+  <button type="button" class="btn" onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<article class="sheet">
+  <p class="prepared" id="prepared"></p>
+  <header class="mast">
+    <div class="brand">
+      <img src="/giveabit-logo.png" alt="Give A Bit" width="40" height="40">
+      <div>
+        <h1>SherpaCarta</h1>
+        <div class="tag">Global Digital Magna Carta · Leave-behind</div>
+      </div>
+    </div>
+    <div class="meta">
+      <strong>For decision-makers</strong>
+      July 2026 · CC0 · sherpacarta.org
+    </div>
+  </header>
+
+  <p class="hook">“Privacy is not a feature. It is a birthright.”</p>
+
+  <h2>In one minute</h2>
+  <p>
+    <strong>SherpaCarta</strong> is a living charter of <strong>114 articles</strong> protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights for everyone. It is <strong>CC0 public domain</strong>, open source, funded only by voluntary Bitcoin donations, and built with <strong>zero tracking</strong>. It is a moral and political reference — not yet binding law — designed so citizens and legislators can turn clear principles into better statutes over time.
+  </p>
+
+  <div class="cols">
+    <div class="box is">
+      <h3>It is</h3>
+      <ul>
+        <li>Successor in spirit to Magna Carta (1215) &amp; Iceland’s 2011 crowdsourced constitution</li>
+        <li>Readable, signable, translatable by anyone</li>
+        <li>Honest about campaign vs official parliamentary petitions</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>It is not (yet)</h3>
+      <ul>
+        <li>A treaty or statute by itself</li>
+        <li>Partisan or corporate product</li>
+        <li>A system that harvests signer dossiers</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Canada — practical first step</h2>
+  <p>
+    We organize globally and pilot law-change in <strong>Canada</strong> (federal paper petition + campaign support; e-petition when an MP authorizes). A signature from any province on the <strong>federal paper sheet</strong> already counts federally.
+  </p>
+  <div class="ask">
+    <p>
+      <strong>Ask:</strong> (1) Read the full briefing or charter;
+      (2) Consider authorizing/presenting a federal petition;
+      (3) Use SherpaCarta as model language when modernizing privacy and algorithmic accountability.
+    </p>
+  </div>
+
+  <h2>Key articles</h2>
+  <ul>
+    <li><strong>11</strong> Privacy by design · <strong>12</strong> Data sovereignty · <strong>13</strong> Limits on surveillance capitalism</li>
+    <li><strong>47</strong> Right to erasure · <strong>61–62</strong> Algorithmic transparency &amp; non-discrimination · <strong>114</strong> Rights only expand</li>
+  </ul>
+
+  <h2>Links</h2>
+  <div class="cols" style="align-items:start">
+    <ul class="links">
+      <li><a href="https://sherpacarta.org/">Full charter</a><span>sherpacarta.org</span></li>
+      <li><a href="https://sherpacarta.org/briefing.html">2-page briefing</a><span>/briefing</span></li>
+      <li><a href="https://sherpacarta.org/canada/">Canada hub</a><span>/canada</span></li>
+      <li><a href="https://sherpacarta.org/canada/paper.html">Federal paper sheet</a><span>/canada/paper</span></li>
+      <li><a href="https://sherpacarta.org/canada/official.html">Official e-petition path</a><span>/canada/official</span></li>
+      <li><a href="mailto:hello@giveabit.io?subject=Sherpacarta">hello@giveabit.io</a><span>contact</span></li>
+    </ul>
+    <div class="qr">
+      <img src="/og/qr-home.png" width="64" height="64" alt="QR home">
+      <img src="/og/qr-canada.png" width="64" height="64" alt="QR Canada">
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <img src="/giveabit-logo.png" alt="Give A Bit">
+      <div>Give A Bit family · giveabit.io</div>
+    </div>
+    <div class="r">1 page · Public document · Not legal advice</div>
+  </footer>
+</article>
+
+<script>
+(function () {
+  const p = new URLSearchParams(location.search);
+  const name = (p.get('for') || p.get('name') || '').trim();
+  const riding = (p.get('riding') || p.get('riding_name') || '').trim();
+  if (!name && !riding) return;
+  const el = document.getElementById('prepared');
+  let t = 'Prepared for ';
+  if (name) t += name;
+  if (name && riding) t += ' · ';
+  if (riding) t += riding;
+  el.textContent = t;
+  el.classList.add('show');
+  document.title = (name ? name + ' — ' : '') + 'SherpaCarta Leave-Behind';
+})();
+</script>
+</body>
+</html>
