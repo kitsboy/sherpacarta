@@ -33,3 +33,11 @@
 
 /index.html
   Cache-Control: public, max-age=300
+
+# Social preview cards — long cache; use ?v= on meta URLs to bust
+/og/*
+  Cache-Control: public, max-age=604800
+  Content-Type: image/png
+
+/og-image.png
+  Cache-Control: public, max-age=604800

@@ -11,7 +11,8 @@
     "dev": "vite",
     "extract": "node scripts/extract-assets.mjs",
     "bundle": "node scripts/bundle-js.mjs",
-    "build": "node scripts/generate-charter.mjs && node scripts/inject-charter.mjs && node scripts/generate-campaign.mjs && node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-charter-txt.mjs && vite build",
+    "og": "node scripts/generate-og-cards.mjs && node scripts/apply-social-meta.mjs",
+    "build": "node scripts/generate-charter.mjs && node scripts/inject-charter.mjs && node scripts/generate-campaign.mjs && node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-charter-txt.mjs && node scripts/generate-og-cards.mjs && vite build",
     "publish:packages": "node scripts/publish-packages.mjs",
     "seo-audit": "node scripts/seo-audit.mjs",
     "i18n-audit": "node scripts/i18n-audit.mjs",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@lhci/cli": "^0.14.0",
+    "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/postcss": "^4.3.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
