@@ -1,6 +1,6 @@
-const CACHE = 'sherpacarta-v5.3';
+const CACHE = 'sherpacarta-v5.4';
 const ASSETS = [
-  '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html',
+  '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/report/2026-report.html', '/status.html', '/accessibility.html',
   '/treasury.html', '/security.html',
   '/canada/index.html', '/canada/sign.html', '/canada/proof.html', '/canada/about.html', '/canada/bc/index.html',
@@ -9,7 +9,16 @@ const ASSETS = [
   '/favicon.svg', '/og-image.svg', '/og-image.png',
   '/giveabit-logo.png', '/giveabit-parent-logo.jpg', '/manifest.json', '/mcp.json',
   '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',
+  '/humans.txt', '/charter.txt',
   '/sc-main.css', '/sc-core.js', '/sc-bundle.js', '/embed.js', '/data/charter.json',
+  '/fonts/fonts.css',
+  '/fonts/outfit-400.woff2', '/fonts/outfit-600.woff2', '/fonts/outfit-700.woff2',
+  '/fonts/cormorant-400.woff2', '/fonts/cormorant-700.woff2', '/fonts/cormorant-400i.woff2',
+  '/fonts/dmmono-400.woff2', '/fonts/dmmono-500.woff2',
+  '/vendor/fontawesome/css/all.min.css',
+  '/vendor/fontawesome/webfonts/fa-solid-900.woff2',
+  '/vendor/fontawesome/webfonts/fa-brands-400.woff2',
+  '/vendor/fontawesome/webfonts/fa-regular-400.woff2',
   '/locales/de.json', '/locales/pt.json', '/locales/sw.json',
   '/locales/es-charter.json', '/locales/fr-charter.json', '/locales/ar-charter.json',
   '/bc/model-bill.html', '/bc/safe-harbour.html', '/bc/indigenous-data.html', '/bc/town-hall-kit.html',

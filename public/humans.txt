@@ -1,0 +1,25 @@
+/* TEAM */
+Parent: Give A Bit — https://giveabit.io
+Contact: hello@giveabit.io
+Nostr: kimi@giveabit.io
+Twitter: @give_bit
+GitHub: https://github.com/kitsboy/sherpacarta
+
+/* SITE */
+Last update: 2026-07-09
+Standards: HTML5, CSS3, ES modules, CC0
+Components: Local-first signing, Nostr, Satohash/OpenTimestamps, Canada petition
+Software: Vite, vanilla JS, Cloudflare Pages
+Doctype: HTML5
+Language: English (UI locales: es, fr, de, pt, sw, ar, zh)
+
+/* THANKS */
+Magna Carta 1215 · Icelandic Constitutional Bill 2011 · UDHR 1948
+Everyone who asserts their digital rights.
+
+/* PRIVACY */
+Zero tracking. Zero analytics cookies. Zero server-side signature ledger.
+Signatures stay in your browser unless you publish via Nostr.
+
+/* NOTE */
+Part of the Give A Bit family. Bitcoin-funded. No VC. No ads.

@@ -21,7 +21,13 @@ let qrCurrentType = 'btc';
 // ═══════════════════════════════════════════════════════════
 const state = {
   signers: JSON.parse(localStorage.getItem('sc_signers')||'[]'),
-  signCount: parseInt(localStorage.getItem('sc_count')||'4271'),
+  signCount: (function(){
+    const signers = JSON.parse(localStorage.getItem('sc_signers')||'[]');
+    const stored = parseInt(localStorage.getItem('sc_count')||'0', 10);
+    // Honest baseline: local signatures only (migrate old inflated seed 4271)
+    if (stored >= 4000 && signers.length < 50) return signers.length;
+    return Number.isFinite(stored) ? stored : signers.length;
+  })(),
   theme: localStorage.getItem('sc_theme')||'dark',
   lang: localStorage.getItem('sc_lang')||'en',
   readingAloud: false,
@@ -1573,10 +1579,12 @@ function calcRights(){
 // ═══════════════════════════════════════════════════════════
 function buildSigners(){
   const wall=document.getElementById('signers-wall');
-  const all=[...SEED_SIGNERS,...state.signers];
-  wall.innerHTML=all.map(s=>`<div class="signer-pill">${s.c||''} ${s.name}</div>`).join('');
-  document.getElementById('sign-count').textContent=state.signCount.toLocaleString();
-  document.getElementById('live-counter').textContent=state.signCount.toLocaleString();
+  // Show real local signatures first; decorative seeds only if wall empty
+  const local=state.signers||[];
+  const all=local.length?local:SEED_SIGNERS.slice(0,6).map(s=>({...s,name:s.name+' · example'}));
+  if(wall) wall.innerHTML=all.map(s=>`<div class="signer-pill">${s.c||''} ${s.name}</div>`).join('')+(local.length?'':'<div class="signer-pill" style="border-style:dashed">Be the first on this device</div>');
+  const countEl=document.getElementById('sign-count');if(countEl)countEl.textContent=state.signCount.toLocaleString();
+  const lc=document.getElementById('live-counter');if(lc)lc.textContent=state.signCount.toLocaleString();
   const ss=document.getElementById('signer-stat');if(ss){ss.textContent=state.signCount.toLocaleString();ss.dataset.count='';}
 }
 

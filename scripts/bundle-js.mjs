@@ -27,6 +27,7 @@ const files = [
   'sc-upgrades-b11.js',
   'sc-upgrades-b12.js',
   'sc-upgrades-b13.js',
+  'sc-upgrades-b14.js',
 ];
 
 let bundle = `/* SherpaCarta bundled enhancements — generated ${new Date().toISOString()} */\n`;
@@ -42,3 +43,19 @@ for (const f of files) {
 }
 writeFileSync(join(publicDir, 'sc-bundle.js'), bundle);
 console.log(`Bundled ${total} files → public/sc-bundle.js (${(bundle.length / 1024).toFixed(1)} KB)`);
+
+// Minify for production (source modules stay readable; bundle is generated)
+try {
+  const { minify } = await import('terser');
+  const min = await minify(bundle, {
+    compress: { passes: 1, drop_console: false },
+    mangle: true,
+    format: { comments: false },
+  });
+  if (min.code) {
+    writeFileSync(join(publicDir, 'sc-bundle.js'), min.code);
+    console.log(`Minified sc-bundle.js → ${(min.code.length / 1024).toFixed(1)} KB (${Math.round((1 - min.code.length / bundle.length) * 100)}% smaller)`);
+  }
+} catch (e) {
+  console.warn('Minify skipped:', e.message);
+}
