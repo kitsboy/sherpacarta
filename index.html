@@ -98,9 +98,9 @@
 <link rel="stylesheet" href="/fonts/fonts.css?v=720">
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=720">
 
-<link rel="stylesheet" href="/sc-main.css?v=720">
-<link rel="preload" href="/sc-core.js?v=720" as="script">
-<link rel="preload" href="/sc-bundle.js?v=720" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=727">
+<link rel="preload" href="/sc-core.js?v=727" as="script">
+<link rel="preload" href="/sc-bundle.js?v=727" as="script">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 </head>
 <body>
@@ -192,6 +192,7 @@
       <button class="btn btn-ghost" onclick="openCommandPalette()" aria-label="Open search"><i class="fas fa-search"></i> <span class="cmd-key">⌘K</span></button>
       <button class="btn btn-ghost" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-circle-half-stroke"></i></button>
       <button class="btn btn-primary" onclick="openCharterModal()" aria-expanded="false"><i class="fas fa-book-open"></i> Charter</button>
+      <a class="btn btn-ghost" href="/canada/" style="text-decoration:none;cursor:pointer"><i class="fas fa-flag"></i> Canada</a>
     </div>
   </div>
 </nav>
@@ -222,7 +223,7 @@
     <div class="hero-ctas">
       <button class="cta-main" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),500)"><i class="fas fa-signature"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
       <button class="cta-sec" onclick="openCharterModal()"><i class="fas fa-scroll"></i> <span id="cta-charter-text">Read the Full Charter</span></button>
-      <a class="cta-canada" href="/canada/sign.html"><i class="fas fa-flag"></i> Canada Petition</a>
+      <a class="cta-canada" href="/canada/sign.html" id="cta-canada-btn"><i class="fas fa-flag" aria-hidden="true"></i><span>Canada Petition</span></a>
     </div>
     <p class="hero-urgency">⚡ <strong>114 articles</strong> live · Zero cookies · Bitcoin-funded · Sign in under 30 seconds</p>
 
@@ -978,8 +979,8 @@
 
 <script src="/js/sc-petition-canada.js?v=720" defer></script>
 <script src="/js/sc-press-outlets.js?v=720" defer></script>
-<script src="/sc-core.js?v=720" defer></script>
-<script src="/sc-bundle.js?v=720" defer></script>
+<script src="/sc-core.js?v=727" defer></script>
+<script src="/sc-bundle.js?v=727" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

@@ -1487,39 +1487,52 @@ function buildArticlesBrowser(){
     hdr.textContent=ch.chapter.replace(/^Chapter [^—]+ — /,'');
     sidebar.appendChild(hdr);
     ch.articles.forEach((art)=>{
+    const idx=i;
     const tab=document.createElement('div');
-    tab.className='article-tab'+(i===0?' active':'');
+    tab.className='article-tab'+(idx===0?' active':'');
     tab.setAttribute('role','tab');
-    tab.setAttribute('aria-selected',i===0?'true':'false');
+    tab.setAttribute('aria-selected',idx===0?'true':'false');
+    tab.setAttribute('tabindex','0');
     tab.innerHTML=`<span class="art-num">${art.num}</span>${art.title}`;
-    tab.onclick=()=>{
+    const activate=()=>{
       document.querySelectorAll('.article-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
       document.querySelectorAll('.article-display').forEach(d=>d.classList.remove('active'));
       tab.classList.add('active');tab.setAttribute('aria-selected','true');
-      document.getElementById('art-'+i).classList.add('active');
+      const panel=document.getElementById('art-'+idx);
+      if(panel){
+        panel.classList.add('active');
+        // Mobile: bring article body into view below the tab list
+        if(window.matchMedia('(max-width:900px)').matches){
+          panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+        }
+      }
     };
+    tab.addEventListener('click',activate);
+    tab.addEventListener('keydown',(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
     sidebar.appendChild(tab);
-    const signed=JSON.parse(localStorage.getItem('sc_art_signed_'+i)||'false');
+    const signed=JSON.parse(localStorage.getItem('sc_art_signed_'+idx)||'false');
     const div=document.createElement('div');
-    div.className='article-display'+(i===0?' active':'');
-    div.id='art-'+i;
+    div.className='article-display'+(idx===0?' active':'');
+    div.id='art-'+idx;
     div.setAttribute('role','tabpanel');
+    const bodyHtml=String(art.body||'').replace(/\n\n/g,'</p><p>');
+    const safeTitle=(art.title||'').replace(/'/g,"\\'").replace(/"/g,'&quot;');
     div.innerHTML=`
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap">
-        <div style="flex:1"><div class="art-title">${art.title}</div><div class="art-subtitle">${art.num}${art.sherpa?' · SherpaCarta Extension':''}</div></div>
+        <div style="flex:1"><div class="art-title">${art.title||''}</div><div class="art-subtitle">${art.num||''}${art.sherpa?' · SherpaCarta Extension':''}</div></div>
         ${art.sherpa?'<span class="art-tag" style="background:rgba(16,185,129,.15);border-color:var(--em)">SHERPA EXT.</span>':''}
       </div>
-      <div class="art-body">${art.body.replace(/\n\n/g,'</p><p>')}</div>
+      <div class="art-body"><p>${bodyHtml}</p></div>
       ${art.sherpa_ext?`<div class="ca-sherpa"><strong>SHERPACARTA EXTENSION</strong>${art.sherpa_ext}</div>`:''}
-      <div class="art-tags">${art.tags.map(t=>`<span class="art-tag">#${t}</span>`).join('')}</div>
+      <div class="art-tags">${(art.tags||[]).map(t=>`<span class="art-tag">#${t}</span>`).join('')}</div>
       <div class="art-actions">
-        <button class="art-action-btn${signed?' signed':''}" id="sign-art-${i}" onclick="signArticle(${i})"><i class="fas fa-signature"></i> ${signed?'Signed ✓':'Sign this article'}</button>
-        <button class="art-action-btn" onclick="shareArticle('${art.title.replace(/'/g,"\\'")}')"><i class="fas fa-share-nodes"></i> Share</button>
-        <button class="art-action-btn" onclick="aiSummarize(${i})"><i class="fas fa-sparkles"></i> AI Summary</button>
-        <button class="art-action-btn" onclick="copyArticle(${i})"><i class="fas fa-copy"></i> Copy</button>
+        <button class="art-action-btn${signed?' signed':''}" id="sign-art-${idx}" onclick="signArticle(${idx})"><i class="fas fa-signature"></i> ${signed?'Signed ✓':'Sign this article'}</button>
+        <button class="art-action-btn" onclick="shareArticle('${safeTitle}')"><i class="fas fa-share-nodes"></i> Share</button>
+        <button class="art-action-btn" onclick="aiSummarize(${idx})"><i class="fas fa-sparkles"></i> AI Summary</button>
+        <button class="art-action-btn" onclick="copyArticle(${idx})"><i class="fas fa-copy"></i> Copy</button>
       </div>
-      <div class="ai-spinner" id="ai-spin-${i}">✦ Generating summary...</div>
-      <div class="ai-result" id="ai-res-${i}"></div>
+      <div class="ai-spinner" id="ai-spin-${idx}">✦ Generating summary...</div>
+      <div class="ai-result" id="ai-res-${idx}"></div>
     `;
     main.appendChild(div);
     i++;
