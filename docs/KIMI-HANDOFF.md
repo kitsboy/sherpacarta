@@ -4,6 +4,18 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Session — 2026-07-09 (verify + jurisdictions + treasury honesty)
+
+**Done:**
+- Live verify: core pages, Canada API, NIP-05 on giveabit.io, mempool treasury OK
+- Added /jurisdictions, /data/jurisdictions.json, /data/wallets.json
+- Real /status probes; treasury self-hosted + funding rails honesty
+- Home/footer wired; SW v6.2; deploy live
+
+**Git:** `f33fb261a10856ee71dc704a5e3faa8c52513ce5`
+
+---
+
 ## Session — 2026-07-09 (page-load fix + polish)
 
 **Machine:** M3 (Grok 4.5)  
