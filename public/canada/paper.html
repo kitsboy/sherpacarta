@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-CA" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paper Petitions — SherpaCarta Canada</title>
+<meta name="description" content="Printable federal and BC petition sheets for SherpaCarta. Original wet signatures. Legally presentable by MP or MLA.">
+<link rel="canonical" href="https://sherpacarta.org/canada/paper.html">
+<link rel="stylesheet" href="/fonts/fonts.css?v=721">
+<link rel="stylesheet" href="/sc-main.css?v=721">
+<style>
+  body{max-width:800px;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7}
+  h1{font-family:var(--serif);color:var(--em2);font-size:2rem}
+  h2{font-family:var(--serif);color:var(--em);font-size:1.35rem;margin-top:2rem}
+  .card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin:1rem 0}
+  .btn{display:inline-flex;gap:.4rem;padding:.65rem 1.1rem;border-radius:100px;background:var(--em);color:#041208;font-weight:600;text-decoration:none;border:none;cursor:pointer;margin:.25rem .25rem .25rem 0}
+  .btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--em2)}
+  a{color:var(--em2)}
+  .sheet{display:none}
+  @media print{
+    body *{visibility:hidden}
+    .sheet,.sheet *{visibility:visible}
+    .sheet{display:block!important;position:absolute;left:0;top:0;width:100%;color:#000;background:#fff;font-family:Georgia,serif;padding:12mm;font-size:11pt;line-height:1.35}
+    .no-print{display:none!important}
+    .sig-table{width:100%;border-collapse:collapse;margin-top:8mm}
+    .sig-table th,.sig-table td{border:1px solid #000;padding:3mm 2mm;font-size:10pt}
+    .sig-table th{text-align:left;font-size:9pt}
+    .prayer{font-size:10.5pt;margin:4mm 0}
+    .sheet h1{font-size:14pt;margin:0 0 3mm;color:#000}
+    .meta{font-size:9pt;margin-bottom:3mm}
+  }
+  .sheet-preview{background:#fff;color:#111;padding:1.25rem;border-radius:.5rem;font-family:Georgia,serif;font-size:.85rem;line-height:1.45;max-height:320px;overflow:auto;border:1px solid #ccc}
+</style>
+</head>
+<body>
+<div class="no-print">
+  <p><a href="/canada/">← Canada hub</a></p>
+  <h1>Printable petition sheets</h1>
+  <p style="color:var(--text2)">These are <strong>Track B — official-capable paper instruments</strong>. Collect original ink signatures. Photocopies of signatures are not accepted for presentation. Prayer text appears on every sheet.</p>
+
+  <div class="card" id="federal">
+    <h2>Federal (House of Commons)</h2>
+    <ul style="font-size:.88rem;color:var(--text2)">
+      <li>Citizen or resident of Canada · <strong>no minimum age</strong></li>
+      <li>Columns: name, address (city + province), signature</li>
+      <li>Minimum <strong>25</strong> for certification · MP presents</li>
+    </ul>
+    <button type="button" class="btn" onclick="printSheet('sheet-federal')"><i class="fas fa-print"></i> Print federal sheet</button>
+    <div class="sheet-preview" style="margin-top:1rem" id="preview-federal">Loading…</div>
+  </div>
+
+  <div class="card" id="bc">
+    <h2>British Columbia (Legislative Assembly)</h2>
+    <ul style="font-size:.88rem;color:var(--text2)">
+      <li>Original wet signatures only for presentation</li>
+      <li>Name, address, signature under the prayer</li>
+      <li>MLA presents · see <a href="/bc/town-hall-kit.html">town hall kit</a></li>
+    </ul>
+    <button type="button" class="btn" onclick="printSheet('sheet-bc')"><i class="fas fa-print"></i> Print BC sheet</button>
+    <div class="sheet-preview" style="margin-top:1rem" id="preview-bc">Loading…</div>
+  </div>
+
+  <p style="font-size:.8rem;color:var(--text3)">After collection: contact an MP/MLA to present. Campaign digital total is separate — <a href="/canada/sign.html">sign campaign too</a>.</p>
+</div>
+
+<!-- PRINTABLE FEDERAL -->
+<div class="sheet" id="sheet-federal">
+  <h1>PETITION TO THE HOUSE OF COMMONS IN PARLIAMENT ASSEMBLED</h1>
+  <p class="meta">SherpaCarta · Digital rights · Page ___ of ___ · Original signatures only</p>
+  <p class="prayer" id="print-fed-prayer"></p>
+  <p class="meta"><strong>WE, THE UNDERSIGNED,</strong> citizens and residents of Canada, call upon the House of Commons in Parliament assembled to take the action set out above.</p>
+  <table class="sig-table">
+    <thead><tr><th style="width:28%">Name (print)</th><th style="width:37%">Address (city, province)</th><th style="width:35%">Signature</th></tr></thead>
+    <tbody id="fed-rows"></tbody>
+  </table>
+</div>
+
+<!-- PRINTABLE BC -->
+<div class="sheet" id="sheet-bc">
+  <h1>PETITION TO THE LEGISLATIVE ASSEMBLY OF BRITISH COLUMBIA</h1>
+  <p class="meta">SherpaCarta · BC Digital Rights · Page ___ of ___ · Original signatures only</p>
+  <p class="prayer" id="print-bc-prayer"></p>
+  <p class="meta"><strong>WE, THE UNDERSIGNED,</strong> residents of British Columbia, petition the Legislative Assembly as set out above.</p>
+  <table class="sig-table">
+    <thead><tr><th style="width:28%">Name (print)</th><th style="width:37%">Address</th><th style="width:35%">Signature</th></tr></thead>
+    <tbody id="bc-rows"></tbody>
+  </table>
+</div>
+
+<script>
+function rows(n){return Array.from({length:n},()=>'<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>').join('')}
+document.getElementById('fed-rows').innerHTML=rows(12);
+document.getElementById('bc-rows').innerHTML=rows(12);
+
+fetch('/data/campaign-canada.json').then(r=>r.json()).then(d=>{
+  const fed=d.prayers?.federalOfficial||d.petitionText;
+  const bc=d.prayers?.bcOfficial||d.petitionText;
+  document.getElementById('print-fed-prayer').textContent=fed;
+  document.getElementById('print-bc-prayer').textContent=bc;
+  document.getElementById('preview-federal').textContent=fed;
+  document.getElementById('preview-bc').textContent=bc;
+});
+
+function printSheet(id){
+  document.querySelectorAll('.sheet').forEach(s=>s.style.display='none');
+  const el=document.getElementById(id);
+  el.style.display='block';
+  setTimeout(()=>{window.print();el.style.display='none';},100);
+}
+</script>
+</body>
+</html>

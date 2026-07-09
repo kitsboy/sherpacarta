@@ -7,10 +7,12 @@ import { createHash } from 'crypto';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const campaign = JSON.parse(readFileSync(join(root, 'data/campaign-canada.json'), 'utf8'));
-const hash = createHash('sha256').update(`CA|${campaign.id}|${campaign.petitionText}`).digest('hex');
+const prayer = campaign.prayers?.campaign || campaign.petitionText;
+const hash = createHash('sha256').update(`CA|${campaign.id}|${prayer}`).digest('hex');
 
+campaign.petitionText = prayer;
 campaign.petitionHash = hash;
-campaign.build = '20260707-687';
+campaign.build = '20260709-721';
 campaign.updated = new Date().toISOString();
 
 const outDir = join(root, 'public/data');
@@ -29,7 +31,7 @@ writeFileSync(join(outDir, 'proof-canada.json'), JSON.stringify({
   templateUrl: '/data/satohash-templates/sherpacarta-canada-referendum.json',
   satohashSubmit: 'https://satohash.io/templates/',
   signatureMethods: campaign.signatureMethods,
-  note: 'Aggregate counts are device-local unless Nostr relay aggregation is enabled. Merkle roots stamped via Satohash.',
+  note: 'Campaign aggregates via /api/canada/stats when KV/D1 bound. Not Parliamentary counts. Merkle via Satohash.',
   updated: campaign.updated,
 }, null, 2));
 

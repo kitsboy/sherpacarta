@@ -2,5 +2,10 @@ name = "sherpacarta"
 compatibility_date = "2026-06-15"
 pages_build_output_dir = "dist"
 
-
+# Canada campaign API (optional until bound in Cloudflare dashboard):
+# 1) npx wrangler kv namespace create SHERPACARTA_PETITION
+# 2) add the id below and re-deploy
+# [[kv_namespaces]]
+# binding = "PETITION_KV"
+# id = "YOUR_KV_NAMESPACE_ID"
 
