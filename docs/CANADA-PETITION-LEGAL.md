@@ -44,7 +44,10 @@ Official signatures trigger presentation and (federal) a government response dut
 - Any age; citizen or resident  
 - MP presents to the House  
 
-PDF / print sheets: `/canada/paper.html`  
+PDF / print sheets: `/canada/paper.html` — **one federal Commons sheet** for all Canada.  
+A signer in BC, ON, QC, etc. is already a **federal** signature (city + province column).  
+We do **not** need 13 provincial paper forms for the Commons path.  
+BC remains a *campaign beachhead* (organizing, model law talk), not a separate federal paper instrument.  
 QR on sheets opens `/canada/join?from=paper` (campaign + education). **Scanning does not replace a wet signature** for presentation.
 
 ---

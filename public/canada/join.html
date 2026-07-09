@@ -130,13 +130,15 @@
   const params = new URLSearchParams(location.search);
   const sheet = params.get('sheet');
   const from = params.get('from') || 'qr';
-  if (sheet) {
+  if (params.get('from') === 'paper' || sheet) {
     const tag = document.getElementById('sheet-tag');
     tag.hidden = false;
-    tag.textContent = sheet === 'bc' ? 'Scanned from a BC Legislature sheet' : 'Scanned from a federal Commons sheet';
+    tag.textContent = 'Scanned from a federal Commons petition sheet';
   }
   const sign = document.getElementById('cta-sign');
-  sign.href = '/canada/sign.html?from=' + encodeURIComponent(from) + (sheet ? '&sheet=' + encodeURIComponent(sheet) : '') + (sheet === 'bc' || params.get('province') === 'BC' ? '&province=BC' : '');
+  // Province only if user is actually in BC — optional prefill, not a separate petition
+  const bcHint = params.get('province') === 'BC' ? '&province=BC' : '';
+  sign.href = '/canada/sign.html?from=' + encodeURIComponent(from) + bcHint;
 
   const GOAL = 100;
   function topProvince(by) {
