@@ -44,7 +44,8 @@ Official signatures trigger presentation and (federal) a government response dut
 - Any age; citizen or resident  
 - MP presents to the House  
 
-PDF sheets: `/canada/paper.html`
+PDF / print sheets: `/canada/paper.html`  
+QR on sheets opens `/canada/join?from=paper` (campaign + education). **Scanning does not replace a wet signature** for presentation.
 
 ---
 

@@ -69,6 +69,22 @@
     "stampUrl": "https://satohash.giveabit.io",
     "submitTemplatesUrl": "https://satohash.io/templates/"
   },
+  "sheet": {
+    "joinUrl": "https://sherpacarta.org/canada/join?from=paper",
+    "qrFederal": "/canada/qr/join-federal.png",
+    "qrBc": "/canada/qr/join-bc.png",
+    "rowsPerSheet": 10,
+    "hook": "Privacy is a birthright — not a product feature.",
+    "shortWhy": [
+      "Your data and private life should not be a product sold by default.",
+      "When algorithms score jobs, credit, or speech, you deserve a plain-language explanation.",
+      "Federal privacy law must catch up to AI-era power — rights online should only expand."
+    ],
+    "qrCaption": "Scan to sign online too · Campaign commitment (not a substitute for ink on this sheet)"
+  },
+  "goals": {
+    "campaignCommitments": [100, 1000, 10000]
+  },
   "share": {
     "hashtags": ["CanadaBCChallenge", "SherpaCarta", "DigitalRights", "PrivacyFirst", "BC", "Canada"],
     "ogImage": "https://sherpacarta.org/og-image.png",

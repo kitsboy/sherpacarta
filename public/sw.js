@@ -1,10 +1,11 @@
-const CACHE = 'sherpacarta-v5.5';
+const CACHE = 'sherpacarta-v5.6';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/report/2026-report.html', '/status.html', '/accessibility.html',
   '/treasury.html', '/security.html',
   '/canada/index.html', '/canada/sign.html', '/canada/proof.html', '/canada/about.html', '/canada/bc/index.html',
-  '/canada/paper.html', '/canada/official.html',
+  '/canada/paper.html', '/canada/official.html', '/canada/join.html',
+  '/canada/qr/join-federal.png', '/canada/qr/join-bc.png', '/canada/qr/join.png',
   '/js/sc-petition-canada.js', '/js/sc-press-outlets.js', '/data/campaign-canada.json', '/data/proof-canada.json',
   '/data/satohash-templates/sherpacarta-canada-referendum.json',
   '/favicon.svg', '/og-image.svg', '/og-image.png',

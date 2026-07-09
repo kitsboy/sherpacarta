@@ -47,7 +47,16 @@
   <p class="nav-mini"><a href="/canada/">← Canada petition hub</a> · <a href="/">Home</a></p>
   <span class="ca-badge">Track A · Campaign</span>
   <h1>🇨🇦 Sign for Canada</h1>
+  <p class="ca-note" id="from-paper-note" hidden style="color:var(--em2)">You came from a paper sheet — thank you. Add your digital commitment below, then keep collecting ink signatures too.</p>
   <p class="ca-note">Lowest friction civic commitment. <strong>No ID. No account. No minimum age.</strong> You must be a Canadian citizen or resident (self-attested). This is <em>not</em> the House of Commons e-petition until an official e-### is live.</p>
+  <div class="ca-card" style="padding:.85rem 1rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+    <div><div class="sign-count" id="camp-live" style="font-size:1.75rem">—</div>
+    <div style="font-family:var(--mono);font-size:.55rem;color:var(--text3);letter-spacing:.08em">CAMPAIGN TOTAL · GOAL 100</div></div>
+    <div style="flex:1;min-width:140px">
+      <div style="height:6px;background:var(--bg3);border-radius:3px;overflow:hidden"><div id="camp-bar" style="height:100%;width:0;background:linear-gradient(90deg,var(--em),var(--gold));transition:width .5s"></div></div>
+      <p style="font-size:.72rem;color:var(--text3);margin:.4rem 0 0" id="camp-msg">Loading live total…</p>
+    </div>
+  </div>
 
   <div class="steps" aria-hidden="true"><span class="on" id="s1"></span><span id="s2"></span><span id="s3"></span></div>
 
@@ -239,11 +248,31 @@
   $('local-n').textContent = SHERPA_PETITION.getStats().total;
 
   const params = new URLSearchParams(location.search);
+  if (params.get('from') === 'paper' || params.get('sheet')) {
+    const n = document.getElementById('from-paper-note');
+    if (n) n.hidden = false;
+  }
+  if (params.get('province') === 'BC' || params.get('sheet') === 'bc') {
+    if (!provSel.value) provSel.value = 'BC';
+  }
   if (params.get('receipt')) {
     const store = JSON.parse(localStorage.getItem('sc_petition_ca_v2') || localStorage.getItem('sc_petition_ca_v1') || '{}');
     const found = (store.signatures || []).find((x) => x.id === params.get('receipt'));
     if (found) showReceipt(found);
   }
+
+  SHERPA_PETITION.fetchRemoteStats().then((s) => {
+    const n = s && typeof s.total === 'number' ? s.total : 0;
+    const el = document.getElementById('camp-live');
+    const bar = document.getElementById('camp-bar');
+    const msg = document.getElementById('camp-msg');
+    if (el) el.textContent = n.toLocaleString();
+    const goal = n >= 100 ? 1000 : 100;
+    if (bar) bar.style.width = Math.min(100, Math.round((n / goal) * 100)) + '%';
+    if (msg) msg.textContent = n >= 100
+      ? 'Amazing — help us reach 1,000 campaign commitments.'
+      : (100 - n) + ' more to reach our first goal of 100.';
+  });
 })();
 </script>
 </body>

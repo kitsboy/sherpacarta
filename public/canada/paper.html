@@ -3,110 +3,367 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paper Petitions — SherpaCarta Canada</title>
-<meta name="description" content="Printable federal and BC petition sheets for SherpaCarta. Original wet signatures. Legally presentable by MP or MLA.">
+<title>Print Petition Sheets — SherpaCarta Canada</title>
+<meta name="description" content="Print-ready federal and BC petition sheets: plain-language summary, formal prayer, signature table, and QR to sign online. Original ink only.">
 <link rel="canonical" href="https://sherpacarta.org/canada/paper.html">
-<link rel="stylesheet" href="/fonts/fonts.css?v=721">
-<link rel="stylesheet" href="/sc-main.css?v=721">
+<meta name="theme-color" content="#050806">
+<link rel="stylesheet" href="/fonts/fonts.css?v=722">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=722">
+<link rel="stylesheet" href="/sc-main.css?v=722">
 <style>
-  body{max-width:800px;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7}
-  h1{font-family:var(--serif);color:var(--em2);font-size:2rem}
-  h2{font-family:var(--serif);color:var(--em);font-size:1.35rem;margin-top:2rem}
-  .card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin:1rem 0}
-  .btn{display:inline-flex;gap:.4rem;padding:.65rem 1.1rem;border-radius:100px;background:var(--em);color:#041208;font-weight:600;text-decoration:none;border:none;cursor:pointer;margin:.25rem .25rem .25rem 0}
+  /* ═══ Screen chrome ═══ */
+  body.paper-ui{margin:0;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7}
+  .ui{max-width:920px;margin:0 auto;padding:1.25rem 1.15rem 3rem}
+  .ui h1{font-family:var(--serif);font-size:clamp(1.85rem,4vw,2.4rem);color:var(--em2);letter-spacing:-.02em;margin:.35rem 0}
+  .ui .lead{color:var(--text2);max-width:640px;font-size:.95rem}
+  .ui-card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.15rem 1.25rem;margin:1rem 0}
+  .ui-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin:.75rem 0}
+  .btn{display:inline-flex;align-items:center;gap:.4rem;padding:.65rem 1.15rem;border-radius:100px;font-weight:600;font-size:.85rem;border:none;cursor:pointer;text-decoration:none;min-height:44px;font-family:var(--sans)}
+  .btn-primary{background:var(--em);color:#041208}
   .btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--em2)}
+  .tabs{display:flex;gap:.4rem;margin:1rem 0}
+  .tab{padding:.45rem 1rem;border-radius:100px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-size:.8rem;cursor:pointer;font-family:var(--mono)}
+  .tab.on{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.1)}
+  .preview-wrap{background:#3a3a3a;padding:1.25rem;border-radius:1rem;margin:1rem 0;overflow:auto}
+  .preview-label{font-family:var(--mono);font-size:.58rem;color:#aaa;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem}
   a{color:var(--em2)}
-  .sheet{display:none}
-  @media print{
-    body *{visibility:hidden}
-    .sheet,.sheet *{visibility:visible}
-    .sheet{display:block!important;position:absolute;left:0;top:0;width:100%;color:#000;background:#fff;font-family:Georgia,serif;padding:12mm;font-size:11pt;line-height:1.35}
-    .no-print{display:none!important}
-    .sig-table{width:100%;border-collapse:collapse;margin-top:8mm}
-    .sig-table th,.sig-table td{border:1px solid #000;padding:3mm 2mm;font-size:10pt}
-    .sig-table th{text-align:left;font-size:9pt}
-    .prayer{font-size:10.5pt;margin:4mm 0}
-    .sheet h1{font-size:14pt;margin:0 0 3mm;color:#000}
-    .meta{font-size:9pt;margin-bottom:3mm}
+
+  /* ═══ Letter sheet (screen preview + print) ═══ */
+  .sheet{
+    display:none;
+    width:8.5in;
+    min-height:11in;
+    margin:0 auto;
+    background:#fff;
+    color:#000;
+    box-sizing:border-box;
+    padding:0.55in 0.6in 0.5in;
+    font-family:"Times New Roman",Georgia,serif;
+    font-size:10.5pt;
+    line-height:1.35;
+    box-shadow:0 8px 40px rgba(0,0,0,.45);
   }
-  .sheet-preview{background:#fff;color:#111;padding:1.25rem;border-radius:.5rem;font-family:Georgia,serif;font-size:.85rem;line-height:1.45;max-height:320px;overflow:auto;border:1px solid #ccc}
+  .sheet.active-preview{display:block}
+
+  .sheet-top{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:12px;
+    border-bottom:2.5px solid #000;padding-bottom:8px;margin-bottom:10px;
+  }
+  .sheet-brand{display:flex;gap:10px;align-items:center}
+  .sheet-mark{
+    width:36px;height:36px;border:2px solid #000;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;
+  }
+  .sheet-brand h1{
+    font-family:Georgia,"Times New Roman",serif;font-size:16pt;margin:0;letter-spacing:.02em;
+    font-weight:700;line-height:1.1;color:#000;
+  }
+  .sheet-brand .sub{font-family:system-ui,sans-serif;font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;margin-top:2px;color:#222}
+  .sheet-meta-r{text-align:right;font-family:system-ui,sans-serif;font-size:8pt;line-height:1.4}
+  .sheet-meta-r strong{display:block;font-size:9pt;letter-spacing:.08em;text-transform:uppercase}
+
+  .sheet-title{
+    font-family:Georgia,serif;font-size:13.5pt;font-weight:700;text-align:center;
+    margin:12px 0 4px;letter-spacing:.04em;line-height:1.2;color:#000;
+  }
+  .sheet-hook{
+    text-align:center;font-style:italic;font-size:10pt;margin:0 0 10px;color:#111;
+  }
+  .why{margin:0 0 10px;padding:8px 10px;border:1px solid #222;background:#f7f7f7}
+  .why h2{
+    font-family:system-ui,sans-serif;font-size:8pt;letter-spacing:.12em;text-transform:uppercase;
+    margin:0 0 5px;color:#000;
+  }
+  .why ul{margin:0;padding-left:1.1em;font-family:system-ui,sans-serif;font-size:9pt;line-height:1.4}
+  .why li{margin:2px 0}
+
+  .prayer-label{
+    font-family:system-ui,sans-serif;font-size:8pt;letter-spacing:.1em;text-transform:uppercase;
+    margin:8px 0 4px;font-weight:700;
+  }
+  .prayer{font-size:9.5pt;line-height:1.4;text-align:justify;margin:0 0 8px}
+
+  .undersigned{font-size:9.5pt;margin:8px 0 4px}
+  .rules{
+    font-family:system-ui,sans-serif;font-size:7.5pt;color:#222;margin:0 0 8px;line-height:1.35;
+  }
+
+  .sig-table{width:100%;border-collapse:collapse;table-layout:fixed}
+  .sig-table th{
+    border:1px solid #000;padding:4px 5px;font-family:system-ui,sans-serif;
+    font-size:8pt;text-align:left;background:#eee;font-weight:700;
+  }
+  .sig-table td{
+    border:1px solid #000;height:28px;padding:2px 4px;vertical-align:bottom;
+  }
+  .sig-table col.c-name{width:28%}
+  .sig-table col.c-addr{width:34%}
+  .sig-table col.c-sig{width:38%}
+
+  .sheet-foot{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:14px;
+    margin-top:12px;padding-top:8px;border-top:1.5px solid #000;
+  }
+  .qr-block{display:flex;gap:10px;align-items:center}
+  .qr-block img{width:78px;height:78px;image-rendering:pixelated;border:1px solid #000}
+  .qr-text{font-family:system-ui,sans-serif;font-size:7.5pt;line-height:1.35;max-width:200px}
+  .qr-text strong{display:block;font-size:8.5pt;margin-bottom:2px}
+  .foot-fields{font-family:system-ui,sans-serif;font-size:8pt;line-height:1.7;text-align:right}
+  .foot-fields .line{border-bottom:1px solid #000;display:inline-block;min-width:120px}
+
+  .organizer{
+    display:none;margin-top:14px;padding-top:10px;border-top:1px dashed #666;
+    font-family:system-ui,sans-serif;font-size:8pt;line-height:1.4;color:#333;
+  }
+  .organizer h3{font-size:8pt;letter-spacing:.1em;text-transform:uppercase;margin:0 0 4px}
+
+  @media print{
+    @page{size:letter;margin:0}
+    body.paper-ui{background:#fff}
+    .ui,.no-print{display:none!important}
+    .preview-wrap{background:none;padding:0;margin:0;box-shadow:none}
+    .sheet{
+      display:none!important;
+      box-shadow:none;
+      width:8.5in;min-height:11in;
+      padding:0.5in 0.55in 0.45in;
+    }
+    .sheet.print-now{display:block!important}
+    .organizer{display:block}
+  }
 </style>
 </head>
-<body>
-<div class="no-print">
-  <p><a href="/canada/">← Canada hub</a></p>
-  <h1>Printable petition sheets</h1>
-  <p style="color:var(--text2)">These are <strong>Track B — official-capable paper instruments</strong>. Collect original ink signatures. Photocopies of signatures are not accepted for presentation. Prayer text appears on every sheet.</p>
+<body class="paper-ui">
+<div class="ui no-print">
+  <p style="font-size:.85rem"><a href="/canada/">← Canada hub</a> · <a href="/canada/join">QR join page</a></p>
+  <h1>Print petition sheets</h1>
+  <p class="lead">Civic-grade letter sheets: plain-language summary, formal prayer (legal), roomy signature lines, and a QR so people can also join the digital campaign. <strong>Ink on this page is for Parliament / the Legislature. The QR is campaign + education — not a substitute for a wet signature.</strong></p>
 
-  <div class="card" id="federal">
-    <h2>Federal (House of Commons)</h2>
-    <ul style="font-size:.88rem;color:var(--text2)">
-      <li>Citizen or resident of Canada · <strong>no minimum age</strong></li>
-      <li>Columns: name, address (city + province), signature</li>
-      <li>Minimum <strong>25</strong> for certification · MP presents</li>
-    </ul>
-    <button type="button" class="btn" onclick="printSheet('sheet-federal')"><i class="fas fa-print"></i> Print federal sheet</button>
-    <div class="sheet-preview" style="margin-top:1rem" id="preview-federal">Loading…</div>
+  <div class="tabs" role="tablist">
+    <button type="button" class="tab on" data-sheet="federal" id="tab-fed">Federal (Commons)</button>
+    <button type="button" class="tab" data-sheet="bc" id="tab-bc">British Columbia</button>
   </div>
 
-  <div class="card" id="bc">
-    <h2>British Columbia (Legislative Assembly)</h2>
-    <ul style="font-size:.88rem;color:var(--text2)">
-      <li>Original wet signatures only for presentation</li>
-      <li>Name, address, signature under the prayer</li>
-      <li>MLA presents · see <a href="/bc/town-hall-kit.html">town hall kit</a></li>
-    </ul>
-    <button type="button" class="btn" onclick="printSheet('sheet-bc')"><i class="fas fa-print"></i> Print BC sheet</button>
-    <div class="sheet-preview" style="margin-top:1rem" id="preview-bc">Loading…</div>
+  <div class="ui-actions">
+    <button type="button" class="btn btn-primary" id="btn-print"><i class="fas fa-print"></i> Print / Save as PDF</button>
+    <a class="btn btn-ghost" href="/canada/join?from=paper" target="_blank" rel="noopener"><i class="fas fa-qrcode"></i> Open QR landing</a>
+    <a class="btn btn-ghost" href="/canada/sign.html"><i class="fas fa-signature"></i> Digital campaign sign</a>
   </div>
 
-  <p style="font-size:.8rem;color:var(--text3)">After collection: contact an MP/MLA to present. Campaign digital total is separate — <a href="/canada/sign.html">sign campaign too</a>.</p>
+  <div class="ui-card">
+    <strong style="color:var(--em)">How to use in the field</strong>
+    <ul style="margin:.5rem 0 0;padding-left:1.2rem;font-size:.85rem;color:var(--text2)">
+      <li>Print single-sided, black &amp; white, actual size (100% — not “fit to page”).</li>
+      <li>Clipboard + blue/black pen. Original ink only — no photocopied signatures.</li>
+      <li>Federal: aim for <strong>25+</strong> valid signatures before asking an MP to present.</li>
+      <li>Every sheet must keep the full prayer text (don’t cut the top off).</li>
+      <li>Invite scanners: “Sign in ink here — or scan to support online too.”</li>
+    </ul>
+  </div>
+
+  <div class="preview-wrap">
+    <div class="preview-label">Letter preview · what you print</div>
+    <!-- sheets injected below for preview -->
+    <div id="preview-host"></div>
+  </div>
 </div>
 
-<!-- PRINTABLE FEDERAL -->
-<div class="sheet" id="sheet-federal">
-  <h1>PETITION TO THE HOUSE OF COMMONS IN PARLIAMENT ASSEMBLED</h1>
-  <p class="meta">SherpaCarta · Digital rights · Page ___ of ___ · Original signatures only</p>
-  <p class="prayer" id="print-fed-prayer"></p>
-  <p class="meta"><strong>WE, THE UNDERSIGNED,</strong> citizens and residents of Canada, call upon the House of Commons in Parliament assembled to take the action set out above.</p>
-  <table class="sig-table">
-    <thead><tr><th style="width:28%">Name (print)</th><th style="width:37%">Address (city, province)</th><th style="width:35%">Signature</th></tr></thead>
-    <tbody id="fed-rows"></tbody>
+<!-- ══════════ FEDERAL SHEET ══════════ -->
+<div class="sheet" id="sheet-federal" data-kind="federal">
+  <div class="sheet-top">
+    <div class="sheet-brand">
+      <div class="sheet-mark" aria-hidden="true">🇨🇦</div>
+      <div>
+        <h1>SHERPACARTA</h1>
+        <div class="sub">Global Digital Magna Carta · Canada</div>
+      </div>
+    </div>
+    <div class="sheet-meta-r">
+      <strong>Petition sheet</strong>
+      Federal · House of Commons<br>
+      Original signatures only
+    </div>
+  </div>
+
+  <div class="sheet-title">PETITION TO THE HOUSE OF COMMONS<br>IN PARLIAMENT ASSEMBLED</div>
+  <p class="sheet-hook">“Privacy is a birthright — not a product feature.”</p>
+
+  <div class="why">
+    <h2>Why this matters</h2>
+    <ul>
+      <li>Your data and private life should not be a product sold by default.</li>
+      <li>When algorithms score jobs, credit, or speech, you deserve a plain-language explanation.</li>
+      <li>Federal privacy law must catch up to AI-era power — rights online should only expand.</li>
+    </ul>
+  </div>
+
+  <div class="prayer-label">The ask (formal petition text)</div>
+  <p class="prayer" id="prayer-federal">Loading…</p>
+
+  <p class="undersigned"><strong>WE, THE UNDERSIGNED,</strong> citizens or residents of Canada, call upon the House of Commons in Parliament assembled to take the action set out above.</p>
+  <p class="rules">Eligibility: Canadian citizen or resident · No minimum age · One person signs only for themselves · Print name, city &amp; province, and original signature · Minimum 25 valid signatures recommended for certification · Do not photocopy completed sheets for submission.</p>
+
+  <table class="sig-table" aria-label="Signatures">
+    <colgroup><col class="c-name"><col class="c-addr"><col class="c-sig"></colgroup>
+    <thead>
+      <tr><th>Name (print)</th><th>City, Province</th><th>Signature</th></tr>
+    </thead>
+    <tbody id="rows-federal"></tbody>
   </table>
+
+  <div class="sheet-foot">
+    <div class="qr-block">
+      <img src="/canada/qr/join-federal.png" width="78" height="78" alt="QR code to sherpacarta.org/canada/join">
+      <div class="qr-text">
+        <strong>Scan to sign online too</strong>
+        Campaign commitment + learn more<br>
+        <span style="font-family:monospace;font-size:7pt">sherpacarta.org/canada/join</span><br>
+        <em>QR does not replace ink on this sheet</em>
+      </div>
+    </div>
+    <div class="foot-fields">
+      Sheet <span class="line">&nbsp;&nbsp;&nbsp;</span> of <span class="line">&nbsp;&nbsp;&nbsp;</span><br>
+      Event / city: <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+      Collector: <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+      Return: hello@giveabit.io
+    </div>
+  </div>
+
+  <div class="organizer">
+    <h3>Organizer notes (keep with clipboard)</h3>
+    After collection: contact an MP to present; keep original sheets together; optional digital tally at sherpacarta.org/canada · Give A Bit family · CC0 charter
+  </div>
 </div>
 
-<!-- PRINTABLE BC -->
-<div class="sheet" id="sheet-bc">
-  <h1>PETITION TO THE LEGISLATIVE ASSEMBLY OF BRITISH COLUMBIA</h1>
-  <p class="meta">SherpaCarta · BC Digital Rights · Page ___ of ___ · Original signatures only</p>
-  <p class="prayer" id="print-bc-prayer"></p>
-  <p class="meta"><strong>WE, THE UNDERSIGNED,</strong> residents of British Columbia, petition the Legislative Assembly as set out above.</p>
-  <table class="sig-table">
-    <thead><tr><th style="width:28%">Name (print)</th><th style="width:37%">Address</th><th style="width:35%">Signature</th></tr></thead>
-    <tbody id="bc-rows"></tbody>
+<!-- ══════════ BC SHEET ══════════ -->
+<div class="sheet" id="sheet-bc" data-kind="bc">
+  <div class="sheet-top">
+    <div class="sheet-brand">
+      <div class="sheet-mark" aria-hidden="true">🇨🇦</div>
+      <div>
+        <h1>SHERPACARTA</h1>
+        <div class="sub">Global Digital Magna Carta · British Columbia</div>
+      </div>
+    </div>
+    <div class="sheet-meta-r">
+      <strong>Petition sheet</strong>
+      BC Legislative Assembly<br>
+      Original signatures only
+    </div>
+  </div>
+
+  <div class="sheet-title">PETITION TO THE LEGISLATIVE ASSEMBLY<br>OF BRITISH COLUMBIA</div>
+  <p class="sheet-hook">“BC can lead on digital dignity — as it has led before.”</p>
+
+  <div class="why">
+    <h2>Why this matters in BC</h2>
+    <ul>
+      <li>Public services and platforms process British Columbians’ data every day.</li>
+      <li>A provincial Digital Rights Act and municipal Safe Harbour standards can set the bar.</li>
+      <li>Privacy, data sovereignty, and algorithmic transparency should be non-negotiable.</li>
+    </ul>
+  </div>
+
+  <div class="prayer-label">The ask (formal petition text)</div>
+  <p class="prayer" id="prayer-bc">Loading…</p>
+
+  <p class="undersigned"><strong>WE, THE UNDERSIGNED,</strong> residents of British Columbia, petition the Legislative Assembly of British Columbia as set out above.</p>
+  <p class="rules">Eligibility: residents of BC · No minimum age · One person signs only for themselves · Print name, address, and original signature · Original ink only — photocopies are not accepted for presentation · An MLA presents the petition.</p>
+
+  <table class="sig-table" aria-label="Signatures">
+    <colgroup><col class="c-name"><col class="c-addr"><col class="c-sig"></colgroup>
+    <thead>
+      <tr><th>Name (print)</th><th>Address (city)</th><th>Signature</th></tr>
+    </thead>
+    <tbody id="rows-bc"></tbody>
   </table>
+
+  <div class="sheet-foot">
+    <div class="qr-block">
+      <img src="/canada/qr/join-bc.png" width="78" height="78" alt="QR code to sherpacarta.org/canada/join">
+      <div class="qr-text">
+        <strong>Scan to sign online too</strong>
+        Campaign commitment + BC challenge<br>
+        <span style="font-family:monospace;font-size:7pt">sherpacarta.org/canada/join</span><br>
+        <em>QR does not replace ink on this sheet</em>
+      </div>
+    </div>
+    <div class="foot-fields">
+      Sheet <span class="line">&nbsp;&nbsp;&nbsp;</span> of <span class="line">&nbsp;&nbsp;&nbsp;</span><br>
+      Event / city: <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+      Collector: <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+      Return: hello@giveabit.io
+    </div>
+  </div>
+
+  <div class="organizer">
+    <h3>Organizer notes</h3>
+    Present via MLA · Town hall kit: sherpacarta.org/bc/town-hall-kit.html · Give A Bit family
+  </div>
 </div>
 
 <script>
-function rows(n){return Array.from({length:n},()=>'<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>').join('')}
-document.getElementById('fed-rows').innerHTML=rows(12);
-document.getElementById('bc-rows').innerHTML=rows(12);
+(function () {
+  const ROWS = 10;
+  function fillRows(id) {
+    const tb = document.getElementById(id);
+    tb.innerHTML = Array.from({ length: ROWS }, () =>
+      '<tr><td></td><td></td><td></td></tr>'
+    ).join('');
+  }
+  fillRows('rows-federal');
+  fillRows('rows-bc');
 
-fetch('/data/campaign-canada.json').then(r=>r.json()).then(d=>{
-  const fed=d.prayers?.federalOfficial||d.petitionText;
-  const bc=d.prayers?.bcOfficial||d.petitionText;
-  document.getElementById('print-fed-prayer').textContent=fed;
-  document.getElementById('print-bc-prayer').textContent=bc;
-  document.getElementById('preview-federal').textContent=fed;
-  document.getElementById('preview-bc').textContent=bc;
-});
+  const host = document.getElementById('preview-host');
+  const fed = document.getElementById('sheet-federal');
+  const bc = document.getElementById('sheet-bc');
+  // Move sheets into preview host for screen; keep in body for print isolation
+  // Actually keep in body - clone for preview
+  function showPreview(kind) {
+    document.querySelectorAll('.sheet').forEach((s) => {
+      s.classList.remove('active-preview', 'print-now');
+    });
+    const el = document.getElementById('sheet-' + kind);
+    el.classList.add('active-preview');
+    // place after preview label
+    host.innerHTML = '';
+    host.appendChild(el);
+    // re-append hidden twin? we only have one - keep in host for preview, print uses same
+  }
 
-function printSheet(id){
-  document.querySelectorAll('.sheet').forEach(s=>s.style.display='none');
-  const el=document.getElementById(id);
-  el.style.display='block';
-  setTimeout(()=>{window.print();el.style.display='none';},100);
-}
+  let current = 'federal';
+  document.querySelectorAll('.tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach((t) => t.classList.remove('on'));
+      tab.classList.add('on');
+      current = tab.dataset.sheet;
+      showPreview(current);
+    });
+  });
+
+  document.getElementById('btn-print').onclick = () => {
+    document.querySelectorAll('.sheet').forEach((s) => s.classList.remove('print-now'));
+    document.getElementById('sheet-' + current).classList.add('print-now');
+    // ensure sheet is in body for print positioning
+    document.body.appendChild(document.getElementById('sheet-' + current));
+    window.print();
+    showPreview(current);
+  };
+
+  fetch('/data/campaign-canada.json')
+    .then((r) => r.json())
+    .then((d) => {
+      document.getElementById('prayer-federal').textContent =
+        d.prayers?.federalOfficial || d.petitionText || '';
+      document.getElementById('prayer-bc').textContent =
+        d.prayers?.bcOfficial || d.petitionText || '';
+      if (d.sheet?.shortWhy?.length) {
+        // optional future override
+      }
+    });
+
+  showPreview('federal');
+})();
 </script>
 </body>
 </html>
