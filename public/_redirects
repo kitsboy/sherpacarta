@@ -12,3 +12,18 @@
 /ar/   /?lang=ar   302
 /sw    /?lang=sw   302
 /sw/   /?lang=sw   302
+
+# Pretty Canada / handout URLs (extensionless)
+/canada/join              /canada/join.html              200
+/canada/sign              /canada/sign.html              200
+/canada/paper             /canada/paper.html             200
+/canada/official          /canada/official.html          200
+/canada/proof             /canada/proof.html             200
+/canada/organizer         /canada/organizer.html         200
+/canada/about             /canada/about.html             200
+/briefing                 /briefing.html                 200
+/briefing-fr              /briefing-fr.html              200
+/leave-behind             /leave-behind.html             200
+/press-kit                /press-kit.html                200
+/treasury                 /treasury.html                 200
+/security                 /security.html                 200

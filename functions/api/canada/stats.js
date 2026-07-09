@@ -17,6 +17,9 @@ export async function onRequest(context) {
   if (context.request.method === 'OPTIONS') {
     return new Response(null, { status: 204, headers: CORS });
   }
+  if (context.request.method === 'HEAD') {
+    return new Response(null, { status: 200, headers: CORS });
+  }
   if (context.request.method !== 'GET') {
     return json({ error: 'Method not allowed' }, 405);
   }
