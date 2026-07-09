@@ -2,7 +2,7 @@
 
 **Project Name:** SherpaCarta  
 **Date:** 2026-07-09  
-**BUILD:** 20260709-720  
+**BUILD:** 20260709-725  
 **Live:** https://sherpacarta.org
 
 ## Project Overview (Simple Pitch)
@@ -23,7 +23,10 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/js/sc-press-outlets.js` — Press section icons + mobile marquee
 - `public/sw.js` — Service worker cache v5.4
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted type & icons
+- `public/briefing.html` — 2-page print executive briefing for MPs / decision-makers
 - `public/press-kit.html`, `public/charter.txt`, `public/humans.txt`, `public/offline.html`
+- `public/og/*.png` — social preview cards (WhatsApp / Telegram / X)
+- `public/canada/` — petition hub, sign, paper, join, official, organizer, proof
 - `public/canada/` — Canada campaign pages (index, sign, proof, about, bc/)
 - `treasury.html`, `security.html` — Sprint 7 pages
 - `embed.js` — Embeddable sign widget
@@ -83,10 +86,11 @@ Bitcoin sovereignty, privacy, human dignity. Zero tracking. Local-first signing.
 ## Current Gaps & Next Priorities
 - **Lightning live wallet** — TEMP placeholder; replace when Cam provides LNURL
 - **npm publish** — `npm login && npm run publish:packages`
-- **Federal e-petition** — needs MP sponsor + official e-### number
-- **Satohash template** — submit `sherpacarta-canada-referendum.json` when ready
-- **Full charter i18n** — ES/FR expanded; full human-reviewed legal translations still needed
+- **Federal e-petition** — needs MP sponsor + official e-### number (site ready to flip)
+- **Print & collect** federal paper sheets after meetings
+- **Full charter i18n** — ES/FR titles expanded; full human-reviewed legal translations still needed
 - **Official org endorsements** — coalition seats open (no fake claims)
+- **French briefing** — optional bilingual MP handout
 - **Kimi sync** — Obsidian / MASTER-BRAIN from `docs/KIMI-HANDOFF.md`
 
 ## Hand-off Notes for Kimi (M4 HERMES)

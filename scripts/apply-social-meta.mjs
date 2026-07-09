@@ -19,6 +19,13 @@ const PAGES = {
     image: '/og/default.png',
     path: '/',
   },
+  'public/briefing.html': {
+    title: 'SherpaCarta — Executive Briefing for Decision-Makers',
+    description:
+      'Two-page print briefing: what SherpaCarta is, why digital rights matter, how it works, Canada petition path, and key links for elected officials.',
+    image: '/og/default.png',
+    path: '/briefing.html',
+  },
   'public/canada/index.html': {
     title: 'Canada Digital Rights Petition — SherpaCarta',
     description:
