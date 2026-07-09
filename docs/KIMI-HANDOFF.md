@@ -4,6 +4,34 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Session — 2026-07-09 (page-load fix + polish)
+
+**Machine:** M3 (Grok 4.5)  
+**Project:** sherpacarta
+
+### Done
+- [x] Root cause of blank/hanging pages: Cloudflare redirect 200 rewrites + pretty-URL stripping caused 308 self-loops (fixed in 473dbd2)
+- [x] Live verify: /canada/sign and all key pages return 200 (no redirect loop)
+- [x] Extensionless Canada URLs as canonical (/canada/sign not .html)
+- [x] Sitemap, OG/canonical, sc-bundle, mobile nav, petition JS, SW v6.1, asset cache bust v730
+- [x] Pushed + deployed to Cloudflare Pages
+
+### Decisions
+- Prefer extensionless links; never re-add extensionless-to-html 200 rewrites
+- Skip LNURL / NIP-05 / MP champion until Cam provides them
+
+### Git State
+- SHA: `8ab223d35cb9b1b411109de3ec77a0b887aae2b1`
+- Branch: main · pushed
+
+### Cam still needs (short list)
+1. Lightning LNURL (replace TEMP donation address)
+2. MP sponsor + e-### for official Parliament e-petition
+3. Optional: npm login + npm run publish:packages (SDK only — not site load)
+4. Optional: human-reviewed ES/FR legal i18n + real endorsements
+
+---
+
 ## Handoff to Kimi — 2026-07-09 (Canada petition finish)
 
 **Machine:** M3 (Grok 4.5)  

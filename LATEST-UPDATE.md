@@ -1,6 +1,3 @@
-# sherpacarta — Last Updated 2026-07-09 by Grok 4.5
-
-Brief: FR briefing + 1-page leave-behind + personalized covers; federal-first home copy; bundle ~21% smaller
-Key URLs: /briefing.html · /briefing-fr.html · /leave-behind.html · /canada/
-Deployed: https://sherpacarta.org
-Recovery: `/whatsup` or docs/KIMI-HANDOFF.md
+# sherpacarta — Last Updated 2026-07-09 by Grok
+Brief: Canada pages load again (308 loop fixed); extensionless URLs + deploy live.
+Commit: 8ab223d35cb9b1b411109de3ec77a0b887aae2b1
