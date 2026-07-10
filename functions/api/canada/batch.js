@@ -19,12 +19,13 @@ import {
 
 function authorize(request, env) {
   const required = env.ORGANIZER_TOKEN;
-  if (!required) return { ok: true, mode: 'open-rate-limited' };
+  // Always require a configured organizer secret — open batch logging is too easy to abuse
+  if (!required) return { ok: false, reason: 'not_configured' };
   const auth = request.headers.get('Authorization') || '';
   const bearer = auth.startsWith('Bearer ') ? auth.slice(7).trim() : '';
   const header = request.headers.get('X-Organizer-Token') || '';
   if (bearer === required || header === required) return { ok: true, mode: 'token' };
-  return { ok: false };
+  return { ok: false, reason: 'unauthorized' };
 }
 
 export async function onRequest(context) {
@@ -38,9 +39,24 @@ export async function onRequest(context) {
     return json(request, { error: 'Method not allowed' }, 405, methods);
   }
 
+  // Hard gate: require ORGANIZER_TOKEN secret (Cloudflare Pages → Settings → Environment variables)
   const auth = authorize(request, env);
   if (!auth.ok) {
-    return json(request, { error: 'Unauthorized — organizer token required' }, 401, methods);
+    const status = auth.reason === 'not_configured' ? 503 : 401;
+    return json(
+      request,
+      {
+        ok: false,
+        error:
+          auth.reason === 'not_configured'
+            ? 'Paper batch API locked — set ORGANIZER_TOKEN in Cloudflare Pages secrets, then retry with X-Organizer-Token'
+            : 'Unauthorized — send X-Organizer-Token or Authorization: Bearer <ORGANIZER_TOKEN>',
+        localOnly: true,
+        apiVersion: 'batch-v3-locked',
+      },
+      status,
+      methods
+    );
   }
 
   let body;
