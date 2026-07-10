@@ -174,7 +174,7 @@
     }
     const store = initStore();
     const prov = opts.province ? provinceMeta(opts.province) : detectProvince();
-    const name = (displayName || 'Canadian Citizen').trim().slice(0, 40);
+    const name = (displayName || 'Canadian Citizen').replace(/[<>]/g, '').trim().slice(0, 40);
     if (!name) throw new Error('Please enter a name or pseudonym.');
 
     const petitionText = opts.petitionText || '';
@@ -338,35 +338,36 @@
     if (!opts.attestation) throw new Error('Please confirm you are a Canadian citizen or resident.');
     const store = initStore();
     const prov = opts.province ? provinceMeta(opts.province) : detectProvince();
-    if (!store.ed25519Key) {
-      try {
-        const keyPair = await crypto.subtle.generateKey({ name: 'Ed25519' }, true, ['sign', 'verify']);
-        const pub = await crypto.subtle.exportKey('raw', keyPair.publicKey);
-        const priv = await crypto.subtle.exportKey('pkcs8', keyPair.privateKey);
-        store.ed25519Key = {
-          publicKey: btoa(String.fromCharCode(...new Uint8Array(pub))),
-          privateKey: btoa(String.fromCharCode(...new Uint8Array(priv))),
-        };
-      } catch {
-        throw new Error('Ed25519 not supported in this browser — try Passkey or moral sign');
-      }
+    // Ephemeral key: sign once in memory, never persist private key (XSS-safe)
+    let publicKeyB64;
+    try {
+      const keyPair = await crypto.subtle.generateKey({ name: 'Ed25519' }, true, ['sign', 'verify']);
+      const pub = await crypto.subtle.exportKey('raw', keyPair.publicKey);
+      publicKeyB64 = btoa(String.fromCharCode(...new Uint8Array(pub)));
+      const petitionHashEarly = await SHERPA_PETITION.getPetitionHash();
+      const msg = `SherpaCarta-CA|${petitionHashEarly}|${(displayName || 'Signer').slice(0, 40)}|${prov.province || ''}`;
+      await crypto.subtle.sign('Ed25519', keyPair.privateKey, new TextEncoder().encode(msg));
+      // privateKey falls out of scope — never written to storage
+    } catch {
+      throw new Error('Ed25519 not supported in this browser — try Passkey or moral sign');
+    }
+    // Purge any legacy private keys from older app versions
+    if (store.ed25519Key) {
+      delete store.ed25519Key;
     }
     const petitionHash = await SHERPA_PETITION.getPetitionHash();
-    const msg = `SherpaCarta-CA|${petitionHash}|${displayName || 'Signer'}|${prov.province || ''}`;
-    const privKey = await crypto.subtle.importKey(
-      'pkcs8',
-      Uint8Array.from(atob(store.ed25519Key.privateKey), (c) => c.charCodeAt(0)),
-      { name: 'Ed25519' },
-      false,
-      ['sign']
-    );
-    await crypto.subtle.sign('Ed25519', privKey, new TextEncoder().encode(msg));
-    const receiptHash = await sha256(`ed25519|${store.ed25519Key.publicKey}|${petitionHash}|${prov.province || ''}`);
+    const receiptHash = await sha256(`ed25519|${publicKeyB64}|${petitionHash}|${prov.province || ''}`);
+
+    if (store.signatures.some((s) => s.receiptHash === receiptHash || (s.methods || []).includes('ed25519'))) {
+      const existing = store.signatures.find((s) => s.receiptHash === receiptHash)
+        || store.signatures.find((s) => (s.methods || []).includes('ed25519'));
+      return { duplicate: true, signature: existing };
+    }
 
     const sig = {
       id: receiptHash.slice(0, 16),
       receiptHash,
-      displayName: displayName || 'Ed25519 Signer',
+      displayName: (displayName || 'Ed25519 Signer').replace(/[<>]/g, '').slice(0, 40),
       country: 'CA',
       countryName: 'Canada',
       province: prov.province,
@@ -375,7 +376,7 @@
       track: 'campaign',
       legalNote: 'Campaign commitment only — not a Parliamentary e-petition signature',
       methods: ['ed25519', 'sha256-receipt'],
-      publicKey: store.ed25519Key.publicKey.slice(0, 24) + '…',
+      publicKey: publicKeyB64.slice(0, 24) + '…',
       petitionHash,
       ts: Date.now(),
     };
@@ -446,28 +447,9 @@
   };
 
   SHERPA_PETITION.wrapSignCharter = function () {
-    const orig = window.signCharter;
-    window.signCharter = async function () {
-      const name = document.getElementById('sign-name')?.value?.trim();
-      const countryEl = document.getElementById('sign-country');
-      if (countryEl) {
-        const prov = detectProvince();
-        countryEl.value = prov.province ? 'Canada, BC' : 'Canada';
-      }
-      try {
-        const result = await SHERPA_PETITION.signMoral(name, { attestation: true, province: detectProvince().province || undefined });
-        if (orig) orig();
-        if (result.duplicate) {
-          window.toast?.('You already signed this Canada campaign on this device', 'info');
-        } else {
-          window.toast?.(`Canada campaign signed · Receipt ${result.signature.id}`, 'success');
-        }
-        return result;
-      } catch (e) {
-        if (orig) orig();
-        window.toast?.(e.message || 'Sign failed', 'error');
-      }
-    };
+    // Do not auto-attest citizenship or auto-sync Canada campaign from home sign.
+    // Home charter sign stays local; Canada campaign uses /canada/sign with explicit attestation.
+    return;
   };
 
   // Init on load

@@ -14,7 +14,7 @@
   --em:#10b981;--em2:#34d399;--em3:#6ee7b7;
   --gold:#d4af37;--gold2:#e8c547;--red:#ef4444;--blue:#3b82f6;
   /* Text */
-  --text:#eef2ee;--text2:#a8b4a8;--text3:#6b7a6b;
+  --text:#eef2ee;--text2:#a8b4a8;--text3:#7d8f7d;
   /* Type */
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --mono:'DM Mono',ui-monospace,'Cascadia Code',monospace;
@@ -545,8 +545,9 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 
 /* ═══ FAQ ACCORDION ═══════════════════════════════════════ */
 .faq-item{border:1px solid var(--border);border-radius:.875rem;overflow:hidden;margin-bottom:.625rem}
-.faq-q{padding:1.1rem 1.25rem;font-size:.9rem;font-weight:600;cursor:none;display:flex;align-items:center;justify-content:space-between;transition:background .15s}
+.faq-q{padding:1.1rem 1.25rem;font-size:.9rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:background .15s;width:100%;text-align:left;background:transparent;border:none;color:inherit;font-family:inherit}
 .faq-q:hover{background:rgba(16,185,129,.04)}
+.faq-q:focus-visible{outline:2px solid var(--em);outline-offset:-2px}
 .faq-q i{color:var(--text3);transition:transform .3s;font-size:.75rem;flex-shrink:0}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:.83rem;color:var(--text2);line-height:1.75}
 .faq-a.open{max-height:300px;padding:0 1.25rem 1.1rem}

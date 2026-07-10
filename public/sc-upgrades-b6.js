@@ -113,13 +113,23 @@
         items.innerHTML = '<span style="color:var(--text3)">No public events yet — be the first to publish via Nostr.</span>';
         return;
       }
-      items.innerHTML = collected.slice(0, 10).map((ev) => {
-        const tags = (ev.tags || []).filter((t) => t[0] === 't').map((t) => t[1]).join(' ');
-        return `<div class="nostr-feed-item" style="padding:.5rem 0;border-bottom:1px solid var(--border)">
-          <div style="font-size:.7rem;line-height:1.5">${(ev.content || '').slice(0, 160)}${ev.content?.length > 160 ? '…' : ''}</div>
-          <div style="font-family:var(--mono);font-size:.55rem;color:var(--text3);margin-top:.25rem">${ev.pubkey?.slice(0, 10)}… · ${ev.relay}${tags ? ' · #' + tags : ''}</div>
-        </div>`;
-      }).join('');
+      items.replaceChildren();
+      collected.slice(0, 10).forEach((ev) => {
+        const tags = (ev.tags || []).filter((t) => t[0] === 't').map((t) => String(t[1] || '')).join(' ');
+        const wrap = document.createElement('div');
+        wrap.className = 'nostr-feed-item';
+        wrap.style.cssText = 'padding:.5rem 0;border-bottom:1px solid var(--border)';
+        const body = document.createElement('div');
+        body.style.cssText = 'font-size:.7rem;line-height:1.5';
+        const text = String(ev.content || '');
+        body.textContent = text.slice(0, 160) + (text.length > 160 ? '…' : '');
+        const meta = document.createElement('div');
+        meta.style.cssText = 'font-family:var(--mono);font-size:.55rem;color:var(--text3);margin-top:.25rem';
+        meta.textContent = `${String(ev.pubkey || '').slice(0, 10)}… · ${ev.relay || ''}${tags ? ' · #' + tags : ''}`;
+        wrap.appendChild(body);
+        wrap.appendChild(meta);
+        items.appendChild(wrap);
+      });
     };
     setTimeout(() => window.loadNostrAmendFeed?.(), 2000);
   });

@@ -164,7 +164,22 @@
           const msg = JSON.parse(e.data);
           if (msg[0] === 'EVENT' && msg[2]) {
             subs.push(msg[2]);
-            items.innerHTML = subs.slice(0, 8).map((ev) => `<div style="padding:.4rem 0;border-bottom:1px solid var(--border)">${ev.content?.slice(0, 120)}… <span style="color:var(--text3)">${ev.pubkey?.slice(0, 8)}</span></div>`).join('') || 'No public proposals yet.';
+            items.replaceChildren();
+            const slice = subs.slice(0, 8);
+            if (!slice.length) {
+              items.textContent = 'No public proposals yet.';
+            } else {
+              slice.forEach((ev) => {
+                const row = document.createElement('div');
+                row.style.cssText = 'padding:.4rem 0;border-bottom:1px solid var(--border)';
+                row.appendChild(document.createTextNode(String(ev.content || '').slice(0, 120) + '… '));
+                const pk = document.createElement('span');
+                pk.style.color = 'var(--text3)';
+                pk.textContent = String(ev.pubkey || '').slice(0, 8);
+                row.appendChild(pk);
+                items.appendChild(row);
+              });
+            }
           }
         };
         setTimeout(() => ws.close(), 4000);

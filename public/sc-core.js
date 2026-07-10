@@ -1623,29 +1623,54 @@ function buildSigners(){
   // Show real local signatures first; decorative seeds only if wall empty
   const local=state.signers||[];
   const all=local.length?local:SEED_SIGNERS.slice(0,6).map(s=>({...s,name:s.name+' · example'}));
-  if(wall) wall.innerHTML=all.map(s=>`<div class="signer-pill">${s.c||''} ${s.name}</div>`).join('')+(local.length?'':'<div class="signer-pill" style="border-style:dashed">Be the first on this device</div>');
+  if(wall){
+    wall.replaceChildren();
+    all.forEach((s)=>{
+      const pill=document.createElement('div');
+      pill.className='signer-pill';
+      pill.textContent=`${s.c||''} ${s.name}`.trim();
+      wall.appendChild(pill);
+    });
+    if(!local.length){
+      const empty=document.createElement('div');
+      empty.className='signer-pill';
+      empty.style.borderStyle='dashed';
+      empty.textContent='Be the first on this device';
+      wall.appendChild(empty);
+    }
+  }
   const countEl=document.getElementById('sign-count');if(countEl)countEl.textContent=state.signCount.toLocaleString();
   const lc=document.getElementById('live-counter');if(lc)lc.textContent=state.signCount.toLocaleString();
   const ss=document.getElementById('signer-stat');if(ss){ss.textContent=state.signCount.toLocaleString();ss.dataset.count='';}
 }
 
+let signCharterBusy=false;
 function signCharter(){
+  if(signCharterBusy)return;
   const name=document.getElementById('sign-name').value.trim(),country=document.getElementById('sign-country').value.trim();
   if(!name){toast('Please enter your name or pseudonym','error');return;}
   if(state.signers.find(s=>s.name===name)){toast('You have already signed','info');return;}
-  const flags={'United Kingdom':'🇬🇧','Canada':'🇨🇦','USA':'🇺🇸','United States':'🇺🇸','Australia':'🇦🇺','Germany':'🇩🇪','France':'🇫🇷','Japan':'🇯🇵','Brazil':'🇧🇷','India':'🇮🇳','China':'🇨🇳','Iceland':'🇮🇸','Nigeria':'🇳🇬'};
-  const c=flags[country]||'🌐';
-  state.signers.push({name,c});state.signCount++;
-  localStorage.setItem('sc_signers',JSON.stringify(state.signers));
-  localStorage.setItem('sc_count',state.signCount);
-  localStorage.setItem('sc_last_signer',name);
-  buildSigners();
-  document.getElementById('sign-name').value='';document.getElementById('sign-country').value='';
-  toast(`Welcome, ${name}! You are signatory #${state.signCount.toLocaleString()}.`,'success');
-  // Animate counter
-  const lc=document.getElementById('live-counter');
-  lc.style.transform='scale(1.3)';lc.style.color='var(--em2)';
-  setTimeout(()=>{lc.style.transform='';lc.style.color='';},400);
+  const btn=document.querySelector('.sign-submit');
+  signCharterBusy=true;
+  if(btn){btn.disabled=true;btn.setAttribute('aria-busy','true');}
+  try{
+    const flags={'United Kingdom':'🇬🇧','Canada':'🇨🇦','USA':'🇺🇸','United States':'🇺🇸','Australia':'🇦🇺','Germany':'🇩🇪','France':'🇫🇷','Japan':'🇯🇵','Brazil':'🇧🇷','India':'🇮🇳','China':'🇨🇳','Iceland':'🇮🇸','Nigeria':'🇳🇬'};
+    const c=flags[country]||'🌐';
+    // Strip angle brackets from stored display names (XSS defense if ever re-rendered unsafely)
+    const safeName=name.replace(/[<>]/g,'').slice(0,40);
+    state.signers.push({name:safeName,c});state.signCount++;
+    localStorage.setItem('sc_signers',JSON.stringify(state.signers));
+    localStorage.setItem('sc_count',state.signCount);
+    localStorage.setItem('sc_last_signer',safeName);
+    buildSigners();
+    document.getElementById('sign-name').value='';document.getElementById('sign-country').value='';
+    toast(`Welcome, ${safeName}! You are signatory #${state.signCount.toLocaleString()}.`,'success');
+    const lc=document.getElementById('live-counter');
+    if(lc){lc.style.transform='scale(1.3)';lc.style.color='var(--em2)';setTimeout(()=>{lc.style.transform='';lc.style.color='';},400);}
+  }finally{
+    signCharterBusy=false;
+    if(btn){btn.disabled=false;btn.removeAttribute('aria-busy');}
+  }
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1879,19 +1904,35 @@ function renderAmendments(){
   const list=document.getElementById('amend-list');
   if(!list)return;
   const items=[...state.amendments].reverse().slice(0,12);
-  list.innerHTML=items.length?items.map(a=>`
-    <div class="amend-item">
-      <strong>${a.article||'General'}</strong> — ${a.text}
-      <div class="amend-meta">${a.author||'Anonymous'} · ${new Date(a.ts).toLocaleDateString()}${a.nostr?' · Nostr':''}</div>
-    </div>
-  `).join(''):'<div class="amend-item" style="color:var(--text3)">No proposals yet. Be the first to suggest an expansion of rights.</div>';
+  list.replaceChildren();
+  if(!items.length){
+    const empty=document.createElement('div');
+    empty.className='amend-item';
+    empty.style.color='var(--text3)';
+    empty.textContent='No proposals yet. Be the first to suggest an expansion of rights.';
+    list.appendChild(empty);
+    return;
+  }
+  items.forEach((a)=>{
+    const el=document.createElement('div');
+    el.className='amend-item';
+    const strong=document.createElement('strong');
+    strong.textContent=a.article||'General';
+    el.appendChild(strong);
+    el.appendChild(document.createTextNode(' — '+(a.text||'')));
+    const meta=document.createElement('div');
+    meta.className='amend-meta';
+    meta.textContent=`${a.author||'Anonymous'} · ${new Date(a.ts).toLocaleDateString()}${a.nostr?' · Nostr':''}`;
+    el.appendChild(meta);
+    list.appendChild(el);
+  });
 }
 
 async function submitAmendment(){
-  const article=document.getElementById('amend-article').value.trim();
-  const text=document.getElementById('amend-text').value.trim();
+  const article=document.getElementById('amend-article').value.trim().slice(0,40);
+  const text=document.getElementById('amend-text').value.trim().slice(0,2000);
   if(!text){toast('Enter your amendment proposal','error');return;}
-  const name=document.getElementById('sign-name').value.trim()||'Anonymous';
+  const name=(document.getElementById('sign-name').value.trim()||'Anonymous').replace(/[<>]/g,'').slice(0,40);
   const entry={article,text,author:name,ts:Date.now(),nostr:false};
   const nostrMsg=`[SherpaCarta Amendment${article?' '+article:''}]\n${text}\n\n— ${name}\nhttps://sherpacarta.org`;
   if(state.nostrPubkey){
@@ -1949,8 +1990,17 @@ function toggleFaq(q){
   const item=q.parentElement;
   const answer=item.querySelector('.faq-a');
   const isOpen=item.classList.contains('active');
-  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('active');i.querySelector('.faq-a').classList.remove('open');});
-  if(!isOpen){item.classList.add('active');answer.classList.add('open');}
+  document.querySelectorAll('.faq-item').forEach(i=>{
+    i.classList.remove('active');
+    i.querySelector('.faq-a')?.classList.remove('open');
+    const b=i.querySelector('.faq-q');
+    if(b) b.setAttribute('aria-expanded','false');
+  });
+  if(!isOpen){
+    item.classList.add('active');
+    answer?.classList.add('open');
+    q.setAttribute('aria-expanded','true');
+  }
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1959,10 +2009,8 @@ function toggleFaq(q){
 function subscribeNewsletter(){
   const email=document.getElementById('newsletter-email').value.trim();
   if(!email||!email.includes('@')){toast('Please enter a valid email address','error');return;}
-  if(localStorage.getItem('sc_newsletter')){toast('You\'re already subscribed!','info');return;}
-  localStorage.setItem('sc_newsletter',email);
-  document.getElementById('newsletter-email').value='';
-  toast(`Subscribed! Rights Dispatch will arrive at ${email} (simulated — no server).`,'success');
+  // No mail server yet — do not pretend to subscribe
+  toast('Rights Dispatch is not live yet. Email hello@giveabit.io with subject “Sherpacarta Dispatch” to join the waitlist.','info');
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -2168,12 +2216,23 @@ function acceptCookies(){
 // ═══════════════════════════════════════════════════════════
 // TOAST
 // ═══════════════════════════════════════════════════════════
+/** Escape untrusted text before any HTML context (XSS defense). */
+function escapeHtml(str){
+  return String(str??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+window.escapeHtml=escapeHtml;
+
 function toast(msg,type='info'){
   const icons={success:'fa-check-circle',error:'fa-circle-exclamation',info:'fa-circle-info'};
   const el=document.createElement('div');
   el.className='toast'+(type==='error'?' error':'');
-  el.innerHTML=`<i class="fas ${icons[type]||'fa-circle-info'}"></i> ${msg}`;
-  document.getElementById('toast-stack').appendChild(el);
+  const icon=document.createElement('i');
+  icon.className=`fas ${icons[type]||'fa-circle-info'}`;
+  icon.setAttribute('aria-hidden','true');
+  el.appendChild(icon);
+  el.appendChild(document.createTextNode(' '+String(msg??'')));
+  const stack=document.getElementById('toast-stack');
+  if(stack) stack.appendChild(el);
   setTimeout(()=>{el.style.opacity='0';el.style.transform='translateX(20px)';el.style.transition='all .3s';setTimeout(()=>el.remove(),300);},4500);
 }
 

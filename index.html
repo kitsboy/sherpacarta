@@ -401,7 +401,7 @@
     <div class="section-label"><span>Interactive Charter</span></div>
     <h2 class="section-h2 reveal" id="articles-heading">Browse Key Articles</h2>
     <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:520px">Click any article to read, sign, share, or get an AI summary. These are living documents.</p>
-    <div class="articles-layout reveal" role="tablist">
+    <div class="articles-layout reveal">
       <div class="articles-sidebar" id="articles-sidebar" role="tablist" aria-label="Charter articles"></div>
       <div class="articles-main" id="articles-main" aria-live="polite"></div>
     </div>
@@ -574,28 +574,28 @@
     <h2 class="section-h2 reveal" id="faq-heading">Frequently Asked<br>Questions</h2>
     <div class="reveal" style="max-width:720px;margin-top:2rem" id="faq-container">
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Is SherpaCarta legally binding? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a">SherpaCarta is not (yet) a treaty or legislation. It is a moral, civic, and political document — like the Magna Carta was for decades before it became enforceable law. The power of SherpaCarta lies in its global adoption: the more organizations, governments, and citizens sign and act on it, the more it shapes legislation, court decisions, and corporate policy. Rights begin as declarations.</div>
+        <button type="button" class="faq-q" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1" onclick="toggleFaq(this)">Is SherpaCarta legally binding? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1">SherpaCarta is not (yet) a treaty or legislation. It is a moral, civic, and political document — like the Magna Carta was for decades before it became enforceable law. The power of SherpaCarta lies in its global adoption: the more organizations, governments, and citizens sign and act on it, the more it shapes legislation, court decisions, and corporate policy. Rights begin as declarations.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Who wrote SherpaCarta? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a">SherpaCarta synthesizes three primary sources: the 1215 Magna Carta, the 2011 Icelandic Constitutional Bill (the world's first crowdsourced constitution), and original articles drafted by an international team of privacy lawyers, digital rights activists, technologists, and civil society leaders. It is a living document — anyone can propose amendments.</div>
+        <button type="button" class="faq-q" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2" onclick="toggleFaq(this)">Who wrote SherpaCarta? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2">SherpaCarta synthesizes three primary sources: the 1215 Magna Carta, the 2011 Icelandic Constitutional Bill (the world's first crowdsourced constitution), and original articles drafted by an international team of privacy lawyers, digital rights activists, technologists, and civil society leaders. It is a living document — anyone can propose amendments.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How does signing work? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a">Signing SherpaCarta is a public moral commitment — a declaration that you believe in and will advocate for these digital rights. Signatures are stored locally and published to a global ledger. You can sign with your real name, a pseudonym, or an anonymous identifier. Every signature strengthens the movement's legitimacy.</div>
+        <button type="button" class="faq-q" id="faq-q-3" aria-expanded="false" aria-controls="faq-a-3" onclick="toggleFaq(this)">How does signing work? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3">Signing SherpaCarta is a public moral commitment — a declaration that you believe in and will advocate for these digital rights. On this site, signatures are stored only in your browser (local-first) unless you optionally publish via Nostr. The Canada campaign may sync a privacy-preserving receipt hash to our campaign counter. You can use your real name, a pseudonym, or stay private. Every signature strengthens the movement's legitimacy.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How is SherpaCarta funded? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a">SherpaCarta is funded entirely by voluntary Bitcoin donations from citizens who believe privacy is a birthright. We accept no venture capital, government grants, corporate sponsorship, or advertising revenue. All donations are published on-chain. We operate entirely through volunteer labor across 24 countries.</div>
+        <button type="button" class="faq-q" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4" onclick="toggleFaq(this)">How is SherpaCarta funded? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4">SherpaCarta is funded entirely by voluntary Bitcoin donations from citizens who believe privacy is a birthright. We accept no venture capital, government grants, corporate sponsorship, or advertising revenue. All donations are published on-chain. We operate entirely through volunteer labor across 24 countries.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">How can I propose an amendment? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a">Any signatory may propose an amendment. Proposals are submitted to the global deliberation forum, debated publicly for 90 days, reviewed by our legal and technical panels, and ratified by two-thirds supermajority of signatory organizations. No amendment may reduce existing protections — rights only expand, never contract.</div>
+        <button type="button" class="faq-q" id="faq-q-5" aria-expanded="false" aria-controls="faq-a-5" onclick="toggleFaq(this)">How can I propose an amendment? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5">Any signatory may propose an amendment. Proposals are submitted to the global deliberation forum, debated publicly for 90 days, reviewed by our legal and technical panels, and ratified by two-thirds supermajority of signatory organizations. No amendment may reduce existing protections — rights only expand, never contract.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">What about AI and the rights in Article 61? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a">Article 61 establishes the Right to Algorithmic Transparency — you have the right to a plain-language explanation of any automated decision that significantly affects your life. This covers AI hiring tools, credit scoring, content recommendation, insurance pricing, and law enforcement risk assessment. Article 62 makes algorithmic discrimination illegal regardless of intent.</div>
+        <button type="button" class="faq-q" id="faq-q-6" aria-expanded="false" aria-controls="faq-a-6" onclick="toggleFaq(this)">What about AI and the rights in Article 61? <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <div class="faq-a" id="faq-a-6" role="region" aria-labelledby="faq-q-6">Article 61 establishes the Right to Algorithmic Transparency — you have the right to a plain-language explanation of any automated decision that significantly affects your life. This covers AI hiring tools, credit scoring, content recommendation, insurance pricing, and law enforcement risk assessment. Article 62 makes algorithmic discrimination illegal regardless of intent.</div>
       </div>
     </div>
   </div>
@@ -645,10 +645,10 @@
     <div class="newsletter-section reveal">
       <div class="section-label" style="margin-bottom:.5rem"><span>Stay Informed</span></div>
       <h3 style="font-family:var(--serif);font-size:2rem;font-weight:700;letter-spacing:-.025em">Rights Dispatch</h3>
-      <p style="font-size:.85rem;color:var(--text2);margin-top:.4rem;max-width:500px">Monthly briefing on digital rights victories, new articles, and threats to privacy worldwide. No tracking. One-click unsubscribe. We mean it.</p>
+      <p style="font-size:.85rem;color:var(--text2);margin-top:.4rem;max-width:500px">Monthly briefing on digital rights victories, new articles, and threats to privacy worldwide. <strong>Email list is not live yet</strong> — use the button to get waitlist instructions. No tracking.</p>
       <div class="newsletter-form">
-        <input class="newsletter-input" id="newsletter-email" type="email" placeholder="your@email.com" aria-label="Email address">
-        <button class="sign-submit" onclick="subscribeNewsletter()"><i class="fas fa-envelope"></i> Subscribe</button>
+        <input class="newsletter-input" id="newsletter-email" type="email" placeholder="your@email.com" aria-label="Email address" autocomplete="email">
+        <button type="button" class="sign-submit" onclick="subscribeNewsletter()"><i class="fas fa-envelope"></i> Join waitlist</button>
       </div>
     </div>
   </div>

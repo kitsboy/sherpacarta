@@ -3,6 +3,8 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://mempool.space https://cdn.jsdelivr.net wss://relay.damus.io wss://nos.lol wss://relay.snort.social; frame-src 'self' https://sherpacarta.org; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
 
 /assets/*.css
   Content-Type: text/css
@@ -30,6 +32,9 @@
 /api/v1/*
   Cache-Control: public, max-age=300
   Access-Control-Allow-Origin: *
+
+/api/canada/*
+  Cache-Control: no-store
 
 /index.html
   Cache-Control: public, max-age=300

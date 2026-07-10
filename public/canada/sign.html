@@ -202,15 +202,36 @@
     const r = $('receipt');
     r.classList.add('open');
     const remote = extra?.remote || sig.remoteSync;
-    r.innerHTML = `<strong style="color:var(--em)">✓ Canada campaign receipt</strong><br>
-      ID: ${sig.id}<br>
-      Name: ${sig.displayName}<br>
-      Place: ${sig.provinceName || sig.province || 'Canada'}<br>
-      Methods: ${(sig.methods||[]).join(', ')}<br>
-      SHA-256: ${sig.receiptHash}<br>
-      Track: <strong>campaign</strong> (not Parliamentary e-petition)<br>
-      Remote sync: ${remote?.ok ? 'yes' : (remote?.error || 'local only / API pending')}<br>
-      <a href="/canada/proof">Proof page →</a>`;
+    const remoteTxt = remote?.ok ? 'yes' : (remote?.error || 'local only / API pending');
+    r.replaceChildren();
+    const title = document.createElement('strong');
+    title.style.color = 'var(--em)';
+    title.textContent = '✓ Canada campaign receipt';
+    r.appendChild(title);
+    r.appendChild(document.createElement('br'));
+    const lines = [
+      `ID: ${sig.id || ''}`,
+      `Name: ${sig.displayName || ''}`,
+      `Place: ${sig.provinceName || sig.province || 'Canada'}`,
+      `Methods: ${(sig.methods || []).join(', ')}`,
+      `SHA-256: ${sig.receiptHash || ''}`,
+    ];
+    lines.forEach((line) => {
+      r.appendChild(document.createTextNode(line));
+      r.appendChild(document.createElement('br'));
+    });
+    r.appendChild(document.createTextNode('Track: '));
+    const track = document.createElement('strong');
+    track.textContent = 'campaign';
+    r.appendChild(track);
+    r.appendChild(document.createTextNode(' (not Parliamentary e-petition)'));
+    r.appendChild(document.createElement('br'));
+    r.appendChild(document.createTextNode('Remote sync: ' + remoteTxt));
+    r.appendChild(document.createElement('br'));
+    const proof = document.createElement('a');
+    proof.href = '/canada/proof';
+    proof.textContent = 'Proof page →';
+    r.appendChild(proof);
     $('btn-share').style.display = 'inline-flex';
     $('btn-dl').style.display = 'inline-flex';
     const sms = $('btn-sms');
@@ -238,34 +259,46 @@
   provSel.onchange = refreshBtn;
   setTimeout(() => $('name').focus(), 200);
 
-  $('btn-sign').onclick = async () => {
+  async function withBusy(btn, fn) {
+    if (!btn || btn.dataset.busy === '1') return;
+    btn.dataset.busy = '1';
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
     try {
-      const r = await SHERPA_PETITION.signMoral($('name').value, opts());
-      showReceipt(r.signature, r, !r.duplicate);
-      if (r.duplicate) alert('Already signed on this device with this name/province.');
+      await fn();
     } catch (e) {
-      alert(e.message || 'Sign failed');
+      const hint = $('form-hint');
+      if (hint) hint.textContent = e.message || 'Something went wrong';
+      else alert(e.message || 'Something went wrong');
+    } finally {
+      btn.dataset.busy = '0';
+      btn.disabled = false;
+      btn.removeAttribute('aria-busy');
+      refreshBtn();
     }
-  };
+  }
 
-  $('btn-passkey').onclick = async () => {
-    try {
-      const r = await SHERPA_PETITION.signPasskey(opts());
-      showReceipt(r.signature, r);
-    } catch (e) { alert(e.message || 'Passkey failed'); }
-  };
-  $('btn-nostr').onclick = async () => {
-    try {
-      const r = await SHERPA_PETITION.signNostr($('name').value, opts());
-      showReceipt(r.signature, r);
-    } catch (e) { alert(e.message || 'Nostr failed'); }
-  };
-  $('btn-ed25519').onclick = async () => {
-    try {
-      const r = await SHERPA_PETITION.signEd25519($('name').value, opts());
-      showReceipt(r.signature, r);
-    } catch (e) { alert(e.message || 'Key sign failed'); }
-  };
+  $('btn-sign').onclick = () => withBusy($('btn-sign'), async () => {
+    const r = await SHERPA_PETITION.signMoral($('name').value, opts());
+    showReceipt(r.signature, r, !r.duplicate);
+    if (r.duplicate) {
+      const hint = $('form-hint');
+      if (hint) hint.textContent = 'Already signed on this device with this name/province.';
+    }
+  });
+
+  $('btn-passkey').onclick = () => withBusy($('btn-passkey'), async () => {
+    const r = await SHERPA_PETITION.signPasskey(opts());
+    showReceipt(r.signature, r, true);
+  });
+  $('btn-nostr').onclick = () => withBusy($('btn-nostr'), async () => {
+    const r = await SHERPA_PETITION.signNostr($('name').value, opts());
+    showReceipt(r.signature, r, true);
+  });
+  $('btn-ed25519').onclick = () => withBusy($('btn-ed25519'), async () => {
+    const r = await SHERPA_PETITION.signEd25519($('name').value, opts());
+    showReceipt(r.signature, r, true);
+  });
 
   $('btn-share').onclick = () => {
     const txt = SHERPA_PETITION.shareText(lastSig);
@@ -280,12 +313,32 @@
     const copy = $('official-copy');
     const btn = $('btn-official');
     if (o.live) {
-      copy.innerHTML = `Official e-petition <strong>${o.ePetitionId}</strong> is live. Sign there for a signature Parliament can count (email confirm required).`;
-      btn.href = o.url;
-      btn.innerHTML = `<i class="fas fa-landmark"></i> Sign official ${o.ePetitionId}`;
+      copy.replaceChildren();
+      copy.appendChild(document.createTextNode('Official e-petition '));
+      const id = document.createElement('strong');
+      id.textContent = String(o.ePetitionId || '');
+      copy.appendChild(id);
+      copy.appendChild(document.createTextNode(' is live. Sign there for a signature Parliament can count (email confirm required).'));
+      if (o.url && /^https:\/\//i.test(o.url) && !o.url.includes('javascript:')) btn.href = o.url;
+      btn.replaceChildren();
+      const ic = document.createElement('i');
+      ic.className = 'fas fa-landmark';
+      ic.setAttribute('aria-hidden', 'true');
+      btn.appendChild(ic);
+      btn.appendChild(document.createTextNode(' Sign official ' + String(o.ePetitionId || '')));
       btn.classList.remove('btn-sub'); btn.classList.add('btn-main');
     } else {
-      copy.innerHTML = `Official e-petition status: <strong>${o.status}</strong>. We need an MP to authorize publication. You can still print <a href="/canada/paper">paper sheets</a> (legal today) and join the campaign above.`;
+      copy.replaceChildren();
+      copy.appendChild(document.createTextNode('Official e-petition status: '));
+      const st = document.createElement('strong');
+      st.textContent = String(o.status || 'seeking_mp');
+      copy.appendChild(st);
+      copy.appendChild(document.createTextNode('. We need an MP to authorize publication. You can still print '));
+      const a = document.createElement('a');
+      a.href = '/canada/paper';
+      a.textContent = 'paper sheets';
+      copy.appendChild(a);
+      copy.appendChild(document.createTextNode(' (legal today) and join the campaign above.'));
       btn.href = '/canada/official';
     }
   });

@@ -58,7 +58,10 @@ async function handleTool(name, args) {
       return { content: [{ type: 'text', text: JSON.stringify(hits, null, 2) }] };
     }
     case 'get_article': {
-      const n = String(args.num).replace(/^Art\.?\s*/i, '');
+      const n = String(args.num).replace(/^Art\.?\s*/i, '').trim();
+      if (!/^\d{1,3}$/.test(n)) {
+        throw new Error('Article number must be 1–3 digits (e.g. 11)');
+      }
       const art = await api(`/articles/${n}.json`);
       return { content: [{ type: 'text', text: JSON.stringify(art, null, 2) }] };
     }

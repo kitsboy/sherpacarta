@@ -164,9 +164,22 @@ SHERPA_PETITION.fetchRemoteStats().then((s) => {
   renderMap(s?.byProvince || {});
   const wall = document.getElementById('recent-wall');
   const recent = (s?.recent || []).filter((r) => r.displayName && !/test/i.test(r.displayName));
-  wall.innerHTML = recent.length
-    ? recent.slice(0, 16).map((r) => `<span class="pill">${r.displayName}${r.province ? ' · ' + r.province : ''}</span>`).join('')
-    : '<span class="pill">Be the first named campaign signer (opt-in on sign form)</span>';
+  wall.replaceChildren();
+  if (recent.length) {
+    recent.slice(0, 16).forEach((r) => {
+      const pill = document.createElement('span');
+      pill.className = 'pill';
+      const name = String(r.displayName || '').replace(/[<>&]/g, '').slice(0, 40);
+      const prov = r.province ? String(r.province).replace(/[^A-Z]/gi, '').slice(0, 8) : '';
+      pill.textContent = prov ? `${name} · ${prov}` : name;
+      wall.appendChild(pill);
+    });
+  } else {
+    const pill = document.createElement('span');
+    pill.className = 'pill';
+    pill.textContent = 'Be the first named campaign signer (opt-in on sign form)';
+    wall.appendChild(pill);
+  }
 });
 SHERPA_PETITION.officialStatus().then((o) => {
   document.getElementById('off-status').textContent = o.live ? o.ePetitionId : (o.status || 'seeking MP').replace(/_/g, ' ');

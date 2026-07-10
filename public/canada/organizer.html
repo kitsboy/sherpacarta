@@ -63,7 +63,7 @@
 <div class="card">
   <p class="note" style="margin-top:0">After a clipboards event, log how many <strong>wet signatures</strong> you collected. We store count + province + optional event label only — not the names from the sheets (you keep the paper).</p>
   <label for="count">Signatures collected</label>
-  <input id="count" type="number" min="1" max="500" value="12" inputmode="numeric">
+  <input id="count" type="number" min="1" max="100" value="12" inputmode="numeric">
   <label for="province">Primary province of event</label>
   <select id="province"></select>
   <label for="event">Event label (optional)</label>
@@ -92,25 +92,33 @@ SHERPA_PETITION.PROVINCES.forEach((p) => {
 });
 sel.value = 'BC';
 
-document.getElementById('btn-log').onclick = async () => {
+const btnLog = document.getElementById('btn-log');
+btnLog.onclick = async () => {
+  if (btnLog.dataset.busy === '1') return;
   const count = parseInt(document.getElementById('count').value, 10);
   const province = sel.value;
-  const event = document.getElementById('event').value.trim();
+  const event = document.getElementById('event').value.trim().replace(/[<>]/g, '');
   const attestation = document.getElementById('attest').checked;
   const out = document.getElementById('result');
   out.style.display = 'block';
   if (!attestation) { out.textContent = 'Please confirm the attestation.'; return; }
-  if (!count || count < 1) { out.textContent = 'Enter a valid count.'; return; }
+  if (!count || count < 1 || count > 100) { out.textContent = 'Enter a valid count (1–100).'; return; }
+  btnLog.dataset.busy = '1';
+  btnLog.disabled = true;
+  btnLog.setAttribute('aria-busy', 'true');
+  out.textContent = 'Logging batch…';
   try {
+    const headers = { 'Content-Type': 'application/json' };
+    const token = sessionStorage.getItem('sc_organizer_token') || '';
+    if (token) headers['X-Organizer-Token'] = token;
     const res = await fetch('/api/canada/batch', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({ count, province, event, attestation: true }),
     });
-    const data = await res.json();
+    const data = await res.json().catch(() => ({}));
     if (!res.ok) {
       out.textContent = data.error || 'Failed — API may be offline';
-      // local fallback log
       const key = 'sc_paper_batches';
       const list = JSON.parse(localStorage.getItem(key) || '[]');
       list.push({ count, province, event, ts: Date.now() });
@@ -121,6 +129,10 @@ document.getElementById('btn-log').onclick = async () => {
     out.textContent = `Logged ${data.count} · campaign total now ${data.total} · id ${data.id}`;
   } catch (e) {
     out.textContent = 'Network error: ' + (e.message || e);
+  } finally {
+    btnLog.dataset.busy = '0';
+    btnLog.disabled = false;
+    btnLog.removeAttribute('aria-busy');
   }
 };
 </script>

@@ -34,13 +34,12 @@
 
       const done = (err) => {
         if (!err) return;
+        // Privacy: never send donation addresses to third-party QR APIs
         if (img) {
-          canvas.style.display = 'none';
-          img.style.display = 'block';
-          img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=2&data=' + encodeURIComponent(address);
-        } else {
-          toast('QR generation failed', 'error');
+          img.style.display = 'none';
+          canvas.style.display = 'block';
         }
+        toast('QR library unavailable — use Copy Address instead', 'error');
       };
 
       if (typeof QRCode !== 'undefined' && QRCode.toCanvas) {
