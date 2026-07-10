@@ -17,6 +17,35 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 
 ---
 
+## Latest Session Summary (from 2026-07-09 goodbye)
+
+**Chat Topic:** Fix page loads, verify stack, structure CA→UK/EU, document backend finish-later work.
+
+### Finished in this session
+- Cloudflare 308 redirect loop fixed; extensionless Canada URLs
+- Live verify: pages, Canada API, BTC mempool, NIP-05 on giveabit
+- /jurisdictions + wallets.json + real /status + honest /treasury
+- docs/KANBAN.md full board; SESSION-SUMMARY-2026-07-09.md; SOURCE-OF-TRUTH updated
+- LNURL exists on giveabit (kimi@/cam@) but SC donate still TEMP until Cam picks
+
+### Still to do (Cam-gated)
+- Pick Lightning destination → wire wallets.json
+- BTC custody confirmation; optional multi-sig / Silent Payments
+- Nostr official pubkey story
+- MP + e-### + paper field ops
+- UK legal brief → EU pilots; human i18n optional
+
+### Next for Kimi
+- Import docs/KANBAN.md into vault/task board
+- Integrate SESSION-SUMMARY-2026-07-09.md into MASTER-BRAIN when Cam says go
+- Do not invent live Lightning or endorsements
+- Educate Hermes; keep handoffs clean (no raw chat dumps)
+
+**Git:** e4fc7eb (+ follow-up goodbye commit if any)  
+**Live:** https://sherpacarta.org
+
+---
+
 ## Session — 2026-07-09 (verify + jurisdictions + treasury honesty)
 
 **Done:**

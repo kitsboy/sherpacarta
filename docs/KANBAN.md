@@ -1,8 +1,9 @@
 # SherpaCarta Kanban — Finish Later
 
 **Owner:** Cam (decisions) · Kimi/M4 (orchestration/docs) · Grok/M3 (code when unblocked)  
-**Updated:** 2026-07-09  
+**Updated:** 2026-07-09 (goodbye)  
 **Live site:** https://sherpacarta.org  
+**Session summary:** `SESSION-SUMMARY-2026-07-09.md`  
 **Public registries:** `/data/wallets.json` · `/data/jurisdictions.json` · `/status` · `/treasury` · `/jurisdictions`
 
 Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorsements, signature counts, or “live Lightning” until Cam confirms.

@@ -2,98 +2,77 @@
 
 **Project Name:** SherpaCarta  
 **Date:** 2026-07-09  
-**BUILD:** 20260709-725  
-**Live:** https://sherpacarta.org
+**BUILD:** asset cache v731 · SW v6.2 · post-redirect-fix  
+**Live:** https://sherpacarta.org  
+**GitHub:** https://github.com/kitsboy/sherpacarta.git  
+**Last commit (goodbye):** `e4fc7eb`
 
 ## Project Overview (Simple Pitch)
-SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living, globally-signed charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights for every person on Earth (all 8 billion).
+SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights. Moral/political declaration (CC0). Canada is the first law-change beachhead; UK & EU are planned next. Bitcoin-funded. Zero tracking. Local-first signing.
 
-It is a moral and political declaration and modern successor to the 1215 Magna Carta and the 2011 Icelandic Constitutional Bill. The project includes an interactive single-page site, a Canada/BC petition system, treasury and security pages, a public API, npm SDK + MCP server, and zero-tracking privacy by design. CC0 public domain. Bitcoin-funded only.
-
-This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single source of truth**.
+This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single source of truth** on M3.
 
 ## Core Files
 
 ### Site
-- `index.html` — Main landing page (~77 KB; links external CSS/JS)
-- `public/sc-main.css` — Extracted styles
-- `public/sc-core.js` — Core interactivity; CHARTER array injected at build from `data/charter.json`
-- `public/sc-bundle.js` — Concatenated enhancements + `sc-upgrades-b1.js` … `b13.js`
-- `public/js/sc-petition-canada.js` — Canada petition (passkey, Nostr, merkle, Satohash)
-- `public/js/sc-press-outlets.js` — Press section icons + mobile marquee
-- `public/sw.js` — Service worker cache v5.4
-- `public/fonts/` + `public/vendor/fontawesome/` — self-hosted type & icons
-- `public/briefing.html` — 2-page print executive briefing for MPs / decision-makers
-- `public/press-kit.html`, `public/charter.txt`, `public/humans.txt`, `public/offline.html`
-- `public/og/*.png` — social preview cards (WhatsApp / Telegram / X)
-- `public/canada/` — petition hub, sign, paper, join, official, organizer, proof
-- `public/canada/` — Canada campaign pages (index, sign, proof, about, bc/)
-- `treasury.html`, `security.html` — Sprint 7 pages
-- `embed.js` — Embeddable sign widget
+- `index.html` — Main landing (hero, Canada first, jurisdictions link, donate, briefings)
+- `public/sc-main.css` — Design system
+- `public/sc-core.js` — Core UI + CHARTER inject + wallets hydrate from `/data/wallets.json`
+- `public/sc-bundle.js` — enhancements + upgrades b1–b14
+- `public/js/sc-petition-canada.js` — Canada campaign petition
+- `public/sw.js` — Service worker **v6.2**
+- `public/fonts/` + `public/vendor/fontawesome/` — self-hosted (no Google Fonts CDN)
+- `public/briefing.html`, `briefing-fr.html`, `leave-behind.html`
+- `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/
+- `public/jurisdictions.html` — CA live · UK/EU planned map
+- `public/status.html` — live browser probes
+- `public/treasury.html` — on-chain treasury + funding rails honesty
+- `public/og/*.png` — social cards
 
 ### Data & API
-- `data/charter.json` — Source of truth for all 114 articles + preamble
-- `data/campaign-canada.json` — Canada petition campaign metadata
-- `public/api/v1/` — Charter JSON, per-article files, hash, OpenAPI, index
-- `public/sitemap.xml` — 143 URLs (114 articles + pages)
-- `public/robots.txt`
+- `data/charter.json` — 114 articles + preamble
+- `data/campaign-canada.json` — Canada campaign (source → public at build)
+- `public/data/wallets.json` — **public funding registry** (BTC live · LN pending · SP planned)
+- `public/data/jurisdictions.json` — expansion map
+- `public/api/v1/` — charter JSON, hash, OpenAPI
+- `functions/api/canada/` — sign, stats, batch (PETITION_KV)
+- `public/sitemap.xml` — ~156 URLs
 
-### Build Scripts
-- `scripts/generate-charter.mjs` — charter.json from source
-- `scripts/inject-charter.mjs` — inject CHARTER into sc-core.js
-- `scripts/generate-campaign.mjs` — campaign JSON + proof
-- `scripts/bundle-js.mjs` — sc-bundle.js
-- `scripts/generate-api.mjs` — API article files
-- `scripts/generate-sitemap.mjs` — sitemap.xml
-- `npm run build` — full pipeline + Vite → `dist/`
+### Docs (Kimi)
+- `docs/KANBAN.md` — **finish-later board** (money, Nostr, Canada MP, UK/EU, security)
+- `docs/KIMI-HANDOFF.md` — session handoffs
+- `docs/ROADMAP.md`, `docs/CANADA-PETITION-LEGAL.md`, `docs/CANADA-BC-CHALLENGE.md`
+- `SESSION-SUMMARY-2026-07-09.md` — this session goodbye summary
 
-### Packages (local, publish pending)
-- `packages/sherpacarta` — `@giveabit/sherpacarta` JS SDK
-- `packages/sherpacarta-mcp` — MCP server (stdio JSON-RPC)
+### Build & Deploy
+- `npm run build` → `dist/`
+- `./deploy.sh` → Cloudflare Pages project `sherpacarta`
+- **Never** add `_redirects` rules: `/path  /path.html  200` (causes 308 loops with pretty URLs)
+- Prefer **extensionless** links (`/canada/sign`)
 
-### Documentation
-- `README.md`, `CHANGELOG.md`, `IMPROVEMENTS-200.md`
-- `docs/EXECUTIVE_SUMMARY.md`, `docs/MARKETING.md`, `docs/MISSION.md`
-- `docs/ROADMAP.md`, `docs/DEPLOYMENT.md`, `docs/FEATURES.md`, `docs/USAGE.md`
-- `docs/CANADA-BC-CHALLENGE.md`, `docs/KIMI-HANDOFF.md`
-- `docs/SEO.md` + locale `docs/SEO-*.md`
-- `deploy.sh` — build + Cloudflare Pages deploy
+## Wallets & Identity (as of goodbye)
 
-## Git & Deployment
-- **GitHub:** https://github.com/kitsboy/sherpacarta.git
-- **Branch:** `main`
-- **Last commit:** see `main` (BUILD 720 design sprint)
-- **Deploy:** `./deploy.sh` → Cloudflare Pages project `sherpacarta`
-- **Dev:** `npm run dev` (http://localhost:5173)
-- **Build:** `npm run build` → `dist/`
+| Rail | Status | Where |
+|------|--------|--------|
+| BTC on-chain | **Live** | `bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad` |
+| Lightning | **Pending on SC site** | giveabit already has LNURL-pay for `kimi@` / `cam@` — Cam must pick official |
+| Silent Payments | Planned | — |
+| NIP-05 | **Live** | `kimi@giveabit.io` on giveabit.io (not sherpacarta.org) |
 
-## Upgrade Module Stack
-`sc-enhancements.js` (v1–v6) + `sc-upgrades-b1.js` … `b13.js` → `sc-bundle.js`
-
-| Batch | Features | BUILD |
-|-------|----------|-------|
-| b9 | 588–607 | 607 (Sprint 6) |
-| b10 | 608–627 | 627 (Sprint 7) |
-| b11 | 628–647 | 647 (Sprint 8) |
-| b12 | 648–667 | 667 (full charter) |
-| b13 | 668–687 | 687 (Canada) |
-| press | — | 688 (outlets UI, standalone script) |
-| b14 | 688–720 | 720 (design/conversion sprint) |
+## Current Gaps (Cam-gated) — see docs/KANBAN.md
+1. Choose Lightning Address → wire `wallets.json` + remove TEMP UI
+2. Confirm BTC key custody / multi-sig plan
+3. Confirm official Nostr pubkey story
+4. MP sponsor + e-### + paper field collection
+5. UK legal brief → EU pilots
+6. Optional: npm publish, human i18n, Silent Payments
 
 ## Mission Alignment (Give A Bit)
-Bitcoin sovereignty, privacy, human dignity. Zero tracking. Local-first signing. OpenTimestamps via Satohash. Nostr for public discourse. Canada/BC as first law-change beachhead.
+Bitcoin sovereignty, privacy, human dignity. Rights only expand (Art. 114).
 
-## Current Gaps & Next Priorities
-- **Lightning live wallet** — TEMP placeholder; replace when Cam provides LNURL
-- **npm publish** — `npm login && npm run publish:packages`
-- **Federal e-petition** — needs MP sponsor + official e-### number (site ready to flip)
-- **Print & collect** federal paper sheets after meetings
-- **Full charter i18n** — ES/FR titles expanded; full human-reviewed legal translations still needed
-- **Official org endorsements** — coalition seats open (no fake claims)
-- **French briefing** — optional bilingual MP handout
-- **Kimi sync** — Obsidian / MASTER-BRAIN from `docs/KIMI-HANDOFF.md`
+## Hand-off
+- Kimi: `docs/KIMI-HANDOFF.md` + `docs/KANBAN.md` + `SESSION-SUMMARY-2026-07-09.md`
+- Recovery: `/whatsup` in new chat
+- **Do not sync M4 until Cam says go**
 
-## Hand-off Notes for Kimi (M4 HERMES)
-See latest section in `docs/KIMI-HANDOFF.md` and `SESSION-SUMMARY-2026-07-07.md`. Integrate BUILD 647–688 into vault. This file is the perpetual source of truth — all agents must update it on meaningful changes.
-
-— Updated 2026-07-07 (BUILD 688)
+— Updated 2026-07-09 goodbye (Grok M3)
