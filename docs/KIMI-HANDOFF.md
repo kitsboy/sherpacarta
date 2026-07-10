@@ -1,3 +1,16 @@
+## Session — 2026-07-09 (Kanban for finish-later)
+
+**Done:**
+- Full remaining-work reminder list written as Kanban for Kimi
+- File: `docs/KANBAN.md` (columns: Done / Backlog / Todo / Doing / Blocked)
+- Covers: Lightning/BTC/SP, NIP-05/Nostr, Canada MP, UK/EU, i18n, security
+
+**Kimi:** Import `docs/KANBAN.md` into vault/task board. Cam-gated cards tagged CAM.
+
+**Git:** `a5551c27d01b2245a4aace80d942e9ddbac32e48` (update after commit)
+
+---
+
 # Kimi Handoff — SherpaCarta
 
 Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.

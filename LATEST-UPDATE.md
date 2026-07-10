@@ -1,3 +1,1 @@
-# sherpacarta — Last Updated 2026-07-09 by Grok
-Brief: Verified stack; jurisdictions CA→UK/EU; honest treasury/status.
-Commit: f33fb261a10856ee71dc704a5e3faa8c52513ce5
+# sherpacarta — Last Updated 2026-07-09 by Grok\nBrief: Kanban for remaining money/identity/Canada/UK-EU work — docs/KANBAN.md\nCommit: a5551c27d01b2245a4aace80d942e9ddbac32e48\n
