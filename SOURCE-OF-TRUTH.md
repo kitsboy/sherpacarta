@@ -2,10 +2,10 @@
 
 **Project Name:** SherpaCarta  
 **Date:** 2026-07-09  
-**BUILD:** asset cache v731 · SW v6.2 · post-redirect-fix  
+**BUILD:** asset cache v731 · SW **v6.3** · security-audit remediations  
 **Live:** https://sherpacarta.org  
 **GitHub:** https://github.com/kitsboy/sherpacarta.git  
-**Last commit (goodbye):** `e4fc7eb`
+**Last goodbye base:** `17b3336` + goodbye commit  
 
 ## Project Overview (Simple Pitch)
 SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights. Moral/political declaration (CC0). Canada is the first law-change beachhead; UK & EU are planned next. Bitcoin-funded. Zero tracking. Local-first signing.
@@ -16,63 +16,74 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 
 ### Site
 - `index.html` — Main landing (hero, Canada first, jurisdictions link, donate, briefings)
-- `public/sc-main.css` — Design system
-- `public/sc-core.js` — Core UI + CHARTER inject + wallets hydrate from `/data/wallets.json`
+- `public/sc-main.css` — Design system (`--text3` AA-friendly)
+- `public/sc-core.js` — Core UI + CHARTER inject + safe toast/signers/amendments
 - `public/sc-bundle.js` — enhancements + upgrades b1–b14
-- `public/js/sc-petition-canada.js` — Canada campaign petition
-- `public/sw.js` — Service worker **v6.2**
-- `public/fonts/` + `public/vendor/fontawesome/` — self-hosted (no Google Fonts CDN)
-- `public/briefing.html`, `briefing-fr.html`, `leave-behind.html`
+- `public/js/sc-petition-canada.js` — Canada campaign petition (no private key storage)
+- `public/sw.js` — Service worker **v6.3** (network-first HTML; no cache for `/api/canada/*`)
+- `public/_headers` — CSP, X-Frame-Options DENY, nosniff
+- `public/fonts/` + `public/vendor/fontawesome/` — self-hosted
 - `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/
-- `public/jurisdictions.html` — CA live · UK/EU planned map
-- `public/status.html` — live browser probes
-- `public/treasury.html` — on-chain treasury + funding rails honesty
-- `public/og/*.png` — social cards
+- `public/jurisdictions.html`, `status.html`, `treasury.html`
 
 ### Data & API
 - `data/charter.json` — 114 articles + preamble
 - `data/campaign-canada.json` — Canada campaign (source → public at build)
-- `public/data/wallets.json` — **public funding registry** (BTC live · LN pending · SP planned)
+- `public/data/wallets.json` — BTC live · LN pending · SP planned
 - `public/data/jurisdictions.json` — expansion map
 - `public/api/v1/` — charter JSON, hash, OpenAPI
-- `functions/api/canada/` — sign, stats, batch (PETITION_KV)
+- `functions/api/canada/` — **sign**, **stats**, **batch**, **ping**, **_shared.js**
+  - `PETITION_KV` bound in wrangler.toml
+  - **Batch requires `ORGANIZER_TOKEN`** (CF secret) — unauthenticated → 503
+  - Sign: rate-limited, method allowlist, sanitized displayName
+  - Campaign totals = self-reported + rate-limited (not identity-verified)
 - `public/sitemap.xml` — ~156 URLs
 
 ### Docs (Kimi)
-- `docs/KANBAN.md` — **finish-later board** (money, Nostr, Canada MP, UK/EU, security)
-- `docs/KIMI-HANDOFF.md` — session handoffs
-- `docs/ROADMAP.md`, `docs/CANADA-PETITION-LEGAL.md`, `docs/CANADA-BC-CHALLENGE.md`
-- `SESSION-SUMMARY-2026-07-09.md` — this session goodbye summary
+- `docs/KANBAN.md` — finish-later board
+- `docs/KIMI-HANDOFF.md` — session handoffs (newest at top)
+- `SESSION-SUMMARY-2026-07-09-security-audit.md` — this audit session
+- `SESSION-SUMMARY-2026-07-09.md` — earlier jurisdictions session
+- `docs/CANADA-PETITION-LEGAL.md`, `docs/ROADMAP.md`
 
 ### Build & Deploy
 - `npm run build` → `dist/`
 - `./deploy.sh` → Cloudflare Pages project `sherpacarta`
-- **Never** add `_redirects` rules: `/path  /path.html  200` (causes 308 loops with pretty URLs)
+- **Commit function changes before deploy** (wrangler ties Source to git SHA)
+- **Never** add `_redirects` rules: `/path  /path.html  200` (308 loops)
 - Prefer **extensionless** links (`/canada/sign`)
 
-## Wallets & Identity (as of goodbye)
+## Wallets & Identity
 
 | Rail | Status | Where |
 |------|--------|--------|
 | BTC on-chain | **Live** | `bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad` |
-| Lightning | **Pending on SC site** | giveabit already has LNURL-pay for `kimi@` / `cam@` — Cam must pick official |
+| Lightning | **Pending on SC site** | giveabit LNURL for `kimi@` / `cam@` — Cam picks official |
 | Silent Payments | Planned | — |
-| NIP-05 | **Live** | `kimi@giveabit.io` on giveabit.io (not sherpacarta.org) |
+| NIP-05 | **Live** | `kimi@giveabit.io` on giveabit.io |
+
+## Security posture (post-audit)
+- XSS hardened on user/remote HTML surfaces
+- CSP + frame deny; restricted CORS on campaign APIs
+- Paper batch **locked** without `ORGANIZER_TOKEN`
+- Sign still forgeable within rate limits (no captcha yet)
+- Do not claim campaign totals are verified people
 
 ## Current Gaps (Cam-gated) — see docs/KANBAN.md
-1. Choose Lightning Address → wire `wallets.json` + remove TEMP UI
-2. Confirm BTC key custody / multi-sig plan
-3. Confirm official Nostr pubkey story
-4. MP sponsor + e-### + paper field collection
-5. UK legal brief → EU pilots
-6. Optional: npm publish, human i18n, Silent Payments
+1. Set `ORGANIZER_TOKEN` if organizers need remote paper logs
+2. Choose Lightning Address → wire `wallets.json`
+3. Confirm BTC key custody / multi-sig plan
+4. Confirm official Nostr pubkey story
+5. MP sponsor + e-### + paper field collection
+6. UK legal brief → EU pilots
+7. Optional: captcha on sign, modal focus trap, npm publish, human i18n
 
 ## Mission Alignment (Give A Bit)
 Bitcoin sovereignty, privacy, human dignity. Rights only expand (Art. 114).
 
 ## Hand-off
-- Kimi: `docs/KIMI-HANDOFF.md` + `docs/KANBAN.md` + `SESSION-SUMMARY-2026-07-09.md`
+- Kimi: `docs/KIMI-HANDOFF.md` + `docs/KANBAN.md` + `SESSION-SUMMARY-2026-07-09-security-audit.md`
 - Recovery: `/whatsup` in new chat
 - **Do not sync M4 until Cam says go**
 
-— Updated 2026-07-09 goodbye (Grok M3)
+— Updated 2026-07-09 goodbye · security audit session (Grok M3)

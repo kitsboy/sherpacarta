@@ -1,9 +1,9 @@
 # SherpaCarta Kanban — Finish Later
 
 **Owner:** Cam (decisions) · Kimi/M4 (orchestration/docs) · Grok/M3 (code when unblocked)  
-**Updated:** 2026-07-09 (goodbye)  
+**Updated:** 2026-07-09 (security-audit goodbye)  
 **Live site:** https://sherpacarta.org  
-**Session summary:** `SESSION-SUMMARY-2026-07-09.md`  
+**Session summaries:** `SESSION-SUMMARY-2026-07-09-security-audit.md` · `SESSION-SUMMARY-2026-07-09.md`  
 **Public registries:** `/data/wallets.json` · `/data/jurisdictions.json` · `/status` · `/treasury` · `/jurisdictions`
 
 Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorsements, signature counts, or “live Lightning” until Cam confirms.
@@ -38,6 +38,10 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 - [x] Jurisdictions map CA → UK/EU scaffolding (`/jurisdictions`)
 - [x] Honest wallets registry + live `/status` probes
 - [x] TEMP Lightning warnings (site does not claim LN is live)
+- [x] Security audit remediations (2026-07-09): XSS DOM safety, CSP, SW v6.3, API rate limits, method allowlist, CORS, displayName sanitize
+- [x] Paper batch API **locked** without `ORGANIZER_TOKEN` (unauth → 503)
+- [x] FAQ keyboard buttons; honest newsletter waitlist copy; FAQ signing copy local-first
+- [x] `/api/canada/ping` health endpoint
 
 ---
 
@@ -100,9 +104,12 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 | ID | Card | Notes |
 |----|------|-------|
 | F1 | **Monitor `hello@giveabit.io`** | Public contact + security.txt. |
-| F2 | **Stricter CSP later** | Don’t break YouTube/embed carelessly. |
+| F2 | **Tighten CSP further** | Baseline CSP shipped; refine without breaking YouTube/embed/jsDelivr QR. |
 | F3 | **Keep zero-tracking promise** | No sneaky analytics without ethics decision. |
 | F4 | **PETITION_KV hygiene** | Minimal data only; campaign ≠ Parliament IDs. |
+| F5 | **Set ORGANIZER_TOKEN** 🧑 | CF Pages secret; unlock `/canada/organizer` remote batch logs. |
+| F6 | **Captcha / PoW on campaign sign** | Rate limits only today; bots can still inflate slowly. 🤖 |
+| F7 | **Modal focus trap** | Charter / command palette / QR a11y. 🤖 |
 
 ---
 
@@ -110,25 +117,30 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 
 Ordered for Cam + Kimi focus:
 
-1. **A1** — Decide Lightning Address (`kimi@` / `cam@` / new)
-2. **A3** — Confirm BTC key backup/custody
-3. **B1** — Confirm official Nostr pubkey story
-4. **C1–C4** — MP + e-### + 5 supporters
-5. **C5** — Print & collect paper
-6. **A2** — Code: wire Lightning (blocked on A1)
-7. **D1** — UK legal brief (after Canada traction)
-8. **E1** — Human i18n review
+1. **F5** — Set `ORGANIZER_TOKEN` if paper field ops need remote logging
+2. **A1** — Decide Lightning Address (`kimi@` / `cam@` / new)
+3. **A3** — Confirm BTC key backup/custody
+4. **B1** — Confirm official Nostr pubkey story
+5. **C1–C4** — MP + e-### + 5 supporters
+6. **C5** — Print & collect paper (local organizer backup works without token)
+7. **A2** — Code: wire Lightning (blocked on A1)
+8. **F6 / F7** — Captcha + modal focus trap when free
+9. **D1** — UK legal brief (after Canada traction)
+10. **E1** — Human i18n review
 
 ---
 
 ## 🚧 DOING (empty until next session)
 
-_Nothing in flight. Site is stable; remaining work is Cam-gated or expansion._
+_Nothing in flight. Security remediations shipped; remaining work is Cam-gated or optional polish._
 
 ---
 
 ## 👀 REVIEW / VERIFY (quick live checks)
 
+- [x] https://sherpacarta.org/api/canada/ping → `batch-v3-locked`
+- [x] POST `/api/canada/batch` without token → 503
+- [x] CSP + X-Frame-Options on HTML
 - [ ] https://sherpacarta.org/canada/sign
 - [ ] https://sherpacarta.org/status
 - [ ] https://sherpacarta.org/treasury

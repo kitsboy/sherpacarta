@@ -1,48 +1,80 @@
-## Session — 2026-07-09 (Kanban for finish-later)
-
-**Done:**
-- Full remaining-work reminder list written as Kanban for Kimi
-- File: `docs/KANBAN.md` (columns: Done / Backlog / Todo / Doing / Blocked)
-- Covers: Lightning/BTC/SP, NIP-05/Nostr, Canada MP, UK/EU, i18n, security
-
-**Kimi:** Import `docs/KANBAN.md` into vault/task board. Cam-gated cards tagged CAM.
-
-**Git:** `a5551c27d01b2245a4aace80d942e9ddbac32e48` (update after commit)
-
----
-
 # Kimi Handoff — SherpaCarta
 
-Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
+Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 
 ---
 
-## Latest Session Summary (from 2026-07-09 goodbye)
+## Latest Session Summary (from 2026-07-09 goodbye — security audit)
+
+**Chat Topic:** Comprehensive security/reliability/a11y/UI audit, remediations, production deploy, clean handoff.
+
+### Finished in this session
+- Full audit report (Critical→Info): unauth batch/sign, XSS, races, SW stale cache, missing CSP, FAQ a11y, etc.
+- **Shipped remediations** (live on sherpacarta.org):
+  - Canada API: rate limits, method allowlist, CORS allowlist, sanitize displayName, safer stats updates
+  - **Paper batch locked** — needs Cloudflare secret `ORGANIZER_TOKEN` + header `X-Organizer-Token` (or Bearer)
+  - XSS: safe DOM for toast / signers / amendments / Nostr / Canada receipt + public wall
+  - SW **v6.3** network-first HTML; never cache `/api/canada/*`
+  - CSP + `X-Frame-Options: DENY`
+  - FAQ keyboard buttons; better `--text3` contrast; honest newsletter waitlist; FAQ signing copy fixed
+  - Ed25519: no private key in localStorage; no auto-attest wrap on home sign
+  - `/api/canada/ping` health; MCP article path validation
+- Production stats restored to **total: 4** after smoke-test batch inflation was corrected in KV
+- Live checks: batch without token → **503**; ping → `batch-v3-locked`; CSP present
+
+### Still to do
+| Priority | Item | Who |
+|----------|------|-----|
+| High | Set `ORGANIZER_TOKEN` in CF Pages env; document for organizers | 🧑 Cam |
+| High | Optional Turnstile/PoW on campaign sign (bots within rate limit) | later |
+| Med | Modal focus trap; optional system cursor default | 🤖 |
+| Cam-gated | Lightning pick → wallets.json; BTC custody; Nostr npub story | 🧑 |
+| Cam-gated | MP + e-### + paper field ops | 🧑 |
+| Expansion | UK legal brief → EU pilots; human i18n | 🧑/📋 |
+
+### Next for Kimi
+- Integrate `SESSION-SUMMARY-2026-07-09-security-audit.md` into vault / MASTER-BRAIN when Cam says go
+- Update Kanban: mark security remediations done; add card “set ORGANIZER_TOKEN”
+- **Do not** invent live Lightning, endorsements, or verified campaign totals
+- Educate Hermes; clean summaries only (no raw chat dumps)
+- **Do not sync M4** until Cam or Kimi says it’s time
+
+### Git State
+- SHA: see `git log -1` after goodbye commit (base: `17b3336` + goodbye)
+- Commits this session: `135d814` · `eb80969` · `17b3336` · goodbye
+- Branch: `main` · pushed · Live: https://sherpacarta.org
+
+### Organizer token (ops note for Cam)
+1. CF Pages → sherpacarta → Settings → Environment variables → `ORGANIZER_TOKEN` (secret)
+2. Browser on `/canada/organizer`: `sessionStorage.setItem('sc_organizer_token', '<token>')`
+3. Then “Log batch” works remotely; else local-only backup
+
+---
+
+## Session — 2026-07-09 (earlier goodbye — jurisdictions + Kanban)
 
 **Chat Topic:** Fix page loads, verify stack, structure CA→UK/EU, document backend finish-later work.
 
-### Finished in this session
+### Finished
 - Cloudflare 308 redirect loop fixed; extensionless Canada URLs
-- Live verify: pages, Canada API, BTC mempool, NIP-05 on giveabit
 - /jurisdictions + wallets.json + real /status + honest /treasury
-- docs/KANBAN.md full board; SESSION-SUMMARY-2026-07-09.md; SOURCE-OF-TRUTH updated
-- LNURL exists on giveabit (kimi@/cam@) but SC donate still TEMP until Cam picks
+- docs/KANBAN.md; SESSION-SUMMARY-2026-07-09.md
 
-### Still to do (Cam-gated)
-- Pick Lightning destination → wire wallets.json
-- BTC custody confirmation; optional multi-sig / Silent Payments
-- Nostr official pubkey story
-- MP + e-### + paper field ops
-- UK legal brief → EU pilots; human i18n optional
+### Still Cam-gated
+- Lightning · BTC custody · Nostr · MP · UK/EU
 
-### Next for Kimi
-- Import docs/KANBAN.md into vault/task board
-- Integrate SESSION-SUMMARY-2026-07-09.md into MASTER-BRAIN when Cam says go
-- Do not invent live Lightning or endorsements
-- Educate Hermes; keep handoffs clean (no raw chat dumps)
-
-**Git:** e4fc7eb (+ follow-up goodbye commit if any)  
+**Git (that session):** e4fc7eb era  
 **Live:** https://sherpacarta.org
+
+---
+
+## Session — 2026-07-09 (Kanban for finish-later)
+
+**Done:**
+- Full remaining-work reminder list as Kanban for Kimi
+- File: `docs/KANBAN.md`
+
+**Kimi:** Import Kanban into vault/task board. Cam-gated cards tagged CAM.
 
 ---
 
