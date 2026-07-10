@@ -587,3 +587,24 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). Append new sessions at the top.
 ---
 
 *Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*
+
+## Session — 2026-07-09
+
+**Done:**
+- Comprehensive security/reliability/a11y audit remediations shipped
+- Canada API: rate limits, method allowlist, CORS restrict, displayName sanitize, batch requires ORGANIZER_TOKEN
+- XSS: toast/signers/amendments/Nostr/sign receipt/campaign wall use textContent
+- SW v6.3 network-first HTML + no-cache campaign API; CSP + X-Frame-Options DENY
+- FAQ keyboard buttons; --text3 contrast; honest newsletter waitlist; Ed25519 no private key storage
+- Restored production stats after smoke-test inflation (total=4)
+- Deployed production; ping `/api/canada/ping` ok; batch unauthenticated → 503
+
+**Decisions:**
+- Paper batch API locked until Cam sets Cloudflare secret ORGANIZER_TOKEN
+- Campaign totals remain rate-limited self-reports (not identity-verified)
+
+**Git State:**
+- SHA: eb80969 (and 135d814 prior security commit)
+- Pushed to origin/main
+- Live: https://sherpacarta.org
+
