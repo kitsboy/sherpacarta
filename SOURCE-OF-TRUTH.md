@@ -1,8 +1,8 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-07-09  
-**BUILD:** asset cache v731 · SW **v6.3** · security-audit remediations  
+**Date:** 2026-07-13  
+**BUILD:** asset cache v732 · SW **v6.3** · organizer token + PoW + rich share  
 **Live:** https://sherpacarta.org  
 **GitHub:** https://github.com/kitsboy/sherpacarta.git  
 **Last goodbye base:** `17b3336` + goodbye commit  
@@ -34,7 +34,8 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/api/v1/` — charter JSON, hash, OpenAPI
 - `functions/api/canada/` — **sign**, **stats**, **batch**, **ping**, **_shared.js**
   - `PETITION_KV` bound in wrangler.toml
-  - **Batch requires `ORGANIZER_TOKEN`** (CF secret) — unauthenticated → 503
+  - **Batch requires `ORGANIZER_TOKEN`** (CF secret, set 2026-07-13) — unauthenticated → 503
+  - **Sign requires PoW** (`GET /api/canada/pow`) or Turnstile when keys set
   - Sign: rate-limited, method allowlist, sanitized displayName
   - Campaign totals = self-reported + rate-limited (not identity-verified)
 - `public/sitemap.xml` — ~156 URLs
@@ -70,7 +71,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - Do not claim campaign totals are verified people
 
 ## Current Gaps (Cam-gated) — see docs/KANBAN.md
-1. Set `ORGANIZER_TOKEN` if organizers need remote paper logs
+1. ~~Set `ORGANIZER_TOKEN`~~ **Done** — see `docs/ORGANIZER-TOKEN.md` + `.organizer-token.local` (M3, gitignored)
 2. Choose Lightning Address → wire `wallets.json`
 3. Confirm BTC key custody / multi-sig plan
 4. Confirm official Nostr pubkey story

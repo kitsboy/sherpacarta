@@ -1,7 +1,7 @@
 # SherpaCarta Kanban — Finish Later
 
 **Owner:** Cam (decisions) · Kimi/M4 (orchestration/docs) · Grok/M3 (code when unblocked)  
-**Updated:** 2026-07-09 (security-audit goodbye)  
+**Updated:** 2026-07-13 (organizer + share + bot guard goodbye)  
 **Live site:** https://sherpacarta.org  
 **Session summaries:** `SESSION-SUMMARY-2026-07-09-security-audit.md` · `SESSION-SUMMARY-2026-07-09.md`  
 **Public registries:** `/data/wallets.json` · `/data/jurisdictions.json` · `/status` · `/treasury` · `/jurisdictions`
@@ -42,6 +42,10 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 - [x] Paper batch API **locked** without `ORGANIZER_TOKEN` (unauth → 503)
 - [x] FAQ keyboard buttons; honest newsletter waitlist copy; FAQ signing copy local-first
 - [x] `/api/canada/ping` health endpoint
+- [x] `ORGANIZER_TOKEN` set in CF Pages production + organizer unlock UI + docs
+- [x] PoW bot guard on `/api/canada/sign` (`GET /api/canada/pow`)
+- [x] Modal focus trap + system cursor on touch/coarse pointers
+- [x] Rich social share (`sc-share.js`) — WhatsApp, X, Telegram, OG preview modal
 
 ---
 
@@ -107,9 +111,10 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 | F2 | **Tighten CSP further** | Baseline CSP shipped; refine without breaking YouTube/embed/jsDelivr QR. |
 | F3 | **Keep zero-tracking promise** | No sneaky analytics without ethics decision. |
 | F4 | **PETITION_KV hygiene** | Minimal data only; campaign ≠ Parliament IDs. |
-| F5 | **Set ORGANIZER_TOKEN** 🧑 | CF Pages secret; unlock `/canada/organizer` remote batch logs. |
-| F6 | **Captcha / PoW on campaign sign** | Rate limits only today; bots can still inflate slowly. 🤖 |
-| F7 | **Modal focus trap** | Charter / command palette / QR a11y. 🤖 |
+| F5 | ~~**Set ORGANIZER_TOKEN**~~ ✅ | Set 2026-07-13 · see `docs/ORGANIZER-TOKEN.md` |
+| F6 | ~~**PoW on campaign sign**~~ ✅ | Turnstile optional when keys added · `security.json` |
+| F7 | ~~**Modal focus trap**~~ ✅ | `sc-a11y.js` + share modal |
+| F8 | **Turnstile keys (optional)** 🧑 | Add `TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET_KEY` in CF |
 
 ---
 
@@ -117,14 +122,13 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 
 Ordered for Cam + Kimi focus:
 
-1. **F5** — Set `ORGANIZER_TOKEN` if paper field ops need remote logging
-2. **A1** — Decide Lightning Address (`kimi@` / `cam@` / new)
+1. **A1** — Decide Lightning Address (`kimi@` / `cam@` / new)
 3. **A3** — Confirm BTC key backup/custody
 4. **B1** — Confirm official Nostr pubkey story
 5. **C1–C4** — MP + e-### + 5 supporters
 6. **C5** — Print & collect paper (local organizer backup works without token)
 7. **A2** — Code: wire Lightning (blocked on A1)
-8. **F6 / F7** — Captcha + modal focus trap when free
+8. **F8** — Optional Turnstile keys (PoW works today)
 9. **D1** — UK legal brief (after Canada traction)
 10. **E1** — Human i18n review
 

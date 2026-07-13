@@ -10,6 +10,8 @@ import {
   rateLimit,
   sanitizeDisplayName,
   updateStats,
+  verifyPow,
+  verifyTurnstile,
 } from './_shared.js';
 
 const METHODS = new Set(['moral', 'passkey', 'nostr', 'ed25519', 'paper', 'sha256-receipt']);
@@ -58,9 +60,33 @@ export async function onRequest(context) {
   const ts = Number(body.ts) || Date.now();
   const id = receiptHash.slice(0, 16);
 
+  // Bot defense: Turnstile when configured, else proof-of-work challenge
+  const ip = clientIp(request);
+  let botOk = false;
+  if (body.turnstileToken && env.TURNSTILE_SECRET_KEY) {
+    botOk = await verifyTurnstile(env.TURNSTILE_SECRET_KEY, body.turnstileToken, ip);
+  }
+  if (!botOk && body.pow) {
+    const diff = parseInt(env.POW_DIFFICULTY || '4', 10) || 4;
+    botOk = (await verifyPow(env.PETITION_KV, body.pow, diff)).ok;
+  }
+  if (!botOk) {
+    return json(
+      request,
+      {
+        error: env.TURNSTILE_SECRET_KEY
+          ? 'Bot check required — complete Turnstile or fetch /api/canada/pow'
+          : 'Proof-of-work required — GET /api/canada/pow then include pow in body',
+        hint: 'GET /api/canada/pow',
+        apiVersion: 'sign-v4-bot-guard',
+      },
+      403,
+      methods
+    );
+  }
+
   // Rate limit: 12 signs / hour / IP (reduces bot inflation)
   if (env.PETITION_KV) {
-    const ip = clientIp(request);
     const rl = await rateLimit(env.PETITION_KV, `sign:${ip}`, 12, 3600);
     if (!rl.ok) {
       return json(

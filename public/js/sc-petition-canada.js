@@ -121,9 +121,41 @@
     };
   };
 
+  /** Solve PoW challenge for bot defense (privacy-first, no captcha vendor). */
+  SHERPA_PETITION.solvePow = async function () {
+    const ch = await fetch('/api/canada/pow', { cache: 'no-store' }).then((r) => {
+      if (!r.ok) throw new Error('PoW challenge unavailable');
+      return r.json();
+    });
+    const difficulty = ch.difficulty || 4;
+    const prefix = '0'.repeat(difficulty);
+    const challenge = ch.challenge;
+    let nonce = 0;
+    const max = 8000000;
+    while (nonce < max) {
+      const hash = await sha256(`${challenge}:${nonce}`);
+      if (hash.startsWith(prefix)) return { challenge, nonce: String(nonce) };
+      nonce += 1;
+      if (nonce % 12000 === 0) await new Promise((r) => setTimeout(r, 0));
+    }
+    throw new Error('PoW timeout — try again');
+  };
+
+  SHERPA_PETITION.getTurnstileToken = function () {
+    const el = document.querySelector('[name="cf-turnstile-response"]');
+    return el?.value || window.__scTurnstileToken || null;
+  };
+
   /** Sync campaign receipt to privacy-first API (optional; fails soft) */
   SHERPA_PETITION.syncRemote = async function (sig) {
     try {
+      let pow = null;
+      let turnstileToken = SHERPA_PETITION.getTurnstileToken();
+      try {
+        if (!turnstileToken) pow = await SHERPA_PETITION.solvePow();
+      } catch (e) {
+        return { ok: false, error: e.message || 'bot-check' };
+      }
       const body = {
         campaignId: CAMPAIGN_ID,
         receiptHash: sig.receiptHash,
@@ -134,6 +166,8 @@
         displayName: sig.shareName ? sig.displayName : null,
         nostrEventId: sig.nostrEventId || null,
         ts: sig.ts,
+        pow,
+        turnstileToken,
       };
       const res = await fetch(API_SIGN, {
         method: 'POST',

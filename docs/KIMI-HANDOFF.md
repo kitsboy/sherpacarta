@@ -4,6 +4,35 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 
 ---
 
+## Latest Session Summary (from 2026-07-13 goodbye — organizer + share + bot guard)
+
+**Chat Topic:** Finish Kanban highs: ORGANIZER_TOKEN, PoW bot defense, modal focus trap, rich social sharing.
+
+### Finished in this session
+- `ORGANIZER_TOKEN` set in CF Pages production; `docs/ORGANIZER-TOKEN.md`; organizer unlock UI
+- PoW on `/api/canada/sign` (`GET /api/canada/pow`); Turnstile-ready CSP + `security.json`
+- Rich share: `sc-share.js` — WhatsApp, X, Telegram, Facebook, LinkedIn, Reddit, SMS, OG preview modal
+- `sc-a11y.js` focus trap + system cursor on touch/coarse pointers
+- BUILD 732 deployed; KV stats restored to total=4 after smoke tests
+
+### Still to do
+| Priority | Item | Who |
+|----------|------|-----|
+| Cam | Save ORGANIZER_TOKEN to password manager (`.organizer-token.local` on M3) | Cam |
+| Optional | Turnstile site+secret keys in CF | Cam |
+| Cam-gated | Lightning, BTC custody, Nostr, MP+e-### | Cam |
+
+### Next for Kimi
+- Integrate `SESSION-SUMMARY-2026-07-13.md`
+- Kanban: F5/F6/F7 done; F8 Turnstile optional
+- Do not sync M4 until Cam says go
+
+### Git State
+- See commit after goodbye push
+- Live: https://sherpacarta.org
+
+---
+
 ## Latest Session Summary (from 2026-07-09 goodbye — security audit)
 
 **Chat Topic:** Comprehensive security/reliability/a11y/UI audit, remediations, production deploy, clean handoff.
@@ -619,6 +648,25 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 ---
 
 *Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*
+
+## Session — 2026-07-13
+
+**Done:**
+- ORGANIZER_TOKEN in CF production + docs + organizer unlock UI
+- PoW bot guard on campaign sign; Turnstile-ready
+- Rich social share (sc-share.js) + a11y focus trap + system cursor default
+- BUILD 732 deployed live
+
+**Decisions:**
+- PoW default; Turnstile when Cam adds keys
+- Token plaintext only in gitignored `.organizer-token.local`
+
+**Git State:**
+- SHA: see `git log -1` after goodbye commit
+- Pushed to origin/main
+- Live: https://sherpacarta.org
+
+---
 
 ## Session — 2026-07-09
 

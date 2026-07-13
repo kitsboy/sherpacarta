@@ -76,6 +76,51 @@ export function sanitizeDisplayName(raw) {
  * Optimistic stats update with short retries (best-effort atomicity on KV).
  * mutator(stats) -> void, mutates in place
  */
+async function sha256Hex(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/** Verify client PoW: SHA-256(challenge:nonce) has `difficulty` leading zero hex chars. */
+export async function verifyPow(kv, pow, difficulty = 4) {
+  if (!pow?.challenge || pow.nonce == null) return { ok: false, reason: 'missing' };
+  const challenge = String(pow.challenge).replace(/[^a-f0-9-]/gi, '').slice(0, 64);
+  const nonce = String(pow.nonce).slice(0, 24);
+  if (!challenge || challenge.length < 8) return { ok: false, reason: 'bad_challenge' };
+
+  if (kv) {
+    const key = await kv.get(`pow:${challenge}`);
+    if (!key) return { ok: false, reason: 'expired' };
+    await kv.delete(`pow:${challenge}`);
+  }
+
+  const hash = await sha256Hex(`${challenge}:${nonce}`);
+  const prefix = '0'.repeat(Math.min(6, Math.max(3, difficulty)));
+  if (!hash.startsWith(prefix)) return { ok: false, reason: 'weak' };
+  return { ok: true };
+}
+
+/** Cloudflare Turnstile siteverify (optional when TURNSTILE_SECRET_KEY set). */
+export async function verifyTurnstile(secret, token, ip) {
+  if (!secret || !token) return false;
+  try {
+    const body = new URLSearchParams({
+      secret,
+      response: String(token).slice(0, 2048),
+      remoteip: ip || '',
+    });
+    const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
+    const data = await res.json();
+    return !!data.success;
+  } catch {
+    return false;
+  }
+}
+
 export async function updateStats(kv, mutator) {
   for (let attempt = 0; attempt < 4; attempt++) {
     const statsRaw = await kv.get('stats:v1');

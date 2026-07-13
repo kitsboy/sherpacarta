@@ -28,6 +28,7 @@ const files = [
   'sc-upgrades-b12.js',
   'sc-upgrades-b13.js',
   'sc-upgrades-b14.js',
+  'sc-upgrades-b15.js',
 ];
 
 let minifyFn = null;

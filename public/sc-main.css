@@ -150,6 +150,39 @@ body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.8}
 .share-li{background:#0a66c2;color:#fff}.share-li:hover{background:#084e96}
 .share-tg{background:#2ca5e0;color:#fff}.share-tg:hover{background:#1b8fbf}
 .share-cp{background:transparent;color:var(--text3);border:1px solid var(--border2)}.share-cp:hover{border-color:var(--em);color:var(--em)}
+body.no-custom-cursor,body.no-custom-cursor *{cursor:auto!important}
+body.no-custom-cursor #cursor,body.no-custom-cursor #cursor-ring{display:none!important}
+
+/* ═══ RICH SHARE MODAL ═════════════════════════════════════ */
+.sc-share-overlay{position:fixed;inset:0;z-index:12000;display:flex;align-items:flex-end;justify-content:center;padding:1rem;opacity:0;visibility:hidden;transition:opacity .25s var(--ease),visibility .25s}
+.sc-share-overlay.open{opacity:1;visibility:visible}
+.sc-share-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(6px)}
+.sc-share-panel{position:relative;width:min(520px,100%);max-height:min(92vh,720px);overflow-y:auto;background:linear-gradient(165deg,var(--bg2),var(--bg3));border:1px solid var(--border2);border-radius:1.25rem;padding:1.35rem 1.25rem 1.15rem;box-shadow:var(--shadow);animation:fade-up .35s var(--ease)}
+.sc-share-close{position:absolute;top:.85rem;right:.85rem;width:36px;height:36px;border-radius:50%;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.sc-share-close:hover{border-color:var(--em);color:var(--em)}
+.sc-share-preview{display:flex;gap:1rem;margin-bottom:1rem;padding-right:2rem}
+.sc-share-og{width:120px;height:63px;object-fit:cover;border-radius:.65rem;border:1px solid var(--border2);flex-shrink:0;box-shadow:var(--shadow-sm)}
+.sc-share-kicker{font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--em);margin-bottom:.35rem}
+.sc-share-h2{font-family:var(--serif);font-size:1.35rem;line-height:1.15;margin:0 0 .45rem;color:var(--text)}
+.sc-share-desc{font-size:.78rem;color:var(--text2);line-height:1.55;margin:0}
+.sc-share-url{font-family:var(--mono);font-size:.58rem;color:var(--text3);margin-top:.5rem;word-break:break-all}
+.sc-share-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1rem}
+.sc-share-tag{font-family:var(--mono);font-size:.58rem;padding:.22rem .55rem;border-radius:100px;background:rgba(16,185,129,.1);border:1px solid var(--border);color:var(--em2)}
+.sc-share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.sc-share-platform{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;min-height:72px;padding:.65rem .4rem;border-radius:.85rem;border:1px solid transparent;font-family:var(--mono);font-size:.58rem;letter-spacing:.04em;color:#fff;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.sc-share-platform:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.sc-share-platform i{font-size:1.25rem}
+.sc-share-wa{background:linear-gradient(145deg,#25d366,#128c7e)}
+.sc-share-x{background:linear-gradient(145deg,#111,#333)}
+.sc-share-tg{background:linear-gradient(145deg,#2aabee,#229ed9)}
+.sc-share-fb{background:linear-gradient(145deg,#1877f2,#0d65d9)}
+.sc-share-li{background:linear-gradient(145deg,#0a66c2,#004182)}
+.sc-share-rd{background:linear-gradient(145deg,#ff4500,#cc3700)}
+.sc-share-sms{background:linear-gradient(145deg,#34c759,#248a3d)}
+.sc-share-cp,.sc-share-native{background:var(--bg3);color:var(--text2);border-color:var(--border2)!important}
+.sc-share-cp:hover,.sc-share-native:hover{color:var(--em);border-color:var(--em)!important}
+.sc-share-foot{font-size:.65rem;color:var(--text3);text-align:center;margin:.85rem 0 0;line-height:1.5}
+@media(max-width:480px){.sc-share-grid{grid-template-columns:repeat(2,1fr)}.sc-share-preview{flex-direction:column;align-items:flex-start}}
 
 /* ═══════════════════════════════════════════════════════════
    TRUST BAR / STATS

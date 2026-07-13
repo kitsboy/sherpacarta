@@ -150,7 +150,8 @@
     · Local on this device: <strong id="local-n">0</strong>
   </p>
 
-<script src="/js/sc-petition-canada.js?v=730"></script>
+<script src="/js/sc-share.js?v=732"></script>
+<script src="/js/sc-petition-canada.js?v=732"></script>
 <script>
 (function(){
   const $ = (id) => document.getElementById(id);
@@ -302,8 +303,14 @@
 
   $('btn-share').onclick = () => {
     const txt = SHERPA_PETITION.shareText(lastSig);
-    if (navigator.share) navigator.share({ title: 'SherpaCarta Canada', text: txt, url: 'https://sherpacarta.org/canada/sign' });
-    else { navigator.clipboard.writeText(txt); alert('Copied'); }
+    if (window.SCShare) {
+      SCShare.open('canada', { text: txt });
+    } else if (navigator.share) {
+      navigator.share({ title: 'SherpaCarta Canada', text: txt, url: 'https://sherpacarta.org/canada/sign' });
+    } else {
+      navigator.clipboard.writeText(txt + ' https://sherpacarta.org/canada/sign');
+      alert('Copied');
+    }
   };
   $('btn-dl').onclick = () => lastSig && SHERPA_PETITION.downloadReceipt(lastSig);
   $('btn-stamp').onclick = () => SHERPA_PETITION.stampOnSatohash();

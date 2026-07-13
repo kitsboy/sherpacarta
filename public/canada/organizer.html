@@ -44,6 +44,12 @@
   .note{font-size:.78rem;color:var(--text3);margin-top:.75rem;line-height:1.55}
   a{color:var(--em2)}
   #result{font-family:var(--mono);font-size:.75rem;color:var(--em);margin-top:.75rem;display:none}
+  .token-panel{margin-top:.75rem;padding:.85rem;background:var(--bg3);border:1px dashed var(--border2);border-radius:.75rem}
+  .token-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem}
+  .token-row input{flex:1;min-width:180px}
+  .token-status{font-family:var(--mono);font-size:.62rem;margin-top:.5rem}
+  .token-status.ok{color:var(--em)}
+  .token-status.warn{color:var(--gold)}
 </style>
 </head>
 <body>
@@ -57,6 +63,18 @@
   <a class="btn btn-ghost" href="/canada/join"><i class="fas fa-qrcode"></i> QR landing</a>
   <a class="btn btn-ghost" href="/canada/official"><i class="fas fa-landmark"></i> MP path</a>
   <a class="btn btn-ghost" href="/bc/town-hall-kit.html"><i class="fas fa-people-group"></i> Town hall kit</a>
+</div>
+
+<h2>Unlock remote logging</h2>
+<div class="card token-panel">
+  <p class="note" style="margin-top:0">Paste the organizer token from Cam (see <code>docs/ORGANIZER-TOKEN.md</code>). Saved only in this browser tab.</p>
+  <label for="org-token">Organizer token</label>
+  <div class="token-row">
+    <input id="org-token" type="password" autocomplete="off" placeholder="ORGANIZER_TOKEN value">
+    <button type="button" class="btn" id="btn-save-token"><i class="fas fa-key"></i> Save token</button>
+    <button type="button" class="btn btn-ghost" id="btn-clear-token">Clear</button>
+  </div>
+  <p class="token-status" id="token-status">Checking API…</p>
 </div>
 
 <h2>Log a paper batch</h2>
@@ -82,8 +100,44 @@
   <p>“Hi — we’re collecting a federal petition to modernize digital privacy rights in Canada. One sheet for the whole country: if you’re in BC, Ontario, anywhere, you just write your city and province. No ID needed, any age. Ink here counts for Parliament when an MP presents it; you can also scan the QR to join the online campaign.”</p>
 </div>
 
-<script src="/js/sc-petition-canada.js?v=730"></script>
+<script src="/js/sc-petition-canada.js?v=732"></script>
 <script>
+const tokenInput = document.getElementById('org-token');
+const tokenStatus = document.getElementById('token-status');
+const saved = sessionStorage.getItem('sc_organizer_token');
+if (saved) tokenInput.value = saved;
+
+function setTokenStatus(msg, ok) {
+  tokenStatus.textContent = msg;
+  tokenStatus.className = 'token-status ' + (ok ? 'ok' : 'warn');
+}
+
+document.getElementById('btn-save-token').onclick = () => {
+  const v = tokenInput.value.trim();
+  if (!v) { setTokenStatus('Enter a token first.', false); return; }
+  sessionStorage.setItem('sc_organizer_token', v);
+  setTokenStatus('Token saved for this tab. Try logging a batch.', true);
+};
+
+document.getElementById('btn-clear-token').onclick = () => {
+  sessionStorage.removeItem('sc_organizer_token');
+  tokenInput.value = '';
+  setTokenStatus('Token cleared from this tab.', false);
+};
+
+(async () => {
+  try {
+    const ping = await fetch('/api/canada/ping', { cache: 'no-store' }).then((r) => r.json());
+    if (ping.ping === 'batch-v3-locked' || ping.apiVersion?.includes('locked')) {
+      setTokenStatus(saved ? 'API locked — token loaded. Ready to log batches.' : 'API locked — paste ORGANIZER_TOKEN to unlock remote logging.', !!saved);
+    } else {
+      setTokenStatus('API reachable · ' + (ping.batch || ping.apiVersion || 'ok'), true);
+    }
+  } catch {
+    setTokenStatus('Could not reach campaign API.', false);
+  }
+})();
+
 const sel = document.getElementById('province');
 SHERPA_PETITION.PROVINCES.forEach((p) => {
   const o = document.createElement('option');
