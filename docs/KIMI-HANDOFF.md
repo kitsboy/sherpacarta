@@ -18,17 +18,20 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 ### Still to do
 | Priority | Item | Who |
 |----------|------|-----|
-| Cam | Save ORGANIZER_TOKEN to password manager (`.organizer-token.local` on M3) | Cam |
+| ~~Cam~~ | ~~Save ORGANIZER_TOKEN to password manager~~ **Done** (Cam confirmed) | Cam |
 | Optional | Turnstile site+secret keys in CF | Cam |
 | Cam-gated | Lightning, BTC custody, Nostr, MP+e-### | Cam |
 
-### Next for Kimi
-- Integrate `SESSION-SUMMARY-2026-07-13.md`
-- Kanban: F5/F6/F7 done; F8 Turnstile optional
-- Do not sync M4 until Cam says go
+### Next for Kimi — **SYNC AUTHORIZED (Cam said Go)**
+- **Cam authorized M4 sync** — integrate now
+- Read `SESSION-SUMMARY-2026-07-13.md` + `SESSION-SUMMARY-2026-07-09-security-audit.md`
+- Update MASTER-BRAIN / Kanban / Obsidian vault from `docs/KANBAN.md`, `SOURCE-OF-TRUTH.md`
+- Mark done: ORGANIZER_TOKEN, PoW, rich share, focus trap (BUILD 732)
+- Educate Hermes — clean summaries only, no raw chats
+- **Do not** put ORGANIZER_TOKEN in vault (Cam has it in password manager only)
 
 ### Git State
-- See commit after goodbye push
+- SHA: `ef0823e` (main, pushed)
 - Live: https://sherpacarta.org
 
 ---

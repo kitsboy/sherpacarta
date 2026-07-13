@@ -36,6 +36,8 @@
 
 Production has organizer batch logging unlocked with token. Campaign sign now requires PoW (or Turnstile when keys added). Share UX is rich with platform-colored buttons and OG preview. **Note:** brief smoke tests briefly inflated KV total; restored to **4** after session.
 
+**2026-07-13 follow-up:** Cam saved ORGANIZER_TOKEN and said **Go** — Kimi may sync handoffs to M4 Obsidian / MASTER-BRAIN.
+
 ## Key Decisions
 
 - PoW default over Turnstile until Cam adds Turnstile keys (no vendor lock-in)

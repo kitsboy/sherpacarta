@@ -19,11 +19,11 @@ SherpaCarta is the Global Digital Magna Carta — 114 articles for digital priva
 - [ ] Read `SESSION-SUMMARY-2026-07-13.md` and top section of `docs/KIMI-HANDOFF.md`
 - [ ] Update Kanban in vault: F5/F6/F7 done
 - [ ] Educate Hermes — clean summary only, no raw chat
-- [ ] **Do not sync M4 until Cam says go**
+- [x] **Cam said Go** — sync authorized (integrate into vault / MASTER-BRAIN)
 
 ## Cam still needs
 
-- Save ORGANIZER_TOKEN to password manager (see `.organizer-token.local` on M3)
+- ~~Save ORGANIZER_TOKEN~~ **Done**
 - Lightning pick, MP+e-###, optional Turnstile keys
 
 *Safe Harbour · Give A Bit*
