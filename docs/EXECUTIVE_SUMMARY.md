@@ -132,3 +132,6 @@ SherpaCarta asserts the minimum standards of human dignity in the digital age â€
 *For the full 114 articles, interactive browser, rights calculator, and signing wall, visit https://sherpacarta.org/*
 
 *Built in public. Powered by conscience. Funded by Bitcoin.*
+
+---
+**Diligence pack:** [docs/diligence/](../diligence/) (investor + architecture + ask)

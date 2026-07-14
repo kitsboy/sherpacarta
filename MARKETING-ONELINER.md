@@ -20,3 +20,6 @@ owner: Cam / Give A Bit
 ---
 
 *Part of the [Give A Bit](https://giveabit.io) family — Bitcoin education, services, and hope.*
+
+---
+**Diligence pack:** [docs/diligence/](../diligence/) (investor + architecture + ask)

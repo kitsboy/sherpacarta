@@ -141,3 +141,9 @@ CC0 1.0 Universal (Public Domain). No rights reserved.
 - X: [@give_bit](https://twitter.com/give_bit)
 - GitHub: https://github.com/kitsboy/sherpacarta
 - Built by: https://giveabit.io
+
+
+## Diligence / partner pack
+Full disclosure for technical & financial partners: **[docs/diligence/](./docs/diligence/)**  
+Portfolio map: [Family of 8](https://github.com/kitsboy/giveabit/blob/main/docs/diligence/PORTFOLIO-FAMILY-OF-8.md)
+

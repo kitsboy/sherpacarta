@@ -88,3 +88,15 @@ Bitcoin sovereignty, privacy, human dignity. Rights only expand (Art. 114).
 - **Do not sync M4 until Cam says go**
 
 — Updated 2026-07-09 goodbye · security audit session (Grok M3)
+
+
+## Diligence Pack (partner + technical disclosure)
+**Self-evolving.** Canonical path in-repo:
+- `docs/diligence/README.md` — index
+- `docs/diligence/INVESTOR-ONEPAGER.md`
+- `docs/diligence/ARCHITECTURE-ONEPAGER.md`
+- `docs/diligence/ASK-SHEET.md`
+- Portfolio: `giveabit` → `docs/diligence/PORTFOLIO-FAMILY-OF-8.md`
+
+Update rule: material product changes update diligence in the same change-set.
+Last pack generation: 2026-07-13

@@ -217,3 +217,6 @@ Vanity metrics (pageviews, social followers) are secondary to adoption and signa
 ---
 
 *This document is itself published under the same CC0 spirit as the charter. Adapt freely.*
+
+---
+**Diligence pack:** [docs/diligence/](../diligence/) (investor + architecture + ask)
