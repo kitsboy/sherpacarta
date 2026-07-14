@@ -4,34 +4,28 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 
 ---
 
-## Latest Session Summary (from 2026-07-13 goodbye — organizer + share + bot guard)
+## Latest Session Summary (from 2026-07-13 goodbye — full chat close)
 
-**Chat Topic:** Finish Kanban highs: ORGANIZER_TOKEN, PoW bot defense, modal focus trap, rich social sharing.
+**Chat Topic:** `/whatsup` recovery → BUILD 732 (organizer, PoW, share, a11y) → Cam token setup → M4 sync Go → TUI handoff → goodbye.
 
 ### Finished in this session
-- `ORGANIZER_TOKEN` set in CF Pages production; `docs/ORGANIZER-TOKEN.md`; organizer unlock UI
-- PoW on `/api/canada/sign` (`GET /api/canada/pow`); Turnstile-ready CSP + `security.json`
-- Rich share: `sc-share.js` — WhatsApp, X, Telegram, Facebook, LinkedIn, Reddit, SMS, OG preview modal
-- `sc-a11y.js` focus trap + system cursor on touch/coarse pointers
-- BUILD 732 deployed; KV stats restored to total=4 after smoke tests
+- BUILD 732 shipped: ORGANIZER_TOKEN, PoW, rich share, focus trap — live on sherpacarta.org
+- Cam saved organizer token; confirmed paper-batch unlock understood
+- Cam said **Go** — Kimi M4 sync authorized
+- TUI handoff delivered in chat for Kimi integration
+- `SESSION-SUMMARY-2026-07-13.md` finalized
 
 ### Still to do
-| Priority | Item | Who |
-|----------|------|-----|
-| ~~Cam~~ | ~~Save ORGANIZER_TOKEN to password manager~~ **Done** (Cam confirmed) | Cam |
-| Optional | Turnstile site+secret keys in CF | Cam |
-| Cam-gated | Lightning, BTC custody, Nostr, MP+e-### | Cam |
+- Kimi: integrate into MASTER-BRAIN / Obsidian (sync authorized)
+- Cam-gated: Lightning, MP+e-###, BTC custody, Nostr story
+- Optional: Turnstile keys
 
-### Next for Kimi — **SYNC AUTHORIZED (Cam said Go)**
-- **Cam authorized M4 sync** — integrate now
-- Read `SESSION-SUMMARY-2026-07-13.md` + `SESSION-SUMMARY-2026-07-09-security-audit.md`
-- Update MASTER-BRAIN / Kanban / Obsidian vault from `docs/KANBAN.md`, `SOURCE-OF-TRUTH.md`
-- Mark done: ORGANIZER_TOKEN, PoW, rich share, focus trap (BUILD 732)
-- Educate Hermes — clean summaries only, no raw chats
-- **Do not** put ORGANIZER_TOKEN in vault (Cam has it in password manager only)
+### Next for Kimi
+- Pull `main` · read `SESSION-SUMMARY-2026-07-13.md` · update Kanban F5/F6/F7 done
+- No ORGANIZER_TOKEN in vault
 
 ### Git State
-- SHA: `ef0823e` (main, pushed)
+- SHA: see goodbye commit below
 - Live: https://sherpacarta.org
 
 ---
@@ -652,21 +646,20 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 
 *Safe Harbour · Part of the [Give A Bit](https://giveabit.io) family.*
 
-## Session — 2026-07-13
+## Session — 2026-07-13 (goodbye)
 
 **Done:**
-- ORGANIZER_TOKEN in CF production + docs + organizer unlock UI
-- PoW bot guard on campaign sign; Turnstile-ready
-- Rich social share (sc-share.js) + a11y focus trap + system cursor default
-- BUILD 732 deployed live
+- BUILD 732: organizer token, PoW, rich share, a11y — deployed
+- Cam saved ORGANIZER_TOKEN; M4 sync Go; TUI handoff for Kimi
+- SESSION-SUMMARY-2026-07-13.md finalized
 
 **Decisions:**
-- PoW default; Turnstile when Cam adds keys
-- Token plaintext only in gitignored `.organizer-token.local`
+- PoW default; Turnstile optional; token stays out of vault
+- Campaign totals honest (self-reported, not identity-verified)
 
 **Git State:**
-- SHA: see `git log -1` after goodbye commit
-- Pushed to origin/main
+- SHA: `git log -1 --format=%H` after this commit
+- Unpushed: none expected
 - Live: https://sherpacarta.org
 
 ---
