@@ -658,7 +658,7 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 - Campaign totals honest (self-reported, not identity-verified)
 
 **Git State:**
-- SHA: `git log -1 --format=%H` after this commit
+- SHA: `f897397`
 - Unpushed: none expected
 - Live: https://sherpacarta.org
 
