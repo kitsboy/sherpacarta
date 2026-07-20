@@ -684,3 +684,24 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 - Pushed to origin/main
 - Live: https://sherpacarta.org
 
+
+## Session — 2026-07-19
+
+**Done:**
+- Added thin Satohash timestamp client: `src/lib/satohash.js` (Vite ESM source of truth)
+  - API `https://api.satohash.io`, site `https://satohash.io`
+  - Exports: `stampHash`, `getApiHealth`, `satohashVerifyUrl`, `satohashStampGuideUrl`
+  - Header: `X-Satohash-Client: sherpacarta` (no secrets)
+- Minimal wire:
+  - `packages/sherpacarta/index.js` re-exports same helpers (npm SDK path)
+  - `public/sc-core.js`: site URL → `https://satohash.io`; `window.satohashGetApiHealth` / `window.satohashStampHash`
+- No new UI chrome — helpers available for charter hash / proof pages
+
+**Decisions:**
+- Canonical ESM for app: `src/lib/satohash.js`; static site globals on `sc-core.js`
+- Did not rebundle sc-bundle.js (does not include sc-core)
+- No secrets; stamp may require paywall/family key on hosted API depending on server config
+
+**Git State:**
+- SHA: `c3a519540832bcfadff9002beea7ac99eac9de9c`
+- Unpushed: none expected after push

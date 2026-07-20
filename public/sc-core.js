@@ -36,7 +36,56 @@ fetch(SHERPA_WALLETS.registryUrl, { cache: 'no-cache' })
     if (w.silentPayments?.address) SHERPA_WALLETS.silentPayments = w.silentPayments.address;
   })
   .catch(() => {});
-const SATOHASH_URL = 'https://satohash.giveabit.io';
+const SATOHASH_URL = 'https://satohash.io';
+/** Thin Satohash helpers (browser). Full ESM client: src/lib/satohash.js */
+const SATOHASH_API = 'https://api.satohash.io';
+const SATOHASH_CLIENT_ID = 'sherpacarta';
+window.SATOHASH_URL = SATOHASH_URL;
+window.SATOHASH_API = SATOHASH_API;
+window.satohashGetApiHealth = async function satohashGetApiHealth(deep) {
+  try {
+    const qs = deep ? '?deep=true' : '';
+    const res = await fetch(SATOHASH_API + '/health' + qs, {
+      headers: { Accept: 'application/json', 'X-Satohash-Client': SATOHASH_CLIENT_ID },
+      signal: AbortSignal.timeout(12000),
+    });
+    if (!res.ok) return { ok: false, error: 'HTTP ' + res.status };
+    const data = await res.json();
+    const status = data.status || 'unknown';
+    return { ok: status === 'ok' || status === 'degraded', status: status, details: data.details };
+  } catch (e) {
+    return { ok: false, error: e && e.message ? e.message : String(e) };
+  }
+};
+window.satohashStampHash = async function satohashStampHash(hash, filename) {
+  const clean = String(hash).trim().toLowerCase();
+  if (!/^[a-f0-9]{64}$/.test(clean)) throw new Error('Hash must be exactly 64 hex characters (SHA-256)');
+  const res = await fetch(SATOHASH_API + '/api/stamp', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-Satohash-Client': SATOHASH_CLIENT_ID,
+    },
+    body: JSON.stringify({ hash: clean, filename: filename || 'sherpacarta-charter' }),
+    signal: AbortSignal.timeout(35000),
+  });
+  if (!res.ok) {
+    const text = await res.text().catch(function () { return ''; });
+    throw new Error('Satohash stamp failed: ' + res.status + ' ' + text.slice(0, 200));
+  }
+  const data = await res.json();
+  return {
+    id: data.id,
+    hash: data.hash || clean,
+    filename: data.filename,
+    status: data.status || 'pending',
+    created_at: data.created_at,
+    ipfs_cid: data.ipfs_cid,
+    verifyUrl: SATOHASH_URL + '/verify/' + data.id,
+    proofUrl: SATOHASH_API + '/api/stamps/' + data.id,
+  };
+};
 const NOSTR_RELAYS = ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
 const CONTACT_EMAIL = 'hello@giveabit.io';
 const CONTACT_SUBJECT = 'Sherpacarta';

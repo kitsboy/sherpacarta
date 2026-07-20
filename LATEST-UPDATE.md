@@ -1,6 +1,4 @@
-# sherpacarta — Last Updated 2026-07-13 by Grok (goodbye)
-
-Brief: BUILD 732 live; Cam token done; Kimi sync Go; session closed cleanly  
-Commit: `f897397`  
-Live: https://sherpacarta.org  
-Handoff: docs/KIMI-HANDOFF.md · SESSION-SUMMARY-2026-07-13.md
+# sherpacarta — Last Updated 2026-07-19 by Grok
+Brief: Thin Satohash client (src/lib + sc-core + package re-export)
+Commit: c3a519540832bcfadff9002beea7ac99eac9de9c
+Live: https://sherpacarta.org
