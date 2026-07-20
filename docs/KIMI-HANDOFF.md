@@ -703,5 +703,5 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 - No secrets; stamp may require paywall/family key on hosted API depending on server config
 
 **Git State:**
-- SHA: `4a7ea186285908f344a8eadab62b4dd7fbd807ae`
+- SHA: `66e6241dd4742647d3916d866f549556333b3473`
 - Unpushed: none expected after push
