@@ -1,0 +1,207 @@
+{
+  "schema": "gab.product-metrics.v1",
+  "productId": "sherpacarta",
+  "name": "SherpaCarta",
+  "updatedAt": "2026-07-21T20:40:00Z",
+  "window": {
+    "label": "all",
+    "from": "2026-01-01T00:00:00Z",
+    "to": "2026-07-21T20:40:00Z"
+  },
+  "health": {
+    "status": "green",
+    "message": "Static charter site — KPIs from charter data, Canada campaign stats, on-chain treasury, i18n locales",
+    "latencyMs": null,
+    "uptimePct24h": null,
+    "dependencies": [
+      {
+        "id": "charter-data",
+        "status": "green",
+        "detail": "data/charter.json · 114 articles"
+      },
+      {
+        "id": "canada-stats",
+        "status": "green",
+        "detail": "GET /api/canada/stats (PETITION_KV)"
+      },
+      {
+        "id": "on-chain-treasury",
+        "status": "green",
+        "detail": "mempool.space address balance"
+      },
+      {
+        "id": "umami",
+        "status": "amber",
+        "detail": "Script wired; visitors_monthly needs public analytics host + reverse proxy"
+      }
+    ]
+  },
+  "kpis": [
+    {
+      "key": "articles_total",
+      "label": "Articles",
+      "value": 114,
+      "unit": "articles",
+      "format": "number",
+      "priority": 1,
+      "hint": "Living charter articles from data/charter.json (articleCount)."
+    },
+    {
+      "key": "signers_total",
+      "label": "Signers",
+      "value": 4,
+      "unit": "signers",
+      "format": "number",
+      "priority": 1,
+      "hint": "Canada campaign commitments from /api/canada/stats (not Parliamentary e-petition counts). Local-only browser signers are not aggregated server-side."
+    },
+    {
+      "key": "languages_served",
+      "label": "Languages",
+      "value": 8,
+      "unit": "languages",
+      "format": "number",
+      "priority": 2,
+      "hint": "UI locales: en, zh, es, ar, fr, de, pt, sw."
+    },
+    {
+      "key": "visitors_monthly",
+      "label": "Visitors / month",
+      "value": 0,
+      "unit": "visitors",
+      "format": "number",
+      "priority": 2,
+      "hint": "Umami website 9b6f05bf-286e-4b21-9094-1d675f9b4442. Zero until public analytics host is live and traffic accumulates."
+    },
+    {
+      "key": "donations_btc",
+      "label": "Donations (BTC)",
+      "value": 0.00012884,
+      "unit": "BTC",
+      "format": "number",
+      "priority": 1,
+      "hint": "On-chain treasury balance (12,884 sats). Address in public/data/wallets.json."
+    }
+  ],
+  "series": [],
+  "funnels": [
+    {
+      "id": "charter_journey",
+      "label": "Charter journey",
+      "steps": [
+        {
+          "id": "read",
+          "label": "Read charter",
+          "count": 0,
+          "hint": "Umami pageviews once analytics host is public"
+        },
+        {
+          "id": "sign",
+          "label": "Sign / commit",
+          "count": 4,
+          "hint": "Canada campaign commitments"
+        },
+        {
+          "id": "share",
+          "label": "Share",
+          "count": 0,
+          "hint": "Not tracked server-side"
+        }
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "id": "by_language",
+      "label": "Languages served",
+      "rows": [
+        { "id": "en", "label": "English", "value": 1, "meta": { "source": "full charter" } },
+        { "id": "zh", "label": "Chinese", "value": 1, "meta": { "source": "UI" } },
+        { "id": "es", "label": "Spanish", "value": 1, "meta": { "source": "UI + community charter" } },
+        { "id": "ar", "label": "Arabic", "value": 1, "meta": { "source": "UI + RTL" } },
+        { "id": "fr", "label": "French", "value": 1, "meta": { "source": "UI + key articles" } },
+        { "id": "de", "label": "German", "value": 1, "meta": { "source": "UI" } },
+        { "id": "pt", "label": "Portuguese", "value": 1, "meta": { "source": "UI" } },
+        { "id": "sw", "label": "Swahili", "value": 1, "meta": { "source": "UI pilot" } }
+      ]
+    }
+  ],
+  "offers": [
+    {
+      "id": "digital_magna_carta",
+      "title": "Digital Magna Carta (CC0)",
+      "for": ["giveabit", "motopass", "katoa"],
+      "status": "ga",
+      "endpoint": "https://sherpacarta.org/",
+      "hint": "114-article living charter"
+    },
+    {
+      "id": "public_api",
+      "title": "Charter JSON API",
+      "for": ["*"],
+      "status": "ga",
+      "endpoint": "GET /api/v1/charter.json",
+      "hint": "Machine-readable articles + hash"
+    },
+    {
+      "id": "metrics_v1",
+      "title": "Product metrics v1",
+      "for": ["hq"],
+      "status": "live",
+      "endpoint": "GET /metrics.json",
+      "hint": "gab.product-metrics.v1 for HQ cards"
+    }
+  ],
+  "education": [
+    {
+      "id": "mold_signers",
+      "title": "Signers = legitimacy",
+      "body": "signers_total is campaign commitments from KV — not inflated demo counts. Local browser signatures stay local unless Nostr-published.",
+      "action": "Refresh from /api/canada/stats when regenerating metrics",
+      "opportunity": "info"
+    },
+    {
+      "id": "mold_donations",
+      "title": "On-chain is the books",
+      "body": "donations_btc is the public treasury UTXO sum. Anyone can re-verify via mempool.space.",
+      "action": "Re-query address when updating metrics.json",
+      "opportunity": "opportunity"
+    },
+    {
+      "id": "wire_umami",
+      "title": "Visitors need public Umami",
+      "body": "Tracking script is in index.html. visitors_monthly stays 0 until analytics.giveabit.io (or THOR reverse proxy) is reachable from the open web.",
+      "action": "Point analytics.giveabit.io → THOR:3002 over HTTPS",
+      "opportunity": "plan"
+    }
+  ],
+  "links": [
+    {
+      "label": "SherpaCarta",
+      "url": "https://sherpacarta.org"
+    },
+    {
+      "label": "Canada stats",
+      "url": "https://sherpacarta.org/api/canada/stats"
+    },
+    {
+      "label": "Treasury",
+      "url": "https://sherpacarta.org/treasury.html"
+    },
+    {
+      "label": "Schema",
+      "url": "https://hq.giveabit.io/schemas/product-metrics.v1.schema.json"
+    }
+  ],
+  "raw": {
+    "demo": false,
+    "source": "static-counts + live canada stats + mempool treasury",
+    "articles_source": "data/charter.json articleCount=114",
+    "signers_source": "https://sherpacarta.org/api/canada/stats total=4 store=kv",
+    "languages": ["en", "zh", "es", "ar", "fr", "de", "pt", "sw"],
+    "donations_sats": 12884,
+    "treasury_address": "bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad",
+    "umami_website_id": "9b6f05bf-286e-4b21-9094-1d675f9b4442",
+    "note": "Static charter site. Regenerate KPIs when charter, campaign totals, or treasury balance change."
+  }
+}

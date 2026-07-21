@@ -93,6 +93,47 @@ Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
 
 ---
 
+## Session — 2026-07-21
+
+**Done:**
+- Created `public/metrics.json` (`gab.product-metrics.v1`) for HQ
+- KPIs: `articles_total` 114 · `signers_total` 4 · `languages_served` 8 · `visitors_monthly` 0 · `donations_btc` 0.00012884
+- Umami script in `index.html` (website ID `9b6f05bf-286e-4b21-9094-1d675f9b4442` → `analytics.giveabit.io`)
+- CSP + CORS headers for metrics and analytics host
+- Session docs: `SESSION-SUMMARY-2026-07-21.md`, `.ai_docs/current-status.md`, `LATEST-UPDATE.md`
+
+**Decisions:**
+- Honest counts only (`raw.demo: false`); no demo signers/OTS inflation
+- `signers_total` from live Canada KV stats, not localStorage
+- Umami host placeholder domain until reverse proxy exists (THOR still localhost:3002)
+
+**Git State:**
+- SHA: see `git log -1` after goodbye commit
+- Live: https://sherpacarta.org (metrics live after CF deploy of this push)
+
+### Latest Session Summary (from 2026-07-21 goodbye)
+**Chat Topic:** Suite metrics Step 1+2 for SherpaCarta (metrics.json + Umami).
+
+**Finished in this session:**
+- Product-origin metrics envelope ready for HQ cards
+- Umami tag + CSP wired
+- Clean handoff files
+
+**Still to do:**
+- Public Umami proxy (analytics.giveabit.io)
+- HQ wire product-origin metrics over demo `/metrics/sherpacarta.json`
+- Cam: LNbits Vault key (Step 3)
+- Deploy if not yet on CF Pages
+
+**Next for Kimi:**
+- Pull `main` · read `SESSION-SUMMARY-2026-07-21.md`
+- Update HQ to fetch `https://sherpacarta.org/metrics.json` when CORS allows
+- Replace demo envelope KPIs with live origin once deployed
+- Integrate into MASTER-BRAIN / Obsidian when Cam says go
+- Do **not** invent visitor or signer growth without Umami / stats data
+
+---
+
 ## Latest Session Summary (from 2026-07-13 goodbye — full chat close)
 
 **Chat Topic:** `/whatsup` recovery → BUILD 732 (organizer, PoW, share, a11y) → Cam token setup → M4 sync Go → TUI handoff → goodbye.

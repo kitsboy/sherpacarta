@@ -29,7 +29,19 @@ Kimi (on THOR) handles orchestration, docs, automation, and the Obsidian vault.
 
 Before you say goodbye, run ALL of these steps:
 
-### Step 1 — Write Handoff to `docs/KIMI-HANDOFF.md`
+### Step 1 — Update `.ai_docs/` (AI Knowledge Layer)
+
+Before writing the handoff, update the agent knowledge files in `.ai_docs/`:
+
+- **`.ai_docs/current-status.md`** — bump version, add recent milestones, update known issues (ALWAYS update)
+- **`.ai_docs/context-map.md`** — if directory structure, stack, or architecture changed
+- **`.ai_docs/sop-workflow.md`** — if toolchain, build, or deploy commands changed
+- **`.ai_docs/ecosystem-links.md`** — if new cross-project integrations were added
+- **`.ai_docs/project-summary.md`** — if the project purpose or core features changed
+
+**Rule:** Every session updates `.ai_docs/current-status.md`. Other files update on change.
+
+### Step 2 — Write Handoff to `docs/KIMI-HANDOFF.md`
 
 Append a new section to `docs/KIMI-HANDOFF.md` in the current project with:
 
@@ -47,7 +59,7 @@ Append a new section to `docs/KIMI-HANDOFF.md` in the current project with:
 - Unpushed: `git log --oneline origin/main..HEAD`
 ```
 
-### Step 2 — Verify Git
+### Step 3 — Verify Git
 
 ```bash
 cd ~/projects/<project>
@@ -57,7 +69,7 @@ git log --oneline origin/main..HEAD
 
 If unpushed commits, push: `git push origin main`
 
-### Step 3 — Write `LATEST-UPDATE.md`
+### Step 4 — Write `LATEST-UPDATE.md`
 
 ```markdown
 # <project> — Last Updated YYYY-MM-DD by Grok

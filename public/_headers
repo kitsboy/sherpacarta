@@ -4,7 +4,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: DENY
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://mempool.space https://cdn.jsdelivr.net https://challenges.cloudflare.com wss://relay.damus.io wss://nos.lol wss://relay.snort.social; frame-src 'self' https://sherpacarta.org https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://challenges.cloudflare.com https://analytics.giveabit.io; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' data: https://cdnjs.cloudflare.com; img-src 'self' data: https: blob:; connect-src 'self' https://mempool.space https://cdn.jsdelivr.net https://challenges.cloudflare.com https://analytics.giveabit.io wss://relay.damus.io wss://nos.lol wss://relay.snort.social; frame-src 'self' https://sherpacarta.org https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
 
 /assets/*.css
   Content-Type: text/css
@@ -31,6 +31,11 @@
 
 /api/v1/*
   Cache-Control: public, max-age=300
+  Access-Control-Allow-Origin: *
+
+/metrics.json
+  Content-Type: application/json
+  Cache-Control: public, max-age=60
   Access-Control-Allow-Origin: *
 
 /api/canada/*
