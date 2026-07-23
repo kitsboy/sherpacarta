@@ -1,0 +1,23 @@
+name: Deploy sherpacarta to Cloudflare Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install
+        run: npm ci || npm install
+      - name: Build
+        run: node scripts/generate-charter.mjs && node scripts/inject-charter.mjs && node scripts/generate-campaign.mjs && node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-charter-txt.mjs && node scripts/generate-og-cards.mjs && vite build
+      - name: Deploy to CF Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes wrangler@4 pages deploy ./dist --project-name=sherpacarta --branch=main
