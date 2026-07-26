@@ -93,6 +93,31 @@ Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.
 
 ---
 
+## Session — 2026-07-27 (Kimi HQ close-out — acknowledged by Grok)
+
+Kimi pushed HQ `365ceb9` (and related). Pipeline is **end-to-end live**. Grok pulled HQ on M3/M4 and confirmed origin still healthy.
+
+| Layer | Status | Details |
+|-------|--------|---------|
+| CF Function `/metrics.json` | ✅ live | Canada KV + mempool, 60s cache, CORS `*`, `raw.demo: false` |
+| Build generator | ✅ live | `scripts/generate-metrics.mjs` → CI |
+| Umami site-wide | ✅ live | 29 HTML pages · `analytics.giveabit.io` 200 |
+| wallet `sherpacarta` | ✅ wired | `wallets.json` + HQ `projects.json` |
+| HQ demo envelope | ✅ killed | Accurate stub (4 signers / 0.00012884 BTC), `raw.demo: false` |
+| HQ live origin guard | ✅ done | Rejects demo when live candidates exist |
+| HQ Umami overlay | ✅ wired | `fetchUmamiStats()` → card sky pill |
+| CF analytics for SC | ✅ dropped | No CF zone — Umami only |
+| LNURL/lud16 public | ⬜ pending | Site receive still off |
+| Nostr signer publish | ⬜ future | Browser-local unless published |
+
+**Verified origin (Grok):** `source=functions/metrics.json.js` · signers=4 · sats=12884 · demo=false
+
+**Still open (not blocking HQ glass):**
+- Public LNURL/lud16 when ready (Cam/Kimi publish → Grok wires `wallets.json` + treasury UI)
+- Optional: HQ card polish session later
+
+---
+
 ## Session — 2026-07-26
 
 **Done (M3 — end-to-end real metrics, no invoice keys in git):**

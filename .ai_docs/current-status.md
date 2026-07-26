@@ -1,9 +1,11 @@
 # Current Status — Sherpacarta
 
-**Version:** BUILD 733 + live metrics pipeline  
-**Last Updated:** 2026-07-26  
+**Version:** BUILD 733 + live metrics pipeline (HQ closed-loop)  
+**Last Updated:** 2026-07-27  
 **Domain:** https://sherpacarta.org  
 **productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)
+
+**HQ (Kimi 365ceb9):** demo killed · live origin guard · Umami overlay · CF analytics dropped for SC · wallet wired
 
 ## Recent Milestones
 - **2026-07-26:** End-to-end real metrics for HQ
