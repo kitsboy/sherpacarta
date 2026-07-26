@@ -93,6 +93,20 @@ Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.
 
 ---
 
+## Session — 2026-07-27 (BUILD 734 beauty lift — Grok)
+
+**Done:**
+- Product UI flagship pass: emerald + gold parchment energy (aligned with HQ card)
+- Killed stale **v2.0** nav branding → **BUILD 734** badge (always visible)
+- Hero ribbon (Digital Magna Carta · live metrics), refined CTAs/stats/mission quotes
+- Treasury + Canada campaign pages polished + cache-bust `?v=734`
+- `sc-main.css` BUILD 734 block; `sc-upgrades-b15` stamps status dock BUILD 734
+- Bundle regenerated
+
+**Git:** push `main` this session · live https://sherpacarta.org
+
+---
+
 ## Session — 2026-07-27 (Kimi HQ close-out — acknowledged by Grok)
 
 Kimi pushed HQ `365ceb9` (and related). Pipeline is **end-to-end live**. Grok pulled HQ on M3/M4 and confirmed origin still healthy.

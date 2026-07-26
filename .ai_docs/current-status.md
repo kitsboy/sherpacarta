@@ -1,13 +1,15 @@
 # Current Status — Sherpacarta
 
-**Version:** BUILD 733 + live metrics pipeline (HQ closed-loop)  
+**Version:** BUILD 734 — flagship beauty lift + live metrics  
 **Last Updated:** 2026-07-27  
 **Domain:** https://sherpacarta.org  
 **productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)
 
-**HQ (Kimi 365ceb9):** demo killed · live origin guard · Umami overlay · CF analytics dropped for SC · wallet wired
+**HQ:** flagship card live · metrics closed-loop  
+**Product UI:** BUILD 734 parchment/emerald beauty pass (nav badge, hero ribbon, stats, treasury, Canada)
 
 ## Recent Milestones
+- **2026-07-27:** BUILD 734 beauty lift — removed stale “v2.0” branding; Digital Magna Carta hero ribbon; gold+emerald polish
 - **2026-07-26:** End-to-end real metrics for HQ
   - Live CF Function `GET /metrics.json` (`functions/metrics.json.js`) — Canada KV + mempool, `raw.demo: false`
   - Build-time generator `scripts/generate-metrics.mjs` + `npm run metrics`

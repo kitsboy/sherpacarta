@@ -1,12 +1,27 @@
 /**
- * SherpaCarta BUILD 732 — share polish, footer share, Canada join strip
+ * SherpaCarta BUILD 734 — share polish + flagship beauty lift stamp
  */
 (function () {
   'use strict';
-  const BUILD = '20260713-732';
+  const BUILD = '20260727-734';
   const items = [];
   window.SHERPA_UPGRADES = window.SHERPA_UPGRADES || {};
   SHERPA_UPGRADES.b15 = { BUILD, items };
+  window.SC = window.SC || {};
+  SC.BUILD = BUILD;
+  // Keep status dock + any build badges honest
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.build-badge').forEach((el) => {
+      el.textContent = 'BUILD ' + BUILD;
+    });
+    const dock = document.getElementById('status-dock');
+    if (dock && !dock.querySelector('.build-badge')) {
+      const bb = document.createElement('span');
+      bb.className = 'build-badge';
+      bb.textContent = 'BUILD ' + BUILD;
+      dock.prepend(bb);
+    }
+  });
 
   function feat(id, name, fn) {
     items.push({ id, name });
