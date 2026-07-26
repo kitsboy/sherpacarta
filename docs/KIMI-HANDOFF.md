@@ -89,7 +89,43 @@ All public outputs stay Bitcoin-sovereign + Safe Harbour.
 
 # Kimi Handoff — SherpaCarta
 
-Ongoing handoff log for M3 (Grok) → M4 (Kimi). **Newest sessions at the top.**
+Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.**
+
+---
+
+## Session — 2026-07-26
+
+**Done (M3 — end-to-end real metrics, no invoice keys in git):**
+- Live `GET /metrics.json` via CF Pages Function `functions/metrics.json.js` (Canada KV + mempool, CORS `*`, cache 60s)
+- Build generator `scripts/generate-metrics.mjs` → `public/metrics.json` (`raw.demo: false`, productId `sherpacarta`)
+- Site-wide Umami + event beacon `public/js/sc-analytics.js` on all major HTML (inject script)
+- `wallets.json` v2: productId, `lightning.hqWalletId: sherpacarta`, metrics block for HQ
+- Deploy workflow + `npm run build` include metrics + analytics inject
+- Canada API CORS allows `https://hq.giveabit.io`
+- Treasury page notes HQ wallet id + metrics URL
+
+**Labels (use everywhere):**
+| Field | Value |
+|-------|--------|
+| productId / metricsKey | `sherpacarta` |
+| LNbits / HQ wallet id | `sherpacarta` |
+| Umami website id | `9b6f05bf-286e-4b21-9094-1d675f9b4442` |
+| Live metrics | `https://sherpacarta.org/metrics.json` |
+
+**Please do on THOR/HQ:**
+1. Prefer `https://sherpacarta.org/metrics.json` when `raw.demo === false` — **delete or rebadge** demo `/metrics/sherpacarta.json` (230 signers / 0.15 BTC / 1200 visitors is false)
+2. Confirm Worker/Vault invoice key mapped to wallet id **`sherpacarta`** (Cam says keys already in Vault)
+3. Overlay Umami visitors for this website id onto card KPIs
+4. Money tab: show LN balance for `sherpacarta` separately from on-chain `donations_sats`
+
+**Decisions:**
+- Invoice/read keys never in product repo — HQ Vault / LNbits proxy only
+- Origin metrics stay secret-free; LN sats are HQ Money plane
+- visitors_monthly=0 on origin is honest until HQ merges Umami (not fake traffic)
+
+**Git State:**
+- Push to `main` this session → CF Pages auto-deploy
+- Live: https://sherpacarta.org
 
 ---
 

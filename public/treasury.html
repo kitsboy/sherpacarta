@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Treasury — Transparent Bitcoin Funding — SherpaCarta</title>
-<meta name="description" content="Bitcoin-funded only. Live on-chain transparency. Lightning pending. No VC, no ads, no government grants.">
+<meta name="description" content="Bitcoin-funded only. Live on-chain transparency. Lightning balance on HQ wallet sherpacarta; public LNURL pending. No VC, no ads, no government grants.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SherpaCarta">
 <meta property="og:url" content="https://sherpacarta.org/treasury">
@@ -45,6 +45,9 @@ a{color:var(--em2)}
 .btns a.primary{background:linear-gradient(135deg,var(--em),var(--em2));color:#041208;border:none}
 .warn-box{font-size:.78rem;color:var(--gold);border:1px solid rgba(212,175,55,.3);background:rgba(212,175,55,.07);padding:.75rem .9rem;border-radius:.75rem;margin-top:.75rem;line-height:1.55}
 </style>
+<!-- suite analytics: first-party Umami (sherpacarta) -->
+<script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
+<script defer src="/js/sc-analytics.js?v=733"></script>
 </head>
 <body class="tr">
 <a href="/" class="back">← SherpaCarta</a>
@@ -71,7 +74,10 @@ a{color:var(--em2)}
     <div class="rail"><span><i class="fas fa-user-secret"></i> Silent Payments (BIP-352)</span><span class="tag plan">Planned</span></div>
   </div>
   <div class="warn-box" id="ln-note">
-    <strong>Lightning is not live.</strong> Do not send to any TEMP placeholder on the homepage. When Cam publishes an LNURL-pay or Lightning Address, it will appear here and in <code>/data/wallets.json</code>.
+    <strong>Public Lightning receive is not published yet.</strong> Do not send to any TEMP placeholder on the homepage.
+    Ops balance is tracked on <a href="https://hq.giveabit.io" rel="noopener">HQ</a> under LNbits wallet id <code>sherpacarta</code> (invoice key in Vault only).
+    When a public LNURL-pay or Lightning Address is published, it will appear here and in <code>/data/wallets.json</code>.
+    Product metrics: <a href="/metrics.json"><code>/metrics.json</code></a> · productId <code>sherpacarta</code>.
   </div>
 </div>
 

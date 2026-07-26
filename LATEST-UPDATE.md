@@ -1,4 +1,4 @@
-# sherpacarta — Last Updated 2026-07-21 by Grok
-Brief: Suite metrics Step 1+2 — public/metrics.json + Umami beacon
-Commit: 321d1c56c857b6b12b56f4a49a39392770079960
-Live: https://sherpacarta.org
+# sherpacarta — Last Updated 2026-07-26 by Grok
+Brief: Live real metrics pipeline for HQ (productId sherpacarta) — CF Function + Umami site-wide; no secrets in git
+Commit: (see HEAD after push)
+Live: https://sherpacarta.org/metrics.json

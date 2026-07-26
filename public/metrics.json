@@ -2,16 +2,16 @@
   "schema": "gab.product-metrics.v1",
   "productId": "sherpacarta",
   "name": "SherpaCarta",
-  "updatedAt": "2026-07-21T20:40:00Z",
+  "updatedAt": "2026-07-26T22:55:28.152Z",
   "window": {
-    "label": "all",
-    "from": "2026-01-01T00:00:00Z",
-    "to": "2026-07-21T20:40:00Z"
+    "label": "7d",
+    "from": "2026-07-19T22:55:28.152Z",
+    "to": "2026-07-26T22:55:28.152Z"
   },
   "health": {
     "status": "green",
-    "message": "Static charter site — KPIs from charter data, Canada campaign stats, on-chain treasury, i18n locales",
-    "latencyMs": null,
+    "message": "Live public sources — Canada campaign KV, on-chain treasury, charter data. LN balance via HQ wallet id sherpacarta.",
+    "latencyMs": 719,
     "uptimePct24h": null,
     "dependencies": [
       {
@@ -22,17 +22,22 @@
       {
         "id": "canada-stats",
         "status": "green",
-        "detail": "GET /api/canada/stats (PETITION_KV)"
+        "detail": "GET /api/canada/stats total=4 store=kv"
       },
       {
         "id": "on-chain-treasury",
         "status": "green",
-        "detail": "mempool.space address balance"
+        "detail": "mempool.space · 12884 sats · 1 txs"
+      },
+      {
+        "id": "lightning",
+        "status": "amber",
+        "detail": "Public LN pending · HQ LNbits wallet id \"sherpacarta\" (invoice key in Vault only)"
       },
       {
         "id": "umami",
-        "status": "amber",
-        "detail": "Script wired; visitors_monthly needs public analytics host + reverse proxy"
+        "status": "green",
+        "detail": "analytics.giveabit.io · website 9b6f05bf-286e-4b21-9094-1d675f9b4442 · visitors filled by HQ/Umami (not origin-side)"
       }
     ]
   },
@@ -44,7 +49,7 @@
       "unit": "articles",
       "format": "number",
       "priority": 1,
-      "hint": "Living charter articles from data/charter.json (articleCount)."
+      "hint": "Living charter articles from data/charter.json."
     },
     {
       "key": "signers_total",
@@ -53,7 +58,25 @@
       "unit": "signers",
       "format": "number",
       "priority": 1,
-      "hint": "Canada campaign commitments from /api/canada/stats (not Parliamentary e-petition counts). Local-only browser signers are not aggregated server-side."
+      "hint": "Canada campaign commitments from /api/canada/stats — not Parliamentary e-petition counts."
+    },
+    {
+      "key": "donations_btc",
+      "label": "Donations (BTC on-chain)",
+      "value": 0.00012884,
+      "unit": "BTC",
+      "format": "number",
+      "priority": 1,
+      "hint": "On-chain treasury balance (12884 sats). LN sats on HQ Money tab (wallet sherpacarta)."
+    },
+    {
+      "key": "donations_sats",
+      "label": "Treasury sats (on-chain)",
+      "value": 12884,
+      "unit": "sats",
+      "format": "number",
+      "priority": 1,
+      "hint": "mempool.space UTXO sum for public treasury address."
     },
     {
       "key": "languages_served",
@@ -71,19 +94,71 @@
       "unit": "visitors",
       "format": "number",
       "priority": 2,
-      "hint": "Umami website 9b6f05bf-286e-4b21-9094-1d675f9b4442. Zero until public analytics host is live and traffic accumulates."
+      "hint": "Umami 9b6f05bf-286e-4b21-9094-1d675f9b4442. HQ should overlay live Umami stats; origin does not hold analytics API token."
     },
     {
-      "key": "donations_btc",
-      "label": "Donations (BTC)",
-      "value": 0.00012884,
-      "unit": "BTC",
+      "key": "paper_batches",
+      "label": "Paper batches",
+      "value": 0,
+      "unit": "batches",
       "format": "number",
-      "priority": 1,
-      "hint": "On-chain treasury balance (12,884 sats). Address in public/data/wallets.json."
+      "priority": 3,
+      "hint": "Organizer paper batches (requires ORGANIZER_TOKEN)."
+    },
+    {
+      "key": "paper_signers",
+      "label": "Paper signers",
+      "value": 0,
+      "unit": "signers",
+      "format": "number",
+      "priority": 3,
+      "hint": "Paper commitment count logged via organizer API."
+    },
+    {
+      "key": "treasury_txs",
+      "label": "Treasury txs",
+      "value": 1,
+      "unit": "txs",
+      "format": "number",
+      "priority": 3,
+      "hint": "On-chain transaction count for treasury address."
+    },
+    {
+      "key": "locale_files",
+      "label": "Locale files",
+      "value": 6,
+      "unit": "files",
+      "format": "number",
+      "priority": 4,
+      "hint": "JSON locale / charter translation files under public/locales."
     }
   ],
-  "series": [],
+  "series": [
+    {
+      "key": "signers_snapshot",
+      "label": "Signers (snapshot)",
+      "unit": "signers",
+      "color": "#c45f00",
+      "points": [
+        {
+          "t": "2026-07-26T00:00:00.000Z",
+          "v": 4
+        }
+      ]
+    },
+    {
+      "key": "treasury_sats_snapshot",
+      "label": "Treasury sats (snapshot)",
+      "unit": "sats",
+      "color": "#f7931a",
+      "points": [
+        {
+          "t": "2026-07-26T00:00:00.000Z",
+          "v": 12884
+        }
+      ]
+    }
+  ],
   "funnels": [
     {
       "id": "charter_journey",
@@ -93,19 +168,19 @@
           "id": "read",
           "label": "Read charter",
           "count": 0,
-          "hint": "Umami pageviews once analytics host is public"
+          "hint": "Umami pageviews — HQ overlays when available"
         },
         {
           "id": "sign",
           "label": "Sign / commit",
           "count": 4,
-          "hint": "Canada campaign commitments"
+          "hint": "Canada campaign commitments (KV)"
         },
         {
           "id": "share",
           "label": "Share",
           "count": 0,
-          "hint": "Not tracked server-side"
+          "hint": "Umami event share_click when instrumented"
         }
       ]
     }
@@ -115,14 +190,95 @@
       "id": "by_language",
       "label": "Languages served",
       "rows": [
-        { "id": "en", "label": "English", "value": 1, "meta": { "source": "full charter" } },
-        { "id": "zh", "label": "Chinese", "value": 1, "meta": { "source": "UI" } },
-        { "id": "es", "label": "Spanish", "value": 1, "meta": { "source": "UI + community charter" } },
-        { "id": "ar", "label": "Arabic", "value": 1, "meta": { "source": "UI + RTL" } },
-        { "id": "fr", "label": "French", "value": 1, "meta": { "source": "UI + key articles" } },
-        { "id": "de", "label": "German", "value": 1, "meta": { "source": "UI" } },
-        { "id": "pt", "label": "Portuguese", "value": 1, "meta": { "source": "UI" } },
-        { "id": "sw", "label": "Swahili", "value": 1, "meta": { "source": "UI pilot" } }
+        {
+          "id": "en",
+          "label": "English",
+          "value": 1,
+          "meta": {
+            "source": "full charter"
+          }
+        },
+        {
+          "id": "zh",
+          "label": "Chinese",
+          "value": 1,
+          "meta": {
+            "source": "UI"
+          }
+        },
+        {
+          "id": "es",
+          "label": "Spanish",
+          "value": 1,
+          "meta": {
+            "source": "UI + community charter"
+          }
+        },
+        {
+          "id": "ar",
+          "label": "Arabic",
+          "value": 1,
+          "meta": {
+            "source": "UI + RTL"
+          }
+        },
+        {
+          "id": "fr",
+          "label": "French",
+          "value": 1,
+          "meta": {
+            "source": "UI + key articles"
+          }
+        },
+        {
+          "id": "de",
+          "label": "German",
+          "value": 1,
+          "meta": {
+            "source": "UI"
+          }
+        },
+        {
+          "id": "pt",
+          "label": "Portuguese",
+          "value": 1,
+          "meta": {
+            "source": "UI"
+          }
+        },
+        {
+          "id": "sw",
+          "label": "Swahili",
+          "value": 1,
+          "meta": {
+            "source": "UI pilot"
+          }
+        }
+      ]
+    },
+    {
+      "id": "treasury_rails",
+      "label": "Treasury rails",
+      "rows": [
+        {
+          "id": "onchain",
+          "label": "On-chain BTC",
+          "value": 12884,
+          "meta": {
+            "status": "live",
+            "unit": "sats"
+          }
+        },
+        {
+          "id": "lightning",
+          "label": "Lightning (public receive)",
+          "value": 0,
+          "meta": {
+            "status": "pending",
+            "hqWalletId": "sherpacarta",
+            "note": "Balance via HQ LNbits — not embedded in origin metrics"
+          }
+        }
       ]
     }
   ],
@@ -130,7 +286,12 @@
     {
       "id": "digital_magna_carta",
       "title": "Digital Magna Carta (CC0)",
-      "for": ["giveabit", "motopass", "katoa"],
+      "for": [
+        "giveabit",
+        "motopass",
+        "katoa",
+        "hq"
+      ],
       "status": "ga",
       "endpoint": "https://sherpacarta.org/",
       "hint": "114-article living charter"
@@ -138,40 +299,61 @@
     {
       "id": "public_api",
       "title": "Charter JSON API",
-      "for": ["*"],
+      "for": [
+        "*"
+      ],
       "status": "ga",
       "endpoint": "GET /api/v1/charter.json",
       "hint": "Machine-readable articles + hash"
     },
     {
+      "id": "canada_campaign",
+      "title": "Canada campaign stats",
+      "for": [
+        "hq"
+      ],
+      "status": "live",
+      "endpoint": "GET /api/canada/stats",
+      "hint": "Honest campaign totals (not e-petition)"
+    },
+    {
       "id": "metrics_v1",
       "title": "Product metrics v1",
-      "for": ["hq"],
+      "for": [
+        "hq"
+      ],
       "status": "live",
       "endpoint": "GET /metrics.json",
-      "hint": "gab.product-metrics.v1 for HQ cards"
+      "hint": "gab.product-metrics.v1 — live CF Function + static fallback"
     }
   ],
   "education": [
     {
       "id": "mold_signers",
       "title": "Signers = legitimacy",
-      "body": "signers_total is campaign commitments from KV — not inflated demo counts. Local browser signatures stay local unless Nostr-published.",
-      "action": "Refresh from /api/canada/stats when regenerating metrics",
+      "body": "signers_total is campaign commitments from KV — never inflate with demo counts. Local browser signatures stay local unless Nostr-published.",
+      "action": "HQ: prefer live origin metrics when raw.demo === false",
       "opportunity": "info"
     },
     {
       "id": "mold_donations",
       "title": "On-chain is the books",
-      "body": "donations_btc is the public treasury UTXO sum. Anyone can re-verify via mempool.space.",
-      "action": "Re-query address when updating metrics.json",
+      "body": "donations_sats / donations_btc are public UTXO sums. Anyone re-verifies via mempool.space.",
+      "action": "Show chain + LN as separate rails; sum only when both live",
       "opportunity": "opportunity"
     },
     {
-      "id": "wire_umami",
-      "title": "Visitors need public Umami",
-      "body": "Tracking script is in index.html. visitors_monthly stays 0 until analytics.giveabit.io (or THOR reverse proxy) is reachable from the open web.",
-      "action": "Point analytics.giveabit.io → THOR:3002 over HTTPS",
+      "id": "mold_ln_hq",
+      "title": "Lightning lives in HQ Vault",
+      "body": "LNbits invoice key for wallet id \"sherpacarta\" stays in HQ Vault / Worker — never in this JSON or git.",
+      "action": "Money tab: label wallet sherpacarta · productId sherpacarta",
+      "opportunity": "plan"
+    },
+    {
+      "id": "mold_visitors",
+      "title": "Visitors from Umami",
+      "body": "Origin publishes visitors_monthly=0 placeholder. HQ should merge Umami website stats for this productId.",
+      "action": "Umami website 9b6f05bf-286e-4b21-9094-1d675f9b4442",
       "opportunity": "plan"
     }
   ],
@@ -186,22 +368,45 @@
     },
     {
       "label": "Treasury",
-      "url": "https://sherpacarta.org/treasury.html"
+      "url": "https://sherpacarta.org/treasury"
     },
     {
-      "label": "Schema",
+      "label": "Wallets registry",
+      "url": "https://sherpacarta.org/data/wallets.json"
+    },
+    {
+      "label": "Mempool",
+      "url": "https://mempool.space/address/bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad"
+    },
+    {
+      "label": "HQ schema",
       "url": "https://hq.giveabit.io/schemas/product-metrics.v1.schema.json"
     }
   ],
   "raw": {
     "demo": false,
-    "source": "static-counts + live canada stats + mempool treasury",
+    "source": "generate-metrics.mjs + public APIs",
+    "productId": "sherpacarta",
+    "hqWalletId": "sherpacarta",
     "articles_source": "data/charter.json articleCount=114",
     "signers_source": "https://sherpacarta.org/api/canada/stats total=4 store=kv",
-    "languages": ["en", "zh", "es", "ar", "fr", "de", "pt", "sw"],
+    "languages": [
+      "en",
+      "zh",
+      "es",
+      "ar",
+      "fr",
+      "de",
+      "pt",
+      "sw"
+    ],
     "donations_sats": 12884,
+    "donations_btc": 0.00012884,
     "treasury_address": "bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad",
+    "treasury_tx_count": 1,
+    "lightning_public_status": "pending",
     "umami_website_id": "9b6f05bf-286e-4b21-9094-1d675f9b4442",
-    "note": "Static charter site. Regenerate KPIs when charter, campaign totals, or treasury balance change."
+    "umami_host": "https://analytics.giveabit.io",
+    "note": "Secret-free envelope. LN sats via HQ LNbits wallet sherpacarta. Visitors via HQ Umami merge. Regenerate on build or serve live via CF Function /metrics.json."
   }
 }

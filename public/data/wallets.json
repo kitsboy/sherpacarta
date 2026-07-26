@@ -1,7 +1,8 @@
 {
-  "version": 1,
-  "updated": "2026-07-09",
+  "version": 2,
+  "updated": "2026-07-26",
   "org": "SherpaCarta / Give A Bit",
+  "productId": "sherpacarta",
   "contact": "hello@giveabit.io",
   "bitcoin": {
     "status": "live",
@@ -17,7 +18,8 @@
     "address": null,
     "lnurl": null,
     "lud16": null,
-    "note": "Not live. Do not send. Cam must publish LNURL-pay or Lightning Address when wallet is ready."
+    "hqWalletId": "sherpacarta",
+    "note": "Public LNURL/lud16 not published yet — do not send to placeholders. Balance is tracked on HQ Money tab via LNbits wallet id sherpacarta (invoice key in HQ Vault only, never in git)."
   },
   "silentPayments": {
     "status": "planned",
@@ -30,10 +32,20 @@
     "nip05Url": "https://giveabit.io/.well-known/nostr.json?name=kimi",
     "note": "NIP-05 is verified on giveabit.io (parent), not on sherpacarta.org. Browser NIP-07 sign-in is client-side only."
   },
+  "metrics": {
+    "productId": "sherpacarta",
+    "url": "https://sherpacarta.org/metrics.json",
+    "schema": "gab.product-metrics.v1",
+    "umamiWebsiteId": "9b6f05bf-286e-4b21-9094-1d675f9b4442",
+    "umamiHost": "https://analytics.giveabit.io",
+    "hq": "https://hq.giveabit.io"
+  },
   "transparency": {
     "treasuryPage": "/treasury",
     "statusPage": "/status",
+    "metricsUrl": "/metrics.json",
     "github": "https://github.com/kitsboy/sherpacarta",
     "audit": "Not an audited financial statement — on-chain proof anyone can verify."
   }
 }
+

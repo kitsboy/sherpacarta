@@ -12,7 +12,9 @@
     "extract": "node scripts/extract-assets.mjs",
     "bundle": "node scripts/bundle-js.mjs",
     "og": "node scripts/generate-og-cards.mjs && node scripts/apply-social-meta.mjs",
-    "build": "node scripts/generate-charter.mjs && node scripts/inject-charter.mjs && node scripts/generate-campaign.mjs && node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-charter-txt.mjs && node scripts/generate-og-cards.mjs && vite build",
+    "metrics": "node scripts/generate-metrics.mjs",
+    "analytics:inject": "node scripts/inject-analytics.mjs",
+    "build": "node scripts/generate-charter.mjs && node scripts/inject-charter.mjs && node scripts/generate-campaign.mjs && node scripts/generate-metrics.mjs && node scripts/inject-analytics.mjs && node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-charter-txt.mjs && node scripts/generate-og-cards.mjs && vite build",
     "publish:packages": "node scripts/publish-packages.mjs",
     "seo-audit": "node scripts/seo-audit.mjs",
     "i18n-audit": "node scripts/i18n-audit.mjs",
@@ -20,6 +22,7 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+
   "dependencies": {
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.17.0",
