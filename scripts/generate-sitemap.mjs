@@ -24,6 +24,7 @@ const staticUrls = [
   { loc: 'https://sherpacarta.org/jurisdictions', priority: '0.9', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/status', priority: '0.5', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/treasury', priority: '0.7', changefreq: 'weekly' },
+  { loc: 'https://sherpacarta.org/nostr', priority: '0.85', changefreq: 'daily' },
   { loc: 'https://sherpacarta.org/canada/', priority: '0.95', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/canada/sign', priority: '0.95', changefreq: 'weekly' },
   { loc: 'https://sherpacarta.org/canada/join', priority: '0.95', changefreq: 'weekly' },

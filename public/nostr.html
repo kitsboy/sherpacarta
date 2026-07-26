@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nostr discussion — SherpaCarta</title>
+<meta name="description" content="Live public Nostr notes about SherpaCarta — #sherpacarta and the sherpa@ guide agent. Read-only. No tracking.">
+<meta name="theme-color" content="#050806">
+<link rel="canonical" href="https://sherpacarta.org/nostr">
+<link rel="stylesheet" href="/fonts/fonts.css?v=735">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=735">
+<link rel="stylesheet" href="/sc-main.css?v=735">
+<style>
+body.nw-page{max-width:720px;margin:0 auto;padding:1.5rem 1.15rem 3.5rem;font-family:var(--sans);background:radial-gradient(ellipse 80% 40% at 50% -8%,rgba(16,185,129,.08),transparent 50%),var(--bg);color:var(--text);line-height:1.65}
+.nw-page h1{font-family:var(--serif);font-size:clamp(1.85rem,4vw,2.35rem);color:var(--em2);margin:.35rem 0;letter-spacing:-.02em}
+.nw-page .lead{color:var(--text2);font-size:.95rem;max-width:560px}
+.nw-ribbon{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:1rem 0 1.25rem}
+.nw-ribbon .mark{font-family:var(--serif);font-size:.8rem;color:var(--gold2)}
+.nw-ribbon .live{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:99px;color:#86efac;border:1px solid rgba(34,197,94,.4);background:rgba(34,197,94,.1)}
+.nw-how{background:linear-gradient(165deg,var(--bg2),var(--bg3));border:1px solid var(--border);border-radius:1rem;padding:1.1rem 1.2rem;margin:1.25rem 0;font-size:.85rem;color:var(--text2)}
+.nw-how ol{margin:.5rem 0 0 1.1rem}
+.nw-how code{font-family:var(--mono);font-size:.78rem;color:var(--em2)}
+.nw-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.5rem}
+.nw-actions .btn{min-height:42px;cursor:pointer}
+#sc-nostr-wall{margin-top:.5rem}
+[data-nw-status]{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--text3);margin-bottom:.75rem}
+[data-nw-status][data-kind="ok"]{color:var(--em)}
+[data-nw-status][data-kind="warn"]{color:var(--gold)}
+[data-nw-meta]{font-family:var(--mono);font-size:.58rem;color:var(--text3);margin-bottom:1rem;line-height:1.5}
+[data-nw-list]{display:flex;flex-direction:column;gap:.75rem}
+.nw-note{background:linear-gradient(165deg,var(--bg2),var(--bg3));border:1px solid var(--border);border-radius:.9rem;padding:1rem 1.05rem;transition:border-color .2s,box-shadow .2s}
+.nw-note.is-agent{border-color:rgba(212,175,55,.35);box-shadow:0 0 24px rgba(212,175,55,.06)}
+.nw-note-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .65rem;margin-bottom:.55rem;font-size:.75rem}
+.nw-who{font-family:var(--mono);color:var(--text2);font-size:.68rem}
+.nw-chip{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .4rem;border-radius:99px;border:1px solid var(--border2);color:var(--text3)}
+.nw-chip.agent{color:var(--gold2);border-color:rgba(212,175,55,.45);background:rgba(212,175,55,.08)}
+.nw-chip.warn{color:var(--gold);border-color:rgba(212,175,55,.4)}
+.nw-time{margin-left:auto;font-family:var(--mono);font-size:.58rem;color:var(--text3)}
+.nw-body{font-size:.9rem;line-height:1.6;color:var(--text);white-space:pre-wrap;word-break:break-word}
+.nw-body a{color:var(--em2)}
+.nw-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.55rem}
+.nw-tag{font-family:var(--mono);font-size:.55rem;color:var(--em);padding:.1rem .4rem;border-radius:99px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2)}
+.nw-foot{margin-top:.55rem;font-family:var(--mono);font-size:.62rem}
+.nw-foot a{color:var(--text3)}
+.nw-foot a:hover{color:var(--em)}
+.nw-empty{padding:1.5rem;text-align:center;color:var(--text3);font-size:.88rem;border:1px dashed var(--border);border-radius:.9rem;line-height:1.65}
+.back{display:inline-block;margin-bottom:1rem;font-size:.85rem;color:var(--em2)}
+.note{font-size:.75rem;color:var(--text3);margin-top:1.75rem;line-height:1.65}
+</style>
+<script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
+<script defer src="/js/sc-analytics.js?v=735"></script>
+<script defer src="/js/sc-nostr-wall.js?v=735"></script>
+</head>
+<body class="nw-page">
+<a class="back" href="/">← SherpaCarta</a>
+
+<div class="nw-ribbon">
+  <span class="mark"><i class="fas fa-comments"></i> Public Nostr deliberation</span>
+  <span class="live">read-only wall</span>
+  <span class="live" style="color:var(--gold2);border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.08)">#sherpacarta</span>
+</div>
+
+<h1>Live discussion</h1>
+<p class="lead">Public notes from the Nostr network about SherpaCarta — and replies from the product guide agent when it is online. Nothing is stored on our servers. Relays update this window in real time.</p>
+
+<div class="nw-how">
+  <strong style="color:var(--text)">Join the conversation</strong>
+  <ol>
+    <li>Install a Nostr client (Primal, Damus, Amethyst, etc.).</li>
+    <li>Copy the guide handle: <code id="nip-copy">sherpa@giveabit.io</code> (NIP-05 pending publish — use npub until live).</li>
+    <li>Post with <code>#sherpacarta</code> or message the guide — public replies appear here.</li>
+  </ol>
+</div>
+
+<div class="nw-actions">
+  <button type="button" class="btn btn-primary" id="btn-copy-nip"><i class="fas fa-copy"></i> Copy sherpa@giveabit.io</button>
+  <button type="button" class="btn btn-ghost" id="btn-copy-npub"><i class="fas fa-key"></i> Copy npub</button>
+  <a class="btn btn-ghost" href="https://njump.me/npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> Open profile</a>
+  <a class="btn btn-ghost" href="/canada/"><i class="fas fa-flag"></i> Canada campaign</a>
+</div>
+
+<section id="sc-nostr-wall" data-sc-nostr-wall aria-label="Live Nostr notes">
+  <div data-nw-status>Loading wall…</div>
+  <div data-nw-meta></div>
+  <div data-nw-list></div>
+</section>
+
+<p class="note">
+  This is a <strong>public</strong> feed only (kind-1 notes). Direct messages are never shown here.
+  The guide agent is product-scoped (charter, campaign, treasury) — not suite ops.
+  Private key never runs in this browser. Architecture lives in the repo as <code>docs/GOAL-SHERPA-NOSTR-BUZZ.md</code>.
+</p>
+
+<script>
+(function () {
+  var npub = 'npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57';
+  var nip = 'sherpa@giveabit.io';
+  function copy(t, ok) {
+    navigator.clipboard.writeText(t).then(function () {
+      var s = document.querySelector('[data-nw-status]');
+      if (s) { s.textContent = ok; s.dataset.kind = 'ok'; }
+    });
+  }
+  document.getElementById('btn-copy-nip')?.addEventListener('click', function () {
+    copy(nip, 'Copied ' + nip + ' — NIP-05 goes live when published on giveabit.io');
+  });
+  document.getElementById('btn-copy-npub')?.addEventListener('click', function () {
+    copy(npub, 'Copied npub — works now on any Nostr client');
+  });
+})();
+</script>
+</body>
+</html>

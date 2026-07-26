@@ -89,7 +89,11 @@ window.satohashStampHash = async function satohashStampHash(hash, filename) {
 const NOSTR_RELAYS = ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
 const CONTACT_EMAIL = 'hello@giveabit.io';
 const CONTACT_SUBJECT = 'Sherpacarta';
-const NOSTR_NIP05 = 'kimi@giveabit.io';
+/** Product guide (public). Suite ops remains kimi@giveabit.io on parent brand pages. */
+const NOSTR_NIP05 = 'sherpa@giveabit.io';
+const NOSTR_NIP05_OPS = 'kimi@giveabit.io';
+const NOSTR_SHERPA_NPUB = 'npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57';
+
 let qrCurrentAddress = '';
 let qrCurrentType = 'btc';
 
@@ -1892,7 +1896,13 @@ function copyQRAddress(){
 }
 
 function copyNostrNip(){
-  navigator.clipboard.writeText(NOSTR_NIP05).then(()=>toast('Nostr NIP-05 copied: ' + NOSTR_NIP05,'success'));
+  navigator.clipboard.writeText(NOSTR_NIP05).then(()=>toast('Nostr guide copied: ' + NOSTR_NIP05 + ' (NIP-05 pending · use npub if needed)','success'));
+}
+function copyNostrNpub(){
+  navigator.clipboard.writeText(NOSTR_SHERPA_NPUB).then(()=>toast('Sherpa npub copied — works now on any Nostr client','success'));
+}
+function copyNostrOps(){
+  navigator.clipboard.writeText(NOSTR_NIP05_OPS).then(()=>toast('Suite ops NIP-05 copied: ' + NOSTR_NIP05_OPS,'success'));
 }
 
 function contactEmail(){

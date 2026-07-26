@@ -27,10 +27,21 @@
     "note": "BIP-352 Silent Payments optional later for stronger donor privacy. Requires SP-capable wallet."
   },
   "nostr": {
-    "nip05": "kimi@giveabit.io",
+    "productGuide": {
+      "nip05": "sherpa@giveabit.io",
+      "nip05Status": "pending_publish",
+      "npub": "npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57",
+      "pubkeyHex": "7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd",
+      "wall": "/nostr",
+      "config": "/data/nostr-sherpa.json"
+    },
+    "suiteOps": {
+      "nip05": "kimi@giveabit.io",
+      "nip05Url": "https://giveabit.io/.well-known/nostr.json?name=kimi",
+      "note": "Suite orchestrator — not the product support bot."
+    },
     "nip05Host": "giveabit.io",
-    "nip05Url": "https://giveabit.io/.well-known/nostr.json?name=kimi",
-    "note": "NIP-05 is verified on giveabit.io (parent), not on sherpacarta.org. Browser NIP-07 sign-in is client-side only."
+    "note": "NIP-05 on giveabit.io parent. Product guide is sherpa@. Browser NIP-07 sign-in remains client-side only. nsec never in this repo."
   },
   "metrics": {
     "productId": "sherpacarta",

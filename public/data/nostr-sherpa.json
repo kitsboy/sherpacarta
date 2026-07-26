@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "productId": "sherpacarta",
+  "updated": "2026-07-27",
+  "nip05": "sherpa@giveabit.io",
+  "nip05Status": "pending_publish",
+  "nip05Note": "Name must be added to giveabit.io/.well-known/nostr.json by Cam/Kimi. Until then, use npub + relays.",
+  "npub": "npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57",
+  "pubkeyHex": "7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd",
+  "displayName": "Sherpa (SherpaCarta guide)",
+  "about": "Public product guide for SherpaCarta — charter, Canada campaign, treasury. Not suite ops (that is kimi@). Automated replies when THOR bot is live.",
+  "tags": ["sherpacarta", "digitalrights", "giveabit"],
+  "relays": [
+    "wss://relay.damus.io",
+    "wss://nos.lol",
+    "wss://relay.snort.social",
+    "wss://relay.nostr.band"
+  ],
+  "wall": {
+    "kinds": [1],
+    "limit": 40,
+    "includeAuthor": true,
+    "includeHashtag": "sherpacarta",
+    "refreshMs": 45000
+  },
+  "security": {
+    "nsecInRepo": false,
+    "nsecInClient": false,
+    "note": "Private key lives only in Cam Vault / THOR secrets for the bot process. Never in this file."
+  },
+  "clients": {
+    "njump": "https://njump.me/",
+    "primal": "https://primal.net/p/"
+  }
+}
