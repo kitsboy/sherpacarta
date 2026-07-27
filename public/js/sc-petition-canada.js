@@ -444,16 +444,20 @@
   SHERPA_PETITION.stampOnSatohash = async function () {
     const root = await SHERPA_PETITION.computeMerkleRoot();
     const petitionHash = await SHERPA_PETITION.getPetitionHash();
-    const hash = root || petitionHash;
-    // Canonical host + path (satohash.io and satohash.giveabit.io are aliases)
-    const q = new URLSearchParams({
-      hash,
-      ref: 'sherpacarta-canada',
-      source: 'sherpacarta-canada',
-      campaign: CAMPAIGN_ID || 'sherpacarta-canada-v1',
-      label: 'SherpaCarta+Canada+campaign'
-    });
-    const url = `https://satohash.io/stamp?${q.toString()}`;
+    const hash = String(root || petitionHash || '').trim().toLowerCase();
+    if (!/^[a-f0-9]{64}$/.test(hash)) {
+      throw new Error('No stampable SHA-256 yet — sign the campaign first, then stamp');
+    }
+    // Canonical: https://satohash.io/stamp?hash=&ref= (never home /?hash=)
+    const url =
+      typeof window.satohashStampGuideUrl === 'function'
+        ? window.satohashStampGuideUrl(hash, {
+            ref: 'sherpacarta-canada',
+            source: 'sherpacarta-canada',
+            campaign: CAMPAIGN_ID || 'sherpacarta-canada-v1',
+            label: 'SherpaCarta+Canada+campaign',
+          })
+        : `https://satohash.io/stamp?hash=${encodeURIComponent(hash)}&ref=sherpacarta-canada&source=sherpacarta-canada&campaign=${encodeURIComponent(CAMPAIGN_ID || 'sherpacarta-canada-v1')}&label=SherpaCarta%2BCanada%2Bcampaign`;
     window.open(url, '_blank', 'noopener');
     return { hash, url };
   };

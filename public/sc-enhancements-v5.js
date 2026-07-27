@@ -292,7 +292,7 @@
 
   feat(356, 'BC MLA outreach pack', () => {
     window.downloadBCOutreachPack = () => {
-      const pack = `BC OUTREACH PACK — SherpaCarta\n\n1. Sign at sherpacarta.org\n2. Email MLA (template in ⌘K)\n3. Stamp on satohash.giveabit.io\n4. Share with 3 contacts\n\nhello@giveabit.io (subject: Sherpacarta)`;
+      const pack = `BC OUTREACH PACK — SherpaCarta\n\n1. Sign at sherpacarta.org\n2. Email MLA (template in ⌘K)\n3. Stamp on https://satohash.io/stamp?ref=sherpacarta (or site Stamp button for hash deep-link)\n4. Share with 3 contacts\n\nhello@giveabit.io (subject: Sherpacarta)`;
       const blob = new Blob([pack], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -373,7 +373,8 @@
     btn.style.cssText = 'font-size:.65rem;margin-top:.5rem';
     btn.innerHTML = '<i class="fab fa-bitcoin"></i> Stamp on Satohash';
     btn.onclick = () => {
-      if (window.stampCharterHash) stampCharterHash();
+      if (typeof window.stampCharterOnBitcoin === 'function') window.stampCharterOnBitcoin();
+      else if (window.stampCharterHash) stampCharterHash();
       else window.open('https://satohash.io/stamp?ref=sherpacarta', '_blank', 'noopener');
     };
     $('sign')?.querySelector('.sign-section')?.appendChild(btn);

@@ -42,6 +42,26 @@ const SATOHASH_API = 'https://api.satohash.io';
 const SATOHASH_CLIENT_ID = 'sherpacarta';
 window.SATOHASH_URL = SATOHASH_URL;
 window.SATOHASH_API = SATOHASH_API;
+window.SATOHASH_CLIENT_ID = SATOHASH_CLIENT_ID;
+
+/** Canonical SPA deep-link: /stamp?hash=&ref= (never home /?hash= alone). */
+window.satohashStampGuideUrl = function satohashStampGuideUrl(hash, opts) {
+  opts = opts || {};
+  const hex = String(hash || '').trim().toLowerCase();
+  if (!/^[a-f0-9]{64}$/.test(hex)) return SATOHASH_URL + '/stamp';
+  const q = new URLSearchParams({ hash: hex });
+  const ref = opts.ref || SATOHASH_CLIENT_ID;
+  if (ref) q.set('ref', ref);
+  q.set('source', opts.source || ref);
+  if (opts.label) q.set('label', opts.label);
+  if (opts.campaign) q.set('campaign', opts.campaign);
+  if (opts.filename) q.set('filename', opts.filename);
+  return SATOHASH_URL + '/stamp?' + q.toString();
+};
+window.satohashVerifyUrl = function satohashVerifyUrl(idOrHash) {
+  return SATOHASH_URL + '/verify/' + encodeURIComponent(String(idOrHash || ''));
+};
+
 window.satohashGetApiHealth = async function satohashGetApiHealth(deep) {
   try {
     const qs = deep ? '?deep=true' : '';
@@ -57,17 +77,25 @@ window.satohashGetApiHealth = async function satohashGetApiHealth(deep) {
     return { ok: false, error: e && e.message ? e.message : String(e) };
   }
 };
-window.satohashStampHash = async function satohashStampHash(hash, filename) {
+
+/**
+ * POST /api/stamp — require durable id; never claim Bitcoin confirmed until status===confirmed.
+ * @param {string} hash
+ * @param {string|object} [filenameOrOpts] filename string or { filename, clientId }
+ */
+window.satohashStampHash = async function satohashStampHash(hash, filenameOrOpts) {
   const clean = String(hash).trim().toLowerCase();
   if (!/^[a-f0-9]{64}$/.test(clean)) throw new Error('Hash must be exactly 64 hex characters (SHA-256)');
+  const opts = typeof filenameOrOpts === 'object' && filenameOrOpts ? filenameOrOpts : { filename: filenameOrOpts };
+  const clientId = opts.clientId || SATOHASH_CLIENT_ID;
   const res = await fetch(SATOHASH_API + '/api/stamp', {
     method: 'POST',
     headers: {
       Accept: 'application/json',
       'Content-Type': 'application/json',
-      'X-Satohash-Client': SATOHASH_CLIENT_ID,
+      'X-Satohash-Client': clientId,
     },
-    body: JSON.stringify({ hash: clean, filename: filename || 'sherpacarta-charter' }),
+    body: JSON.stringify({ hash: clean, filename: opts.filename || 'sherpacarta-charter' }),
     signal: AbortSignal.timeout(35000),
   });
   if (!res.ok) {
@@ -75,15 +103,23 @@ window.satohashStampHash = async function satohashStampHash(hash, filename) {
     throw new Error('Satohash stamp failed: ' + res.status + ' ' + text.slice(0, 200));
   }
   const data = await res.json();
+  if (!data.id) throw new Error('Satohash stamp response missing id');
+  const status = String(data.status || 'pending').toLowerCase();
   return {
     id: data.id,
     hash: data.hash || clean,
     filename: data.filename,
-    status: data.status || 'pending',
+    status: status,
+    confirmed: status === 'confirmed',
     created_at: data.created_at,
     ipfs_cid: data.ipfs_cid,
+    clientId: clientId,
     verifyUrl: SATOHASH_URL + '/verify/' + data.id,
     proofUrl: SATOHASH_API + '/api/stamps/' + data.id,
+    message:
+      status === 'confirmed'
+        ? 'Bitcoin-anchored (confirmed)'
+        : 'Submitted — pending confirmation (not yet Bitcoin-confirmed)',
   };
 };
 const NOSTR_RELAYS = ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
@@ -1848,17 +1884,45 @@ async function stampCharterOnBitcoin(){
     const hash=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
     state.charterHash=hash;
     localStorage.setItem('sc_charter_hash',hash);
-    toast('Charter hashed. Opening Satohash to stamp on Bitcoin…','info');
-    // Canonical deep-link: /stamp?hash=&ref= (home /?hash= also redirects)
-    const q = new URLSearchParams({
-      hash,
+    // Canonical deep-link only: /stamp?hash=&ref= — never satohash.io/?hash=
+    const url = window.satohashStampGuideUrl(hash, {
       ref: SATOHASH_CLIENT_ID || 'sherpacarta',
+      source: 'sherpacarta',
       label: 'SherpaCarta+charter',
-      source: 'sherpacarta'
+      filename: 'sherpacarta-charter',
     });
-    window.open(`${SATOHASH_URL}/stamp?${q.toString()}`,'_blank','noopener');
+    toast('Charter hashed. Opening Satohash stamp page…','info');
+    window.open(url,'_blank','noopener');
   }catch(e){toast('Could not compute charter hash','error');}
 }
+
+/**
+ * Optional in-app API stamp (no SPA navigation). Shows verify link; honest pending vs confirmed.
+ */
+async function stampCharterViaApi(){
+  try{
+    const text=getCharterPlainText();
+    const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text));
+    const hash=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+    state.charterHash=hash;
+    localStorage.setItem('sc_charter_hash',hash);
+    toast('Submitting stamp to api.satohash.io…','info');
+    const proof = await window.satohashStampHash(hash, { filename: 'sherpacarta-charter', clientId: 'sherpacarta' });
+    try { await navigator.clipboard.writeText(proof.verifyUrl); } catch (_) {}
+    toast(
+      proof.confirmed
+        ? ('Confirmed · verify copied: ' + proof.verifyUrl)
+        : ('Pending confirmation · verify: ' + proof.verifyUrl),
+      proof.confirmed ? 'success' : 'info'
+    );
+    return proof;
+  }catch(e){
+    toast(e && e.message ? e.message : 'Stamp API failed','error');
+    throw e;
+  }
+}
+window.stampCharterViaApi = stampCharterViaApi;
+window.stampCharterOnBitcoin = stampCharterOnBitcoin;
 
 function initWalletAddresses(){
   const els={

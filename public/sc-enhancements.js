@@ -1071,7 +1071,11 @@
       if (typeof getCharterPlainText !== 'function') return;
       const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(getCharterPlainText()));
       const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-      navigator.clipboard.writeText('https://satohash.io/stamp?ref=sherpacarta&hash=' + hash);
+      navigator.clipboard.writeText(
+        (typeof window.satohashStampGuideUrl === 'function'
+          ? window.satohashStampGuideUrl(hash, { ref: 'sherpacarta', label: 'SherpaCarta+charter' })
+          : 'https://satohash.io/stamp?hash=' + hash + '&ref=sherpacarta&label=SherpaCarta%2Bcharter')
+      );
       toast('Satohash stamp link copied', 'success');
     };
   });

@@ -61,8 +61,9 @@ export async function getApiHealth(opts = {}) {
 
 /**
  * POST /api/stamp — timestamp a SHA-256 hex hash via OpenTimestamps.
+ * Never treat pending as Bitcoin-confirmed.
  * @param {string} hash 64-char hex SHA-256
- * @param {{ filename?: string, email?: string, signal?: AbortSignal, timeoutMs?: number }} [opts]
+ * @param {{ filename?: string, email?: string, clientId?: string, signal?: AbortSignal, timeoutMs?: number }} [opts]
  */
 export async function stampHash(hash, opts = {}) {
   const clean = String(hash).trim().toLowerCase()
@@ -70,6 +71,7 @@ export async function stampHash(hash, opts = {}) {
     throw new Error('Hash must be exactly 64 hex characters (SHA-256)')
   }
 
+  const clientId = opts.clientId || SATOHASH_CLIENT_ID
   const body = {
     hash: clean,
     filename: opts.filename ?? 'sherpacarta-charter',
@@ -78,7 +80,11 @@ export async function stampHash(hash, opts = {}) {
 
   const res = await fetch(`${SATOHASH_API}/api/stamp`, {
     method: 'POST',
-    headers: clientHeaders({ 'Content-Type': 'application/json' }),
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-Satohash-Client': clientId,
+    },
     body: JSON.stringify(body),
     signal: withTimeout(opts.timeoutMs ?? STAMP_TIMEOUT_MS, opts.signal),
   })
@@ -93,15 +99,22 @@ export async function stampHash(hash, opts = {}) {
     throw new Error('Satohash stamp response missing id')
   }
 
+  const status = String(data.status ?? 'pending').toLowerCase()
   return {
     id: data.id,
     hash: data.hash ?? clean,
     filename: data.filename,
-    status: data.status ?? 'pending',
+    status,
+    confirmed: status === 'confirmed',
     created_at: data.created_at,
     ipfs_cid: data.ipfs_cid,
+    clientId,
     verifyUrl: `${SATOHASH_SITE}/verify/${data.id}`,
     proofUrl: `${SATOHASH_API}/api/stamps/${data.id}`,
+    message:
+      status === 'confirmed'
+        ? 'Bitcoin-anchored (confirmed)'
+        : 'Submitted — pending confirmation (not yet Bitcoin-confirmed)',
   }
 }
 

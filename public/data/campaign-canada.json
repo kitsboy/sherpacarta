@@ -82,7 +82,7 @@
   "satohash": {
     "templateId": "sherpacarta-canada-referendum-v1",
     "templateUrl": "/data/satohash-templates/sherpacarta-canada-referendum.json",
-    "stampUrl": "https://satohash.giveabit.io",
+    "stampUrl": "https://satohash.io/stamp?ref=sherpacarta-canada",
     "submitTemplatesUrl": "https://satohash.io/templates/"
   },
   "sheet": {

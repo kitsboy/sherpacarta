@@ -124,6 +124,26 @@ Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.
 
 ---
 
+## Session — 2026-07-27 (Stamp handoff audit + harden — Grok)
+
+**Executed:** `docs/GROK-PROMPT-STAMP-HANDOFF.md` (family client only — no Satohash SPA rebuild)
+
+**Done:**
+- Canonical deep-links only: `https://satohash.io/stamp?hash=&ref=sherpacarta|sherpacarta-canada`
+- `window.satohashStampGuideUrl` / `satohashVerifyUrl` on `sc-core.js`
+- API path `satohashStampHash`: always `X-Satohash-Client`, **require id**, `verifyUrl`, honest pending vs confirmed (never “Bitcoin confirmed” until `status===confirmed`)
+- Canada `stampOnSatohash` uses guide helper + validates 64-hex
+- Cleaned weak `satohash.giveabit.io` / home-only refs in enhancements, about, campaign `stampUrl`
+- `src/lib/satohash.js` + `packages/sherpacarta` aligned
+- `npm run bundle` → `public/sc-bundle.js`
+- Smoke: API stamp → id `95706b22-…` pending + verify 200; metrics `raw.demo: false`
+
+**Kimi still:** THOR Docker rebuild if `client_id` null on stamps; family free / REQUIRE_LIGHTNING if 402
+
+**Out of scope:** Satohash SPA, HQ UI, secrets
+
+---
+
 ## Session — 2026-07-27 (NOTE: Satohash not fully working — Grok → Kimi)
 
 **Cam:** Clicked Sherpa **Stamp it** → landed on  
