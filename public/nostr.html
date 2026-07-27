@@ -3,113 +3,457 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nostr discussion — SherpaCarta</title>
-<meta name="description" content="Live public Nostr notes about SherpaCarta — #sherpacarta and the sherpa@ guide agent. Read-only. No tracking.">
+<title>Nostr — Live discussion · Why it matters — SherpaCarta</title>
+<meta name="description" content="Why Nostr matters for digital rights, live #sherpacarta discussion, and how to reach sherpa@giveabit.io. Censorship-resistant public square. Zero tracking on this page.">
 <meta name="theme-color" content="#050806">
-<link rel="icon" href="/favicon.png?v=738" type="image/png" sizes="48x48">
-<link rel="icon" href="/brand-mark.png?v=738" type="image/png" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=738">
+<link rel="icon" href="/favicon.png?v=739" type="image/png" sizes="48x48">
+<link rel="icon" href="/brand-mark.png?v=739" type="image/png" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=739">
 <link rel="canonical" href="https://sherpacarta.org/nostr">
-<link rel="stylesheet" href="/fonts/fonts.css?v=737">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=737">
-<link rel="stylesheet" href="/sc-main.css?v=737">
+<meta property="og:title" content="Nostr · Live discussion — SherpaCarta">
+<meta property="og:description" content="A public, portable social protocol for digital rights deliberation. Follow sherpa@giveabit.io · #sherpacarta">
+<meta property="og:url" content="https://sherpacarta.org/nostr">
+<meta property="og:image" content="https://sherpacarta.org/og/default.png?v=724">
+<link rel="stylesheet" href="/fonts/fonts.css?v=739">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=739">
+<link rel="stylesheet" href="/sc-main.css?v=739">
 <style>
-body.nw-page{max-width:720px;margin:0 auto;padding:1.5rem 1.15rem 3.5rem;font-family:var(--sans);background:radial-gradient(ellipse 80% 40% at 50% -8%,rgba(16,185,129,.08),transparent 50%),var(--bg);color:var(--text);line-height:1.65}
-.nw-page h1{font-family:var(--serif);font-size:clamp(1.85rem,4vw,2.35rem);color:var(--em2);margin:.35rem 0;letter-spacing:-.02em}
-.nw-page .lead{color:var(--text2);font-size:.95rem;max-width:560px}
-.nw-ribbon{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:1rem 0 1.25rem}
-.nw-ribbon .mark{font-family:var(--serif);font-size:.8rem;color:var(--gold2)}
-.nw-ribbon .live{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:99px;color:#86efac;border:1px solid rgba(34,197,94,.4);background:rgba(34,197,94,.1)}
-.nw-how{background:linear-gradient(165deg,var(--bg2),var(--bg3));border:1px solid var(--border);border-radius:1rem;padding:1.1rem 1.2rem;margin:1.25rem 0;font-size:.85rem;color:var(--text2)}
-.nw-how ol{margin:.5rem 0 0 1.1rem}
-.nw-how code{font-family:var(--mono);font-size:.78rem;color:var(--em2)}
-.nw-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 1.5rem}
-.nw-actions .btn{min-height:42px;cursor:pointer}
-#sc-nostr-wall{margin-top:.5rem}
+/* Force visible system cursor — this page does not load custom cursor JS */
+body.nw-page,
+body.nw-page *{
+  cursor:auto!important;
+}
+body.nw-page a,
+body.nw-page button,
+body.nw-page .btn,
+body.nw-page .nw-bar,
+body.nw-page [role="button"]{
+  cursor:pointer!important;
+}
+body.nw-page{
+  max-width:880px;margin:0 auto;padding:1.5rem 1.15rem 4rem;
+  font-family:var(--sans);color:var(--text);line-height:1.65;
+  background:
+    radial-gradient(ellipse 90% 45% at 50% -12%,rgba(16,185,129,.1),transparent 55%),
+    radial-gradient(ellipse 50% 35% at 100% 40%,rgba(212,175,55,.05),transparent 50%),
+    var(--bg);
+}
+.nw-page h1{
+  font-family:var(--serif);font-size:clamp(2rem,5vw,2.75rem);
+  color:var(--em2);margin:.35rem 0 .5rem;letter-spacing:-.02em;line-height:1.1;
+}
+.nw-page h2{
+  font-family:var(--serif);font-size:clamp(1.35rem,3vw,1.65rem);
+  color:var(--text);margin:0 0 .65rem;letter-spacing:-.015em;
+}
+.nw-page .lead{color:var(--text2);font-size:1.02rem;max-width:640px;line-height:1.7}
+.nw-ribbon{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;margin:1rem 0 1.15rem}
+.nw-ribbon .mark{font-family:var(--serif);font-size:.85rem;color:var(--gold2)}
+.nw-ribbon .live{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.18rem .55rem;border-radius:99px;color:#86efac;
+  border:1px solid rgba(34,197,94,.4);background:rgba(34,197,94,.1);
+}
+.nw-section{margin:2.25rem 0}
+.nw-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.nw-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+@media(max-width:720px){
+  .nw-grid-3{grid-template-columns:1fr}
+  .nw-grid-2{grid-template-columns:1fr}
+}
+.nw-stat{
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:1rem;padding:1.1rem 1rem;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.nw-stat:hover{
+  border-color:rgba(16,185,129,.4);
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px -16px rgba(0,0,0,.55);
+}
+.nw-stat .n{
+  font-family:var(--serif);font-size:clamp(1.6rem,3.5vw,2.1rem);font-weight:700;
+  background:linear-gradient(180deg,var(--em2),var(--em));
+  -webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1;
+}
+.nw-stat .l{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);margin-top:.4rem;
+}
+.nw-stat .s{font-size:.78rem;color:var(--text2);margin-top:.35rem;line-height:1.45}
+.nw-card{
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:1rem;padding:1.2rem 1.25rem;
+}
+.nw-card h3{
+  font-family:var(--serif);font-size:1.15rem;margin:0 0 .45rem;color:var(--text);
+  display:flex;align-items:center;gap:.45rem;
+}
+.nw-card h3 i{color:var(--em);font-size:.9rem}
+.nw-card p{margin:0;font-size:.88rem;color:var(--text2);line-height:1.65}
+.nw-quote{
+  border-left:3px solid transparent;
+  border-image:linear-gradient(180deg,var(--gold),var(--em)) 1;
+  background:linear-gradient(90deg,rgba(212,175,55,.07),transparent 75%);
+  padding:1rem 1.25rem;margin:1.25rem 0;border-radius:0 .75rem .75rem 0;
+}
+.nw-quote p{
+  font-family:var(--serif);font-size:clamp(1.05rem,2.2vw,1.25rem);
+  font-style:italic;color:var(--text);line-height:1.5;margin:0;
+}
+.nw-quote cite{
+  display:block;margin-top:.65rem;font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.08em;color:var(--gold);font-style:normal;
+}
+/* Compare bars — protocol vs platform */
+.nw-compare{margin-top:.85rem}
+.nw-compare-row{margin-bottom:.85rem}
+.nw-compare-row .label{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:.78rem;margin-bottom:.3rem;color:var(--text2);
+}
+.nw-compare-row .label strong{color:var(--text);font-weight:600}
+.nw-track{
+  height:10px;border-radius:99px;background:var(--bg3);border:1px solid var(--border);
+  overflow:hidden;
+}
+.nw-bar{
+  height:100%;border-radius:99px;
+  background:linear-gradient(90deg,var(--em),var(--em2));
+  box-shadow:0 0 12px rgba(16,185,129,.35);
+  width:0;transition:width 1s cubic-bezier(.22,1,.36,1);
+}
+.nw-bar.gold{background:linear-gradient(90deg,#b45309,var(--gold2))}
+.nw-bar.muted{background:linear-gradient(90deg,#4a5568,#718096);box-shadow:none;opacity:.65}
+.nw-legend{
+  display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;margin-top:1rem;
+  font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.04em;
+}
+.nw-legend span::before{
+  content:'';display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:.35rem;
+  vertical-align:middle;
+}
+.nw-legend .lg-em::before{background:var(--em)}
+.nw-legend .lg-mute::before{background:#718096}
+.nw-how{
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:1rem;padding:1.15rem 1.25rem;
+  font-size:.88rem;color:var(--text2);
+}
+.nw-how ol{margin:.55rem 0 0 1.15rem}
+.nw-how li{margin-bottom:.35rem}
+.nw-how code{font-family:var(--mono);font-size:.8rem;color:var(--em2)}
+.nw-actions{display:flex;flex-wrap:wrap;gap:.5rem;margin:1.15rem 0 0}
+.nw-actions .btn{
+  min-height:44px;cursor:pointer!important;
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.55rem 1.1rem;border-radius:100px;font-size:.82rem;font-weight:600;
+  text-decoration:none;border:1px solid var(--border2);background:var(--bg3);color:var(--em2);
+  font-family:var(--sans);
+}
+.nw-actions .btn-primary{
+  background:linear-gradient(135deg,var(--em),#0d9668);color:#041208;border:none;
+  box-shadow:0 6px 20px rgba(16,185,129,.28);
+}
+.nw-actions .btn:hover{filter:brightness(1.06)}
+.nw-wall-head{
+  display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:.75rem;margin-bottom:1rem;
+}
+.nw-live-pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.nw-live-pills .pill{
+  font-family:var(--mono);font-size:.58rem;padding:.25rem .55rem;border-radius:99px;
+  border:1px solid var(--border);background:var(--bg3);color:var(--text2);
+}
+.nw-live-pills .pill strong{color:var(--em2)}
+#sc-nostr-wall{margin-top:.25rem}
 [data-nw-status]{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:var(--text3);margin-bottom:.75rem}
 [data-nw-status][data-kind="ok"]{color:var(--em)}
 [data-nw-status][data-kind="warn"]{color:var(--gold)}
 [data-nw-meta]{font-family:var(--mono);font-size:.58rem;color:var(--text3);margin-bottom:1rem;line-height:1.5}
 [data-nw-list]{display:flex;flex-direction:column;gap:.75rem}
-.nw-note{background:linear-gradient(165deg,var(--bg2),var(--bg3));border:1px solid var(--border);border-radius:.9rem;padding:1rem 1.05rem;transition:border-color .2s,box-shadow .2s}
+.nw-note{
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:.9rem;padding:1rem 1.05rem;
+  transition:border-color .2s,box-shadow .2s;
+}
 .nw-note.is-agent{border-color:rgba(212,175,55,.35);box-shadow:0 0 24px rgba(212,175,55,.06)}
 .nw-note-head{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .65rem;margin-bottom:.55rem;font-size:.75rem}
 .nw-who{font-family:var(--mono);color:var(--text2);font-size:.68rem}
-.nw-chip{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;padding:.12rem .4rem;border-radius:99px;border:1px solid var(--border2);color:var(--text3)}
+.nw-chip{
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.12rem .4rem;border-radius:99px;border:1px solid var(--border2);color:var(--text3);
+}
 .nw-chip.agent{color:var(--gold2);border-color:rgba(212,175,55,.45);background:rgba(212,175,55,.08)}
 .nw-chip.warn{color:var(--gold);border-color:rgba(212,175,55,.4)}
 .nw-time{margin-left:auto;font-family:var(--mono);font-size:.58rem;color:var(--text3)}
 .nw-body{font-size:.9rem;line-height:1.6;color:var(--text);white-space:pre-wrap;word-break:break-word}
 .nw-body a{color:var(--em2)}
 .nw-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.55rem}
-.nw-tag{font-family:var(--mono);font-size:.55rem;color:var(--em);padding:.1rem .4rem;border-radius:99px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2)}
+.nw-tag{
+  font-family:var(--mono);font-size:.55rem;color:var(--em);padding:.1rem .4rem;border-radius:99px;
+  background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);
+}
 .nw-foot{margin-top:.55rem;font-family:var(--mono);font-size:.62rem}
 .nw-foot a{color:var(--text3)}
 .nw-foot a:hover{color:var(--em)}
-.nw-empty{padding:1.5rem;text-align:center;color:var(--text3);font-size:.88rem;border:1px dashed var(--border);border-radius:.9rem;line-height:1.65}
+.nw-empty{
+  padding:1.75rem;text-align:center;color:var(--text3);font-size:.9rem;
+  border:1px dashed var(--border);border-radius:.9rem;line-height:1.7;
+}
 .back{display:inline-block;margin-bottom:1rem;font-size:.85rem;color:var(--em2)}
-.note{font-size:.75rem;color:var(--text3);margin-top:1.75rem;line-height:1.65}
+.note{font-size:.75rem;color:var(--text3);margin-top:2rem;line-height:1.65}
+.nw-clients{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.75rem}
+.nw-clients a{
+  font-family:var(--mono);font-size:.62rem;padding:.35rem .7rem;border-radius:99px;
+  border:1px solid var(--border2);background:var(--bg3);color:var(--text2);text-decoration:none;
+}
+.nw-clients a:hover{border-color:var(--em);color:var(--em)}
+.nw-kicker{
+  font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--em);margin-bottom:.35rem;
+}
 </style>
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=737"></script>
-<script defer src="/js/sc-nostr-wall.js?v=737"></script>
+<script defer src="/js/sc-analytics.js?v=739"></script>
+<script defer src="/js/sc-nostr-wall.js?v=739"></script>
 </head>
 <body class="nw-page">
 <a class="back" href="/">← SherpaCarta</a>
 
 <div class="nw-ribbon">
-  <span class="mark"><i class="fas fa-comments"></i> Public Nostr deliberation</span>
-  <span class="live">read-only wall</span>
+  <span class="mark"><i class="fas fa-bolt"></i> Notes and Other Stuff Transmitted by Relays</span>
+  <span class="live">NIP-05 live</span>
   <span class="live" style="color:var(--gold2);border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.08)">#sherpacarta</span>
 </div>
 
-<h1>Live discussion</h1>
-<p class="lead">Public notes from the Nostr network about SherpaCarta — and replies from the product guide agent when it is online. Nothing is stored on our servers. Relays update this window in real time.</p>
+<p class="nw-kicker">Protocol · not a platform</p>
+<h1>Speak freely. Own your voice.</h1>
+<p class="lead">
+  Nostr is a simple, open protocol for global conversation — like email for social posts.
+  No company owns your identity. No single server can erase the public square.
+  SherpaCarta uses it for <strong>living rights deliberation</strong> that outlasts any one website.
+</p>
 
-<div class="nw-how">
-  <strong style="color:var(--text)">Join the conversation</strong>
-  <ol>
-    <li>Install a Nostr client (Primal, Damus, Amethyst, etc.).</li>
-    <li>Copy the guide handle: <code id="nip-copy">sherpa@giveabit.io</code> — <strong>NIP-05 live</strong> on giveabit.io.</li>
-    <li>Post with <code>#sherpacarta</code> or message the guide — public replies appear here when the bot (or humans) post.</li>
-  </ol>
-</div>
-
-<div class="nw-actions">
+<div class="nw-actions" style="margin-top:1.25rem">
   <button type="button" class="btn btn-primary" id="btn-copy-nip"><i class="fas fa-copy"></i> Copy sherpa@giveabit.io</button>
-  <button type="button" class="btn btn-ghost" id="btn-copy-npub"><i class="fas fa-key"></i> Copy npub</button>
-  <a class="btn btn-ghost" href="https://njump.me/npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> Open profile</a>
-  <a class="btn btn-ghost" href="/canada/"><i class="fas fa-flag"></i> Canada campaign</a>
+  <button type="button" class="btn" id="btn-copy-npub"><i class="fas fa-key"></i> Copy npub</button>
+  <a class="btn" href="https://njump.me/npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> Open profile</a>
+  <a class="btn" href="#live-wall"><i class="fas fa-radio"></i> Jump to live wall</a>
 </div>
 
-<section id="sc-nostr-wall" data-sc-nostr-wall aria-label="Live Nostr notes">
-  <div data-nw-status>Loading wall…</div>
-  <div data-nw-meta></div>
-  <div data-nw-list></div>
+<!-- Why Nostr -->
+<section class="nw-section" aria-labelledby="why-nostr">
+  <h2 id="why-nostr">Why Nostr is a big deal</h2>
+  <div class="nw-quote">
+    <p>“If your account can be closed by a corporation, it was never really yours.”</p>
+    <cite>— Spirit of Nostr · portable identity · public keys</cite>
+  </div>
+  <div class="nw-grid-3" style="margin-top:1.15rem">
+    <div class="nw-stat">
+      <div class="n">0</div>
+      <div class="l">HQ gatekeepers</div>
+      <div class="s">You sign events with <strong>your</strong> key. Relays carry them. Apps display them. No single CEO deplatforms the protocol.</div>
+    </div>
+    <div class="nw-stat">
+      <div class="n">1</div>
+      <div class="l">Identity key</div>
+      <div class="s">Your <code style="color:var(--em2)">npub</code> works across Damus, Primal, Amethyst, and more — like an email address that no ISP can revoke.</div>
+    </div>
+    <div class="nw-stat">
+      <div class="n">∞</div>
+      <div class="l">Relay choice</div>
+      <div class="s">Anyone can run a relay. If one goes dark, others still hold public notes. Resilience by design.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Facts + compare -->
+<section class="nw-section" aria-labelledby="facts">
+  <h2 id="facts">Platform vs protocol — at a glance</h2>
+  <p class="lead" style="font-size:.92rem;margin-bottom:1rem">Honest comparison for digital rights builders. Bars are conceptual scores (0–100), not market-cap vanity metrics.</p>
+  <div class="nw-card">
+    <div class="nw-compare" id="nw-compare">
+      <div class="nw-compare-row">
+        <div class="label"><strong>You own your identity</strong> <span>Nostr 98 · Big Social 15</span></div>
+        <div class="nw-track"><div class="nw-bar" data-w="98"></div></div>
+        <div class="nw-track" style="margin-top:.25rem"><div class="nw-bar muted" data-w="15"></div></div>
+      </div>
+      <div class="nw-compare-row">
+        <div class="label"><strong>Censorship resistance</strong> <span>Nostr 90 · Big Social 25</span></div>
+        <div class="nw-track"><div class="nw-bar" data-w="90"></div></div>
+        <div class="nw-track" style="margin-top:.25rem"><div class="nw-bar muted" data-w="25"></div></div>
+      </div>
+      <div class="nw-compare-row">
+        <div class="label"><strong>App portability</strong> <span>Nostr 95 · Big Social 10</span></div>
+        <div class="nw-track"><div class="nw-bar gold" data-w="95"></div></div>
+        <div class="nw-track" style="margin-top:.25rem"><div class="nw-bar muted" data-w="10"></div></div>
+      </div>
+      <div class="nw-compare-row">
+        <div class="label"><strong>Open standards</strong> <span>Nostr 100 · Big Social 5</span></div>
+        <div class="nw-track"><div class="nw-bar" data-w="100"></div></div>
+        <div class="nw-track" style="margin-top:.25rem"><div class="nw-bar muted" data-w="5"></div></div>
+      </div>
+    </div>
+    <div class="nw-legend">
+      <span class="lg-em">Nostr (protocol)</span>
+      <span class="lg-mute">Typical closed social platform</span>
+    </div>
+  </div>
+</section>
+
+<!-- How it works + clients -->
+<section class="nw-section" aria-labelledby="how">
+  <h2 id="how">How Nostr works (30 seconds)</h2>
+  <div class="nw-grid-2">
+    <div class="nw-card">
+      <h3><i class="fas fa-1"></i> Keys, not accounts</h3>
+      <p>You create a keypair. Public key = your address (<code style="color:var(--em2)">npub…</code>). Private key signs notes — never share it. Optional NIP-05 like <strong>sherpa@giveabit.io</strong> makes it human-readable.</p>
+    </div>
+    <div class="nw-card">
+      <h3><i class="fas fa-2"></i> Relays, not silos</h3>
+      <p>Notes are JSON events pushed to relays (simple WebSocket servers). Clients fetch from many relays. The network is the product — not one database.</p>
+    </div>
+    <div class="nw-card">
+      <h3><i class="fas fa-3"></i> Clients compete</h3>
+      <p>Damus, Primal, Amethyst, Snort… switch apps without losing followers. Competition improves UX; the protocol stays stable.</p>
+      <div class="nw-clients">
+        <a href="https://primal.net" target="_blank" rel="noopener">Primal</a>
+        <a href="https://damus.io" target="_blank" rel="noopener">Damus</a>
+        <a href="https://amethyst.social" target="_blank" rel="noopener">Amethyst</a>
+        <a href="https://nostr.com" target="_blank" rel="noopener">nostr.com</a>
+      </div>
+    </div>
+    <div class="nw-card">
+      <h3><i class="fas fa-scroll"></i> Why SherpaCarta cares</h3>
+      <p>Digital rights need a public square that cannot be quietly deleted. Charter amendments, campaign discussion, and civic voice belong on open rails — Bitcoin for money, Nostr for speech.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Facts strip -->
+<section class="nw-section" aria-labelledby="facts-strip">
+  <h2 id="facts-strip">Fast facts</h2>
+  <div class="nw-grid-3">
+    <div class="nw-stat">
+      <div class="n" style="font-size:1.5rem">NIP-01</div>
+      <div class="l">Core protocol</div>
+      <div class="s">Signed events + relay REQ/EVENT. Simple enough to implement in a weekend — powerful enough for a global network.</div>
+    </div>
+    <div class="nw-stat">
+      <div class="n" style="font-size:1.5rem">NIP-05</div>
+      <div class="l">Human names</div>
+      <div class="s">Maps <code style="color:var(--em2)">sherpa@giveabit.io</code> → public key via HTTPS. Verifiable. No central identity company.</div>
+    </div>
+    <div class="nw-stat">
+      <div class="n" style="font-size:1.5rem">zaps</div>
+      <div class="l">Value for value</div>
+      <div class="s">Lightning tips (zaps) let readers support writers directly — aligned with Bitcoin-sovereign culture.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Join -->
+<section class="nw-section">
+  <div class="nw-how">
+    <strong style="color:var(--text);font-size:1rem">Join the SherpaCarta conversation</strong>
+    <ol>
+      <li>Install a Nostr client (Primal, Damus, Amethyst…).</li>
+      <li>Follow or message <code>sherpa@giveabit.io</code> — <strong>NIP-05 is live</strong>.</li>
+      <li>Post with <code>#sherpacarta</code> — notes appear on the live wall below (public kind-1 only).</li>
+      <li>Optional: use NIP-07 (browser extension) on the main site to sign the charter with your Nostr identity.</li>
+    </ol>
+    <div class="nw-actions">
+      <button type="button" class="btn btn-primary" id="btn-copy-nip-2"><i class="fas fa-copy"></i> Copy sherpa@giveabit.io</button>
+      <a class="btn" href="/"><i class="fas fa-signature"></i> Sign the charter</a>
+      <a class="btn" href="/canada/"><i class="fas fa-flag"></i> Canada campaign</a>
+    </div>
+  </div>
+</section>
+
+<!-- Live wall -->
+<section class="nw-section" id="live-wall" aria-labelledby="wall-title">
+  <div class="nw-wall-head">
+    <div>
+      <p class="nw-kicker">Real-time · public relays</p>
+      <h2 id="wall-title" style="margin:0">Live wall</h2>
+    </div>
+    <div class="nw-live-pills">
+      <span class="pill">Notes loaded: <strong id="nw-count">0</strong></span>
+      <span class="pill">Filter: <strong>#sherpacarta</strong> + guide</span>
+    </div>
+  </div>
+  <p class="lead" style="font-size:.9rem;margin-bottom:1rem">
+    Read-only feed from public relays. Nothing is stored on our servers. DMs never appear here.
+  </p>
+
+  <section id="sc-nostr-wall" data-sc-nostr-wall aria-label="Live Nostr notes">
+    <div data-nw-status>Connecting to relays…</div>
+    <div data-nw-meta></div>
+    <div data-nw-list></div>
+  </section>
 </section>
 
 <p class="note">
-  This is a <strong>public</strong> feed only (kind-1 notes). Direct messages are never shown here.
-  The guide agent is product-scoped (charter, campaign, treasury) — not suite ops.
-  Private key never runs in this browser. Architecture lives in the repo as <code>docs/GOAL-SHERPA-NOSTR-BUZZ.md</code>.
+  <strong>Privacy:</strong> public notes only · no cookies from us beyond first-party Umami · private keys never touch this browser.
+  Architecture: <code>docs/GOAL-SHERPA-NOSTR-BUZZ.md</code> in the repo.
+  Product guide: <code>sherpa@giveabit.io</code> · suite ops remains separate.
 </p>
 
 <script>
 (function () {
   var npub = 'npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57';
   var nip = 'sherpa@giveabit.io';
+
+  function toastStatus(ok) {
+    var s = document.querySelector('[data-nw-status]');
+    if (s) { s.textContent = ok; s.dataset.kind = 'ok'; }
+  }
   function copy(t, ok) {
-    navigator.clipboard.writeText(t).then(function () {
-      var s = document.querySelector('[data-nw-status]');
-      if (s) { s.textContent = ok; s.dataset.kind = 'ok'; }
-    });
+    navigator.clipboard.writeText(t).then(function () { toastStatus(ok); });
   }
   document.getElementById('btn-copy-nip')?.addEventListener('click', function () {
-    copy(nip, 'Copied ' + nip + ' — NIP-05 live on giveabit.io');
+    copy(nip, 'Copied ' + nip + ' — NIP-05 live');
+  });
+  document.getElementById('btn-copy-nip-2')?.addEventListener('click', function () {
+    copy(nip, 'Copied ' + nip + ' — NIP-05 live');
   });
   document.getElementById('btn-copy-npub')?.addEventListener('click', function () {
-    copy(npub, 'Copied npub — works on any Nostr client');
+    copy(npub, 'Copied npub');
   });
+
+  // Animate compare bars when visible
+  function animateBars() {
+    document.querySelectorAll('.nw-bar[data-w]').forEach(function (el) {
+      el.style.width = (el.getAttribute('data-w') || 0) + '%';
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { animateBars(); io.disconnect(); }
+      });
+    }, { threshold: 0.25 });
+    var c = document.getElementById('nw-compare');
+    if (c) io.observe(c);
+  } else {
+    setTimeout(animateBars, 400);
+  }
+
+  // Sync note count from wall map when possible
+  function syncCount() {
+    var wall = document.getElementById('sc-nostr-wall');
+    var n = 0;
+    if (wall && wall._scNostrWall && wall._scNostrWall.events) {
+      n = wall._scNostrWall.events.size;
+    } else {
+      n = document.querySelectorAll('.nw-note').length;
+    }
+    var el = document.getElementById('nw-count');
+    if (el) el.textContent = String(n);
+  }
+  setInterval(syncCount, 2000);
+  setTimeout(syncCount, 1500);
 })();
 </script>
 </body>

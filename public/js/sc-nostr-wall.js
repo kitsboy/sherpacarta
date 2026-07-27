@@ -150,6 +150,11 @@
       }
     }
     this.render();
+    // Optional page counter
+    try {
+      var c = document.getElementById('nw-count');
+      if (c) c.textContent = String(this.events.size);
+    } catch (_) {}
   };
 
   Wall.prototype.connect = function () {
