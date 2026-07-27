@@ -374,7 +374,7 @@
     btn.innerHTML = '<i class="fab fa-bitcoin"></i> Stamp on Satohash';
     btn.onclick = () => {
       if (window.stampCharterHash) stampCharterHash();
-      else window.open('https://satohash.giveabit.io', '_blank', 'noopener');
+      else window.open('https://satohash.io/stamp?ref=sherpacarta', '_blank', 'noopener');
     };
     $('sign')?.querySelector('.sign-section')?.appendChild(btn);
   });

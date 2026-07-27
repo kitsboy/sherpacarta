@@ -212,7 +212,7 @@
   feat(125, 'Idle prefetch Satohash', () => {
     SC2.idle?.(() => {
       const l = document.createElement('link');
-      l.rel = 'prefetch'; l.href = 'https://satohash.giveabit.io';
+      l.rel = 'prefetch'; l.href = 'https://satohash.io/stamp';
       document.head.appendChild(l);
     });
   });

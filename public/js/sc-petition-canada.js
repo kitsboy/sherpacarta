@@ -445,7 +445,15 @@
     const root = await SHERPA_PETITION.computeMerkleRoot();
     const petitionHash = await SHERPA_PETITION.getPetitionHash();
     const hash = root || petitionHash;
-    const url = `https://satohash.giveabit.io?ref=sherpacarta-canada&hash=${hash}&campaign=${CAMPAIGN_ID}`;
+    // Canonical host + path (satohash.io and satohash.giveabit.io are aliases)
+    const q = new URLSearchParams({
+      hash,
+      ref: 'sherpacarta-canada',
+      source: 'sherpacarta-canada',
+      campaign: CAMPAIGN_ID || 'sherpacarta-canada-v1',
+      label: 'SherpaCarta+Canada+campaign'
+    });
+    const url = `https://satohash.io/stamp?${q.toString()}`;
     window.open(url, '_blank', 'noopener');
     return { hash, url };
   };

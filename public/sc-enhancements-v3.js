@@ -41,7 +41,7 @@
             <section><h3>⌨️ Power User</h3>
               <p style="font-size:.82rem;color:var(--text2);line-height:1.7"><kbd>⌘K</kbd> command palette · <kbd>?</kbd> shortcuts · Click <strong>BUILD</strong> badge (bottom-left) for all 300 features · A11y toolbar (bottom-left): font, contrast, reading mode</p></section>
             <section><h3>🇨🇦 Canada / BC Challenge</h3>
-              <p style="font-size:.82rem;color:var(--text2);line-height:1.7">⌘K → <em>Legislative Brief</em> or <em>MLA Email Template</em>. Stamp charter on <a href="https://satohash.giveabit.io" target="_blank" rel="noopener" style="color:var(--em)">Satohash</a> before outreach.</p></section>
+              <p style="font-size:.82rem;color:var(--text2);line-height:1.7">⌘K → <em>Legislative Brief</em> or <em>MLA Email Template</em>. Stamp charter on <a href="https://satohash.io/stamp?ref=sherpacarta" target="_blank" rel="noopener" style="color:var(--em)">Satohash</a> before outreach.</p></section>
             <section><h3>📧 Contact</h3>
               <p style="font-size:.82rem;color:var(--text2)"><a href="mailto:hello@giveabit.io?subject=Sherpacarta" style="color:var(--em)">hello@giveabit.io</a> (subject: Sherpacarta)</p></section>
             <section><h3>🎬 Video Tutorial</h3>

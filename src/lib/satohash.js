@@ -110,7 +110,22 @@ export function satohashVerifyUrl(idOrHash) {
   return `${SATOHASH_SITE}/verify/${encodeURIComponent(idOrHash)}`
 }
 
-/** Browser stamp guide with hash prefilled. */
-export function satohashStampGuideUrl(hash) {
-  return `${SATOHASH_SITE}/stamp?hash=${encodeURIComponent(hash)}`
+/**
+ * Canonical stamp deep-link for SPA handoff.
+ * @param {string} hash
+ * @param {{ ref?: string, label?: string, campaign?: string, filename?: string, source?: string }} [opts]
+ */
+export function satohashStampGuideUrl(hash, opts = {}) {
+  const hex = String(hash || '')
+    .trim()
+    .toLowerCase()
+  if (!/^[a-f0-9]{64}$/.test(hex)) return `${SATOHASH_SITE}/stamp`
+  const q = new URLSearchParams({ hash: hex })
+  const ref = opts.ref || SATOHASH_CLIENT_ID
+  if (ref) q.set('ref', ref)
+  if (opts.source || ref) q.set('source', opts.source || ref)
+  if (opts.label) q.set('label', opts.label)
+  if (opts.campaign) q.set('campaign', opts.campaign)
+  if (opts.filename) q.set('filename', opts.filename)
+  return `${SATOHASH_SITE}/stamp?${q.toString()}`
 }

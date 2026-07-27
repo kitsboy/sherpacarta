@@ -1,3 +1,16 @@
+## Session — 2026-07-27 (Grok M3 — Satohash stamp deep-link URLs)
+
+**Done:**
+- `stampCharterOnBitcoin` → `https://satohash.io/stamp?hash=&ref=sherpacarta&label=…`
+- Canada `stampOnSatohash` → same host + `/stamp` + `ref=sherpacarta-canada&campaign=`
+- `satohashStampGuideUrl(hash, opts)` accepts ref/label/campaign
+- Fixed copy/prefetch/CTA links in enhancements; `npm run bundle` → sc-bundle.js
+- Satohash SPA already live with home→stamp redirect
+
+**Still:** deploy Sherpa CF Pages after push; THOR satohash API for client_id metrics.
+
+---
+
 # KIMI → GROK HANDOFF — 2026-07-20 (THOR mega ops + less-chat + HQ v2.5 + memory)
 
 **From:** Kimi on THOR  

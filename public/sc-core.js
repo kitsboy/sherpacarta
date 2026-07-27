@@ -1849,7 +1849,14 @@ async function stampCharterOnBitcoin(){
     state.charterHash=hash;
     localStorage.setItem('sc_charter_hash',hash);
     toast('Charter hashed. Opening Satohash to stamp on Bitcoin…','info');
-    window.open(`${SATOHASH_URL}?ref=sherpacarta&hash=${hash}`,'_blank','noopener');
+    // Canonical deep-link: /stamp?hash=&ref= (home /?hash= also redirects)
+    const q = new URLSearchParams({
+      hash,
+      ref: SATOHASH_CLIENT_ID || 'sherpacarta',
+      label: 'SherpaCarta+charter',
+      source: 'sherpacarta'
+    });
+    window.open(`${SATOHASH_URL}/stamp?${q.toString()}`,'_blank','noopener');
   }catch(e){toast('Could not compute charter hash','error');}
 }
 

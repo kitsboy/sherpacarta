@@ -1071,7 +1071,7 @@
       if (typeof getCharterPlainText !== 'function') return;
       const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(getCharterPlainText()));
       const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
-      navigator.clipboard.writeText('https://satohash.giveabit.io?ref=sherpacarta&hash=' + hash);
+      navigator.clipboard.writeText('https://satohash.io/stamp?ref=sherpacarta&hash=' + hash);
       toast('Satohash stamp link copied', 'success');
     };
   });

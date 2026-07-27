@@ -117,7 +117,7 @@
     if (!mission) return;
     const cta = document.createElement('div');
     cta.style.cssText = 'margin-top:1.5rem';
-    cta.innerHTML = `<a href="https://satohash.giveabit.io" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-stamp"></i> Stamp Charter on Bitcoin (Satohash)</a>
+    cta.innerHTML = `<a href="https://satohash.io/stamp?ref=sherpacarta" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-stamp"></i> Stamp Charter on Bitcoin (Satohash)</a>
       <p style="font-size:.65rem;color:var(--text3);margin-top:.5rem">SHA-256 proof via OpenTimestamp — file never leaves your device.</p>`;
     mission.querySelector('.mission-inner')?.appendChild(cta);
   });
