@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>You Scanned a Petition Sheet — SherpaCarta Canada</title>
+<title>You Scanned a Petition Sheet — Join Canada Digital Rights</title>
 <!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SherpaCarta">
 <meta property="og:locale" content="en_CA">
 <meta property="og:url" content="https://sherpacarta.org/canada/join">
-<meta property="og:title" content="You Scanned a Petition Sheet — Join Digital Rights for Canada">
-<meta property="og:description" content="Keep your ink on the paper petition — that is what Parliament can present. Then add a 30-second public mandate online. Honest dual-track for digital privacy and rights.">
+<meta property="og:title" content="You Scanned a Petition Sheet — Join Canada Digital Rights">
+<meta property="og:description" content="Thanks for scanning. Keep your ink on the paper — that is what Parliament can present. Then add a 30-second public mandate online. No account. No ID.">
 <meta property="og:image" content="https://sherpacarta.org/og/join.jpg">
 <meta property="og:image:secure_url" content="https://sherpacarta.org/og/join.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -21,284 +21,424 @@
 <meta name="twitter:site" content="@give_bit">
 <meta name="twitter:creator" content="@give_bit">
 <meta name="twitter:url" content="https://sherpacarta.org/canada/join">
-<meta name="twitter:title" content="You Scanned a Petition Sheet — Join Digital Rights for Canada">
-<meta name="twitter:description" content="Paper for Parliament. Digital for public mandate. Both matter — neither replaces the other.">
+<meta name="twitter:title" content="You Scanned a Petition Sheet — Join Canada Digital Rights">
+<meta name="twitter:description" content="Ink for Parliament. Digital for public mandate. Do both — neither replaces the other.">
 <meta name="twitter:image" content="https://sherpacarta.org/og/join.jpg">
 <meta name="twitter:image:src" content="https://sherpacarta.org/og/join.jpg">
 <meta name="twitter:image:alt" content="You Scanned a Petition Sheet — SherpaCarta Canada">
-<meta name="description" content="Landing page for SherpaCarta Canada petition QR codes. Keep wet signatures on the paper sheet, then add a privacy-first public mandate online. Dual-track honest — digital is not a Parliamentary e-signature.">
+<meta name="description" content="QR landing for SherpaCarta Canada petition sheets. Keep your wet signature on paper, then join the privacy-first public mandate online in about 30 seconds.">
 <link rel="image_src" href="https://sherpacarta.org/og/join.jpg">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
 <link rel="canonical" href="https://sherpacarta.org/canada/join">
 <meta name="theme-color" content="#050806">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="icon" href="/favicon.png?v=754" type="image/png" sizes="48x48">
-<link rel="icon" href="/brand-mark.png?v=754" type="image/png" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=754">
-<link rel="stylesheet" href="/fonts/fonts.css?v=754">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=754">
-<link rel="stylesheet" href="/sc-main.css?v=754">
+<link rel="icon" href="/favicon.png?v=760" type="image/png" sizes="48x48">
+<link rel="icon" href="/brand-mark.png?v=760" type="image/png" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=760">
+<link rel="stylesheet" href="/fonts/fonts.css?v=760">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=760">
+<link rel="stylesheet" href="/sc-main.css?v=760">
 <style>
 body.jn, body.jn * { cursor: auto !important; }
 body.jn a, body.jn button { cursor: pointer !important; }
 body.jn{
   margin:0;min-height:100dvh;font-family:var(--sans);color:var(--text);line-height:1.65;
   background:
-    radial-gradient(ellipse 95% 42% at 50% -10%,rgba(16,185,129,.14),transparent 55%),
-    radial-gradient(ellipse 50% 30% at 100% 30%,rgba(212,175,55,.08),transparent 50%),
+    radial-gradient(ellipse 110% 50% at 50% -12%,rgba(16,185,129,.18),transparent 58%),
+    radial-gradient(ellipse 55% 35% at 100% 18%,rgba(212,175,55,.1),transparent 52%),
+    radial-gradient(ellipse 40% 28% at 0% 70%,rgba(16,185,129,.06),transparent 48%),
     var(--bg);
   display:flex;flex-direction:column;align-items:center;
-  padding:max(1rem,env(safe-area-inset-top)) 1.15rem max(2rem,env(safe-area-inset-bottom));
+  padding:max(1rem,env(safe-area-inset-top)) 1.1rem max(5.5rem,env(safe-area-inset-bottom));
 }
-.jn-inner{width:100%;max-width:480px;margin:0 auto}
-.nav-mini{font-size:.78rem;margin-bottom:1rem;color:var(--text3);display:flex;flex-wrap:wrap;gap:.3rem .5rem}
-.nav-mini a{color:var(--em2);text-decoration:none}
+.jn-inner{width:100%;max-width:440px;margin:0 auto}
+.nav-mini{
+  font-size:.76rem;margin-bottom:1.15rem;color:var(--text3);
+  display:flex;flex-wrap:wrap;gap:.35rem .55rem;align-items:center;
+}
+.nav-mini a{color:var(--em2);text-decoration:none;transition:color .15s}
+.nav-mini a:hover{color:var(--em)}
+.nav-mini .sep{opacity:.35}
+
+/* Hero card */
+.hero-card{
+  position:relative;overflow:hidden;
+  padding:1.35rem 1.25rem 1.4rem;border-radius:1.25rem;margin-bottom:1rem;
+  border:1px solid rgba(16,185,129,.28);
+  background:
+    linear-gradient(165deg,rgba(16,185,129,.12),rgba(212,175,55,.05) 45%,var(--bg2));
+  box-shadow:0 20px 50px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.04);
+}
+.hero-card::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--em),#34d399);
+}
 .kicker{
-  font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
-  color:var(--gold);margin:0 0 .4rem;
+  font-family:var(--mono);font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 .65rem;
 }
 .sheet-pill{
-  display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.58rem;
+  display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.56rem;
   letter-spacing:.08em;text-transform:uppercase;padding:.4rem .75rem;border-radius:100px;
-  border:1px solid rgba(212,175,55,.45);color:var(--gold);background:rgba(212,175,55,.08);
-  margin:0 0 1rem;
+  border:1px solid rgba(212,175,55,.5);color:var(--gold2);
+  background:rgba(212,175,55,.1);margin:0 0 .85rem;
+  box-shadow:0 0 20px rgba(212,175,55,.08);
 }
-.sheet-pill i{color:var(--em)}
+.sheet-pill i{color:var(--em);font-size:.7rem}
 h1{
-  font-family:var(--serif);font-size:clamp(1.75rem,6.5vw,2.35rem);line-height:1.12;
-  letter-spacing:-.02em;margin:0 0 .65rem;color:var(--em2);
+  font-family:var(--serif);font-size:clamp(1.85rem,7vw,2.45rem);line-height:1.1;
+  letter-spacing:-.025em;margin:0 0 .7rem;color:var(--em2);
 }
-h1 em{font-style:italic;color:var(--text);font-weight:400}
-.lead{color:var(--text2);font-size:1rem;margin:0 0 1rem;line-height:1.7}
-.lead strong{color:var(--text)}
+h1 .em{font-style:italic;color:var(--text);font-weight:400}
+.lead{color:var(--text2);font-size:1.02rem;margin:0 0 1rem;line-height:1.7}
+.lead strong{color:var(--text);font-weight:600}
+.chip-row{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.15rem}
+.chip{
+  display:inline-flex;align-items:center;gap:.3rem;
+  font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:.32rem .6rem;border-radius:100px;
+  border:1px solid rgba(16,185,129,.3);color:var(--em);
+  background:rgba(16,185,129,.08);
+}
+.chip.gold{border-color:rgba(212,175,55,.35);color:var(--gold);background:rgba(212,175,55,.07)}
+
+/* Stats */
+.stats{
+  display:grid;grid-template-columns:1.35fr 1fr;gap:.6rem;margin:0 0 1.15rem;
+}
+.stat{
+  padding:1rem 1.05rem;border-radius:1rem;
+  border:1px solid var(--border);
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+}
+.stat strong{
+  font-family:var(--serif);font-size:1.9rem;color:var(--em2);line-height:1;display:block;
+  letter-spacing:-.02em;
+}
+.stat span{
+  font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);display:block;margin-top:.35rem;
+}
+.bar{margin-top:.6rem;height:7px;background:var(--bg3);border-radius:4px;overflow:hidden}
+.bar > i{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--em),#34d399,var(--gold));
+  transition:width .6s cubic-bezier(.22,1,.36,1);
+  border-radius:4px;
+}
+.goal-msg{
+  font-size:.78rem;color:var(--text3);margin:.15rem 0 0;grid-column:1/-1;
+  padding:.15rem .1rem;
+}
+
+/* Steps */
+.sec{
+  font-family:var(--serif);font-size:1.2rem;color:var(--text);
+  margin:1.55rem 0 .7rem;letter-spacing:-.015em;
+}
+.steps{display:grid;gap:.55rem;margin:0 0 1.2rem}
+.step{
+  display:grid;grid-template-columns:auto 1fr;gap:.8rem;align-items:start;
+  padding:1rem 1.05rem;border-radius:1rem;
+  border:1px solid var(--border);
+  background:linear-gradient(165deg,var(--bg2),rgba(8,12,10,.9));
+  transition:border-color .2s,box-shadow .2s;
+}
+.step.now{
+  border-color:rgba(212,175,55,.5);
+  box-shadow:0 0 0 1px rgba(212,175,55,.1),0 12px 32px rgba(212,175,55,.06);
+  background:linear-gradient(165deg,rgba(212,175,55,.08),var(--bg2));
+}
+.step .n{
+  width:30px;height:30px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--mono);font-size:.72rem;font-weight:700;
+  background:rgba(16,185,129,.16);color:var(--em);
+  box-shadow:0 0 16px rgba(16,185,129,.15);
+}
+.step.now .n{background:rgba(212,175,55,.22);color:var(--gold2);box-shadow:0 0 16px rgba(212,175,55,.15)}
+.step h3{margin:0 0 .2rem;font-family:var(--serif);font-size:1.02rem;color:var(--text)}
+.step p{margin:0;font-size:.84rem;color:var(--text3);line-height:1.55}
+.step .tag{
+  display:inline-block;margin-top:.4rem;font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--gold2);padding:.18rem .5rem;border-radius:99px;
+  border:1px solid rgba(212,175,55,.4);background:rgba(212,175,55,.1);
+}
+
+/* CTAs */
+.cta-stack{margin:.15rem 0 1rem}
+.cta{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;
+  padding:1rem 1.25rem;border-radius:100px;font-weight:700;font-size:1.02rem;
+  text-decoration:none;border:none;min-height:54px;margin:.4rem 0;
+  font-family:var(--sans);box-sizing:border-box;transition:filter .15s,transform .12s;
+}
+.cta-main{
+  background:linear-gradient(135deg,#34d399,var(--em),#0d9668);color:#041208;
+  box-shadow:0 10px 36px rgba(16,185,129,.35),inset 0 1px 0 rgba(255,255,255,.2);
+}
+.cta-main:hover{filter:brightness(1.06)}
+.cta-main:active{transform:scale(.985)}
+.cta-sec{
+  background:rgba(255,255,255,.03);border:1px solid var(--border2)!important;color:var(--em2);
+}
+.cta-sec:hover{border-color:rgba(16,185,129,.4)!important;background:rgba(16,185,129,.06)}
+.cta-gold{
+  background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(212,175,55,.08));
+  border:1px solid rgba(212,175,55,.5)!important;color:var(--gold2);
+}
+.cta-gold:hover{filter:brightness(1.08)}
+.cta-note{
+  text-align:center;font-size:.75rem;color:var(--text3);margin:.35rem 0 0;line-height:1.45;
+}
+
+/* Promise / legal */
 .promise{
-  padding:1rem 1.1rem;border-radius:1rem;margin:0 0 1.15rem;
+  padding:1.05rem 1.15rem;border-radius:1rem;margin:0 0 1.1rem;
   border:1px solid rgba(16,185,129,.32);
-  background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(212,175,55,.06));
+  background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(212,175,55,.05));
   position:relative;overflow:hidden;
 }
 .promise::before{
   content:"";position:absolute;inset:0 0 auto 0;height:2px;
   background:linear-gradient(90deg,var(--gold),var(--em));
 }
-.promise p{margin:0;font-size:.88rem;color:var(--text2);line-height:1.65}
+.promise p{margin:0;font-size:.9rem;color:var(--text2);line-height:1.65}
 .promise strong{color:var(--text)}
-.stats{
-  display:grid;grid-template-columns:1.3fr 1fr;gap:.65rem;margin:0 0 1.15rem;
-}
-.stat{
-  padding:.9rem 1rem;border-radius:.9rem;border:1px solid var(--border);
-  background:linear-gradient(165deg,var(--bg2),var(--bg3));
-}
-.stat strong{
-  font-family:var(--serif);font-size:1.75rem;color:var(--em2);line-height:1;display:block;
-}
-.stat span{
-  font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--text3);display:block;margin-top:.3rem;
-}
-.bar{margin-top:.55rem;height:6px;background:var(--bg3);border-radius:3px;overflow:hidden}
-.bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--em),var(--gold));transition:width .55s}
-.goal-msg{font-size:.72rem;color:var(--text3);margin:.4rem 0 0;grid-column:1/-1}
-.steps{display:grid;gap:.5rem;margin:0 0 1.15rem}
-.step{
-  display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;
-  padding:.85rem .95rem;border-radius:.9rem;border:1px solid var(--border);background:var(--bg2);
-}
-.step.now{border-color:rgba(212,175,55,.45);box-shadow:0 0 0 1px rgba(212,175,55,.08)}
-.step .n{
-  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
-  font-family:var(--mono);font-size:.68rem;font-weight:700;background:rgba(16,185,129,.15);color:var(--em);
-}
-.step.now .n{background:rgba(212,175,55,.2);color:var(--gold2)}
-.step h3{margin:0 0 .15rem;font-family:var(--serif);font-size:.95rem;color:var(--text)}
-.step p{margin:0;font-size:.8rem;color:var(--text3);line-height:1.5}
-.step .tag{
-  display:inline-block;margin-top:.35rem;font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--gold2);padding:.12rem .4rem;border-radius:99px;
-  border:1px solid rgba(212,175,55,.35);background:rgba(212,175,55,.08);
-}
-.cta{
-  display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;
-  padding:.95rem 1.2rem;border-radius:100px;font-weight:700;font-size:1rem;
-  text-decoration:none;border:none;min-height:52px;margin:.35rem 0;
-  font-family:var(--sans);box-sizing:border-box;
-}
-.cta-main{
-  background:linear-gradient(135deg,var(--em),#0d9668);color:#041208;
-  box-shadow:0 8px 28px rgba(16,185,129,.28);
-}
-.cta-main:active{transform:scale(.98)}
-.cta-sec{background:var(--bg3);border:1px solid var(--border2)!important;color:var(--em2)}
-.cta-gold{
-  background:linear-gradient(135deg,rgba(212,175,55,.22),rgba(212,175,55,.08));
-  border:1px solid rgba(212,175,55,.45)!important;color:var(--gold2);
-}
 .legal{
-  font-size:.76rem;color:var(--text3);line-height:1.6;padding:.85rem 1rem;
-  border:1px solid rgba(212,175,55,.25);border-radius:.85rem;background:rgba(212,175,55,.06);
-  margin:1rem 0;
+  font-size:.78rem;color:var(--text3);line-height:1.6;padding:.95rem 1.05rem;
+  border:1px solid rgba(212,175,55,.28);border-radius:.95rem;
+  background:rgba(212,175,55,.06);margin:1rem 0 1.2rem;
 }
 .legal strong{color:var(--gold)}
+
+/* Why / tiles */
+.why{
+  margin:0 0 1rem;padding:1.1rem 1.15rem;border-radius:1.05rem;
+  border:1px solid var(--border);
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
+}
+.why .label{
+  font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--em);margin:0 0 .75rem;
+}
+.why-list{list-style:none;margin:0;padding:0}
+.why-list li{
+  display:grid;grid-template-columns:auto 1fr;gap:.7rem;align-items:start;
+  padding:.65rem 0;border-bottom:1px solid var(--border);
+  font-size:.88rem;color:var(--text2);line-height:1.5;
+}
+.why-list li:last-child{border-bottom:none;padding-bottom:0}
+.why-list .ico{
+  width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+  background:rgba(16,185,129,.12);color:var(--em);font-size:.75rem;flex-shrink:0;
+}
+.why-list strong{color:var(--text);display:block;margin-bottom:.1rem;font-size:.9rem}
+
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.55rem;margin:1rem 0}
 @media(max-width:400px){.grid-2{grid-template-columns:1fr}}
 .tile{
-  padding:.9rem;border-radius:.85rem;border:1px solid var(--border);background:var(--bg2);
+  padding:1rem;border-radius:.95rem;border:1px solid var(--border);
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
 }
-.tile h3{font-family:var(--serif);font-size:.92rem;margin:0 0 .3rem;color:var(--text)}
-.tile p{margin:0;font-size:.78rem;color:var(--text2);line-height:1.5}
-.why{margin:1.25rem 0;padding:1rem 1.05rem;background:var(--bg2);border-radius:1rem;border:1px solid var(--border)}
-.why h2{
-  font-family:var(--mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--em);margin:0 0 .65rem;
-}
-.why ul{margin:0;padding-left:1.1rem;font-size:.85rem;color:var(--text2)}
-.why li{margin:.4rem 0;line-height:1.5}
+.tile .ico-line{color:var(--em);font-size:.85rem;margin-bottom:.45rem}
+.tile h3{font-family:var(--serif);font-size:.98rem;margin:0 0 .35rem;color:var(--text)}
+.tile p{margin:0;font-size:.8rem;color:var(--text2);line-height:1.5}
+
+/* FAQ */
 .faq details{
-  border:1px solid var(--border);border-radius:.8rem;padding:.75rem .9rem;margin:.4rem 0;background:var(--bg2);
+  border:1px solid var(--border);border-radius:.9rem;padding:.85rem 1rem;margin:.45rem 0;
+  background:var(--bg2);transition:border-color .15s;
 }
+.faq details[open]{border-color:rgba(16,185,129,.3)}
 .faq summary{
-  font-weight:600;font-size:.88rem;color:var(--text);list-style:none;
-  display:flex;justify-content:space-between;gap:.5rem;cursor:pointer;
+  font-weight:600;font-size:.9rem;color:var(--text);list-style:none;
+  display:flex;justify-content:space-between;gap:.5rem;cursor:pointer;align-items:center;
 }
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--mono);color:var(--gold)}
+.faq summary::after{
+  content:"+";font-family:var(--mono);color:var(--gold);font-size:1.15rem;line-height:1;
+  flex-shrink:0;
+}
 .faq details[open] summary::after{content:"−"}
-.faq details p{margin:.55rem 0 0;font-size:.82rem;color:var(--text2);line-height:1.6}
-.links{display:flex;flex-wrap:wrap;gap:.55rem;justify-content:center;margin-top:1.35rem;font-size:.78rem}
-.links a{color:var(--em2)}
-.note-foot{font-size:.7rem;color:var(--text3);text-align:center;margin-top:1.25rem;line-height:1.55}
-h2.sec{font-family:var(--serif);font-size:1.15rem;color:var(--text);margin:1.5rem 0 .55rem}
+.faq details p{margin:.65rem 0 0;font-size:.85rem;color:var(--text2);line-height:1.65}
+
+.links{
+  display:flex;flex-wrap:wrap;gap:.55rem .85rem;justify-content:center;
+  margin-top:1.5rem;font-size:.8rem;
+}
+.links a{color:var(--em2);text-decoration:none}
+.links a:hover{color:var(--em)}
+.note-foot{
+  font-size:.7rem;color:var(--text3);text-align:center;margin-top:1.15rem;line-height:1.6;
+}
+
+/* Sticky bottom CTA (mobile-first) */
+.sticky-cta{
+  position:fixed;bottom:0;left:0;right:0;z-index:40;
+  padding:.7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
+  background:linear-gradient(180deg,transparent,rgba(5,8,6,.88) 22%,rgba(5,8,6,.97));
+  display:flex;justify-content:center;pointer-events:none;
+}
+.sticky-cta a{
+  pointer-events:auto;max-width:440px;width:100%;
+  box-shadow:0 10px 36px rgba(0,0,0,.45),0 8px 28px rgba(16,185,129,.3);
+}
+@media(min-width:900px){.sticky-cta{display:none}}
 </style>
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=754"></script>
+<script defer src="/js/sc-analytics.js?v=760"></script>
 </head>
 <body class="jn">
   <div class="jn-inner">
     <nav class="nav-mini" aria-label="Join page">
       <a href="/canada/">← Canada hub</a>
-      <a href="/canada/sign">Sign mandate</a>
-      <a href="/canada/paper">Paper sheets</a>
-      <a href="/canada/official">Official path</a>
+      <span class="sep">·</span>
+      <a href="/canada/sign">Sign</a>
+      <a href="/canada/paper">Paper</a>
+      <a href="/canada/official">Official</a>
     </nav>
 
-    <p class="kicker" id="kicker">Canada · digital rights · paper bridge</p>
-    <p class="sheet-pill" id="sheet-pill" hidden>
-      <i class="fas fa-qrcode" aria-hidden="true"></i>
-      <span id="sheet-label">Scanned from a petition sheet</span>
-    </p>
-
-    <h1 id="hero-title">You scanned a <em>real</em> petition sheet</h1>
-    <p class="lead" id="hero-lead">
-      Thank you. The <strong>ink on that paper</strong> is the part an MP can present.
-      This page is the digital bridge: understand the dual path, then add a
-      <strong>public mandate</strong> online in about 30 seconds — no account, no ID.
-    </p>
-
-    <div class="promise">
-      <p>
-        <strong>Two tracks, both honest:</strong>
-        Paper (and a future Commons e-###) can count in Parliament.
-        A digital mandate here builds public numbers and a privacy-first receipt —
-        it does <strong>not</strong> replace your wet signature on the sheet.
+    <header class="hero-card">
+      <p class="kicker" id="kicker">Canada · digital rights · paper bridge</p>
+      <p class="sheet-pill" id="sheet-pill" hidden>
+        <i class="fas fa-qrcode" aria-hidden="true"></i>
+        <span id="sheet-label">Scanned from a petition sheet</span>
       </p>
-    </div>
+      <h1 id="hero-title">You found something that <span class="em">matters</span></h1>
+      <p class="lead" id="hero-lead">
+        Thanks for scanning. The <strong>ink on that sheet</strong> is what an MP can take to Parliament.
+        Online, you can add a <strong>public mandate</strong> in about 30 seconds — no account, no ID.
+      </p>
+      <div class="chip-row" aria-label="Highlights">
+        <span class="chip"><i class="fas fa-pen-fancy" aria-hidden="true"></i> Keep the ink</span>
+        <span class="chip"><i class="fas fa-bolt" aria-hidden="true"></i> 30s online</span>
+        <span class="chip gold"><i class="fas fa-shield-halved" aria-hidden="true"></i> No tracking</span>
+        <span class="chip gold"><i class="fas fa-landmark" aria-hidden="true"></i> Dual-track honest</span>
+      </div>
+    </header>
 
     <div class="stats" aria-live="polite">
       <div class="stat">
         <strong id="total">—</strong>
-        <span>Public mandate</span>
+        <span>Canadians on the mandate</span>
         <div class="bar" title="Progress toward goal"><i id="goal-bar"></i></div>
       </div>
       <div class="stat">
-        <strong id="prov" style="font-size:1.35rem">—</strong>
-        <span>Top province</span>
+        <strong id="prov" style="font-size:1.45rem">—</strong>
+        <span>Leading province</span>
       </div>
       <p class="goal-msg" id="goal-label">Loading live total…</p>
     </div>
 
-    <h2 class="sec">What to do right now</h2>
+    <div class="promise">
+      <p>
+        <strong>Two tracks. Both real. Neither fakes the other.</strong><br>
+        Paper (and a future Commons e-###) can count in Parliament.
+        A digital mandate builds public numbers and a privacy-first receipt —
+        it does <strong>not</strong> replace your wet signature.
+      </p>
+    </div>
+
+    <h2 class="sec">Your next three moves</h2>
     <div class="steps">
       <div class="step now" id="step-paper">
         <div class="n">1</div>
         <div>
-          <h3>Finish the paper sheet</h3>
-          <p id="step-paper-copy">If you have not already: print name, city/province, and sign under the prayer. That ink is the legal instrument.</p>
-          <span class="tag">Do not skip</span>
+          <h3>Finish the paper first</h3>
+          <p id="step-paper-copy">Name, city &amp; province, signature under the prayer. That ink is the legal instrument.</p>
+          <span class="tag">Do this now</span>
         </div>
       </div>
       <div class="step">
         <div class="n">2</div>
         <div>
-          <h3>Add the public mandate</h3>
-          <p>Online commitment + SHA-256 receipt. Builds momentum and proof of support across Canada.</p>
+          <h3>Join the public mandate</h3>
+          <p>Thirty seconds online. You get a private receipt; Canada gets a clearer signal of demand.</p>
         </div>
       </div>
       <div class="step">
         <div class="n">3</div>
         <div>
-          <h3>Help the e-petition path</h3>
-          <p>Share, print more sheets, or help an organizer find an MP for a live Commons e-###.</p>
+          <h3>Pass it on</h3>
+          <p>Share this page, hand someone a sheet, or help open a live House of Commons e-petition.</p>
         </div>
       </div>
     </div>
 
-    <a class="cta cta-main" id="cta-sign" href="/canada/sign?from=paper">
-      <i class="fas fa-signature"></i> Sign the public mandate
-    </a>
-    <a class="cta cta-sec" href="/canada/paper">
-      <i class="fas fa-print"></i> Print more federal sheets
-    </a>
-    <a class="cta cta-gold" id="cta-official" href="/canada/official">
-      <i class="fas fa-landmark"></i> Official Parliament path
-    </a>
-
-    <div class="legal">
-      <strong>Legal clarity:</strong>
-      Scanning this QR or signing online does <em>not</em> replace a wet signature for presentation
-      to the House of Commons or a legislative assembly.
-      Best practice: <strong>ink on the sheet + digital mandate</strong>.
-      Online totals are not Parliamentary e-petition counts.
+    <div class="cta-stack">
+      <a class="cta cta-main" id="cta-sign" href="/canada/sign?from=paper">
+        <i class="fas fa-signature"></i> Join the public mandate
+      </a>
+      <p class="cta-note">No account · No ID · About 30 seconds · Stays private by default</p>
+      <a class="cta cta-sec" href="/canada/paper">
+        <i class="fas fa-print"></i> Print more federal sheets
+      </a>
+      <a class="cta cta-gold" id="cta-official" href="/canada/official">
+        <i class="fas fa-landmark"></i> Path to a Commons e-petition
+      </a>
     </div>
 
-    <h2 class="sec">Why people are joining</h2>
+    <div class="legal">
+      <strong>Straight talk:</strong>
+      This QR does <em>not</em> sign Parliament’s petition for you.
+      Wet ink (or a live e-### on Parliament’s site) is what the House can count.
+      Best move: <strong>ink on the sheet + digital mandate</strong>.
+    </div>
+
+    <h2 class="sec">Why people stop for this sheet</h2>
     <div class="why">
-      <h2>Three reasons</h2>
-      <ul>
-        <li><strong style="color:var(--text)">Privacy is a right</strong> — not a buried product setting sold by default.</li>
-        <li><strong style="color:var(--text)">Algorithms decide real lives</strong> — jobs, credit, speech. People deserve plain answers.</li>
-        <li><strong style="color:var(--text)">Parliament needs a clear ask</strong> — paper, mandate numbers, and eventually a live e-###.</li>
+      <p class="label">Three reasons that land</p>
+      <ul class="why-list">
+        <li>
+          <span class="ico" aria-hidden="true"><i class="fas fa-lock"></i></span>
+          <span><strong>Privacy is a right</strong> Your private life should not be inventory for ads and surveillance by default.</span>
+        </li>
+        <li>
+          <span class="ico" aria-hidden="true"><i class="fas fa-microchip"></i></span>
+          <span><strong>Algorithms score real lives</strong> Jobs, credit, speech — when machines decide, you deserve plain answers.</span>
+        </li>
+        <li>
+          <span class="ico" aria-hidden="true"><i class="fas fa-landmark"></i></span>
+          <span><strong>Parliament needs a clear ask</strong> Paper, mandate numbers, and eventually a live e-### turn care into process.</span>
+        </li>
       </ul>
     </div>
 
     <div class="grid-2">
       <div class="tile">
+        <div class="ico-line" aria-hidden="true"><i class="fas fa-file-signature"></i></div>
         <h3>Federal paper</h3>
-        <p>One Commons sheet for all of Canada. City + province on each line. MP can present with 25+ certified signatures.</p>
+        <p>One Commons sheet for all of Canada. City + province on each line. An MP can present with 25+ certified signatures.</p>
       </div>
       <div class="tile">
+        <div class="ico-line" aria-hidden="true"><i class="fas fa-mobile-screen"></i></div>
         <h3>Public mandate</h3>
-        <p>Citizen or resident (self-attested). No ID. Receipt stays on your device; optional privacy-first sync of hash + province.</p>
+        <p>Citizen or resident (self-attested). No ID. Receipt on your device; optional sync of hash + province only.</p>
       </div>
     </div>
 
-    <h2 class="sec">Quick questions</h2>
+    <h2 class="sec">Quick answers</h2>
     <div class="faq">
       <details open>
-        <summary>Does this QR sign the Parliamentary petition for me?</summary>
-        <p>No. Parliament only counts original paper presented by an MP, or signatures on a live e-petition at petitions.ourcommons.ca after email confirmation. This QR opens education + a separate public mandate.</p>
+        <summary>Does scanning this QR count in Parliament?</summary>
+        <p>No. Parliament counts original paper presented by an MP, or confirmed signatures on a live e-petition at petitions.ourcommons.ca. This QR is education + a separate public mandate.</p>
       </details>
       <details>
-        <summary>Should I still sign the paper if I sign online?</summary>
-        <p>Yes. The wet signature is what makes the sheet useful for presentation. Online is extra momentum and proof — not a substitute.</p>
+        <summary>I already signed online — do I still need ink?</summary>
+        <p>Yes, if you want the sheet to work. Wet ink is what makes paper presentable. Online adds momentum and proof — it is not a substitute.</p>
       </details>
       <details>
-        <summary>What am I supporting?</summary>
-        <p>Stronger digital rights in Canada: privacy, data sovereignty, limits on mass and commercial surveillance, and algorithmic fairness — using SherpaCarta (114 articles, CC0) as a reference framework.</p>
+        <summary>What am I actually supporting?</summary>
+        <p>Stronger digital rights in Canada: privacy, data sovereignty, limits on mass and commercial surveillance, and fair algorithms — with SherpaCarta (114 articles, CC0) as a clear reference.</p>
       </details>
       <details>
-        <summary>Who can sign the digital mandate?</summary>
-        <p>Canadian citizens and residents of Canada, including citizens abroad (self-attested). No government ID and no minimum age on the digital form. Official e-petition rules still apply on Parliament’s site when live.</p>
+        <summary>Who can join the digital mandate?</summary>
+        <p>Canadian citizens and residents, including citizens abroad (self-attested). No government ID and no minimum age on the digital form. Official e-petition rules still apply on Parliament’s site when that path is live.</p>
+      </details>
+      <details>
+        <summary>Will you sell or track my data?</summary>
+        <p>No ad tech. The online form stores a receipt on your device and may sync only a hash, province, and method — not phone, street address, or ID documents.</p>
       </details>
     </div>
 
@@ -313,11 +453,17 @@ h2.sec{font-family:var(--serif);font-size:1.15rem;color:var(--text);margin:1.5re
     <p class="note-foot">
       Not legal advice · Dual-track model ·
       <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/CANADA-PETITION-LEGAL.md" style="color:var(--em2)">Legal model</a>
-      · Contact <a href="mailto:hello@giveabit.io" style="color:var(--em2)">hello@giveabit.io</a>
+      · <a href="mailto:hello@giveabit.io" style="color:var(--em2)">hello@giveabit.io</a>
     </p>
   </div>
 
-<script src="/js/sc-petition-canada.js?v=754"></script>
+  <div class="sticky-cta" aria-label="Quick join">
+    <a class="cta cta-main" id="cta-sign-sticky" href="/canada/sign?from=paper">
+      <i class="fas fa-signature"></i> Join the public mandate
+    </a>
+  </div>
+
+<script src="/js/sc-petition-canada.js?v=760"></script>
 <script>
 (function () {
   const params = new URLSearchParams(location.search);
@@ -327,36 +473,34 @@ h2.sec{font-family:var(--serif);font-size:1.15rem;color:var(--text);margin:1.5re
 
   const SHEETS = {
     federal: {
-      label: 'Scanned from a federal Commons petition sheet',
-      kicker: 'House of Commons · paper sheet bridge',
-      title: 'You scanned a federal petition sheet',
+      label: 'Federal Commons petition sheet',
+      kicker: 'House of Commons · paper → digital',
+      titleHtml: 'You scanned a <span class="em">federal</span> petition sheet',
       lead:
-        'Thank you. The ink on that Commons sheet is what an MP can present. ' +
-        'Use this page to understand the dual path, then add a public mandate online in about 30 seconds — no account, no ID.',
+        'Thanks for scanning. The ink on that Commons sheet is what an MP can present. ' +
+        'Take 30 seconds to join the public mandate online — no account, no ID. Then keep collecting wet signatures.',
       paperCopy:
-        'If you have not already: name, city and province, and signature under the prayer on the federal sheet. That ink is the legal instrument for the Commons path.',
+        'If you have not already: name, city and province, and signature under the prayer. That ink is the legal instrument for the Commons path.',
     },
     bc: {
-      label: 'Scanned from a BC organizing sheet',
-      kicker: 'British Columbia · organizing bridge',
-      title: 'You scanned a BC petition sheet',
+      label: 'BC organizing sheet',
+      kicker: 'British Columbia · organize → mandate',
+      titleHtml: 'You scanned a <span class="em">BC</span> petition sheet',
       lead:
-        'Thank you. Keep the ink for the local/organizing path. Online, add the Canada-wide public mandate — still not a Parliamentary e-signature.',
+        'Thanks for scanning. Keep the ink for the local path. Online, join the Canada-wide public mandate — still not a Parliamentary e-signature.',
       paperCopy:
-        'Finish any ink signatures on the paper first. BC Assembly presentation uses original wet signatures under the correct prayer text.',
+        'Finish ink signatures on the paper first. BC Assembly presentation uses original wet signatures under the correct prayer text.',
     },
   };
 
   const conf = SHEETS[sheet] || (from === 'paper' || sheet
     ? {
-        label: sheet
-          ? 'Scanned from petition sheet · ' + sheet
-          : 'Scanned from a petition sheet',
-        kicker: 'Canada · paper sheet bridge',
-        title: 'You scanned a real petition sheet',
+        label: sheet ? 'Petition sheet · ' + sheet : 'Petition sheet scan',
+        kicker: 'Canada · paper → digital',
+        titleHtml: 'You found something that <span class="em">matters</span>',
         lead:
-          'Thank you. Keep the wet signature on the paper — that is what Parliament or a legislature can use. ' +
-          'Then add a privacy-first public mandate online.',
+          'Thanks for scanning. Keep the wet signature on the paper — that is what Parliament can use. ' +
+          'Then join the privacy-first public mandate online in about 30 seconds.',
         paperCopy:
           'Complete name, place, and signature under the prayer on the physical sheet before you leave the table.',
       }
@@ -367,21 +511,25 @@ h2.sec{font-family:var(--serif);font-size:1.15rem;color:var(--text);margin:1.5re
     pill.hidden = false;
     document.getElementById('sheet-label').textContent = conf.label;
     document.getElementById('kicker').textContent = conf.kicker;
-    document.getElementById('hero-title').textContent = conf.title;
-    // title may include emphasis for default; plain text is fine for variants
+    const h1 = document.getElementById('hero-title');
+    h1.replaceChildren();
+    // Safe: titleHtml is from our fixed SHEETS map only (not user input)
+    h1.innerHTML = conf.titleHtml;
     document.getElementById('hero-lead').textContent = conf.lead;
     document.getElementById('step-paper-copy').textContent = conf.paperCopy;
   }
 
-  // Sign CTA — preserve paper handoff + optional province
-  const sign = document.getElementById('cta-sign');
+  // Sign CTAs — preserve paper handoff
   const q = new URLSearchParams();
   q.set('from', from === 'paper' || sheet ? 'paper' : from);
   if (sheet) q.set('sheet', sheet);
   if (provinceParam === 'BC' || sheet === 'bc') q.set('province', 'BC');
-  sign.href = '/canada/sign?' + q.toString();
+  const signHref = '/canada/sign?' + q.toString();
+  const cta = document.getElementById('cta-sign');
+  const sticky = document.getElementById('cta-sign-sticky');
+  if (cta) cta.href = signHref;
+  if (sticky) sticky.href = signHref;
 
-  // HQ / Umami (no PII)
   try {
     if (typeof window.scTrackCanada === 'function') {
       window.scTrackCanada('canada_join_page', {
@@ -412,9 +560,9 @@ h2.sec{font-family:var(--serif);font-size:1.15rem;color:var(--text);margin:1.5re
     const pct = Math.min(100, Math.round((n / goal) * 100));
     document.getElementById('goal-bar').style.width = pct + '%';
     const label = document.getElementById('goal-label');
-    if (n >= 1000) label.textContent = 'Strong public mandate — keep sharing and collecting paper.';
-    else if (n >= 100) label.textContent = (1000 - n) + ' more to 1,000 public mandate signatures.';
-    else label.textContent = (100 - n) + ' more to first goal of 100 · ' + pct + '%';
+    if (n >= 1000) label.textContent = 'Strong signal — keep sharing and collecting paper.';
+    else if (n >= 100) label.textContent = (1000 - n) + ' more to 1,000 on the public mandate.';
+    else label.textContent = (100 - n) + ' more to our first goal of 100 · ' + pct + '% there';
   });
 
   SHERPA_PETITION.officialStatus().then((o) => {
