@@ -95,6 +95,9 @@
   if (location.pathname.indexOf('/canada/paper') !== -1) {
     trackCanada('canada_paper_page', { path: location.pathname });
   }
+  if (location.pathname.indexOf('/canada/join') !== -1) {
+    trackCanada('canada_join_page', { path: location.pathname });
+  }
   if (location.pathname.indexOf('/treasury') !== -1) {
     track('treasury_view', { path: location.pathname });
   }

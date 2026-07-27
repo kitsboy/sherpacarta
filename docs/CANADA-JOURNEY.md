@@ -3,6 +3,7 @@
 **Hub:** https://sherpacarta.org/canada/  
 **Official path:** https://sherpacarta.org/canada/official  
 **Sign:** https://sherpacarta.org/canada/sign  
+**Join (QR from paper):** https://sherpacarta.org/canada/join?from=paper&sheet=federal  
 **Paper:** https://sherpacarta.org/canada/paper  
 
 ---
