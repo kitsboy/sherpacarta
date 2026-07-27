@@ -9,6 +9,7 @@
 **Product UI:** BUILD 734 parchment/emerald beauty pass (nav badge, hero ribbon, stats, treasury, Canada)
 
 ## Recent Milestones
+- **2026-07-27:** Canada hub + official path — promise/stakes, fluid 3-track journey, FAQ, sticky CTAs, MP tools, win-state copy (`/canada/`, `/canada/official`, `docs/CANADA-JOURNEY.md`)
 - **2026-07-27:** BUILD 734 beauty lift — removed stale “v2.0” branding; Digital Magna Carta hero ribbon; gold+emerald polish
 - **2026-07-26:** End-to-end real metrics for HQ
   - Live CF Function `GET /metrics.json` (`functions/metrics.json.js`) — Canada KV + mempool, `raw.demo: false`
