@@ -93,6 +93,9 @@ const CONTACT_SUBJECT = 'Sherpacarta';
 const NOSTR_NIP05 = 'sherpa@giveabit.io';
 const NOSTR_NIP05_OPS = 'kimi@giveabit.io';
 const NOSTR_SHERPA_NPUB = 'npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57';
+window.NOSTR_NIP05 = NOSTR_NIP05;
+window.NOSTR_NIP05_OPS = NOSTR_NIP05_OPS;
+window.NOSTR_SHERPA_NPUB = NOSTR_SHERPA_NPUB;
 
 let qrCurrentAddress = '';
 let qrCurrentType = 'btc';
@@ -1896,14 +1899,20 @@ function copyQRAddress(){
 }
 
 function copyNostrNip(){
-  navigator.clipboard.writeText(NOSTR_NIP05).then(()=>toast('Nostr guide copied: ' + NOSTR_NIP05 + ' (NIP-05 live)','success'));
+  const nip = window.NOSTR_NIP05 || 'sherpa@giveabit.io';
+  navigator.clipboard.writeText(nip).then(()=>toast('Nostr guide copied: ' + nip + ' (NIP-05 live)','success'));
 }
 function copyNostrNpub(){
-  navigator.clipboard.writeText(NOSTR_SHERPA_NPUB).then(()=>toast('Sherpa npub copied — works now on any Nostr client','success'));
+  const npub = window.NOSTR_SHERPA_NPUB || 'npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57';
+  navigator.clipboard.writeText(npub).then(()=>toast('Sherpa npub copied — works on any Nostr client','success'));
 }
 function copyNostrOps(){
-  navigator.clipboard.writeText(NOSTR_NIP05_OPS).then(()=>toast('Suite ops NIP-05 copied: ' + NOSTR_NIP05_OPS,'success'));
+  const ops = window.NOSTR_NIP05_OPS || 'kimi@giveabit.io';
+  navigator.clipboard.writeText(ops).then(()=>toast('Suite ops NIP-05 copied: ' + ops,'success'));
 }
+window.copyNostrNip = copyNostrNip;
+window.copyNostrNpub = copyNostrNpub;
+window.copyNostrOps = copyNostrOps;
 
 function contactEmail(){
   location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(CONTACT_SUBJECT);
@@ -2095,7 +2104,8 @@ const CMD_ITEMS=[
   {group:'Navigate',icon:'fa-calculator',label:'Rights Calculator',sub:'Check your protection score',action:()=>document.querySelector('.calc-grid').scrollIntoView({behavior:'smooth'})},
   {group:'Navigate',icon:'fa-clock-rotate-left',label:'Timeline',sub:'1215 → 2026',action:()=>document.querySelector('.timeline').scrollIntoView({behavior:'smooth'})},
   {group:'Contact',icon:'fa-envelope',label:'Email Give A Bit',sub:'hello@giveabit.io',action:contactEmail},
-  {group:'Contact',icon:'fa-user-secret',label:'Copy Nostr NIP-05',sub:'kimi@giveabit.io',action:copyNostrNip},
+  {group:'Contact',icon:'fa-comments',label:'Copy Nostr guide',sub:'sherpa@giveabit.io',action:copyNostrNip},
+  {group:'Contact',icon:'fa-key',label:'Copy Sherpa npub',sub:'product guide key',action:copyNostrNpub},
   {group:'Share',icon:'fa-x-twitter fab',label:'Share on X / Twitter',sub:'Tweet SherpaCarta',action:()=>shareOn('x')},
   {group:'Share',icon:'fa-whatsapp fab',label:'Share on WhatsApp',sub:'Send to contacts',action:()=>shareOn('whatsapp')},
   {group:'Share',icon:'fa-telegram fab',label:'Share on Telegram',sub:'Send to channels',action:()=>shareOn('telegram')},

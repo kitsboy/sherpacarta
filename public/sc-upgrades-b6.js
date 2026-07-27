@@ -370,7 +370,7 @@
   feat(540, 'NIP-05 verification hint', () => {
     const panel = document.querySelector('.nostr-panel p');
     if (panel) {
-      panel.innerHTML += ' Official NIP-05: <code style="color:var(--em)">kimi@giveabit.io</code> — <button type="button" class="btn btn-ghost" style="font-size:.6rem;padding:.1rem .3rem" onclick="copyNostrNip()">copy</button>';
+      panel.innerHTML += ' Official NIP-05: <code style="color:var(--em)">sherpa@giveabit.io</code> — <button type="button" class="btn btn-ghost" style="font-size:.6rem;padding:.1rem .3rem" onclick="copyNostrNip()">copy</button>';
     }
   });
 

@@ -163,7 +163,7 @@
 
   feat(315, 'Parent logo in press kit', () => {
     window.downloadPressKit = function () {
-      const kit = `SHERPACARTA PRESS KIT\n\nParent company: giveaBit.io (https://giveabit.io)\nParent logo: https://sherpacarta.org/giveabit-parent-logo.jpg\nMovement logo: https://sherpacarta.org/giveabit-logo.png\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: kimi@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
+      const kit = `SHERPACARTA PRESS KIT\n\nParent company: giveaBit.io (https://giveabit.io)\nParent logo: https://sherpacarta.org/giveabit-parent-logo.jpg\nMovement logo: https://sherpacarta.org/giveabit-logo.png\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: sherpa@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
       const blob = new Blob([kit], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);

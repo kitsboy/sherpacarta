@@ -1,4 +1,4 @@
-/* SherpaCarta bundled enhancements — generated 2026-07-26T23:32:46.889Z */
+/* SherpaCarta bundled enhancements — generated 2026-07-27T00:19:41.963Z */
 
 /* ── sc-enhancements.js ── */
 /**
@@ -523,7 +523,7 @@
 
   feat(38, 'Press kit download txt', () => {
     window.downloadPressKit = function () {
-      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: kimi@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\nBuilt by: https://giveabit.io\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
+      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: sherpa@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\nBuilt by: https://giveabit.io\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
       const blob = new Blob([kit], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -2421,7 +2421,7 @@
         <h1>SherpaCarta Quick Reference</h1>
         <p><kbd>⌘K</kbd> Command palette · <kbd>G</kbd> Sign · <kbd>H</kbd> Home · <kbd>D</kbd> Donate · <kbd>C</kbd> Charter · <kbd>?</kbd> Shortcuts</p>
         <p>Contact: hello@giveabit.io (subject: Sherpacarta)</p>
-        <p>Twitter @give_bit · Nostr kimi@giveabit.io · github.com/kitsboy/sherpacarta</p>
+        <p>Twitter @give_bit · Nostr sherpa@giveabit.io · github.com/kitsboy/sherpacarta</p>
         <p>BTC: ${window.SHERPA_WALLETS?.btc || ''}</p>
         <p>sherpacarta.org — 114 articles · CC0</p>
       </body></html>`);
@@ -3226,14 +3226,14 @@
 
   feat(277, 'QR for Nostr NIP-05', () => {
     window.showNostrQR = () => {
-      qrCurrentAddress = 'kimi@giveabit.io';
+      qrCurrentAddress = 'sherpa@giveabit.io';
       const modal = $('qr-modal');
       if (modal) {
         modal.classList.add('open');
         $('qr-modal-title').textContent = 'Nostr NIP-05';
-        $('qr-modal-sub').textContent = 'kimi@giveabit.io';
+        $('qr-modal-sub').textContent = 'sherpa@giveabit.io';
         $('qr-warning').style.display = 'none';
-        window.renderQRCode?.('kimi@giveabit.io');
+        window.renderQRCode?.('sherpa@giveabit.io');
         document.body.style.overflow = 'hidden';
       }
     };
@@ -3408,7 +3408,7 @@
     if (typeof CMD_ITEMS === 'undefined') return;
     CMD_ITEMS.push(
       { group: 'Distribute', icon: 'fa-qrcode', label: 'QR — Site URL', sub: 'Scan to visit', action: showPageQR },
-      { group: 'Distribute', icon: 'fa-user-secret', label: 'QR — Nostr NIP-05', sub: 'kimi@giveabit.io', action: showNostrQR },
+      { group: 'Distribute', icon: 'fa-user-secret', label: 'QR — Nostr NIP-05', sub: 'sherpa@giveabit.io', action: showNostrQR },
       { group: 'Distribute', icon: 'fa-newspaper', label: 'Press Release', sub: 'Download .txt', action: downloadPressRelease },
       { group: 'Distribute', icon: 'fa-share-nodes', label: 'Nostr Note', sub: 'Copy composed note', action: composeNostrNote },
       { group: 'Distribute', icon: 'fa-cloud', label: 'Bluesky Thread', sub: '3-post thread', action: composeBlueskyThread },
@@ -3668,7 +3668,7 @@
 
   feat(315, 'Parent logo in press kit', () => {
     window.downloadPressKit = function () {
-      const kit = `SHERPACARTA PRESS KIT\n\nParent company: giveaBit.io (https://giveabit.io)\nParent logo: https://sherpacarta.org/giveabit-parent-logo.jpg\nMovement logo: https://sherpacarta.org/giveabit-logo.png\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: kimi@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
+      const kit = `SHERPACARTA PRESS KIT\n\nParent company: giveaBit.io (https://giveabit.io)\nParent logo: https://sherpacarta.org/giveabit-parent-logo.jpg\nMovement logo: https://sherpacarta.org/giveabit-logo.png\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: sherpa@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
       const blob = new Blob([kit], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -5194,7 +5194,7 @@
   // 21 — Press kit download (enhanced)
   feat(447, 'Press kit PDF-ready export', () => {
     window.downloadPressKitPDF = () => {
-      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: kimi@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.\n\nPrint this page to PDF (Cmd+P) for press distribution.`;
+      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: sherpa@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.\n\nPrint this page to PDF (Cmd+P) for press distribution.`;
       const blob = new Blob([kit], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -6823,7 +6823,7 @@
   feat(540, 'NIP-05 verification hint', () => {
     const panel = document.querySelector('.nostr-panel p');
     if (panel) {
-      panel.innerHTML += ' Official NIP-05: <code style="color:var(--em)">kimi@giveabit.io</code> — <button type="button" class="btn btn-ghost" style="font-size:.6rem;padding:.1rem .3rem" onclick="copyNostrNip()">copy</button>';
+      panel.innerHTML += ' Official NIP-05: <code style="color:var(--em)">sherpa@giveabit.io</code> — <button type="button" class="btn btn-ghost" style="font-size:.6rem;padding:.1rem .3rem" onclick="copyNostrNip()">copy</button>';
     }
   });
 

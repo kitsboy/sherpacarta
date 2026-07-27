@@ -211,7 +211,7 @@
         <h1>SherpaCarta Quick Reference</h1>
         <p><kbd>⌘K</kbd> Command palette · <kbd>G</kbd> Sign · <kbd>H</kbd> Home · <kbd>D</kbd> Donate · <kbd>C</kbd> Charter · <kbd>?</kbd> Shortcuts</p>
         <p>Contact: hello@giveabit.io (subject: Sherpacarta)</p>
-        <p>Twitter @give_bit · Nostr kimi@giveabit.io · github.com/kitsboy/sherpacarta</p>
+        <p>Twitter @give_bit · Nostr sherpa@giveabit.io · github.com/kitsboy/sherpacarta</p>
         <p>BTC: ${window.SHERPA_WALLETS?.btc || ''}</p>
         <p>sherpacarta.org — 114 articles · CC0</p>
       </body></html>`);
@@ -1016,14 +1016,14 @@
 
   feat(277, 'QR for Nostr NIP-05', () => {
     window.showNostrQR = () => {
-      qrCurrentAddress = 'kimi@giveabit.io';
+      qrCurrentAddress = 'sherpa@giveabit.io';
       const modal = $('qr-modal');
       if (modal) {
         modal.classList.add('open');
         $('qr-modal-title').textContent = 'Nostr NIP-05';
-        $('qr-modal-sub').textContent = 'kimi@giveabit.io';
+        $('qr-modal-sub').textContent = 'sherpa@giveabit.io';
         $('qr-warning').style.display = 'none';
-        window.renderQRCode?.('kimi@giveabit.io');
+        window.renderQRCode?.('sherpa@giveabit.io');
         document.body.style.overflow = 'hidden';
       }
     };
@@ -1198,7 +1198,7 @@
     if (typeof CMD_ITEMS === 'undefined') return;
     CMD_ITEMS.push(
       { group: 'Distribute', icon: 'fa-qrcode', label: 'QR — Site URL', sub: 'Scan to visit', action: showPageQR },
-      { group: 'Distribute', icon: 'fa-user-secret', label: 'QR — Nostr NIP-05', sub: 'kimi@giveabit.io', action: showNostrQR },
+      { group: 'Distribute', icon: 'fa-user-secret', label: 'QR — Nostr NIP-05', sub: 'sherpa@giveabit.io', action: showNostrQR },
       { group: 'Distribute', icon: 'fa-newspaper', label: 'Press Release', sub: 'Download .txt', action: downloadPressRelease },
       { group: 'Distribute', icon: 'fa-share-nodes', label: 'Nostr Note', sub: 'Copy composed note', action: composeNostrNote },
       { group: 'Distribute', icon: 'fa-cloud', label: 'Bluesky Thread', sub: '3-post thread', action: composeBlueskyThread },

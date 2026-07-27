@@ -73,9 +73,30 @@ input,select,textarea{font-family:var(--sans)}
 /* ═══════════════════════════════════════════════════════════
    CURSOR
 ═══════════════════════════════════════════════════════════ */
-#cursor{position:fixed;width:10px;height:10px;background:var(--em);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:transform .08s}
-#cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--em);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:left .16s ease-out,top .16s ease-out,width .2s,height .2s,opacity .2s;opacity:.5}
-body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.8}
+/* Custom cursor — high contrast on dark emerald bg (no mix-blend; was vanishing black-on-black) */
+#cursor{
+  position:fixed;width:12px;height:12px;border-radius:50%;pointer-events:none;z-index:99999;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 35% 30%,#fff 0%,var(--em2) 45%,var(--em) 100%);
+  border:1.5px solid #f0fff7;
+  box-shadow:0 0 0 1px rgba(5,8,6,.55),0 0 14px rgba(16,185,129,.85),0 0 28px rgba(212,175,55,.25);
+  transition:transform .08s,width .12s,height .12s;
+}
+#cursor-ring{
+  position:fixed;width:36px;height:36px;border-radius:50%;pointer-events:none;z-index:99998;
+  transform:translate(-50%,-50%);
+  border:1.5px solid rgba(110,231,183,.85);
+  box-shadow:0 0 0 1px rgba(5,8,6,.35),0 0 12px rgba(16,185,129,.35);
+  transition:left .16s ease-out,top .16s ease-out,width .2s,height .2s,opacity .2s,border-color .2s;
+  opacity:.75;
+  background:transparent;
+}
+body:has(button:hover,a:hover) #cursor{width:14px;height:14px}
+body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.95;border-color:var(--gold2)}
+@media (hover:none),(pointer:coarse){
+  body,button,a{cursor:auto!important}
+  #cursor,#cursor-ring{display:none!important}
+}
 
 /* ═══════════════════════════════════════════════════════════
    READING PROGRESS
