@@ -43,11 +43,14 @@ Self-updating: wall polls relays; bot answers from live charter/metrics context;
 - [x] Contact UX points to `sherpa@giveabit.io` (**NIP-05 live**)
 - [ ] Polish: deep links to njump / native clients; moderation denylist
 
-### Phase 2 — THOR Sherpa guide bot (Kimi) ⬜
-- [ ] Always-on process: listen mentions/DMs to sherpa pubkey
-- [ ] Context pack: charter FAQ, Canada honesty, treasury, metrics.json, Safe Harbour
-- [ ] Auto-reply (rate-limited) + optional Cam approve mode week 1
-- [ ] Escalate hard questions → Telegram / future Buzz `#sherpacarta`
+### Phase 2 — THOR Sherpa guide bot (Kimi) 🟡 package ready
+- [x] Package: `packages/sherpa-nostr-bot` (seed + bot + knowledge + escalate)
+- [x] FAQ: what / sign / Canada honesty / treasury / Nostr / privacy
+- [x] Rate limit + approve-only mode + wrong-key abort
+- [ ] Cam: `npm run seed` with local `SHERPA_NSEC` (wall not empty)
+- [ ] Kimi: deploy bot on THOR (secrets env, systemd/docker)
+- [ ] Week 1: `SHERPA_APPROVE=1` then go live
+- [ ] Escalate webhook → Cam / later Buzz `#sherpacarta`
 - [ ] Metrics: replies_24h, escalations (secret-free → HQ later)
 
 ### Phase 3 — Buzz on THOR (Kimi) ⬜

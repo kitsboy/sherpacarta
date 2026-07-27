@@ -93,6 +93,18 @@ Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.
 
 ---
 
+## Session — 2026-07-27 (Sherpa bot package — Grok)
+
+**Done (M3, no nsec in git):**
+- `packages/sherpa-nostr-bot` — seed notes + mention bot + knowledge.json
+- Cam runs seed locally with `SHERPA_NSEC` from password manager
+- Kimi deploys bot on THOR — paste request: `docs/KIMI-REQUEST-SHERPA-BOT.md`
+- Approve mode week 1; escalate keywords + optional webhook
+
+**Not done:** live process on THOR; Cam seed publish
+
+---
+
 ## Session — 2026-07-27 (sherpa@ NIP-05 live — Grok flip)
 
 **Kimi done:** NIP-05 `sherpa@giveabit.io` live on giveabit.io (`bea71e8`) — hex matches product key.

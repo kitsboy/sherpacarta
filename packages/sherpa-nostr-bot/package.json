@@ -1,0 +1,23 @@
+{
+  "name": "@giveabit/sherpa-nostr-bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SherpaCarta public Nostr guide bot (sherpa@giveabit.io). nsec via env only.",
+  "bin": {
+    "sherpa-seed": "./bin/seed.mjs",
+    "sherpa-bot": "./bin/bot.mjs"
+  },
+  "scripts": {
+    "seed": "node bin/seed.mjs",
+    "bot": "node bin/bot.mjs",
+    "test-reply": "node bin/test-reply.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "nostr-tools": "^2.10.4",
+    "ws": "^8.18.0"
+  }
+}

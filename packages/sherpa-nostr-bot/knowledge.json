@@ -1,0 +1,96 @@
+{
+  "identity": {
+    "nip05": "sherpa@giveabit.io",
+    "displayName": "Sherpa",
+    "product": "SherpaCarta",
+    "site": "https://sherpacarta.org",
+    "role": "Public product guide — not suite ops"
+  },
+  "limits": {
+    "maxReplyChars": 800,
+    "rateLimitPerPubkeyHours": 6,
+    "escalateKeywords": [
+      "lawyer",
+      "legal advice",
+      "sue",
+      "lawsuit",
+      "mp email",
+      "my mp",
+      "bug bounty payout",
+      "private key",
+      "nsec",
+      "seed phrase",
+      "hack",
+      "exploit",
+      "admin",
+      "invoice key",
+      "lnbits",
+      "partnership",
+      "investment",
+      "press interview",
+      "media request"
+    ]
+  },
+  "topics": [
+    {
+      "id": "what",
+      "match": ["what is sherpacarta", "what is this", "about sherpa", "digital magna", "what do you do"],
+      "reply": "SherpaCarta is a living Digital Magna Carta — 114 articles of digital human rights (privacy, data sovereignty, free expression, fair algorithms). Not law yet: a moral + civic charter people can read, sign, and organize around. Free (CC0). Zero tracking. Bitcoin-funded.\n\n→ https://sherpacarta.org"
+    },
+    {
+      "id": "sign",
+      "match": ["how to sign", "sign the", "sign charter", "how do i sign", "add my name"],
+      "reply": "Sign on the site (no account required):\n1. Open https://sherpacarta.org\n2. Scroll to Sign (or open the charter modal)\n3. Name + optional region → Sign\n\nSignatures stay in *your browser* by default (local-first). Optional Nostr publish if you connect an extension. Canada residents: also see https://sherpacarta.org/canada"
+    },
+    {
+      "id": "canada",
+      "match": ["canada", "petition", "e-petition", "parliament", "mp ", "house of commons", "bc challenge", "federal"],
+      "reply": "Canada path (honest split):\n• *Campaign commitment* on our site = moral/civic support (self-attested citizen/resident). Not Parliamentary signatures.\n• *Paper sheets* for federal ink collection: https://sherpacarta.org/canada/paper\n• *Official e-petition (e-###)* needs an MP sponsor — not live until that happens.\n\nStart: https://sherpacarta.org/canada"
+    },
+    {
+      "id": "treasury",
+      "match": ["donate", "donation", "bitcoin", "btc", "treasury", "lightning", "sats", "fund"],
+      "reply": "SherpaCarta is funded only by voluntary Bitcoin donations — no VC, no ads, no grants. Public on-chain treasury:\n→ https://sherpacarta.org/treasury\n\nLightning public receive is not published yet; on-chain address is live. Verify balance yourself on mempool."
+    },
+    {
+      "id": "nostr",
+      "match": ["nostr", "nip-05", "nip05", "sherpa@", "how to message", "follow you"],
+      "reply": "I'm the product guide on Nostr: sherpa@giveabit.io (NIP-05 live).\n• Public discussion wall: https://sherpacarta.org/nostr\n• Tag posts #sherpacarta to appear on the wall\n• X mainstream square: @give_bit + #Sherpacarta\n\nI don't store DMs on sherpacarta.org — only public notes show on the wall."
+    },
+    {
+      "id": "privacy",
+      "match": ["privacy", "tracking", "cookie", "data", "gdpr", "surveillance"],
+      "reply": "Privacy is the point. The site is privacy-first: local signing by default, no ad tech. First-party analytics only where enabled. Public discussion is *public* (Nostr/X) — don't post secrets. Charter: https://sherpacarta.org"
+    },
+    {
+      "id": "articles",
+      "match": ["articles", "114", "charter", "read the", "magna carta"],
+      "reply": "114 living articles — CC0 public domain. Read on https://sherpacarta.org (open Charter). Rights only expand; they don't contract. JSON API: https://sherpacarta.org/api/v1/charter.json"
+    },
+    {
+      "id": "hello",
+      "match": ["hello", "hi sherpa", "hey", "gm ", "thanks", "thank you"],
+      "reply": "gm 👋 I'm Sherpa — guide for SherpaCarta (digital rights charter). Ask about signing, Canada petition path, treasury, or Nostr. Site: https://sherpacarta.org · Wall: https://sherpacarta.org/nostr"
+    }
+  ],
+  "fallback": "Thanks for writing. I'm the SherpaCarta guide (not a lawyer, not suite ops).\n\nI can help with: what the charter is, how to sign, Canada campaign vs official e-petition honesty, treasury, and Nostr.\n\nStart here → https://sherpacarta.org\nDiscuss → https://sherpacarta.org/nostr\n\nIf this is press, legal, or partnership, say so and a human will follow up.",
+  "escalate": "Got it — this needs a human (Cam / suite). I've flagged it. For urgent press: hello@giveabit.io (subject: Sherpacarta). Site: https://sherpacarta.org",
+  "seedNotes": [
+    {
+      "id": "intro",
+      "content": "gm — I'm Sherpa 🧭\n\nPublic guide for SherpaCarta: a living Digital Magna Carta — 114 articles of digital human rights. Privacy is a birthright.\n\nRead & sign (no account):\nhttps://sherpacarta.org\n\nPublic discussion wall:\nhttps://sherpacarta.org/nostr\n\n#sherpacarta #digitalrights #nostr"
+    },
+    {
+      "id": "canada",
+      "content": "Canada path — straight talk 🇨🇦\n\n• Site campaign commitments ≠ House of Commons e-petition signatures\n• Paper sheets ready for federal ink\n• Official e-### only when an MP sponsors\n\nStart here:\nhttps://sherpacarta.org/canada\n\n#sherpacarta #cdnpoli #privacy"
+    },
+    {
+      "id": "why-nostr",
+      "content": "Why SherpaCarta is on Nostr:\n\nDigital rights need a public square no single company can delete. Keys you own. Relays you can leave. Apps that compete.\n\nFollow sherpa@giveabit.io · tag #sherpacarta\nAlso on X: @give_bit #Sherpacarta\n\nhttps://sherpacarta.org/nostr\n\n#nostr #sherpacarta"
+    },
+    {
+      "id": "sign",
+      "content": "30 seconds. No account.\n\nSign the living charter → https://sherpacarta.org\n\nLocal-first by default. Optional Nostr. Bitcoin-funded. Zero ad tracking.\n\n114 articles. CC0. Rights only expand.\n\n#sherpacarta #digitalrights"
+    }
+  ]
+}
