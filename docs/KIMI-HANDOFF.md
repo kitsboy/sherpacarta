@@ -1,3 +1,23 @@
+## Session — 2026-07-27 (Grok M3 — sign upgrade + HQ mandate feed)
+
+**Done:**
+- Full rewrite `/canada/sign` — public mandate, how change works, e-petition upgrade checklist
+- HQ feed on every sign: KV activity + daily series + richer `metrics.json` (`signers_24h/7d`, `raw.canada`, segments)
+- Umami events: `canada_mandate_sign`, `canada_sign_page`, share/stamp (no PII)
+- CSP `api.satohash.io`; proof page polish; stamp smoke PASS earlier
+
+**Decisions:**
+- HQ is pull-based — products publish secret-free metrics + Umami; no invoice keys in origin
+- Campaign totals remain dual-track honest (not Parliamentary e-###)
+
+**Git State:**
+- Branch: main · push after this entry
+- HQ reads: `https://sherpacarta.org/metrics.json` + `https://sherpacarta.org/api/canada/stats`
+
+**Truth line:** sign → API/KV → metrics.json raw.canada + Umami; mandate ≠ Parliament.
+
+---
+
 ## Session — 2026-07-27 (GOODBYE — Grok full session close)
 
 **Done this session (M3):**

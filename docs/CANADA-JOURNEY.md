@@ -21,11 +21,13 @@ We never claim campaign totals are Parliamentary signatures.
 
 | Track | Page | Effect | When |
 |-------|------|--------|------|
-| **A · Campaign** | `/canada/sign` | Movement mandate. **Not** Parliamentary count. | Now |
+| **A · Public mandate** | `/canada/sign` | Civic mandate + privacy-first receipt. **Not** Parliamentary count. Explains e-petition upgrade path. | Now |
 | **B · Federal paper** | `/canada/paper` | Legal paper petition; MP can present ink. | Now |
 | **C · Official e-petition** | `/canada/official` → ourcommons.ca | Only after MP + e-### on Parliament’s site. | When live |
 
 Never blur A/B into “official e-petition signatures.”
+
+**Sign page (v752+):** formal yet plain-language (18+ readable). Sections: why it matters, how change works (4 stages), dual-track honesty, prayer preview, sign form, **e-petition upgrade** checklist (supporters, MP, 500, Clerk), paper/briefing parallel CTAs, FAQ.
 
 ---
 

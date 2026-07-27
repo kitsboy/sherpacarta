@@ -29,16 +29,11 @@
 <meta name="description" content="SHA-256 petition hash, merkle roots, and Satohash Bitcoin stamps. Verify integrity without exposing identities.">
 <link rel="image_src" href="https://sherpacarta.org/og/canada.jpg">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
-<link rel="image_src" href="https://sherpacarta.org/og/canada.jpg">
-
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <link rel="canonical" href="https://sherpacarta.org/canada/proof">
 <meta name="theme-color" content="#050806">
-<link rel="stylesheet" href="/fonts/fonts.css?v=730">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=730">
-<link rel="stylesheet" href="/sc-main.css?v=730">
+<link rel="stylesheet" href="/fonts/fonts.css?v=751">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=751">
+<link rel="stylesheet" href="/sc-main.css?v=751">
 <style>
   body{max-width:720px;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.7}
   h1{font-family:var(--serif);color:var(--em2);font-size:2rem}
@@ -56,13 +51,14 @@
 </style>
 <!-- suite analytics: first-party Umami (sherpacarta) -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=733"></script>
+<script defer src="/js/sc-analytics.js?v=751"></script>
 </head>
 <body>
 <p><a href="/canada/">← Canada hub</a> · <a href="/canada/sign">Sign</a></p>
 <span class="badge">Zero tracking · verify without identities</span>
 <h1><i class="fas fa-stamp"></i> Proof &amp; Satohash</h1>
-<p style="font-size:.9rem;color:var(--text2)">Cryptographic integrity for journalists, MPs, and organizers — without putting signer names on our servers by default.</p>
+<p style="font-size:.9rem;color:var(--text2)">Cryptographic integrity for journalists, MPs, and organizers — without putting signer names on our servers by default. Stamps open <code>satohash.io/stamp?hash=&amp;ref=</code>; pending ≠ Bitcoin confirmed.</p>
+<p id="stamp-hint" style="font-size:.75rem;color:var(--text3);min-height:1.2em" role="status" aria-live="polite"></p>
 
 <div class="card">
   <div class="stat"><span>Petition text hash (SHA-256)</span><span id="pet-hash">…</span></div>
@@ -74,7 +70,7 @@
 </div>
 
 <button class="btn" id="btn-merkle"><i class="fas fa-project-diagram"></i> Compute merkle root</button>
-<button class="btn btn-ghost" id="btn-stamp"><i class="fas fa-bitcoin"></i> Stamp on Bitcoin (Satohash)</button>
+<button class="btn btn-ghost" id="btn-stamp" title="Opens Satohash deep-link — not confirmed until status is confirmed"><i class="fas fa-bitcoin"></i> Stamp on Bitcoin (Satohash)</button>
 <button class="btn btn-ghost" id="btn-copy-hash"><i class="fas fa-copy"></i> Copy full petition hash</button>
 
 <h2>How verification works</h2>
@@ -99,9 +95,10 @@
   <a class="btn btn-ghost" href="/canada/paper">Print federal sheet</a>
 </p>
 
-<script src="/js/sc-petition-canada.js?v=730"></script>
+<script src="/js/sc-petition-canada.js?v=751"></script>
 <script>
 let fullHash = '';
+const hint = () => document.getElementById('stamp-hint');
 (async () => {
   fullHash = await SHERPA_PETITION.getPetitionHash();
   document.getElementById('pet-hash').textContent = fullHash.slice(0, 24) + '…';
@@ -117,12 +114,24 @@ let fullHash = '';
 document.getElementById('btn-merkle').onclick = async () => {
   const r = await SHERPA_PETITION.computeMerkleRoot();
   document.getElementById('merkle').textContent = r ? r.slice(0, 24) + '…' : '—';
-  alert(r ? 'Merkle root computed for this device' : 'No local signatures yet — sign first');
+  const el = hint();
+  if (el) el.textContent = r ? 'Merkle root computed for this device.' : 'No local signatures yet — sign first on /canada/sign.';
 };
-document.getElementById('btn-stamp').onclick = () => SHERPA_PETITION.stampOnSatohash();
+document.getElementById('btn-stamp').onclick = async () => {
+  const el = hint();
+  try {
+    const out = await SHERPA_PETITION.stampOnSatohash();
+    if (el) el.textContent = (out.usedMerkle ? 'Merkle root' : 'Petition hash') + ' opened on Satohash. Save /verify/{id}; pending ≠ confirmed.';
+  } catch (e) {
+    if (el) el.textContent = e.message || 'Stamp failed';
+  }
+};
 document.getElementById('btn-copy-hash').onclick = () => {
   if (!fullHash) return;
-  navigator.clipboard.writeText(fullHash).then(() => alert('Petition hash copied'));
+  navigator.clipboard.writeText(fullHash).then(() => {
+    const el = hint();
+    if (el) el.textContent = 'Petition hash copied.';
+  });
 };
 </script>
 </body>

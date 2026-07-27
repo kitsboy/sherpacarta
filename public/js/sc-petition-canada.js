@@ -146,7 +146,28 @@
     return el?.value || window.__scTurnstileToken || null;
   };
 
-  /** Sync campaign receipt to privacy-first API (optional; fails soft) */
+  /** Fire HQ / Umami events (no PII). Safe no-op if analytics not loaded. */
+  SHERPA_PETITION.reportHq = function (event, sig, extra) {
+    extra = extra || {};
+    const method = (sig && sig.methods && sig.methods[0]) || extra.method || 'unknown';
+    const province = (sig && sig.province) || extra.province || 'none';
+    const payload = {
+      method: method,
+      province: province,
+      shared: !!(sig && sig.shareName),
+      duplicate: !!extra.duplicate,
+      remote: !!extra.remote,
+      path: typeof location !== 'undefined' ? location.pathname : '/canada/sign',
+    };
+    try {
+      if (typeof window.scTrackCanada === 'function') window.scTrackCanada(event, payload);
+      else if (typeof window.scTrack === 'function') {
+        window.scTrack(event, Object.assign({ productId: 'sherpacarta', track: 'public_mandate' }, payload));
+      }
+    } catch (_) { /* ignore */ }
+  };
+
+  /** Sync campaign receipt to privacy-first API (optional; fails soft). Updates HQ metrics via KV. */
   SHERPA_PETITION.syncRemote = async function (sig) {
     try {
       let pow = null;
@@ -154,6 +175,7 @@
       try {
         if (!turnstileToken) pow = await SHERPA_PETITION.solvePow();
       } catch (e) {
+        SHERPA_PETITION.reportHq('canada_mandate_sync_fail', sig, { remote: false });
         return { ok: false, error: e.message || 'bot-check' };
       }
       const body = {
@@ -176,13 +198,23 @@
       });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
+        SHERPA_PETITION.reportHq('canada_mandate_sync_fail', sig, {
+          remote: false,
+          method: body.method,
+        });
         return { ok: false, status: res.status, error: err.error || res.statusText };
       }
       const data = await res.json();
       sig.remote = true;
       sig.remoteId = data.id;
+      SHERPA_PETITION.reportHq(
+        data.duplicate ? 'canada_mandate_duplicate' : 'canada_mandate_sign',
+        sig,
+        { remote: true, duplicate: !!data.duplicate }
+      );
       return { ok: true, data };
     } catch (e) {
+      SHERPA_PETITION.reportHq('canada_mandate_sync_fail', sig, { remote: false });
       return { ok: false, error: e.message || 'network' };
     }
   };
@@ -228,6 +260,7 @@
 
     if (store.signatures.some((s) => s.receiptHash === receiptHash || (s.displayName === name && s.province === prov.province))) {
       const existing = store.signatures.find((s) => s.displayName === name && s.province === prov.province) || store.signatures.find((s) => s.receiptHash === receiptHash);
+      SHERPA_PETITION.reportHq('canada_mandate_duplicate', existing, { duplicate: true, remote: false });
       return { duplicate: true, signature: existing };
     }
 
@@ -254,6 +287,10 @@
 
     const remote = await SHERPA_PETITION.syncRemote(sig);
     sig.remoteSync = remote;
+    // Local sign always counts for HQ analytics even if remote sync soft-fails
+    if (!remote?.ok) {
+      SHERPA_PETITION.reportHq('canada_mandate_sign_local', sig, { remote: false });
+    }
     // re-save with remote flags
     const idx = store.signatures.findIndex((s) => s.id === sig.id);
     if (idx >= 0) store.signatures[idx] = sig;
@@ -308,6 +345,7 @@
     store.signatures.push(sig);
     save(store);
     const remote = await SHERPA_PETITION.syncRemote(sig);
+    if (!remote?.ok) SHERPA_PETITION.reportHq('canada_mandate_sign_local', sig, { remote: false });
     return { signature: sig, remote };
   };
 
@@ -365,6 +403,7 @@
     if (window.state) { window.state.nostrPubkey = pk; localStorage.setItem('sc_nostr_pk', pk); }
     save(store);
     const remote = await SHERPA_PETITION.syncRemote(sig);
+    if (!remote?.ok) SHERPA_PETITION.reportHq('canada_mandate_sign_local', sig, { remote: false });
     return { signature: sig, remote };
   };
 
@@ -417,6 +456,7 @@
     store.signatures.push(sig);
     save(store);
     const remote = await SHERPA_PETITION.syncRemote(sig);
+    if (!remote?.ok) SHERPA_PETITION.reportHq('canada_mandate_sign_local', sig, { remote: false });
     return { signature: sig, remote };
   };
 
@@ -442,7 +482,10 @@
   };
 
   SHERPA_PETITION.stampOnSatohash = async function () {
-    const root = await SHERPA_PETITION.computeMerkleRoot();
+    let root = null;
+    try {
+      root = await SHERPA_PETITION.computeMerkleRoot();
+    } catch (_) { /* no local receipts yet — fall back to petition hash */ }
     const petitionHash = await SHERPA_PETITION.getPetitionHash();
     const hash = String(root || petitionHash || '').trim().toLowerCase();
     if (!/^[a-f0-9]{64}$/.test(hash)) {
@@ -458,8 +501,19 @@
             label: 'SherpaCarta+Canada+campaign',
           })
         : `https://satohash.io/stamp?hash=${encodeURIComponent(hash)}&ref=sherpacarta-canada&source=sherpacarta-canada&campaign=${encodeURIComponent(CAMPAIGN_ID || 'sherpacarta-canada-v1')}&label=SherpaCarta%2BCanada%2Bcampaign`;
-    window.open(url, '_blank', 'noopener');
-    return { hash, url };
+    const win = window.open(url, '_blank', 'noopener');
+    if (!win) {
+      // Popup blocked — still return URL so caller can show it
+      throw new Error('Popup blocked — open Satohash manually: ' + url);
+    }
+    try {
+      if (typeof window.scTrackCanada === 'function') {
+        window.scTrackCanada('canada_stamp_open', { method: root ? 'merkle' : 'petition_hash' });
+      } else if (typeof window.scTrack === 'function') {
+        window.scTrack('canada_stamp_open', { productId: 'sherpacarta', method: root ? 'merkle' : 'petition_hash' });
+      }
+    } catch (_) { /* ignore */ }
+    return { hash, url, usedMerkle: !!root };
   };
 
   SHERPA_PETITION.getStats = function () {
@@ -480,7 +534,7 @@
 
   SHERPA_PETITION.shareText = function (sig) {
     const prov = sig?.provinceName || (sig?.province ? sig.province : 'Canada');
-    return `I signed the SherpaCarta Canada campaign (${prov}) — 114 articles for digital human rights. Campaign commitment + cryptographic receipt. Privacy is a birthright. #CanadaBCChallenge #SherpaCarta https://sherpacarta.org/canada/`;
+    return `I added my name to the SherpaCarta Canada public mandate for digital rights (${prov}). Privacy, data sovereignty, algorithmic accountability — 114-article charter. Next: paper petitions + House of Commons e-petition. #SherpaCarta #DigitalRights https://sherpacarta.org/canada/sign`;
   };
 
   SHERPA_PETITION.downloadReceipt = function (sig) {

@@ -10,6 +10,8 @@ import {
   rateLimit,
   sanitizeDisplayName,
   updateStats,
+  recordMandateActivity,
+  dayKey,
   verifyPow,
   verifyTurnstile,
 } from './_shared.js';
@@ -123,16 +125,52 @@ export async function onRequest(context) {
   if (env.PETITION_KV) {
     const existing = await env.PETITION_KV.get(`sig:${receiptHash}`);
     if (existing) {
-      return json(request, { ok: true, duplicate: true, id, message: 'Already recorded' }, 200, methods);
+      await recordMandateActivity(env.PETITION_KV, {
+        t: Date.now(),
+        type: 'sign',
+        method,
+        province,
+        shared: !!displayName,
+        duplicate: true,
+        id,
+      });
+      return json(
+        request,
+        { ok: true, duplicate: true, id, message: 'Already recorded', track: 'public_mandate' },
+        200,
+        methods
+      );
     }
 
     // Write signature first (idempotent key)
     await env.PETITION_KV.put(`sig:${receiptHash}`, JSON.stringify(record));
 
-    const stats = await updateStats(env.PETITION_KV, (stats) => {
-      stats.total = (stats.total || 0) + 1;
-      if (province) stats.byProvince[province] = (stats.byProvince[province] || 0) + 1;
-      stats.byMethod[method] = (stats.byMethod[method] || 0) + 1;
+    const day = dayKey(ts);
+    const stats = await updateStats(env.PETITION_KV, (s) => {
+      s.total = (s.total || 0) + 1;
+      if (province) s.byProvince[province] = (s.byProvince[province] || 0) + 1;
+      s.byMethod[method] = (s.byMethod[method] || 0) + 1;
+      // Count every method tag for multi-method receipts
+      for (const m of methodsList) {
+        if (m !== method) s.byMethod[m] = (s.byMethod[m] || 0) + 1;
+      }
+      s.daily = s.daily || {};
+      s.daily[day] = (s.daily[day] || 0) + 1;
+      s.lastSignAt = Date.now();
+      s.lastMethod = method;
+      s.lastProvince = province;
+      if (displayName) s.sharedNames = (s.sharedNames || 0) + 1;
+    });
+
+    // Privacy-safe activity stream for HQ (always, even when name private)
+    await recordMandateActivity(env.PETITION_KV, {
+      t: Date.now(),
+      type: 'sign',
+      method,
+      province,
+      shared: !!displayName,
+      duplicate: false,
+      id,
     });
 
     if (displayName) {
@@ -142,7 +180,22 @@ export async function onRequest(context) {
       await env.PETITION_KV.put('recent:v1', JSON.stringify(recent.slice(0, 50)));
     }
 
-    return json(request, { ok: true, id, remote: true, track: 'campaign', total: stats.total }, 200, methods);
+    return json(
+      request,
+      {
+        ok: true,
+        id,
+        remote: true,
+        track: 'public_mandate',
+        total: stats.total,
+        byProvince: stats.byProvince || {},
+        byMethod: stats.byMethod || {},
+        day,
+        lastSignAt: stats.lastSignAt || null,
+      },
+      200,
+      methods
+    );
   }
 
   if (env.DB) {

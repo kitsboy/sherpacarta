@@ -1,8 +1,59 @@
 /**
  * GET /api/canada/stats
- * Public aggregates for Canada campaign commitments (not Parliamentary counts).
+ * Public aggregates for Canada public mandate (not Parliamentary counts).
+ * HQ pulls this via /metrics.json and optionally this endpoint directly.
  */
-import { corsHeaders, json } from './_shared.js';
+import {
+  corsHeaders,
+  json,
+  countActivitySince,
+  dailySeriesPoints,
+} from './_shared.js';
+
+function publicStatsPayload(stats, activity, recent) {
+  const now = Date.now();
+  const dayMs = 24 * 3600 * 1000;
+  const signers24h = countActivitySince(activity, now - dayMs);
+  const signers7d = countActivitySince(activity, now - 7 * dayMs);
+  const dailyPoints = dailySeriesPoints(stats.daily || {}, 14);
+
+  return {
+    track: 'public_mandate',
+    legalNote:
+      'These are SherpaCarta public-mandate commitments, not House of Commons e-petition signatures. Totals are self-reported and rate-limited, not identity-verified.',
+    total: stats.total || 0,
+    byProvince: stats.byProvince || {},
+    byMethod: stats.byMethod || {},
+    paperBatches: stats.paperBatches || 0,
+    paperCount: stats.paperCount || 0,
+    sharedNames: stats.sharedNames || 0,
+    lastSignAt: stats.lastSignAt || null,
+    lastMethod: stats.lastMethod || null,
+    lastProvince: stats.lastProvince || null,
+    signers24h,
+    signers7d,
+    daily: stats.daily || {},
+    seriesDaily: dailyPoints,
+    activity: (activity || []).slice(0, 40).map((e) => ({
+      t: e.t,
+      type: e.type,
+      method: e.method,
+      province: e.province,
+      shared: !!e.shared,
+      duplicate: !!e.duplicate,
+      id: e.id || null,
+    })),
+    recent: recent,
+    updated: stats.updated || null,
+    store: 'kv',
+    hq: {
+      productId: 'sherpacarta',
+      metrics: 'https://sherpacarta.org/metrics.json',
+      dashboard: 'https://hq.giveabit.io',
+      note: 'Aggregates only — no PII, invoice keys, or Parliamentary e-### counts',
+    },
+  };
+}
 
 export async function onRequest(context) {
   const { request, env } = context;
@@ -16,7 +67,7 @@ export async function onRequest(context) {
       status: 200,
       headers: {
         ...corsHeaders(request, methods),
-        'Cache-Control': 'public, max-age=30',
+        'Cache-Control': 'public, max-age=15',
       },
     });
   }
@@ -26,19 +77,22 @@ export async function onRequest(context) {
 
   const cacheHeaders = {
     ...corsHeaders(request, methods),
-    'Cache-Control': 'public, max-age=30',
+    'Cache-Control': 'public, max-age=15',
   };
 
   if (env.PETITION_KV) {
     const statsRaw = await env.PETITION_KV.get('stats:v1');
     const recentRaw = await env.PETITION_KV.get('recent:v1');
-    const stats = statsRaw ? JSON.parse(statsRaw) : { total: 0, byProvince: {}, byMethod: {} };
+    const activityRaw = await env.PETITION_KV.get('activity:v1');
+    const stats = statsRaw
+      ? JSON.parse(statsRaw)
+      : { total: 0, byProvince: {}, byMethod: {}, daily: {} };
+    const activity = activityRaw ? JSON.parse(activityRaw) : [];
     const recent = (recentRaw ? JSON.parse(recentRaw) : [])
       .filter((r) => {
         const n = (r.displayName || '').toLowerCase();
         if (!n) return false;
         if (/^test|testcam|demo|asdf|xxx|foo\b/.test(n)) return false;
-        // Never return HTML-looking names
         if (/[<>&]/.test(r.displayName || '')) return false;
         return true;
       })
@@ -50,22 +104,10 @@ export async function onRequest(context) {
         ts: r.ts || null,
       }));
 
-    return new Response(
-      JSON.stringify({
-        track: 'campaign',
-        legalNote:
-          'These are SherpaCarta campaign commitments, not House of Commons e-petition signatures. Totals are self-reported and rate-limited, not identity-verified.',
-        total: stats.total || 0,
-        byProvince: stats.byProvince || {},
-        byMethod: stats.byMethod || {},
-        paperBatches: stats.paperBatches || 0,
-        paperCount: stats.paperCount || 0,
-        recent: recent.slice(0, 20),
-        updated: stats.updated || null,
-        store: 'kv',
-      }),
-      { status: 200, headers: cacheHeaders }
-    );
+    return new Response(JSON.stringify(publicStatsPayload(stats, activity, recent.slice(0, 20))), {
+      status: 200,
+      headers: cacheHeaders,
+    });
   }
 
   if (env.DB) {
@@ -90,9 +132,9 @@ export async function onRequest(context) {
       }
       return new Response(
         JSON.stringify({
-          track: 'campaign',
+          track: 'public_mandate',
           legalNote:
-            'These are SherpaCarta campaign commitments, not House of Commons e-petition signatures.',
+            'These are SherpaCarta public-mandate commitments, not House of Commons e-petition signatures.',
           total: row?.c || 0,
           byProvince,
           byMethod: byMethodMap,
@@ -106,13 +148,14 @@ export async function onRequest(context) {
             ts: r.ts,
           })),
           store: 'd1',
+          hq: { productId: 'sherpacarta', metrics: 'https://sherpacarta.org/metrics.json' },
         }),
         { status: 200, headers: cacheHeaders }
       );
     } catch {
       return new Response(
         JSON.stringify({
-          track: 'campaign',
+          track: 'public_mandate',
           total: 0,
           byProvince: {},
           byMethod: {},
@@ -127,15 +170,17 @@ export async function onRequest(context) {
 
   return new Response(
     JSON.stringify({
-      track: 'campaign',
+      track: 'public_mandate',
       total: 0,
       byProvince: {},
       byMethod: {},
       recent: [],
+      activity: [],
       store: 'none',
       configured: false,
-      message: 'Bind PETITION_KV or DB on Cloudflare Pages to enable multi-user campaign totals.',
-      legalNote: 'Campaign commitments only — not Parliamentary e-petition signatures.',
+      message: 'Bind PETITION_KV or DB on Cloudflare Pages to enable multi-user mandate totals.',
+      legalNote: 'Public-mandate commitments only — not Parliamentary e-petition signatures.',
+      hq: { productId: 'sherpacarta', metrics: 'https://sherpacarta.org/metrics.json' },
     }),
     { status: 200, headers: cacheHeaders }
   );

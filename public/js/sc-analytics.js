@@ -23,15 +23,39 @@
   /** @param {string} name @param {Record<string, string|number|boolean>=} data */
   function track(name, data) {
     try {
+      var payload = data || {};
+      // Always attach product id for HQ / suite rollups (no PII)
+      if (payload.productId == null) payload.productId = 'sherpacarta';
       if (typeof window.umami === 'object' && typeof window.umami.track === 'function') {
-        window.umami.track(name, data || {});
+        window.umami.track(name, payload);
       }
     } catch (_) {
       /* ignore */
     }
   }
 
+  /**
+   * Canada public-mandate events for HQ (Umami → Analytics tab).
+   * Never send names, emails, full hashes, or IP.
+   * @param {string} event
+   * @param {{ method?: string, province?: string, shared?: boolean, duplicate?: boolean, remote?: boolean, path?: string }=} meta
+   */
+  function trackCanada(event, meta) {
+    meta = meta || {};
+    track(event, {
+      productId: 'sherpacarta',
+      track: 'public_mandate',
+      method: meta.method || 'unknown',
+      province: meta.province || 'none',
+      shared: meta.shared === true,
+      duplicate: meta.duplicate === true,
+      remote: meta.remote === true,
+      path: meta.path || (typeof location !== 'undefined' ? location.pathname : '/canada/sign'),
+    });
+  }
+
   window.scTrack = track;
+  window.scTrackCanada = trackCanada;
 
   ensureUmami();
 
@@ -63,6 +87,13 @@
 
   if (location.pathname.indexOf('/canada/sign') !== -1 || /sign\.html$/.test(location.pathname)) {
     track('sign_page_view', { path: location.pathname });
+    trackCanada('canada_sign_page', { path: location.pathname });
+  }
+  if (location.pathname.indexOf('/canada/official') !== -1) {
+    trackCanada('canada_official_page', { path: location.pathname });
+  }
+  if (location.pathname.indexOf('/canada/paper') !== -1) {
+    trackCanada('canada_paper_page', { path: location.pathname });
   }
   if (location.pathname.indexOf('/treasury') !== -1) {
     track('treasury_view', { path: location.pathname });

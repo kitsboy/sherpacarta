@@ -1,4 +1,4 @@
 # sherpacarta — Last Updated 2026-07-27 by Grok
 
-Brief: Session close — Canada pages, stamp handoff, docs/ref, Kimi LNURL request.
-Commit: b534ec8
+Brief: Canada sign upgrade + HQ mandate feed (metrics/activity/Umami) on every sign.
+Commit: (pending push — see main tip after commit)

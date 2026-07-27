@@ -1,29 +1,28 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ goodbye 2026-07-27  
-**Last Updated:** 2026-07-27 (session close)  
+**Version:** main @ HQ mandate feed + sign upgrade 2026-07-27  
+**Last Updated:** 2026-07-27  
 **Domain:** https://sherpacarta.org  
 **productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)
 
-## Session close summary
-Canada pages enhanced · Satohash stamp family client hardened · docs/ref/handoffs aligned · Kimi asked for public LNURL (LNbits + Vault).
+## Session summary
+Canada **sign page** rebuilt as public mandate + e-petition upgrade. Every sign feeds **HQ** via richer `/metrics.json`, `/api/canada/stats` activity stream, and Umami events (`canada_mandate_sign`). Stamp smoke PASS. CSP allows `api.satohash.io`.
 
 ## Recent Milestones
+- **2026-07-27:** HQ mandate feed — KV activity + daily series + Umami events on sign
+- **2026-07-27:** `/canada/sign` major upgrade (public mandate, how change works, e-petition path)
+- **2026-07-27:** Stamp family smoke PASS (live sc-core has `satohashStampGuideUrl`)
 - **2026-07-27:** Kimi request LNURL (`ff6c8bf`) — `docs/KIMI-REQUEST-LNURL.md`
-- **2026-07-27:** Docs/ref prep package (`3495e4c`) — LEARN-STAMP-FAMILY, PREP-NOW, agent boot
-- **2026-07-27:** Stamp handoff harden (`5204c5d`) — `/stamp?hash=&ref=`, API honesty, sc-bundle
-- **2026-07-27:** Canada hub + official path — participation / promise / MP tools
-- **2026-07-27:** HQ metrics schema gate v3.25 (HQ repo)
-- **2026-07-26:** Live CF metrics + Umami + wallets.json v2
+- **2026-07-27:** Docs/ref prep package — LEARN-STAMP-FAMILY, PREP-NOW, agent boot
 
 ## Live surfaces
 | Surface | Notes |
 |---------|--------|
-| Metrics | `https://sherpacarta.org/metrics.json` · `raw.demo: false` preferred |
+| Metrics | `https://sherpacarta.org/metrics.json` · `raw.demo: false` · `raw.canada.*` for HQ |
+| Canada stats | `GET /api/canada/stats` — total, 24h/7d, daily, activity, recent wall |
+| Sign | `/canada/sign` public mandate + e-petition upgrade |
 | Stamp | `satohash.io/stamp?hash=&ref=sherpacarta\|sherpacarta-canada` |
-| Verify | `satohash.io/verify/{id}` |
-| Canada | `/canada/` · `/canada/official` dual-track honest |
-| HQ | wallet id `sherpacarta` · Vault invoice keys only |
+| HQ | wallet id `sherpacarta` · Vault invoice keys only · polls metrics |
 
 ## Labels
 - productId / LNbits: **`sherpacarta`**
@@ -37,11 +36,12 @@ Canada pages enhanced · Satohash stamp family client hardened · docs/ref/hando
 | **Kimi** | Public LNURL/lud16 via LNbits → Vault → hand public details | `docs/KIMI-REQUEST-LNURL.md` |
 | **Kimi** | Nostr bot THOR deploy | `docs/KIMI-REQUEST-SHERPA-BOT.md` |
 | **Kimi** | satohash-api client_id if null | LEARN-STAMP / KIMI-REQUEST-SATOHASH |
-| **Cam/Grok** | CF live stamp smoke | PREP-NOW |
 | **Cam** | MP e-### | CANADA-JOURNEY |
 | — | visitors_monthly may be 0 until Umami overlay | HQ |
+| — | Legacy KV may have total without byProvince until new signs | backfill optional |
 
 ## Hard rules
 - No secrets in git  
-- Campaign ≠ Parliamentary e-petition counts  
+- Public mandate ≠ Parliamentary e-petition counts  
 - pending ≠ Bitcoin confirmed on stamps  
+- HQ metrics: no PII (names only if opt-in wall; activity is method/province only)

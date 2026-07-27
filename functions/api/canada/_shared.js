@@ -128,10 +128,27 @@ export async function updateStats(kv, mutator) {
     const prev = statsRaw || '';
     const stats = statsRaw
       ? JSON.parse(statsRaw)
-      : { total: 0, byProvince: {}, byMethod: {}, paperBatches: 0, version: 0 };
+      : {
+          total: 0,
+          byProvince: {},
+          byMethod: {},
+          paperBatches: 0,
+          paperCount: 0,
+          daily: {},
+          sharedNames: 0,
+          version: 0,
+        };
+    if (!stats.byProvince) stats.byProvince = {};
+    if (!stats.byMethod) stats.byMethod = {};
+    if (!stats.daily) stats.daily = {};
     stats.version = (stats.version || 0) + 1;
     mutator(stats);
     stats.updated = Date.now();
+    // Prune daily map to last 45 calendar days (HQ series window)
+    const dayKeys = Object.keys(stats.daily || {}).sort();
+    if (dayKeys.length > 45) {
+      for (const k of dayKeys.slice(0, dayKeys.length - 45)) delete stats.daily[k];
+    }
     // Last-write-wins with version bump; brief backoff reduces lost updates under load
     await kv.put('stats:v1', JSON.stringify(stats));
     if (attempt > 0) break;
@@ -142,4 +159,54 @@ export async function updateStats(kv, mutator) {
   }
   const statsRaw = await kv.get('stats:v1');
   return statsRaw ? JSON.parse(statsRaw) : { total: 0, byProvince: {}, byMethod: {} };
+}
+
+/** UTC day key YYYY-MM-DD */
+export function dayKey(ts = Date.now()) {
+  return new Date(ts).toISOString().slice(0, 10);
+}
+
+/**
+ * Append privacy-safe activity for HQ (no street address, email, IP, or full identity).
+ * Stored in KV activity:v1 — also rolls into stats daily + lastSignAt.
+ */
+export async function recordMandateActivity(kv, event) {
+  if (!kv || !event) return null;
+  const now = Date.now();
+  const item = {
+    t: Number(event.t) || now,
+    type: String(event.type || 'sign').slice(0, 32),
+    method: event.method ? String(event.method).slice(0, 32) : null,
+    province: event.province ? String(event.province).toUpperCase().slice(0, 8) : null,
+    shared: !!event.shared,
+    duplicate: !!event.duplicate,
+    id: event.id ? String(event.id).slice(0, 16) : null,
+    track: 'public_mandate',
+  };
+
+  const raw = await kv.get('activity:v1');
+  const list = raw ? JSON.parse(raw) : [];
+  list.unshift(item);
+  await kv.put('activity:v1', JSON.stringify(list.slice(0, 200)));
+
+  return item;
+}
+
+/** Count signs in activity log within last ms window. */
+export function countActivitySince(activity, sinceMs) {
+  if (!Array.isArray(activity)) return 0;
+  return activity.filter((e) => e && e.type === 'sign' && !e.duplicate && Number(e.t) >= sinceMs).length;
+}
+
+/** Build last N days of points from stats.daily map. */
+export function dailySeriesPoints(daily, days = 14) {
+  const map = daily && typeof daily === 'object' ? daily : {};
+  const out = [];
+  const now = new Date();
+  for (let i = days - 1; i >= 0; i--) {
+    const d = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - i));
+    const key = d.toISOString().slice(0, 10);
+    out.push({ t: key + 'T12:00:00.000Z', v: Number(map[key]) || 0 });
+  }
+  return out;
 }
