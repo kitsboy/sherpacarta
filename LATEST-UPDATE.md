@@ -1,5 +1,4 @@
 # sherpacarta — Last Updated 2026-07-27 by Grok
 
-Brief: Session close — Canada pages, stamp handoff, docs/ref, Kimi LNURL request filed.
-
-Commit: (set by goodbye push)
+Brief: Session close — Canada pages, stamp handoff, docs/ref, Kimi LNURL request.
+Commit: f416833
