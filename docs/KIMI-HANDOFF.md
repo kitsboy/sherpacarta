@@ -1,3 +1,23 @@
+## Session — 2026-07-27 (suite truth — Grok catch-up, no sherpa code)
+
+**Parent / HQ (not this repo):**
+- giveabit Mission NIP-05 ship (v4.4.0) — sherpa@ already live in nostr.json
+- HQ handoff/NEXT-STEPS rewritten so Sherpa/Satohash/Tadbuy Option A no longer look “open”
+- NIP-05 `sherpa@giveabit.io` remains **live** on giveabit; product SPA registry now includes Sherpa
+
+**Still Kimi open (unchanged priority):**
+1. **LNURL** — `docs/KIMI-REQUEST-LNURL.md` · site still `lud16: null`
+2. Nostr bot THOR — `docs/KIMI-REQUEST-SHERPA-BOT.md`
+3. Optional satohash-api client_id segments
+
+**Nova:** LNbits public harden (HTTP :5102 → prefer HTTPS). Proxy Worker OK.
+
+**Grok after lud16 handback:** `public/data/wallets.json` lightning.lud16 + remove TEMP copy.
+
+**Truth line:** metrics/Canada/stamp/NIP-05 live; **public Lightning still Kimi**.
+
+---
+
 ## Session — 2026-07-27 (GOODBYE — Grok session close)
 
 **Done this session (M3):**
