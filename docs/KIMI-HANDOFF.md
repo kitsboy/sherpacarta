@@ -124,6 +124,24 @@ Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.
 
 ---
 
+## Session — 2026-07-27 (KIMI TODO: Public LNURL via LNbits — Cam)
+
+**Cam request:** Add to Kimi’s list and **do this on / for hq.giveabit.io + LNbits.**
+
+### Task
+1. Set up **public Lightning LNURL** (and LUD-16 if available) for wallet **`sherpacarta`** using **LNbits** on THOR.  
+2. Keys → **HQ Vault only** (never git).  
+3. **Provide Grok/Cam the public details** (`lud16`, optional LNURL string, smoke test note).  
+4. Grok will then publish on site (`wallets.json`) once you hand back public values.
+
+**Full request:** `docs/KIMI-REQUEST-LNURL.md`
+
+**Why:** Site still has TEMP lightning / `lud16: null`. HQ Money already tracks wallet id `sherpacarta` when Vault has invoice key.
+
+**Do not:** commit invoice/admin keys · invent fake addresses · leave TEMP if LN is live.
+
+---
+
 ## Session — 2026-07-27 (Docs/ref/prep package — Grok)
 
 **Done:**

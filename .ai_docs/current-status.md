@@ -36,10 +36,11 @@
 - Kimi: Nostr bot THOR deploy (`docs/KIMI-REQUEST-SHERPA-BOT.md`)
 - Kimi: satohash-api Docker if `client_id` null on stamps
 - Cam: MP e-### when sponsor ready
-- Lightning public LNURL still pending
+- **Public LNURL / lud16 pending** — Kimi task: `docs/KIMI-REQUEST-LNURL.md` (LNbits + HQ Vault; hand public details to Grok)
 - visitors_monthly may stay 0 until Umami overlay/traffic
 
 ## Next (see docs/PREP-NOW.md)
-1. Live smoke stamp after CF deploy  
-2. Kimi bot + optional client_id rebuild  
-3. MP path when politics ready  
+1. **Kimi:** Public LNURL for wallet `sherpacarta` via LNbits → Vault → hand lud16 to Grok  
+2. Live smoke stamp after CF deploy  
+3. Kimi bot + optional client_id rebuild  
+4. MP path when politics ready  

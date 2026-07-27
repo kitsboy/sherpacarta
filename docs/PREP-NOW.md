@@ -19,7 +19,7 @@
 | 2 | **Confirm CF deploy** of `5204c5d` | Live site must expose `satohashStampGuideUrl` | Ops check |
 | 3 | **Cache-bust** `?v=` on sc-core/sc-bundle if deploy sticks | Browsers cache old JS | Low |
 | 4 | **Press / marketing links** → `/stamp?ref=sherpacarta` | No weak giveabit home links | Low |
-| 5 | **Wallet/Lightning public LNURL** when ready | Donate UX | Cam Vault only |
+| 5 | **Public Lightning LNURL** | Donate UX | **→ Kimi list** `docs/KIMI-REQUEST-LNURL.md` — LNbits + HQ Vault; Grok publishes lud16 after handback |
 | 6 | **MP e-###** when sponsor exists | Flip `campaign-canada.json` officialChannels | Cam politics |
 | 7 | **Nostr bot on THOR** | `docs/KIMI-REQUEST-SHERPA-BOT.md` | Kimi |
 | 8 | **Satohash THOR rebuild** for client_id segments | HQ family_share chart | Kimi |
