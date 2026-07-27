@@ -1,5 +1,5 @@
-# sherpacarta — Last Updated 2026-07-27 by Grok
+# sherpacarta — Last Updated 2026-07-27 by Grok (via satohash session)
 
-Brief: Canada pages + Kimi Satohash stamp upgrade note (`docs/KIMI-REQUEST-SATOHASH.md`).
-Commit: 0ffe897
-Satohash handoff: f971761
+Brief: Paste prompt for stamp family handoff ready — see docs/GROK-PROMPT-STAMP-HANDOFF.md  
+Prior: b2584ae stamp deep-links to /stamp?hash=&ref=  
+Next Grok: audit remaining URLs, rebuild sc-bundle, deploy, smoke from live site  

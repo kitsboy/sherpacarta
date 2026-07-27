@@ -1,3 +1,21 @@
+## Session — 2026-07-27 (from Satohash Grok — stamp handoff learn)
+
+**For next Grok in this repo:** read and execute  
+`docs/GROK-PROMPT-STAMP-HANDOFF.md` (paste-ready).
+
+**Satohash side (done on satohash main):**
+- SPA deep-link + **API URL fix** so stamps hit api.satohash.io
+- Canonical: `/stamp?hash=&ref=` · home redirect works
+- Honest pending/confirmed · durable stamp id required
+
+**Sherpa already partially done (`b2584ae`):** charter/Canada → `/stamp?hash=&ref=`
+
+**Your remaining work:** full URL audit, no weak `?ref=` home links, bundle rebuild, CF deploy, show verify/{id} after in-app stamp, never fake “confirmed”.
+
+**Do not** re-implement Satohash SPA. Do not put secrets in git.
+
+---
+
 ## Session — 2026-07-27 (Grok M3 — Satohash stamp deep-link URLs)
 
 **Done:**
