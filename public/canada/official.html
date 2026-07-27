@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Official e-Petition Status — SherpaCarta Canada</title>
+<title>Official e-Petition Path — SherpaCarta Canada</title>
 <!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SherpaCarta">
 <meta property="og:locale" content="en_CA">
 <meta property="og:url" content="https://sherpacarta.org/canada/official">
 <meta property="og:title" content="Official e-Petition Path — SherpaCarta Canada">
-<meta property="og:description" content="Status of the House of Commons e-petition, MP outreach tools, and federal prayer text. Campaign and paper sheets available now.">
+<meta property="og:description" content="Help bring digital rights to Parliament. Status, MP tools, federal prayer text, and the path to a live House of Commons e-petition (e-###).">
 <meta property="og:image" content="https://sherpacarta.org/og/canada.jpg">
 <meta property="og:image:secure_url" content="https://sherpacarta.org/og/canada.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -22,109 +22,253 @@
 <meta name="twitter:creator" content="@give_bit">
 <meta name="twitter:url" content="https://sherpacarta.org/canada/official">
 <meta name="twitter:title" content="Official e-Petition Path — SherpaCarta Canada">
-<meta name="twitter:description" content="Status of the House of Commons e-petition, MP outreach tools, and federal prayer text. Campaign and paper sheets available now.">
+<meta name="twitter:description" content="Help bring digital rights to Parliament. MP tools, prayer text, and the path to e-###.">
 <meta name="twitter:image" content="https://sherpacarta.org/og/canada.jpg">
 <meta name="twitter:image:src" content="https://sherpacarta.org/og/canada.jpg">
 <meta name="twitter:image:alt" content="Official e-Petition Path — SherpaCarta Canada">
-<meta name="description" content="Status of the House of Commons e-petition, MP outreach tools, and federal prayer text. Campaign and paper sheets available now.">
+<meta name="description" content="Help bring digital rights to Parliament. Status, MP tools, federal prayer text, and the path to a live House of Commons e-petition (e-###).">
 <link rel="image_src" href="https://sherpacarta.org/og/canada.jpg">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
-<link rel="image_src" href="https://sherpacarta.org/og/canada.jpg">
-
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <link rel="canonical" href="https://sherpacarta.org/canada/official">
-<link rel="stylesheet" href="/fonts/fonts.css?v=730">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=730">
-<link rel="stylesheet" href="/sc-main.css?v=730">
+<meta name="theme-color" content="#050806">
+<link rel="icon" href="/favicon.png?v=742" type="image/png" sizes="48x48">
+<link rel="icon" href="/brand-mark.png?v=742" type="image/png" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=742">
+<link rel="stylesheet" href="/fonts/fonts.css?v=742">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=742">
+<link rel="stylesheet" href="/sc-main.css?v=742">
 <style>
-  body{max-width:720px;margin:0 auto;padding:1.5rem 1.25rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75}
-  h1{font-family:var(--serif);color:var(--em2);font-size:2rem}
-  h2{font-size:1.05rem;color:var(--em);margin-top:1.75rem}
-  .status{display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem .85rem;border-radius:100px;border:1px solid var(--gold);color:var(--gold);margin:.5rem 0}
-  .status.live{border-color:var(--em);color:var(--em)}
-  .card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin:1rem 0}
-  .prayer{font-size:.88rem;color:var(--text2);line-height:1.7;white-space:pre-wrap}
-  .btn{display:inline-flex;gap:.4rem;padding:.7rem 1.15rem;border-radius:100px;background:var(--em);color:#041208;font-weight:600;text-decoration:none;margin:.25rem .25rem .25rem 0;border:none;cursor:pointer;font-family:var(--sans);align-items:center;min-height:44px}
-  .btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--em2)}
-  ol,ul{padding-left:1.25rem;color:var(--text2);font-size:.9rem}
-  li{margin:.4rem 0}
-  a{color:var(--em2)}
-  textarea{width:100%;min-height:140px;background:var(--bg3);border:1px solid var(--border);border-radius:.75rem;color:var(--text);padding:.75rem;font-size:.8rem;font-family:var(--mono);box-sizing:border-box}
-  .checklist label{display:flex;gap:.55rem;align-items:flex-start;margin:.45rem 0;font-size:.88rem;color:var(--text2);cursor:pointer}
-  .checklist input{margin-top:.2rem;accent-color:var(--em)}
-  .done{opacity:.55;text-decoration:line-through}
+body.off, body.off * { cursor: auto !important; }
+body.off a, body.off button, body.off .btn { cursor: pointer !important; }
+body.off{
+  max-width:760px;margin:0 auto;padding:1.5rem 1.2rem 3.5rem;font-family:var(--sans);
+  background:
+    radial-gradient(ellipse 80% 35% at 50% -5%,rgba(212,175,55,.08),transparent 50%),
+    radial-gradient(ellipse 50% 30% at 0% 40%,rgba(16,185,129,.06),transparent 45%),
+    var(--bg);
+  color:var(--text);line-height:1.7;
+}
+.nav-mini{font-size:.82rem;margin-bottom:1.15rem}
+.nav-mini a{color:var(--em2);text-decoration:none}
+.kicker{font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem}
+h1{font-family:var(--serif);color:var(--em2);font-size:clamp(1.85rem,4vw,2.35rem);line-height:1.15;margin:.2rem 0 .6rem}
+h2{font-family:var(--serif);font-size:1.2rem;color:var(--text);margin:2rem 0 .65rem}
+.lead{color:var(--text2);font-size:1.02rem;max-width:640px}
+.status{
+  display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.68rem;
+  letter-spacing:.1em;text-transform:uppercase;padding:.45rem .9rem;border-radius:100px;
+  border:1px solid var(--gold);color:var(--gold);margin:.75rem 0;
+}
+.status.live{border-color:var(--em);color:var(--em);background:rgba(16,185,129,.08)}
+.card{
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));border:1px solid var(--border);
+  border-radius:1rem;padding:1.25rem;margin:1rem 0;
+}
+.card h3{font-family:var(--serif);font-size:1.05rem;margin:0 0 .5rem;color:var(--text)}
+.prayer{font-size:.9rem;color:var(--text2);line-height:1.75;white-space:pre-wrap}
+.btn{
+  display:inline-flex;gap:.4rem;padding:.7rem 1.15rem;border-radius:100px;background:linear-gradient(135deg,var(--em),#0d9668);
+  color:#041208;font-weight:600;text-decoration:none;margin:.25rem .35rem .25rem 0;border:none;cursor:pointer;
+  font-family:var(--sans);align-items:center;min-height:44px;font-size:.85rem;
+}
+.btn-ghost{background:transparent;border:1px solid var(--border2);color:var(--em2)}
+.btn-gold{background:linear-gradient(135deg,rgba(212,175,55,.25),rgba(212,175,55,.1));border:1px solid rgba(212,175,55,.45);color:var(--gold2)}
+ol,ul{padding-left:1.25rem;color:var(--text2);font-size:.9rem}
+li{margin:.45rem 0;line-height:1.55}
+a{color:var(--em2)}
+textarea{
+  width:100%;min-height:150px;background:var(--bg);border:1px solid var(--border);border-radius:.75rem;
+  color:var(--text);padding:.85rem;font-size:.8rem;font-family:var(--mono);box-sizing:border-box;line-height:1.5;
+}
+.checklist label{display:flex;gap:.55rem;align-items:flex-start;margin:.5rem 0;font-size:.9rem;color:var(--text2);cursor:pointer}
+.checklist input{margin-top:.25rem;accent-color:var(--em)}
+.done{opacity:.55;text-decoration:line-through}
+.stages{display:grid;gap:.65rem;margin:1.15rem 0}
+.stage{
+  display:grid;grid-template-columns:auto 1fr;gap:.75rem;align-items:start;
+  padding:.9rem 1rem;border-radius:.85rem;border:1px solid var(--border);background:var(--bg2);
+}
+.stage .num{
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--mono);font-size:.7rem;font-weight:700;background:rgba(16,185,129,.15);color:var(--em);
+}
+.stage.active{border-color:rgba(212,175,55,.45);box-shadow:0 0 0 1px rgba(212,175,55,.1)}
+.stage.active .num{background:rgba(212,175,55,.2);color:var(--gold2)}
+.stage h4{margin:0 0 .2rem;font-size:.95rem;color:var(--text);font-family:var(--serif)}
+.stage p{margin:0;font-size:.82rem;color:var(--text3);line-height:1.5}
+.why-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin:1rem 0}
+@media(max-width:600px){.why-row{grid-template-columns:1fr}}
+.why{
+  padding:1rem;border-radius:.85rem;border:1px solid var(--border);
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
+}
+.why h3{font-family:var(--serif);font-size:1rem;margin:0 0 .35rem;color:var(--text)}
+.why p{margin:0;font-size:.82rem;color:var(--text2);line-height:1.55}
+.note{font-size:.75rem;color:var(--text3);margin-top:2rem;line-height:1.65}
+.promise{
+  padding:1.1rem 1.2rem;border-radius:1rem;margin:1.15rem 0;
+  border:1px solid rgba(16,185,129,.28);background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(212,175,55,.05));
+}
+.promise p{margin:0;font-size:.92rem;color:var(--text2);line-height:1.65}
+.meta-line{font-family:var(--mono);font-size:.65rem;color:var(--text3);margin:.5rem 0 0}
 </style>
-<!-- suite analytics: first-party Umami (sherpacarta) -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=733"></script>
+<script defer src="/js/sc-analytics.js?v=742"></script>
 </head>
-<body>
-<p><a href="/canada/">← Canada hub</a></p>
-<h1>Official Parliament path</h1>
-<p style="color:var(--text2)">House of Commons e-petitions live <strong>only</strong> on Parliament’s website. This page tracks status and gives you prayer text + MP tools. Meanwhile: campaign sign + federal paper sheets.</p>
+<body class="off">
+<p class="nav-mini"><a href="/canada/">← Canada hub</a> · <a href="/canada/sign">Sign campaign</a> · <a href="/canada/paper">Paper</a> · <a href="/briefing.html">Briefing</a></p>
 
-<div class="status" id="status-pill">Loading…</div>
-<div class="card">
-  <p id="status-detail" style="margin:0;color:var(--text2);font-size:.9rem"></p>
-  <p style="margin:1rem 0 0">
-    <a class="btn" id="cta-main" href="https://petitions.ourcommons.ca/">Open petitions.ourcommons.ca</a>
-    <a class="btn btn-ghost" href="/canada/sign">Sign campaign</a>
-    <a class="btn btn-ghost" href="/canada/paper">Print federal sheet</a>
-    <a class="btn btn-ghost" href="/briefing.html">Executive briefing (print)</a>
+<p class="kicker">House of Commons · e-petition path</p>
+<h1>Make it count in Parliament</h1>
+<p class="lead">
+  Campaign signs and paper sheets build the movement.
+  An <strong>official e-petition</strong> is how that mandate lands on the House of Commons agenda —
+  with a government response required after presentation.
+  We are building toward a live <strong>e-###</strong>. You can help open that door.
+</p>
+
+<div class="promise">
+  <p>
+    <strong style="color:var(--text)">Why this matters:</strong>
+    Once an MP authorizes a petition and it reaches the threshold, it is presented in the House and
+    the government must respond. That is leverage. Until then, every campaign commitment and paper sheet
+    proves Canadians want digital rights modernization — privacy, data sovereignty, and algorithmic accountability.
   </p>
 </div>
 
-<h2>Federal prayer (≤250 words · for e-petition)</h2>
-<div class="card"><div class="prayer" id="fed-prayer">Loading…</div>
-<p style="font-size:.75rem;color:var(--text3);margin:.75rem 0 0">Word count: <span id="wc">0</span> · max 250 · Clerk pre-check: <a href="mailto:PMB-AED@parl.gc.ca">PMB-AED@parl.gc.ca</a></p>
-<button type="button" class="btn btn-ghost" id="copy-prayer">Copy prayer</button>
+<div class="status" id="status-pill">Loading…</div>
+<div class="card">
+  <p id="status-detail" style="margin:0;color:var(--text2);font-size:.92rem;line-height:1.65"></p>
+  <p style="margin:1.1rem 0 0;display:flex;flex-wrap:wrap;gap:.25rem">
+    <a class="btn" id="cta-main" href="https://petitions.ourcommons.ca/">Open petitions.ourcommons.ca</a>
+    <a class="btn btn-ghost" href="/canada/sign">Sign campaign</a>
+    <a class="btn btn-ghost" href="/canada/paper">Print federal sheet</a>
+    <a class="btn btn-ghost" href="/briefing.html">Executive briefing</a>
+    <a class="btn btn-ghost" href="/leave-behind.html">Leave-behind</a>
+  </p>
 </div>
 
-<h2>Cam checklist (local)</h2>
+<div class="why-row">
+  <div class="why">
+    <h3>What “official” means</h3>
+    <p>Only signatures on <em>petitions.ourcommons.ca</em> after e-### is published count for Parliament. Our site campaign is separate and honest about that.</p>
+  </div>
+  <div class="why">
+    <h3>What we need from you</h3>
+    <p>Sign the campaign, collect paper, and help identify MPs open to authorizing a petition on digital privacy and algorithmic rights.</p>
+  </div>
+</div>
+
+<h2>The path to e-###</h2>
+<div class="stages">
+  <div class="stage active" id="stage-1">
+    <div class="num">1</div>
+    <div>
+      <h4>Build mandate</h4>
+      <p>Campaign signs + federal paper sheets. Public discussion on X (#Sherpacarta) and Nostr. This is where we are strongest today.</p>
+    </div>
+  </div>
+  <div class="stage" id="stage-2">
+    <div class="num">2</div>
+    <div>
+      <h4>Create &amp; certify the draft</h4>
+      <p>Account on petitions.ourcommons.ca · paste federal prayer (≤250 words, no URLs) · 5 supporters confirm by email · Clerk review.</p>
+    </div>
+  </div>
+  <div class="stage" id="stage-3">
+    <div class="num">3</div>
+    <div>
+      <h4>MP authorizes</h4>
+      <p>A Member of Parliament must accept the invitation. That unlocks a public e-### on Parliament’s site.</p>
+    </div>
+  </div>
+  <div class="stage" id="stage-4">
+    <div class="num">4</div>
+    <div>
+      <h4>500+ validated signatures</h4>
+      <p>Email confirmation on ourcommons.ca. At threshold, petition can be presented; government responds within 45 days after presentation.</p>
+    </div>
+  </div>
+</div>
+
+<h2>Federal prayer <span style="font-weight:400;font-size:.85rem;color:var(--text3)">(≤250 words · e-petition ready)</span></h2>
+<div class="card">
+  <div class="prayer" id="fed-prayer">Loading…</div>
+  <p class="meta-line">Word count: <span id="wc">0</span> · max 250 · Clerk pre-check: <a href="mailto:PMB-AED@parl.gc.ca">PMB-AED@parl.gc.ca</a></p>
+  <p style="margin:1rem 0 0">
+    <button type="button" class="btn btn-ghost" id="copy-prayer"><i class="fas fa-copy"></i> Copy prayer</button>
+  </p>
+</div>
+
+<h2>Organizer checklist <span style="font-weight:400;font-size:.8rem;color:var(--text3)">(this browser only)</span></h2>
 <div class="card checklist" id="checklist">
   <label><input type="checkbox" data-k="acct"> Create account on petitions.ourcommons.ca</label>
-  <label><input type="checkbox" data-k="prayer"> Paste federal prayer (no URLs)</label>
-  <label><input type="checkbox" data-k="s1"> Supporter 1 email confirmed</label>
-  <label><input type="checkbox" data-k="s2"> Supporter 2 email confirmed</label>
-  <label><input type="checkbox" data-k="s3"> Supporter 3 email confirmed</label>
-  <label><input type="checkbox" data-k="s4"> Supporter 4 email confirmed</label>
-  <label><input type="checkbox" data-k="s5"> Supporter 5 email confirmed</label>
+  <label><input type="checkbox" data-k="prayer"> Paste federal prayer (no URLs in the text)</label>
+  <label><input type="checkbox" data-k="s1"> Supporter 1 — email confirmed</label>
+  <label><input type="checkbox" data-k="s2"> Supporter 2 — email confirmed</label>
+  <label><input type="checkbox" data-k="s3"> Supporter 3 — email confirmed</label>
+  <label><input type="checkbox" data-k="s4"> Supporter 4 — email confirmed</label>
+  <label><input type="checkbox" data-k="s5"> Supporter 5 — email confirmed</label>
   <label><input type="checkbox" data-k="mp"> Invited an MP to authorize</label>
-  <label><input type="checkbox" data-k="live"> Received e-### and updated campaign JSON</label>
+  <label><input type="checkbox" data-k="brief"> Sent executive briefing + leave-behind</label>
+  <label><input type="checkbox" data-k="paper"> Federal paper sheets in circulation</label>
+  <label><input type="checkbox" data-k="live"> Received e-### and updated campaign data</label>
 </div>
-<p style="font-size:.75rem;color:var(--text3)">Checklist saves only in this browser (localStorage).</p>
+<p class="meta-line">Saved in localStorage only — not sent to our servers.</p>
 
 <h2>Find your MP</h2>
 <div class="card">
-  <p style="font-size:.9rem;color:var(--text2);margin-top:0">Use Parliament’s official tool, then paste their email into the outreach draft below.</p>
+  <p style="font-size:.9rem;color:var(--text2);margin:0 0 1rem">Use Parliament’s directory, then send the outreach draft (or your own). Mention campaign volume, paper sheets, and the charter as a reference framework — not as already-passed law.</p>
   <a class="btn" href="https://www.ourcommons.ca/members/en" target="_blank" rel="noopener"><i class="fas fa-search"></i> Find Members of Parliament</a>
   <a class="btn btn-ghost" href="https://www.ourcommons.ca/members/en/search" target="_blank" rel="noopener">Search by name / riding</a>
+  <a class="btn btn-ghost" href="https://petitions.ourcommons.ca/" target="_blank" rel="noopener">Petitions portal</a>
 </div>
 
 <h2>MP outreach email</h2>
 <div class="card">
-  <textarea id="mp-mail" readonly></textarea>
-  <button type="button" class="btn btn-ghost" id="copy-mail">Copy email</button>
-  <a class="btn btn-ghost" id="mailto" href="#">Open in mail app</a>
+  <textarea id="mp-mail" readonly aria-label="MP outreach email draft"></textarea>
+  <p style="margin:1rem 0 0">
+    <button type="button" class="btn btn-ghost" id="copy-mail"><i class="fas fa-copy"></i> Copy email</button>
+    <a class="btn btn-ghost" id="mailto" href="#"><i class="fas fa-envelope"></i> Open in mail app</a>
+  </p>
 </div>
 
 <h2>Press one-liner</h2>
 <div class="card">
-  <p id="press-line" style="font-size:.9rem;color:var(--text2);margin:0"></p>
-  <button type="button" class="btn btn-ghost" id="copy-press" style="margin-top:.75rem">Copy</button>
+  <p id="press-line" style="font-size:.92rem;color:var(--text2);margin:0;line-height:1.65"></p>
+  <p style="margin:1rem 0 0">
+    <button type="button" class="btn btn-ghost" id="copy-press"><i class="fas fa-copy"></i> Copy</button>
+    <a class="btn btn-ghost" href="https://x.com/intent/tweet?text=Canadians%20are%20building%20a%20mandate%20for%20digital%20rights%20%23Sherpacarta%20https%3A%2F%2Fsherpacarta.org%2Fcanada" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Share on X</a>
+  </p>
 </div>
 
 <h2>Rules that keep friction low</h2>
-<ul>
-  <li><strong>No minimum age</strong> to sign</li>
-  <li><strong>No government ID upload</strong> — email confirmation instead</li>
-  <li>Citizen or resident (incl. citizens abroad)</li>
-  <li>500 validated e-signatures to present; government responds within 45 days after presentation</li>
-</ul>
+<div class="card">
+  <ul style="margin:0">
+    <li><strong>No minimum age</strong> to sign an e-petition</li>
+    <li><strong>No government ID upload</strong> — email confirmation on Parliament’s site</li>
+    <li>Canadian citizen or resident (including citizens abroad)</li>
+    <li><strong>500</strong> validated e-signatures to present; government responds within <strong>45 days</strong> after presentation</li>
+    <li>Paper petitions: original ink, name + address, minimums for certification — <a href="/canada/paper">print sheets</a></li>
+  </ul>
+</div>
 
-<p style="font-size:.75rem;color:var(--text3);margin-top:2rem"><a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/CANADA-PETITION-LEGAL.md">Full legal model</a> · Not legal advice</p>
+<div class="card" style="border-color:rgba(16,185,129,.3)">
+  <h3><i class="fas fa-bolt" style="color:var(--em)"></i> While we seek an MP</h3>
+  <p style="margin:0 0 1rem;font-size:.9rem;color:var(--text2);line-height:1.65">
+    Do not wait. Campaign volume and paper are the argument. Public conversation keeps the issue warm.
+  </p>
+  <a class="btn btn-primary" href="/canada/sign"><i class="fas fa-signature"></i> Sign campaign</a>
+  <a class="btn btn-ghost" href="/canada/paper"><i class="fas fa-print"></i> Print paper</a>
+  <a class="btn btn-ghost" href="/nostr"><i class="fas fa-comments"></i> Discuss publicly</a>
+  <a class="btn btn-ghost" href="/canada/"><i class="fas fa-flag"></i> Canada hub</a>
+</div>
+
+<p class="note">
+  Not legal advice. Official process lives on Parliament’s websites.
+  Model notes: <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/CANADA-PETITION-LEGAL.md">CANADA-PETITION-LEGAL.md</a>.
+  Parent: <a href="https://giveabit.io">Give A Bit</a>.
+</p>
 
 <script>
 const KEY = 'sc_official_checklist_v1';
@@ -139,37 +283,86 @@ document.querySelectorAll('#checklist input').forEach((inp) => {
   };
 });
 
-fetch('/data/campaign-canada.json').then(r=>r.json()).then(d=>{
-  const fed=d.officialChannels?.federal||{};
-  const prayer=d.prayers?.federalOfficial||'';
-  const live=fed.status==='live'&&fed.ePetitionId;
-  const pill=document.getElementById('status-pill');
-  const detail=document.getElementById('status-detail');
-  const cta=document.getElementById('cta-main');
-  if(live){
-    pill.textContent='LIVE · '+fed.ePetitionId;
-    pill.classList.add('live');
-    detail.innerHTML=`Sign on Parliament’s site so your signature counts toward the official total (email confirm required).`;
-    cta.href=fed.url;
-    cta.textContent='Sign official '+fed.ePetitionId;
-  }else{
-    pill.textContent='STATUS · '+(fed.status||'seeking_mp').replace(/_/g,' ');
-    detail.innerHTML=`No e-### yet. Use the checklist, find an MP, and keep collecting <a href="/canada/paper">federal paper</a> + <a href="/canada/sign">campaign</a> commitments.`;
-    cta.href=fed.createUrl||'https://petitions.ourcommons.ca/';
-  }
-  document.getElementById('fed-prayer').textContent=prayer;
-  document.getElementById('wc').textContent=prayer.trim().split(/\s+/).filter(Boolean).length;
-  const mail=d.mpOutreach||{};
-  const body=mail.body||'';
-  const full=`Subject: ${mail.subject||''}\n\n${body}`;
-  document.getElementById('mp-mail').value=full;
-  document.getElementById('mailto').href=`mailto:?subject=${encodeURIComponent(mail.subject||'')}&body=${encodeURIComponent(body)}`;
-  document.getElementById('copy-mail').onclick=()=>navigator.clipboard.writeText(full).then(()=>alert('Copied'));
-  document.getElementById('copy-prayer').onclick=()=>navigator.clipboard.writeText(prayer).then(()=>alert('Prayer copied'));
-  const press='Community members in [City] are collecting a federal petition calling on Parliament to modernize digital privacy and algorithmic rights, using the SherpaCarta charter as a reference framework. Paper sheets: sherpacarta.org/canada/paper — Campaign: sherpacarta.org/canada';
-  document.getElementById('press-line').textContent=press;
-  document.getElementById('copy-press').onclick=()=>navigator.clipboard.writeText(press).then(()=>alert('Copied'));
-});
+function toast(msg) {
+  // lightweight feedback without alert spam
+  const t = document.createElement('div');
+  t.textContent = msg;
+  t.setAttribute('role', 'status');
+  Object.assign(t.style, {
+    position: 'fixed', bottom: '1.25rem', left: '50%', transform: 'translateX(-50%)',
+    background: 'var(--bg3)', border: '1px solid var(--em)', color: 'var(--em2)',
+    padding: '.55rem 1rem', borderRadius: '100px', fontSize: '.8rem', zIndex: 9999,
+    fontFamily: 'var(--sans)',
+  });
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 1800);
+}
+
+fetch('/data/campaign-canada.json')
+  .then((r) => r.json())
+  .then((d) => {
+    const fed = d.officialChannels?.federal || {};
+    const prayer = d.prayers?.federalOfficial || '';
+    const live = fed.status === 'live' && fed.ePetitionId;
+    const pill = document.getElementById('status-pill');
+    const detail = document.getElementById('status-detail');
+    const cta = document.getElementById('cta-main');
+    const s1 = document.getElementById('stage-1');
+    const s2 = document.getElementById('stage-2');
+    const s3 = document.getElementById('stage-3');
+    const s4 = document.getElementById('stage-4');
+    [s1, s2, s3, s4].forEach((el) => el && el.classList.remove('active'));
+
+    if (live) {
+      pill.textContent = 'LIVE · ' + fed.ePetitionId;
+      pill.classList.add('live');
+      detail.innerHTML =
+        'The official petition is open. <strong>Sign on Parliament’s website</strong> so your signature counts toward the official total (email confirmation required). Then share the e-### link widely.';
+      cta.href = fed.url;
+      cta.textContent = 'Sign official ' + fed.ePetitionId;
+      cta.className = 'btn';
+      if (s4) s4.classList.add('active');
+    } else {
+      const st = (fed.status || 'seeking_mp').replace(/_/g, ' ');
+      pill.textContent = 'STATUS · ' + st;
+      detail.innerHTML =
+        'No e-### yet — we are <strong>seeking an MP sponsor</strong>. Use the checklist, send the outreach email, and keep collecting ' +
+        '<a href="/canada/paper">federal paper</a> and <a href="/canada/sign">campaign</a> commitments. ' +
+        'When an MP authorizes, this page will deep-link the live petition.';
+      cta.href = fed.createUrl || 'https://petitions.ourcommons.ca/';
+      cta.textContent = 'Start draft on Parliament site';
+      if (s1) s1.classList.add('active');
+      if (s3) s3.classList.add('active');
+    }
+
+    document.getElementById('fed-prayer').textContent = prayer;
+    document.getElementById('wc').textContent = prayer.trim().split(/\s+/).filter(Boolean).length;
+
+    const mail = d.mpOutreach || {};
+    const body =
+      mail.body ||
+      `Dear [MP name],\n\nI am writing as a constituent to ask you to authorize a House of Commons e-petition calling for stronger digital human rights in Canada — including modernization of federal privacy law, limits on mass and commercial surveillance, a practical right to erasure, and algorithmic transparency for automated decisions that affect people.\n\nWe are organizing under the SherpaCarta charter (a public-domain Digital Magna Carta) as a reference framework, not as enacted law. Campaign: https://sherpacarta.org/canada · Paper sheets: https://sherpacarta.org/canada/paper · Briefing: https://sherpacarta.org/briefing.html\n\nWould you be willing to authorize this e-petition so Canadians can sign on petitions.ourcommons.ca?\n\nThank you for your consideration.\n\n[Your name]\n[Riding / city]`;
+    const subject = mail.subject || 'Request: authorize a digital rights e-petition for your constituents';
+    const full = `Subject: ${subject}\n\n${body}`;
+    document.getElementById('mp-mail').value = full;
+    document.getElementById('mailto').href =
+      `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    document.getElementById('copy-mail').onclick = () =>
+      navigator.clipboard.writeText(full).then(() => toast('Email copied'));
+    document.getElementById('copy-prayer').onclick = () =>
+      navigator.clipboard.writeText(prayer).then(() => toast('Prayer copied'));
+
+    const press =
+      'Community members across Canada are building a public mandate for digital privacy and algorithmic rights, using the SherpaCarta charter as a reference framework. They are collecting campaign commitments and federal paper petitions while seeking an MP to authorize a House of Commons e-petition. Canada hub: https://sherpacarta.org/canada · Official path: https://sherpacarta.org/canada/official · Discuss: https://sherpacarta.org/nostr';
+    document.getElementById('press-line').textContent = press;
+    document.getElementById('copy-press').onclick = () =>
+      navigator.clipboard.writeText(press).then(() => toast('Press line copied'));
+  })
+  .catch(() => {
+    document.getElementById('status-pill').textContent = 'STATUS · unavailable';
+    document.getElementById('status-detail').textContent =
+      'Could not load campaign data. Try refresh, or open https://sherpacarta.org/canada/sign to participate.';
+  });
 </script>
 </body>
 </html>
