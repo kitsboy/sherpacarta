@@ -11,9 +11,9 @@
 <meta property="og:url" content="https://sherpacarta.org/">
 <meta property="og:title" content="SherpaCarta — The Global Digital Magna Carta">
 <meta property="og:description" content="114 living articles protecting privacy, data sovereignty, and freedom online for every person on Earth. Zero tracking. Bitcoin-funded. Sign the charter.">
-<meta property="og:image" content="https://sherpacarta.org/og/default.png?v=724">
-<meta property="og:image:secure_url" content="https://sherpacarta.org/og/default.png?v=724">
-<meta property="og:image:type" content="image/png">
+<meta property="og:image" content="https://sherpacarta.org/share.jpg">
+<meta property="og:image:secure_url" content="https://sherpacarta.org/share.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="SherpaCarta — The Global Digital Magna Carta">
@@ -23,15 +23,25 @@
 <meta name="twitter:url" content="https://sherpacarta.org/">
 <meta name="twitter:title" content="SherpaCarta — The Global Digital Magna Carta">
 <meta name="twitter:description" content="114 living articles protecting privacy, data sovereignty, and freedom online for every person on Earth. Zero tracking. Bitcoin-funded. Sign the charter.">
-<meta name="twitter:image" content="https://sherpacarta.org/og/default.png?v=724">
+<meta name="twitter:image" content="https://sherpacarta.org/share.jpg">
+<meta name="twitter:image:src" content="https://sherpacarta.org/share.jpg">
 <meta name="twitter:image:alt" content="SherpaCarta — The Global Digital Magna Carta">
 <meta name="description" content="114 living articles protecting privacy, data sovereignty, and freedom online for every person on Earth. Zero tracking. Bitcoin-funded. Sign the charter.">
+<link rel="image_src" href="https://sherpacarta.org/share.jpg">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
+<link rel="image_src" href="https://sherpacarta.org/share.jpg">
+
+<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <!-- ═══ SEO META ═══════════════════════════════════════════ -->
 <meta name="keywords" content="digital rights, privacy, data sovereignty, magna carta, human rights, internet freedom, GDPR, surveillance, SherpaCarta">
 <meta name="author" content="SherpaCarta Global Movement">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#050806">
+<link rel="icon" href="/favicon.png?v=738" type="image/png" sizes="48x48">
+<link rel="icon" href="/favicon-32.png?v=738" type="image/png" sizes="32x32">
+<link rel="icon" href="/brand-mark.png?v=738" type="image/png" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=738">
+<link rel="shortcut icon" href="/favicon.png?v=738">
 <link rel="canonical" href="https://sherpacarta.org/">
 <link rel="alternate" hreflang="en" href="https://sherpacarta.org/">
 <link rel="alternate" hreflang="es" href="https://sherpacarta.org/?lang=es">
@@ -90,12 +100,21 @@
 <!-- ═══ FONTS & ICONS — self-hosted (zero third-party tracking) ═ -->
 <link rel="preload" href="/fonts/outfit-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=731">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=731">
+<link rel="stylesheet" href="/fonts/fonts.css?v=756">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=756">
 
-<link rel="stylesheet" href="/sc-main.css?v=731">
-<link rel="preload" href="/sc-core.js?v=732" as="script">
-<link rel="preload" href="/sc-bundle.js?v=732" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=756">
+<link rel="preload" href="/sc-core.js?v=756" as="script">
+<link rel="preload" href="/sc-bundle.js?v=756" as="script">
+<!-- Suite ops analytics: first-party Umami (no third-party ads). -->
+<script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
+<script defer src="/js/sc-analytics.js?v=756"></script>
+<script>
+/* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
+(function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',kill);else kill();
+setTimeout(kill,0);setTimeout(kill,500);}());
+</script>
 </head>
 <body>
 
@@ -143,14 +162,6 @@
   </div>
 </div>
 
-<!-- AUDIO INDICATOR -->
-<div id="audio-indicator" onclick="toggleAmbient()" title="Ambient mode" role="button" aria-pressed="false">
-  <div class="audio-bars paused">
-    <div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div><div class="audio-bar"></div>
-  </div>
-  <span id="audio-label">Ambient</span>
-</div>
-
 <!-- ════════════════════════════════════════════════════════
      NAV
 ════════════════════════════════════════════════════════ -->
@@ -159,8 +170,8 @@
     <a href="https://giveabit.io" class="nav-logo" target="_blank" rel="noopener" title="Give A Bit — giveabit.io">
       <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="40" height="40" decoding="async">
       <div>
-        <div class="logo-text">SherpaCarta</div>
-        <div class="logo-sub">v2.0 &bull; Global Digital Rights</div>
+        <div class="logo-text">SherpaCarta <span class="sc-build-badge" title="Product build">BUILD 734</span></div>
+        <div class="logo-sub">Digital Magna Carta &bull; Living charter</div>
       </div>
     </a>
     <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
@@ -187,6 +198,7 @@
       <button class="btn btn-ghost" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-circle-half-stroke"></i></button>
       <button class="btn btn-primary" onclick="openCharterModal()" aria-expanded="false"><i class="fas fa-book-open"></i> Charter</button>
       <a class="btn btn-ghost" href="/canada/" style="text-decoration:none;cursor:pointer"><i class="fas fa-flag"></i> Canada</a>
+      <a class="btn btn-ghost" href="/nostr" style="text-decoration:none;cursor:pointer" title="Live Nostr + X #Sherpacarta discussion"><i class="fas fa-comments"></i> Discuss</a>
     </div>
   </div>
 </nav>
@@ -200,6 +212,10 @@
   <div class="hero-glow" aria-hidden="true"></div>
   <canvas id="particle-canvas" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%"></canvas>
   <div class="hero-inner">
+    <div class="hero-ribbon" aria-hidden="true">
+      <span class="hero-ribbon-mark"><i class="fas fa-landmark"></i> Digital Magna Carta</span>
+      <span class="hero-ribbon-live">live &bull; honest metrics</span>
+    </div>
     <div class="hero-badge">
       <div class="badge-dot" aria-hidden="true"></div>
       <span class="badge-text">Global Digital Rights Movement &bull; 2026</span>
@@ -227,7 +243,9 @@
     <!-- OFFICIAL CHANNELS -->
     <div class="hero-share-official" role="group" aria-label="Official SherpaCarta channels">
       <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-      <button type="button" class="social-official" onclick="copyNostrNip()" title="Nostr NIP-05: kimi@giveabit.io"><i class="fas fa-user-secret"></i> kimi@giveabit.io</button>
+      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
+      <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
+      <a href="https://x.com/hashtag/Sherpacarta" class="social-official" target="_blank" rel="noopener" title="#Sherpacarta on X"><i class="fab fa-x-twitter"></i> #Sherpacarta</a>
       <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
       <button type="button" class="social-official" onclick="copyPageURL()" title="Copy sherpacarta.org"><i class="fas fa-link"></i> Copy Link</button>
     </div>
@@ -423,7 +441,7 @@
       <div class="timeline-item"><div class="tl-year">1948</div><div class="tl-title">Universal Declaration of Human Rights — UN</div><div class="tl-body">30 articles of fundamental rights. Article 12 established privacy. Article 19, freedom of expression. These became the moral backbone of international law, ratified by 193 nations.</div></div>
       <div class="timeline-item"><div class="tl-year">2011</div><div class="tl-title">Icelandic Constitutional Bill</div><div class="tl-body">Iceland attempted the world's first crowdsourced constitution, recognizing internet access and information freedom as rights. The bill passed Parliament but was never ratified. SherpaCarta resurrects and expands its spirit.</div></div>
       <div class="timeline-item"><div class="tl-year">2018</div><div class="tl-title">GDPR — European Union</div><div class="tl-body">The world's strongest data privacy law—rights to erasure, portability, and meaningful consent. A vital step forward, but limited to Europe and largely compliance theater for global corporations.</div></div>
-      <div class="timeline-item"><div class="tl-year">2026</div><div class="tl-title">SherpaCarta v2.0 — Global</div><div class="tl-body">Building on 811 years of rights history, SherpaCarta synthesizes the Magna Carta tradition, the 2011 Icelandic bill, and modern digital realities into 114 living, globally-signed articles. Not a treaty. Not a law. A movement.</div></div>
+      <div class="timeline-item"><div class="tl-year">2026</div><div class="tl-title">SherpaCarta — Global living charter</div><div class="tl-body">Building on 811 years of rights history, SherpaCarta synthesizes the Magna Carta tradition, the 2011 Icelandic bill, and modern digital realities into 114 living, globally-signed articles. Not a treaty. Not a law. A movement.</div></div>
     </div>
   </div>
 </section>
@@ -443,7 +461,7 @@
       <div class="cmp-row" role="row"><div class="cmp-cell">Data Sovereignty</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-part">~ Partial</div><div class="cmp-cell cmp-yes">✓ Full Rights</div></div>
       <div class="cmp-row" role="row"><div class="cmp-cell">Internet as Right</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Enforceable</div></div>
       <div class="cmp-row" role="row"><div class="cmp-cell">Privacy from Surveillance</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-part">~ Limited</div><div class="cmp-cell cmp-yes">✓ Absolute</div></div>
-      <div class="cmp-row" role="row"><div class="cmp-cell">AI / Algorithmic Rights</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ New in v2.0</div></div>
+      <div class="cmp-row" role="row"><div class="cmp-cell">AI / Algorithmic Rights</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Living charter</div></div>
       <div class="cmp-row" role="row"><div class="cmp-cell">Right to Be Forgotten</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Article 47</div></div>
       <div class="cmp-row" role="row"><div class="cmp-cell">Open Source Governance</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Blockchain-stamped</div></div>
       <div class="cmp-row" role="row"><div class="cmp-cell">Crowdsourced Amendments</div><div class="cmp-cell cmp-no">✗ No</div><div class="cmp-cell cmp-yes">✓ Yes</div><div class="cmp-cell cmp-yes">✓ Living Charter</div></div>
@@ -815,7 +833,7 @@
         <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="36" height="36" decoding="async">
         <div>
           <div class="logo-text" style="font-size:1.35rem">SherpaCarta</div>
-          <div class="logo-sub">v2.0 &bull; 2026</div>
+          <div class="logo-sub">BUILD 734 &bull; 2026</div>
         </div>
       </a>
       <p>Privacy is not a feature. It is a human right. Built by the people, for the people — across every border.</p>
@@ -844,7 +862,9 @@
       <!-- OFFICIAL SOCIALS — Give A Bit / SherpaCarta -->
       <div class="footer-social-official" aria-label="Official social channels">
         <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-        <button type="button" class="social-official" onclick="copyNostrNip()" title="Nostr NIP-05: kimi@giveabit.io"><i class="fas fa-user-secret"></i> kimi@giveabit.io</button>
+        <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
+        <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
+        <a href="https://x.com/give_bit" class="social-official" target="_blank" rel="noopener" title="@give_bit on X"><i class="fab fa-x-twitter"></i> @give_bit</a>
         <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
       </div>
     </div>
@@ -993,12 +1013,12 @@
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=732" defer></script>
-<script src="/js/sc-a11y.js?v=732" defer></script>
-<script src="/js/sc-petition-canada.js?v=732" defer></script>
-<script src="/js/sc-press-outlets.js?v=732" defer></script>
-<script src="/sc-core.js?v=732" defer></script>
-<script src="/sc-bundle.js?v=732" defer></script>
+<script src="/js/sc-share.js?v=756" defer></script>
+<script src="/js/sc-a11y.js?v=756" defer></script>
+<script src="/js/sc-petition-canada.js?v=756" defer></script>
+<script src="/js/sc-press-outlets.js?v=756" defer></script>
+<script src="/sc-core.js?v=756" defer></script>
+<script src="/sc-bundle.js?v=756" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {
