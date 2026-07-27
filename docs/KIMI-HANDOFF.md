@@ -1,20 +1,30 @@
-## Session — 2026-07-27 (suite truth — Grok catch-up, no sherpa code)
+## Session — 2026-07-27 (Kimi MASTER LIST — Cam details · read HQ first)
 
-**Parent / HQ (not this repo):**
-- giveabit Mission NIP-05 ship (v4.4.0) — sherpa@ already live in nostr.json
-- HQ handoff/NEXT-STEPS rewritten so Sherpa/Satohash/Tadbuy Option A no longer look “open”
-- NIP-05 `sherpa@giveabit.io` remains **live** on giveabit; product SPA registry now includes Sherpa
+**Authoritative full list (Cam + priorities + machines + handback):**  
+→ **`kitsboy/HQ` `docs/KIMI-HANDOFF.md`** — top section **MASTER LIST**
 
-**Still Kimi open (unchanged priority):**
-1. **LNURL** — `docs/KIMI-REQUEST-LNURL.md` · site still `lud16: null`
-2. Nostr bot THOR — `docs/KIMI-REQUEST-SHERPA-BOT.md`
-3. Optional satohash-api client_id segments
+### Cam (this product)
+- Wants **public Lightning** for SherpaCarta via **LNbits** · keys only in **HQ Vault** · public `lud16` handed to Grok/Cam for site publish  
+- Identity: product guide **`sherpa@giveabit.io` already live** (NIP-05) — do not re-do  
+- Honest metrics only · campaign signers ≠ Parliamentary e-###  
+- Contact / front desk: `hello@giveabit.io` · HQ: https://hq.giveabit.io  
 
-**Nova:** LNbits public harden (HTTP :5102 → prefer HTTPS). Proxy Worker OK.
+### Your open list (this repo)
 
-**Grok after lud16 handback:** `public/data/wallets.json` lightning.lud16 + remove TEMP copy.
+| P | Item | Doc |
+|---|------|-----|
+| **P0** | Public LNURL / LUD-16 for wallet **`sherpacarta`** | `docs/KIMI-REQUEST-LNURL.md` |
+| **P1** | Nostr guide bot on THOR (`sherpa@` nsec only) | `docs/KIMI-REQUEST-SHERPA-BOT.md` |
+| **P2** | Optional satohash-api `client_id` segments | HQ master list |
+| — | After lud16: Grok updates `public/data/wallets.json` (you hand public values only) | — |
 
-**Truth line:** metrics/Canada/stamp/NIP-05 live; **public Lightning still Kimi**.
+**Site now:** `lightning.lud16: null` · `lightning.status: pending` · `hqWalletId: sherpacarta` · NIP-05 live  
+
+**Done (do not re-open):** metrics CF Function, Canada mandate/join, Umami, stamp family, sherpa@ NIP-05, HQ elite card  
+
+**Nova:** LNbits HTTPS harden (HTTP :5102). Proxy Worker OK (9 wallets).
+
+**Truth line:** metrics/Canada/stamp/NIP-05 live · **public Lightning = your P0**.
 
 ---
 
