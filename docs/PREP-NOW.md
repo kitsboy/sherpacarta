@@ -1,7 +1,7 @@
 # Prep now — what we can still update/push (no secrets)
 
-**Date:** 2026-07-27  
-**After:** stamp handoff harden `5204c5d`, Canada hubs, live metrics
+**Date:** 2026-07-27 (session close)  
+**After:** stamp handoff harden `5204c5d`, Canada hubs, live metrics, docs package, **Kimi LNURL request filed**
 
 ## Already shipped (do not redo)
 

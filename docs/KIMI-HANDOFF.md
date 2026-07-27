@@ -1,18 +1,41 @@
-## Session — 2026-07-27 (from Satohash Grok — stamp handoff learn)
+## Session — 2026-07-27 (GOODBYE — Grok full session close)
 
-**For next Grok in this repo:** read and execute  
-`docs/GROK-PROMPT-STAMP-HANDOFF.md` (paste-ready).
+**Done this session (M3):**
+- Canada hub + official path enhanced (promise, stakes, tracks, FAQ, sticky CTAs, MP tools)
+- Satohash family stamp handoff hardened (`5204c5d`): `/stamp?hash=&ref=`, require id, verify URL, honest pending≠confirmed, sc-bundle
+- Docs/ref package: `LEARN-STAMP-FAMILY.md`, `PREP-NOW.md`, resolved KIMI-REQUEST-SATOHASH + GROK-PROMPT-STAMP, USAGE/marketing/Canada links, AGENTS, `ref/GROK-BOOT.md`, `.ai_docs/*`
+- API `hash.json` stampUrl fixed (`df81810`)
+- **Kimi TODO filed:** public LNURL via LNbits + HQ Vault — `docs/KIMI-REQUEST-LNURL.md` (also HQ handoff `b2d9641`)
+- HQ earlier: metrics schema gate v3.25 (`cf93db4` / related)
 
-**Satohash side (done on satohash main):**
-- SPA deep-link + **API URL fix** so stamps hit api.satohash.io
-- Canonical: `/stamp?hash=&ref=` · home redirect works
-- Honest pending/confirmed · durable stamp id required
+**Decisions:**
+- Satohash SPA owned by satohash repo; Sherpa is family client only
+- Public Lightning: Kimi sets LNbits + Vault; Grok publishes lud16 only after handback (never keys in git)
+- Campaign totals never labeled as Parliamentary e-### counts
 
-**Sherpa already partially done (`b2584ae`):** charter/Canada → `/stamp?hash=&ref=`
+**Kimi open list:**
+1. **LNURL** — `docs/KIMI-REQUEST-LNURL.md` (priority Cam)
+2. Nostr bot THOR — `docs/KIMI-REQUEST-SHERPA-BOT.md`
+3. Optional satohash-api Docker if stamp `client_id` null
 
-**Your remaining work:** full URL audit, no weak `?ref=` home links, bundle rebuild, CF deploy, show verify/{id} after in-app stamp, never fake “confirmed”.
+**Cam / Grok next:**
+- Smoke CF live stamp after deploy (`satohashStampGuideUrl` in live sc-core)
+- After Kimi lud16 handback → `wallets.json` + remove TEMP LN copy
+- MP e-### when sponsor ready
 
-**Do not** re-implement Satohash SPA. Do not put secrets in git.
+**Git State:**
+- SHA: (see LATEST-UPDATE after this goodbye commit)
+- Branch: main · push with goodbye commit
+- HQ: LNURL TODO on main `b2d9641`
+
+**Truth line:** `/stamp?hash=&ref=` → api.satohash.io → verify/{id}; metrics live; LNURL + bot still Kimi.
+
+---
+
+## Session — 2026-07-27 (from Satohash Grok — stamp handoff learn) ✅ SUPERSEDED
+
+**Status:** Completed by Grok (`5204c5d` + docs). Do not re-open GROK-PROMPT as open work.  
+See `docs/LEARN-STAMP-FAMILY.md`.
 
 ---
 
