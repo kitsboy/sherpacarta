@@ -29,17 +29,18 @@ Self-updating: wall polls relays; bot answers from live charter/metrics context;
 
 ## Phases
 
-### Phase 0 — Identity (Cam + Kimi) ⬜
-- [x] Generate **one** keypair for product agent (npub public; nsec **only** in Cam’s Vault)
-- [ ] Cam stores **nsec** in password manager + HQ Vault / THOR secrets (never git, never chat again)
-- [ ] Kimi adds NIP-05 name `sherpa` → pubkey on `giveabit.io/.well-known/nostr.json`
-- [ ] Confirm `kimi@` / `cam@` are **not** used for the public bot (separate keys)
+### Phase 0 — Identity (Cam + Kimi) ✅
+- [x] Generate **one** keypair for product agent (npub public; nsec **only** in Cam’s password manager)
+- [x] Cam stores **nsec** offline (password manager) — never git / chat storage
+- [x] Kimi published NIP-05 `sherpa` → pubkey on `giveabit.io/.well-known/nostr.json` (2026-07-27, giveabit `bea71e8`)
+- [x] `nip05Status: live` on product config (Grok)
+- [x] `kimi@` / `cam@` not used for the public bot (separate sherpa key)
 
-### Phase 1 — Public discussion wall (M3) 🟡 scaffolding
+### Phase 1 — Public discussion wall (M3) ✅
 - [x] Public config `public/data/nostr-sherpa.json` (npub, relays, tags — **no nsec**)
 - [x] Read-only wall component (relay REQ for notes from sherpa + `#sherpacarta`)
 - [x] Page `/nostr` + homepage strip link
-- [x] Contact UX points to `sherpa@giveabit.io` (pending live NIP-05)
+- [x] Contact UX points to `sherpa@giveabit.io` (**NIP-05 live**)
 - [ ] Polish: deep links to njump / native clients; moderation denylist
 
 ### Phase 2 — THOR Sherpa guide bot (Kimi) ⬜

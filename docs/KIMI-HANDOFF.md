@@ -93,27 +93,35 @@ Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.
 
 ---
 
+## Session — 2026-07-27 (sherpa@ NIP-05 live — Grok flip)
+
+**Kimi done:** NIP-05 `sherpa@giveabit.io` live on giveabit.io (`bea71e8`) — hex matches product key.
+
+**Grok done:**
+- `public/data/nostr-sherpa.json` → `nip05Status: live`
+- `public/data/wallets.json` productGuide → live
+- UX copy (toast, `/nostr` how-to) no longer says pending
+- Goal Phase 0+1 marked complete
+
+**Still later (nsec with Cam only):**
+- THOR auto-reply bot
+- Buzz on THOR
+
+---
+
 ## Session — 2026-07-27 (GOAL: sherpa@ Nostr wall + bot + Buzz — Grok)
 
 **Product (shipped on M3):**
 - Goal doc: `docs/GOAL-SHERPA-NOSTR-BUZZ.md`
 - Public identity config (npub only): `public/data/nostr-sherpa.json`
 - Live wall: `/nostr` + `public/js/sc-nostr-wall.js` (read-only relay feed: author + `#sherpacarta`)
-- Contact UX → `sherpa@giveabit.io` (NIP-05 pending) + copy npub
+- Contact UX → `sherpa@giveabit.io` + copy npub
 - CSP allows `wss://relay.nostr.band`
 
-**Cam must do (secrets):**
-- Save **nsec** for sherpa keypair in password manager + HQ Vault / THOR secrets **only**
-- **Never** put nsec in git, Telegram, or handoff files
-- npub (public): `npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57`
-- hex: `7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd`
+**Cam (secrets):** nsec in password manager only — never git/chat.
 
-**Kimi on THOR (next):**
-1. Publish NIP-05: `sherpa` → hex pubkey above on `giveabit.io/.well-known/nostr.json`
-2. Set `nip05Status: live` in product config after publish (or Grok will flip)
-3. Phase 2 bot: listen DMs/mentions to sherpa pubkey; reply from charter FAQ + metrics; rate-limit
-4. Do **not** use `kimi@`/`cam@` shared key for public bot
-5. Phase 3: Buzz on THOR per HQ `docs/BUZZ-PLAN.md`; channel `#sherpacarta`; escalate hard Qs from bot
+**npub (public):** `npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57`  
+**hex:** `7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd`
 
 **Security:** Grok does **not** store nsec. Agents never keep private keys.
 

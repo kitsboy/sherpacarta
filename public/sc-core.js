@@ -1896,7 +1896,7 @@ function copyQRAddress(){
 }
 
 function copyNostrNip(){
-  navigator.clipboard.writeText(NOSTR_NIP05).then(()=>toast('Nostr guide copied: ' + NOSTR_NIP05 + ' (NIP-05 pending · use npub if needed)','success'));
+  navigator.clipboard.writeText(NOSTR_NIP05).then(()=>toast('Nostr guide copied: ' + NOSTR_NIP05 + ' (NIP-05 live)','success'));
 }
 function copyNostrNpub(){
   navigator.clipboard.writeText(NOSTR_SHERPA_NPUB).then(()=>toast('Sherpa npub copied — works now on any Nostr client','success'));
