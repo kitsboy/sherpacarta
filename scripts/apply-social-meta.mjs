@@ -110,6 +110,13 @@ const PAGES = {
     image: '/og/treasury.png',
     path: '/treasury.html',
   },
+  'public/nostr.html': {
+    title: 'Public discussion — Nostr + X #Sherpacarta',
+    description:
+      'Live walls on Nostr and X. Follow @give_bit · sherpa@giveabit.io · #Sherpacarta. Digital rights in the public square.',
+    image: '/og/discuss.png',
+    path: '/nostr',
+  },
   'public/security.html': {
     title: 'Security & Bug Bounty — SherpaCarta',
     description:
@@ -195,7 +202,7 @@ function buildBlock(cfg) {
   const url = SITE + cfg.path;
   const image = SITE + cfg.image;
   // Cache-bust for crawlers that stuck on old cards (WhatsApp is aggressive)
-  const imageV = image + (image.includes('?') ? '&' : '?') + 'v=724';
+  const imageV = image + (image.includes('?') ? '&' : '?') + 'v=740';
   const title = cfg.title;
   const desc = cfg.description;
 
