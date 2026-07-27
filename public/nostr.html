@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nostr — Live discussion · Why it matters — SherpaCarta</title>
-<meta name="description" content="Why Nostr matters for digital rights, live #sherpacarta discussion, and how to reach sherpa@giveabit.io. Censorship-resistant public square. Zero tracking on this page.">
+<title>Public discussion — Nostr + X #Sherpacarta — SherpaCarta</title>
+<meta name="description" content="Live public discussion on Nostr and X #Sherpacarta. Follow @give_bit · sherpa@giveabit.io. Toward Canada’s official e-petition path.">
 <meta name="theme-color" content="#050806">
 <link rel="icon" href="/favicon.png?v=739" type="image/png" sizes="48x48">
 <link rel="icon" href="/brand-mark.png?v=739" type="image/png" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=739">
 <link rel="canonical" href="https://sherpacarta.org/nostr">
-<meta property="og:title" content="Nostr · Live discussion — SherpaCarta">
-<meta property="og:description" content="A public, portable social protocol for digital rights deliberation. Follow sherpa@giveabit.io · #sherpacarta">
+<meta property="og:title" content="Public discussion — Nostr + X #Sherpacarta">
+<meta property="og:description" content="Live walls on Nostr and X. Follow @give_bit · sherpa@giveabit.io · #Sherpacarta">
 <meta property="og:url" content="https://sherpacarta.org/nostr">
 <meta property="og:image" content="https://sherpacarta.org/og/default.png?v=724">
-<link rel="stylesheet" href="/fonts/fonts.css?v=739">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=739">
-<link rel="stylesheet" href="/sc-main.css?v=739">
+<link rel="stylesheet" href="/fonts/fonts.css?v=740">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=740">
+<link rel="stylesheet" href="/sc-main.css?v=740">
 <style>
 /* Force visible system cursor — this page does not load custom cursor JS */
 body.nw-page,
@@ -31,7 +31,7 @@ body.nw-page [role="button"]{
   cursor:pointer!important;
 }
 body.nw-page{
-  max-width:880px;margin:0 auto;padding:1.5rem 1.15rem 4rem;
+  max-width:1100px;margin:0 auto;padding:1.5rem 1.15rem 4rem;
   font-family:var(--sans);color:var(--text);line-height:1.65;
   background:
     radial-gradient(ellipse 90% 45% at 50% -12%,rgba(16,185,129,.1),transparent 55%),
@@ -213,33 +213,83 @@ body.nw-page{
   font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--em);margin-bottom:.35rem;
 }
+/* Dual live walls: Nostr + X */
+.nw-dual{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.15rem;align-items:stretch;
+}
+@media(max-width:900px){.nw-dual{grid-template-columns:1fr}}
+.nw-panel{
+  background:linear-gradient(165deg,var(--bg2),var(--bg3));
+  border:1px solid var(--border);border-radius:1rem;padding:1rem 1.05rem 1.1rem;
+  display:flex;flex-direction:column;min-height:0;
+}
+.nw-panel-head{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:.5rem;margin-bottom:.75rem;padding-bottom:.65rem;border-bottom:1px solid var(--border);
+}
+.nw-panel-head h3{
+  font-family:var(--serif);font-size:1.15rem;margin:0;color:var(--text);
+  display:flex;align-items:center;gap:.4rem;
+}
+.nw-panel-head h3 i{color:var(--em);font-size:.95rem}
+.nw-panel-head .sub{
+  font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.04em;width:100%;
+}
+.nw-x-frame{
+  flex:1;min-height:480px;border-radius:.75rem;overflow:hidden;
+  border:1px solid var(--border);background:#000;
+}
+.nw-x-frame .twitter-timeline{min-height:480px!important}
+.nw-x-fallback{
+  font-size:.82rem;color:var(--text3);line-height:1.55;margin-top:.65rem;
+}
+.nw-x-fallback a{color:var(--em2)}
+.nw-epetition{
+  margin-top:1.5rem;padding:1.15rem 1.25rem;border-radius:1rem;
+  border:1px solid rgba(212,175,55,.3);
+  background:linear-gradient(135deg,rgba(212,175,55,.08),rgba(16,185,129,.06));
+}
+.nw-epetition h3{font-family:var(--serif);font-size:1.2rem;margin:0 0 .4rem;color:var(--gold2)}
+.nw-epetition p{margin:0;font-size:.88rem;color:var(--text2);line-height:1.6}
+.nw-epetition a{color:var(--em2)}
 </style>
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=739"></script>
-<script defer src="/js/sc-nostr-wall.js?v=739"></script>
+<script defer src="/js/sc-analytics.js?v=740"></script>
+<script defer src="/js/sc-nostr-wall.js?v=740"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <body class="nw-page">
 <a class="back" href="/">← SherpaCarta</a>
 
 <div class="nw-ribbon">
-  <span class="mark"><i class="fas fa-bolt"></i> Notes and Other Stuff Transmitted by Relays</span>
-  <span class="live">NIP-05 live</span>
-  <span class="live" style="color:var(--gold2);border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.08)">#sherpacarta</span>
+  <span class="mark"><i class="fas fa-comments"></i> Public discussion hub</span>
+  <span class="live">Nostr + X</span>
+  <span class="live" style="color:var(--gold2);border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.08)">#Sherpacarta</span>
+  <span class="live">@give_bit</span>
 </div>
 
-<p class="nw-kicker">Protocol · not a platform</p>
+<p class="nw-kicker">Two public squares · one movement</p>
 <h1>Speak freely. Own your voice.</h1>
 <p class="lead">
-  Nostr is a simple, open protocol for global conversation — like email for social posts.
-  No company owns your identity. No single server can erase the public square.
-  SherpaCarta uses it for <strong>living rights deliberation</strong> that outlasts any one website.
+  Join the conversation on <strong>Nostr</strong> (open protocol) and <strong>X</strong> (tag <code style="color:var(--em2)">#Sherpacarta</code>, follow <a href="https://x.com/give_bit" target="_blank" rel="noopener" style="color:var(--em2)">@give_bit</a>).
+  Same charter. Same goal: digital rights that outlast any one app — and, in Canada, a path toward an <strong>official House of Commons e-petition</strong> when an MP sponsors it.
 </p>
 
 <div class="nw-actions" style="margin-top:1.25rem">
   <button type="button" class="btn btn-primary" id="btn-copy-nip"><i class="fas fa-copy"></i> Copy sherpa@giveabit.io</button>
-  <button type="button" class="btn" id="btn-copy-npub"><i class="fas fa-key"></i> Copy npub</button>
-  <a class="btn" href="https://njump.me/npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57" target="_blank" rel="noopener"><i class="fas fa-arrow-up-right-from-square"></i> Open profile</a>
-  <a class="btn" href="#live-wall"><i class="fas fa-radio"></i> Jump to live wall</a>
+  <a class="btn" href="https://x.com/intent/tweet?text=Supporting%20digital%20rights%20%23Sherpacarta%20https%3A%2F%2Fsherpacarta.org" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Post #Sherpacarta</a>
+  <a class="btn" href="https://x.com/give_bit" target="_blank" rel="noopener"><i class="fas fa-user"></i> @give_bit</a>
+  <a class="btn" href="#live-wall"><i class="fas fa-radio"></i> Jump to live walls</a>
+</div>
+
+<div class="nw-epetition">
+  <h3><i class="fas fa-landmark"></i> Toward an official e-petition</h3>
+  <p>
+    Campaign commitments on this site are <strong>not</strong> Parliamentary signatures yet.
+    The goal is a sponsored <strong>House of Commons e-petition (e-###)</strong> — that needs a Member of Parliament.
+    Build public signal here (X + Nostr + <a href="/canada/">Canada campaign</a>), then use the
+    <a href="/canada/official">official path</a> when an MP is ready. Honest counts only — no inflated totals.
+  </p>
 </div>
 
 <!-- Why Nostr -->
@@ -371,32 +421,68 @@ body.nw-page{
   </div>
 </section>
 
-<!-- Live wall -->
+<!-- Dual live walls: Nostr + X -->
 <section class="nw-section" id="live-wall" aria-labelledby="wall-title">
   <div class="nw-wall-head">
     <div>
-      <p class="nw-kicker">Real-time · public relays</p>
-      <h2 id="wall-title" style="margin:0">Live wall</h2>
+      <p class="nw-kicker">Real-time · side by side</p>
+      <h2 id="wall-title" style="margin:0">Live discussion walls</h2>
     </div>
     <div class="nw-live-pills">
-      <span class="pill">Notes loaded: <strong id="nw-count">0</strong></span>
-      <span class="pill">Filter: <strong>#sherpacarta</strong> + guide</span>
+      <span class="pill">Nostr notes: <strong id="nw-count">0</strong></span>
+      <span class="pill">X tag: <strong>#Sherpacarta</strong></span>
     </div>
   </div>
   <p class="lead" style="font-size:.9rem;margin-bottom:1rem">
-    Read-only feed from public relays. Nothing is stored on our servers. DMs never appear here.
+    Two public feeds. Nostr is protocol-owned; X is the mainstream square via <strong>@give_bit</strong> and <strong>#Sherpacarta</strong>.
   </p>
 
-  <section id="sc-nostr-wall" data-sc-nostr-wall aria-label="Live Nostr notes">
-    <div data-nw-status>Connecting to relays…</div>
-    <div data-nw-meta></div>
-    <div data-nw-list></div>
-  </section>
+  <div class="nw-dual">
+    <div class="nw-panel">
+      <div class="nw-panel-head">
+        <h3><i class="fas fa-bolt"></i> Nostr</h3>
+        <span class="live" style="font-size:.52rem">relays · open</span>
+        <div class="sub">#sherpacarta · sherpa@giveabit.io · public notes only</div>
+      </div>
+      <section id="sc-nostr-wall" data-sc-nostr-wall aria-label="Live Nostr notes">
+        <div data-nw-status>Connecting to relays…</div>
+        <div data-nw-meta></div>
+        <div data-nw-list></div>
+      </section>
+    </div>
+
+    <div class="nw-panel">
+      <div class="nw-panel-head">
+        <h3><i class="fab fa-x-twitter"></i> X</h3>
+        <span class="live" style="font-size:.52rem;color:var(--gold2);border-color:rgba(212,175,55,.4)">#Sherpacarta</span>
+        <div class="sub">Live hashtag timeline · project account @give_bit</div>
+      </div>
+      <div class="nw-x-frame" id="x-hashtag-frame">
+        <a
+          class="twitter-timeline"
+          data-theme="dark"
+          data-chrome="noheader nofooter noborders transparent"
+          data-height="520"
+          data-dnt="true"
+          href="https://twitter.com/hashtag/Sherpacarta?ref_src=twsrc%5Etfw"
+        >Posts about #Sherpacarta</a>
+      </div>
+      <p class="nw-x-fallback">
+        Prefer X directly:
+        <a href="https://x.com/hashtag/Sherpacarta" target="_blank" rel="noopener">#Sherpacarta</a>
+        ·
+        <a href="https://x.com/give_bit" target="_blank" rel="noopener">@give_bit</a>
+        ·
+        <a href="https://x.com/intent/tweet?text=Supporting%20digital%20rights%20%23Sherpacarta%20https%3A%2F%2Fsherpacarta.org" target="_blank" rel="noopener">Post with the tag</a>
+      </p>
+    </div>
+  </div>
 </section>
 
 <p class="note">
-  Public notes only · privacy-first analytics · keys stay on your device.
-  Guide: <code>sherpa@giveabit.io</code>
+  Public feeds only · privacy-first analytics · keys stay on your device.
+  Nostr guide: <code>sherpa@giveabit.io</code> · X: <code>@give_bit</code> · <code>#Sherpacarta</code>.
+  The X panel is powered by X’s embed (their terms apply).
 </p>
 
 <script>
