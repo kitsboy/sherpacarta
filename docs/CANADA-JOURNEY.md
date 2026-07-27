@@ -100,6 +100,14 @@ Checklist last item: “Received e-### and updated campaign data.”
 
 ---
 
+## Proof layer (not Parliament)
+
+Campaign receipts and merkle roots can be stamped on Bitcoin via Satohash:
+
+- Deep-link: `https://satohash.io/stamp?hash=<64hex>&ref=sherpacarta-canada`
+- Contract: `docs/LEARN-STAMP-FAMILY.md`
+- Stamp ≠ House of Commons signature
+
 ## Related docs & pages
 
 | Resource | Path |
@@ -107,6 +115,8 @@ Checklist last item: “Received e-### and updated campaign data.”
 | Legal model | `docs/CANADA-PETITION-LEGAL.md` |
 | BC challenge | `docs/CANADA-BC-CHALLENGE.md` |
 | Campaign data | `public/data/campaign-canada.json` |
+| Stamp family contract | `docs/LEARN-STAMP-FAMILY.md` |
+| Prep checklist | `docs/PREP-NOW.md` |
 | MP briefing | `/briefing.html` |
 | Leave-behind | `/leave-behind.html` |
 | Press kit | `/press.html` |

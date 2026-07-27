@@ -83,7 +83,7 @@ Adopt SherpaCarta's 114 articles — or a BC-tailored subset — as:
 Every official submission version should be:
 
 1. **Hashed** (SHA-256 of canonical text)
-2. **Timestamped** via [Satohash](https://satohash.giveabit.io) / OpenTimestamps on Bitcoin
+2. **Timestamped** via [Satohash](https://satohash.io/stamp?ref=sherpacarta-canada) / OpenTimestamps on Bitcoin
 3. **Signed** by organizations via Nostr or formal letter
 4. **Versioned** in git with BUILD numbers
 

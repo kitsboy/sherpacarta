@@ -86,7 +86,7 @@ It is open source, CC0 public domain, funded only by Bitcoin donations, and desi
 - Built by: https://giveabit.io
 - Bitcoin: `bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad`
 - Lightning: TEMP placeholder (do not send) until live
-- Stamp charter: [satohash.giveabit.io](https://satohash.giveabit.io) (OpenTimestamps on Bitcoin)
+- Stamp charter: [satohash.io/stamp?ref=sherpacarta](https://satohash.io/stamp?ref=sherpacarta) (OpenTimestamps on Bitcoin; site Stamp button deep-links hash)
 - Built by: [giveabit.io](https://giveabit.io)
 
 **Hashtags:** #SherpaCarta #DigitalRights #PrivacyIsAHumanRight #MagnaCarta2026 #CanadaBCChallenge

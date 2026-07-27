@@ -106,7 +106,7 @@ For policymakers and organizers:
 | MLA email template | ⌘K → *MLA Email Template* |
 | Petition text | Coalition box buttons |
 | BC progress tracker | Checkboxes in Canada section (local) |
-| Stamp on Bitcoin | [satohash.giveabit.io](https://satohash.giveabit.io) |
+| Stamp on Bitcoin | [satohash.io/stamp](https://satohash.io/stamp?ref=sherpacarta) (site button pre-fills charter hash) |
 
 ---
 

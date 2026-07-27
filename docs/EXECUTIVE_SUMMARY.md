@@ -82,7 +82,7 @@ SherpaCarta launches globally but pilots law-change in **Canada and British Colu
 - Model Digital Rights Act language for BC legislature
 - Federal PIPEDA modernization reference framework
 - Municipal Safe Harbour adoptions
-- Every official version stamped on Bitcoin via [Satohash](https://satohash.giveabit.io)
+- Every official version stamped on Bitcoin via [Satohash](https://satohash.io/stamp?ref=sherpacarta)
 
 Full strategy: [docs/CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md)
 

@@ -124,6 +124,22 @@ Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.
 
 ---
 
+## Session — 2026-07-27 (Docs/ref/prep package — Grok)
+
+**Done:**
+- `docs/LEARN-STAMP-FAMILY.md` — canonical family stamp contract  
+- `docs/PREP-NOW.md` — what can still be prepped (ops + code)  
+- Resolved `docs/KIMI-REQUEST-SATOHASH.md` + completed `docs/GROK-PROMPT-STAMP-HANDOFF.md`  
+- Fixed stamp links in USAGE / MARKETING / EXECUTIVE_SUMMARY / CANADA-BC / CANADA-JOURNEY  
+- `.ai_docs/current-status.md` + `project-summary.md` · `ref/GROK-BOOT.md`  
+
+**Truth line:** `/stamp?hash=&ref=` → api.satohash.io → verify/{id}; metrics real; Kimi still bot + optional client_id Docker.
+
+**Open for Kimi:** `docs/KIMI-REQUEST-SHERPA-BOT.md` · satohash-api client_id if null  
+**Open for Cam:** CF deploy smoke · MP e-### when ready  
+
+---
+
 ## Session — 2026-07-27 (Stamp handoff audit + harden — Grok)
 
 **Executed:** `docs/GROK-PROMPT-STAMP-HANDOFF.md` (family client only — no Satohash SPA rebuild)

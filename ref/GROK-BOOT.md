@@ -2,33 +2,34 @@
 
 **This file lives in every repo's ref/ directory.** Every time you open this project, read ref/GROK-BOOT.md first.
 
-## Required: Add analytics + metrics to this project
+## Also read (Sherpa-specific)
 
-Before making any code changes, do this:
+1. `GROK-SESSION-PROTOCOL.md` + `AGENTS.md`  
+2. `docs/KIMI-HANDOFF.md` (top)  
+3. `docs/LEARN-STAMP-FAMILY.md` — stamp deep-link contract (do not regress)  
+4. `docs/PREP-NOW.md` — open prep items  
+5. `docs/CANADA-JOURNEY.md` if touching Canada pages  
 
-**Step 1 — Umami tracking script**
+## Analytics + metrics (suite)
 
-Add this to the site's <head>:
-<script defer src="//THOR_IP:3002/script.js" data-website-id="[WEBSITE_ID]"></script>
+**Umami:** live site uses `https://analytics.giveabit.io/script.js` · website id in `public/data/wallets.json` / HQ.  
+**Metrics:** origin `https://sherpacarta.org/metrics.json` (`gab.product-metrics.v1`, prefer `raw.demo: false`).  
+Generator: `scripts/generate-metrics.mjs` · CF Function: `functions/metrics.json.js`.  
+Spec: https://hq.giveabit.io/docs/ALL-SITE-METRICS.md  
 
-The website ID for this project is in docs/UMAMI-DEPLOYMENT.md (HQ repo) or ask Kimi on THOR.
+## Stamp family (do not break)
 
-**Step 2 — /metrics.json endpoint**
+- Open: `https://satohash.io/stamp?hash=<64hex>&ref=sherpacarta`  
+- Canada: `ref=sherpacarta-canada`  
+- API: `POST https://api.satohash.io/api/stamp` + `X-Satohash-Client`  
+- Never claim Bitcoin confirmed until `status === confirmed`  
+- Never handoff to home-only `satohash.io?hash=`  
 
-Create public/metrics.json with the gab.product-metrics.v1 schema.
-The full spec of every metric this project CAN expose is in:
-https://hq.giveabit.io/docs/ALL-SITE-METRICS.md (HQ Docs tab)
+## Hard rules
 
-**Step 3 — Push ref/ docs to this repo**
-
-After adding metrics, update or create ref/AGENTS.md and ref/GROK-BOOT.md.
-Commit + push.
-
-## Why this matters
-
-THOR's HQ pulls analytics + metrics from every product. Without these two files
-(Umami script + /metrics.json), this product shows demo data on the ops glass.
-With them, it shows live data — visitors, campaigns, sats, stamps.
+- No secrets in git (nsec, invoice keys, PATs)  
+- Campaign totals ≠ Parliamentary e-petition signatures  
+- M3 = code + push; THOR/Kimi = Docker/bot/ops  
 
 ## Need help?
-Ask Kimi on THOR (via Hermes).
+Ask Kimi on THOR (via Hermes) for bot/Docker; code stays on M3.
