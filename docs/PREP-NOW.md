@@ -5,6 +5,11 @@
 
 ## Already shipped (do not redo)
 
+- Canada sign public-mandate rewrite + e-petition upgrade
+- Canada join QR landing (federal/BC) polish + sticky CTA
+- HQ metrics activity stream on sign + Umami events
+- Ambient control removed from home
+
 - Canada hub + official path (promise / tracks / MP tools)  
 - Live `/metrics.json` CF Function · `raw.demo: false`  
 - Satohash family deep-link + honest API stamp client  

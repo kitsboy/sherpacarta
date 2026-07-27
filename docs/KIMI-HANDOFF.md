@@ -1,3 +1,36 @@
+## Session — 2026-07-27 (GOODBYE — Grok session close)
+
+**Done this session (M3):**
+- CF stamp smoke PASS — live `satohashStampGuideUrl` + `/stamp?hash=&ref=`
+- CSP: `connect-src` + `https://api.satohash.io`
+- `/canada/sign` full public-mandate rewrite + e-petition upgrade checklist
+- HQ feed on every sign: KV `activity:v1` + daily series; richer `metrics.json` (`signers_24h/7d`, `raw.canada`); Umami `canada_mandate_sign` (no PII)
+- `/canada/join` QR landing upgrade (federal/BC sheet-aware) + polish pass (hero card, sticky CTA, clearer language)
+- Removed home **Ambient** control; SW v6.5; asset cache-bust; kill-switch for stale nodes
+- Live deploys: GH Actions + wrangler pages deploy when edge stuck
+
+**Decisions:**
+- HQ is pull-based (metrics.json + Umami) — no secrets in origin
+- Public mandate language (not weak “campaign only”) while keeping dual-track honesty
+- Join/sign keep paper wet-ink primary; digital is parallel mandate
+
+**Kimi open:**
+1. LNURL — `docs/KIMI-REQUEST-LNURL.md`
+2. Nostr bot THOR — `docs/KIMI-REQUEST-SHERPA-BOT.md`
+3. Optional satohash-api client_id segments
+
+**Cam next:**
+- MP e-### when sponsor ready
+- Hard-refresh if SW holds old UI
+
+**Git State:**
+- Tip: (see LATEST-UPDATE after goodbye commit)
+- Branch: main · push with goodbye
+
+**Truth line:** sign → KV/metrics/Umami for HQ; join QR → sign mandate; stamp `/stamp?hash=&ref=`; mandate ≠ Parliament.
+
+---
+
 ## Session — 2026-07-27 (Grok M3 — sign upgrade + HQ mandate feed)
 
 **Done:**
