@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "updated": "2026-07-27",
+  "account": "give_bit",
+  "hashtag": "Sherpacarta",
+  "note": "X hashtag timeline embeds are unreliable. We pin featured status IDs and show @give_bit profile timeline.",
+  "featured": [
+    {
+      "id": "2081547328696287475",
+      "url": "https://x.com/give_bit/status/2081547328696287475",
+      "label": "Launch share — social card + #Sherpacarta"
+    }
+  ]
+}

@@ -38,9 +38,9 @@
 <link rel="icon" href="/brand-mark.png?v=739" type="image/png" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=739">
 <link rel="canonical" href="https://sherpacarta.org/nostr">
-<link rel="stylesheet" href="/fonts/fonts.css?v=740">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=740">
-<link rel="stylesheet" href="/sc-main.css?v=740">
+<link rel="stylesheet" href="/fonts/fonts.css?v=741">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=741">
+<link rel="stylesheet" href="/sc-main.css?v=741">
 <style>
 /* Force visible system cursor — this page does not load custom cursor JS */
 body.nw-page,
@@ -260,14 +260,24 @@ body.nw-page{
   font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.04em;width:100%;
 }
 .nw-x-frame{
-  flex:1;min-height:480px;border-radius:.75rem;overflow:hidden;
-  border:1px solid var(--border);background:#000;
+  flex:1;min-height:480px;border-radius:.75rem;overflow:auto;
+  border:1px solid var(--border);background:#0a0a0a;
+  padding:.5rem .35rem;
 }
-.nw-x-frame .twitter-timeline{min-height:480px!important}
+.nw-x-frame .twitter-timeline{min-height:360px!important}
+.nw-x-featured{
+  margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);
+}
+.nw-x-featured .lab{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold2);margin:0 .5rem .35rem;
+}
 .nw-x-fallback{
   font-size:.82rem;color:var(--text3);line-height:1.55;margin-top:.65rem;
 }
 .nw-x-fallback a{color:var(--em2)}
+/* X embeds inject light chrome — keep readable */
+.nw-x-frame iframe{max-width:100%!important}
 .nw-epetition{
   margin-top:1.5rem;padding:1.15rem 1.25rem;border-radius:1rem;
   border:1px solid rgba(212,175,55,.3);
@@ -278,8 +288,8 @@ body.nw-page{
 .nw-epetition a{color:var(--em2)}
 </style>
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=740"></script>
-<script defer src="/js/sc-nostr-wall.js?v=740"></script>
+<script defer src="/js/sc-analytics.js?v=741"></script>
+<script defer src="/js/sc-nostr-wall.js?v=741"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <body class="nw-page">
@@ -477,25 +487,35 @@ body.nw-page{
 
     <div class="nw-panel">
       <div class="nw-panel-head">
-        <h3><i class="fab fa-x-twitter"></i> X</h3>
+        <h3><i class="fab fa-x-twitter"></i> X · @give_bit</h3>
         <span class="live" style="font-size:.52rem;color:var(--gold2);border-color:rgba(212,175,55,.4)">#Sherpacarta</span>
-        <div class="sub">Live hashtag timeline · project account @give_bit</div>
+        <div class="sub">Featured post + live @give_bit timeline (hashtag widgets are unreliable on X)</div>
       </div>
-      <div class="nw-x-frame" id="x-hashtag-frame">
+      <div class="nw-x-frame" id="x-feed-frame">
+        <!-- Featured: Cam's post — always pinned so it shows even when hashtag embeds lag -->
+        <div class="nw-x-featured">
+          <p class="lab">Featured</p>
+          <blockquote class="twitter-tweet" data-theme="dark" data-dnt="true" data-conversation="none">
+            <a href="https://twitter.com/give_bit/status/2081547328696287475?ref_src=twsrc%5Etfw">Post by @give_bit</a>
+          </blockquote>
+        </div>
+        <!-- Profile timeline is more reliable than hashtag search embeds -->
         <a
           class="twitter-timeline"
           data-theme="dark"
           data-chrome="noheader nofooter noborders transparent"
-          data-height="520"
+          data-height="400"
           data-dnt="true"
-          href="https://twitter.com/hashtag/Sherpacarta?ref_src=twsrc%5Etfw"
-        >Posts about #Sherpacarta</a>
+          href="https://twitter.com/give_bit?ref_src=twsrc%5Etfw"
+        >Posts by @give_bit</a>
       </div>
       <p class="nw-x-fallback">
-        Prefer X directly:
-        <a href="https://x.com/hashtag/Sherpacarta" target="_blank" rel="noopener">#Sherpacarta</a>
+        Open on X:
+        <a href="https://x.com/give_bit/status/2081547328696287475" target="_blank" rel="noopener">this post</a>
         ·
         <a href="https://x.com/give_bit" target="_blank" rel="noopener">@give_bit</a>
+        ·
+        <a href="https://x.com/hashtag/Sherpacarta" target="_blank" rel="noopener">#Sherpacarta</a>
         ·
         <a href="https://x.com/intent/tweet?text=Supporting%20digital%20rights%20%23Sherpacarta%20https%3A%2F%2Fsherpacarta.org" target="_blank" rel="noopener">Post with the tag</a>
       </p>
@@ -563,7 +583,21 @@ body.nw-page{
   }
   setInterval(syncCount, 2000);
   setTimeout(syncCount, 1500);
+
+  // Ensure X widgets render (async script + featured blockquote)
+  function loadX() {
+    if (window.twttr && window.twttr.widgets && window.twttr.widgets.load) {
+      window.twttr.widgets.load(document.getElementById('x-feed-frame'));
+    }
+  }
+  if (window.twttr && window.twttr.ready) {
+    window.twttr.ready(loadX);
+  } else {
+    setTimeout(loadX, 1200);
+    setTimeout(loadX, 3000);
+  }
 })();
 </script>
 </body>
 </html>
+
