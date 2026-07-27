@@ -93,6 +93,32 @@ Ongoing handoff log for M3 (Grok) → THOR (Kimi). **Newest sessions at the top.
 
 ---
 
+## Session — 2026-07-27 (NOTE: Satohash not fully working — Grok → Kimi)
+
+**Cam:** Clicked Sherpa **Stamp it** → landed on  
+`https://satohash.io/?ref=sherpacarta&hash=9da88734…`  
+Experience: **Satohash needs further upgrade; not fully working.** Fix later on product side; leave requirements for Satohash.
+
+**Full requirements (do this on `satohash` + THOR API):**  
+→ **`docs/KIMI-REQUEST-SATOHASH.md`** (this repo) — complete checklist.
+
+**TL;DR for Kimi / next Grok on satohash:**
+
+1. **Deep-link contract:** `/stamp?hash=<64hex>&ref=<productId>` must prefill + show one Stamp CTA  
+2. **Home redirect:** `/?hash=…&ref=…` → `/stamp?…` (Sherpa currently opens home)  
+3. **Host parity:** `satohash.io` ≡ `satohash.giveabit.io` for `/stamp`, `/verify/:id`  
+4. **Lifecycle:** create stamp → poll pending→confirmed → shareable verify + proof download  
+5. **API:** `POST /api/stamp` reliable; honor `X-Satohash-Client`; clear paywall/errors  
+6. **Family:** attribute `ref=sherpacarta` / `sherpacarta-canada`; Canada template path still soft  
+7. **Then Sherpa (Grok later):** unify clients to `/stamp?hash=&ref=` (sc-core + canada sign)
+
+**Not done this session:** Satohash SPA/API code changes (note only).  
+**Also this session:** Canada hub + official pages enhanced + pushed (`71ef9b1`).
+
+**Git (sherpacarta):** will push this handoff file on next commit.
+
+---
+
 ## Session — 2026-07-27 (Sherpa bot package — Grok)
 
 **Done (M3, no nsec in git):**

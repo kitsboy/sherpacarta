@@ -37,6 +37,7 @@
 - Invoice keys: **HQ Vault only** — never in this repo
 
 ## Known Issues
+- **Satohash stamp handoff incomplete** — Sherpa opens `satohash.io/?hash=&ref=`; needs `/stamp` prefill + full stamp→verify lifecycle. Spec: `docs/KIMI-REQUEST-SATOHASH.md` (Kimi + next Grok on satohash). Cam: product not fully working.
 - Public LNURL/lud16 not published — Lightning receive still pending on site; balance on HQ Money via wallet `sherpacarta`
 - visitors_monthly stays 0 on origin envelope (no Umami API token on product) — HQ should merge
 - HQ fallback `/metrics/sherpacarta.json` may still be demo until Kimi deletes/replaces it
