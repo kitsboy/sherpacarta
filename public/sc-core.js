@@ -152,7 +152,6 @@ const state = {
   lang: localStorage.getItem('sc_lang')||'en',
   readingAloud: false,
   utterance: null,
-  ambientOn: false,
   quoteIndex: 0,
   quoteTimer: null,
   nostrPubkey: localStorage.getItem('sc_nostr_pk')||null,
@@ -2335,41 +2334,8 @@ function assertRights(){
   toast(assertions[Math.floor(Math.random()*assertions.length)],'success');
 }
 
-// ═══════════════════════════════════════════════════════════
-// AMBIENT MODE (Feature 46)
-// ═══════════════════════════════════════════════════════════
-let ambientCtx, ambientAnimId;
-function toggleAmbient(){
-  state.ambientOn=!state.ambientOn;
-  const indicator=document.getElementById('audio-indicator');
-  const bars=indicator.querySelector('.audio-bars');
-  const label=document.getElementById('audio-label');
-  if(state.ambientOn){
-    bars.classList.remove('paused');
-    label.textContent='Playing';
-    indicator.setAttribute('aria-pressed','true');
-    // Create subtle pulsing background glow
-    const glow=document.querySelector('.hero-glow');
-    if(glow){
-      let tick=0;
-      ambientAnimId=setInterval(()=>{
-        tick++;
-        const scale=1+Math.sin(tick*.05)*.3;
-        const opacity=.08+Math.sin(tick*.05)*.04;
-        glow.style.transform=`translate(-50%,-50%) scale(${scale})`;
-        glow.style.background=`radial-gradient(circle,rgba(16,185,129,${opacity}) 0%,transparent 70%)`;
-      },50);
-    }
-    toast('Ambient mode on — visual pulse active','info');
-  } else {
-    bars.classList.add('paused');label.textContent='Ambient';
-    indicator.setAttribute('aria-pressed','false');
-    clearInterval(ambientAnimId);
-    const glow=document.querySelector('.hero-glow');
-    if(glow){glow.style.transform='translate(-50%,-50%) scale(1)';glow.style.background='radial-gradient(circle,rgba(16,185,129,0.1) 0%,transparent 70%)';}
-    toast('Ambient mode off','info');
-  }
-}
+// Ambient mode UI removed — keep no-op for any stale onclick/bookmark
+function toggleAmbient(){ /* removed */ }
 
 // ═══════════════════════════════════════════════════════════
 // COOKIE BANNER (Feature 47)
