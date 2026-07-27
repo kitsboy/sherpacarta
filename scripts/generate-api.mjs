@@ -80,7 +80,7 @@ writeFileSync(join(apiDir, 'hash.json'), JSON.stringify({
   hash,
   build: BUILD,
   canonicalPreview: plain.slice(0, 200) + '…',
-  stampUrl: 'https://satohash.giveabit.io',
+  stampUrl: 'https://satohash.io/stamp?ref=sherpacarta',
   updated: new Date().toISOString(),
 }, null, 2));
 
