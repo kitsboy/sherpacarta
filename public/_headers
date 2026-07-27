@@ -44,10 +44,29 @@
 /index.html
   Cache-Control: public, max-age=300
 
-# Social preview cards — long cache; use ?v= on meta URLs to bust
-/og/*
-  Cache-Control: public, max-age=604800
+# Social preview cards — crawler-friendly (X/Twitterbot, WhatsApp, iMessage)
+# Prefer JPEG /share.jpg as primary card (opaque, no query string)
+/share.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+
+/share.png
   Content-Type: image/png
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
 
 /og-image.png
-  Cache-Control: public, max-age=604800
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+
+/og/*.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
+
+/og/*
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+  Access-Control-Allow-Origin: *
