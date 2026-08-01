@@ -228,12 +228,12 @@ async function main() {
       },
       {
         key: 'signers_total',
-        label: 'Signers',
+        label: 'Public mandate signers',
         value: stats.total,
         unit: 'signers',
         format: 'number',
         priority: 1,
-        hint: 'Canada campaign commitments from /api/canada/stats — not Parliamentary e-petition counts.',
+        hint: 'Canada public mandate — not Parliamentary e-petition counts',
       },
       {
         key: 'donations_btc',
