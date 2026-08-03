@@ -291,7 +291,7 @@
     const note = document.createElement('p');
     note.className = 'pay-note';
     note.style.marginTop = '.5rem';
-    note.innerHTML = '<i class="fas fa-circle-info"></i> Bitcoin: copy address or scan QR. Lightning is TEMP — do not send.';
+    note.innerHTML = '<i class="fas fa-circle-info"></i> Bitcoin: copy address or scan QR. Lightning: LNURL-pay live (see Lightning tab).';
     $('donate-pane-btc')?.appendChild(note.cloneNode(true));
   });
 
@@ -1182,7 +1182,7 @@
     const panel = document.createElement('div');
     panel.className = 'integration-status';
     panel.style.cssText = 'font-size:.62rem;color:var(--text3);font-family:var(--mono);margin-top:1rem';
-    panel.innerHTML = 'Integrations: Nostr ✓ · Satohash ✓ · Bitcoin ✓ · Lightning ⏳ TEMP';
+    panel.innerHTML = 'Integrations: Nostr ✓ · Satohash ✓ · Bitcoin ✓ · Lightning ✓ live';
     $('footer-pay')?.after(panel);
   });
 

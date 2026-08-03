@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updated": "2026-07-26",
+  "updated": "2026-08-03",
   "org": "SherpaCarta / Give A Bit",
   "productId": "sherpacarta",
   "contact": "hello@giveabit.io",
@@ -14,12 +14,16 @@
     "policy": "Voluntary donations only. No VC, no ads, no government grants. Balance and txs are public on-chain."
   },
   "lightning": {
-    "status": "pending",
+    "status": "live",
     "address": null,
-    "lnurl": null,
-    "lud16": null,
+    "lnurl": "LNURL1DP68GURN8GHJ7CTSDYH8XCT5DA5XZUMG9E5K7W3CXS6RXTMVDE6HYMRS9AJ4JW2CD4CQTG8YJR",
+    "lud16": "sherpa@api.satohash.io:8443",
+    "lud16Alternate": "sherpa@thor.giveabit.io",
+    "discovery": "https://api.satohash.io:8443/.well-known/lnurlp/sherpa",
     "hqWalletId": "sherpacarta",
-    "note": "Public LNURL/lud16 not published yet — do not send to placeholders. Balance is tracked on HQ Money tab via LNbits wallet id sherpacarta (invoice key in HQ Vault only, never in git)."
+    "minSendableSats": 1000,
+    "maxSendableSats": 100000000,
+    "note": "Public LNURL-pay live (Kimi handback 2026-07-28). Prefer lud16 or lnurl on this site. Invoice keys stay in HQ Vault only — never in git. Alternate lud16 sherpa@thor.giveabit.io needs DNS. Node still isolated (0 channels) until peers/capital — discovery works; large inbound may fail until channels open."
   },
   "silentPayments": {
     "status": "planned",

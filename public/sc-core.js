@@ -1942,16 +1942,18 @@ function switchDonateTab(tab){
 
 function showQRModal(type){
   qrCurrentType=type;
-  qrCurrentAddress=type==='btc'?SHERPA_WALLETS.btc:SHERPA_WALLETS.lnTemp;
+  const lnLive=SHERPA_WALLETS.lnUrl||(SHERPA_WALLETS.lnTemp&&!String(SHERPA_WALLETS.lnTemp).startsWith('TEMP')?SHERPA_WALLETS.lnTemp:null);
+  qrCurrentAddress=type==='btc'?SHERPA_WALLETS.btc:(lnLive||SHERPA_WALLETS.lnTemp);
   const modal=document.getElementById('qr-modal');
   const title=document.getElementById('qr-modal-title');
   const sub=document.getElementById('qr-modal-sub');
   const warn=document.getElementById('qr-warning');
   const display=document.getElementById('qr-address-display');
-  title.textContent=type==='btc'?'Bitcoin Donation':'Lightning (TEMP)';
-  sub.textContent=type==='btc'?'ON-CHAIN · SCAN TO DONATE':'TEST PLACEHOLDER ONLY';
-  warn.style.display=type==='ln'?'block':'none';
-  warn.innerHTML=type==='ln'?'<i class="fas fa-triangle-exclamation"></i> <strong>TEMP ADDRESS — DO NOT SEND.</strong> Lightning is not live yet.':'';
+  const lnIsLive=type==='ln'&&!!lnLive;
+  title.textContent=type==='btc'?'Bitcoin Donation':(lnIsLive?'Lightning Donation':'Lightning (TEMP)');
+  sub.textContent=type==='btc'?'ON-CHAIN · SCAN TO DONATE':(lnIsLive?'LNURL-PAY · SCAN TO DONATE':'TEST PLACEHOLDER ONLY');
+  warn.style.display=type==='ln'&&!lnIsLive?'block':'none';
+  warn.innerHTML=type==='ln'&&!lnIsLive?'<i class="fas fa-triangle-exclamation"></i> <strong>TEMP ADDRESS — DO NOT SEND.</strong> Lightning is not live yet.':'';
   display.textContent=qrCurrentAddress;
   modal.classList.add('open');
   document.body.style.overflow='hidden';
@@ -2278,7 +2280,7 @@ function switchPayTab(tab){
 function copyPayAddress(kind, addrEl, btnEl, resetHtml){
   const map={
     btc:{el:addrEl||document.getElementById('footer-btc-address'),btn:btnEl||document.getElementById('footer-copy-btc'),reset:resetHtml||'<i class="fab fa-bitcoin"></i> Copy Bitcoin Address',msg:'Bitcoin address copied!'},
-    ln:{el:document.getElementById('footer-ln-address')||document.getElementById('donate-ln-address'),btn:btnEl||document.getElementById('footer-copy-ln'),reset:resetHtml||'<i class="fas fa-bolt"></i> Copy Lightning',msg:'Lightning address copied (TEMP — do not send)'}
+    ln:{el:document.getElementById('footer-ln-address')||document.getElementById('donate-ln-address'),btn:btnEl||document.getElementById('footer-copy-ln'),reset:resetHtml||'<i class="fas fa-bolt"></i> Copy Lightning',msg:(SHERPA_WALLETS.lnUrl||(SHERPA_WALLETS.lnTemp&&!String(SHERPA_WALLETS.lnTemp).startsWith('TEMP')))?'Lightning address copied':'Lightning address copied (TEMP — do not send)'}
   };
   const cfg=map[kind];
   if(!cfg||!cfg.el||!cfg.btn)return;

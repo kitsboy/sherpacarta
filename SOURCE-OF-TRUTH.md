@@ -29,7 +29,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 ### Data & API
 - `data/charter.json` — 114 articles + preamble
 - `data/campaign-canada.json` — Canada campaign (source → public at build)
-- `public/data/wallets.json` — BTC live · LN pending · SP planned
+- `public/data/wallets.json` — BTC live · LN live (LNURL/lud16) · SP planned
 - `public/data/jurisdictions.json` — expansion map
 - `public/api/v1/` — charter JSON, hash, OpenAPI
 - `functions/api/canada/` — **sign**, **stats**, **batch**, **ping**, **_shared.js**

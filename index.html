@@ -783,7 +783,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> 100% Open Source — all code on GitHub</div>
           <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> No tracking, no analytics, no cookies</div>
           <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> On-chain treasury anyone can verify</div>
-          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> Lightning pending · Silent Payments planned</div>
+          <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> Lightning live (LNURL) · Silent Payments planned</div>
           <div style="display:flex;align-items:center;gap:.625rem;font-size:.82rem;color:var(--text2)"><i class="fas fa-check" style="color:var(--em)"></i> Volunteer-built · open source · no VC</div>
         </div>
         <p style="margin-top:1rem;font-size:.78rem"><a href="/treasury" style="color:var(--em2)"><i class="fas fa-scale-balanced"></i> Open treasury dashboard →</a>
@@ -811,10 +811,10 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           <p class="pay-note">On-chain only. All donations published transparently.</p>
         </div>
         <div id="donate-pane-ln" hidden>
-          <div class="pay-warning"><i class="fas fa-triangle-exclamation"></i> <strong>TEMP ADDRESS — DO NOT SEND.</strong> Lightning wallet not yet live. This is a placeholder for testing QR only.</div>
+          <div class="pay-note" style="margin-bottom:.5rem"><i class="fas fa-bolt" style="color:var(--em)"></i> Public LNURL-pay live · <code>sherpa@api.satohash.io:8443</code></div>
           <div class="btc-address" id="donate-ln-address"></div>
           <button class="copy-btn" id="copy-ln-btn" onclick="copyPayAddress('ln',document.getElementById('donate-ln-address'),document.getElementById('copy-ln-btn'),'<i class=\'fas fa-bolt\'></i> COPY LIGHTNING')"><i class="fas fa-bolt"></i> COPY LIGHTNING</button>
-          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> SHOW QR CODE (TEMP)</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> SHOW QR CODE</button>
         </div>
       </div>
     </div>
@@ -852,10 +852,9 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           <p class="pay-note">On-chain donations only. Published transparently.</p>
         </div>
         <div class="pay-pane" id="pay-pane-ln" role="tabpanel" aria-labelledby="pay-tab-ln" hidden>
-          <div class="pay-warning"><i class="fas fa-triangle-exclamation"></i> <strong>TEMP — DO NOT SEND.</strong> Placeholder Lightning address for UI testing only.</div>
           <div class="pay-address" id="footer-ln-address"></div>
           <button class="pay-copy" type="button" id="footer-copy-ln" onclick="copyPayAddress('ln')"><i class="fas fa-bolt"></i> Copy Lightning</button>
-          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> QR (TEMP)</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> QR Code</button>
         </div>
       </div>
 
