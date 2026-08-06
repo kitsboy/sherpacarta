@@ -176,7 +176,29 @@ async function fetchTimeout(url, opts = {}, ms = 4000) {
   }
 }
 
-async function loadMempool(address) {
+async function loadMempool(address, env) {
+  // KV cache (10 min TTL) so mempool.space is not hit on every request and
+  // a slow external API can never stall /metrics.json for long.
+  const CACHE_KEY = 'treasury:v1';
+  const TTL_MS = 10 * 60 * 1000;
+  if (env && env.PETITION_KV) {
+    try {
+      const cached = await env.PETITION_KV.get(CACHE_KEY, 'json');
+      if (cached && cached.fetchedAt && Date.now() - cached.fetchedAt < TTL_MS) {
+        return { balanceSats: cached.balanceSats, txCount: cached.txCount, ok: true, cached: true };
+      }
+    } catch { /* fall through to fresh fetch */ }
+  }
+  const result = await loadMempoolFresh(address);
+  if (env && env.PETITION_KV && result.ok) {
+    try {
+      await env.PETITION_KV.put(CACHE_KEY, JSON.stringify({ ...result, fetchedAt: Date.now() }), { expirationTtl: 900 });
+    } catch { /* cache write is best-effort */ }
+  }
+  return result;
+}
+
+async function loadMempoolFresh(address) {
   try {
     const res = await fetchTimeout(`https://mempool.space/api/address/${address}`, {
       headers: { Accept: 'application/json' },
@@ -624,7 +646,7 @@ export async function onRequest(context) {
 
   const [stats, treasury] = await Promise.all([
     loadStats(env, request),
-    loadMempool(BTC_ADDRESS),
+    loadMempool(BTC_ADDRESS, env),
   ]);
 
   const updatedAt = new Date().toISOString();
