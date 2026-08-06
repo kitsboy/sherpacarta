@@ -136,7 +136,7 @@ async function loadStats(env, request) {
 
   try {
     const origin = new URL(request.url).origin;
-    const res = await fetch(`${origin}/api/canada/stats`, {
+    const res = await fetchTimeout(`${origin}/api/canada/stats`, {
       headers: { Accept: 'application/json' },
     });
     if (!res.ok) throw new Error(`stats ${res.status}`);
@@ -166,9 +166,19 @@ async function loadStats(env, request) {
   }
 }
 
+async function fetchTimeout(url, opts = {}, ms = 4000) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), ms);
+  try {
+    return await fetch(url, { ...opts, signal: ctrl.signal });
+  } finally {
+    clearTimeout(t);
+  }
+}
+
 async function loadMempool(address) {
   try {
-    const res = await fetch(`https://mempool.space/api/address/${address}`, {
+    const res = await fetchTimeout(`https://mempool.space/api/address/${address}`, {
       headers: { Accept: 'application/json' },
     });
     if (!res.ok) throw new Error(`mempool ${res.status}`);
