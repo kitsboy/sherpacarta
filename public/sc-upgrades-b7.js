@@ -44,10 +44,10 @@
         <div style="display:grid;gap:.4rem">${data.map((m, i) => `
           <div style="display:grid;grid-template-columns:1fr 100px 90px;gap:.35rem;font-size:.72rem;align-items:center;padding:.4rem;background:var(--bg3);border-radius:.5rem">
             <span>${m.name}</span>
-            <select onchange="BC_CRM.update(${i},'status',this.value)" style="font-size:.65rem;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:4px;padding:.2rem">
+            <select aria-label="Status for ${m.name}" onchange="BC_CRM.update(${i},'status',this.value)" style="font-size:.65rem;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:4px;padding:.2rem">
               ${['research', 'emailed', 'meeting', 'champion', 'declined'].map((s) => `<option value="${s}" ${m.status === s ? 'selected' : ''}>${s}</option>`).join('')}
             </select>
-            <input value="${m.riding || ''}" placeholder="Riding" onchange="BC_CRM.update(${i},'riding',this.value)" style="font-size:.65rem;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:4px;padding:.2rem">
+            <input aria-label="Riding for ${m.name}" value="${m.riding || ''}" placeholder="Riding" onchange="BC_CRM.update(${i},'riding',this.value)" style="font-size:.65rem;background:var(--bg2);border:1px solid var(--border);color:var(--text);border-radius:4px;padding:.2rem">
           </div>`).join('')}</div>
         <p style="font-size:.6rem;color:var(--text3);margin-top:.5rem">Stored locally only — your outreach notes never leave your device.</p>`;
     };
