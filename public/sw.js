@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v6.5';
+const CACHE = 'sherpacarta-v6.6';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/briefing.html', '/briefing-fr.html', '/leave-behind.html',
@@ -31,6 +31,13 @@ const ASSETS = [
   '/api/v1/charter.json', '/api/v1/hash.json', '/api/v1/openapi.json', '/api/v1/index.json',
   '/embed/sign-widget.html',
 ];
+
+// caches.put() rejects on 206 Partial Content (range requests) — guard every put.
+function cacheable(request, response) {
+  if (!response || response.status !== 200) return false;
+  if (request.headers.get('range')) return false;
+  return true;
+}
 
 function isApiRequest(url) {
   return url.pathname.startsWith('/api/canada') || url.pathname.startsWith('/api/v1');
@@ -74,7 +81,7 @@ self.addEventListener('fetch', (e) => {
     e.respondWith(
       fetch(e.request)
         .then((res) => {
-          if (res.ok) {
+          if (cacheable(e.request, res)) {
             const clone = res.clone();
             caches.open(CACHE).then((c) => c.put(e.request, clone));
           }
@@ -89,7 +96,7 @@ self.addEventListener('fetch', (e) => {
   e.respondWith(
     caches.match(e.request).then((cached) => {
       const network = fetch(e.request).then((res) => {
-        if (res.ok) {
+        if (cacheable(e.request, res)) {
           const clone = res.clone();
           caches.open(CACHE).then((c) => c.put(e.request, clone));
         }

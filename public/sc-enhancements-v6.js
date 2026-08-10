@@ -262,8 +262,11 @@
       if (grid && !grid.dataset.v6merged) {
         grid.insertAdjacentHTML('beforeend', FEATURES.map((f) => `<div class="feat-item"><span>${f.id}</span> ${f.name}</div>`).join(''));
         grid.dataset.v6merged = '1';
-        $('features-modal')?.querySelector('h2').textContent = '425 Features';
-        $('features-modal')?.querySelector('p').textContent = 'BUILD ' + BUILD;
+        // NB: assignment through optional chaining is a SyntaxError — split the chain.
+        const featTitle = $('features-modal')?.querySelector('h2');
+        if (featTitle) featTitle.textContent = '425 Features';
+        const featSub = $('features-modal')?.querySelector('p');
+        if (featSub) featSub.textContent = 'BUILD ' + BUILD;
       }
     };
     const bb = document.querySelector('.build-badge');

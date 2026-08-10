@@ -249,7 +249,9 @@
         const items = SC.allUpgrades.map((f) => `<div class="feat-item"><span>${f.id}</span> ${f.name}</div>`).join('');
         grid.insertAdjacentHTML('beforeend', items);
         grid.dataset.upgrades = '1';
-        $('features-modal')?.querySelector('h2').textContent = '487 Features';
+        // NB: assignment through optional chaining is a SyntaxError — split the chain.
+        const featTitle = $('features-modal')?.querySelector('h2');
+        if (featTitle) featTitle.textContent = '487 Features';
       }
     };
     setTimeout(() => toast('SherpaCarta upgraded — 60 enhancements live. BUILD 487.', 'success'), 2000);

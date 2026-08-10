@@ -365,7 +365,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2.5rem 2r
 footer .legal-footer{padding-bottom:max(1.75rem,env(safe-area-inset-bottom,0))}
 .footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem}
 .footer-brand p{font-size:.78rem;color:var(--text3);line-height:1.75;margin-top:.75rem;max-width:210px}
-.footer-col h4{font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.875rem}
+.footer-col h3{font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.875rem}
 .footer-col a{display:block;font-size:.8rem;color:var(--text2);margin-bottom:.45rem;transition:color .15s;cursor:none}
 .footer-col a:hover{color:var(--em)}
 
@@ -517,7 +517,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 .challenge-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
 .challenge-step{background:var(--bg3);border:1px solid var(--border);border-radius:.875rem;padding:1.25rem}
 .challenge-step-num{font-family:var(--serif);font-size:2rem;color:var(--em);line-height:1}
-.challenge-step h4{font-size:.85rem;margin:.5rem 0 .35rem}
+.challenge-step h3{font-size:.85rem;margin:.5rem 0 .35rem}
 .challenge-step p{font-size:.75rem;color:var(--text3);line-height:1.6}
 
 /* ═══ NOSTR + AMENDMENTS ══════════════════════════════════ */
