@@ -26,7 +26,7 @@
         m.id = 'usage-guide-modal';
         m.className = 'modal-overlay';
         m.innerHTML = `<div class="modal-inner" style="max-width:640px;max-height:85vh;overflow-y:auto">
-          <button class="modal-close" onclick="SC3.closeUsageGuide()"><i class="fas fa-times"></i></button>
+          <button class="modal-close" aria-label="Close usage guide" onclick="SC3.closeUsageGuide()"><i class="fas fa-times"></i></button>
           <h2 style="font-family:var(--serif);margin-bottom:.5rem">How to Use SherpaCarta</h2>
           <p style="font-size:.8rem;color:var(--text3);margin-bottom:1.25rem">300 features · privacy-first · no account required</p>
           <div class="usage-sections">

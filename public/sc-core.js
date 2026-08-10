@@ -123,6 +123,9 @@ window.satohashStampHash = async function satohashStampHash(hash, filenameOrOpts
   };
 };
 const NOSTR_RELAYS = ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
+// Bundle upgrades read window.NOSTR_RELAYS (relay picker, feed aggregator) —
+// without this they get an empty list and try new WebSocket('') → wss://<site>/
+window.NOSTR_RELAYS = NOSTR_RELAYS;
 const CONTACT_EMAIL = 'hello@giveabit.io';
 const CONTACT_SUBJECT = 'Sherpacarta';
 /** Product guide (public). Suite ops remains kimi@giveabit.io on parent brand pages. */

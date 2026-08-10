@@ -801,8 +801,8 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       </div>
       <div class="donation-card reveal">
         <div class="pay-tabs" role="tablist" aria-label="Donation method">
-          <button class="pay-tab active" type="button" onclick="switchDonateTab('btc')" id="donate-tab-btc"><i class="fab fa-bitcoin"></i> Bitcoin</button>
-          <button class="pay-tab" type="button" onclick="switchDonateTab('ln')" id="donate-tab-ln"><i class="fas fa-bolt"></i> Lightning</button>
+          <button class="pay-tab active" type="button" role="tab" aria-selected="true" onclick="switchDonateTab('btc')" id="donate-tab-btc"><i class="fab fa-bitcoin"></i> Bitcoin</button>
+          <button class="pay-tab" type="button" role="tab" aria-selected="false" onclick="switchDonateTab('ln')" id="donate-tab-ln"><i class="fas fa-bolt"></i> Lightning</button>
         </div>
         <div id="donate-pane-btc">
           <div class="btc-address" id="btc-address"></div>
@@ -904,15 +904,15 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   <div class="legal-footer">
     <div class="legal-grid">
       <div class="legal-block" id="legal-basis">
-        <h5>Legal Basis</h5>
+        <h4>Legal Basis</h4>
         <p>SherpaCarta is a civic document inspired by the Magna Carta (1215), the Universal Declaration of Human Rights (1948), and the Icelandic Constitutional Bill (2011). It is not legal advice. It is a moral and political declaration. Consult qualified legal counsel in your jurisdiction for enforceable rights.</p>
       </div>
       <div class="legal-block" id="legal-terms">
-        <h5>Intellectual Property</h5>
+        <h4>Intellectual Property</h4>
         <p>SherpaCarta is published under Creative Commons CC0 1.0 Universal (Public Domain). No rights reserved. Copy freely, translate freely, adapt freely. We ask only that you preserve the spirit of expanding — never restricting — digital human rights.</p>
       </div>
       <div class="legal-block" id="legal-privacy">
-        <h5>Privacy &amp; Data</h5>
+        <h4>Privacy &amp; Data</h4>
         <p>SherpaCarta.org collects no personal data. Zero analytics. Zero cookies. All signatures are stored locally in your browser and optionally published to a distributed ledger. We practice exactly what we preach. This site complies with GDPR, CCPA, and exceeds both.</p>
       </div>
     </div>
