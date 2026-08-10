@@ -341,6 +341,7 @@
   feat(359, 'Nostr relay picker UI', () => {
     const sel = document.createElement('select');
     sel.className = 'nostr-relay-pick';
+    sel.setAttribute('aria-label', 'Preferred relay');
     sel.style.cssText = 'font-size:.65rem;margin-left:.35rem;background:var(--bg3);border:1px solid var(--border);color:var(--text2);border-radius:6px;padding:.25rem';
     sel.innerHTML = (window.NOSTR_RELAYS || ['wss://relay.damus.io']).map((r) => `<option value="${r}">${r.replace('wss://', '')}</option>`).join('');
     sel.onchange = () => { localStorage.setItem('sc_preferred_relay', sel.value); toast('Preferred relay: ' + sel.value, 'info'); };

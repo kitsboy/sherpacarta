@@ -211,6 +211,7 @@
     if (!panel) return;
     const sel = document.createElement('select');
     sel.id = 'nostr-relay-pick';
+    sel.setAttribute('aria-label', 'Relay picker');
     sel.className = 'sign-input';
     sel.style.cssText = 'margin-top:.5rem;font-size:.72rem';
     (window.NOSTR_RELAYS || []).forEach((r, i) => {
