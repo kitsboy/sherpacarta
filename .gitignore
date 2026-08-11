@@ -33,3 +33,7 @@ video/sherpacarta-2min/node_modules/
 __pycache__/
 *.pyc
 video/sherpacarta-2min/work-*/
+
+.tools/
+video/sherpacarta-2min/narration.*
+video/sherpacarta-2min/*.aiff

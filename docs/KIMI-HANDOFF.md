@@ -12,23 +12,11 @@
 
 ---
 
-## 2026-08-11 — Kimi: 2‑min SherpaCarta video via Hermes HyperFrames (OPEN · Cam)
+## 2026-08-11 — 2‑min film LIVE on site (Grok M3)
 
-**Do this next (creative / THOR):** produce the ~2:00 educational film.
+**Done:** Official film embedded on home `#film` · file `public/video/sherpacarta-2min.mp4` (15MB · 120s · 1080p30). Hero banner → Watch film. Source project remains `video/sherpacarta-2min/` (mp4 gitignored there; **public/** copy is committed). Re-render on M3 used macOS `say` VO (Kokoro not on M3) if original THOR final.mp4 was gitignored.
 
-| | |
-|--|--|
-| **Full package (script + scenes + DESIGN + CLI)** | **`docs/VIDEO-HERMES-HYPERFRAMES.md`** ← **READ THIS FIRST** |
-| **Tool** | Hermes skill **`hyperframes`** (HTML/CSS/GSAP → MP4) |
-| **Length** | ~120s · 16:9 · 30fps |
-| **Framing** | **International first** · Canada = live national offering only |
-| **Truth** | No fake metrics · demo map ≠ live signups · pending ≠ BTC confirmed |
-| **Hand back** | `final.mp4` path + note here when done |
-
-**Hermes paste prompt** is inside that doc (section “Hermes prompt”).  
-Optional B‑roll: Grok Imagine 6s clips; product UI = real sherpacarta.org captures.
-
-**Site (M3/Grok recent — for screenshots):** international-first home, centered footer, demo heatmap, contrast BUILD 800+, live `?v=820`+ range. Domain https://sherpacarta.org.
+**Source package:** `docs/VIDEO-HERMES-HYPERFRAMES.md` · HyperFrames project under `video/sherpacarta-2min/`.
 
 ---
 

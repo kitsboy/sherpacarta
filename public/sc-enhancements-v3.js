@@ -190,19 +190,18 @@
     };
   });
 
-  feat(206, 'Video tutorial CTA banner', () => {
+  feat(206, 'Video film CTA banner', () => {
     if (localStorage.getItem('sc_video_banner_dismiss')) return;
     const b = document.createElement('div');
     b.className = 'video-cta-banner';
     b.setAttribute('role', 'note');
-    b.innerHTML = `<span class="video-cta-copy"><i class="fas fa-play-circle" aria-hidden="true"></i> <strong>Video walkthrough coming soon</strong> — 2 min: sign, charter, Nostr, donate</span>
+    b.innerHTML = `<span class="video-cta-copy"><i class="fas fa-play-circle" aria-hidden="true"></i> <strong>New:</strong> SherpaCarta in 2 minutes — official film</span>
       <span class="video-cta-actions">
-        <button type="button" class="video-cta-btn" onclick="SC3.showUsageGuide()">Read guide</button>
+        <a class="video-cta-btn" href="#film" style="text-decoration:none;display:inline-flex;align-items:center">Watch film</a>
         <button type="button" class="video-cta-btn video-cta-dismiss" onclick="this.closest('.video-cta-banner')?.remove();localStorage.setItem('sc_video_banner_dismiss','1')">Dismiss</button>
       </span>`;
     const hero = $('hero');
     if (hero) hero.querySelector('.hero-inner')?.appendChild(b);
-    /* styles live in sc-main.css BUILD 780 — high-contrast solid panel */
   });
 
   feat(207, 'Print quick reference', () => {
