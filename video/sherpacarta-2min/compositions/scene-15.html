@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s15-card {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 780px; padding: 56px 64px; text-align: center;
+    background: #0a1f16; border: 1px solid rgba(42,107,79,0.7); border-radius: 16px;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+  }
+  #s15-title {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 72px; font-weight: 700; color: #ffffff; margin-bottom: 12px;
+  }
+  #s15-sub {
+    font-family: 'Outfit', sans-serif; font-size: 30px; font-weight: 300; color: #e8f0e8; margin-bottom: 36px;
+  }
+  #s15-btn {
+    display: inline-block; font-family: 'DM Mono', monospace; font-size: 26px; letter-spacing: 0.14em;
+    color: #030605; background: #14d492; border-radius: 8px; padding: 22px 54px;
+    box-shadow: 0 0 40px rgba(20,212,146,0.35);
+  }
+
+</style>
+<div id="root" data-composition-id="scene-15" data-width="1920" data-height="1080">
+
+  <div id="s15-card">
+    <div id="s15-title">Read it. Sign it.</div>
+    <div id="s15-sub">No account. No tracking. Locally, on your own device.</div>
+    <div id="s15-btn">SIGN&nbsp;&#9998;</div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 4.0;
+
+  tl.from("#s15-card", { scale: 0.9, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.3);
+  tl.from("#s15-title", { opacity: 0, y: 24, duration: 0.6, ease: "power2.out" }, 0.7);
+  tl.from("#s15-sub", { opacity: 0, y: 18, duration: 0.6, ease: "power2.out" }, 1.0);
+  tl.from("#s15-btn", { scale: 0.85, opacity: 0, duration: 0.5, ease: "back.out(1.8)" }, 1.4);
+
+window.__timelines["scene-15"] = tl;
+</script>
+</template>
+</body>
+</html>

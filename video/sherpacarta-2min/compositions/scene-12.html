@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s12-number {
+    position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 260px; font-weight: 700; color: #9ff5d0;
+    font-variant-numeric: tabular-nums;
+  }
+  #s12-label {
+    position: absolute; left: 50%; top: 63%; transform: translateX(-50%);
+    font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 400; color: #ffffff;
+  }
+  #s12-sub {
+    position: absolute; left: 50%; top: 70%; transform: translateX(-50%);
+    font-family: 'DM Mono', monospace; font-size: 26px; letter-spacing: 0.22em; color: #e8c040;
+    text-transform: uppercase;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-12" data-width="1920" data-height="1080">
+
+  <div id="s12-number">0</div>
+  <div id="s12-label">articles · a living charter</div>
+  <div id="s12-sub">of digital human rights</div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 8.0;
+
+  tl.from("#s12-number", { opacity: 0, scale: 1.12, duration: 0.8, ease: "power3.out" }, 0.4);
+  const counter = { v: 0 };
+  tl.to(counter, {
+    v: 114,
+    duration: 2.4,
+    ease: "power2.inOut",
+    onUpdate: () => {
+      document.getElementById("s12-number").textContent = String(Math.round(counter.v));
+    },
+  }, 0.8);
+  tl.from("#s12-label", { opacity: 0, y: 22, duration: 0.8, ease: "power2.out" }, 2.2);
+  tl.from("#s12-sub", { opacity: 0, y: 16, duration: 0.8, ease: "power2.out" }, 2.7);
+
+window.__timelines["scene-12"] = tl;
+</script>
+</template>
+</body>
+</html>

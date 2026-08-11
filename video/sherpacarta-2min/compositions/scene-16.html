@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s16-card {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 860px; padding: 52px 60px; text-align: center;
+    background: #0a1f16; border: 1px solid rgba(42,107,79,0.7); border-radius: 16px;
+  }
+  #s16-title {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 62px; font-weight: 700; color: #ffffff; margin-bottom: 10px;
+  }
+  #s16-sub {
+    font-family: 'Outfit', sans-serif; font-size: 28px; font-weight: 300; color: #e8f0e8; margin-bottom: 30px;
+  }
+  #s16-hash {
+    font-family: 'DM Mono', monospace; font-size: 22px; color: #14d492; letter-spacing: 0.06em;
+    border: 1px dashed rgba(61,224,168,0.6); border-radius: 10px; padding: 20px 30px; margin: 0 auto;
+    display: inline-block; background: rgba(3,6,5,0.6);
+  }
+  #s16-badge {
+    display: inline-block; margin-top: 26px; font-family: 'DM Mono', monospace; font-size: 20px;
+    letter-spacing: 0.16em; color: #f5d76a; border: 1px solid #e8c040; border-radius: 30px; padding: 12px 28px;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-16" data-width="1920" data-height="1080">
+
+  <div id="s16-card">
+    <div id="s16-title">Stamp its hash on Bitcoin</div>
+    <div id="s16-sub">Your signature, anchored forever, verifiable by anyone</div>
+    <div id="s16-hash">9da88734&nbsp;…&nbsp;5c2f&nbsp;·&nbsp;SHA-256</div>
+    <div id="s16-badge">PENDING&nbsp;&#9679;&nbsp;VERIFY ON CHAIN</div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 4.0;
+
+  tl.from("#s16-card", { scale: 0.9, opacity: 0, duration: 0.7, ease: "power3.out" }, 0.3);
+  tl.from("#s16-title", { opacity: 0, y: 22, duration: 0.6, ease: "power2.out" }, 0.7);
+  tl.from("#s16-hash", { opacity: 0, y: 16, duration: 0.6, ease: "power2.out" }, 1.1);
+  tl.from("#s16-badge", { opacity: 0, scale: 0.9, duration: 0.5, ease: "power2.out" }, 1.5);
+
+window.__timelines["scene-16"] = tl;
+</script>
+</template>
+</body>
+</html>

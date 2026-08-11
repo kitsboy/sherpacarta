@@ -1,0 +1,29 @@
+In 1215, a piece of parchment told a king he was not above the law.
+Eight centuries later, the powers that shape your life rarely wear a crown.
+They run on servers. They score you. They decide, silently, who is seen, who is denied, who is forgotten.
+
+The Magna Carta planted an idea that outlived empires: power must answer to rights.
+The Universal Declaration of Human Rights carried that promise to every nation.
+In 2011, Iceland proved people can write their own founding text.
+Now the battlefield is digital, and the old documents never named the new kings.
+
+Surveillance capitalism. Black-box algorithms. Platforms that write the rules of speech and identity.
+Consent buried in fine print. Data sold as if it never belonged to you.
+These systems cross borders faster than laws.
+And no one asked humanity to sign the terms.
+
+SherpaCarta is a living charter of digital human rights, one hundred fourteen articles.
+Privacy as a birthright. Data sovereignty. Freedom of expression online.
+Algorithmic accountability. Rights that may only expand, never contract.
+Published under CC0. Bitcoin-funded. Zero tracking. Built in the open.
+Not a corporation. A global civic movement.
+
+You can read it. Sign it locally, no account required.
+Stamp its hash on Bitcoin. Debate it on Nostr.
+Around the world, jurisdictions will translate it into law in their own way.
+Canada is a live national offering today. The United Kingdom and European Union paths are next.
+One charter. Many legal roads.
+
+The rights we fail to assert today become the tyrannies our children inherit tomorrow.
+SherpaCarta dot org.
+Sign. Share. Stamp. Assert.

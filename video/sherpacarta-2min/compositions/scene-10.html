@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s10-wall {
+    position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%);
+    width: 980px; height: 560px; padding: 40px 50px; overflow: hidden;
+    background: #0a1f16; border: 1px solid rgba(42,107,79,0.55); border-radius: 14px;
+  }
+  .s10-line {
+    font-family: 'DM Mono', monospace; font-size: 18px; color: rgba(232,240,232,0.66);
+    margin-bottom: 16px; white-space: nowrap; overflow: hidden;
+  }
+  #s10-stamp {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-9deg);
+    border: 5px solid #e8c040; color: #f5d76a; border-radius: 10px;
+    font-family: 'DM Mono', monospace; font-size: 64px; font-weight: 500; letter-spacing: 0.14em;
+    padding: 26px 52px; background: rgba(3,6,5,0.72);
+    box-shadow: 0 0 60px rgba(232,192,64,0.25);
+  }
+
+</style>
+<div id="root" data-composition-id="scene-10" data-width="1920" data-height="1080">
+
+  <div id="s10-wall">
+    <div class="s10-line">By using this service you agree to the complete and irrevocable transfer of all rights to your personal data, likeness, behavioral profile, and all derived inferences</div>
+    <div class="s10-line">including but not limited to any data not yet collected, any data not yet invented, and any data belonging to persons not yet born</div>
+    <div class="s10-line">for any purpose whatsoever, in perpetuity, across all jurisdictions, whether known or unknown at the time of signature</div>
+    <div class="s10-line">You further waive any right to notice, review, objection, appeal, arbitration, or human consideration of any decision made about you</div>
+    <div class="s10-line">by any algorithm, model, system, or successor technology, and you acknowledge that silence constitutes agreement</div>
+    <div class="s10-line">and that continued use of this website constitutes agreement to this and any future version of these terms</div>
+    <div class="s10-line">with no obligation on our part to inform you, ever, of anything, including but not limited to this sentence</div>
+  </div>
+  <div id="s10-stamp">WITHOUT APPEAL</div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 10.0;
+
+  tl.from("#s10-wall", { scale: 0.96, opacity: 0, duration: 1.0, ease: "power3.out" }, 0.3);
+  tl.from(".s10-line", { opacity: 0, x: -40, duration: 0.8, ease: "power2.out", stagger: 0.18 }, 0.7);
+  tl.from("#s10-stamp", { scale: 2.2, opacity: 0, duration: 0.7, ease: "power3.out" }, 3.2);
+
+window.__timelines["scene-10"] = tl;
+</script>
+</template>
+</body>
+</html>

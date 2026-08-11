@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; display: flex; align-items: center; justify-content: center; }
+  #s01-vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 62% 55% at 50% 46%, rgba(10,31,22,0.0) 0%, rgba(3,6,5,0.9) 78%);
+  }
+  #s01-parchment {
+    position: relative; width: 1080px; height: 720px;
+    background:
+      linear-gradient(115deg, rgba(232,192,64,0.10) 0%, rgba(232,192,64,0.02) 40%, rgba(20,212,146,0.05) 100%),
+      #0a1f16;
+    border: 1px solid rgba(232,192,64,0.35);
+    box-shadow: 0 60px 160px rgba(0,0,0,0.75), inset 0 0 120px rgba(232,192,64,0.06);
+    border-radius: 6px;
+  }
+  #s01-parchment::before {
+    content: ""; position: absolute; inset: 26px;
+    border: 1px solid rgba(232,192,64,0.18); border-radius: 3px;
+  }
+  #s01-seal {
+    position: absolute; left: 50%; top: 50%; width: 168px; height: 168px;
+    transform: translate(-50%, -50%);
+    border: 3px double #e8c040; border-radius: 50%;
+    background: radial-gradient(circle at 38% 34%, rgba(245,215,106,0.28), rgba(232,192,64,0.06) 68%);
+    box-shadow: 0 0 60px rgba(232,192,64,0.22), inset 0 0 30px rgba(232,192,64,0.12);
+  }
+  #s01-seal::after {
+    content: "S"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 92px; font-weight: 700; color: #f5d76a;
+  }
+  #s01-dust {
+    position: absolute; inset: 0; opacity: 0.16; pointer-events: none;
+    background-image:
+      radial-gradient(rgba(245,215,106,0.5) 1px, transparent 1.4px),
+      radial-gradient(rgba(61,224,168,0.4) 1px, transparent 1.5px);
+    background-size: 7px 9px, 11px 13px; background-position: 0 0, 3px 4px;
+  }
+  #s01-year {
+    position: absolute; left: 0; right: 0; bottom: 118px; text-align: center;
+    font-family: 'DM Mono', monospace; font-size: 30px; letter-spacing: 0.34em; color: #9ff5d0;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-01" data-width="1920" data-height="1080">
+
+  <div id="s01-dust"></div>
+  <div id="s01-parchment"><div id="s01-seal"></div></div>
+  <div id="s01-year">MAGNA&nbsp;CARTA&nbsp;·&nbsp;1215</div>
+  <div id="s01-vignette"></div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 6.0;
+
+  tl.from("#s01-parchment", { scale: 1.06, opacity: 0, duration: 2.2, ease: "power2.out" }, 0.35);
+  tl.from("#s01-seal", { scale: 0.4, opacity: 0, duration: 1.6, ease: "back.out(1.6)" }, 1.1);
+  tl.to("#s01-parchment", { y: -14, duration: dur, ease: "sine.inOut" }, 0);
+  tl.from("#s01-year", { opacity: 0, y: 18, duration: 1.0, ease: "power2.out" }, 2.4);
+  tl.to("#s01-seal", { boxShadow: "0 0 84px rgba(232,192,64,0.34)", duration: 3.4, ease: "sine.inOut", repeat: 1, yoyo: true }, 2.2);
+
+window.__timelines["scene-01"] = tl;
+</script>
+</template>
+</body>
+</html>

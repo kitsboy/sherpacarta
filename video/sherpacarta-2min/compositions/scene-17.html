@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s17-globe {
+    position: absolute; left: 50%; top: 42%; transform: translate(-50%, -50%);
+    width: 420px; height: 420px; border-radius: 50%;
+    border: 2px solid rgba(42,107,79,0.8);
+    background:
+      radial-gradient(circle at 50% 50%, rgba(20,212,146,0.06), transparent 60%),
+      repeating-radial-gradient(circle at 50% 50%, transparent 0 62px, rgba(42,107,79,0.35) 62px 64px);
+    box-shadow: 0 0 90px rgba(20,212,146,0.12);
+  }
+  #s17-globe::before, #s17-globe::after {
+    content: ""; position: absolute; background: rgba(42,107,79,0.35); border-radius: 50%;
+  }
+  #s17-globe::before { left: -24px; right: -24px; top: 50%; height: 2px; transform: translateY(-50%); }
+  #s17-globe::after { top: -24px; bottom: -24px; left: 50%; width: 2px; transform: translateX(-50%); }
+  #s17-dot-ca, #s17-dot-uk, #s17-dot-eu {
+    position: absolute; width: 16px; height: 16px; border-radius: 50%;
+    box-shadow: 0 0 22px currentColor;
+  }
+  #s17-dot-ca { left: 50%; top: 50%; transform: translate(-164px, -98px); background: #14d492; color: #14d492; }
+  #s17-dot-uk { left: 50%; top: 50%; transform: translate(104px, -116px); background: #e8c040; color: #e8c040; }
+  #s17-dot-eu { left: 50%; top: 50%; transform: translate(122px, -60px); background: #3de0a8; color: #3de0a8; }
+  #s17-title {
+    position: absolute; left: 50%; top: 66%; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 54px; font-weight: 600; color: #ffffff;
+    white-space: nowrap;
+  }
+  #s17-sub {
+    position: absolute; left: 50%; top: 74%; transform: translateX(-50%);
+    font-family: 'DM Mono', monospace; font-size: 24px; letter-spacing: 0.14em; color: #9ff5d0;
+  }
+  #s17-legend {
+    position: absolute; left: 50%; top: 82%; transform: translateX(-50%);
+    font-family: 'DM Mono', monospace; font-size: 20px; color: #e8f0e8; letter-spacing: 0.08em;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-17" data-width="1920" data-height="1080">
+
+  <div id="s17-globe">
+    <div id="s17-dot-ca"></div><div id="s17-dot-uk"></div><div id="s17-dot-eu"></div>
+  </div>
+  <div id="s17-title">One charter. Many legal roads.</div>
+  <div id="s17-sub">CANADA&nbsp;·&nbsp;LIVE&nbsp;&nbsp;|&nbsp;&nbsp;UK&nbsp;&middot;&nbsp;NEXT&nbsp;&nbsp;|&nbsp;&nbsp;EU&nbsp;&middot;&nbsp;NEXT</div>
+  <div id="s17-legend">jurisdictions translate it into law, their own way</div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 6.0;
+
+  tl.from("#s17-globe", { scale: 0.7, opacity: 0, duration: 1.0, ease: "power3.out" }, 0.3);
+  tl.from("#s17-dot-ca", { scale: 0, duration: 0.5, ease: "back.out(2.4)" }, 1.2);
+  tl.from("#s17-dot-uk", { scale: 0, duration: 0.5, ease: "back.out(2.4)" }, 1.6);
+  tl.from("#s17-dot-eu", { scale: 0, duration: 0.5, ease: "back.out(2.4)" }, 2.0);
+  tl.from("#s17-title", { opacity: 0, y: 20, duration: 0.8, ease: "power2.out" }, 2.3);
+  tl.from("#s17-sub", { opacity: 0, y: 14, duration: 0.7, ease: "power2.out" }, 2.8);
+  tl.from("#s17-legend", { opacity: 0, duration: 0.7, ease: "power2.out" }, 3.2);
+
+window.__timelines["scene-17"] = tl;
+</script>
+</template>
+</body>
+</html>

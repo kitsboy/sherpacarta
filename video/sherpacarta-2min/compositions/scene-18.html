@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s18-wrap {
+    position: absolute; left: 0; right: 0; top: 0; bottom: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  #s18-quote {
+    width: 1400px; text-align: center;
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 60px; font-weight: 600;
+    color: #ffffff; line-height: 1.28;
+  }
+  #s18-mark {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 170px; color: #e8c040;
+    line-height: 0.5; opacity: 0.55; margin-bottom: 8px;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-18" data-width="1920" data-height="1080">
+
+  <div id="s18-wrap">
+    <div id="s18-mark">&ldquo;</div>
+    <div id="s18-quote">The rights we fail to assert today become the tyrannies our children inherit tomorrow.</div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 4.0;
+
+  tl.from("#s18-mark", { opacity: 0, scale: 0.6, duration: 0.7, ease: "power3.out" }, 0.25);
+  tl.from("#s18-quote", { opacity: 0, y: 26, duration: 0.9, ease: "power2.out" }, 0.6);
+
+window.__timelines["scene-18"] = tl;
+</script>
+</template>
+</body>
+</html>

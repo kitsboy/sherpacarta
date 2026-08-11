@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s03-rack {
+    position: absolute; left: 50%; top: 54%; transform: translate(-50%, -50%);
+    display: flex; gap: 10px;
+  }
+  .s03-unit {
+    width: 200px; height: 420px; border: 1px solid rgba(42,107,79,0.65); border-radius: 10px;
+    background: linear-gradient(180deg, #0a1f16, #07150e);
+    display: flex; flex-direction: column; gap: 14px; padding: 26px 18px;
+  }
+  .s03-led {
+    height: 8px; border-radius: 4px; background: #14d492; opacity: 0.85;
+  }
+  .s03-led.dim { background: #2a6b4f; opacity: 0.5; }
+  .s03-led.gold { background: #e8c040; }
+  #s03-arrow {
+    position: absolute; left: 50%; top: 118px; transform: translateX(-50%);
+    font-family: 'DM Mono', monospace; font-size: 34px; letter-spacing: 0.26em; color: #f5d76a;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-03" data-width="1920" data-height="1080">
+
+  <div id="s03-arrow">1215&nbsp;&rarr;&nbsp;2026</div>
+  <div id="s03-rack">
+    <div class="s03-unit">
+      <div class="s03-led gold"></div><div class="s03-led"></div><div class="s03-led dim"></div>
+      <div class="s03-led"></div><div class="s03-led dim"></div><div class="s03-led gold"></div>
+      <div class="s03-led"></div><div class="s03-led"></div><div class="s03-led dim"></div>
+    </div>
+    <div class="s03-unit">
+      <div class="s03-led dim"></div><div class="s03-led gold"></div><div class="s03-led"></div>
+      <div class="s03-led dim"></div><div class="s03-led"></div><div class="s03-led gold"></div>
+      <div class="s03-led dim"></div><div class="s03-led"></div><div class="s03-led"></div>
+    </div>
+    <div class="s03-unit">
+      <div class="s03-led"></div><div class="s03-led dim"></div><div class="s03-led gold"></div>
+      <div class="s03-led"></div><div class="s03-led gold"></div><div class="s03-led dim"></div>
+      <div class="s03-led"></div><div class="s03-led"></div><div class="s03-led gold"></div>
+    </div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 6.0;
+
+  tl.from("#s03-arrow", { opacity: 0, y: 20, duration: 1.2, ease: "power2.out" }, 0.3);
+  tl.from(".s03-unit", { y: 70, opacity: 0, duration: 1.1, ease: "power3.out", stagger: 0.14 }, 0.6);
+
+window.__timelines["scene-03"] = tl;
+</script>
+</template>
+</body>
+</html>

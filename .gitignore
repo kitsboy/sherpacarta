@@ -23,3 +23,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# SherpaCarta 2min video production (large local media)
+video/sherpacarta-2min/narration.wav
+video/sherpacarta-2min/*.mp4
+video/sherpacarta-2min/renders/
+video/sherpacarta-2min/.hyperframes/
+video/sherpacarta-2min/node_modules/
+__pycache__/
+*.pyc
+video/sherpacarta-2min/work-*/

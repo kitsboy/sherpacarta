@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s08-card {
+    position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%);
+    width: 860px; padding: 56px 70px;
+    background: #0a1f16; border: 1px solid rgba(42,107,79,0.7); border-radius: 14px;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+  }
+  #s08-label {
+    font-family: 'DM Mono', monospace; font-size: 30px; letter-spacing: 0.3em; color: #14d492;
+    text-transform: uppercase; margin-bottom: 22px;
+  }
+  #s08-word {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 128px; font-weight: 700; color: #ffffff; line-height: 1;
+  }
+  #s08-sub {
+    position: absolute; left: 50%; top: 72%; transform: translateX(-50%);
+    font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 300; color: #e8f0e8;
+  }
+  #s08-x {
+    position: absolute; right: 40px; top: 28px; font-family: 'DM Mono', monospace;
+    font-size: 26px; color: rgba(232,192,64,0.5);
+  }
+
+</style>
+<div id="root" data-composition-id="scene-08" data-width="1920" data-height="1080">
+
+  <div id="s08-card">
+    <div id="s08-x">[&nbsp;VERDICT&nbsp;]</div>
+    <div id="s08-label">They score you</div>
+    <div id="s08-word">PROFILED</div>
+  </div>
+  <div id="s08-sub">without consent, without appeal</div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 8.0;
+
+  tl.from("#s08-card", { scale: 0.92, opacity: 0, duration: 0.9, ease: "power3.out" }, 0.4);
+  tl.from("#s08-label", { opacity: 0, x: -24, duration: 0.7, ease: "power2.out" }, 0.9);
+  tl.from("#s08-word", { opacity: 0, y: 34, duration: 0.8, ease: "power3.out" }, 1.2);
+  tl.from("#s08-sub", { opacity: 0, y: 18, duration: 0.8, ease: "power2.out" }, 1.9);
+  tl.from("#s08-x", { opacity: 0, duration: 0.6, ease: "power2.out" }, 2.4);
+
+window.__timelines["scene-08"] = tl;
+</script>
+</template>
+</body>
+</html>

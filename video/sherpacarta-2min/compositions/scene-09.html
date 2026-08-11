@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s09-card {
+    position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%);
+    width: 860px; padding: 56px 70px;
+    background: #0a1f16; border: 1px solid rgba(42,107,79,0.7); border-radius: 14px;
+    box-shadow: 0 30px 100px rgba(0,0,0,0.6);
+  }
+  #s09-label {
+    font-family: 'DM Mono', monospace; font-size: 30px; letter-spacing: 0.3em; color: #e8c040;
+    text-transform: uppercase; margin-bottom: 22px;
+  }
+  #s09-word {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 128px; font-weight: 700; color: #ffffff; line-height: 1;
+  }
+  #s09-track {
+    position: absolute; left: 50%; top: 73%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 26px;
+    font-family: 'DM Mono', monospace; font-size: 26px; color: #e8f0e8;
+  }
+  .s09-dot { width: 14px; height: 14px; border-radius: 50%; background: #2a6b4f; }
+  .s09-dot.now { background: #14d492; box-shadow: 0 0 18px rgba(20,212,146,0.8); }
+  .s09-dot.next { background: #e8c040; }
+
+</style>
+<div id="root" data-composition-id="scene-09" data-width="1920" data-height="1080">
+
+  <div id="s09-card">
+    <div id="s09-label">Algorithms decide</div>
+    <div id="s09-word">PREDICTED</div>
+  </div>
+  <div id="s09-track">
+    <span class="s09-dot now"></span><span>YOUR&nbsp;NEXT&nbsp;MOVE</span>
+    <span class="s09-dot next"></span><span>ALREADY&nbsp;GUESSED</span>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 8.0;
+
+  tl.from("#s09-card", { scale: 0.92, opacity: 0, duration: 0.9, ease: "power3.out" }, 0.4);
+  tl.from("#s09-label", { opacity: 0, x: -24, duration: 0.7, ease: "power2.out" }, 0.9);
+  tl.from("#s09-word", { opacity: 0, y: 34, duration: 0.8, ease: "power3.out" }, 1.2);
+  tl.from("#s09-track", { opacity: 0, y: 20, duration: 0.8, ease: "power2.out" }, 1.9);
+
+window.__timelines["scene-09"] = tl;
+</script>
+</template>
+</body>
+</html>

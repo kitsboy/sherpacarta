@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s07-line {
+    position: absolute; left: 50%; top: 190px; bottom: 190px; width: 2px; transform: translateX(-50%);
+    background: linear-gradient(180deg, transparent, #3de0a8 22%, #3de0a8 78%, transparent);
+  }
+  #s07-node {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 26px; height: 26px; border-radius: 50%; background: #3de0a8;
+    box-shadow: 0 0 44px rgba(61,224,168,0.7);
+  }
+  #s07-year {
+    position: absolute; left: 50%; top: 38%; transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 108px; font-weight: 700; color: #9ff5d0;
+  }
+  #s07-title {
+    position: absolute; left: 50%; top: 56%; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; font-weight: 600; color: #ffffff;
+  }
+  #s07-sub {
+    position: absolute; left: 50%; top: 67%; transform: translateX(-50%);
+    font-family: 'Outfit', sans-serif; font-size: 30px; font-weight: 300; color: #e8f0e8;
+  }
+  #s07-seal {
+    position: absolute; left: 50%; top: 31%; transform: translateX(-50%);
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 2px solid #3de0a8; box-shadow: 0 0 30px rgba(61,224,168,0.5);
+  }
+
+</style>
+<div id="root" data-composition-id="scene-07" data-width="1920" data-height="1080">
+
+  <div id="s07-line"></div>
+  <div id="s07-year">2026</div>
+  <div id="s07-node"></div>
+  <div id="s07-seal"></div>
+  <div id="s07-title">SherpaCarta</div>
+  <div id="s07-sub">The digital age</div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 6.0;
+
+  tl.from("#s07-line", { scaleY: 0, transformOrigin: "50% 50%", duration: 1.2, ease: "power2.out" }, 0.3);
+  tl.from("#s07-year", { opacity: 0, y: 34, duration: 1.0, ease: "power3.out" }, 0.5);
+  tl.from("#s07-node", { scale: 0, duration: 0.7, ease: "back.out(2.2)" }, 1.3);
+  tl.from("#s07-seal", { scale: 0, opacity: 0, duration: 0.7, ease: "back.out(2.2)" }, 1.9);
+  tl.from("#s07-title", { opacity: 0, y: 22, duration: 0.9, ease: "power2.out" }, 2.3);
+  tl.from("#s07-sub", { opacity: 0, y: 16, duration: 0.9, ease: "power2.out" }, 2.8);
+
+window.__timelines["scene-07"] = tl;
+</script>
+</template>
+</body>
+</html>

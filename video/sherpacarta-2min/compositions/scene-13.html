@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s13-head {
+    position: absolute; left: 50%; top: 150px; transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 64px; font-weight: 600; color: #ffffff;
+  }
+  #s13-row {
+    position: absolute; left: 50%; top: 53%; transform: translate(-50%, -50%);
+    display: flex; gap: 30px;
+  }
+  .s13-pillar {
+    width: 340px; padding: 44px 30px; text-align: center;
+    background: #0a1f16; border: 1px solid rgba(42,107,79,0.7); border-radius: 12px;
+  }
+  .s13-icon {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 54px; font-weight: 700;
+    color: #14d492; margin-bottom: 20px;
+  }
+  .s13-name {
+    font-family: 'Outfit', sans-serif; font-size: 34px; font-weight: 500; color: #ffffff; margin-bottom: 10px;
+  }
+  .s13-note {
+    font-family: 'DM Mono', monospace; font-size: 18px; letter-spacing: 0.1em; color: #9ff5d0; text-transform: uppercase;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-13" data-width="1920" data-height="1080">
+
+  <div id="s13-head">Four Pillars</div>
+  <div id="s13-row">
+    <div class="s13-pillar"><div class="s13-icon">&#128274;</div><div class="s13-name">Privacy</div><div class="s13-note">a birthright</div></div>
+    <div class="s13-pillar"><div class="s13-icon">&#128736;</div><div class="s13-name">Data Sovereignty</div><div class="s13-note">yours, not theirs</div></div>
+    <div class="s13-pillar"><div class="s13-icon">&#128172;</div><div class="s13-name">Expression</div><div class="s13-note">free online</div></div>
+    <div class="s13-pillar"><div class="s13-icon">&#9878;</div><div class="s13-name">Accountability</div><div class="s13-note">algorithms answer</div></div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 8.0;
+
+  tl.from("#s13-head", { opacity: 0, y: 24, duration: 0.9, ease: "power3.out" }, 0.35);
+  tl.from(".s13-pillar", { y: 60, opacity: 0, duration: 0.9, ease: "power3.out", stagger: 0.14 }, 0.7);
+
+window.__timelines["scene-13"] = tl;
+</script>
+</template>
+</body>
+</html>

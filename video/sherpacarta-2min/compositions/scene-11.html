@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s11-seal {
+    position: absolute; left: 50%; top: 34%; transform: translate(-50%, -50%);
+    width: 120px; height: 120px; border: 3px double #14d492; border-radius: 50%;
+    background: radial-gradient(circle at 38% 34%, rgba(61,224,168,0.3), rgba(20,212,146,0.05) 68%);
+    box-shadow: 0 0 60px rgba(20,212,146,0.28);
+  }
+  #s11-seal::after {
+    content: "S"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 66px; font-weight: 700; color: #9ff5d0;
+  }
+  #s11-name {
+    position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-size: 148px; font-weight: 700; color: #ffffff;
+    letter-spacing: 0.01em; white-space: nowrap;
+  }
+  #s11-sub {
+    position: absolute; left: 50%; top: 66%; transform: translateX(-50%);
+    font-family: 'DM Mono', monospace; font-size: 34px; letter-spacing: 0.4em; color: #14d492;
+    text-transform: uppercase;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-11" data-width="1920" data-height="1080">
+
+  <div id="s11-seal"></div>
+  <div id="s11-name">SherpaCarta</div>
+  <div id="s11-sub">Digital Magna Carta</div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 8.0;
+
+  tl.from("#s11-seal", { scale: 0, opacity: 0, duration: 1.1, ease: "back.out(1.8)" }, 0.5);
+  tl.from("#s11-name", { opacity: 0, y: 40, duration: 1.2, ease: "power3.out" }, 0.9);
+  tl.from("#s11-sub", { opacity: 0, y: 18, duration: 1.2, ease: "power2.out" }, 1.7);
+
+window.__timelines["scene-11"] = tl;
+</script>
+</template>
+</body>
+</html>

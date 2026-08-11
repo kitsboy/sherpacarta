@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+</head>
+<body>
+<template>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Outfit:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=block');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: #030605; }
+  .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+  .mono { font-family: 'DM Mono', ui-monospace, monospace; }
+  .sans { font-family: 'Outfit', system-ui, sans-serif; }
+
+
+
+  #root { position: absolute; inset: 0; overflow: hidden; background: #030605; }
+  #s02-phone {
+    position: absolute; left: 50%; top: 50%; width: 300px; height: 590px;
+    transform: translate(-50%, -50%); border-radius: 46px;
+    border: 2px solid rgba(61,224,168,0.55);
+    background: linear-gradient(180deg, #0a1f16 0%, #06120d 100%);
+    box-shadow: 0 0 90px rgba(20,212,146,0.16), inset 0 0 60px rgba(20,212,146,0.05);
+  }
+  #s02-screen {
+    position: absolute; left: 20px; right: 20px; top: 66px; bottom: 20px;
+    border: 1px solid rgba(61,224,168,0.18); border-radius: 26px; overflow: hidden;
+  }
+  #s02-scan {
+    position: absolute; left: 0; right: 0; top: 0; height: 110px;
+    background: linear-gradient(180deg, rgba(20,212,146,0.0), rgba(20,212,146,0.30), rgba(20,212,146,0.0));
+    animation: s02-scan 2.4s linear infinite;
+  }
+  #s02-face {
+    position: absolute; left: 50%; top: 50%; width: 150px; height: 180px; transform: translate(-50%, -60%);
+    border: 1px solid rgba(61,224,168,0.4); border-radius: 46% 46% 42% 42%;
+    background: radial-gradient(circle at 50% 34%, rgba(61,224,168,0.16), transparent 62%);
+  }
+  #s02-score {
+    position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%);
+    font-family: 'DM Mono', monospace; font-size: 30px; letter-spacing: 0.22em; color: #e8c040;
+  }
+  #s02-caption {
+    position: absolute; left: 50%; top: 150px; transform: translateX(-50%);
+    font-family: 'Outfit', sans-serif; font-size: 40px; font-weight: 300; color: #e8f0e8; letter-spacing: 0.08em;
+  }
+
+</style>
+<div id="root" data-composition-id="scene-02" data-width="1920" data-height="1080">
+
+  <div id="s02-caption">THE POWERS THAT SHAPE YOUR LIFE</div>
+  <div id="s02-phone">
+    <div id="s02-screen">
+      <div id="s02-scan"></div>
+      <div id="s02-face"></div>
+      <div id="s02-score">SCORE&nbsp;·&nbsp;87</div>
+    </div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+const tl = gsap.timeline({ paused: true });
+const dur = 6.0;
+
+  tl.from("#s02-caption", { opacity: 0, y: -26, duration: 1.0, ease: "power3.out" }, 0.25);
+  tl.from("#s02-phone", { y: 90, opacity: 0, duration: 1.2, ease: "power3.out" }, 0.45);
+  tl.from("#s02-score", { opacity: 0, duration: 0.8, ease: "power2.out" }, 2.1);
+
+window.__timelines["scene-02"] = tl;
+</script>
+</template>
+</body>
+</html>
