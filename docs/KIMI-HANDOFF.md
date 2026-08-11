@@ -1,3 +1,23 @@
+## 2026-08-11 — Kimi: 2‑min SherpaCarta video via Hermes HyperFrames (OPEN · Cam)
+
+**Do this next (creative / THOR):** produce the ~2:00 educational film.
+
+| | |
+|--|--|
+| **Full package (script + scenes + DESIGN + CLI)** | **`docs/VIDEO-HERMES-HYPERFRAMES.md`** ← **READ THIS FIRST** |
+| **Tool** | Hermes skill **`hyperframes`** (HTML/CSS/GSAP → MP4) |
+| **Length** | ~120s · 16:9 · 30fps |
+| **Framing** | **International first** · Canada = live national offering only |
+| **Truth** | No fake metrics · demo map ≠ live signups · pending ≠ BTC confirmed |
+| **Hand back** | `final.mp4` path + note here when done |
+
+**Hermes paste prompt** is inside that doc (section “Hermes prompt”).  
+Optional B‑roll: Grok Imagine 6s clips; product UI = real sherpacarta.org captures.
+
+**Site (M3/Grok recent — for screenshots):** international-first home, centered footer, demo heatmap, contrast BUILD 800+, live `?v=820`+ range. Domain https://sherpacarta.org.
+
+---
+
 ## 2026-08-10 — Kimi/THOR: Lighthouse sweep (DONE, deployed)
 Full site optimization sweep completed end-to-end (sw.js 206-crash fix, console-error elimination, a11y + SEO + security pass). See LATEST-UPDATE.md (top) for per-site summary + commit. Scores re-verified by Kimi. Before touching code, re-check the live Lighthouse state; do not regress: sw.js cache guards (status 200 only), CSP analytics allowlist, image width/height attrs, aria-labels on form controls.
 
