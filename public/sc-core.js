@@ -2300,25 +2300,26 @@ function copyPayAddress(kind, addrEl, btnEl, resetHtml){
   const toggle=document.getElementById('nav-toggle');
   const actions=document.getElementById('nav-menu');
   if(!toggle||!actions)return;
-  toggle.addEventListener('click',()=>{
-    const open=toggle.getAttribute('aria-expanded')==='true';
-    toggle.setAttribute('aria-expanded',open?'false':'true');
-    actions.classList.toggle('open',!open);
-    toggle.innerHTML=open?'<i class="fas fa-bars" aria-hidden="true"></i>':'<i class="fas fa-xmark" aria-hidden="true"></i>';
+  const setOpen=(want)=>{
+    toggle.setAttribute('aria-expanded',want?'true':'false');
+    actions.classList.toggle('open',want);
+    document.body.classList.toggle('nav-open',want);
+    toggle.innerHTML=want
+      ?'<i class="fas fa-xmark" aria-hidden="true"></i>'
+      :'<i class="fas fa-bars" aria-hidden="true"></i>';
+  };
+  toggle.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    setOpen(toggle.getAttribute('aria-expanded')!=='true');
   });
-  actions.querySelectorAll('button,select').forEach(el=>{
-    el.addEventListener('click',()=>{
-      toggle.setAttribute('aria-expanded','false');
-      actions.classList.remove('open');
-      toggle.innerHTML='<i class="fas fa-bars" aria-hidden="true"></i>';
-    });
+  actions.querySelectorAll('button,select,a').forEach(el=>{
+    el.addEventListener('click',()=>setOpen(false));
   });
   document.addEventListener('click',e=>{
-    if(!toggle.contains(e.target)&&!actions.contains(e.target)){
-      toggle.setAttribute('aria-expanded','false');
-      actions.classList.remove('open');
-      toggle.innerHTML='<i class="fas fa-bars" aria-hidden="true"></i>';
-    }
+    if(!toggle.contains(e.target)&&!actions.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape') setOpen(false);
   });
 })();
 

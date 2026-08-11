@@ -36,7 +36,7 @@
 <meta name="keywords" content="digital rights, privacy, data sovereignty, magna carta, human rights, internet freedom, GDPR, surveillance, SherpaCarta">
 <meta name="author" content="SherpaCarta Global Movement">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#050806">
+<meta name="theme-color" content="#030605">
 <link rel="icon" href="/favicon.png?v=738" type="image/png" sizes="48x48">
 <link rel="icon" href="/favicon-32.png?v=738" type="image/png" sizes="32x32">
 <link rel="icon" href="/brand-mark.png?v=738" type="image/png" sizes="any">
@@ -100,15 +100,15 @@
 <!-- ═══ FONTS & ICONS — self-hosted (zero third-party tracking) ═ -->
 <link rel="preload" href="/fonts/outfit-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=760">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=760">
+<link rel="stylesheet" href="/fonts/fonts.css?v=770">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=770">
 
-<link rel="stylesheet" href="/sc-main.css?v=760">
-<link rel="preload" href="/sc-core.js?v=760" as="script">
-<link rel="preload" href="/sc-bundle.js?v=760" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=770">
+<link rel="preload" href="/sc-core.js?v=770" as="script">
+<link rel="preload" href="/sc-bundle.js?v=770" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=760"></script>
+<script defer src="/js/sc-analytics.js?v=770"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -163,98 +163,118 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </div>
 
 <!-- ════════════════════════════════════════════════════════
-     NAV
+     NAV — BUILD 770 institutional header
 ════════════════════════════════════════════════════════ -->
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="https://giveabit.io" class="nav-logo" target="_blank" rel="noopener" title="Give A Bit — giveabit.io">
-      <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="40" height="40" decoding="async">
-      <div>
-        <div class="logo-text">SherpaCarta <span class="sc-build-badge" title="Product build">BUILD 760</span></div>
-        <div class="logo-sub">Digital Magna Carta &bull; Living charter</div>
+    <a href="/" class="nav-logo" title="SherpaCarta home">
+      <img src="/giveabit-logo.png" alt="" class="giveabit-brand-logo" width="40" height="40" decoding="async">
+      <div class="nav-wordmark">
+        <div class="logo-text">SherpaCarta</div>
+        <div class="logo-sub">Digital Magna Carta</div>
       </div>
     </a>
-    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-      <i class="fas fa-bars" aria-hidden="true"></i>
-    </button>
+
+    <!-- Desktop primary links (hidden on mobile — in sheet) -->
+    <div class="nav-primary" aria-label="Primary">
+      <button type="button" class="nav-link" onclick="openCharterModal()">Charter</button>
+      <a class="nav-link" href="/canada/">Canada</a>
+      <a class="nav-link" href="/nostr">Discuss</a>
+    </div>
+
+    <div class="nav-end">
+      <div id="progress-counter" class="nav-signed" aria-live="polite" title="Local signatures this session"><span id="live-counter">0</span> signed</div>
+      <button type="button" class="nav-icon-btn" onclick="openCommandPalette()" aria-label="Search (⌘K)" title="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
+      <button type="button" class="nav-icon-btn" onclick="toggleTheme()" aria-label="Toggle theme" title="Theme"><i class="fas fa-circle-half-stroke" aria-hidden="true"></i></button>
+      <button type="button" class="btn btn-sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),400)"><i class="fas fa-signature" aria-hidden="true"></i> <span>Sign</span></button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Mobile full menu sheet (+ lang tools) -->
     <div class="nav-actions" id="nav-menu">
-      <div id="progress-counter" aria-live="polite"><span id="live-counter">0</span> Signed</div>
-
-      <!-- LANGUAGE SWITCHER with flags -->
-      <div class="lang-switcher-nav" title="Switch language">
-        <select id="nav-lang" onchange="switchNavLang(this.value)" aria-label="Select language">
-          <option value="en">🇬🇧 English</option>
-          <option value="zh">🇨🇳 中文</option>
-          <option value="es">🇪🇸 Español</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="de">🇩🇪 Deutsch</option>
-          <option value="pt">🇧🇷 Português</option>
-          <option value="ar">🇸🇦 العربية</option>
-          <option value="sw">🇰🇪 Kiswahili</option>
-        </select>
+      <div class="nav-sheet-head">
+        <span class="nav-sheet-kicker">Navigate</span>
+        <span class="sc-build-badge" title="Product build">BUILD 770</span>
       </div>
-
-      <button class="btn btn-ghost" onclick="openCommandPalette()" aria-label="Open search (⌘K)"><i class="fas fa-search"></i> <span class="cmd-key">⌘K</span></button>
-      <button class="btn btn-ghost" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-circle-half-stroke"></i></button>
-      <button class="btn btn-primary" onclick="openCharterModal()" aria-expanded="false"><i class="fas fa-book-open"></i> Charter</button>
-      <a class="btn btn-ghost" href="/canada/" style="text-decoration:none;cursor:pointer"><i class="fas fa-flag"></i> Canada</a>
-      <a class="btn btn-ghost" href="/nostr" style="text-decoration:none;cursor:pointer" title="Live Nostr + X #Sherpacarta discussion"><i class="fas fa-comments"></i> Discuss</a>
+      <button type="button" class="nav-sheet-link" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> Full Charter</button>
+      <a class="nav-sheet-link" href="/canada/"><i class="fas fa-flag" aria-hidden="true"></i> Canada Petition</a>
+      <a class="nav-sheet-link" href="/nostr"><i class="fas fa-comments" aria-hidden="true"></i> Live Discuss</a>
+      <button type="button" class="nav-sheet-link nav-sheet-sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'})"><i class="fas fa-signature" aria-hidden="true"></i> Sign &amp; Assert Rights</button>
+      <div class="nav-sheet-tools">
+        <div class="lang-switcher-nav" title="Switch language">
+          <select id="nav-lang" onchange="switchNavLang(this.value)" aria-label="Select language">
+            <option value="en">🇬🇧 English</option>
+            <option value="zh">🇨🇳 中文</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="pt">🇧🇷 Português</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="sw">🇰🇪 Kiswahili</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-ghost" onclick="openCommandPalette()" aria-label="Open search"><i class="fas fa-search"></i> Search</button>
+        <button type="button" class="btn btn-ghost" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-circle-half-stroke"></i> Theme</button>
+      </div>
     </div>
   </div>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════
-     HERO
+     HERO — BUILD 770 first-fold ceremony
 ════════════════════════════════════════════════════════ -->
 <main id="main-content">
 <section id="hero" aria-label="Hero section">
+  <div class="hero-atmosphere" aria-hidden="true">
+    <div class="hero-vignette"></div>
+    <div class="hero-parchment"></div>
+    <div class="hero-shaft"></div>
+  </div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
   <canvas id="particle-canvas" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%"></canvas>
   <div class="hero-inner">
-    <div class="hero-ribbon" aria-hidden="true">
-      <span class="hero-ribbon-mark"><i class="fas fa-landmark"></i> Digital Magna Carta</span>
-      <span class="hero-ribbon-live">live &bull; honest metrics</span>
-    </div>
-    <div class="hero-badge">
-      <div class="badge-dot" aria-hidden="true"></div>
-      <span class="badge-text">Global Digital Rights Movement &bull; 2026</span>
-    </div>
-    <span class="hero-year" aria-hidden="true">1215 &rarr; 2026</span>
+    <p class="hero-kicker">
+      <span class="hero-kicker-line">1215 → 2026</span>
+      <span class="hero-kicker-dot" aria-hidden="true"></span>
+      <span>Digital Magna Carta</span>
+      <span class="hero-kicker-dot" aria-hidden="true"></span>
+      <span class="hero-kicker-live">Live</span>
+    </p>
     <h1 class="hero-h1 text-balance" id="hero-heading">A <span class="accent">Magna Carta</span><br>for the Digital Age</h1>
-    <p class="hero-sub" id="hero-sub">Privacy as a Fundamental Human Right. A living charter for every person on Earth — enforceable, editable, and evolving.</p>
+    <p class="hero-sub" id="hero-sub">Privacy as a fundamental human right. A living charter for every person on Earth — enforceable, editable, and evolving.</p>
     <div class="hero-proof" aria-label="Why sign">
-      <span><i class="fas fa-check"></i> 114 living articles</span>
-      <span><i class="fas fa-check"></i> Zero tracking</span>
-      <span><i class="fas fa-check"></i> CC0 public domain</span>
-      <span><i class="fas fa-check"></i> Bitcoin-stamped</span>
-      <span><i class="fas fa-check"></i> Local-first signing</span>
+      <span><i class="fas fa-check" aria-hidden="true"></i> 114 living articles</span>
+      <span><i class="fas fa-check" aria-hidden="true"></i> Zero tracking</span>
+      <span><i class="fas fa-check" aria-hidden="true"></i> Bitcoin-stamped</span>
     </div>
     <div class="hero-ctas">
-      <button class="cta-main" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),500)"><i class="fas fa-signature"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
-      <button class="cta-sec" onclick="openCharterModal()"><i class="fas fa-scroll"></i> <span id="cta-charter-text">Read the Full Charter</span></button>
-      <a class="cta-canada" href="/canada/sign" id="cta-canada-btn"><i class="fas fa-flag" aria-hidden="true"></i><span>Canada Petition</span></a>
+      <button type="button" class="cta-main" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),500)"><i class="fas fa-signature" aria-hidden="true"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
+      <button type="button" class="cta-sec" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> <span id="cta-charter-text">Read the Full Charter</span></button>
     </div>
-    <p class="hero-urgency">⚡ <strong>114 articles</strong> live · Zero cookies · Bitcoin-funded · Sign in under 30 seconds</p>
-
-    <!-- RICH SHARE STRIP -->
-    <div class="hero-share" id="hero-share-strip" aria-label="Share SherpaCarta"></div>
-
-    <!-- OFFICIAL CHANNELS -->
-    <div class="hero-share-official" role="group" aria-label="Official SherpaCarta channels">
-      <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
-      <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
-      <a href="https://x.com/hashtag/Sherpacarta" class="social-official" target="_blank" rel="noopener" title="#Sherpacarta on X"><i class="fab fa-x-twitter"></i> #Sherpacarta</a>
-      <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
-      <button type="button" class="social-official" onclick="copyPageURL()" title="Copy sherpacarta.org"><i class="fas fa-link"></i> Copy Link</button>
-    </div>
+    <a class="hero-canada-link" href="/canada/sign" id="cta-canada-btn">Canada petition path <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    <p class="hero-urgency"><strong>30 seconds</strong> · Local-first · CC0 public domain · No account required</p>
   </div>
   <div class="scroll-hint" aria-hidden="true">
-    <i class="fas fa-chevron-down" style="font-size:.68rem;color:var(--text3)"></i>
+    <i class="fas fa-chevron-down"></i>
     <span>Scroll to explore</span>
   </div>
 </section>
+
+<!-- Share + channels — below first fold (not competing with hero) -->
+<div class="hero-meta-bar" aria-label="Share and channels">
+  <div class="hero-share" id="hero-share-strip"></div>
+  <div class="hero-share-official" role="group" aria-label="Official SherpaCarta channels">
+    <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
+    <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
+    <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
+    <a href="https://x.com/hashtag/Sherpacarta" class="social-official" target="_blank" rel="noopener" title="#Sherpacarta on X"><i class="fab fa-x-twitter"></i> #Sherpacarta</a>
+    <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
+    <button type="button" class="social-official" onclick="copyPageURL()" title="Copy sherpacarta.org"><i class="fas fa-link"></i> Copy Link</button>
+  </div>
+</div>
 
 <!-- TRUST BAR -->
 <div class="trust-bar" aria-hidden="true">
@@ -833,7 +853,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="36" height="36" decoding="async">
         <div>
           <div class="logo-text" style="font-size:1.35rem">SherpaCarta</div>
-          <div class="logo-sub">BUILD 760 &bull; 2026</div>
+          <div class="logo-sub">BUILD 770 &bull; 2026</div>
         </div>
       </a>
       <p>Privacy is not a feature. It is a human right. Built by the people, for the people — across every border.</p>
@@ -1012,12 +1032,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=760" defer></script>
-<script src="/js/sc-a11y.js?v=760" defer></script>
-<script src="/js/sc-petition-canada.js?v=760" defer></script>
-<script src="/js/sc-press-outlets.js?v=760" defer></script>
-<script src="/sc-core.js?v=760" defer></script>
-<script src="/sc-bundle.js?v=760" defer></script>
+<script src="/js/sc-share.js?v=770" defer></script>
+<script src="/js/sc-a11y.js?v=770" defer></script>
+<script src="/js/sc-petition-canada.js?v=770" defer></script>
+<script src="/js/sc-press-outlets.js?v=770" defer></script>
+<script src="/sc-core.js?v=770" defer></script>
+<script src="/sc-bundle.js?v=770" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

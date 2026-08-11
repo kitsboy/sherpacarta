@@ -62,11 +62,10 @@
     nav.setAttribute('aria-label', 'Mobile primary');
     nav.innerHTML = `
       <div class="mbn-inner">
-        <button type="button" class="mbn-btn" data-go="charter" aria-label="Open charter"><i class="fas fa-scroll"></i><span>Charter</span></button>
-        <button type="button" class="mbn-btn primary" data-go="sign" aria-label="Sign the charter"><i class="fas fa-signature"></i><span>Sign</span></button>
-        <a class="mbn-btn" href="/canada/sign" aria-label="Canada petition"><i class="fab fa-canadian-maple-leaf"></i><span>Canada</span></a>
-        <!-- always .html to avoid CF redirect loops -->
-        <button type="button" class="mbn-btn" data-go="donate" aria-label="Donate"><i class="fab fa-bitcoin"></i><span>Fund</span></button>
+        <button type="button" class="mbn-btn" data-go="charter" aria-label="Open charter"><i class="fas fa-scroll" aria-hidden="true"></i><span>Charter</span></button>
+        <button type="button" class="mbn-btn primary" data-go="sign" aria-label="Sign the charter"><i class="fas fa-signature" aria-hidden="true"></i><span>Sign</span></button>
+        <a class="mbn-btn" href="/canada/sign" aria-label="Canada petition"><i class="fab fa-canadian-maple-leaf" aria-hidden="true"></i><span>Canada</span></a>
+        <button type="button" class="mbn-btn" data-go="donate" aria-label="Donate Bitcoin"><i class="fab fa-bitcoin" aria-hidden="true"></i><span>Fund</span></button>
       </div>`;
     document.body.appendChild(nav);
     nav.addEventListener('click', (e) => {
