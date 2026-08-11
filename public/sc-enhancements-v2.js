@@ -528,10 +528,11 @@
     const nav = document.createElement('nav');
     nav.className = 'section-dots';
     nav.setAttribute('aria-label', 'Section navigation');
+    nav.setAttribute('role', 'navigation');
     const sections = [
       { id: 'hero', label: 'Hero' },
       { id: 'mission', label: 'Mission' },
-      { id: 'canada-bc', label: 'Canada BC' },
+      { id: 'canada-bc', label: 'Canada' },
       { id: 'pillars', label: 'Pillars' },
       { id: 'sign', label: 'Sign' },
       { id: 'faq', label: 'FAQ' },
@@ -542,6 +543,7 @@
       a.title = label;
       a.className = 'dot-link section-dot';
       a.dataset.section = id;
+      a.dataset.label = label;
       a.setAttribute('aria-label', 'Go to ' + label);
       a.addEventListener('click', (e) => {
         e.preventDefault();

@@ -146,12 +146,17 @@
 
   // ═══ GROUP 17: Polish (391–405) ══════════════════════════
 
-  feat(391, 'Section dots panel + mobile left placement', () => {
-    const s = document.createElement('style');
-    s.textContent = '@media(min-width:769px){.section-dots{right:max(.6rem,env(safe-area-inset-right))}}@media(max-width:768px){.section-dots{left:max(.35rem,env(safe-area-inset-left,0));right:auto}}';
-    document.head.appendChild(s);
+  feat(391, 'Section dots panel + mobile placement', () => {
+    /* Placement lives in sc-main.css BUILD 760 — only footer fade here */
     const dots = document.querySelector('.section-dots');
     if (dots) {
+      /* Ensure labels exist if dots were built before data-label support */
+      dots.querySelectorAll('.dot-link, .section-dot').forEach((d) => {
+        if (!d.dataset.label) {
+          const fromTitle = d.getAttribute('title') || d.getAttribute('aria-label')?.replace(/^Go to /i, '') || '';
+          if (fromTitle) d.dataset.label = fromTitle;
+        }
+      });
       const onScroll = () => {
         const docH = document.documentElement.scrollHeight;
         const nearFooter = window.scrollY + window.innerHeight > docH - 380;
