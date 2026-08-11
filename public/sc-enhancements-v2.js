@@ -36,7 +36,8 @@
 
   feat(103, 'Content-visibility sections', () => {
     const s = document.createElement('style');
-    s.textContent = '.section,.mission-block{content-visibility:auto;contain-intrinsic-size:auto 500px}';
+    /* BUILD 840: disabled — content-visibility blanked #film / post-Art.114 sections */
+    s.textContent = '.section,.mission-block{content-visibility:visible}';
     document.head.appendChild(s);
   });
 

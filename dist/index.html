@@ -36,7 +36,7 @@
 <meta name="keywords" content="digital rights, privacy, data sovereignty, magna carta, human rights, internet freedom, GDPR, surveillance, SherpaCarta">
 <meta name="author" content="SherpaCarta Global Movement">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#050806">
+<meta name="theme-color" content="#030605">
 <link rel="icon" href="/favicon.png?v=738" type="image/png" sizes="48x48">
 <link rel="icon" href="/favicon-32.png?v=738" type="image/png" sizes="32x32">
 <link rel="icon" href="/brand-mark.png?v=738" type="image/png" sizes="any">
@@ -100,15 +100,15 @@
 <!-- ═══ FONTS & ICONS — self-hosted (zero third-party tracking) ═ -->
 <link rel="preload" href="/fonts/outfit-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=760">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=760">
+<link rel="stylesheet" href="/fonts/fonts.css?v=830">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=830">
 
-<link rel="stylesheet" href="/sc-main.css?v=760">
-<link rel="preload" href="/sc-core.js?v=760" as="script">
-<link rel="preload" href="/sc-bundle.js?v=760" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=840">
+<link rel="preload" href="/sc-core.js?v=840" as="script">
+<link rel="preload" href="/sc-bundle.js?v=840" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=760"></script>
+<script defer src="/js/sc-analytics.js?v=830"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -163,98 +163,129 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </div>
 
 <!-- ════════════════════════════════════════════════════════
-     NAV
+     NAV — BUILD 810 institutional header
 ════════════════════════════════════════════════════════ -->
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
-    <a href="https://giveabit.io" class="nav-logo" target="_blank" rel="noopener" title="Give A Bit — giveabit.io">
-      <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="40" height="40" decoding="async">
-      <div>
-        <div class="logo-text">SherpaCarta <span class="sc-build-badge" title="Product build">BUILD 760</span></div>
-        <div class="logo-sub">Digital Magna Carta &bull; Living charter</div>
+    <a href="/" class="nav-logo" title="SherpaCarta home">
+      <img src="/giveabit-logo.png" alt="" class="giveabit-brand-logo" width="40" height="40" decoding="async">
+      <div class="nav-wordmark">
+        <div class="logo-text">SherpaCarta</div>
+        <div class="logo-sub">Digital Magna Carta</div>
       </div>
     </a>
-    <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
-      <i class="fas fa-bars" aria-hidden="true"></i>
-    </button>
+
+    <!-- Desktop primary links (hidden on mobile — in sheet) -->
+    <div class="nav-primary" aria-label="Primary">
+      <button type="button" class="nav-link" onclick="openCharterModal()">Charter</button>
+      <a class="nav-link" href="/jurisdictions">World</a>
+      <a class="nav-link" href="/nostr">Discuss</a>
+    </div>
+
+    <div class="nav-end">
+      <div id="progress-counter" class="nav-signed" aria-live="polite" title="Local signatures this session"><span id="live-counter">0</span> signed</div>
+      <button type="button" class="nav-icon-btn" onclick="openCommandPalette()" aria-label="Search (⌘K)" title="Search"><i class="fas fa-search" aria-hidden="true"></i></button>
+      <button type="button" class="nav-icon-btn" onclick="toggleTheme()" aria-label="Toggle theme" title="Theme"><i class="fas fa-circle-half-stroke" aria-hidden="true"></i></button>
+      <button type="button" class="btn btn-sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),400)"><i class="fas fa-signature" aria-hidden="true"></i> <span>Sign</span></button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Mobile full menu sheet (+ lang tools) -->
     <div class="nav-actions" id="nav-menu">
-      <div id="progress-counter" aria-live="polite"><span id="live-counter">0</span> Signed</div>
-
-      <!-- LANGUAGE SWITCHER with flags -->
-      <div class="lang-switcher-nav" title="Switch language">
-        <select id="nav-lang" onchange="switchNavLang(this.value)" aria-label="Select language">
-          <option value="en">🇬🇧 English</option>
-          <option value="zh">🇨🇳 中文</option>
-          <option value="es">🇪🇸 Español</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="de">🇩🇪 Deutsch</option>
-          <option value="pt">🇧🇷 Português</option>
-          <option value="ar">🇸🇦 العربية</option>
-          <option value="sw">🇰🇪 Kiswahili</option>
-        </select>
+      <div class="nav-sheet-head">
+        <span class="nav-sheet-kicker">Navigate</span>
+        <span class="sc-build-badge" title="Product build">BUILD 810</span>
       </div>
-
-      <button class="btn btn-ghost" onclick="openCommandPalette()" aria-label="Open search (⌘K)"><i class="fas fa-search"></i> <span class="cmd-key">⌘K</span></button>
-      <button class="btn btn-ghost" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-circle-half-stroke"></i></button>
-      <button class="btn btn-primary" onclick="openCharterModal()" aria-expanded="false"><i class="fas fa-book-open"></i> Charter</button>
-      <a class="btn btn-ghost" href="/canada/" style="text-decoration:none;cursor:pointer"><i class="fas fa-flag"></i> Canada</a>
-      <a class="btn btn-ghost" href="/nostr" style="text-decoration:none;cursor:pointer" title="Live Nostr + X #Sherpacarta discussion"><i class="fas fa-comments"></i> Discuss</a>
+      <button type="button" class="nav-sheet-link" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> Full Charter</button>
+      <a class="nav-sheet-link" href="/jurisdictions"><i class="fas fa-globe" aria-hidden="true"></i> Jurisdictions worldwide</a>
+      <a class="nav-sheet-link" href="/canada/"><i class="fas fa-flag" aria-hidden="true"></i> Canada offering</a>
+      <a class="nav-sheet-link" href="/nostr"><i class="fas fa-comments" aria-hidden="true"></i> Live Discuss</a>
+      <button type="button" class="nav-sheet-link nav-sheet-sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'})"><i class="fas fa-signature" aria-hidden="true"></i> Sign &amp; Assert Rights</button>
+      <div class="nav-sheet-tools">
+        <div class="lang-switcher-nav" title="Switch language">
+          <select id="nav-lang" onchange="switchNavLang(this.value)" aria-label="Select language">
+            <option value="en">🇬🇧 English</option>
+            <option value="zh">🇨🇳 中文</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="pt">🇧🇷 Português</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="sw">🇰🇪 Kiswahili</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-ghost" onclick="openCommandPalette()" aria-label="Open search"><i class="fas fa-search"></i> Search</button>
+        <button type="button" class="btn btn-ghost" onclick="toggleTheme()" aria-label="Toggle theme"><i class="fas fa-circle-half-stroke"></i> Theme</button>
+      </div>
     </div>
   </div>
 </nav>
 
 <!-- ════════════════════════════════════════════════════════
-     HERO
+     HERO — BUILD 810 first-fold ceremony
 ════════════════════════════════════════════════════════ -->
 <main id="main-content">
 <section id="hero" aria-label="Hero section">
+  <div class="hero-atmosphere" aria-hidden="true">
+    <div class="hero-bg-base"></div>
+    <div class="hero-bg-aurora"></div>
+    <div class="hero-bg-orb hero-bg-orb-a"></div>
+    <div class="hero-bg-orb hero-bg-orb-b"></div>
+    <div class="hero-bg-orb hero-bg-orb-c"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-parchment"></div>
+    <div class="hero-shaft"></div>
+    <div class="hero-seal" aria-hidden="true"></div>
+  </div>
   <div class="hero-grid" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
   <canvas id="particle-canvas" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:1;width:100%;height:100%"></canvas>
   <div class="hero-inner">
-    <div class="hero-ribbon" aria-hidden="true">
-      <span class="hero-ribbon-mark"><i class="fas fa-landmark"></i> Digital Magna Carta</span>
-      <span class="hero-ribbon-live">live &bull; honest metrics</span>
-    </div>
-    <div class="hero-badge">
-      <div class="badge-dot" aria-hidden="true"></div>
-      <span class="badge-text">Global Digital Rights Movement &bull; 2026</span>
-    </div>
-    <span class="hero-year" aria-hidden="true">1215 &rarr; 2026</span>
+    <p class="hero-kicker">
+      <span class="hero-kicker-line">1215 → 2026</span>
+      <span class="hero-kicker-dot" aria-hidden="true"></span>
+      <span>Digital Magna Carta</span>
+      <span class="hero-kicker-dot" aria-hidden="true"></span>
+      <span class="hero-kicker-live">Live</span>
+    </p>
     <h1 class="hero-h1 text-balance" id="hero-heading">A <span class="accent">Magna Carta</span><br>for the Digital Age</h1>
-    <p class="hero-sub" id="hero-sub">Privacy as a Fundamental Human Right. A living charter for every person on Earth — enforceable, editable, and evolving.</p>
+    <p class="hero-sub" id="hero-sub">Privacy as a fundamental human right. A living charter for every person on Earth — enforceable, editable, and evolving.</p>
     <div class="hero-proof" aria-label="Why sign">
-      <span><i class="fas fa-check"></i> 114 living articles</span>
-      <span><i class="fas fa-check"></i> Zero tracking</span>
-      <span><i class="fas fa-check"></i> CC0 public domain</span>
-      <span><i class="fas fa-check"></i> Bitcoin-stamped</span>
-      <span><i class="fas fa-check"></i> Local-first signing</span>
+      <span><i class="fas fa-check" aria-hidden="true"></i> 114 living articles</span>
+      <span><i class="fas fa-check" aria-hidden="true"></i> Zero tracking</span>
+      <span><i class="fas fa-check" aria-hidden="true"></i> Bitcoin-stamped</span>
     </div>
     <div class="hero-ctas">
-      <button class="cta-main" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),500)"><i class="fas fa-signature"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
-      <button class="cta-sec" onclick="openCharterModal()"><i class="fas fa-scroll"></i> <span id="cta-charter-text">Read the Full Charter</span></button>
-      <a class="cta-canada" href="/canada/sign" id="cta-canada-btn"><i class="fas fa-flag" aria-hidden="true"></i><span>Canada Petition</span></a>
+      <button type="button" class="cta-main" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),500)"><i class="fas fa-signature" aria-hidden="true"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
+      <button type="button" class="cta-sec" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> <span id="cta-charter-text">Read the Full Charter</span></button>
     </div>
-    <p class="hero-urgency">⚡ <strong>114 articles</strong> live · Zero cookies · Bitcoin-funded · Sign in under 30 seconds</p>
-
-    <!-- RICH SHARE STRIP -->
-    <div class="hero-share" id="hero-share-strip" aria-label="Share SherpaCarta"></div>
-
-    <!-- OFFICIAL CHANNELS -->
-    <div class="hero-share-official" role="group" aria-label="Official SherpaCarta channels">
-      <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
-      <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
-      <a href="https://x.com/hashtag/Sherpacarta" class="social-official" target="_blank" rel="noopener" title="#Sherpacarta on X"><i class="fab fa-x-twitter"></i> #Sherpacarta</a>
-      <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
-      <button type="button" class="social-official" onclick="copyPageURL()" title="Copy sherpacarta.org"><i class="fas fa-link"></i> Copy Link</button>
-    </div>
+    <p class="hero-paths">
+      <a class="hero-path-link" href="/jurisdictions">Jurisdictions worldwide <i class="fas fa-globe" aria-hidden="true"></i></a>
+      <span class="hero-path-sep" aria-hidden="true">·</span>
+      <a class="hero-path-link hero-path-ca" href="/canada/" id="cta-canada-btn">Canada offering <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </p>
+    <p class="hero-urgency"><strong>30 seconds</strong> · For every person on Earth · Local-first · CC0 · No account</p>
   </div>
   <div class="scroll-hint" aria-hidden="true">
-    <i class="fas fa-chevron-down" style="font-size:.68rem;color:var(--text3)"></i>
+    <i class="fas fa-chevron-down"></i>
     <span>Scroll to explore</span>
   </div>
 </section>
+
+<!-- Share + channels — below first fold (not competing with hero) -->
+<div class="hero-meta-bar" aria-label="Share and channels">
+  <div class="hero-share" id="hero-share-strip"></div>
+  <div class="hero-share-official" role="group" aria-label="Official SherpaCarta channels">
+    <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
+    <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
+    <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
+    <a href="https://x.com/hashtag/Sherpacarta" class="social-official" target="_blank" rel="noopener" title="#Sherpacarta on X"><i class="fab fa-x-twitter"></i> #Sherpacarta</a>
+    <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
+    <button type="button" class="social-official" onclick="copyPageURL()" title="Copy sherpacarta.org"><i class="fas fa-link"></i> Copy Link</button>
+  </div>
+</div>
 
 <!-- TRUST BAR -->
 <div class="trust-bar" aria-hidden="true">
@@ -292,7 +323,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   <div class="stat-block"><div class="stat-num" data-count="114">0</div><div class="stat-label">Charter Articles</div><div class="stat-note">Full text live</div></div>
   <div class="stat-block"><div class="stat-num" data-count="811">0</div><div class="stat-label">Years of Rights History</div><div class="stat-note">1215 → 2026</div></div>
   <div class="stat-block"><div class="stat-num" id="signer-stat" data-count="0">0</div><div class="stat-label">On This Device</div><div class="stat-note">Local · zero tracking</div></div>
-  <div class="stat-block"><div class="stat-num" style="font-size:clamp(1.6rem,3.5vw,2.4rem);-webkit-text-fill-color:var(--em)">CC0</div><div class="stat-label">Open &amp; Free Forever</div><div class="stat-note">No VC · No ads · No tracking</div></div>
+  <div class="stat-block"><div class="stat-num stat-num-cc0">CC0</div><div class="stat-label">Open &amp; Free Forever</div><div class="stat-note">No VC · No ads · No tracking</div></div>
 </div>
 
 <!-- ════════════════════════════════════════════════════════
@@ -301,7 +332,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 <section id="mission" class="section mission-block" aria-labelledby="mission-heading">
   <div class="section-max mission-inner reveal">
     <div class="section-label"><span>Our Mission</span></div>
-    <h2 class="section-h2" id="mission-heading" data-i18n-target="mission">From Runnymede<br>to the <em style="font-weight:300;font-size:.82em;color:var(--text2)">Algorithmic Age</em></h2>
+    <h2 class="section-h2" id="mission-heading" data-i18n-target="mission">From Runnymede<br>to the <em class="mission-em">Algorithmic Age</em></h2>
 
     <div class="mission-quote">
       <p>"No free man shall be seized or imprisoned, or stripped of his rights or possessions, or outlawed or exiled, or deprived of his standing in any way… except by the lawful judgment of his equals or by the law of the land."</p>
@@ -327,47 +358,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     CANADA & BC CHALLENGE
-════════════════════════════════════════════════════════ -->
-<section id="canada-bc" class="section" style="background:var(--bg);border-bottom:1px solid var(--border)" aria-labelledby="challenge-heading">
-  <div class="section-max reveal">
-    <div class="section-label"><span>First Jurisdiction</span></div>
-    <h2 class="section-h2" id="challenge-heading">Canada First<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">Federal petition · law-change beachhead</em></h2>
-    <p style="color:var(--text2);font-size:.9rem;max-width:640px;line-height:1.8;margin-top:1rem">SherpaCarta is global — but every movement needs a place to begin. We organize first in <strong style="color:var(--em2)">Canada</strong>: strong privacy culture and room to modernize federal law (including PIPEDA) for platforms and AI. British Columbia is often our organizing focus — not a separate federal form. <strong style="color:var(--text)">A signature from any province on the federal paper sheet already counts federally.</strong></p>
-
-    <div class="challenge-banner">
-      <div style="font-family:var(--mono);font-size:.62rem;color:var(--gold);letter-spacing:.15em;margin-bottom:.5rem">🇨🇦 CHALLENGE #1 — CHANGE LAW, THEN CHANGE THE WORLD</div>
-      <p style="font-size:.88rem;color:var(--text2);line-height:1.75;max-width:700px">Campaign digitally, collect a <strong>single federal Commons paper petition</strong> (all provinces), and prepare an official e-petition when an MP authorizes it. Use the charter as model language for digital privacy and algorithmic accountability — with honesty about what counts in Parliament.</p>
-      <div class="challenge-steps">
-        <div class="challenge-step"><div class="challenge-step-num">01</div><h3>Sign campaign</h3><p>Privacy-first digital commitment — any Canadian citizen or resident.</p></div>
-        <div class="challenge-step"><div class="challenge-step-num">02</div><h3>Federal paper</h3><p>One sheet for all of Canada. City + province. Original ink. MP presents.</p></div>
-        <div class="challenge-step"><div class="challenge-step-num">03</div><h3>Brief decision-makers</h3><p>Print the 2-page executive briefing for MPs and staff.</p></div>
-        <div class="challenge-step"><div class="challenge-step-num">04</div><h3>Official path</h3><p>When an MP authorizes, the e-petition goes live on Parliament’s site.</p></div>
-      </div>
-      <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
-        <a href="/canada/sign" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-signature"></i> Sign Canada Campaign</a>
-        <a href="/briefing.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file-pdf"></i> MP Briefing</a>
-        <a href="/leave-behind.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file"></i> 1-page leave-behind</a>
-        <a href="/canada/paper" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-print"></i> Federal paper</a>
-        <a href="/canada/" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-flag"></i> Canada hub</a>
-        <a href="/jurisdictions" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-globe"></i> UK &amp; EU path</a>
-      </div>
-      <p style="margin-top:1.15rem;font-size:.78rem;color:var(--text3);line-height:1.6;max-width:640px">
-        <strong style="color:var(--text2)">Global structure:</strong> Canada is the live beachhead.
-        United Kingdom and European Union are next — each with its own legal path, not copy-pasted forms.
-        <a href="/jurisdictions" style="color:var(--em2)">See the jurisdictions map →</a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-     PILLARS
+     PILLARS — international foundation first
 ════════════════════════════════════════════════════════ -->
 <section id="pillars" class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="pillars-heading">
   <div class="section-max">
     <div class="section-label"><span>The Foundation</span></div>
-    <h2 class="section-h2 reveal" id="pillars-heading">Four Core Pillars<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">of Digital Human Rights</em></h2>
+    <h2 class="section-h2 reveal" id="pillars-heading">Four Core Pillars<br><em class="mission-em">of Digital Human Rights — for every nation</em></h2>
     <div class="pillars-grid reveal">
       <div class="pillar">
         <div class="pillar-num">01</div>
@@ -398,6 +394,64 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </section>
 
 <!-- ════════════════════════════════════════════════════════
+     JURISDICTIONS — global first; Canada is a live offering
+════════════════════════════════════════════════════════ -->
+<section id="canada-bc" class="section jurisdictions-home" style="background:var(--bg);border-bottom:1px solid var(--border)" aria-labelledby="challenge-heading">
+  <div class="section-max reveal">
+    <div class="section-label"><span>Worldwide · Jurisdictions</span></div>
+    <h2 class="section-h2" id="challenge-heading">One charter.<br>Many legal paths.<br><em class="mission-em">Canada is live today — UK, EU, and more are next</em></h2>
+    <p class="canada-lead">SherpaCarta is <strong>international by design</strong>: 114 articles for every person on Earth. Law still moves jurisdiction by jurisdiction. We publish a shared charter, then local campaigns that respect each country’s rules — not a one-size-fits-all petition.</p>
+
+    <div class="world-tracks" aria-label="Jurisdiction tracks">
+      <a class="world-track" href="/jurisdictions">
+        <span class="world-track-flag" aria-hidden="true">🌍</span>
+        <span class="world-track-title">Global map</span>
+        <span class="world-track-note">CA · UK · EU paths overview</span>
+      </a>
+      <a class="world-track is-live" href="/canada/">
+        <span class="world-track-flag" aria-hidden="true">🇨🇦</span>
+        <span class="world-track-title">Canada</span>
+        <span class="world-track-note">Live offering · petition track</span>
+      </a>
+      <a class="world-track" href="/jurisdictions">
+        <span class="world-track-flag" aria-hidden="true">🇬🇧</span>
+        <span class="world-track-title">United Kingdom</span>
+        <span class="world-track-note">Next · own legal path</span>
+      </a>
+      <a class="world-track" href="/jurisdictions">
+        <span class="world-track-flag" aria-hidden="true">🇪🇺</span>
+        <span class="world-track-title">European Union</span>
+        <span class="world-track-note">Next · own legal path</span>
+      </a>
+    </div>
+
+    <div class="challenge-banner" id="canada-offering">
+      <div class="challenge-kicker">🇨🇦 CANADA OFFERING — LIVE TRACK</div>
+      <p class="challenge-lead">For people in Canada (and supporters of Canadian law reform): campaign digitally, collect a <strong>single federal Commons paper petition</strong> (all provinces), and prepare an official e-petition when an MP authorizes it. British Columbia is often an organizing focus — not a separate federal form. <strong>A signature from any province on the federal paper sheet already counts federally.</strong> Use the charter as model language for privacy and algorithmic accountability — with honesty about what counts in Parliament.</p>
+      <div class="challenge-steps">
+        <div class="challenge-step"><div class="challenge-step-num">01</div><h3>Sign campaign</h3><p>Privacy-first digital commitment — any Canadian citizen or resident.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">02</div><h3>Federal paper</h3><p>One sheet for all of Canada. City + province. Original ink. MP presents.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">03</div><h3>Brief decision-makers</h3><p>Print the 2-page executive briefing for MPs and staff.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">04</div><h3>Official path</h3><p>When an MP authorizes, the e-petition goes live on Parliament’s site.</p></div>
+      </div>
+      <div class="challenge-actions">
+        <a href="/canada/sign" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-signature"></i> Sign Canada campaign</a>
+        <a href="/canada/" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-flag"></i> Canada hub</a>
+        <a href="/briefing.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file-pdf"></i> MP Briefing</a>
+        <a href="/leave-behind.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file"></i> 1-page leave-behind</a>
+        <a href="/canada/paper" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-print"></i> Federal paper</a>
+        <a href="/jurisdictions" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-globe"></i> All jurisdictions</a>
+      </div>
+      <p class="challenge-foot">
+        <strong>International first:</strong> the charter is global. Canada is one live national offering.
+        UK and EU follow with their own processes — not copy-pasted forms.
+        <a href="/jurisdictions">See the jurisdictions map →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
      QUOTE ROTATOR (Feature 32)
 ════════════════════════════════════════════════════════ -->
 <section class="quote-section" aria-label="Inspirational quotes">
@@ -417,7 +471,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 <!-- ════════════════════════════════════════════════════════
      ARTICLES BROWSER
 ════════════════════════════════════════════════════════ -->
-<section class="section" aria-labelledby="articles-heading">
+<section class="section" id="articles" aria-labelledby="articles-heading">
   <div class="section-max">
     <div class="section-label"><span>Interactive Charter</span></div>
     <h2 class="section-h2 reveal" id="articles-heading">Browse Key Articles</h2>
@@ -533,29 +587,50 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     VIDEO
+     VIDEO — official 2-min film + companion HRF feature
 ════════════════════════════════════════════════════════ -->
-<section class="section" aria-labelledby="video-heading">
+<section class="section" id="film" aria-labelledby="video-heading">
   <div class="section-max">
-    <div class="section-label"><span>Why it matters</span></div>
-    <h2 class="section-h2 reveal" id="video-heading">Bitcoin &amp; Human Rights<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">Two minutes that reframe freedom</em></h2>
-    <p class="reveal" style="color:var(--text2);font-size:.9rem;max-width:640px;line-height:1.75;margin:0.75rem 0 1.25rem">Featured from the <strong style="color:var(--em2)">Human Rights Foundation</strong> — a clear case for why financial freedom and digital rights travel together. SherpaCarta is Bitcoin-funded and privacy-first for the same reason.</p>
-    <div class="video-wrapper reveal">
+    <div class="section-label"><span>Watch</span></div>
+    <h2 class="section-h2 reveal" id="video-heading">SherpaCarta in two minutes<br><em class="mission-em">The charter the platforms were never forced to sign</em></h2>
+    <p class="reveal sc-film-intro">A short film on why digital rights need a living Magna Carta — 114 articles, international-first, open and honest. Narrated · captioned · free to share (CC0 movement).</p>
+
+    <div class="video-wrapper reveal sc-film-primary" id="sherpacarta-film">
       <div class="video-header">
-        <div class="video-title">HUMAN RIGHTS FOUNDATION — WHY BITCOIN MATTERS FOR HUMAN RIGHTS</div>
-        <a class="video-live" href="https://www.youtube.com/watch?v=KG0Q05Lnm7s" target="_blank" rel="noopener noreferrer" style="text-decoration:none">Watch on YouTube ↗</a>
+        <div class="video-title">OFFICIAL — SHERPACARTA · 2 MIN · 16:9</div>
+        <a class="video-live" href="/video/sherpacarta-2min.mp4" download style="text-decoration:none">Download MP4 ↗</a>
       </div>
-      <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000">
+      <div class="video-embed sc-film-player">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster=""
+          title="SherpaCarta — 2 minute introduction"
+          controlslist="nodownload"
+        >
+          <source src="/video/sherpacarta-2min.mp4" type="video/mp4">
+          Your browser does not support HTML5 video. <a href="/video/sherpacarta-2min.mp4">Download the film</a>.
+        </video>
+      </div>
+      <div class="video-caption">Official SherpaCarta film · international-first · Canada as a live national offering · no fake metrics · <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/VIDEO-HERMES-HYPERFRAMES.md" target="_blank" rel="noopener" style="color:var(--em)">production notes</a></div>
+    </div>
+
+    <div class="video-wrapper reveal sc-film-secondary" style="margin-top:1.75rem">
+      <div class="video-header">
+        <div class="video-title">COMPANION — HUMAN RIGHTS FOUNDATION · WHY BITCOIN MATTERS</div>
+        <a class="video-live" href="https://www.youtube.com/watch?v=KG0Q05Lnm7s" target="_blank" rel="noopener noreferrer" style="text-decoration:none">YouTube ↗</a>
+      </div>
+      <div class="video-embed sc-film-embed">
         <iframe
           src="https://www.youtube-nocookie.com/embed/KG0Q05Lnm7s?rel=0"
           title="Why Bitcoin matters for human rights, in two minutes — Human Rights Foundation"
-          style="position:absolute;inset:0;width:100%;height:100%;border:0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
-          loading="lazy"
+          loading="eager"
           referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
-      <div class="video-caption">“Why Bitcoin matters for human rights, in two minutes” — Human Rights Foundation · <a href="https://www.youtube.com/watch?v=KG0Q05Lnm7s" target="_blank" rel="noopener noreferrer" style="color:var(--em)">youtube.com/watch?v=KG0Q05Lnm7s</a></div>
+      <div class="video-caption">Why financial freedom and digital rights travel together — Human Rights Foundation (external) · <a href="https://www.youtube.com/watch?v=KG0Q05Lnm7s" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a></div>
     </div>
   </div>
 </section>
@@ -566,8 +641,8 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 <section id="orgs" class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="orgs-heading">
   <div class="section-max">
     <div class="section-label"><span>Coalition</span></div>
-    <h2 class="section-h2 reveal" id="orgs-heading">Build the Coalition<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">We Seek Your Endorsement</em></h2>
-    <p class="org-section-note reveal">SherpaCarta is assembling a global coalition of NGOs, universities, newsrooms, and municipalities. <strong style="color:var(--em2)">These are seats we are filling — not claimed endorsements.</strong> Be among the first to stand publicly for digital rights.</p>
+    <h2 class="section-h2 reveal" id="orgs-heading">Build the Coalition<br><em class="mission-em">We Seek Your Endorsement</em></h2>
+    <p class="org-section-note reveal">SherpaCarta is assembling a global coalition of NGOs, universities, newsrooms, and municipalities. <strong>These are seats we are filling — not claimed endorsements.</strong> Be among the first to stand publicly for digital rights.</p>
     <div class="org-grid reveal">
       <div class="org-card seek"><div class="org-icon">🏛️</div><div class="org-name">Digital Rights NGOs</div><div class="org-type">Civil society · Global</div><div class="org-status">Seat open</div></div>
       <div class="org-card seek"><div class="org-icon">🛡️</div><div class="org-name">Privacy Advocates</div><div class="org-type">Advocacy · All regions</div><div class="org-status">Seat open</div></div>
@@ -753,19 +828,22 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     ADOPTION MAP
+     ADOPTION MAP — demo / illustrative (honest temp data)
 ════════════════════════════════════════════════════════ -->
-<section class="section" aria-labelledby="map-heading">
+<section class="section map-section" aria-labelledby="map-heading">
   <div class="section-max">
     <div class="section-label"><span>Global Reach</span></div>
     <h2 class="section-h2 reveal" id="map-heading">Adoption Heatmap</h2>
-    <div class="map-container reveal" aria-label="World map showing 127 countries with signatories">
-      <canvas id="map-canvas" width="900" height="320" style="position:absolute;inset:0;width:100%;height:100%;opacity:.7" aria-hidden="true"></canvas>
+    <p class="map-honest reveal">Demo preview — illustrative seeds for a <strong>worldwide</strong> movement. Not live global signup counts. Local signatures stay on-device; each national campaign (including Canada) keeps its own honest stats.</p>
+    <div class="map-container reveal" aria-label="Illustrative demo world map of early organizing interest">
+      <canvas id="map-canvas" width="900" height="360" aria-hidden="true"></canvas>
       <div class="map-label">
-        <div style="font-family:var(--serif);font-size:2.25rem;font-weight:700;color:var(--em)">127 Countries</div>
-        <p>Active signatory presence across all inhabited continents</p>
+        <div class="map-badge">DEMO · TEMP</div>
+        <div class="map-stat" id="map-stat-main">12 focus regions</div>
+        <p id="map-stat-sub">Illustrative organizing interest · not verified totals</p>
       </div>
     </div>
+    <ul class="map-legend reveal" id="map-legend" aria-label="Demo region legend"></ul>
   </div>
 </section>
 
@@ -824,119 +902,123 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </main><!-- end #main-content -->
 
 <!-- ════════════════════════════════════════════════════════
-     FOOTER
+     FOOTER — BUILD 810 centered institutional
 ════════════════════════════════════════════════════════ -->
-<footer role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="https://giveabit.io" class="nav-logo" style="margin-bottom:0" target="_blank" rel="noopener" title="Give A Bit — giveabit.io">
-        <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="36" height="36" decoding="async">
-        <div>
-          <div class="logo-text" style="font-size:1.35rem">SherpaCarta</div>
-          <div class="logo-sub">BUILD 760 &bull; 2026</div>
+<footer role="contentinfo" class="site-footer">
+  <div class="footer-wrap">
+
+    <!-- Brand block (centered) -->
+    <div class="footer-hero">
+      <a href="/" class="footer-brand-link" title="SherpaCarta home">
+        <img src="/giveabit-logo.png" alt="" class="giveabit-brand-logo footer-mark" width="48" height="48" decoding="async">
+        <div class="footer-wordmark">
+          <span class="logo-text">SherpaCarta</span>
+          <span class="logo-sub">Digital Magna Carta · 2026</span>
         </div>
       </a>
-      <p>Privacy is not a feature. It is a human right. Built by the people, for the people — across every border.</p>
-      <p class="footer-contact">Contact: <a href="mailto:hello@giveabit.io?subject=Sherpacarta" style="text-decoration:underline">hello@giveabit.io</a> <span style="color:var(--text3)">(subject: Sherpacarta)</span></p>
+      <p class="footer-tagline">Privacy is not a feature. It is a human right.<br>Built by the people, for the people — across every border.</p>
+      <p class="footer-contact">
+        <a href="mailto:hello@giveabit.io?subject=Sherpacarta">hello@giveabit.io</a>
+        <span class="footer-contact-note">subject: Sherpacarta</span>
+      </p>
+    </div>
 
-      <!-- FOOTER PAYMENT TABS -->
-      <div class="footer-pay" id="footer-pay">
-        <div class="pay-tabs" role="tablist" aria-label="Donation methods">
-          <button class="pay-tab active" type="button" role="tab" aria-selected="true" aria-controls="pay-pane-btc" id="pay-tab-btc" onclick="switchPayTab('btc')"><i class="fab fa-bitcoin"></i> Bitcoin</button>
-          <button class="pay-tab" type="button" role="tab" aria-selected="false" aria-controls="pay-pane-ln" id="pay-tab-ln" onclick="switchPayTab('ln')"><i class="fas fa-bolt"></i> Lightning</button>
+    <!-- Link columns (centered grid) -->
+    <nav class="footer-nav" aria-label="Footer">
+      <div class="footer-col">
+        <h3>Charter</h3>
+        <a href="#" onclick="openCharterModal();return false">Full 114 Articles</a>
+        <a href="#pillars" onclick="document.getElementById('pillars')?.scrollIntoView({behavior:'smooth'});return false">Core Pillars</a>
+        <a href="#sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'});return false">Sign &amp; Amend</a>
+        <a href="https://github.com/kitsboy/sherpacarta/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Version History</a>
+        <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/I18N.md" target="_blank" rel="noopener">Translations</a>
+      </div>
+      <div class="footer-col">
+        <h3>Community</h3>
+        <a href="#sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'});return false">Sign the Charter</a>
+        <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Volunteer">Volunteer</a>
+        <a href="#orgs" onclick="document.getElementById('orgs')?.scrollIntoView({behavior:'smooth'});return false">Organizations</a>
+        <a href="/jurisdictions">Jurisdictions</a>
+        <a href="/canada/">Canada offering</a>
+        <a href="https://github.com/kitsboy/sherpacarta" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <a href="/briefing.html">MP Briefing</a>
+        <a href="/leave-behind.html">1-page leave-behind</a>
+        <a href="/press-kit.html">Press Kit</a>
+        <a href="/jurisdictions">Jurisdictions</a>
+        <a href="/treasury">Treasury</a>
+        <a href="/status">Status</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </nav>
+
+    <!-- Donate (centered card) -->
+    <div class="footer-donate" id="footer-pay">
+      <div class="footer-donate-label">Fund the movement</div>
+      <div class="pay-tabs" role="tablist" aria-label="Donation methods">
+        <button class="pay-tab active" type="button" role="tab" aria-selected="true" aria-controls="pay-pane-btc" id="pay-tab-btc" onclick="switchPayTab('btc')"><i class="fab fa-bitcoin" aria-hidden="true"></i> Bitcoin</button>
+        <button class="pay-tab" type="button" role="tab" aria-selected="false" aria-controls="pay-pane-ln" id="pay-tab-ln" onclick="switchPayTab('ln')"><i class="fas fa-bolt" aria-hidden="true"></i> Lightning</button>
+      </div>
+      <div class="pay-pane active" id="pay-pane-btc" role="tabpanel" aria-labelledby="pay-tab-btc">
+        <div class="pay-address" id="footer-btc-address"></div>
+        <div class="pay-actions">
+          <button class="pay-copy" type="button" id="footer-copy-btc" onclick="copyPayAddress('btc')"><i class="fab fa-bitcoin" aria-hidden="true"></i> Copy Bitcoin</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('btc')"><i class="fas fa-qrcode" aria-hidden="true"></i> QR Code</button>
         </div>
-        <div class="pay-pane active" id="pay-pane-btc" role="tabpanel" aria-labelledby="pay-tab-btc">
-          <div class="pay-address" id="footer-btc-address"></div>
-          <button class="pay-copy" type="button" id="footer-copy-btc" onclick="copyPayAddress('btc')"><i class="fab fa-bitcoin"></i> Copy Bitcoin</button>
-          <button class="pay-qr-btn" type="button" onclick="showQRModal('btc')"><i class="fas fa-qrcode"></i> QR Code</button>
-          <p class="pay-note">On-chain donations only. Published transparently.</p>
+        <p class="pay-note">On-chain donations only · Published transparently</p>
+      </div>
+      <div class="pay-pane" id="pay-pane-ln" role="tabpanel" aria-labelledby="pay-tab-ln" hidden>
+        <div class="pay-address" id="footer-ln-address"></div>
+        <div class="pay-actions">
+          <button class="pay-copy" type="button" id="footer-copy-ln" onclick="copyPayAddress('ln')"><i class="fas fa-bolt" aria-hidden="true"></i> Copy Lightning</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode" aria-hidden="true"></i> QR Code</button>
         </div>
-        <div class="pay-pane" id="pay-pane-ln" role="tabpanel" aria-labelledby="pay-tab-ln" hidden>
-          <div class="pay-address" id="footer-ln-address"></div>
-          <button class="pay-copy" type="button" id="footer-copy-ln" onclick="copyPayAddress('ln')"><i class="fas fa-bolt"></i> Copy Lightning</button>
-          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> QR Code</button>
+      </div>
+    </div>
+
+    <!-- Socials -->
+    <div class="footer-social-official" aria-label="Official social channels">
+      <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter" aria-hidden="true"></i> @give_bit</a>
+      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@giveabit.io"><i class="fas fa-comments" aria-hidden="true"></i> sherpa@giveabit.io</button>
+      <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio" aria-hidden="true"></i> Live discuss</a>
+      <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+    </div>
+
+    <!-- Legal -->
+    <div class="legal-footer">
+      <div class="legal-grid">
+        <div class="legal-block" id="legal-basis">
+          <h4>Legal Basis</h4>
+          <p>SherpaCarta is a civic document inspired by the Magna Carta (1215), the UDHR (1948), and the Icelandic Constitutional Bill (2011). Not legal advice — a moral and political declaration.</p>
+        </div>
+        <div class="legal-block" id="legal-terms">
+          <h4>Intellectual Property</h4>
+          <p>Published under Creative Commons CC0 1.0 Universal (Public Domain). No rights reserved. Copy, translate, and adapt freely — expand rights, never restrict them.</p>
+        </div>
+        <div class="legal-block" id="legal-privacy">
+          <h4>Privacy &amp; Data</h4>
+          <p>Zero tracking cookies. Signatures stay local in your browser unless you publish. We practice what we preach — GDPR and CCPA aligned by design.</p>
         </div>
       </div>
 
-      <!-- OFFICIAL SOCIALS — Give A Bit / SherpaCarta -->
-      <div class="footer-social-official" aria-label="Official social channels">
-        <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-        <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
-        <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
-        <a href="https://x.com/give_bit" class="social-official" target="_blank" rel="noopener" title="@give_bit on X"><i class="fab fa-x-twitter"></i> @give_bit</a>
-        <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h3>Charter</h3>
-      <a href="#" onclick="openCharterModal();return false">Full 114 Articles</a>
-      <a href="#pillars" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'});return false">Core Pillars</a>
-      <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Amendment Process</a>
-      <a href="https://github.com/kitsboy/sherpacarta/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Version History</a>
-      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/I18N.md" target="_blank" rel="noopener">Translations</a>
-    </div>
-    <div class="footer-col">
-      <h3>Community</h3>
-      <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Sign the Charter</a>
-      <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Volunteer">Volunteer</a>
-      <a href="#orgs" onclick="document.getElementById('orgs').scrollIntoView({behavior:'smooth'});return false">Organizations</a>
-      <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Local%20Chapter">Local Chapters</a>
-      <a href="https://github.com/kitsboy/sherpacarta" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <div class="footer-col">
-      <h3>Resources</h3>
-      <a href="/briefing.html">MP Briefing (2 pages)</a>
-      <a href="/leave-behind.html">1-page leave-behind</a>
-      <a href="/briefing-fr.html">Note FR (breffage)</a>
-      <a href="/canada/">Canada Petition Hub</a>
-      <a href="/canada/paper">Federal Paper Sheet</a>
-      <a href="/jurisdictions">Jurisdictions (CA · UK · EU)</a>
-      <a href="/press-kit.html">Press Kit</a>
-      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener">Platform Roadmap</a>
-      <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
-      <a href="/treasury">Treasury</a>
-      <a href="/status">Status</a>
-      <a href="/security.html">Security</a>
-    </div>
-  </div>
-
-  <!-- ════ LEGAL FOOTER (Feature 39) ═══════════════════════ -->
-  <div class="legal-footer">
-    <div class="legal-grid">
-      <div class="legal-block" id="legal-basis">
-        <h4>Legal Basis</h4>
-        <p>SherpaCarta is a civic document inspired by the Magna Carta (1215), the Universal Declaration of Human Rights (1948), and the Icelandic Constitutional Bill (2011). It is not legal advice. It is a moral and political declaration. Consult qualified legal counsel in your jurisdiction for enforceable rights.</p>
-      </div>
-      <div class="legal-block" id="legal-terms">
-        <h4>Intellectual Property</h4>
-        <p>SherpaCarta is published under Creative Commons CC0 1.0 Universal (Public Domain). No rights reserved. Copy freely, translate freely, adapt freely. We ask only that you preserve the spirit of expanding — never restricting — digital human rights.</p>
-      </div>
-      <div class="legal-block" id="legal-privacy">
-        <h4>Privacy &amp; Data</h4>
-        <p>SherpaCarta.org collects no personal data. Zero analytics. Zero cookies. All signatures are stored locally in your browser and optionally published to a distributed ledger. We practice exactly what we preach. This site complies with GDPR, CCPA, and exceeds both.</p>
-      </div>
-    </div>
-    <div class="legal-bottom">
-      <div class="legal-bottom-left">
-        <p>&copy; 2026 SherpaCarta Global Movement.<br>Published under CC0 — No Rights Reserved. Copy Freely.</p>
-      </div>
-      <div class="legal-bottom-center">
+      <div class="legal-bottom">
+        <p class="legal-copy">&copy; 2026 SherpaCarta Global Movement · CC0 — No Rights Reserved</p>
         <a href="https://giveabit.io" target="_blank" rel="noopener" class="giveabit-footer-parent" title="A Give A Bit project — giveabit.io">
-          <img src="/giveabit-parent-logo.jpg" alt="giveaBit.io — parent company" height="44" width="176" loading="eager" decoding="async">
+          <img src="/giveabit-parent-logo.jpg" alt="giveaBit.io — parent company" height="40" width="160" loading="eager" decoding="async">
+          <span class="parent-tagline">A Give A Bit project</span>
         </a>
-        <span class="parent-tagline">A Give A Bit project</span>
+        <div class="legal-links">
+          <a href="#legal-privacy" onclick="document.getElementById('legal-privacy')?.scrollIntoView({behavior:'smooth'});return false">Privacy</a>
+          <a href="#legal-terms" onclick="document.getElementById('legal-terms')?.scrollIntoView({behavior:'smooth'});return false">Terms</a>
+          <a href="#" onclick="focusA11yToolbar();return false">Accessibility</a>
+          <a href="mailto:hello@giveabit.io?subject=Sherpacarta">Contact</a>
+          <a href="/press-kit.html">Press Kit</a>
+        </div>
       </div>
-      <div class="legal-links">
-        <a href="#legal-privacy" onclick="document.getElementById('legal-privacy').scrollIntoView({behavior:'smooth'});return false">Privacy Policy</a>
-        <a href="#legal-terms" onclick="document.getElementById('legal-terms').scrollIntoView({behavior:'smooth'});return false">Terms of Use</a>
-        <a href="#cookie-banner" onclick="document.getElementById('cookie-banner').scrollIntoView({behavior:'smooth'});return false">Cookie Policy</a>
-        <a href="#" onclick="focusA11yToolbar();return false">Accessibility</a>
-        <a href="mailto:hello@giveabit.io?subject=Sherpacarta">Contact</a>
-        <a href="#" onclick="downloadPressKit();return false">Press Kit</a>
-      </div>
-    </div>
-    <div class="legal-tagline" style="text-align:center;padding:1rem 0 1rem;font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.08em;border-top:1px solid var(--border);margin-top:.875rem">
-      SHERPACARTA IS A GLOBAL MOVEMENT, NOT A CORPORATION. BUILT WITH ❤ BY VOLUNTEERS IN 24 COUNTRIES. POWERED BY BITCOIN. GUIDED BY CONSCIENCE.
+
+      <p class="legal-tagline">SHERPACARTA IS A GLOBAL MOVEMENT, NOT A CORPORATION · BUILT WITH ❤ BY VOLUNTEERS · POWERED BY BITCOIN · GUIDED BY CONSCIENCE</p>
     </div>
   </div>
 </footer>
@@ -1012,12 +1094,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=760" defer></script>
-<script src="/js/sc-a11y.js?v=760" defer></script>
-<script src="/js/sc-petition-canada.js?v=760" defer></script>
-<script src="/js/sc-press-outlets.js?v=760" defer></script>
-<script src="/sc-core.js?v=760" defer></script>
-<script src="/sc-bundle.js?v=760" defer></script>
+<script src="/js/sc-share.js?v=830" defer></script>
+<script src="/js/sc-a11y.js?v=830" defer></script>
+<script src="/js/sc-petition-canada.js?v=830" defer></script>
+<script src="/js/sc-press-outlets.js?v=830" defer></script>
+<script src="/sc-core.js?v=840" defer></script>
+<script src="/sc-bundle.js?v=840" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

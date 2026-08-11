@@ -1515,8 +1515,22 @@ window.addEventListener('scroll',()=>{
 const revealEls=document.querySelectorAll('.reveal');
 const revObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revObs.unobserve(e.target);}});
-},{threshold:.07});
+},{threshold:0.01,rootMargin:'80px 0px 80px 0px'});
 revealEls.forEach(el=>revObs.observe(el));
+// Safety: never leave sections after #articles stuck at opacity:0
+// (content-visibility / tall article browser can skip IntersectionObserver)
+function scForceNearbyReveals(){
+  const vh=window.innerHeight||800;
+  revealEls.forEach(el=>{
+    if(el.classList.contains('visible'))return;
+    const r=el.getBoundingClientRect();
+    if(r.top<vh*1.35&&r.bottom>-120)el.classList.add('visible');
+  });
+}
+window.addEventListener('scroll',scForceNearbyReveals,{passive:true});
+window.addEventListener('load',()=>{scForceNearbyReveals();setTimeout(scForceNearbyReveals,400);});
+// After articles browser builds, re-check below-fold reveals
+document.addEventListener('DOMContentLoaded',()=>setTimeout(scForceNearbyReveals,600));
 
 // ═══════════════════════════════════════════════════════════
 // COUNT-UP
@@ -1707,22 +1721,26 @@ const AI_SUMMARIES=[
 function buildArticlesBrowser(){
   const sidebar=document.getElementById('articles-sidebar');
   const main=document.getElementById('articles-main');
+  if(!sidebar||!main||!Array.isArray(CHARTER))return;
   sidebar.innerHTML='';main.innerHTML='';
   let i=0;
+  const totalArts=CHARTER.reduce((n,ch)=>n+(ch.articles||[]).length,0);
   CHARTER.forEach((ch)=>{
     const hdr=document.createElement('div');
     hdr.className='article-chapter-hdr';
     hdr.style.cssText='padding:.45rem 1rem;font-size:.52rem;color:var(--em2);font-family:var(--mono);background:var(--bg3);position:sticky;top:0;z-index:1;letter-spacing:.06em;text-transform:uppercase';
-    hdr.textContent=ch.chapter.replace(/^Chapter [^—]+ — /,'');
+    hdr.textContent=String(ch.chapter||'').replace(/^Chapter [^—]+ — /,'');
     sidebar.appendChild(hdr);
-    ch.articles.forEach((art)=>{
+    (ch.articles||[]).forEach((art)=>{
     const idx=i;
     const tab=document.createElement('div');
     tab.className='article-tab'+(idx===0?' active':'');
     tab.setAttribute('role','tab');
     tab.setAttribute('aria-selected',idx===0?'true':'false');
     tab.setAttribute('tabindex','0');
-    tab.innerHTML=`<span class="art-num">${art.num}</span>${art.title}`;
+    tab.dataset.artIdx=String(idx);
+    tab.dataset.artNum=String(art.num||'');
+    tab.innerHTML=`<span class="art-num">${art.num||''}</span>${art.title||''}`;
     const activate=()=>{
       document.querySelectorAll('.article-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
       document.querySelectorAll('.article-display').forEach(d=>d.classList.remove('active'));
@@ -1730,11 +1748,16 @@ function buildArticlesBrowser(){
       const panel=document.getElementById('art-'+idx);
       if(panel){
         panel.classList.add('active');
+        // Always reset main scroll so last articles (e.g. Art. 114) start at top
+        main.scrollTop=0;
+        // Keep active tab visible in the sidebar (especially Art. 114 at end)
+        try{tab.scrollIntoView({block:'nearest',inline:'nearest'});}catch(_){}
         // Mobile: bring article body into view below the tab list
         if(window.matchMedia('(max-width:900px)').matches){
           panel.scrollIntoView({behavior:'smooth',block:'nearest'});
         }
       }
+      try{localStorage.setItem('sc_last_article',String(art.num||idx));}catch(_){}
     };
     tab.addEventListener('click',activate);
     tab.addEventListener('keydown',(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();activate();}});
@@ -1744,21 +1767,34 @@ function buildArticlesBrowser(){
     div.className='article-display'+(idx===0?' active':'');
     div.id='art-'+idx;
     div.setAttribute('role','tabpanel');
-    const bodyHtml=String(art.body||'').replace(/\n\n/g,'</p><p>');
-    const safeTitle=(art.title||'').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+    div.setAttribute('aria-label',(art.num||'')+' '+(art.title||''));
+    // Body may contain intentional <br> tags from charter data — keep them.
+    // Convert plain \n\n to paragraphs; never leave empty body.
+    let bodyRaw=String(art.body||'').trim();
+    if(!bodyRaw)bodyRaw='Full text for this article is available in the charter download.';
+    const bodyHtml=bodyRaw.replace(/\n\n/g,'</p><p>').replace(/\n/g,'<br>');
+    const safeTitle=(art.title||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;');
+    const sub=art.subtitle?`<div class="art-subtitle-line" style="font-size:.8rem;color:var(--text3);margin:.25rem 0 .75rem;font-family:var(--serif);font-style:italic">${art.subtitle}</div>`:'';
+    const extHtml=art.sherpa_ext
+      ?`<div class="ca-sherpa"><strong>SHERPACARTA EXTENSION</strong>${art.sherpa_ext}</div>`
+      :'';
     div.innerHTML=`
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;flex-wrap:wrap">
-        <div style="flex:1"><div class="art-title">${art.title||''}</div><div class="art-subtitle">${art.num||''}${art.sherpa?' · SherpaCarta Extension':''}</div></div>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap">
+        <div style="flex:1;min-width:0">
+          <div class="art-title">${art.title||''}</div>
+          <div class="art-subtitle">${art.num||''}${art.sherpa?' · SherpaCarta Extension':''}</div>
+          ${sub}
+        </div>
         ${art.sherpa?'<span class="art-tag" style="background:rgba(16,185,129,.15);border-color:var(--em)">SHERPA EXT.</span>':''}
       </div>
       <div class="art-body"><p>${bodyHtml}</p></div>
-      ${art.sherpa_ext?`<div class="ca-sherpa"><strong>SHERPACARTA EXTENSION</strong>${art.sherpa_ext}</div>`:''}
+      ${extHtml}
       <div class="art-tags">${(art.tags||[]).map(t=>`<span class="art-tag">#${t}</span>`).join('')}</div>
       <div class="art-actions">
-        <button class="art-action-btn${signed?' signed':''}" id="sign-art-${idx}" onclick="signArticle(${idx})"><i class="fas fa-signature"></i> ${signed?'Signed ✓':'Sign this article'}</button>
-        <button class="art-action-btn" onclick="shareArticle('${safeTitle}')"><i class="fas fa-share-nodes"></i> Share</button>
-        <button class="art-action-btn" onclick="aiSummarize(${idx})"><i class="fas fa-sparkles"></i> AI Summary</button>
-        <button class="art-action-btn" onclick="copyArticle(${idx})"><i class="fas fa-copy"></i> Copy</button>
+        <button type="button" class="art-action-btn${signed?' signed':''}" id="sign-art-${idx}" onclick="signArticle(${idx})"><i class="fas fa-signature"></i> ${signed?'Signed ✓':'Sign this article'}</button>
+        <button type="button" class="art-action-btn" onclick="shareArticle('${safeTitle}')"><i class="fas fa-share-nodes"></i> Share</button>
+        <button type="button" class="art-action-btn" onclick="aiSummarize(${idx})"><i class="fas fa-sparkles"></i> AI Summary</button>
+        <button type="button" class="art-action-btn" onclick="copyArticle(${idx})"><i class="fas fa-copy"></i> Copy</button>
       </div>
       <div class="ai-spinner" id="ai-spin-${idx}">✦ Generating summary...</div>
       <div class="ai-result" id="ai-res-${idx}"></div>
@@ -1767,6 +1803,27 @@ function buildArticlesBrowser(){
     i++;
     });
   });
+  // Jump helpers for deep-links / resume
+  window.jumpToArticle=function(numOrIdx){
+    const key=String(numOrIdx||'').replace(/^Art\.?\s*/i,'').trim();
+    let tab=sidebar.querySelector(`.article-tab[data-art-num="Art. ${key}"]`)
+      ||sidebar.querySelector(`.article-tab[data-art-num="${key}"]`)
+      ||sidebar.querySelector(`.article-tab[data-art-idx="${key}"]`);
+    if(!tab&&/^\d+$/.test(key)){
+      // Art number → find by data-art-num Art. N
+      tab=sidebar.querySelector(`.article-tab[data-art-num="Art. ${key}"]`);
+    }
+    if(tab){tab.click();return true;}
+    return false;
+  };
+  // If hash or last article is Art. 114 (or any), open it without blanking below
+  try{
+    const hash=(location.hash||'').replace(/^#/,'');
+    const m=hash.match(/^art-?(\d+)$/i)||hash.match(/^articles?$/i);
+    if(m&&m[1])window.jumpToArticle(m[1]);
+  }catch(_){}
+  // Expose count for diagnostics
+  window.SC_ARTICLES_COUNT=totalArts;
 }
 
 function signArticle(i){
@@ -1787,11 +1844,23 @@ function copyArticle(i){
 }
 function aiSummarize(i){
   const spin=document.getElementById('ai-spin-'+i),res=document.getElementById('ai-res-'+i);
+  if(!spin||!res)return;
   if(res.classList.contains('visible')){res.classList.remove('visible');spin.classList.remove('visible');return;}
   spin.classList.add('visible');res.classList.remove('visible');
   setTimeout(()=>{
     spin.classList.remove('visible');
-    res.textContent=AI_SUMMARIES[i]||'This article establishes fundamental digital rights protections that extend existing legal frameworks.';
+    // Map sparse AI_SUMMARIES: prefer exact index, then final-article copy for last panel
+    let text=AI_SUMMARIES[i];
+    if(!text){
+      const panel=document.getElementById('art-'+i);
+      const label=panel?.getAttribute('aria-label')||'';
+      if(/Art\.?\s*114/i.test(label)||/Living Charter/i.test(label)){
+        text=AI_SUMMARIES[AI_SUMMARIES.length-1];
+      }else{
+        text='This article establishes fundamental digital rights protections that extend existing legal frameworks under SherpaCarta.';
+      }
+    }
+    res.textContent=text;
     res.classList.add('visible');
   },1100);
 }

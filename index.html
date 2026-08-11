@@ -103,9 +103,9 @@
 <link rel="stylesheet" href="/fonts/fonts.css?v=830">
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=830">
 
-<link rel="stylesheet" href="/sc-main.css?v=830">
-<link rel="preload" href="/sc-core.js?v=830" as="script">
-<link rel="preload" href="/sc-bundle.js?v=830" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=840">
+<link rel="preload" href="/sc-core.js?v=840" as="script">
+<link rel="preload" href="/sc-bundle.js?v=840" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
 <script defer src="/js/sc-analytics.js?v=830"></script>
@@ -471,7 +471,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 <!-- ════════════════════════════════════════════════════════
      ARTICLES BROWSER
 ════════════════════════════════════════════════════════ -->
-<section class="section" aria-labelledby="articles-heading">
+<section class="section" id="articles" aria-labelledby="articles-heading">
   <div class="section-max">
     <div class="section-label"><span>Interactive Charter</span></div>
     <h2 class="section-h2 reveal" id="articles-heading">Browse Key Articles</h2>
@@ -621,17 +621,16 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         <div class="video-title">COMPANION — HUMAN RIGHTS FOUNDATION · WHY BITCOIN MATTERS</div>
         <a class="video-live" href="https://www.youtube.com/watch?v=KG0Q05Lnm7s" target="_blank" rel="noopener noreferrer" style="text-decoration:none">YouTube ↗</a>
       </div>
-      <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000">
+      <div class="video-embed sc-film-embed">
         <iframe
           src="https://www.youtube-nocookie.com/embed/KG0Q05Lnm7s?rel=0"
           title="Why Bitcoin matters for human rights, in two minutes — Human Rights Foundation"
-          style="position:absolute;inset:0;width:100%;height:100%;border:0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
-          loading="lazy"
+          loading="eager"
           referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
-      <div class="video-caption">Why financial freedom and digital rights travel together — Human Rights Foundation (external)</div>
+      <div class="video-caption">Why financial freedom and digital rights travel together — Human Rights Foundation (external) · <a href="https://www.youtube.com/watch?v=KG0Q05Lnm7s" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a></div>
     </div>
   </div>
 </section>
@@ -1099,8 +1098,8 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 <script src="/js/sc-a11y.js?v=830" defer></script>
 <script src="/js/sc-petition-canada.js?v=830" defer></script>
 <script src="/js/sc-press-outlets.js?v=830" defer></script>
-<script src="/sc-core.js?v=830" defer></script>
-<script src="/sc-bundle.js?v=830" defer></script>
+<script src="/sc-core.js?v=840" defer></script>
+<script src="/sc-bundle.js?v=840" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

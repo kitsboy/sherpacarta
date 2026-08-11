@@ -342,7 +342,8 @@ body.no-custom-cursor #cursor,body.no-custom-cursor #cursor-ring{display:none!im
 .video-title{font-family:var(--mono);font-size:.68rem;color:var(--em);letter-spacing:.08em}
 .video-live{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.58rem;color:var(--red);letter-spacing:.1em}
 .video-live::before{content:'';width:6px;height:6px;background:var(--red);border-radius:50%;animation:pulse 1.5s infinite}
-video{width:100%;display:block;max-height:400px;object-fit:contain;background:#000}
+/* Default video sizing — film player overrides max-height (BUILD 840) */
+video{width:100%;display:block;max-height:min(70vh,720px);object-fit:contain;background:#000}
 .video-caption{padding:.875rem 1.4rem;font-size:.75rem;color:var(--text3);font-style:italic;text-align:center;border-top:1px solid var(--border)}
 
 /* ═══════════════════════════════════════════════════════════
@@ -4212,13 +4213,36 @@ footer .footer-brand{
   background:#000;
   aspect-ratio:16/9;
   width:100%;
+  overflow:hidden;
 }
-.sc-film-player video{
-  display:block;
+/* Override global video{max-height:400px} so 16:9 frame fills */
+.sc-film-player video,
+#film video,
+#sherpacarta-film video{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-height:none!important;
+  object-fit:contain!important;
+  background:#000!important;
+  vertical-align:middle;
+}
+/* Companion YouTube embed — same 16:9 box as official film */
+.sc-film-embed{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  overflow:hidden;
+}
+.sc-film-embed iframe{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
+  border:0;
+  display:block;
   background:#000;
-  vertical-align:middle;
 }
 .sc-film-primary .video-title{color:#3de0a8!important;letter-spacing:.1em}
 .sc-film-primary .video-live{color:#9ff5d0!important}
@@ -4226,3 +4250,76 @@ footer .footer-brand{
 .sc-film-secondary .video-title{color:#a8c4b4!important}
 #film .video-caption{color:#d4e8d8!important;font-style:normal!important}
 #film .video-caption a{color:#9ff5d0!important}
+
+/* ═══════════════════════════════════════════════════════════
+   BUILD 840 — Film fit · YouTube companion · Art. 114 layout
+═══════════════════════════════════════════════════════════ */
+/* content-visibility was blanking sections after #articles (Art. 114)
+   and starving IntersectionObserver .reveal — keep all sections painted */
+.section,
+.mission-block,
+section.section,
+#articles,
+#film,
+#orgs,
+#faq,
+#sign,
+#timeline,
+#main-content .section{
+  content-visibility:visible!important;
+  contain:none!important;
+}
+
+/* Articles browser: room for last articles (113–114 + extension) */
+.articles-layout{
+  min-height:580px;
+}
+.articles-sidebar{
+  max-height:min(78vh,760px);
+}
+.articles-main{
+  max-height:min(78vh,760px);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.article-display.active{
+  display:block;
+  min-height:240px;
+  padding-bottom:.5rem;
+}
+.art-body,
+.art-body p{
+  color:#eef4ee!important;
+  -webkit-text-fill-color:#eef4ee!important;
+  line-height:1.85;
+}
+.ca-sherpa{
+  color:#9ff5d0!important;
+  -webkit-text-fill-color:#9ff5d0!important;
+  margin-top:1.1rem;
+  padding:1rem 1.1rem;
+  background:rgba(16,185,129,.08);
+  border:1px solid rgba(52,211,153,.28);
+  border-radius:.75rem;
+  font-style:normal!important;
+}
+.ca-sherpa strong{
+  color:#3de0a8!important;
+  -webkit-text-fill-color:#3de0a8!important;
+  display:block;
+  margin-bottom:.45rem;
+}
+.art-actions{
+  margin-top:1.35rem;
+  padding-bottom:.25rem;
+}
+/* Safety: never leave .reveal stuck invisible below the fold */
+.reveal.visible,
+#articles ~ .section .reveal,
+#articles ~ section .reveal{
+  opacity:1;
+  transform:none;
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important}
+}

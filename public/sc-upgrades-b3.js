@@ -157,7 +157,8 @@
   // 52–57 — Performance
   feat(479, 'content-visibility sections', () => {
     const s = document.createElement('style');
-    s.textContent = `section.section{content-visibility:auto;contain-intrinsic-size:auto 600px}`;
+    /* BUILD 840: disabled — content-visibility blanked sections after articles browser */
+    s.textContent = `section.section{content-visibility:visible}`;
     document.head.appendChild(s);
   });
 
