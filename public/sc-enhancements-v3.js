@@ -194,14 +194,15 @@
     if (localStorage.getItem('sc_video_banner_dismiss')) return;
     const b = document.createElement('div');
     b.className = 'video-cta-banner';
-    b.innerHTML = `<span><i class="fas fa-play-circle"></i> <strong>Video walkthrough coming soon</strong> — 2 min: sign, charter, Nostr, donate</span>
-      <button type="button" class="btn btn-ghost" style="font-size:.65rem" onclick="SC3.showUsageGuide()">Read guide</button>
-      <button type="button" class="btn btn-ghost" style="font-size:.65rem" onclick="this.parentElement.remove();localStorage.setItem('sc_video_banner_dismiss','1')">Dismiss</button>`;
+    b.setAttribute('role', 'note');
+    b.innerHTML = `<span class="video-cta-copy"><i class="fas fa-play-circle" aria-hidden="true"></i> <strong>Video walkthrough coming soon</strong> — 2 min: sign, charter, Nostr, donate</span>
+      <span class="video-cta-actions">
+        <button type="button" class="video-cta-btn" onclick="SC3.showUsageGuide()">Read guide</button>
+        <button type="button" class="video-cta-btn video-cta-dismiss" onclick="this.closest('.video-cta-banner')?.remove();localStorage.setItem('sc_video_banner_dismiss','1')">Dismiss</button>
+      </span>`;
     const hero = $('hero');
     if (hero) hero.querySelector('.hero-inner')?.appendChild(b);
-    const s = document.createElement('style');
-    s.textContent = '.video-cta-banner{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-top:1rem;padding:.6rem 1rem;border:1px dashed var(--border2);border-radius:100px;font-size:.72rem;color:var(--text2);animation:fade-up .6s .8s both}';
-    document.head.appendChild(s);
+    /* styles live in sc-main.css BUILD 780 — high-contrast solid panel */
   });
 
   feat(207, 'Print quick reference', () => {
