@@ -456,9 +456,9 @@ body>.build-badge,body>#net-badge{position:absolute!important;left:-9999px!impor
 .build-badge:hover{color:var(--em)}
 .net-badge{position:static;font-family:var(--mono);font-size:.58rem;padding:.2rem .45rem;border-radius:100px;border:1px solid var(--border2);opacity:1;color:var(--em2);pointer-events:auto;white-space:nowrap}
 .net-badge.offline{border-color:var(--red);color:#fca5a5}
-.announce-banner{position:fixed;top:0;left:0;right:0;z-index:600;background:linear-gradient(90deg,rgba(16,185,129,.15),rgba(212,175,55,.1));border-bottom:1px solid var(--border2);padding:.55rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.78rem}
-.announce-banner a{color:var(--em)}
-.announce-banner button{background:none;border:none;color:var(--text3);cursor:pointer;padding:.5rem}
+.announce-banner{position:fixed;top:0;left:0;right:0;z-index:600;background:#0a1f16;border-bottom:2px solid #3de0a8;padding:.65rem 1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.85rem;font-weight:600;color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+.announce-banner a{color:#9ff5d0;font-weight:800;text-decoration:underline}
+.announce-banner button{background:#145c3f;border:1px solid #3de0a8;color:#fff;cursor:pointer;padding:.4rem .55rem;border-radius:8px}
 
 body.reading-mode .trust-bar,body.reading-mode #particle-canvas,body.reading-mode .hero-share-official{display:none!important}
 body.reading-mode .section-max{max-width:680px}
@@ -635,12 +635,12 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
 .mission-prose strong{color:var(--em2)}
 
 /* ═══ CANADA BC CHALLENGE ═════════════════════════════════ */
-.challenge-banner{background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(212,175,55,.06));border:1px solid var(--border2);border-radius:1.25rem;padding:2rem;margin-top:2rem}
+.challenge-banner{background:#0a1f16;border:1px solid #2a6b4f;border-radius:1.25rem;padding:2rem;margin-top:2rem;color:#eef5ee}
 .challenge-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
-.challenge-step{background:var(--bg3);border:1px solid var(--border);border-radius:.875rem;padding:1.25rem}
-.challenge-step-num{font-family:var(--serif);font-size:2rem;color:var(--em);line-height:1}
-.challenge-step h3{font-size:.85rem;margin:.5rem 0 .35rem}
-.challenge-step p{font-size:.75rem;color:var(--text3);line-height:1.6}
+.challenge-step{background:#06140f;border:1px solid #2a6b4f;border-radius:.875rem;padding:1.25rem}
+.challenge-step-num{font-family:var(--serif);font-size:2rem;color:#3de0a8;line-height:1}
+.challenge-step h3{font-size:.9rem;margin:.5rem 0 .35rem;color:#fff;font-weight:700}
+.challenge-step p{font-size:.8rem;color:#e2efe6;line-height:1.65}
 
 /* ═══ NOSTR + AMENDMENTS ══════════════════════════════════ */
 .nostr-panel{background:var(--bg3);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin-top:1.5rem}
@@ -2464,13 +2464,36 @@ html[data-theme="light"] #main-nav .nav-link{color:#d7e4d7!important}
    White primary · bright secondary · solid panels · no ghost text
 ═══════════════════════════════════════════════════════════ */
 
-/* Global: kill unreadable muted body copy */
-body{color:#ffffff!important}
-p,li,.mission-prose,.art-body,.pillar p,.tl-body,.hero-sub,.stat-note{
-  color:#e6efe6!important;
+/*
+ * DO NOT force white text on all p/li globally — it nukes light panels.
+ * Dark theme uses bright tokens; light theme uses dark ink below (BUILD 790).
+ */
+html[data-theme="dark"] body,
+html:not([data-theme="light"]) body{
+  color:#ffffff!important;
+  background-color:#030605!important;
 }
-.stat-label,.trust-item,.section-label{color:#d4e8d8!important}
-.text3,.logo-sub:not(#main-nav .logo-sub){color:#c8d6c8}
+html[data-theme="dark"] .mission-prose,
+html[data-theme="dark"] .art-body,
+html[data-theme="dark"] .pillar p,
+html[data-theme="dark"] .tl-body,
+html[data-theme="dark"] .hero-sub,
+html[data-theme="dark"] .stat-note,
+html:not([data-theme="light"]) .mission-prose,
+html:not([data-theme="light"]) .art-body,
+html:not([data-theme="light"]) .pillar p,
+html:not([data-theme="light"]) .hero-sub,
+html:not([data-theme="light"]) .stat-note{
+  color:#eef5ee!important;
+}
+html[data-theme="dark"] .stat-label,
+html[data-theme="dark"] .trust-item,
+html[data-theme="dark"] .section-label,
+html:not([data-theme="light"]) .stat-label,
+html:not([data-theme="light"]) .trust-item,
+html:not([data-theme="light"]) .section-label{
+  color:#e2f0e6!important;
+}
 
 /* ——— WORLD-CLASS HEADER ——— */
 #main-nav{
@@ -3008,6 +3031,340 @@ html[data-theme="light"] #main-nav .logo-sub{color:#f5d76a!important}
   .stat-label{font-size:.78rem!important}
   .stat-note{font-size:.72rem!important}
 }
+
+/* ═══════════════════════════════════════════════════════════
+   BUILD 790 — Landing contrast rescue (no white-on-white)
+   Solid dark panels for Canada / footer / announce · light theme ink
+═══════════════════════════════════════════════════════════ */
+
+/* ——— Light theme: dark ink on cream (recover from white-force bug) ——— */
+html[data-theme="light"]{
+  --text:#0f1a12!important;
+  --text2:#1c2e22!important;
+  --text3:#3a4d40!important;
+  --bg:#f2f5ef!important;
+  --bg2:#e8eee4!important;
+  --bg3:#dde6d8!important;
+}
+html[data-theme="light"] body{
+  color:#0f1a12!important;
+  background:#f2f5ef!important;
+}
+html[data-theme="light"] p,
+html[data-theme="light"] li,
+html[data-theme="light"] .mission-prose,
+html[data-theme="light"] .mission-prose p,
+html[data-theme="light"] .pillar p,
+html[data-theme="light"] .challenge-step p,
+html[data-theme="light"] .stat-label,
+html[data-theme="light"] .stat-note,
+html[data-theme="light"] .footer-col a,
+html[data-theme="light"] .footer-brand p,
+html[data-theme="light"] .legal-block p,
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3{
+  color:#0f1a12!important;
+  -webkit-text-fill-color:#0f1a12!important;
+}
+html[data-theme="light"] .section-h2{color:#0f1a12!important}
+html[data-theme="light"] .stat-num{
+  color:#047857!important;
+  -webkit-text-fill-color:#047857!important;
+}
+html[data-theme="light"] .btn-ghost{
+  color:#0f1a12!important;
+  border-color:#2a6b4f!important;
+  background:#fff!important;
+}
+html[data-theme="light"] a{color:#047857}
+/* Keep header dark even in light mode (already) */
+
+/* ——— Announce bar: solid dark, white type ——— */
+.announce-banner,
+#announce-banner{
+  background:#0a1f16!important;
+  background-image:none!important;
+  border-bottom:2px solid #3de0a8!important;
+  color:#ffffff!important;
+  font-size:.85rem!important;
+  font-weight:600!important;
+  padding:.7rem 1rem!important;
+  box-shadow:0 4px 20px rgba(0,0,0,.45)!important;
+}
+.announce-banner span,
+#announce-banner span,
+.announce-banner strong,
+#announce-banner strong{
+  color:#ffffff!important;
+}
+.announce-banner a,
+#announce-banner a{
+  color:#9ff5d0!important;
+  font-weight:800!important;
+  text-decoration:underline!important;
+  text-underline-offset:2px;
+}
+.announce-banner button,
+#announce-banner button{
+  color:#ffffff!important;
+  background:#145c3f!important;
+  border:1px solid #3de0a8!important;
+  border-radius:8px!important;
+  min-width:36px;min-height:36px;
+}
+
+/* ——— Canada challenge: solid dark cards, bright type ——— */
+#canada-bc{
+  background:#050c09!important;
+  border-color:#1a3d2e!important;
+}
+#canada-bc .section-h2,
+#canada-bc h2{
+  color:#ffffff!important;
+}
+#canada-bc .section-h2 em,
+#canada-bc h2 em,
+#challenge-heading em{
+  color:#9ff5d0!important;
+  font-style:italic;
+}
+#canada-bc .section-label span{
+  color:#9ff5d0!important;
+  background:#0a1f16!important;
+  border-color:#3d7a5c!important;
+}
+#canada-bc p,
+#canada-bc .challenge-banner p,
+#canada-bc .challenge-step p{
+  color:#eef5ee!important;
+  -webkit-text-fill-color:#eef5ee!important;
+}
+#canada-bc strong{
+  color:#9ff5d0!important;
+}
+.challenge-banner{
+  background:#0a1f16!important;
+  background-image:none!important;
+  border:1px solid #2a6b4f!important;
+  border-radius:1.25rem!important;
+  padding:1.75rem!important;
+  box-shadow:0 12px 40px rgba(0,0,0,.4)!important;
+}
+.challenge-banner > div:first-child,
+.challenge-banner [style*="gold"],
+.challenge-banner .challenge-kicker{
+  color:#f5d76a!important;
+  font-weight:700!important;
+}
+.challenge-step{
+  background:#06140f!important;
+  border:1px solid #2a6b4f!important;
+  border-radius:.875rem!important;
+  padding:1.25rem!important;
+}
+.challenge-step h3{
+  color:#ffffff!important;
+  font-size:1rem!important;
+  font-weight:700!important;
+}
+.challenge-step p{
+  color:#e2efe6!important;
+  font-size:.85rem!important;
+  line-height:1.65!important;
+}
+.challenge-step-num{
+  color:#3de0a8!important;
+  font-weight:700!important;
+}
+#canada-bc .btn-ghost{
+  color:#ffffff!important;
+  border:1px solid #3d7a5c!important;
+  background:#0a1f16!important;
+}
+#canada-bc .btn-ghost:hover{
+  border-color:#3de0a8!important;
+  background:#145c3f!important;
+  color:#ffffff!important;
+}
+#canada-bc .btn-primary{
+  color:#02140c!important;
+  background:#3de0a8!important;
+  border:1px solid #9ff5d0!important;
+  font-weight:800!important;
+}
+#canada-bc a[href]{
+  color:#9ff5d0!important;
+}
+#canada-bc .canada-lead,
+#canada-bc .challenge-lead,
+#canada-bc .challenge-foot{
+  color:#eef5ee!important;
+  font-size:.95rem!important;
+  line-height:1.8!important;
+  max-width:700px;
+  margin-top:1rem;
+}
+#canada-bc .challenge-kicker{
+  font-family:var(--mono)!important;
+  font-size:.7rem!important;
+  font-weight:700!important;
+  color:#f5d76a!important;
+  letter-spacing:.12em!important;
+  margin-bottom:.65rem!important;
+}
+#canada-bc .challenge-foot{
+  margin-top:1.15rem!important;
+  font-size:.85rem!important;
+}
+
+
+/* Inline style overrides in Canada section HTML */
+#canada-bc [style*="color:var(--text2)"],
+#canada-bc [style*="color: var(--text2)"],
+#canada-bc [style*="color:var(--text3)"],
+#canada-bc [style*="color: var(--text3)"]{
+  color:#eef5ee!important;
+}
+#canada-bc [style*="color:var(--gold)"],
+#canada-bc [style*="color: var(--gold)"]{
+  color:#f5d76a!important;
+}
+#canada-bc [style*="color:var(--em2)"],
+#canada-bc [style*="color: var(--em2)"]{
+  color:#9ff5d0!important;
+}
+#canada-bc [style*="color:var(--text)"],
+#canada-bc [style*="color: var(--text)"]{
+  color:#ffffff!important;
+}
+
+/* ——— Pillars section ——— */
+#pillars{
+  background:#06110c!important;
+}
+#pillars .section-h2,
+#pillars h2{color:#ffffff!important}
+#pillars .section-h2 em{color:#9ff5d0!important}
+#pillars .pillar{
+  background:#0a1a14!important;
+  border:1px solid #1a3d2e!important;
+}
+#pillars .pillar h3{color:#ffffff!important}
+#pillars .pillar p{color:#e8f0e8!important}
+
+/* ——— Footer: solid dark, readable everything ——— */
+footer{
+  background:#020805!important;
+  border-top:2px solid #1a3d2e!important;
+  color:#ffffff!important;
+}
+footer .logo-text{color:#ffffff!important}
+footer .logo-sub{color:#f5d76a!important;border:none!important}
+footer .footer-brand p,
+footer .footer-contact,
+footer .footer-contact span{
+  color:#d4e8d8!important;
+  font-size:.85rem!important;
+  max-width:280px!important;
+}
+footer .footer-contact a,
+footer a[href^="mailto"]{
+  color:#9ff5d0!important;
+  font-weight:600!important;
+}
+footer .footer-col h3{
+  color:#f5d76a!important;
+  font-size:.65rem!important;
+  letter-spacing:.12em!important;
+}
+footer .footer-col a{
+  color:#e8f0e8!important;
+  font-size:.88rem!important;
+  font-weight:500!important;
+}
+footer .footer-col a:hover{color:#9ff5d0!important}
+footer .legal-footer{
+  border-top:1px solid #1a3d2e!important;
+}
+footer .legal-block h4{
+  color:#9ff5d0!important;
+  font-size:.8rem!important;
+}
+footer .legal-block p,
+footer .legal-bottom p,
+footer .legal-tagline,
+footer .parent-tagline{
+  color:#c8dccf!important;
+  font-size:.78rem!important;
+  line-height:1.65!important;
+}
+footer .legal-links a{
+  color:#e8f0e8!important;
+}
+footer .legal-links a:hover{color:#9ff5d0!important}
+footer .giveabit-brand-logo,
+footer .giveabit-footer-parent img{
+  background:#0a1f16!important;
+  border:1px solid #3d7a5c!important;
+  border-radius:10px!important;
+  padding:4px!important;
+  box-shadow:0 0 16px rgba(61,224,168,.25)!important;
+}
+footer .pay-tab{
+  color:#e8f0e8!important;
+  border-color:#2a6b4f!important;
+}
+footer .pay-tab.active{
+  color:#02140c!important;
+  background:#3de0a8!important;
+  border-color:#9ff5d0!important;
+  font-weight:700!important;
+}
+footer .pay-address{
+  color:#9ff5d0!important;
+  background:#0a1f16!important;
+  border-color:#2a6b4f!important;
+}
+footer .pay-copy,
+footer .pay-qr-btn{
+  color:#02140c!important;
+  background:#3de0a8!important;
+  border-color:#9ff5d0!important;
+  font-weight:700!important;
+}
+footer .pay-note{color:#c8dccf!important}
+footer .social-official{
+  color:#ffffff!important;
+  background:#0f2a1e!important;
+  border-color:#3d7a5c!important;
+}
+
+/* Generic section headings on dark */
+.section .section-h2{color:#ffffff!important}
+.section .section-h2 em{color:#9ff5d0!important}
+.section .section-label span{
+  color:#9ff5d0!important;
+}
+
+/* Any pale translucent banners → solid dark */
+.challenge-banner,
+.org-join-cta,
+.i18n-status-panel,
+.nostr-panel,
+.sign-panel,
+.calc-card{
+  background-color:#0a1f16!important;
+}
+.org-card,
+.feature-card,
+.charter-article{
+  background:#0a1a14!important;
+  color:#eef5ee!important;
+}
+.org-name,.org-card h3{color:#ffffff!important}
+.org-type{color:#9ff5d0!important}
+
 
 
 
