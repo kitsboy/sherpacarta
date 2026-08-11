@@ -100,15 +100,15 @@
 <!-- ═══ FONTS & ICONS — self-hosted (zero third-party tracking) ═ -->
 <link rel="preload" href="/fonts/outfit-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=811">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=811">
+<link rel="stylesheet" href="/fonts/fonts.css?v=812">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=812">
 
-<link rel="stylesheet" href="/sc-main.css?v=811">
-<link rel="preload" href="/sc-core.js?v=811" as="script">
-<link rel="preload" href="/sc-bundle.js?v=811" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=812">
+<link rel="preload" href="/sc-core.js?v=812" as="script">
+<link rel="preload" href="/sc-bundle.js?v=812" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=811"></script>
+<script defer src="/js/sc-analytics.js?v=812"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -779,19 +779,22 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     ADOPTION MAP
+     ADOPTION MAP — demo / illustrative (honest temp data)
 ════════════════════════════════════════════════════════ -->
-<section class="section" aria-labelledby="map-heading">
+<section class="section map-section" aria-labelledby="map-heading">
   <div class="section-max">
     <div class="section-label"><span>Global Reach</span></div>
     <h2 class="section-h2 reveal" id="map-heading">Adoption Heatmap</h2>
-    <div class="map-container reveal" aria-label="World map showing 127 countries with signatories">
-      <canvas id="map-canvas" width="900" height="320" style="position:absolute;inset:0;width:100%;height:100%;opacity:.7" aria-hidden="true"></canvas>
+    <p class="map-honest reveal">Demo preview — illustrative seeds for design &amp; layout. Not live global signup counts. Real local signatures stay on-device; Canada campaign stats are separate and honest.</p>
+    <div class="map-container reveal" aria-label="Illustrative demo world map of early organizing interest">
+      <canvas id="map-canvas" width="900" height="360" aria-hidden="true"></canvas>
       <div class="map-label">
-        <div style="font-family:var(--serif);font-size:2.25rem;font-weight:700;color:var(--em)">127 Countries</div>
-        <p>Active signatory presence across all inhabited continents</p>
+        <div class="map-badge">DEMO · TEMP</div>
+        <div class="map-stat" id="map-stat-main">12 focus regions</div>
+        <p id="map-stat-sub">Illustrative organizing interest · not verified totals</p>
       </div>
     </div>
+    <ul class="map-legend reveal" id="map-legend" aria-label="Demo region legend"></ul>
   </div>
 </section>
 
@@ -1041,12 +1044,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=811" defer></script>
-<script src="/js/sc-a11y.js?v=811" defer></script>
-<script src="/js/sc-petition-canada.js?v=811" defer></script>
-<script src="/js/sc-press-outlets.js?v=811" defer></script>
-<script src="/sc-core.js?v=811" defer></script>
-<script src="/sc-bundle.js?v=811" defer></script>
+<script src="/js/sc-share.js?v=812" defer></script>
+<script src="/js/sc-a11y.js?v=812" defer></script>
+<script src="/js/sc-petition-canada.js?v=812" defer></script>
+<script src="/js/sc-press-outlets.js?v=812" defer></script>
+<script src="/sc-core.js?v=812" defer></script>
+<script src="/sc-bundle.js?v=812" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

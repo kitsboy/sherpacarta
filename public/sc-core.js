@@ -1567,27 +1567,118 @@ document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
 })();
 
 // ═══════════════════════════════════════════════════════════
-// MAP CANVAS
+// MAP CANVAS — honest DEMO / TEMP organizing interest
+// Not live global signup counts. Seed clusters for UI only.
 // ═══════════════════════════════════════════════════════════
 (function(){
   const canvas=document.getElementById('map-canvas');if(!canvas)return;
-  const ctx=canvas.getContext('2d'),W=canvas.width,H=canvas.height;
-  const clusters=[
-    {cx:.15,cy:.35,r:.08},{cx:.25,cy:.55,r:.06},{cx:.5,cy:.28,r:.1},{cx:.52,cy:.45,r:.07},
-    {cx:.6,cy:.32,r:.07},{cx:.78,cy:.33,r:.08},{cx:.82,cy:.55,r:.05},{cx:.43,cy:.62,r:.05},
-    {cx:.3,cy:.38,r:.05},{cx:.88,cy:.48,r:.04},{cx:.19,cy:.45,r:.04},{cx:.65,cy:.58,r:.04},
+  const ctx=canvas.getContext('2d');
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  const cssW=canvas.clientWidth||900;
+  const cssH=canvas.clientHeight||360;
+  canvas.width=Math.round(cssW*dpr);
+  canvas.height=Math.round(cssH*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const W=cssW,H=cssH;
+
+  // Demo seed regions (normalized x/y on map) — TEMP for design, not metrics
+  const DEMO_REGIONS=[
+    {id:'ca',name:'Canada',note:'Beachhead · petition track',cx:.18,cy:.32,r:.055,weight:1,hot:true},
+    {id:'bc',name:'British Columbia',note:'Organizing focus',cx:.12,cy:.36,r:.03,weight:.85,hot:true},
+    {id:'us',name:'United States',note:'Demo interest seed',cx:.22,cy:.42,r:.06,weight:.55},
+    {id:'mx',name:'Mexico / LATAM north',note:'Demo seed',cx:.2,cy:.55,r:.035,weight:.35},
+    {id:'br',name:'Brazil',note:'Demo seed',cx:.32,cy:.68,r:.04,weight:.4},
+    {id:'uk',name:'United Kingdom',note:'Next jurisdiction path',cx:.48,cy:.30,r:.03,weight:.7,hot:true},
+    {id:'eu',name:'EU core',note:'Next jurisdiction path',cx:.52,cy:.36,r:.055,weight:.65,hot:true},
+    {id:'nordic',name:'Nordics',note:'Demo seed',cx:.54,cy:.24,r:.028,weight:.45},
+    {id:'za',name:'Southern Africa',note:'Demo seed',cx:.54,cy:.72,r:.035,weight:.3},
+    {id:'in',name:'India',note:'Demo seed',cx:.68,cy:.48,r:.04,weight:.4},
+    {id:'sea',name:'SE Asia',note:'Demo seed',cx:.76,cy:.55,r:.04,weight:.35},
+    {id:'au',name:'Australia / NZ',note:'Demo seed',cx:.84,cy:.72,r:.035,weight:.4},
   ];
-  for(let i=0;i<200;i++){
-    const cl=clusters[Math.floor(Math.random()*clusters.length)];
-    const angle=Math.random()*Math.PI*2,dist=Math.random()*cl.r;
-    const x=(cl.cx+Math.cos(angle)*dist)*W;
-    const y=(cl.cy+Math.sin(angle)*dist)*H+20;
-    const intensity=Math.random();
-    ctx.beginPath();ctx.arc(x,y,1.5+Math.random()*3,0,Math.PI*2);
-    ctx.fillStyle=`rgba(16,185,129,${.15+intensity*.85})`;
-    if(intensity>.75){ctx.shadowColor='#10b981';ctx.shadowBlur=8;}
-    ctx.fill();ctx.shadowBlur=0;
+
+  // Soft world plate
+  const g=ctx.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,'#06140f');
+  g.addColorStop(1,'#030a07');
+  ctx.fillStyle=g;
+  ctx.fillRect(0,0,W,H);
+
+  // Subtle grid
+  ctx.strokeStyle='rgba(52,211,153,.06)';
+  ctx.lineWidth=1;
+  for(let x=0;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<H;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+  // Faint land blobs (schematic, not cartographic)
+  function landBlob(cx,cy,rx,ry,a){
+    ctx.beginPath();
+    ctx.ellipse(cx*W,cy*H,rx*W,ry*H,0,0,Math.PI*2);
+    ctx.fillStyle=`rgba(16,80,55,${a})`;
+    ctx.fill();
   }
+  landBlob(.18,.4,.16,.18,.35); // Americas
+  landBlob(.52,.4,.14,.2,.32);  // Europe/Africa
+  landBlob(.72,.42,.16,.16,.3); // Asia
+  landBlob(.84,.72,.07,.05,.28);// Aus
+
+  // Heat clusters (deterministic-ish per region)
+  DEMO_REGIONS.forEach((reg,ri)=>{
+    const n=Math.round(18+reg.weight*42);
+    for(let i=0;i<n;i++){
+      const angle=(i/n)*Math.PI*2+(ri*.3);
+      const dist=Math.random()*reg.r;
+      const x=(reg.cx+Math.cos(angle)*dist)*W;
+      const y=(reg.cy+Math.sin(angle)*dist)*H;
+      const intensity=.25+reg.weight*.55+Math.random()*.2;
+      ctx.beginPath();
+      ctx.arc(x,y,1.2+Math.random()*2.8+(reg.hot?1:0),0,Math.PI*2);
+      ctx.fillStyle=`rgba(52,211,153,${intensity})`;
+      if(reg.hot&&Math.random()>.7){ctx.shadowColor='#3de0a8';ctx.shadowBlur=10;}
+      ctx.fill();
+      ctx.shadowBlur=0;
+    }
+    // Region pin
+    const px=reg.cx*W,py=reg.cy*H;
+    ctx.beginPath();
+    ctx.arc(px,py,reg.hot?5:3.5,0,Math.PI*2);
+    ctx.fillStyle=reg.hot?'#f5d76a':'#3de0a8';
+    ctx.fill();
+    ctx.beginPath();
+    ctx.arc(px,py,reg.hot?10:7,0,Math.PI*2);
+    ctx.strokeStyle=reg.hot?'rgba(245,215,106,.45)':'rgba(61,224,168,.3)';
+    ctx.lineWidth=1.5;
+    ctx.stroke();
+  });
+
+  // Watermark
+  ctx.save();
+  ctx.font='600 11px DM Mono,monospace';
+  ctx.fillStyle='rgba(232,240,232,.35)';
+  ctx.textAlign='left';
+  ctx.fillText('DEMO MAP · NOT LIVE TOTALS',14,H-14);
+  ctx.restore();
+
+  // Legend
+  const legend=document.getElementById('map-legend');
+  if(legend){
+    legend.innerHTML=DEMO_REGIONS.map((r)=>
+      `<li class="map-legend-item${r.hot?' is-hot':''}">
+        <span class="map-dot" aria-hidden="true"></span>
+        <span class="map-legend-name">${r.name}</span>
+        <span class="map-legend-note">${r.note}</span>
+      </li>`
+    ).join('');
+  }
+
+  // Optional: bump “local device” if they signed with a country
+  try{
+    const local=JSON.parse(localStorage.getItem('sc_signers')||'[]');
+    if(local.length){
+      const sub=document.getElementById('map-stat-sub');
+      if(sub) sub.textContent=`Illustrative seeds + ${local.length} signature(s) on this device · not global totals`;
+    }
+  }catch(_){}
 })();
 
 // ═══════════════════════════════════════════════════════════
