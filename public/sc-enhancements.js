@@ -119,15 +119,15 @@
     if (localStorage.getItem('sc_contrast') === 'true') document.body.classList.add('high-contrast');
   });
 
-  feat(5, 'Auto theme (system)', () => {
-    if (!localStorage.getItem('sc_theme') && window.matchMedia('(prefers-color-scheme: light)').matches) {
-      document.documentElement.setAttribute('data-theme', 'light');
+  feat(5, 'Theme toggle (dark-first — no auto light wash)', () => {
+    /* Product is cinema-dark. Do NOT auto-flip to OS light — that washed the header unreadable.
+       User can still toggle theme manually; that sets sc_theme_manual. */
+    const saved = localStorage.getItem('sc_theme');
+    if (saved === 'light' || saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', saved);
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
     }
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
-      if (!localStorage.getItem('sc_theme_manual')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'light' : 'dark');
-      }
-    });
     const origToggle = window.toggleTheme;
     window.toggleTheme = function () {
       localStorage.setItem('sc_theme_manual', '1');

@@ -131,7 +131,7 @@ body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.95;b
 /* ═══════════════════════════════════════════════════════════
    NAV
 ═══════════════════════════════════════════════════════════ */
-#main-nav{position:sticky;top:var(--announce-h,0px);z-index:500;border-bottom:1px solid var(--border);background:var(--glass);backdrop-filter:blur(32px);transition:all .3s;pointer-events:auto}
+#main-nav{position:sticky;top:var(--announce-h,0px);z-index:500;border-bottom:1px solid rgba(52,211,153,.35);background:#050a07;transition:all .3s;pointer-events:auto}
 #main-nav a,#main-nav button,#main-nav select{pointer-events:auto;cursor:pointer}
 #main-nav.shrunk{box-shadow:var(--glow)}
 .nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;gap:.75rem}
@@ -2218,4 +2218,245 @@ body{font-size:16.5px;line-height:1.7;color:var(--text)}
   .hero-kicker,.hero-h1,.hero-sub,.hero-proof,.hero-ctas,.hero-canada-link,.hero-urgency{animation:none!important}
   .cta-main:hover,.cta-sec:hover,.btn-sign:hover{transform:none!important}
 }
+
+/* ═══════════════════════════════════════════════════════════
+   BUILD 772 — Header + background rescue
+   Opaque cinema bar · no light wash · deep hero stage
+═══════════════════════════════════════════════════════════ */
+
+/* Always-dark product surface under first fold (kills pale bleed) */
+html,body{
+  background-color:#030605!important;
+}
+html[data-theme="light"],html[data-theme="light"] body{
+  background-color:var(--bg)!important;
+}
+
+/* ——— HEADER: solid, opaque, high-contrast (never translucent wash) ——— */
+#main-nav,
+#main-nav.shrunk{
+  background:#050a07!important;
+  background-image:
+    linear-gradient(180deg,#0a1410 0%,#050a07 100%)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border-bottom:1px solid rgba(52,211,153,.35)!important;
+  box-shadow:
+    0 1px 0 rgba(240,208,96,.18),
+    0 12px 40px rgba(0,0,0,.65)!important;
+}
+/* Gold + emerald edge rail under header */
+#main-nav::after{
+  content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  background:linear-gradient(90deg,transparent 0%,var(--gold) 20%,var(--em) 50%,var(--gold) 80%,transparent 100%);
+  opacity:.85;pointer-events:none;z-index:2;
+}
+#main-nav{position:sticky;isolation:isolate}
+#main-nav .nav-inner{position:relative;z-index:3}
+
+/* Hard-coded light text so light-theme tokens can never wash the bar */
+#main-nav .logo-text{
+  color:#f5faf6!important;
+  text-shadow:0 1px 12px rgba(0,0,0,.55);
+  display:block!important;
+}
+#main-nav .logo-sub{
+  color:#f0d060!important;
+  border-bottom-color:rgba(240,208,96,.55)!important;
+  opacity:1!important;
+}
+#main-nav .nav-link{
+  color:#d7e4d7!important;
+  font-weight:600;
+}
+#main-nav .nav-link:hover,
+#main-nav .nav-link:focus-visible{
+  color:#ffffff!important;
+  background:rgba(20,212,146,.14)!important;
+}
+#main-nav .nav-icon-btn{
+  color:#d7e4d7!important;
+  border-color:rgba(52,211,153,.4)!important;
+  background:rgba(0,0,0,.25)!important;
+}
+#main-nav .nav-icon-btn:hover{
+  color:#7af0c4!important;
+  border-color:rgba(122,240,196,.7)!important;
+  background:rgba(20,212,146,.12)!important;
+}
+#main-nav .nav-signed,
+#main-nav #progress-counter{
+  color:#7af0c4!important;
+  border-color:rgba(52,211,153,.5)!important;
+  background:rgba(0,0,0,.35)!important;
+}
+#main-nav .nav-toggle{
+  color:#7af0c4!important;
+  border-color:rgba(52,211,153,.5)!important;
+  background:rgba(0,0,0,.35)!important;
+}
+#main-nav .btn-sign{
+  color:#02140c!important;
+  background:linear-gradient(135deg,#b8fce0,#14d492 50%,#0b9a6a)!important;
+  border:1px solid rgba(255,255,255,.35)!important;
+  box-shadow:0 4px 22px rgba(20,212,146,.55),0 0 0 1px rgba(240,208,96,.25)!important;
+}
+#main-nav .nav-logo .giveabit-brand-logo{
+  box-shadow:0 0 0 1px rgba(52,211,153,.5),0 0 22px rgba(20,212,146,.4)!important;
+  background:#0a1410;
+}
+
+/* Light theme: keep cinema header dark (readable always) OR solid ink bar */
+html[data-theme="light"] #main-nav,
+html[data-theme="light"] #main-nav.shrunk{
+  background:#050a07!important;
+  background-image:linear-gradient(180deg,#0a1410,#050a07)!important;
+}
+html[data-theme="light"] #main-nav .logo-text{color:#f5faf6!important}
+html[data-theme="light"] #main-nav .logo-sub{color:#f0d060!important}
+html[data-theme="light"] #main-nav .nav-link{color:#d7e4d7!important}
+
+/* Mobile sheet stays deep solid */
+@media(max-width:768px){
+  #main-nav .nav-actions,
+  #main-nav #nav-menu{
+    background:#040806!important;
+    background-image:linear-gradient(180deg,#0a1410 0%,#030605 40%,#020403 100%)!important;
+    backdrop-filter:none!important;
+  }
+  #main-nav .nav-sheet-link{
+    color:#f2f6f2!important;
+    background:rgba(12,22,16,.9)!important;
+    border-color:rgba(52,211,153,.28)!important;
+  }
+  #main-nav .nav-sheet-link i{color:#7af0c4!important}
+  #main-nav .nav-sheet-kicker{color:#f0d060!important}
+  #main-nav .nav-sheet-sign{
+    color:#e8fff5!important;
+    background:linear-gradient(135deg,rgba(20,212,146,.28),rgba(240,208,96,.12))!important;
+  }
+}
+
+/* ——— HERO BACKGROUND: cinematic stage (not washed mint) ——— */
+#hero{
+  background:#030605!important;
+  overflow:hidden;
+}
+.hero-atmosphere{z-index:0}
+.hero-bg-base{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 100%,#0a1812 0%,#030605 55%,#020403 100%),
+    #030605;
+}
+/* Aurora kept BELOW the header fold so sticky nav never goes pale */
+.hero-bg-aurora{
+  position:absolute;left:-10%;right:-10%;top:18%;bottom:-20%;
+  background:
+    radial-gradient(ellipse 50% 40% at 30% 40%,rgba(20,212,146,.16) 0%,transparent 60%),
+    radial-gradient(ellipse 45% 35% at 75% 55%,rgba(240,208,96,.1) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 70%,rgba(16,100,70,.2) 0%,transparent 65%);
+  filter:blur(8px);
+  opacity:.95;
+}
+.hero-bg-orb{
+  position:absolute;border-radius:50%;pointer-events:none;
+  filter:blur(40px);opacity:.55;
+}
+.hero-bg-orb-a{
+  width:min(55vw,420px);height:min(55vw,420px);
+  left:50%;top:48%;transform:translate(-50%,-40%);
+  background:radial-gradient(circle,rgba(20,212,146,.35) 0%,rgba(20,212,146,.08) 40%,transparent 70%);
+}
+.hero-bg-orb-b{
+  width:min(40vw,280px);height:min(40vw,280px);
+  right:8%;top:55%;
+  background:radial-gradient(circle,rgba(240,208,96,.18) 0%,transparent 70%);
+}
+.hero-bg-orb-c{
+  width:min(35vw,240px);height:min(35vw,240px);
+  left:6%;top:60%;
+  background:radial-gradient(circle,rgba(52,211,153,.14) 0%,transparent 70%);
+}
+/* Kill old bright top shaft that washed the header */
+.hero-shaft{
+  top:22%!important;height:50%!important;opacity:.55!important;
+  background:linear-gradient(180deg,rgba(20,212,146,.08) 0%,rgba(240,208,96,.04) 45%,transparent 100%)!important;
+}
+.hero-glow{
+  top:52%!important;opacity:.85!important;
+  background:
+    radial-gradient(circle at 45% 45%,rgba(20,212,146,.2) 0%,transparent 50%),
+    radial-gradient(circle at 60% 55%,rgba(240,208,96,.1) 0%,transparent 45%)!important;
+}
+.hero-vignette{
+  background:
+    radial-gradient(ellipse 90% 75% at 50% 48%,transparent 0%,rgba(3,6,5,.35) 50%,rgba(2,4,3,.92) 100%),
+    linear-gradient(180deg,rgba(3,6,5,.75) 0%,transparent 18%,transparent 70%,rgba(3,6,5,.9) 100%)!important;
+}
+.hero-parchment{
+  top:50%!important;
+  background:radial-gradient(ellipse at center,rgba(240,208,96,.05) 0%,rgba(20,212,146,.04) 35%,transparent 68%)!important;
+}
+.hero-grid{
+  opacity:.14!important;top:12%;
+  background-image:
+    linear-gradient(rgba(52,211,153,.12) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(52,211,153,.12) 1px,transparent 1px)!important;
+}
+/* Seal watermark — constitutional mark */
+.hero-seal{
+  position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+  width:min(520px,88vw);height:min(520px,88vw);
+  opacity:.09;pointer-events:none;
+  background:
+    radial-gradient(circle,transparent 38%,rgba(240,208,96,.5) 39%,rgba(240,208,96,.5) 40%,transparent 41%),
+    radial-gradient(circle,transparent 52%,rgba(20,212,146,.45) 53%,rgba(20,212,146,.45) 54%,transparent 55%),
+    conic-gradient(from 0deg,transparent 0 8deg,rgba(240,208,96,.35) 8deg 10deg,transparent 10deg 28deg,rgba(20,212,146,.3) 28deg 30deg,transparent 30deg 48deg,rgba(240,208,96,.3) 48deg 50deg,transparent 50deg 68deg,rgba(20,212,146,.3) 68deg 70deg,transparent 70deg 88deg,rgba(240,208,96,.3) 88deg 90deg,transparent 90deg 100%);
+  border-radius:50%;
+  mask-image:radial-gradient(circle,black 0%,black 58%,transparent 72%);
+  -webkit-mask-image:radial-gradient(circle,black 0%,black 58%,transparent 72%);
+}
+
+/* Global wave bg — quieter so page doesn't go mint */
+#wave-bg{opacity:.18!important}
+#wave-bg .wave-1 path,
+#wave-bg .wave-layer{opacity:.7}
+
+/* Hero type stays bright on deep stage */
+#hero .hero-h1{color:#f7faf7!important}
+#hero .hero-sub{color:#cdd9cd!important}
+#hero .hero-kicker{
+  background:linear-gradient(135deg,rgba(0,0,0,.55),rgba(10,20,14,.75))!important;
+  border-color:rgba(240,208,96,.5)!important;
+  color:#e2ebe2!important;
+  box-shadow:0 8px 32px rgba(0,0,0,.45),0 0 24px rgba(20,212,146,.1)!important;
+}
+#hero .hero-proof span{
+  background:rgba(0,0,0,.55)!important;
+  border-color:rgba(52,211,153,.45)!important;
+  color:#f0f5f0!important;
+}
+
+/* Mobile bottom nav solid dark */
+#mobile-bottom-nav{
+  background:#050a07!important;
+  backdrop-filter:none!important;
+  border-top:1px solid rgba(52,211,153,.4)!important;
+}
+
+@media(max-width:768px){
+  .hero-bg-aurora{top:14%;opacity:.9}
+  .hero-seal{opacity:.07;width:min(420px,95vw);height:min(420px,95vw)}
+  .hero-vignette{
+    background:
+      radial-gradient(ellipse 100% 80% at 50% 45%,transparent 0%,rgba(3,6,5,.4) 55%,rgba(2,4,3,.94) 100%),
+      linear-gradient(180deg,rgba(3,6,5,.85) 0%,transparent 14%,transparent 75%,rgba(3,6,5,.95) 100%)!important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-bg-orb,.hero-bg-aurora{filter:none}
+}
+
 
