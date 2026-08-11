@@ -103,12 +103,13 @@
 <link rel="stylesheet" href="/fonts/fonts.css?v=830">
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=830">
 
-<link rel="stylesheet" href="/sc-main.css?v=840">
-<link rel="preload" href="/sc-core.js?v=840" as="script">
-<link rel="preload" href="/sc-bundle.js?v=840" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=860">
+<link rel="preload" href="/js/sc-nostr-lib.js?v=860" as="script">
+<link rel="preload" href="/sc-core.js?v=860" as="script">
+<link rel="preload" href="/sc-bundle.js?v=860" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=830"></script>
+<script defer src="/js/sc-analytics.js?v=860"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -279,7 +280,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   <div class="hero-share" id="hero-share-strip"></div>
   <div class="hero-share-official" role="group" aria-label="Official SherpaCarta channels">
     <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-    <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
+    <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@sherpacarta.org"><i class="fas fa-comments"></i> sherpa@sherpacarta.org</button>
     <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
     <a href="https://x.com/hashtag/Sherpacarta" class="social-official" target="_blank" rel="noopener" title="#Sherpacarta on X"><i class="fab fa-x-twitter"></i> #Sherpacarta</a>
     <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
@@ -598,19 +599,21 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <div class="video-wrapper reveal sc-film-primary" id="sherpacarta-film">
       <div class="video-header">
         <div class="video-title">OFFICIAL — SHERPACARTA · 2 MIN · 16:9</div>
-        <a class="video-live" href="/video/sherpacarta-2min.mp4" download style="text-decoration:none">Download MP4 ↗</a>
+        <a class="video-live" href="/video/sherpacarta-2min.mp4?v=860" download style="text-decoration:none">Download MP4 ↗</a>
       </div>
       <div class="video-embed sc-film-player">
         <video
+          id="sherpacarta-film-video"
           controls
           playsinline
-          preload="metadata"
-          poster=""
+          preload="none"
+          poster="/video/sherpacarta-2min-poster.jpg?v=860"
           title="SherpaCarta — 2 minute introduction"
           controlslist="nodownload"
         >
-          <source src="/video/sherpacarta-2min.mp4" type="video/mp4">
-          Your browser does not support HTML5 video. <a href="/video/sherpacarta-2min.mp4">Download the film</a>.
+          <!-- src set when near viewport — saves LCP bandwidth -->
+          <source data-src="/video/sherpacarta-2min.mp4?v=860" type="video/mp4">
+          Your browser does not support HTML5 video. <a href="/video/sherpacarta-2min.mp4?v=860">Download the film</a>.
         </video>
       </div>
       <div class="video-caption">Official SherpaCarta film · international-first · Canada as a live national offering · no fake metrics · <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/VIDEO-HERMES-HYPERFRAMES.md" target="_blank" rel="noopener" style="color:var(--em)">production notes</a></div>
@@ -627,7 +630,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           title="Why Bitcoin matters for human rights, in two minutes — Human Rights Foundation"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
-          loading="eager"
+          loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
       <div class="video-caption">Why financial freedom and digital rights travel together — Human Rights Foundation (external) · <a href="https://www.youtube.com/watch?v=KG0Q05Lnm7s" target="_blank" rel="noopener noreferrer">Open on YouTube ↗</a></div>
@@ -725,6 +728,8 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           <span class="nostr-badge" id="nostr-badge"><i class="fas fa-user-secret"></i> Nostr: Not connected</span>
           <button class="btn btn-ghost" id="nostr-connect-btn" onclick="nostrConnect()"><i class="fas fa-plug"></i> Sign in with Nostr</button>
           <button class="btn btn-ghost" id="nostr-disconnect-btn" onclick="nostrDisconnect()" style="display:none"><i class="fas fa-right-from-bracket"></i> Disconnect</button>
+          <button type="button" class="btn btn-ghost" id="nostr-relay-check-btn" onclick="checkNostrRelays()" style="font-size:.65rem" title="Probe public relays (no tracking)"><i class="fas fa-signal"></i> Relays</button>
+          <span id="nostr-relay-health" style="font-family:var(--mono);font-size:.55rem;color:var(--text3);margin-left:.25rem"></span>
         </div>
         <p style="font-size:.78rem;color:var(--text3);line-height:1.65">Connect a Nostr extension (Alby, nos2x, Primal) to publish amendments and comments to the public deliberation layer. No account on our servers — ever.</p>
         <div class="calc-label" style="margin-top:1rem">Propose an Amendment (Art. 114)</div>
@@ -820,10 +825,10 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 <section class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="langs-heading">
   <div class="section-max">
     <div class="section-label"><span>Global Access</span></div>
-    <h2 class="section-h2 reveal" id="langs-heading">Available in 40+ Languages</h2>
-    <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:500px">Rights transcend language. SherpaCarta is being translated by volunteer communities worldwide.</p>
+    <h2 class="section-h2 reveal" id="langs-heading">Language roadmap</h2>
+    <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:560px">The charter is authored and maintained in <strong>English</strong>. French Canada briefing is available. Other language chips mark <strong>community interest / future work</strong> — not full certified translations of all 114 articles.</p>
     <div class="lang-grid reveal" id="lang-grid" role="list"></div>
-    <p style="font-size:.72rem;color:var(--text3);margin-top:1.25rem;font-family:var(--mono)">* Community translations. Official legal review pending per language.</p>
+    <p style="font-size:.72rem;color:var(--text3);margin-top:1.25rem;font-family:var(--mono)">* Honest status: EN primary · FR briefing · remaining labels = roadmap, not complete locale packs.</p>
   </div>
 </section>
 
@@ -981,7 +986,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <!-- Socials -->
     <div class="footer-social-official" aria-label="Official social channels">
       <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter" aria-hidden="true"></i> @give_bit</a>
-      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@giveabit.io"><i class="fas fa-comments" aria-hidden="true"></i> sherpa@giveabit.io</button>
+      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@sherpacarta.org"><i class="fas fa-comments" aria-hidden="true"></i> sherpa@sherpacarta.org</button>
       <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio" aria-hidden="true"></i> Live discuss</a>
       <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
     </div>
@@ -1094,12 +1099,13 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=830" defer></script>
-<script src="/js/sc-a11y.js?v=830" defer></script>
-<script src="/js/sc-petition-canada.js?v=830" defer></script>
-<script src="/js/sc-press-outlets.js?v=830" defer></script>
-<script src="/sc-core.js?v=840" defer></script>
-<script src="/sc-bundle.js?v=840" defer></script>
+<script src="/js/sc-share.js?v=860" defer></script>
+<script src="/js/sc-a11y.js?v=860" defer></script>
+<script src="/js/sc-nostr-lib.js?v=860" defer></script>
+<script src="/js/sc-petition-canada.js?v=860" defer></script>
+<script src="/js/sc-press-outlets.js?v=860" defer></script>
+<script src="/sc-core.js?v=860" defer></script>
+<script src="/sc-bundle.js?v=860" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

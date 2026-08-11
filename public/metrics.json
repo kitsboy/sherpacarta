@@ -2,16 +2,16 @@
   "schema": "gab.product-metrics.v1",
   "productId": "sherpacarta",
   "name": "SherpaCarta",
-  "updatedAt": "2026-08-11T16:31:13.923Z",
+  "updatedAt": "2026-08-11T17:40:23.879Z",
   "window": {
     "label": "7d",
-    "from": "2026-08-04T16:31:13.923Z",
-    "to": "2026-08-11T16:31:13.923Z"
+    "from": "2026-08-04T17:40:23.879Z",
+    "to": "2026-08-11T17:40:23.879Z"
   },
   "health": {
     "status": "green",
     "message": "Live public sources — Canada campaign KV, on-chain treasury, charter data. LN balance via HQ wallet id sherpacarta.",
-    "latencyMs": 447,
+    "latencyMs": 353,
     "uptimePct24h": null,
     "dependencies": [
       {

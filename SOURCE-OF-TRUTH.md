@@ -61,7 +61,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 | BTC on-chain | **Live** | `bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad` |
 | Lightning | **Pending on SC site** | giveabit LNURL for `kimi@` / `cam@` — Cam picks official |
 | Silent Payments | Planned | — |
-| NIP-05 | **Live** | `kimi@giveabit.io` on giveabit.io |
+| NIP-05 | **Live** | `sherpa@sherpacarta.org` + `kimi@sherpacarta.org` on `/.well-known/nostr.json` (aliases on giveabit.io) |
 
 ## Security posture (post-audit)
 - XSS hardened on user/remote HTML surfaces

@@ -4,15 +4,16 @@
 **Last Updated:** 2026-08-11  
 **Domain:** https://sherpacarta.org  
 **productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)  
-**Site asset bust:** CSS/JS `?v=840` · film `?v=841`
+**Site asset bust:** CSS/JS/film `?v=860`
 
 ## Session close summary (2026-08-11)
 
 Home is international-first with official **2-min film** on `#film` (Kokoro VO, not macOS say). HRF YouTube companion embeds via CSP. Art. 114 / below-fold blank fixed (content-visibility off + reveal safety). Canada dual-track + honest metrics unchanged.
 
 ## Recent Milestones
+- **2026-08-11:** BUILD 860 — cache-bust unify, article summaries all, film poster+lazy, relay health, i18n honesty
 - **2026-08-11:** Nostr NIP-05 on sherpacarta.org (kimi+sherpa) · sc-nostr-lib · NIP-65 helpers · `docs/NOSTR.md`
-- **2026-08-11 (close):** Kokoro `af_nova` film re-render live · `public/video/sherpacarta-2min.mp4?v=841` (`47d0e32`)
+- **2026-08-11:** Kokoro `af_nova` film re-render live · `public/video/sherpacarta-2min.mp4`
 - **2026-08-11:** BUILD 840 — CSP YouTube, 16:9 film fit, Art. 114 below-fold blank (`a582219`)
 - **2026-08-11:** Official 2-min HyperFrames film embedded on home (`cd7f16f`)
 - **2026-08-11:** THOR/Kimi HyperFrames package + final.mp4 source under `video/sherpacarta-2min/`
@@ -21,7 +22,7 @@ Home is international-first with official **2-min film** on `#film` (Kokoro VO, 
 ## Live surfaces
 | Surface | Notes |
 |---------|--------|
-| Home film | `#film` · `/video/sherpacarta-2min.mp4?v=841` · 120s · 1080p30 · Kokoro VO |
+| Home film | `#film` · `/video/sherpacarta-2min.mp4?v=860` · poster + lazy load · Kokoro VO |
 | HRF companion | YouTube nocookie embed · CSP allows youtube.com / youtube-nocookie.com |
 | Articles | `/#articles` · Art. 114 body + extension · jumpToArticle |
 | Metrics | `https://sherpacarta.org/metrics.json` · `raw.demo: false` · `raw.canada.*` |
@@ -35,7 +36,7 @@ Home is international-first with official **2-min film** on `#film` (Kokoro VO, 
 - productId / LNbits: **`sherpacarta`**
 - Umami: `9b6f05bf-286e-4b21-9094-1d675f9b4442`
 - Stamp refs: `sherpacarta` · `sherpacarta-canada`
-- NIP-05: `sherpa@giveabit.io`
+- NIP-05: `sherpa@sherpacarta.org` · `kimi@sherpacarta.org`
 - Film project: `video/sherpacarta-2min/` (local mp4/wav gitignored; **public/** mp4 committed)
 
 ## Known issues / do-not-regress

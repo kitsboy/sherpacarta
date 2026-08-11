@@ -4323,3 +4323,33 @@ section.section,
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1!important;transform:none!important}
 }
+
+/* ═══════════════════════════════════════════════════════════
+   BUILD 860 — Film mobile + poster + relay UI
+═══════════════════════════════════════════════════════════ */
+#film .sc-film-player,
+#film .sc-film-embed{
+  max-height:min(56.25vw, 70vh);
+  min-height:180px;
+}
+@media(max-width:640px){
+  #film .video-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:.35rem;
+    padding:.85rem 1rem;
+  }
+  #film .video-title{font-size:.62rem;letter-spacing:.06em}
+  #film .sc-film-player,
+  #film .sc-film-embed{
+    max-height:none;
+    aspect-ratio:16/9;
+  }
+  .nostr-status{
+    flex-wrap:wrap;
+    gap:.35rem;
+  }
+  .articles-sidebar{max-height:200px}
+  .articles-main{max-height:min(70vh,520px)}
+}
+#nostr-relay-health{white-space:nowrap}

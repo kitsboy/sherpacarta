@@ -1,3 +1,20 @@
+## Session — 2026-08-11 (Grok M3 — BUILD 860 technical finish, no marketing)
+
+**Scope (Cam):** Finish technical improvements only — **no** marketing, MP hunt, Lightning setup, or Nostr bot/ops.
+
+**Done:**
+- Cache-bust unify `?v=860` across public HTML + home
+- Article AI summaries for all articles (body-derived + cornerstone blurbs)
+- Hash deep-links `#art-114` / preamble / hashchange
+- Film poster + lazy source near viewport; YouTube companion `loading=lazy`
+- Mobile film/articles CSS; relay health button
+- Language section honesty (EN primary / FR briefing / rest roadmap)
+- Docs: PREP-NOW deferred list · SOURCE-OF-TRUTH NIP-05 · current-status
+
+**Deferred (explicit):** marketing · MP e-### · Lightning · Nostr bot + product NIP-65 sign · coalition names
+
+---
+
 ## Session — 2026-08-11 (Grok M3 — Nostr NIP-05 + relays + NIP-65)
 
 **Done:**

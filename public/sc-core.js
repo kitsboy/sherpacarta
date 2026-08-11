@@ -1719,22 +1719,44 @@ document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
 // ═══════════════════════════════════════════════════════════
 // ARTICLES BROWSER
 // ═══════════════════════════════════════════════════════════
-const AI_SUMMARIES=[
-  "This preamble establishes SherpaCarta's historic context, positioning it as the successor to Magna Carta and UDHR—but uniquely binding on corporations as well as states, acknowledging that digital power now rivals sovereign power.",
-  "Article 1 extends human dignity protections into digital spaces, making algorithmic dehumanization legally equivalent to physical assault on personhood.",
-  "Article 2 establishes strict equality before digital law, making algorithmic discrimination illegal even when emergent rather than intentional—a major advance over existing frameworks.",
-  "Article 3 creates a new right: digital existence. You cannot be permanently erased from digital life without judicial-equivalent due process. This directly challenges platform deplatforming.",
-  "Article 11 is the cornerstone. It makes mass surveillance unconstitutional under all circumstances—including national security—and establishes Privacy by Design as the mandatory default.",
-  "Article 12 establishes that you own your data—legally and completely. This creates property rights in personal data, making its unauthorized commercial use a form of theft.",
-  "This article names surveillance capitalism as a violation of human dignity. Consent obtained through dark patterns or service-denial is void—a radical departure from current regulatory practice.",
-  "Article 47 creates a meaningful right to be forgotten, with 72-hour enforcement windows for search engines. This extends GDPR's framework globally and adds real teeth.",
-  "Article 21 protects digital speech from platform censorship by requiring transparent, consistent, and politically neutral moderation standards subject to appeal.",
-  "Article 22 establishes internet access as a utility equivalent to water. Government internet shutdowns are explicitly prohibited—with global enforcement implications.",
-  "Article 61 creates the right to a plain-language explanation of any automated decision affecting your life. 'Black box' AI decision-making violates this article.",
-  "Article 62 makes algorithmic discrimination illegal regardless of intent. Facial recognition in law enforcement and predictive policing are explicitly banned.",
-  "Article 101 ensures technical complexity cannot shield violators. Every digital rights violation entitles the victim to an effective remedy.",
-  "The final article establishes SherpaCarta as a living document—rights can only expand, never contract. The most significant procedural innovation in rights document history.",
-];
+/** Hand-tuned blurbs for cornerstone articles (by flat index). Others use body-derived summary. */
+const AI_SUMMARIES={
+  0:"This preamble establishes SherpaCarta's historic context, positioning it as the successor to Magna Carta and UDHR—but uniquely binding on corporations as well as states, acknowledging that digital power now rivals sovereign power.",
+  1:"Article 1 extends human dignity protections into digital spaces, making algorithmic dehumanization legally equivalent to physical assault on personhood.",
+  2:"Article 2 establishes strict equality before digital law, making algorithmic discrimination illegal even when emergent rather than intentional—a major advance over existing frameworks.",
+  3:"Article 3 creates a new right: digital existence. You cannot be permanently erased from digital life without judicial-equivalent due process. This directly challenges platform deplatforming.",
+};
+
+function getArticleByFlatIndex(i){
+  let n=0;
+  for(const ch of (CHARTER||[])){
+    for(const art of (ch.articles||[])){
+      if(n===i)return art;
+      n++;
+    }
+  }
+  return null;
+}
+
+/** Plain-language summary for any article — no network, local-only. */
+function buildArticleSummary(art,idx){
+  if(AI_SUMMARIES[idx])return AI_SUMMARIES[idx];
+  if(!art)return 'This article establishes fundamental digital rights protections under SherpaCarta.';
+  const num=art.num||'';
+  const title=art.title||'';
+  const plain=String(art.body||'')
+    .replace(/<br\s*\/?>/gi,' ')
+    .replace(/<[^>]+>/g,' ')
+    .replace(/\s+/g,' ')
+    .trim();
+  // Prefer first 1–2 sentences
+  const parts=plain.split(/(?<=[.!?])\s+/).filter(Boolean);
+  let lead=parts.slice(0,2).join(' ');
+  if(lead.length>320)lead=lead.slice(0,300).replace(/\s+\S*$/,'')+'…';
+  if(!lead)lead=plain.slice(0,280)+(plain.length>280?'…':'');
+  const ext=art.sherpa_ext?` SherpaCarta extension: ${String(art.sherpa_ext).replace(/<[^>]+>/g,'').slice(0,120)}`:'';
+  return `${num} — ${title}. ${lead}${ext}`;
+}
 
 function buildArticlesBrowser(){
   const sidebar=document.getElementById('articles-sidebar');
@@ -1823,23 +1845,41 @@ function buildArticlesBrowser(){
   });
   // Jump helpers for deep-links / resume
   window.jumpToArticle=function(numOrIdx){
-    const key=String(numOrIdx||'').replace(/^Art\.?\s*/i,'').trim();
+    const raw=String(numOrIdx||'').trim();
+    // Flat index
+    if(/^\d+$/.test(raw)&&+raw<totalArts){
+      const tab=sidebar.querySelector(`.article-tab[data-art-idx="${raw}"]`);
+      if(tab){tab.click();return true;}
+    }
+    // Preamble
+    if(/^p\.?1$/i.test(raw)||/^preamble$/i.test(raw)){
+      const tab=sidebar.querySelector('.article-tab[data-art-num="P.1"]');
+      if(tab){tab.click();return true;}
+    }
+    const key=raw.replace(/^Art\.?\s*/i,'').trim();
     let tab=sidebar.querySelector(`.article-tab[data-art-num="Art. ${key}"]`)
       ||sidebar.querySelector(`.article-tab[data-art-num="${key}"]`)
-      ||sidebar.querySelector(`.article-tab[data-art-idx="${key}"]`);
-    if(!tab&&/^\d+$/.test(key)){
-      // Art number → find by data-art-num Art. N
-      tab=sidebar.querySelector(`.article-tab[data-art-num="Art. ${key}"]`);
-    }
+      ||sidebar.querySelector(`.article-tab[data-art-num="P.${key}"]`);
     if(tab){tab.click();return true;}
     return false;
   };
-  // If hash or last article is Art. 114 (or any), open it without blanking below
-  try{
-    const hash=(location.hash||'').replace(/^#/,'');
-    const m=hash.match(/^art-?(\d+)$/i)||hash.match(/^articles?$/i);
-    if(m&&m[1])window.jumpToArticle(m[1]);
-  }catch(_){}
+  function openFromHash(){
+    try{
+      const hash=(location.hash||'').replace(/^#/,'').trim();
+      if(!hash)return;
+      // #art-114 | #art114 | #articles/114 | #article-11
+      let m=hash.match(/^art(?:icle)?s?[\/\-]?(\d+)$/i)
+        ||hash.match(/^art(?:icle)?[\/\-]?(\d+)$/i)
+        ||hash.match(/^articles?$/i);
+      if(m&&m[1])window.jumpToArticle(m[1]);
+      else if(/^articles?$/i.test(hash)){
+        document.getElementById('articles')?.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+      else if(/^p\.?1$/i.test(hash)||/^preamble$/i.test(hash))window.jumpToArticle('P.1');
+    }catch(_){}
+  }
+  openFromHash();
+  window.addEventListener('hashchange',openFromHash);
   // Expose count for diagnostics
   window.SC_ARTICLES_COUNT=totalArts;
 }
@@ -1867,20 +1907,10 @@ function aiSummarize(i){
   spin.classList.add('visible');res.classList.remove('visible');
   setTimeout(()=>{
     spin.classList.remove('visible');
-    // Map sparse AI_SUMMARIES: prefer exact index, then final-article copy for last panel
-    let text=AI_SUMMARIES[i];
-    if(!text){
-      const panel=document.getElementById('art-'+i);
-      const label=panel?.getAttribute('aria-label')||'';
-      if(/Art\.?\s*114/i.test(label)||/Living Charter/i.test(label)){
-        text=AI_SUMMARIES[AI_SUMMARIES.length-1];
-      }else{
-        text='This article establishes fundamental digital rights protections that extend existing legal frameworks under SherpaCarta.';
-      }
-    }
-    res.textContent=text;
+    const art=getArticleByFlatIndex(i);
+    res.textContent=buildArticleSummary(art,i);
     res.classList.add('visible');
-  },1100);
+  },400);
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -1972,7 +2002,14 @@ function buildLanguages(){
 function selectLang(btn,lang){
   document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  toast(`Charter translation in ${lang} — loading community version`,'info');
+  // Honest: only EN is full; FR has briefing; others are roadmap chips
+  if(lang==='English'){
+    toast('English — full charter on this site','success');
+  }else if(lang==='Français'||lang==='French'){
+    toast('French: briefing available at /briefing-fr.html — full 114-article locale pending','info');
+  }else{
+    toast(`${lang}: marked as community interest / future work — not a complete certified translation`,'info');
+  }
 }
 
 // ═══════════════════════════════════════════════════════════
@@ -2221,6 +2258,40 @@ async function nostrConnect(){
     toast('Connected via Nostr — your keys never touch our servers','success');
   }catch(e){toast('Nostr connection declined','error');}
 }
+
+/** Probe CSP-allowlisted relays; show N/M reachable (no tracking). */
+async function checkNostrRelays(){
+  const relays=(window.SCNostr&&window.SCNostr.getRelays)
+    ?window.SCNostr.getRelays()
+    :(window.NOSTR_RELAYS||[]);
+  if(!relays.length){toast('No relays configured','error');return;}
+  toast(`Checking ${relays.length} relays…`,'info');
+  let ok=0;
+  const health=window.SCNostr&&window.SCNostr.relayHealth
+    ?window.SCNostr.relayHealth.bind(window.SCNostr)
+    :null;
+  if(!health){
+    // Minimal fallback
+    for(const r of relays){
+      try{
+        await new Promise((resolve)=>{
+          const ws=new WebSocket(r);
+          const t=setTimeout(()=>{try{ws.close();}catch(_){} resolve(false);},2000);
+          ws.onopen=()=>{clearTimeout(t);try{ws.close();}catch(_){} resolve(true);};
+          ws.onerror=()=>{clearTimeout(t);resolve(false);};
+        }).then(v=>{if(v)ok++;});
+      }catch(_){}
+    }
+  }else{
+    const results=await Promise.all(relays.map(r=>health(r)));
+    ok=results.filter(Boolean).length;
+  }
+  const el=document.getElementById('nostr-relay-health');
+  if(el)el.textContent=`Relays ${ok}/${relays.length} OK`;
+  toast(`${ok}/${relays.length} relays reachable`,'success');
+  return {ok,total:relays.length};
+}
+window.checkNostrRelays=checkNostrRelays;
 
 function nostrDisconnect(){
   state.nostrPubkey=null;
@@ -2587,6 +2658,29 @@ function toast(msg,type='info'){
   setTimeout(()=>{el.style.opacity='0';el.style.transform='translateX(20px)';el.style.transition='all .3s';setTimeout(()=>el.remove(),300);},4500);
 }
 
+/** Defer loading ~15MB film until #film is near viewport (LCP-friendly). */
+function initFilmLazyLoad(){
+  const v=document.getElementById('sherpacarta-film-video');
+  if(!v)return;
+  const srcEl=v.querySelector('source[data-src]');
+  const url=srcEl&&srcEl.getAttribute('data-src');
+  if(!url)return;
+  const attach=()=>{
+    if(v.dataset.loaded==='1')return;
+    v.dataset.loaded='1';
+    if(srcEl){srcEl.setAttribute('src',url);srcEl.removeAttribute('data-src');}
+    else v.src=url;
+    try{v.load();}catch(_){}
+  };
+  // If user already scrolled to film or clicks play early
+  v.addEventListener('play',attach,{once:true});
+  if(!('IntersectionObserver' in window)){attach();return;}
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){attach();io.disconnect();}});
+  },{rootMargin:'240px 0px'});
+  io.observe(v);
+}
+
 // ═══════════════════════════════════════════════════════════
 // DOMContentLoaded INIT
 // ═══════════════════════════════════════════════════════════
@@ -2598,6 +2692,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   buildSigners();
   buildLanguages();
   initQuotes();
+  initFilmLazyLoad();
 
   // Show cookie banner if not accepted
   if(!localStorage.getItem('sc_cookie_accepted')){
