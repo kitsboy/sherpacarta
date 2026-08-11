@@ -1,3 +1,23 @@
+## Session — 2026-08-11 (Grok M3 — BUILD 840 film/CSP/Art.114)
+
+**Done:**
+- CSP `frame-src` allows YouTube / youtube-nocookie (HRF companion was blank)
+- Official film 16:9 fit: override global `video{max-height}` → `max-height:none` on `.sc-film-player`
+- Art. 114 / below-fold blank: killed `content-visibility:auto` (bundle + CSS); reveal safety; articles browser scroll reset + jumpToArticle
+- Cache-bust `?v=840` · deployed Cloudflare Pages · commit `a582219`
+
+**Decisions:**
+- Companion embed uses `.sc-film-embed` aspect-ratio box (same as official film)
+- content-visibility permanently disabled for sections — was blanking #film and post-articles
+
+**Git State:**
+- SHA: `a58221937c3aabdb19a04d2305d6f8ed73f8de2c`
+- Unpushed: none
+
+**Open:** Film VO still macOS `say` quality on M3 re-render if THOR final.mp4 not restored; Kokoro venv path exists for better VO later.
+
+---
+
 ## 2026-08-11 — Kimi/THOR: 2-min SherpaCarta film via HyperFrames (DONE ✅)
 
 **Delivered:** `video/sherpacarta-2min/final.mp4` — ~2:00, 16:9, 30fps, 1920×1080. Cinematic constitutional documentary, dark forest + emerald + gold. International-first framing; Canada = "live national offering" (scene 17 only). Full VO from `docs/VIDEO-HERMES-HYPERFRAMES.md`, narrated (Kokoro af_nova @ 0.7× → 120.6s), synced captions (whisper.cpp word-level), overlays (grain/vignette/brand).

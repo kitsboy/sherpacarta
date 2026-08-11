@@ -1,14 +1,16 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ goodbye 2026-07-27 (session end)  
-**Last Updated:** 2026-07-27  
+**Version:** main @ a582219 (BUILD 840)  
+**Last Updated:** 2026-08-11  
 **Domain:** https://sherpacarta.org  
 **productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)
 
 ## Session close summary
-Canada **sign** + **join** upgraded · HQ metrics feed on every sign · Ambient control removed · stamp smoke PASS · CSP `api.satohash.io` · live CF deploys via Actions + wrangler.
+BUILD 840 live: YouTube HRF companion CSP fixed · official 2-min film 16:9 fit · Art. 114 / post-articles blank fixed (content-visibility off). Film on home `#film`. Canada mandate + honest metrics unchanged.
 
 ## Recent Milestones
+- **2026-08-11:** BUILD 840 — CSP YouTube, film max-height fix, content-visibility/reveal safety (`a582219`)
+- **2026-08-11:** Official 2-min film embedded · `public/video/sherpacarta-2min.mp4`
 - **2026-07-27 (close):** Join QR landing polish (`fe374ac`) — federal paper hero, sticky CTA, dual-track language
 - **2026-07-27:** Ambient UI removed + CDN/SW cache-bust (`c3ffc2c`–`dbe6884`)
 - **2026-07-27:** HQ mandate feed — KV activity/daily + richer `metrics.json` + Umami events
