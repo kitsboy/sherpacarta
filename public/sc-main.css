@@ -4138,3 +4138,61 @@ footer .footer-brand{
   .map-legend{grid-template-columns:1fr 1fr}
   .map-legend-note{font-size:.62rem}
 }
+
+/* ═══════════════════════════════════════════════════════════
+   BUILD 820 — International-first home (Canada as offering)
+═══════════════════════════════════════════════════════════ */
+.hero-paths{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:.5rem .75rem;margin:1.15rem auto 0;animation:fade-up .55s .5s both;
+}
+.hero-path-link{
+  font-family:var(--sans);font-size:.88rem;font-weight:700;
+  color:#9ff5d0!important;text-decoration:none;
+  padding:.4rem .85rem;border-radius:100px;
+  border:1px solid #2a6b4f;background:rgba(10,31,22,.85);
+  display:inline-flex;align-items:center;gap:.4rem;
+  transition:border-color .2s,background .2s,color .2s;
+}
+.hero-path-link:hover{border-color:#3de0a8;background:#145c3f;color:#fff!important}
+.hero-path-ca{
+  color:#f5d76a!important;border-color:rgba(245,215,106,.45);
+  background:rgba(20,16,6,.75);
+}
+.hero-path-ca:hover{color:#02140c!important;background:#f5d76a;border-color:#fff3b0}
+.hero-path-sep{color:#5a8f72;font-weight:300}
+/* retire old gold Canada mega-chip if residual */
+#hero .hero-canada-link{display:none!important}
+
+.world-tracks{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:.75rem;
+  margin:1.5rem 0 1.75rem;
+}
+.world-track{
+  display:flex;flex-direction:column;align-items:flex-start;gap:.25rem;
+  padding:1rem 1.1rem;border-radius:1rem;text-decoration:none;
+  background:#0a1f16;border:1px solid #1a3d2e;
+  transition:border-color .2s,transform .2s,box-shadow .2s;
+}
+.world-track:hover{
+  border-color:#3de0a8;transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(0,0,0,.35);
+}
+.world-track.is-live{
+  border-color:rgba(245,215,106,.5);
+  box-shadow:inset 0 0 0 1px rgba(245,215,106,.12);
+}
+.world-track-flag{font-size:1.35rem;line-height:1}
+.world-track-title{font-weight:800;color:#fff;font-size:.95rem}
+.world-track-note{font-size:.72rem;color:#a8c4b4;line-height:1.4}
+.jurisdictions-home .challenge-actions{
+  margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap;
+}
+.jurisdictions-home .canada-lead{max-width:720px}
+@media(max-width:640px){
+  .world-tracks{grid-template-columns:1fr 1fr}
+  .hero-paths{flex-direction:column;gap:.5rem}
+  .hero-path-sep{display:none}
+}

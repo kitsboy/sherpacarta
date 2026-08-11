@@ -100,15 +100,15 @@
 <!-- ═══ FONTS & ICONS — self-hosted (zero third-party tracking) ═ -->
 <link rel="preload" href="/fonts/outfit-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=813">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=813">
+<link rel="stylesheet" href="/fonts/fonts.css?v=820">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=820">
 
-<link rel="stylesheet" href="/sc-main.css?v=813">
-<link rel="preload" href="/sc-core.js?v=813" as="script">
-<link rel="preload" href="/sc-bundle.js?v=813" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=820">
+<link rel="preload" href="/sc-core.js?v=820" as="script">
+<link rel="preload" href="/sc-bundle.js?v=820" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=813"></script>
+<script defer src="/js/sc-analytics.js?v=820"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -178,7 +178,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <!-- Desktop primary links (hidden on mobile — in sheet) -->
     <div class="nav-primary" aria-label="Primary">
       <button type="button" class="nav-link" onclick="openCharterModal()">Charter</button>
-      <a class="nav-link" href="/canada/">Canada</a>
+      <a class="nav-link" href="/jurisdictions">World</a>
       <a class="nav-link" href="/nostr">Discuss</a>
     </div>
 
@@ -199,7 +199,8 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         <span class="sc-build-badge" title="Product build">BUILD 810</span>
       </div>
       <button type="button" class="nav-sheet-link" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> Full Charter</button>
-      <a class="nav-sheet-link" href="/canada/"><i class="fas fa-flag" aria-hidden="true"></i> Canada Petition</a>
+      <a class="nav-sheet-link" href="/jurisdictions"><i class="fas fa-globe" aria-hidden="true"></i> Jurisdictions worldwide</a>
+      <a class="nav-sheet-link" href="/canada/"><i class="fas fa-flag" aria-hidden="true"></i> Canada offering</a>
       <a class="nav-sheet-link" href="/nostr"><i class="fas fa-comments" aria-hidden="true"></i> Live Discuss</a>
       <button type="button" class="nav-sheet-link nav-sheet-sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'})"><i class="fas fa-signature" aria-hidden="true"></i> Sign &amp; Assert Rights</button>
       <div class="nav-sheet-tools">
@@ -260,8 +261,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <button type="button" class="cta-main" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),500)"><i class="fas fa-signature" aria-hidden="true"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
       <button type="button" class="cta-sec" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> <span id="cta-charter-text">Read the Full Charter</span></button>
     </div>
-    <a class="hero-canada-link" href="/canada/sign" id="cta-canada-btn">Canada petition path <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-    <p class="hero-urgency"><strong>30 seconds</strong> · Local-first · CC0 public domain · No account required</p>
+    <p class="hero-paths">
+      <a class="hero-path-link" href="/jurisdictions">Jurisdictions worldwide <i class="fas fa-globe" aria-hidden="true"></i></a>
+      <span class="hero-path-sep" aria-hidden="true">·</span>
+      <a class="hero-path-link hero-path-ca" href="/canada/" id="cta-canada-btn">Canada offering <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    </p>
+    <p class="hero-urgency"><strong>30 seconds</strong> · For every person on Earth · Local-first · CC0 · No account</p>
   </div>
   <div class="scroll-hint" aria-hidden="true">
     <i class="fas fa-chevron-down"></i>
@@ -353,47 +358,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </section>
 
 <!-- ════════════════════════════════════════════════════════
-     CANADA & BC CHALLENGE
-════════════════════════════════════════════════════════ -->
-<section id="canada-bc" class="section" style="background:var(--bg);border-bottom:1px solid var(--border)" aria-labelledby="challenge-heading">
-  <div class="section-max reveal">
-    <div class="section-label"><span>First Jurisdiction</span></div>
-    <h2 class="section-h2" id="challenge-heading">Canada First<br><em class="mission-em">Federal petition · law-change beachhead</em></h2>
-    <p class="canada-lead">SherpaCarta is global — but every movement needs a place to begin. We organize first in <strong>Canada</strong>: strong privacy culture and room to modernize federal law (including PIPEDA) for platforms and AI. British Columbia is often our organizing focus — not a separate federal form. <strong>A signature from any province on the federal paper sheet already counts federally.</strong></p>
-
-    <div class="challenge-banner">
-      <div class="challenge-kicker">🇨🇦 CHALLENGE #1 — CHANGE LAW, THEN CHANGE THE WORLD</div>
-      <p class="challenge-lead">Campaign digitally, collect a <strong>single federal Commons paper petition</strong> (all provinces), and prepare an official e-petition when an MP authorizes it. Use the charter as model language for digital privacy and algorithmic accountability — with honesty about what counts in Parliament.</p>
-      <div class="challenge-steps">
-        <div class="challenge-step"><div class="challenge-step-num">01</div><h3>Sign campaign</h3><p>Privacy-first digital commitment — any Canadian citizen or resident.</p></div>
-        <div class="challenge-step"><div class="challenge-step-num">02</div><h3>Federal paper</h3><p>One sheet for all of Canada. City + province. Original ink. MP presents.</p></div>
-        <div class="challenge-step"><div class="challenge-step-num">03</div><h3>Brief decision-makers</h3><p>Print the 2-page executive briefing for MPs and staff.</p></div>
-        <div class="challenge-step"><div class="challenge-step-num">04</div><h3>Official path</h3><p>When an MP authorizes, the e-petition goes live on Parliament’s site.</p></div>
-      </div>
-      <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap">
-        <a href="/canada/sign" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-signature"></i> Sign Canada Campaign</a>
-        <a href="/briefing.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file-pdf"></i> MP Briefing</a>
-        <a href="/leave-behind.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file"></i> 1-page leave-behind</a>
-        <a href="/canada/paper" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-print"></i> Federal paper</a>
-        <a href="/canada/" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-flag"></i> Canada hub</a>
-        <a href="/jurisdictions" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-globe"></i> UK &amp; EU path</a>
-      </div>
-      <p class="challenge-foot">
-        <strong>Global structure:</strong> Canada is the live beachhead.
-        United Kingdom and European Union are next — each with its own legal path, not copy-pasted forms.
-        <a href="/jurisdictions">See the jurisdictions map →</a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════════════════════════
-     PILLARS
+     PILLARS — international foundation first
 ════════════════════════════════════════════════════════ -->
 <section id="pillars" class="section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="pillars-heading">
   <div class="section-max">
     <div class="section-label"><span>The Foundation</span></div>
-    <h2 class="section-h2 reveal" id="pillars-heading">Four Core Pillars<br><em style="font-weight:300;font-size:.82em;color:var(--text2)">of Digital Human Rights</em></h2>
+    <h2 class="section-h2 reveal" id="pillars-heading">Four Core Pillars<br><em class="mission-em">of Digital Human Rights — for every nation</em></h2>
     <div class="pillars-grid reveal">
       <div class="pillar">
         <div class="pillar-num">01</div>
@@ -419,6 +389,64 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         <h3>Data Sovereignty</h3>
         <p>Citizens own their data. Personal data generated by any individual belongs solely to that individual. The right to delete, transfer, audit, and monetize one's own data is inviolable.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     JURISDICTIONS — global first; Canada is a live offering
+════════════════════════════════════════════════════════ -->
+<section id="canada-bc" class="section jurisdictions-home" style="background:var(--bg);border-bottom:1px solid var(--border)" aria-labelledby="challenge-heading">
+  <div class="section-max reveal">
+    <div class="section-label"><span>Worldwide · Jurisdictions</span></div>
+    <h2 class="section-h2" id="challenge-heading">One charter.<br>Many legal paths.<br><em class="mission-em">Canada is live today — UK, EU, and more are next</em></h2>
+    <p class="canada-lead">SherpaCarta is <strong>international by design</strong>: 114 articles for every person on Earth. Law still moves jurisdiction by jurisdiction. We publish a shared charter, then local campaigns that respect each country’s rules — not a one-size-fits-all petition.</p>
+
+    <div class="world-tracks" aria-label="Jurisdiction tracks">
+      <a class="world-track" href="/jurisdictions">
+        <span class="world-track-flag" aria-hidden="true">🌍</span>
+        <span class="world-track-title">Global map</span>
+        <span class="world-track-note">CA · UK · EU paths overview</span>
+      </a>
+      <a class="world-track is-live" href="/canada/">
+        <span class="world-track-flag" aria-hidden="true">🇨🇦</span>
+        <span class="world-track-title">Canada</span>
+        <span class="world-track-note">Live offering · petition track</span>
+      </a>
+      <a class="world-track" href="/jurisdictions">
+        <span class="world-track-flag" aria-hidden="true">🇬🇧</span>
+        <span class="world-track-title">United Kingdom</span>
+        <span class="world-track-note">Next · own legal path</span>
+      </a>
+      <a class="world-track" href="/jurisdictions">
+        <span class="world-track-flag" aria-hidden="true">🇪🇺</span>
+        <span class="world-track-title">European Union</span>
+        <span class="world-track-note">Next · own legal path</span>
+      </a>
+    </div>
+
+    <div class="challenge-banner" id="canada-offering">
+      <div class="challenge-kicker">🇨🇦 CANADA OFFERING — LIVE TRACK</div>
+      <p class="challenge-lead">For people in Canada (and supporters of Canadian law reform): campaign digitally, collect a <strong>single federal Commons paper petition</strong> (all provinces), and prepare an official e-petition when an MP authorizes it. British Columbia is often an organizing focus — not a separate federal form. <strong>A signature from any province on the federal paper sheet already counts federally.</strong> Use the charter as model language for privacy and algorithmic accountability — with honesty about what counts in Parliament.</p>
+      <div class="challenge-steps">
+        <div class="challenge-step"><div class="challenge-step-num">01</div><h3>Sign campaign</h3><p>Privacy-first digital commitment — any Canadian citizen or resident.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">02</div><h3>Federal paper</h3><p>One sheet for all of Canada. City + province. Original ink. MP presents.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">03</div><h3>Brief decision-makers</h3><p>Print the 2-page executive briefing for MPs and staff.</p></div>
+        <div class="challenge-step"><div class="challenge-step-num">04</div><h3>Official path</h3><p>When an MP authorizes, the e-petition goes live on Parliament’s site.</p></div>
+      </div>
+      <div class="challenge-actions">
+        <a href="/canada/sign" class="btn btn-primary" style="text-decoration:none"><i class="fas fa-signature"></i> Sign Canada campaign</a>
+        <a href="/canada/" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-flag"></i> Canada hub</a>
+        <a href="/briefing.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file-pdf"></i> MP Briefing</a>
+        <a href="/leave-behind.html" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-file"></i> 1-page leave-behind</a>
+        <a href="/canada/paper" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-print"></i> Federal paper</a>
+        <a href="/jurisdictions" class="btn btn-ghost" style="text-decoration:none"><i class="fas fa-globe"></i> All jurisdictions</a>
+      </div>
+      <p class="challenge-foot">
+        <strong>International first:</strong> the charter is global. Canada is one live national offering.
+        UK and EU follow with their own processes — not copy-pasted forms.
+        <a href="/jurisdictions">See the jurisdictions map →</a>
+      </p>
     </div>
   </div>
 </section>
@@ -785,7 +813,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   <div class="section-max">
     <div class="section-label"><span>Global Reach</span></div>
     <h2 class="section-h2 reveal" id="map-heading">Adoption Heatmap</h2>
-    <p class="map-honest reveal">Demo preview — illustrative seeds for design &amp; layout. Not live global signup counts. Real local signatures stay on-device; Canada campaign stats are separate and honest.</p>
+    <p class="map-honest reveal">Demo preview — illustrative seeds for a <strong>worldwide</strong> movement. Not live global signup counts. Local signatures stay on-device; each national campaign (including Canada) keeps its own honest stats.</p>
     <div class="map-container reveal" aria-label="Illustrative demo world map of early organizing interest">
       <canvas id="map-canvas" width="900" height="360" aria-hidden="true"></canvas>
       <div class="map-label">
@@ -889,7 +917,8 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         <a href="#sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'});return false">Sign the Charter</a>
         <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Volunteer">Volunteer</a>
         <a href="#orgs" onclick="document.getElementById('orgs')?.scrollIntoView({behavior:'smooth'});return false">Organizations</a>
-        <a href="/canada/">Canada Petition</a>
+        <a href="/jurisdictions">Jurisdictions</a>
+        <a href="/canada/">Canada offering</a>
         <a href="https://github.com/kitsboy/sherpacarta" target="_blank" rel="noopener">GitHub</a>
       </div>
       <div class="footer-col">
@@ -1044,12 +1073,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=813" defer></script>
-<script src="/js/sc-a11y.js?v=813" defer></script>
-<script src="/js/sc-petition-canada.js?v=813" defer></script>
-<script src="/js/sc-press-outlets.js?v=813" defer></script>
-<script src="/sc-core.js?v=813" defer></script>
-<script src="/sc-bundle.js?v=813" defer></script>
+<script src="/js/sc-share.js?v=820" defer></script>
+<script src="/js/sc-a11y.js?v=820" defer></script>
+<script src="/js/sc-petition-canada.js?v=820" defer></script>
+<script src="/js/sc-press-outlets.js?v=820" defer></script>
+<script src="/sc-core.js?v=820" defer></script>
+<script src="/sc-bundle.js?v=820" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

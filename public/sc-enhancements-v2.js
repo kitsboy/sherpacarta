@@ -532,8 +532,8 @@
     const sections = [
       { id: 'hero', label: 'Hero' },
       { id: 'mission', label: 'Mission' },
-      { id: 'canada-bc', label: 'Canada' },
       { id: 'pillars', label: 'Pillars' },
+      { id: 'canada-bc', label: 'World' },
       { id: 'sign', label: 'Sign' },
       { id: 'faq', label: 'FAQ' },
     ];

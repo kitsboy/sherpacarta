@@ -954,7 +954,7 @@
   });
 
   feat(274, 'Section nav highlight active', () => {
-    const sectionIds = ['hero', 'mission', 'canada-bc', 'pillars', 'sign', 'faq'];
+    const sectionIds = ['hero', 'mission', 'pillars', 'canada-bc', 'sign', 'faq'];
     const dots = () => document.querySelectorAll('.section-dots .dot-link, .section-dots .section-dot');
     const updateActive = () => {
       const marker = window.scrollY + window.innerHeight * 0.33;

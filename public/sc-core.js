@@ -1586,18 +1586,18 @@ document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
 
   // Demo seed regions (normalized x/y on map) — TEMP for design, not metrics
   const DEMO_REGIONS=[
-    {id:'ca',name:'Canada',note:'Beachhead · petition track',cx:.18,cy:.32,r:.055,weight:1,hot:true},
-    {id:'bc',name:'British Columbia',note:'Organizing focus',cx:.12,cy:.36,r:.03,weight:.85,hot:true},
-    {id:'us',name:'United States',note:'Demo interest seed',cx:.22,cy:.42,r:.06,weight:.55},
-    {id:'mx',name:'Mexico / LATAM north',note:'Demo seed',cx:.2,cy:.55,r:.035,weight:.35},
-    {id:'br',name:'Brazil',note:'Demo seed',cx:.32,cy:.68,r:.04,weight:.4},
-    {id:'uk',name:'United Kingdom',note:'Next jurisdiction path',cx:.48,cy:.30,r:.03,weight:.7,hot:true},
-    {id:'eu',name:'EU core',note:'Next jurisdiction path',cx:.52,cy:.36,r:.055,weight:.65,hot:true},
-    {id:'nordic',name:'Nordics',note:'Demo seed',cx:.54,cy:.24,r:.028,weight:.45},
-    {id:'za',name:'Southern Africa',note:'Demo seed',cx:.54,cy:.72,r:.035,weight:.3},
-    {id:'in',name:'India',note:'Demo seed',cx:.68,cy:.48,r:.04,weight:.4},
-    {id:'sea',name:'SE Asia',note:'Demo seed',cx:.76,cy:.55,r:.04,weight:.35},
-    {id:'au',name:'Australia / NZ',note:'Demo seed',cx:.84,cy:.72,r:.035,weight:.4},
+    {id:'eu',name:'European Union',note:'Next legal path · global charter',cx:.52,cy:.36,r:.055,weight:.85,hot:true},
+    {id:'uk',name:'United Kingdom',note:'Next legal path · global charter',cx:.48,cy:.30,r:.03,weight:.8,hot:true},
+    {id:'us',name:'United States',note:'Demo interest seed',cx:.22,cy:.42,r:.06,weight:.6,hot:true},
+    {id:'ca',name:'Canada',note:'Live national offering',cx:.18,cy:.32,r:.05,weight:.75,hot:true},
+    {id:'latam',name:'Latin America',note:'Demo seed',cx:.28,cy:.62,r:.05,weight:.45},
+    {id:'br',name:'Brazil',note:'Demo seed',cx:.34,cy:.70,r:.035,weight:.4},
+    {id:'nordic',name:'Nordics',note:'Demo seed',cx:.54,cy:.24,r:.028,weight:.5},
+    {id:'af',name:'Africa',note:'Demo seed',cx:.54,cy:.58,r:.05,weight:.4},
+    {id:'in',name:'India',note:'Demo seed',cx:.68,cy:.48,r:.045,weight:.55,hot:true},
+    {id:'sea',name:'SE Asia',note:'Demo seed',cx:.76,cy:.55,r:.04,weight:.45},
+    {id:'jp',name:'East Asia',note:'Demo seed',cx:.82,cy:.40,r:.035,weight:.4},
+    {id:'au',name:'Australia / NZ',note:'Demo seed',cx:.84,cy:.72,r:.035,weight:.45},
   ];
 
   // Soft world plate

@@ -301,7 +301,7 @@
     const b = document.createElement('div');
     b.id = 'announce-banner';
     b.className = 'announce-banner';
-    b.innerHTML = `<span class="announce-copy">🇨🇦 <strong>Canada &amp; BC Challenge</strong> — Be first to change digital rights law. <a href="#canada-bc">Join the challenge →</a></span><button type="button" class="announce-dismiss" aria-label="Dismiss" onclick="this.parentElement.remove();localStorage.setItem('sc_banner_dismissed','1')"><i class="fas fa-times" aria-hidden="true"></i></button>`;
+    b.innerHTML = `<span class="announce-copy">🌍 <strong>A global digital rights charter</strong> — 114 articles for every person on Earth. <a href="#mission">Read the mission →</a> · <a href="/jurisdictions">Jurisdictions</a> · <a href="/canada/">Canada path</a></span><button type="button" class="announce-dismiss" aria-label="Dismiss" onclick="this.parentElement.remove();localStorage.setItem('sc_banner_dismissed','1')"><i class="fas fa-times" aria-hidden="true"></i></button>`;
     document.body.insertBefore(b, document.body.firstChild);
   });
 
