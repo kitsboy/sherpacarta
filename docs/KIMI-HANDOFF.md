@@ -1,3 +1,15 @@
+## Session — 2026-08-11 (Grok M3 — Kokoro film VO re-render)
+
+**Done:**
+- Wired `narration_kokoro.wav` (af_nova @ 0.7×, atempo-fit to 120.0s) as `narration.wav`
+- HyperFrames re-render high/30fps → `final.mp4` (14.9 MB · 1920×1080 · AAC)
+- Deployed to `public/video/sherpacarta-2min.mp4` cache-bust `?v=841`
+
+**Git State:**
+- SHA: see latest commit
+
+---
+
 ## Session — 2026-08-11 (Grok M3 — BUILD 840 film/CSP/Art.114)
 
 **Done:**
