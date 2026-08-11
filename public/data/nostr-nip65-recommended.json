@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "updated": "2026-08-11",
+  "description": "Recommended NIP-65 (kind 10002) relay list for sherpa@ and kimi@ identities. Unsigned template — sign with the matching nsec on THOR or via NIP-07. Never commit nsec.",
+  "kind": 10002,
+  "relays": [
+    "wss://relay.damus.io",
+    "wss://nos.lol",
+    "wss://relay.snort.social",
+    "wss://relay.nostr.band"
+  ],
+  "identities": {
+    "sherpa": {
+      "hex": "7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd",
+      "nip05": ["sherpa@sherpacarta.org", "sherpacarta@sherpacarta.org", "_@sherpacarta.org", "sherpa@giveabit.io"]
+    },
+    "kimi": {
+      "hex": "076fbd672795bfba1f905084bbe05dcee4937aa1db995c2f87d616ea0f73f8d4",
+      "nip05": ["kimi@sherpacarta.org", "kimi@giveabit.io"]
+    }
+  },
+  "eventTemplate": {
+    "kind": 10002,
+    "content": "",
+    "tags": [
+      ["r", "wss://relay.damus.io"],
+      ["r", "wss://nos.lol"],
+      ["r", "wss://relay.snort.social"],
+      ["r", "wss://relay.nostr.band"]
+    ]
+  },
+  "howToPublish": [
+    "On site (visitor's own key): connect NIP-07 → optional publishMyNostrRelays()",
+    "For sherpa/kimi product keys: Cam/Kimi only, offline nsec or THOR bot — never in git",
+    "After publish: clients discover write relays via kind 10002 + NIP-05 relays map"
+  ]
+}

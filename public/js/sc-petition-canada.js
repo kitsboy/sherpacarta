@@ -372,13 +372,25 @@
       pubkey: pk,
     };
     const signed = await window.nostr.signEvent(event);
-    const relays = window.NOSTR_RELAYS || ['wss://relay.damus.io', 'wss://nos.lol', 'wss://relay.snort.social'];
-    relays.forEach((relay) => {
-      try {
-        const ws = new WebSocket(relay);
-        ws.onopen = () => { ws.send(JSON.stringify(['EVENT', signed])); setTimeout(() => ws.close(), 1000); };
-      } catch (_) { /* */ }
-    });
+    // Fan-out to all known relays (CSP-allowlisted); optional SCNostr helper
+    if (window.SCNostr && typeof window.SCNostr.publishEvent === 'function') {
+      await window.SCNostr.publishEvent(signed);
+    } else {
+      const relays = (window.SCNostr && window.SCNostr.getRelays)
+        ? window.SCNostr.getRelays()
+        : (window.NOSTR_RELAYS || [
+          'wss://relay.damus.io',
+          'wss://nos.lol',
+          'wss://relay.snort.social',
+          'wss://relay.nostr.band',
+        ]);
+      relays.forEach((relay) => {
+        try {
+          const ws = new WebSocket(relay);
+          ws.onopen = () => { ws.send(JSON.stringify(['EVENT', signed])); setTimeout(() => ws.close(), 1000); };
+        } catch (_) { /* */ }
+      });
+    }
 
     const receiptHash = await sha256(`nostr|${pk}|${petitionHash}|${prov.province || ''}`);
     const store = initStore();

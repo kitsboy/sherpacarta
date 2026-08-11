@@ -11,6 +11,7 @@
 Home is international-first with official **2-min film** on `#film` (Kokoro VO, not macOS say). HRF YouTube companion embeds via CSP. Art. 114 / below-fold blank fixed (content-visibility off + reveal safety). Canada dual-track + honest metrics unchanged.
 
 ## Recent Milestones
+- **2026-08-11:** Nostr NIP-05 on sherpacarta.org (kimi+sherpa) · sc-nostr-lib · NIP-65 helpers · `docs/NOSTR.md`
 - **2026-08-11 (close):** Kokoro `af_nova` film re-render live · `public/video/sherpacarta-2min.mp4?v=841` (`47d0e32`)
 - **2026-08-11:** BUILD 840 — CSP YouTube, 16:9 film fit, Art. 114 below-fold blank (`a582219`)
 - **2026-08-11:** Official 2-min HyperFrames film embedded on home (`cd7f16f`)

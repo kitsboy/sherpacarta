@@ -1,3 +1,19 @@
+## Session — 2026-08-11 (Grok M3 — Nostr NIP-05 + relays + NIP-65)
+
+**Done:**
+- Fixed `/.well-known/nostr.json` (was HTML homepage) — static NIP-05 with kimi + sherpa + `_` + sherpacarta (exact giveabit hex keys)
+- Primary `_` / sherpacarta → **sherpa** product key (not kimi)
+- Shared `public/js/sc-nostr-lib.js` — multi-relay fan-out, NIP-65 fetch/publish helpers
+- Relays unified (4 CSP relays) across sc-core, wall, petition, config
+- Docs: `docs/NOSTR.md` · GOAL-SHERPA-NOSTR-BUZZ updated · nip65 recommended JSON for ops
+- Deployed Cloudflare Pages
+
+**Do not regress:** NIP-05 Content-Type JSON; never put nsec in repo; keep 4 relays in CSP
+
+**Git State:** (see tip after commit)
+
+---
+
 ## Session — 2026-08-11 (Grok M3 — GOODBYE / full close)
 
 **Done:**

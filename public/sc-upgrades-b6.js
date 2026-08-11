@@ -16,8 +16,11 @@
   }
 
   function getRelays() {
+    if (window.SCNostr && typeof window.SCNostr.getRelays === 'function') {
+      return window.SCNostr.getRelays();
+    }
     const custom = JSON.parse(localStorage.getItem('sc_nostr_relays_extra') || '[]');
-    const primary = localStorage.getItem('sc_nostr_relay');
+    const primary = localStorage.getItem('sc_preferred_relay') || localStorage.getItem('sc_nostr_relay');
     const base = [...(window.NOSTR_RELAYS || [])];
     if (primary && !base.includes(primary)) base.unshift(primary);
     return [...new Set([...base, ...custom])];
@@ -32,7 +35,7 @@
     return s;
   }
 
-  // 528 — Relay failover publish
+  // 528 — Multi-relay fan-out publish (all relays; success if ≥1 OK)
   feat(528, 'Relay failover publish', () => {
     const orig = window.publishToNostr;
     window.publishToNostr = async function (content, tags = []) {
@@ -46,8 +49,17 @@
       };
       try {
         const signed = await window.nostr.signEvent(event);
+        if (window.SCNostr && typeof window.SCNostr.publishEvent === 'function') {
+          const res = await window.SCNostr.publishEvent(signed, { relays: getRelays() });
+          if (!res.ok) toast('All relays failed — saved locally only', 'error');
+          else if (res.successCount < res.total) {
+            toast(`Published to ${res.successCount}/${res.total} relays`, 'info');
+          }
+          return res.ok;
+        }
+        // Fallback: sequential try-all
         const relays = getRelays();
-        let ok = false;
+        let ok = 0;
         for (const relay of relays) {
           try {
             await new Promise((resolve, reject) => {
@@ -60,12 +72,11 @@
               };
               ws.onerror = () => { clearTimeout(t); reject(new Error('ws')); };
             });
-            ok = true;
-            break;
-          } catch (_) { /* try next relay */ }
+            ok++;
+          } catch (_) { /* try next */ }
         }
         if (!ok) toast('All relays failed — saved locally only', 'error');
-        return ok;
+        return ok > 0;
       } catch (e) {
         return false;
       }
@@ -370,7 +381,7 @@
   feat(540, 'NIP-05 verification hint', () => {
     const panel = document.querySelector('.nostr-panel p');
     if (panel) {
-      panel.innerHTML += ' Official NIP-05: <code style="color:var(--em)">sherpa@giveabit.io</code> — <button type="button" class="btn btn-ghost" style="font-size:.6rem;padding:.1rem .3rem" onclick="copyNostrNip()">copy</button>';
+      panel.innerHTML += ' Official NIP-05: <code style="color:var(--em)">sherpa@sherpacarta.org</code> (also kimi@) — <button type="button" class="btn btn-ghost" style="font-size:.6rem;padding:.1rem .3rem" onclick="copyNostrNip()">copy</button> · <button type="button" class="btn btn-ghost" style="font-size:.6rem;padding:.1rem .3rem" onclick="publishMyNostrRelays&&publishMyNostrRelays()" title="Publish your NIP-65 relay list">NIP-65</button>';
     }
   });
 

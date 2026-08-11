@@ -23,7 +23,7 @@
     "hqWalletId": "sherpacarta",
     "minSendableSats": 1000,
     "maxSendableSats": 100000000,
-    "note": "Public LNURL-pay live (Kimi handback 2026-07-28). Prefer lud16 or lnurl on this site. Invoice keys stay in HQ Vault only — never in git. Alternate lud16 sherpa@thor.giveabit.io needs DNS. Node still isolated (0 channels) until peers/capital — discovery works; large inbound may fail until channels open."
+    "note": "Public LNURL-pay live (Kimi handback 2026-07-28). Prefer lud16 or lnurl on this site. Invoice keys stay in HQ Vault only \u2014 never in git. Alternate lud16 sherpa@thor.giveabit.io needs DNS. Node still isolated (0 channels) until peers/capital \u2014 discovery works; large inbound may fail until channels open."
   },
   "silentPayments": {
     "status": "planned",
@@ -32,7 +32,7 @@
   },
   "nostr": {
     "productGuide": {
-      "nip05": "sherpa@giveabit.io",
+      "nip05": "sherpa@sherpacarta.org",
       "nip05Status": "live",
       "nip05PublishedAt": "2026-07-27",
       "npub": "npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57",
@@ -42,8 +42,8 @@
     },
     "suiteOps": {
       "nip05": "kimi@giveabit.io",
-      "nip05Url": "https://giveabit.io/.well-known/nostr.json?name=kimi",
-      "note": "Suite orchestrator — not the product support bot."
+      "nip05Url": "https://sherpacarta.org/.well-known/nostr.json?name=sherpa",
+      "note": "Suite orchestrator \u2014 not the product support bot."
     },
     "nip05Host": "giveabit.io",
     "note": "NIP-05 on giveabit.io parent. Product guide is sherpa@. Browser NIP-07 sign-in remains client-side only. nsec never in this repo."
@@ -61,7 +61,6 @@
     "statusPage": "/status",
     "metricsUrl": "/metrics.json",
     "github": "https://github.com/kitsboy/sherpacarta",
-    "audit": "Not an audited financial statement — on-chain proof anyone can verify."
+    "audit": "Not an audited financial statement \u2014 on-chain proof anyone can verify."
   }
 }
-

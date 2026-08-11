@@ -10,7 +10,7 @@
 <meta property="og:locale" content="en_CA">
 <meta property="og:url" content="https://sherpacarta.org/nostr">
 <meta property="og:title" content="Public discussion — Nostr + X #Sherpacarta">
-<meta property="og:description" content="Live walls on Nostr and X. Follow @give_bit · sherpa@giveabit.io · #Sherpacarta. Digital rights in the public square.">
+<meta property="og:description" content="Live walls on Nostr and X. Follow @give_bit · sherpa@sherpacarta.org · #Sherpacarta. Digital rights in the public square.">
 <meta property="og:image" content="https://sherpacarta.org/og/discuss.jpg">
 <meta property="og:image:secure_url" content="https://sherpacarta.org/og/discuss.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -22,11 +22,11 @@
 <meta name="twitter:creator" content="@give_bit">
 <meta name="twitter:url" content="https://sherpacarta.org/nostr">
 <meta name="twitter:title" content="Public discussion — Nostr + X #Sherpacarta">
-<meta name="twitter:description" content="Live walls on Nostr and X. Follow @give_bit · sherpa@giveabit.io · #Sherpacarta. Digital rights in the public square.">
+<meta name="twitter:description" content="Live walls on Nostr and X. Follow @give_bit · sherpa@sherpacarta.org · #Sherpacarta. Digital rights in the public square.">
 <meta name="twitter:image" content="https://sherpacarta.org/og/discuss.jpg">
 <meta name="twitter:image:src" content="https://sherpacarta.org/og/discuss.jpg">
 <meta name="twitter:image:alt" content="Public discussion — Nostr + X #Sherpacarta">
-<meta name="description" content="Live walls on Nostr and X. Follow @give_bit · sherpa@giveabit.io · #Sherpacarta. Digital rights in the public square.">
+<meta name="description" content="Live walls on Nostr and X. Follow @give_bit · sherpa@sherpacarta.org · #Sherpacarta. Digital rights in the public square.">
 <link rel="image_src" href="https://sherpacarta.org/og/discuss.jpg">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
 <!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
@@ -289,7 +289,8 @@ body.nw-page{
 </style>
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
 <script defer src="/js/sc-analytics.js?v=741"></script>
-<script defer src="/js/sc-nostr-wall.js?v=741"></script>
+<script defer src="/js/sc-nostr-lib.js?v=850"></script>
+<script defer src="/js/sc-nostr-wall.js?v=850"></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <body class="nw-page">
@@ -310,7 +311,7 @@ body.nw-page{
 </p>
 
 <div class="nw-actions" style="margin-top:1.25rem">
-  <button type="button" class="btn btn-primary" id="btn-copy-nip"><i class="fas fa-copy"></i> Copy sherpa@giveabit.io</button>
+  <button type="button" class="btn btn-primary" id="btn-copy-nip"><i class="fas fa-copy"></i> Copy sherpa@sherpacarta.org</button>
   <a class="btn" href="https://x.com/intent/tweet?text=Supporting%20digital%20rights%20%23Sherpacarta%20https%3A%2F%2Fsherpacarta.org" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Post #Sherpacarta</a>
   <a class="btn" href="https://x.com/give_bit" target="_blank" rel="noopener"><i class="fas fa-user"></i> @give_bit</a>
   <a class="btn" href="#live-wall"><i class="fas fa-radio"></i> Jump to live walls</a>
@@ -392,7 +393,7 @@ body.nw-page{
   <div class="nw-grid-2">
     <div class="nw-card">
       <h3><i class="fas fa-1"></i> Keys, not accounts</h3>
-      <p>You create a keypair. Public key = your address (<code style="color:var(--em2)">npub…</code>). Private key signs notes — never share it. Optional NIP-05 like <strong>sherpa@giveabit.io</strong> makes it human-readable.</p>
+      <p>You create a keypair. Public key = your address (<code style="color:var(--em2)">npub…</code>). Private key signs notes — never share it. Optional NIP-05 like <strong>sherpa@sherpacarta.org</strong> makes it human-readable.</p>
     </div>
     <div class="nw-card">
       <h3><i class="fas fa-2"></i> Relays, not silos</h3>
@@ -427,7 +428,7 @@ body.nw-page{
     <div class="nw-stat">
       <div class="n" style="font-size:1.5rem">NIP-05</div>
       <div class="l">Human names</div>
-      <div class="s">Maps <code style="color:var(--em2)">sherpa@giveabit.io</code> → public key via HTTPS. Verifiable. No central identity company.</div>
+      <div class="s">Maps <code style="color:var(--em2)">sherpa@sherpacarta.org</code> → public key via HTTPS. Verifiable. No central identity company.</div>
     </div>
     <div class="nw-stat">
       <div class="n" style="font-size:1.5rem">zaps</div>
@@ -443,12 +444,12 @@ body.nw-page{
     <strong style="color:var(--text);font-size:1rem">Join the SherpaCarta conversation</strong>
     <ol>
       <li>Install a Nostr client (Primal, Damus, Amethyst…).</li>
-      <li>Follow or message <code>sherpa@giveabit.io</code> — <strong>NIP-05 is live</strong>.</li>
+      <li>Follow or message <code>sherpa@sherpacarta.org</code> (alias <code>sherpa@giveabit.io</code>) — <strong>NIP-05 is live</strong> on this domain.</li>
       <li>Post with <code>#sherpacarta</code> — notes appear on the live wall below (public kind-1 only).</li>
       <li>Optional: use NIP-07 (browser extension) on the main site to sign the charter with your Nostr identity.</li>
     </ol>
     <div class="nw-actions">
-      <button type="button" class="btn btn-primary" id="btn-copy-nip-2"><i class="fas fa-copy"></i> Copy sherpa@giveabit.io</button>
+      <button type="button" class="btn btn-primary" id="btn-copy-nip-2"><i class="fas fa-copy"></i> Copy sherpa@sherpacarta.org</button>
       <a class="btn" href="/"><i class="fas fa-signature"></i> Sign the charter</a>
       <a class="btn" href="/canada/"><i class="fas fa-flag"></i> Canada campaign</a>
     </div>
@@ -476,7 +477,7 @@ body.nw-page{
       <div class="nw-panel-head">
         <h3><i class="fas fa-bolt"></i> Nostr</h3>
         <span class="live" style="font-size:.52rem">relays · open</span>
-        <div class="sub">#sherpacarta · sherpa@giveabit.io · public notes only</div>
+        <div class="sub">#sherpacarta · sherpa@sherpacarta.org · public notes only</div>
       </div>
       <section id="sc-nostr-wall" data-sc-nostr-wall aria-label="Live Nostr notes">
         <div data-nw-status>Connecting to relays…</div>
@@ -525,14 +526,14 @@ body.nw-page{
 
 <p class="note">
   Public feeds only · privacy-first analytics · keys stay on your device.
-  Nostr guide: <code>sherpa@giveabit.io</code> · X: <code>@give_bit</code> · <code>#Sherpacarta</code>.
+  Nostr guide: <code>sherpa@sherpacarta.org</code> · X: <code>@give_bit</code> · <code>#Sherpacarta</code>.
   The X panel is powered by X’s embed (their terms apply).
 </p>
 
 <script>
 (function () {
   var npub = 'npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57';
-  var nip = 'sherpa@giveabit.io';
+  var nip = 'sherpa@sherpacarta.org';
 
   function toastStatus(ok) {
     var s = document.querySelector('[data-nw-status]');

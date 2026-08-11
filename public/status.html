@@ -79,7 +79,7 @@
     <div id="fund-rows"></div>
   </div>
 
-  <p class="meta">Checked at <span id="ts">—</span>. Refresh to re-run. Lightning and Silent Payments stay <strong>pending</strong> until Cam configures live wallets. NIP-05 lives on <strong>giveabit.io</strong> (parent domain).</p>
+  <p class="meta">Checked at <span id="ts">—</span>. Refresh to re-run. Lightning and Silent Payments stay <strong>pending</strong> until Cam configures live wallets. NIP-05: <strong>sherpacarta.org</strong> (product) + <strong>giveabit.io</strong> (parent).</p>
 
 <script>
 const checks = {
@@ -102,7 +102,8 @@ const checks = {
     { id: 'wallets', label: 'Wallets registry', url: '/data/wallets.json', expect: 'json' },
     { id: 'treasury', label: 'Treasury page', url: '/treasury', expect: 'html' },
     { id: 'jdx', label: 'Jurisdictions map', url: '/data/jurisdictions.json', expect: 'json' },
-    { id: 'nip05', label: 'NIP-05 (giveabit.io)', url: 'https://giveabit.io/.well-known/nostr.json?name=kimi', expect: 'json', external: true },
+    { id: 'nip05', label: 'NIP-05 sherpacarta.org', url: '/.well-known/nostr.json', expect: 'json' },
+    { id: 'nip05g', label: 'NIP-05 giveabit.io (parent)', url: 'https://giveabit.io/.well-known/nostr.json?name=sherpa', expect: 'json', external: true },
     { id: 'mempool', label: 'On-chain explorer API', url: null, expect: 'mempool', external: true },
   ],
 };
@@ -139,7 +140,10 @@ async function probe(c) {
       }
       if (c.id === 'nip05') {
         const names = j.names || {};
-        return names.kimi ? { state: 'ok', detail: `OK · kimi mapped · ${ms}ms` } : { state: 'warn', detail: 'JSON ok, kimi missing' };
+        const ok = names.kimi && names.sherpa && names._;
+        return ok
+          ? { state: 'ok', detail: `OK · kimi+sherpa+_ · ${ms}ms` }
+          : { state: 'warn', detail: 'JSON ok, names incomplete' };
       }
       return { state: 'ok', detail: `OK · ${ms}ms` };
     }

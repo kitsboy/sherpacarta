@@ -1,0 +1,22 @@
+{
+  "names": {
+    "_": "7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd",
+    "sherpacarta": "7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd",
+    "sherpa": "7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd",
+    "kimi": "076fbd672795bfba1f905084bbe05dcee4937aa1db995c2f87d616ea0f73f8d4"
+  },
+  "relays": {
+    "7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd": [
+      "wss://relay.damus.io",
+      "wss://nos.lol",
+      "wss://relay.snort.social",
+      "wss://relay.nostr.band"
+    ],
+    "076fbd672795bfba1f905084bbe05dcee4937aa1db995c2f87d616ea0f73f8d4": [
+      "wss://relay.damus.io",
+      "wss://nos.lol",
+      "wss://relay.snort.social",
+      "wss://relay.nostr.band"
+    ]
+  }
+}

@@ -122,19 +122,37 @@ window.satohashStampHash = async function satohashStampHash(hash, filenameOrOpts
         : 'Submitted — pending confirmation (not yet Bitcoin-confirmed)',
   };
 };
-const NOSTR_RELAYS = ['wss://relay.damus.io','wss://nos.lol','wss://relay.snort.social'];
+/** Canonical public relays — keep in sync with CSP connect-src + /.well-known/nostr.json */
+const NOSTR_RELAYS = [
+  'wss://relay.damus.io',
+  'wss://nos.lol',
+  'wss://relay.snort.social',
+  'wss://relay.nostr.band',
+];
 // Bundle upgrades read window.NOSTR_RELAYS (relay picker, feed aggregator) —
 // without this they get an empty list and try new WebSocket('') → wss://<site>/
 window.NOSTR_RELAYS = NOSTR_RELAYS;
 const CONTACT_EMAIL = 'hello@giveabit.io';
 const CONTACT_SUBJECT = 'Sherpacarta';
-/** Product guide (public). Suite ops remains kimi@giveabit.io on parent brand pages. */
-const NOSTR_NIP05 = 'sherpa@giveabit.io';
-const NOSTR_NIP05_OPS = 'kimi@giveabit.io';
+/**
+ * Product guide NIP-05 — prefer sherpacarta.org (local NIP-05 live).
+ * giveabit.io aliases remain valid (parent brand).
+ * Ops: kimi@ — same hex as giveabit.
+ */
+const NOSTR_NIP05 = 'sherpa@sherpacarta.org';
+const NOSTR_NIP05_OPS = 'kimi@sherpacarta.org';
+const NOSTR_NIP05_LEGACY = 'sherpa@giveabit.io';
+const NOSTR_NIP05_OPS_LEGACY = 'kimi@giveabit.io';
 const NOSTR_SHERPA_NPUB = 'npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57';
+const NOSTR_SHERPA_HEX = '7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd';
+const NOSTR_KIMI_HEX = '076fbd672795bfba1f905084bbe05dcee4937aa1db995c2f87d616ea0f73f8d4';
 window.NOSTR_NIP05 = NOSTR_NIP05;
 window.NOSTR_NIP05_OPS = NOSTR_NIP05_OPS;
+window.NOSTR_NIP05_LEGACY = NOSTR_NIP05_LEGACY;
+window.NOSTR_NIP05_OPS_LEGACY = NOSTR_NIP05_OPS_LEGACY;
 window.NOSTR_SHERPA_NPUB = NOSTR_SHERPA_NPUB;
+window.NOSTR_SHERPA_HEX = NOSTR_SHERPA_HEX;
+window.NOSTR_KIMI_HEX = NOSTR_KIMI_HEX;
 
 let qrCurrentAddress = '';
 let qrCurrentType = 'btc';
@@ -2143,7 +2161,7 @@ function copyQRAddress(){
 }
 
 function copyNostrNip(){
-  const nip = window.NOSTR_NIP05 || 'sherpa@giveabit.io';
+  const nip = window.NOSTR_NIP05 || 'sherpa@sherpacarta.org';
   navigator.clipboard.writeText(nip).then(()=>toast('Nostr guide copied: ' + nip + ' (NIP-05 live)','success'));
 }
 function copyNostrNpub(){
@@ -2151,7 +2169,7 @@ function copyNostrNpub(){
   navigator.clipboard.writeText(npub).then(()=>toast('Sherpa npub copied — works on any Nostr client','success'));
 }
 function copyNostrOps(){
-  const ops = window.NOSTR_NIP05_OPS || 'kimi@giveabit.io';
+  const ops = window.NOSTR_NIP05_OPS || 'kimi@sherpacarta.org';
   navigator.clipboard.writeText(ops).then(()=>toast('Suite ops NIP-05 copied: ' + ops,'success'));
 }
 window.copyNostrNip = copyNostrNip;
@@ -2216,7 +2234,15 @@ async function publishToNostr(content,tags=[]){
   const event={kind:1,created_at:Math.floor(Date.now()/1000),tags:[['t','sherpacarta'],...tags],content,pubkey:state.nostrPubkey};
   try{
     const signed=await window.nostr.signEvent(event);
-    for(const relay of NOSTR_RELAYS){
+    // Prefer SCNostr fan-out (all relays); fall back to fire-and-forget
+    if(window.SCNostr&&typeof window.SCNostr.publishEvent==='function'){
+      const res=await window.SCNostr.publishEvent(signed);
+      return !!res.ok;
+    }
+    const relays=(window.SCNostr&&window.SCNostr.getRelays)
+      ?window.SCNostr.getRelays()
+      :NOSTR_RELAYS;
+    for(const relay of relays){
       try{
         const ws=new WebSocket(relay);
         ws.onopen=()=>{ws.send(JSON.stringify(['EVENT',signed]));setTimeout(()=>ws.close(),800);};
@@ -2225,6 +2251,23 @@ async function publishToNostr(content,tags=[]){
     return true;
   }catch(e){return false;}
 }
+
+/** Optional: publish caller's NIP-65 (kind 10002) relay list via NIP-07 */
+async function publishMyNostrRelays(){
+  if(!window.SCNostr||typeof window.SCNostr.publishMyNip65!=='function'){
+    toast('Nostr helpers not loaded','error');return false;
+  }
+  try{
+    const res=await window.SCNostr.publishMyNip65();
+    if(res.ok)toast(`Relay list published (NIP-65) · ${res.successCount}/${res.total} relays`,'success');
+    else toast('NIP-65 publish failed — try another relay','error');
+    return res.ok;
+  }catch(e){
+    toast(e&&e.message?e.message:'NIP-65 publish declined','error');
+    return false;
+  }
+}
+window.publishMyNostrRelays=publishMyNostrRelays;
 
 function renderAmendments(){
   const list=document.getElementById('amend-list');
@@ -2348,7 +2391,7 @@ const CMD_ITEMS=[
   {group:'Navigate',icon:'fa-calculator',label:'Rights Calculator',sub:'Check your protection score',action:()=>document.querySelector('.calc-grid').scrollIntoView({behavior:'smooth'})},
   {group:'Navigate',icon:'fa-clock-rotate-left',label:'Timeline',sub:'1215 → 2026',action:()=>document.querySelector('.timeline').scrollIntoView({behavior:'smooth'})},
   {group:'Contact',icon:'fa-envelope',label:'Email Give A Bit',sub:'hello@giveabit.io',action:contactEmail},
-  {group:'Contact',icon:'fa-comments',label:'Copy Nostr guide',sub:'sherpa@giveabit.io',action:copyNostrNip},
+  {group:'Contact',icon:'fa-comments',label:'Copy Nostr guide',sub:'sherpa@sherpacarta.org',action:copyNostrNip},
   {group:'Contact',icon:'fa-key',label:'Copy Sherpa npub',sub:'product guide key',action:copyNostrNpub},
   {group:'Share',icon:'fa-x-twitter fab',label:'Share on X / Twitter',sub:'Tweet SherpaCarta',action:()=>shareOn('x')},
   {group:'Share',icon:'fa-whatsapp fab',label:'Share on WhatsApp',sub:'Send to contacts',action:()=>shareOn('whatsapp')},

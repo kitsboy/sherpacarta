@@ -1,9 +1,10 @@
 # GOAL — SherpaCarta public Nostr + internal Buzz
 
-**Status:** Planned · product surface scaffolding live · bot + NIP-05 + Buzz = THOR  
-**Owner product (M3/Grok):** site wall, contact UX, public config (npub only)  
-**Owner ops (THOR/Kimi):** NIP-05 publish, bot runtime, Buzz deploy, secrets vault  
-**Identity:** `sherpa@giveabit.io` (product guide) — **not** `kimi@` ops
+**Status:** NIP-05 live on **sherpacarta.org** (2026-08-11) · wall live · bot + Buzz = THOR  
+**Owner product (M3/Grok):** site wall, contact UX, public config (npub only), NIP-05 file  
+**Owner ops (THOR/Kimi):** bot runtime, Buzz deploy, secrets vault, kind 10002 for product keys  
+**Identity:** `sherpa@sherpacarta.org` (primary) · alias `sherpa@giveabit.io` · ops `kimi@sherpacarta.org`  
+**Full Nostr map:** `docs/NOSTR.md`
 
 ---
 
@@ -33,8 +34,10 @@ Self-updating: wall polls relays; bot answers from live charter/metrics context;
 - [x] Generate **one** keypair for product agent (npub public; nsec **only** in Cam’s password manager)
 - [x] Cam stores **nsec** offline (password manager) — never git / chat storage
 - [x] Kimi published NIP-05 `sherpa` → pubkey on `giveabit.io/.well-known/nostr.json` (2026-07-27, giveabit `bea71e8`)
+- [x] **sherpacarta.org** NIP-05 live: `public/.well-known/nostr.json` — kimi + sherpa + `_` + sherpacarta (2026-08-11)
 - [x] `nip05Status: live` on product config (Grok)
 - [x] `kimi@` / `cam@` not used for the public bot (separate sherpa key)
+- [ ] Cam/Kimi: publish NIP-65 kind 10002 for sherpa + kimi (see `public/data/nostr-nip65-recommended.json`)
 
 ### Phase 1 — Public discussion wall (M3) ✅
 - [x] Public config `public/data/nostr-sherpa.json` (npub, relays, tags — **no nsec**)

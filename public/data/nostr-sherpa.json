@@ -1,13 +1,26 @@
 {
-  "version": 1,
+  "version": 2,
   "productId": "sherpacarta",
-  "updated": "2026-07-27",
-  "nip05": "sherpa@giveabit.io",
+  "updated": "2026-08-11",
+  "nip05": "sherpa@sherpacarta.org",
+  "nip05Aliases": [
+    "sherpa@sherpacarta.org",
+    "sherpacarta@sherpacarta.org",
+    "_@sherpacarta.org",
+    "sherpa@giveabit.io"
+  ],
+  "nip05Ops": "kimi@sherpacarta.org",
+  "nip05OpsAliases": [
+    "kimi@sherpacarta.org",
+    "kimi@giveabit.io"
+  ],
   "nip05Status": "live",
-  "nip05PublishedAt": "2026-07-27",
-  "nip05Note": "Live on giveabit.io/.well-known/nostr.json (Kimi bea71e8). Resolves to pubkeyHex below.",
+  "nip05PublishedAt": "2026-08-11",
+  "nip05Note": "Primary NIP-05 on sherpacarta.org/.well-known/nostr.json. Same hex keys as giveabit.io. Primary product key is sherpa (also `_` and sherpacarta names).",
+  "nip05Url": "https://sherpacarta.org/.well-known/nostr.json",
   "npub": "npub10k63r8c4geyv32f77902s6e97hufx2xzarsrj5msjf6c67rawt7sf0rm57",
   "pubkeyHex": "7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd",
+  "opsPubkeyHex": "076fbd672795bfba1f905084bbe05dcee4937aa1db995c2f87d616ea0f73f8d4",
   "displayName": "Sherpa (SherpaCarta guide)",
   "about": "Public product guide for SherpaCarta — charter, Canada campaign, treasury. Not suite ops (that is kimi@). Automated replies when THOR bot is live.",
   "tags": ["sherpacarta", "digitalrights", "giveabit"],
@@ -17,12 +30,23 @@
     "wss://relay.snort.social",
     "wss://relay.nostr.band"
   ],
+  "nip65": {
+    "kind": 10002,
+    "note": "Recommended outbox list for sherpa/kimi. Publish from key holders via NIP-07 or THOR bot. Site may fetch kind 10002 for discovery.",
+    "recommendedTags": [
+      ["r", "wss://relay.damus.io"],
+      ["r", "wss://nos.lol"],
+      ["r", "wss://relay.snort.social"],
+      ["r", "wss://relay.nostr.band"]
+    ]
+  },
   "wall": {
     "kinds": [1],
     "limit": 40,
     "includeAuthor": true,
     "includeHashtag": "sherpacarta",
-    "refreshMs": 45000
+    "refreshMs": 45000,
+    "discoverNip65": true
   },
   "security": {
     "nsecInRepo": false,

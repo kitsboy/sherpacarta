@@ -104,8 +104,9 @@
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=830">
 
 <link rel="stylesheet" href="/sc-main.css?v=840">
-<link rel="preload" href="/sc-core.js?v=840" as="script">
-<link rel="preload" href="/sc-bundle.js?v=840" as="script">
+<link rel="preload" href="/js/sc-nostr-lib.js?v=850" as="script">
+<link rel="preload" href="/sc-core.js?v=850" as="script">
+<link rel="preload" href="/sc-bundle.js?v=850" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
 <script defer src="/js/sc-analytics.js?v=830"></script>
@@ -279,7 +280,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   <div class="hero-share" id="hero-share-strip"></div>
   <div class="hero-share-official" role="group" aria-label="Official SherpaCarta channels">
     <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-    <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
+    <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide on Nostr: sherpa@sherpacarta.org"><i class="fas fa-comments"></i> sherpa@sherpacarta.org</button>
     <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
     <a href="https://x.com/hashtag/Sherpacarta" class="social-official" target="_blank" rel="noopener" title="#Sherpacarta on X"><i class="fab fa-x-twitter"></i> #Sherpacarta</a>
     <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
@@ -981,7 +982,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <!-- Socials -->
     <div class="footer-social-official" aria-label="Official social channels">
       <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter" aria-hidden="true"></i> @give_bit</a>
-      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@giveabit.io"><i class="fas fa-comments" aria-hidden="true"></i> sherpa@giveabit.io</button>
+      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@sherpacarta.org"><i class="fas fa-comments" aria-hidden="true"></i> sherpa@sherpacarta.org</button>
       <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio" aria-hidden="true"></i> Live discuss</a>
       <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
     </div>
@@ -1096,10 +1097,11 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 
 <script src="/js/sc-share.js?v=830" defer></script>
 <script src="/js/sc-a11y.js?v=830" defer></script>
-<script src="/js/sc-petition-canada.js?v=830" defer></script>
+<script src="/js/sc-nostr-lib.js?v=850" defer></script>
+<script src="/js/sc-petition-canada.js?v=850" defer></script>
 <script src="/js/sc-press-outlets.js?v=830" defer></script>
-<script src="/sc-core.js?v=840" defer></script>
-<script src="/sc-bundle.js?v=840" defer></script>
+<script src="/sc-core.js?v=850" defer></script>
+<script src="/sc-bundle.js?v=850" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

@@ -7,10 +7,11 @@
   'use strict';
 
   var CONFIG_URL = '/data/nostr-sherpa.json';
-  var DEFAULT_RELAYS = [
+  var DEFAULT_RELAYS = (window.SCNostr && window.SCNostr.DEFAULT_RELAYS) || [
     'wss://relay.damus.io',
     'wss://nos.lol',
     'wss://relay.snort.social',
+    'wss://relay.nostr.band',
   ];
 
   function el(id) {
@@ -88,8 +89,8 @@
         '<div class="nw-empty">No public notes yet. Be the first — post on Nostr with <strong>#' +
         esc(this.cfg.wall && this.cfg.wall.includeHashtag ? this.cfg.wall.includeHashtag : 'sherpacarta') +
         '</strong> or message <code>' +
-        esc(this.cfg.nip05 || 'sherpa@giveabit.io') +
-        '</code> when NIP-05 is live.</div>';
+        esc(this.cfg.nip05 || 'sherpa@sherpacarta.org') +
+        '</code>.</div>';
       return;
     }
     this.listEl.innerHTML = arr
@@ -157,21 +158,10 @@
     } catch (_) {}
   };
 
-  Wall.prototype.connect = function () {
+  Wall.prototype._openRelays = function (relays, filters, limit) {
     var self = this;
-    var relays = this.cfg.relays && this.cfg.relays.length ? this.cfg.relays : DEFAULT_RELAYS;
-    var limit = (this.cfg.wall && this.cfg.wall.limit) || 40;
-    var pk = this.cfg.pubkeyHex;
-    var tag = (this.cfg.wall && this.cfg.wall.includeHashtag) || 'sherpacarta';
-    var filters = [];
-    if (pk) filters.push({ kinds: [1], authors: [pk], limit: limit });
-    filters.push({ kinds: [1], '#t': [tag], limit: limit });
-
-    this.close();
-    this.setStatus('Connecting to ' + relays.length + ' relays…', 'info');
     var open = 0;
     var seenEose = 0;
-
     relays.forEach(function (url) {
       var ws;
       try {
@@ -186,7 +176,9 @@
         open++;
         self.setStatus('Live · ' + open + ' relay(s) · public notes only', 'ok');
         filters.forEach(function (f, i) {
-          ws.send(JSON.stringify(['REQ', subId + '_' + i, f]));
+          try {
+            ws.send(JSON.stringify(['REQ', subId + '_' + i, f]));
+          } catch (_) {}
         });
       };
       ws.onmessage = function (msg) {
@@ -208,6 +200,64 @@
         if (open === 0) self.setStatus('Relays disconnected — will retry', 'warn');
       };
     });
+  };
+
+  Wall.prototype.connect = function () {
+    var self = this;
+    var baseRelays =
+      this.cfg.relays && this.cfg.relays.length ? this.cfg.relays.slice() : DEFAULT_RELAYS.slice();
+    if (window.SCNostr && window.SCNostr.uniq) {
+      baseRelays = window.SCNostr.uniq(baseRelays.concat(window.SCNostr.DEFAULT_RELAYS || []));
+    } else if (baseRelays.indexOf('wss://relay.nostr.band') < 0) {
+      baseRelays.push('wss://relay.nostr.band');
+    }
+    var limit = (this.cfg.wall && this.cfg.wall.limit) || 40;
+    var pk = this.cfg.pubkeyHex;
+    var tag = (this.cfg.wall && this.cfg.wall.includeHashtag) || 'sherpacarta';
+    var filters = [];
+    if (pk) filters.push({ kinds: [1], authors: [pk], limit: limit });
+    filters.push({ kinds: [1], '#t': [tag], limit: limit });
+
+    this.close();
+    this.setStatus('Connecting to ' + baseRelays.length + ' relays…', 'info');
+    this._openRelays(baseRelays, filters, limit);
+
+    // NIP-65 discovery: merge agent write/read relays into the pool (additive)
+    var wantNip65 =
+      pk &&
+      this.cfg.wall &&
+      this.cfg.wall.discoverNip65 !== false &&
+      window.SCNostr &&
+      typeof window.SCNostr.fetchNip65 === 'function';
+    if (wantNip65) {
+      window.SCNostr.fetchNip65(pk, baseRelays).then(function (nip) {
+        if (!nip) return;
+        var extra = (nip.write || []).concat(nip.read || []);
+        if (!extra.length) return;
+        var known = {};
+        baseRelays.forEach(function (r) {
+          known[r] = true;
+        });
+        var add = extra.filter(function (r) {
+          return r && !known[r] && /^wss:\/\//i.test(r);
+        });
+        // Only open relays already in CSP allowlist / defaults — avoid arbitrary wss
+        var allow = {};
+        DEFAULT_RELAYS.forEach(function (r) {
+          allow[r] = true;
+        });
+        (window.NOSTR_RELAYS || []).forEach(function (r) {
+          allow[r] = true;
+        });
+        add = add.filter(function (r) {
+          return allow[r];
+        });
+        if (add.length) {
+          self._openRelays(add, filters, limit);
+          self.setStatus('Live · NIP-65 outbox discovered · public notes only', 'ok');
+        }
+      });
+    }
 
     if (this.metaEl) {
       this.metaEl.innerHTML =
@@ -216,7 +266,7 @@
         '</code>' +
         (pk ? ' · agent <code>' + esc(shortPk(pk)) + '</code>' : '') +
         ' · NIP-05 <code>' +
-        esc(this.cfg.nip05 || '—') +
+        esc(this.cfg.nip05 || 'sherpa@sherpacarta.org') +
         '</code>' +
         (this.cfg.nip05Status === 'pending_publish'
           ? ' <span class="nw-chip warn">NIP-05 pending</span>'
@@ -261,8 +311,11 @@
       .catch(function () {
         var wall = new Wall(root, {
           relays: DEFAULT_RELAYS,
-          wall: { includeHashtag: 'sherpacarta', limit: 40 },
-          nip05: 'sherpa@giveabit.io',
+          wall: { includeHashtag: 'sherpacarta', limit: 40, discoverNip65: true },
+          nip05: 'sherpa@sherpacarta.org',
+          pubkeyHex:
+            (window.SCNostr && window.SCNostr.SHERPA_HEX) ||
+            '7db5119f154648c8a93ef15ea86b25f5f89328c2e8e039537092758d787d72fd',
         });
         wall.setStatus('Config load failed — using defaults', 'warn');
         wall.start();
