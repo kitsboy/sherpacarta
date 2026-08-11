@@ -13,7 +13,7 @@
 - Film project media stays gitignored under `video/`; **public/** MP4 is the site source of truth
 
 **Git State:**
-- SHA: (filled at commit)
+- SHA: 
 - Unpushed: none after goodbye push
 
 **Open for Kimi/Cam:**
