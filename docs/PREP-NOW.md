@@ -1,43 +1,56 @@
 # Prep now — deferred vs done
 
-**Date:** 2026-08-11  
-**Focus:** Technical finish without marketing / MP / Lightning / Nostr bot ops
+**Date:** 2026-08-11 (goodbye BUILD 860)  
+**Focus:** Site is technically ready; Cam deferred go-to-market and ops keys work
 
-## Explicitly deferred (Cam)
+## Explicitly deferred (do not start without Cam)
 
-| Item | When |
-|------|------|
-| Marketing / social / film distribution | Later (days–weeks) |
-| MP e-### / Parliamentary track | Later (Cam politics) |
-| Lightning payments polish / LNbits Vault wiring | Later |
-| Nostr bot THOR + product key NIP-65 publish | Later (ops nsec) |
-| Coalition org name collection | Later |
+| Item | Notes |
+|------|--------|
+| Marketing / social / 9:16 film push | Later (days–weeks) |
+| MP e-### / Parliamentary track | Cam politics |
+| Lightning payments setup / LNbits Vault | Later session |
+| Nostr bot THOR + product nsec NIP-65 | Later session · nsec never in git |
+| Coalition org name collection | Honesty — no invented endorsements |
 
-## Shipped this technical pass (BUILD 860)
+## Already shipped (do not redo)
 
-- Unified asset cache-bust `?v=860` across HTML pages
-- NIP-05 already live (`docs/NOSTR.md`) — copy/status consistent
-- Article summaries for **all** articles (body-derived + cornerstone blurbs)
-- Hash deep-links `#art-114` / `#articles` / preamble
-- Film: poster JPG, lazy source attach near viewport, companion iframe `loading=lazy`
-- Mobile film + articles layout CSS
-- Relay health button (`checkNostrRelays`)
-- Language section **honest** (EN primary, FR briefing, rest roadmap)
-- No marketing push, no fake metrics
+### Product / site
+- International-first home · Canada dual-track honesty  
+- Official 2-min film `#film` (Kokoro) · poster · lazy load · 16:9 fit  
+- HRF companion YouTube (CSP)  
+- Art. 114 / below-fold blank fixed  
+- BUILD 860 cache-bust · article summaries all · hash jumps · relay health · language honesty  
 
-## Still technical backlog (optional next)
+### Nostr (public surface)
+- NIP-05 live: `/.well-known/nostr.json` (kimi + sherpa + `_` + sherpacarta)  
+- `sc-nostr-lib.js` · wall · optional NIP-07  
+- Docs: `docs/NOSTR.md`  
 
-| # | Item | Notes |
-|---|------|--------|
-| 1 | Thin sc-bundle feature soup | Low risk if done carefully |
-| 2 | Umami → metrics visitors_monthly | Suite/proxy traffic |
-| 3 | Province stats when signs exist | Data fills itself |
-| 4 | Satohash client_id segments | THOR/satohash if null |
-| 5 | Full Lighthouse CI watch | After film lazy deploy |
+### Infrastructure
+- Live `/metrics.json` · `raw.demo: false`  
+- Satohash deep-link stamp  
+- Canada campaign sign + paper + join  
+
+## Safe next when Cam is ready
+
+| Session | Work |
+|---------|------|
+| Lightning | Public lud16/LNURL polish · docs/KIMI-REQUEST-LNURL.md |
+| Nostr ops | Bot THOR + seed · NIP-65 for product keys · GOAL-SHERPA-NOSTR-BUZZ |
+| Politics | MP e-### → campaign-canada.json flip |
+| Marketing | Film social · press · 9:16 crop |
+
+## Optional tech (anytime, low priority)
+
+- Thin sc-bundle feature soup  
+- Umami → visitors_monthly  
+- Province stats when signs exist  
+- Lighthouse CI watch  
 
 ## Do not invent
 
 - Fake signers / country totals  
-- nsec in git  
-- Campaign = e-petition counts  
+- Secrets in git  
+- Campaign = House of Commons signatures  
 - macOS `say` film VO  

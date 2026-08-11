@@ -1,28 +1,36 @@
 # Sherpacarta — Context Map
 
-BUILD: 840 / film bust 841 · Updated: 2026-08-11
+BUILD: **860** · Updated: 2026-08-11 (goodbye)
 
 ## Directory Structure
 ```
 sherpacarta/
-  index.html              Main landing (international-first, #film, #articles)
-  data/charter.json       114 articles + preamble source of truth
+  index.html                 Main landing (international-first, #film, #articles)
+  data/charter.json          114 articles + preamble source of truth
   public/
-    sc-main.css           Styles (BUILD 800–840 contrast + film)
-    sc-core.js            Core JS (CHARTER injected)
-    sc-bundle.js          Enhancements + upgrades (content-visibility off)
-    _headers              CSP (YouTube frame-src, media-src self)
+    sc-main.css              Styles BUILD 800–860
+    sc-core.js               Core JS (CHARTER injected; summaries; film lazy)
+    sc-bundle.js             Enhancements + upgrades (content-visibility off)
+    _headers                 CSP + NIP-05 JSON + /video MIME
+    .well-known/nostr.json   NIP-05 (kimi + sherpa + _ + sherpacarta)
     video/
-      sherpacarta-2min.mp4   Official film (committed · cache ?v=841)
-    js/                   Canada + press scripts
-    canada/               Campaign pages
-    api/v1/               Public JSON API
-  video/sherpacarta-2min/ HyperFrames source project (local media gitignored)
-  packages/               SDK + MCP (npm publish pending)
-  scripts/                Build generators
-  docs/                   Documentation (incl. VIDEO-HERMES-HYPERFRAMES)
-  dist/                   Build output (gitignored)
-  deploy.sh               Cloudflare Pages deploy
+      sherpacarta-2min.mp4
+      sherpacarta-2min-poster.jpg
+    js/
+      sc-nostr-lib.js        Shared relays / publish / NIP-65 helpers
+      sc-nostr-wall.js       Read-only wall
+      sc-petition-canada.js  Canada campaign (kind 1978 optional)
+    data/
+      nostr-sherpa.json      Public agent config (no nsec)
+      nostr-nip65-recommended.json
+    canada/                  Campaign pages
+    api/v1/                  Public JSON API
+  video/sherpacarta-2min/    HyperFrames source (local media gitignored)
+  packages/                  SDK + MCP + sherpa-nostr-bot
+  scripts/                   Build generators
+  docs/                      NOSTR.md · VIDEO-HERMES · PREP-NOW · KIMI-HANDOFF
+  dist/                      Build output (gitignored)
+  deploy.sh                  Cloudflare Pages deploy
 ```
 
 ## Build Chain
@@ -35,12 +43,11 @@ npm run build =
 ```
 
 ## Stack
-Static HTML/JS + Vite build · Cloudflare Pages  
-Vanilla JS: `sc-core.js`, `sc-bundle.js`, `js/sc-petition-canada.js`  
-Film: HyperFrames (HTML/GSAP) → MP4 · Kokoro TTS on M3 (`.tools/hf-venv311`)
+Static HTML/JS + Vite · Cloudflare Pages  
+Vanilla JS · HyperFrames film · Kokoro TTS (M3 `.tools/hf-venv311`)
 
 ## Ports
 Dev: 5173 / Preview: 4173
 
 ## Deployment
-Production: Cloudflare Pages via `./deploy.sh` (`pages_build_output_dir = dist`)
+`./deploy.sh` → `pages_build_output_dir = dist`

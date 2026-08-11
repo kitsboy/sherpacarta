@@ -1,3 +1,44 @@
+## Session — 2026-08-11 (Grok M3 — GOODBYE final)
+
+**Scope this session:** Film on site · site bugfixes · Nostr NIP-05 · BUILD 860 technical polish.  
+**Out of scope (Cam):** marketing · MP · Lightning setup · Nostr bot/product key ops.
+
+**Done (summary):**
+1. **Film** — HyperFrames package; Kokoro VO re-render; live `public/video/sherpacarta-2min.mp4` + poster; lazy load; 16:9 fit
+2. **BUILD 840** — CSP YouTube companion; content-visibility off; Art. 114 below-fold fix
+3. **Nostr** — `/.well-known/nostr.json` (kimi+sherpa+_+sherpacarta exact hex); `sc-nostr-lib.js`; multi-relay; NIP-65 helpers (unsigned for product keys); `docs/NOSTR.md`
+4. **BUILD 860** — cache-bust `?v=860`; all-article summaries; hash jumps; relay health UI; i18n honesty; video MIME headers
+5. **Docs** — `.ai_docs/*`, PREP-NOW deferred, VIDEO notes, this handoff, LATEST-UPDATE
+
+**Decisions:**
+- Primary NIP-05 `_` / sherpacarta → **sherpa** hex (product face); kimi for ops
+- Production film VO = Kokoro only
+- content-visibility permanently off on sections
+- Cam deferred GTM / LN / bot to later sessions
+
+**Git State:**
+- Tip SHA: `10d2801e0df3dab946b48501bf083e01c7e41a0c` (headers) · feature tip `5602f11` BUILD 860 · Nostr `66204a6`
+- Unpushed: none (align at commit)
+- Key commits: `a582219` 840 · `47d0e32` Kokoro · `66204a6` NIP-05 · `5602f11` 860 · `10d2801` video headers
+
+**Live checks:**
+- https://sherpacarta.org/#film · `?v=860`
+- https://sherpacarta.org/.well-known/nostr.json → application/json
+- NIP-05: sherpa@sherpacarta.org · kimi@sherpacarta.org
+
+**Open (later):**
+| Who | Item |
+|-----|------|
+| Cam/Kimi | Lightning payments |
+| Kimi | Nostr bot THOR + seed |
+| Cam/Kimi | Product NIP-65 kind 10002 with nsec |
+| Cam | MP e-### |
+| Later | Marketing / 9:16 |
+
+**Do not regress:** CSP YouTube + 4 relays · NIP-05 JSON · content-visibility visible · film max-height none · Kokoro VO · no nsec in git
+
+---
+
 ## Session — 2026-08-11 (Grok M3 — BUILD 860 technical finish, no marketing)
 
 **Scope (Cam):** Finish technical improvements only — **no** marketing, MP hunt, Lightning setup, or Nostr bot/ops.
