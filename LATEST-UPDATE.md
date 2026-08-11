@@ -1,5 +1,5 @@
 # sherpacarta — Last Updated 2026-08-11 by Grok
 
-Brief: Official 2-min film re-rendered with Kokoro af_nova VO (no more macOS say); live at /video/sherpacarta-2min.mp4?v=841
-Commit: (see git log)
+Brief: Session close — BUILD 840 (CSP/film fit/Art.114) + Kokoro VO film live (?v=841); full docs/.ai_docs handoff updated
+Commit: (see git log after goodbye commit)
 Deploy: https://sherpacarta.org/#film

@@ -1,14 +1,35 @@
 # SherpaCarta — 2‑Minute Video · Hermes + HyperFrames Package
 
-**Status:** READY FOR KIMI (THOR / Hermes)  
+**Status:** LIVE ON SITE ✅ (2026-08-11)  
 **Date:** 2026-08-11  
-**Author:** Grok (M3) · Cam approved direction  
-**Product:** https://sherpacarta.org  
+**Author:** Grok (M3) · Cam approved direction · Kimi/THOR first delivery · M3 Kokoro re-render  
+**Product:** https://sherpacarta.org/#film  
+**Live asset:** `public/video/sherpacarta-2min.mp4` (cache `?v=841`)  
+**Source project:** `video/sherpacarta-2min/`  
 **Owner handoff:** `docs/KIMI-HANDOFF.md` (top section)
+
+### Live production VO (current)
+| Item | Value |
+|------|--------|
+| Voice | Kokoro `af_nova` @ 0.7× (atempo-fit to 120.0s) |
+| Render | HyperFrames 0.7.106 · high · 30fps · 1920×1080 |
+| Size | ~14.9 MB · H.264 + AAC |
+| M3 tools | `PATH=.tools` · `HYPERFRAMES_PYTHON=.tools/hf-venv311/bin/python` |
+| **Do not** | Ship macOS `say` TTS as production audio |
+
+### Re-render (M3)
+```bash
+export PATH="$PWD/.tools:$PATH"
+export HYPERFRAMES_PYTHON="$PWD/.tools/hf-venv311/bin/python"
+cd video/sherpacarta-2min
+npx hyperframes@0.7.106 render --quality high --fps 30 --output final.mp4
+cp -f final.mp4 ../../public/video/sherpacarta-2min.mp4
+# bump ?v= on index.html video src → ./deploy.sh
+```
 
 ---
 
-## What Kimi should do
+## What Kimi originally did (THOR / Hermes)
 
 Build and render a **~120 second, 16:9** educational film using the **Hermes HyperFrames skill** (HTML/CSS/GSAP → MP4).
 

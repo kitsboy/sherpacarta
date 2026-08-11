@@ -1,3 +1,38 @@
+## Session — 2026-08-11 (Grok M3 — GOODBYE / full close)
+
+**Done:**
+- **Site bugs fixed (BUILD 840):** blank HRF YouTube companion (CSP `frame-src`); official film not filling 16:9 (`video` max-height override); Art. 114 / everything below corrupt-missing (`content-visibility` off + reveal safety + articles browser scroll/jump)
+- **Film VO:** re-rendered with **Kokoro af_nova** (replaced rejected macOS `say`); live `public/video/sherpacarta-2min.mp4?v=841`
+- **Docs:** `.ai_docs/*`, `PREP-NOW`, `VIDEO-HERMES-HYPERFRAMES`, film `HANDOFF-NOTE`, this handoff, `LATEST-UPDATE`
+- Deployed Cloudflare Pages throughout
+
+**Decisions:**
+- content-visibility permanently disabled on sections (was blanking #film and post-articles)
+- Production film VO = Kokoro only; never ship `say` again
+- Companion uses `.sc-film-embed` same 16:9 box as official player
+- Film project media stays gitignored under `video/`; **public/** MP4 is the site source of truth
+
+**Git State:**
+- SHA: (filled at commit)
+- Unpushed: none after goodbye push
+
+**Open for Kimi/Cam:**
+| Who | Item |
+|-----|------|
+| Kimi | LNURL/lud16 public donate (`docs/KIMI-REQUEST-LNURL.md`) |
+| Kimi | Nostr bot THOR (`docs/KIMI-REQUEST-SHERPA-BOT.md`) |
+| Kimi | satohash-api client_id if null |
+| Cam | MP e-### when ready |
+| Optional | 9:16 film crop for socials |
+
+**Do not regress:**
+- CSP YouTube domains
+- `content-visibility: visible` on sections
+- `.sc-film-player video { max-height: none }`
+- Kokoro VO on production film
+
+---
+
 ## Session — 2026-08-11 (Grok M3 — Kokoro film VO re-render)
 
 **Done:**
@@ -6,7 +41,7 @@
 - Deployed to `public/video/sherpacarta-2min.mp4` cache-bust `?v=841`
 
 **Git State:**
-- SHA: see latest commit
+- SHA: `47d0e32`
 
 ---
 
@@ -26,7 +61,7 @@
 - SHA: `a58221937c3aabdb19a04d2305d6f8ed73f8de2c`
 - Unpushed: none
 
-**Open:** Film VO still macOS `say` quality on M3 re-render if THOR final.mp4 not restored; Kokoro venv path exists for better VO later.
+**Resolved later same day:** Film VO upgraded to Kokoro (no longer say).
 
 ---
 
