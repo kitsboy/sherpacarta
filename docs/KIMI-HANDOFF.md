@@ -17,7 +17,7 @@
 - Cam deferred GTM / LN / bot to later sessions
 
 **Git State:**
-- Tip SHA: 
+- Tip SHA: `bf96f4e3908ec9c2a932da799684ab6efcf4e036`
 - Unpushed: none (align at commit)
 - Key commits: `a582219` 840 · `47d0e32` Kokoro · `66204a6` NIP-05 · `5602f11` 860 · `10d2801` video headers
 
