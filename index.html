@@ -100,15 +100,15 @@
 <!-- ═══ FONTS & ICONS — self-hosted (zero third-party tracking) ═ -->
 <link rel="preload" href="/fonts/outfit-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/cormorant-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css?v=800">
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=800">
+<link rel="stylesheet" href="/fonts/fonts.css?v=810">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=810">
 
-<link rel="stylesheet" href="/sc-main.css?v=800">
-<link rel="preload" href="/sc-core.js?v=800" as="script">
-<link rel="preload" href="/sc-bundle.js?v=800" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=810">
+<link rel="preload" href="/sc-core.js?v=810" as="script">
+<link rel="preload" href="/sc-bundle.js?v=810" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=800"></script>
+<script defer src="/js/sc-analytics.js?v=810"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -163,7 +163,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </div>
 
 <!-- ════════════════════════════════════════════════════════
-     NAV — BUILD 800 institutional header
+     NAV — BUILD 810 institutional header
 ════════════════════════════════════════════════════════ -->
 <nav id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-inner">
@@ -196,7 +196,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <div class="nav-actions" id="nav-menu">
       <div class="nav-sheet-head">
         <span class="nav-sheet-kicker">Navigate</span>
-        <span class="sc-build-badge" title="Product build">BUILD 800</span>
+        <span class="sc-build-badge" title="Product build">BUILD 810</span>
       </div>
       <button type="button" class="nav-sheet-link" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> Full Charter</button>
       <a class="nav-sheet-link" href="/canada/"><i class="fas fa-flag" aria-hidden="true"></i> Canada Petition</a>
@@ -223,7 +223,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </nav>
 
 <!-- ════════════════════════════════════════════════════════
-     HERO — BUILD 800 first-fold ceremony
+     HERO — BUILD 810 first-fold ceremony
 ════════════════════════════════════════════════════════ -->
 <main id="main-content">
 <section id="hero" aria-label="Hero section">
@@ -850,119 +850,122 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </main><!-- end #main-content -->
 
 <!-- ════════════════════════════════════════════════════════
-     FOOTER
+     FOOTER — BUILD 810 centered institutional
 ════════════════════════════════════════════════════════ -->
-<footer role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="https://giveabit.io" class="nav-logo" style="margin-bottom:0" target="_blank" rel="noopener" title="Give A Bit — giveabit.io">
-        <img src="/giveabit-logo.png" alt="Give A Bit" class="giveabit-brand-logo" width="36" height="36" decoding="async">
-        <div>
-          <div class="logo-text" style="font-size:1.35rem">SherpaCarta</div>
-          <div class="logo-sub">BUILD 800 &bull; 2026</div>
+<footer role="contentinfo" class="site-footer">
+  <div class="footer-wrap">
+
+    <!-- Brand block (centered) -->
+    <div class="footer-hero">
+      <a href="/" class="footer-brand-link" title="SherpaCarta home">
+        <img src="/giveabit-logo.png" alt="" class="giveabit-brand-logo footer-mark" width="48" height="48" decoding="async">
+        <div class="footer-wordmark">
+          <span class="logo-text">SherpaCarta</span>
+          <span class="logo-sub">Digital Magna Carta · 2026</span>
         </div>
       </a>
-      <p>Privacy is not a feature. It is a human right. Built by the people, for the people — across every border.</p>
-      <p class="footer-contact">Contact: <a href="mailto:hello@giveabit.io?subject=Sherpacarta" style="text-decoration:underline">hello@giveabit.io</a> <span style="color:var(--text3)">(subject: Sherpacarta)</span></p>
+      <p class="footer-tagline">Privacy is not a feature. It is a human right.<br>Built by the people, for the people — across every border.</p>
+      <p class="footer-contact">
+        <a href="mailto:hello@giveabit.io?subject=Sherpacarta">hello@giveabit.io</a>
+        <span class="footer-contact-note">subject: Sherpacarta</span>
+      </p>
+    </div>
 
-      <!-- FOOTER PAYMENT TABS -->
-      <div class="footer-pay" id="footer-pay">
-        <div class="pay-tabs" role="tablist" aria-label="Donation methods">
-          <button class="pay-tab active" type="button" role="tab" aria-selected="true" aria-controls="pay-pane-btc" id="pay-tab-btc" onclick="switchPayTab('btc')"><i class="fab fa-bitcoin"></i> Bitcoin</button>
-          <button class="pay-tab" type="button" role="tab" aria-selected="false" aria-controls="pay-pane-ln" id="pay-tab-ln" onclick="switchPayTab('ln')"><i class="fas fa-bolt"></i> Lightning</button>
+    <!-- Link columns (centered grid) -->
+    <nav class="footer-nav" aria-label="Footer">
+      <div class="footer-col">
+        <h3>Charter</h3>
+        <a href="#" onclick="openCharterModal();return false">Full 114 Articles</a>
+        <a href="#pillars" onclick="document.getElementById('pillars')?.scrollIntoView({behavior:'smooth'});return false">Core Pillars</a>
+        <a href="#sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'});return false">Sign &amp; Amend</a>
+        <a href="https://github.com/kitsboy/sherpacarta/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Version History</a>
+        <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/I18N.md" target="_blank" rel="noopener">Translations</a>
+      </div>
+      <div class="footer-col">
+        <h3>Community</h3>
+        <a href="#sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'});return false">Sign the Charter</a>
+        <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Volunteer">Volunteer</a>
+        <a href="#orgs" onclick="document.getElementById('orgs')?.scrollIntoView({behavior:'smooth'});return false">Organizations</a>
+        <a href="/canada/">Canada Petition</a>
+        <a href="https://github.com/kitsboy/sherpacarta" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="footer-col">
+        <h3>Resources</h3>
+        <a href="/briefing.html">MP Briefing</a>
+        <a href="/leave-behind.html">1-page leave-behind</a>
+        <a href="/press-kit.html">Press Kit</a>
+        <a href="/jurisdictions">Jurisdictions</a>
+        <a href="/treasury">Treasury</a>
+        <a href="/status">Status</a>
+        <a href="/security.html">Security</a>
+      </div>
+    </nav>
+
+    <!-- Donate (centered card) -->
+    <div class="footer-donate" id="footer-pay">
+      <div class="footer-donate-label">Fund the movement</div>
+      <div class="pay-tabs" role="tablist" aria-label="Donation methods">
+        <button class="pay-tab active" type="button" role="tab" aria-selected="true" aria-controls="pay-pane-btc" id="pay-tab-btc" onclick="switchPayTab('btc')"><i class="fab fa-bitcoin" aria-hidden="true"></i> Bitcoin</button>
+        <button class="pay-tab" type="button" role="tab" aria-selected="false" aria-controls="pay-pane-ln" id="pay-tab-ln" onclick="switchPayTab('ln')"><i class="fas fa-bolt" aria-hidden="true"></i> Lightning</button>
+      </div>
+      <div class="pay-pane active" id="pay-pane-btc" role="tabpanel" aria-labelledby="pay-tab-btc">
+        <div class="pay-address" id="footer-btc-address"></div>
+        <div class="pay-actions">
+          <button class="pay-copy" type="button" id="footer-copy-btc" onclick="copyPayAddress('btc')"><i class="fab fa-bitcoin" aria-hidden="true"></i> Copy Bitcoin</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('btc')"><i class="fas fa-qrcode" aria-hidden="true"></i> QR Code</button>
         </div>
-        <div class="pay-pane active" id="pay-pane-btc" role="tabpanel" aria-labelledby="pay-tab-btc">
-          <div class="pay-address" id="footer-btc-address"></div>
-          <button class="pay-copy" type="button" id="footer-copy-btc" onclick="copyPayAddress('btc')"><i class="fab fa-bitcoin"></i> Copy Bitcoin</button>
-          <button class="pay-qr-btn" type="button" onclick="showQRModal('btc')"><i class="fas fa-qrcode"></i> QR Code</button>
-          <p class="pay-note">On-chain donations only. Published transparently.</p>
+        <p class="pay-note">On-chain donations only · Published transparently</p>
+      </div>
+      <div class="pay-pane" id="pay-pane-ln" role="tabpanel" aria-labelledby="pay-tab-ln" hidden>
+        <div class="pay-address" id="footer-ln-address"></div>
+        <div class="pay-actions">
+          <button class="pay-copy" type="button" id="footer-copy-ln" onclick="copyPayAddress('ln')"><i class="fas fa-bolt" aria-hidden="true"></i> Copy Lightning</button>
+          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode" aria-hidden="true"></i> QR Code</button>
         </div>
-        <div class="pay-pane" id="pay-pane-ln" role="tabpanel" aria-labelledby="pay-tab-ln" hidden>
-          <div class="pay-address" id="footer-ln-address"></div>
-          <button class="pay-copy" type="button" id="footer-copy-ln" onclick="copyPayAddress('ln')"><i class="fas fa-bolt"></i> Copy Lightning</button>
-          <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> QR Code</button>
+      </div>
+    </div>
+
+    <!-- Socials -->
+    <div class="footer-social-official" aria-label="Official social channels">
+      <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter" aria-hidden="true"></i> @give_bit</a>
+      <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@giveabit.io"><i class="fas fa-comments" aria-hidden="true"></i> sherpa@giveabit.io</button>
+      <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio" aria-hidden="true"></i> Live discuss</a>
+      <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+    </div>
+
+    <!-- Legal -->
+    <div class="legal-footer">
+      <div class="legal-grid">
+        <div class="legal-block" id="legal-basis">
+          <h4>Legal Basis</h4>
+          <p>SherpaCarta is a civic document inspired by the Magna Carta (1215), the UDHR (1948), and the Icelandic Constitutional Bill (2011). Not legal advice — a moral and political declaration.</p>
+        </div>
+        <div class="legal-block" id="legal-terms">
+          <h4>Intellectual Property</h4>
+          <p>Published under Creative Commons CC0 1.0 Universal (Public Domain). No rights reserved. Copy, translate, and adapt freely — expand rights, never restrict them.</p>
+        </div>
+        <div class="legal-block" id="legal-privacy">
+          <h4>Privacy &amp; Data</h4>
+          <p>Zero tracking cookies. Signatures stay local in your browser unless you publish. We practice what we preach — GDPR and CCPA aligned by design.</p>
         </div>
       </div>
 
-      <!-- OFFICIAL SOCIALS — Give A Bit / SherpaCarta -->
-      <div class="footer-social-official" aria-label="Official social channels">
-        <a href="https://twitter.com/give_bit" class="social-official" target="_blank" rel="noopener" title="Twitter @give_bit"><i class="fab fa-x-twitter"></i> @give_bit</a>
-        <button type="button" class="social-official" onclick="copyNostrNip()" title="Product guide: sherpa@giveabit.io"><i class="fas fa-comments"></i> sherpa@giveabit.io</button>
-        <a href="/nostr" class="social-official" title="Live Nostr + X #Sherpacarta"><i class="fas fa-radio"></i> Live discuss</a>
-        <a href="https://x.com/give_bit" class="social-official" target="_blank" rel="noopener" title="@give_bit on X"><i class="fab fa-x-twitter"></i> @give_bit</a>
-        <a href="https://github.com/kitsboy/sherpacarta" class="social-official" target="_blank" rel="noopener" title="GitHub repository"><i class="fab fa-github"></i> GitHub</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h3>Charter</h3>
-      <a href="#" onclick="openCharterModal();return false">Full 114 Articles</a>
-      <a href="#pillars" onclick="document.getElementById('pillars').scrollIntoView({behavior:'smooth'});return false">Core Pillars</a>
-      <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Amendment Process</a>
-      <a href="https://github.com/kitsboy/sherpacarta/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Version History</a>
-      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/I18N.md" target="_blank" rel="noopener">Translations</a>
-    </div>
-    <div class="footer-col">
-      <h3>Community</h3>
-      <a href="#sign" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});return false">Sign the Charter</a>
-      <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Volunteer">Volunteer</a>
-      <a href="#orgs" onclick="document.getElementById('orgs').scrollIntoView({behavior:'smooth'});return false">Organizations</a>
-      <a href="mailto:hello@giveabit.io?subject=Sherpacarta%20—%20Local%20Chapter">Local Chapters</a>
-      <a href="https://github.com/kitsboy/sherpacarta" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <div class="footer-col">
-      <h3>Resources</h3>
-      <a href="/briefing.html">MP Briefing (2 pages)</a>
-      <a href="/leave-behind.html">1-page leave-behind</a>
-      <a href="/briefing-fr.html">Note FR (breffage)</a>
-      <a href="/canada/">Canada Petition Hub</a>
-      <a href="/canada/paper">Federal Paper Sheet</a>
-      <a href="/jurisdictions">Jurisdictions (CA · UK · EU)</a>
-      <a href="/press-kit.html">Press Kit</a>
-      <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/ROADMAP.md" target="_blank" rel="noopener">Platform Roadmap</a>
-      <a href="#" onclick="openCharterModal();return false">Full Charter (114 Articles)</a>
-      <a href="/treasury">Treasury</a>
-      <a href="/status">Status</a>
-      <a href="/security.html">Security</a>
-    </div>
-  </div>
-
-  <!-- ════ LEGAL FOOTER (Feature 39) ═══════════════════════ -->
-  <div class="legal-footer">
-    <div class="legal-grid">
-      <div class="legal-block" id="legal-basis">
-        <h4>Legal Basis</h4>
-        <p>SherpaCarta is a civic document inspired by the Magna Carta (1215), the Universal Declaration of Human Rights (1948), and the Icelandic Constitutional Bill (2011). It is not legal advice. It is a moral and political declaration. Consult qualified legal counsel in your jurisdiction for enforceable rights.</p>
-      </div>
-      <div class="legal-block" id="legal-terms">
-        <h4>Intellectual Property</h4>
-        <p>SherpaCarta is published under Creative Commons CC0 1.0 Universal (Public Domain). No rights reserved. Copy freely, translate freely, adapt freely. We ask only that you preserve the spirit of expanding — never restricting — digital human rights.</p>
-      </div>
-      <div class="legal-block" id="legal-privacy">
-        <h4>Privacy &amp; Data</h4>
-        <p>SherpaCarta.org collects no personal data. Zero analytics. Zero cookies. All signatures are stored locally in your browser and optionally published to a distributed ledger. We practice exactly what we preach. This site complies with GDPR, CCPA, and exceeds both.</p>
-      </div>
-    </div>
-    <div class="legal-bottom">
-      <div class="legal-bottom-left">
-        <p>&copy; 2026 SherpaCarta Global Movement.<br>Published under CC0 — No Rights Reserved. Copy Freely.</p>
-      </div>
-      <div class="legal-bottom-center">
+      <div class="legal-bottom">
+        <p class="legal-copy">&copy; 2026 SherpaCarta Global Movement · CC0 — No Rights Reserved</p>
         <a href="https://giveabit.io" target="_blank" rel="noopener" class="giveabit-footer-parent" title="A Give A Bit project — giveabit.io">
-          <img src="/giveabit-parent-logo.jpg" alt="giveaBit.io — parent company" height="44" width="176" loading="eager" decoding="async">
+          <img src="/giveabit-parent-logo.jpg" alt="giveaBit.io — parent company" height="40" width="160" loading="eager" decoding="async">
+          <span class="parent-tagline">A Give A Bit project</span>
         </a>
-        <span class="parent-tagline">A Give A Bit project</span>
+        <div class="legal-links">
+          <a href="#legal-privacy" onclick="document.getElementById('legal-privacy')?.scrollIntoView({behavior:'smooth'});return false">Privacy</a>
+          <a href="#legal-terms" onclick="document.getElementById('legal-terms')?.scrollIntoView({behavior:'smooth'});return false">Terms</a>
+          <a href="#" onclick="focusA11yToolbar();return false">Accessibility</a>
+          <a href="mailto:hello@giveabit.io?subject=Sherpacarta">Contact</a>
+          <a href="/press-kit.html">Press Kit</a>
+        </div>
       </div>
-      <div class="legal-links">
-        <a href="#legal-privacy" onclick="document.getElementById('legal-privacy').scrollIntoView({behavior:'smooth'});return false">Privacy Policy</a>
-        <a href="#legal-terms" onclick="document.getElementById('legal-terms').scrollIntoView({behavior:'smooth'});return false">Terms of Use</a>
-        <a href="#cookie-banner" onclick="document.getElementById('cookie-banner').scrollIntoView({behavior:'smooth'});return false">Cookie Policy</a>
-        <a href="#" onclick="focusA11yToolbar();return false">Accessibility</a>
-        <a href="mailto:hello@giveabit.io?subject=Sherpacarta">Contact</a>
-        <a href="#" onclick="downloadPressKit();return false">Press Kit</a>
-      </div>
-    </div>
-    <div class="legal-tagline" style="text-align:center;padding:1rem 0 1rem;font-family:var(--mono);font-size:.58rem;color:var(--text3);letter-spacing:.08em;border-top:1px solid var(--border);margin-top:.875rem">
-      SHERPACARTA IS A GLOBAL MOVEMENT, NOT A CORPORATION. BUILT WITH ❤ BY VOLUNTEERS IN 24 COUNTRIES. POWERED BY BITCOIN. GUIDED BY CONSCIENCE.
+
+      <p class="legal-tagline">SHERPACARTA IS A GLOBAL MOVEMENT, NOT A CORPORATION · BUILT WITH ❤ BY VOLUNTEERS · POWERED BY BITCOIN · GUIDED BY CONSCIENCE</p>
     </div>
   </div>
 </footer>
@@ -1038,12 +1041,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=800" defer></script>
-<script src="/js/sc-a11y.js?v=800" defer></script>
-<script src="/js/sc-petition-canada.js?v=800" defer></script>
-<script src="/js/sc-press-outlets.js?v=800" defer></script>
-<script src="/sc-core.js?v=800" defer></script>
-<script src="/sc-bundle.js?v=800" defer></script>
+<script src="/js/sc-share.js?v=810" defer></script>
+<script src="/js/sc-a11y.js?v=810" defer></script>
+<script src="/js/sc-petition-canada.js?v=810" defer></script>
+<script src="/js/sc-press-outlets.js?v=810" defer></script>
+<script src="/sc-core.js?v=810" defer></script>
+<script src="/sc-bundle.js?v=810" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {
