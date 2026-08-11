@@ -1574,10 +1574,13 @@ document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
   const canvas=document.getElementById('map-canvas');if(!canvas)return;
   const ctx=canvas.getContext('2d');
   const dpr=Math.min(window.devicePixelRatio||1,2);
-  const cssW=canvas.clientWidth||900;
-  const cssH=canvas.clientHeight||360;
+  const parent=canvas.parentElement;
+  const cssW=Math.max(parent?.clientWidth||0,canvas.clientWidth||0,900);
+  const cssH=Math.max(parent?.clientHeight||0,canvas.clientHeight||0,320);
   canvas.width=Math.round(cssW*dpr);
   canvas.height=Math.round(cssH*dpr);
+  canvas.style.width='100%';
+  canvas.style.height='100%';
   ctx.setTransform(dpr,0,0,dpr,0,0);
   const W=cssW,H=cssH;
 
