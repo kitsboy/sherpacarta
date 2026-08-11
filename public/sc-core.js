@@ -161,7 +161,13 @@ const state = {
   amendments: JSON.parse(localStorage.getItem('sc_amendments')||'[]'),
   charterHash: localStorage.getItem('sc_charter_hash')||null,
 };
-if(state.theme==='light') document.documentElement.setAttribute('data-theme','light');
+/* Dark-first product: only use light if user explicitly saved it */
+if(state.theme==='light' && localStorage.getItem('sc_theme_manual')==='1'){
+  document.documentElement.setAttribute('data-theme','light');
+}else{
+  document.documentElement.setAttribute('data-theme','dark');
+  if(state.theme!=='light') localStorage.setItem('sc_theme','dark');
+}
 
 // ═══════════════════════════════════════════════════════════
 // TRANSLATIONS (Feature 40 — Top 5 World Languages)

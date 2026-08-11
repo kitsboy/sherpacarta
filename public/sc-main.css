@@ -1073,12 +1073,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 }
 .org-join-cta{
   margin-top:2rem;padding:1.5rem 1.75rem;border-radius:var(--radius-lg);
-  background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(212,175,55,.06));
-  border:1px solid var(--border2);display:flex;flex-wrap:wrap;align-items:center;
-  justify-content:space-between;gap:1rem;
+  background:#0a1f16;border:1px solid #2a6b4f;display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:space-between;gap:1rem;color:#fff;
 }
-.org-join-cta p{font-size:.85rem;color:var(--text2);max-width:480px;line-height:1.65;margin:0}
-.org-join-cta strong{color:var(--em2)}
+.org-join-cta p{font-size:1rem;color:#ffffff;max-width:520px;line-height:1.7;margin:0;font-weight:500}
+.org-join-cta strong{color:#9ff5d0;font-weight:800}
+.org-join-cta .cta-main{color:#02140c!important}
+.org-join-cta .cta-sec{color:#fff!important;background:#0f2a1e!important;border:1px solid #3de0a8!important}
 
 /* Mobile bottom nav */
 #mobile-bottom-nav{
@@ -3372,3 +3373,276 @@ footer .social-official{
 
 /* BUILD772-rescue 1786426429 opaque-nav */
 /* BUILD781-force 1786427217 share-stats-mission */
+
+/* ═══════════════════════════════════════════════════════════
+   BUILD 800 — FULL SITE READABLE DARK SYSTEM
+   One rule set for entire landing page: solid dark + bright type
+═══════════════════════════════════════════════════════════ */
+
+/* Tokens always bright enough on near-black */
+html:not([data-theme="light"]){
+  color-scheme:dark;
+  --text:#ffffff;
+  --text2:#e8f0e8;
+  --text3:#c8dccf;
+  --bg:#030605;
+  --bg2:#0a1410;
+  --bg3:#101c16;
+  --border:rgba(52,211,153,.28);
+  --border2:rgba(52,211,153,.42);
+}
+
+html:not([data-theme="light"]) body{
+  color:#ffffff!important;
+  background-color:#030605!important;
+}
+
+/* Main content + footer: every common text node */
+html:not([data-theme="light"]) #main-content,
+html:not([data-theme="light"]) footer{
+  color:#f2f6f2!important;
+}
+
+html:not([data-theme="light"]) #main-content p,
+html:not([data-theme="light"]) #main-content li,
+html:not([data-theme="light"]) #main-content td,
+html:not([data-theme="light"]) #main-content th,
+html:not([data-theme="light"]) #main-content label,
+html:not([data-theme="light"]) #main-content .faq-a,
+html:not([data-theme="light"]) #main-content .faq-q,
+html:not([data-theme="light"]) #main-content .tl-body,
+html:not([data-theme="light"]) #main-content .tl-title,
+html:not([data-theme="light"]) #main-content .cmp-cell,
+html:not([data-theme="light"]) #main-content .press-sub,
+html:not([data-theme="light"]) #main-content .press-disclaimer,
+html:not([data-theme="light"]) #main-content .press-card-tag,
+html:not([data-theme="light"]) #main-content .org-section-note,
+html:not([data-theme="light"]) #main-content .org-join-cta,
+html:not([data-theme="light"]) #main-content .org-join-cta p,
+html:not([data-theme="light"]) #main-content .org-name,
+html:not([data-theme="light"]) #main-content .org-type,
+html:not([data-theme="light"]) #main-content .sign-honesty,
+html:not([data-theme="light"]) #main-content .calc-verdict,
+html:not([data-theme="light"]) #main-content .calc-label,
+html:not([data-theme="light"]) #main-content .calc-score,
+html:not([data-theme="light"]) #main-content .map-label p,
+html:not([data-theme="light"]) #main-content #quote-text,
+html:not([data-theme="light"]) #main-content #quote-author,
+html:not([data-theme="light"]) #main-content .art-body,
+html:not([data-theme="light"]) #main-content .art-title,
+html:not([data-theme="light"]) #main-content .article-tab,
+html:not([data-theme="light"]) #main-content .donation-card,
+html:not([data-theme="light"]) #main-content .donation-card p,
+html:not([data-theme="light"]) #main-content .video-caption,
+html:not([data-theme="light"]) #main-content .sign-section,
+html:not([data-theme="light"]) #main-content .sign-section p,
+html:not([data-theme="light"]) footer p,
+html:not([data-theme="light"]) footer li,
+html:not([data-theme="light"]) footer a{
+  color:#eef4ee!important;
+  -webkit-text-fill-color:#eef4ee!important;
+}
+
+html:not([data-theme="light"]) #main-content h1,
+html:not([data-theme="light"]) #main-content h2,
+html:not([data-theme="light"]) #main-content h3,
+html:not([data-theme="light"]) #main-content h4,
+html:not([data-theme="light"]) #main-content .section-h2,
+html:not([data-theme="light"]) #main-content .press-heading,
+html:not([data-theme="light"]) #main-content .press-card-name,
+html:not([data-theme="light"]) #main-content .faq-q,
+html:not([data-theme="light"]) footer h3,
+html:not([data-theme="light"]) footer h4{
+  color:#ffffff!important;
+  -webkit-text-fill-color:#ffffff!important;
+}
+
+html:not([data-theme="light"]) #main-content strong,
+html:not([data-theme="light"]) #main-content b,
+html:not([data-theme="light"]) #main-content .org-join-cta strong{
+  color:#9ff5d0!important;
+  -webkit-text-fill-color:#9ff5d0!important;
+}
+
+html:not([data-theme="light"]) #main-content em,
+html:not([data-theme="light"]) #main-content .section-h2 em,
+html:not([data-theme="light"]) #main-content .mission-em{
+  color:#b8f5d4!important;
+  -webkit-text-fill-color:#b8f5d4!important;
+}
+
+/* Kill pale wash panels sitewide */
+html:not([data-theme="light"]) .org-join-cta,
+html:not([data-theme="light"]) .org-section-note,
+html:not([data-theme="light"]) .sign-section,
+html:not([data-theme="light"]) .donation-card,
+html:not([data-theme="light"]) .calc-card,
+html:not([data-theme="light"]) .calc-result,
+html:not([data-theme="light"]) .faq-item,
+html:not([data-theme="light"]) .faq-q,
+html:not([data-theme="light"]) .video-wrapper,
+html:not([data-theme="light"]) .articles-sidebar,
+html:not([data-theme="light"]) .articles-main,
+html:not([data-theme="light"]) .comparison-table,
+html:not([data-theme="light"]) .map-container,
+html:not([data-theme="light"]) .nostr-panel,
+html:not([data-theme="light"]) .i18n-status-panel,
+html:not([data-theme="light"]) .art-of-day,
+html:not([data-theme="light"]) .bc-cta-row,
+html:not([data-theme="light"]) #bc-tracks-dash > div{
+  background:#0a1f16!important;
+  background-image:none!important;
+  border-color:#2a6b4f!important;
+  color:#eef4ee!important;
+}
+
+html:not([data-theme="light"]) .org-card,
+html:not([data-theme="light"]) .pillar,
+html:not([data-theme="light"]) .challenge-step,
+html:not([data-theme="light"]) a.press-card,
+html:not([data-theme="light"]) .cmp-head,
+html:not([data-theme="light"]) .cmp-row{
+  background:#0a1a14!important;
+  color:#eef4ee!important;
+  border-color:#1a3d2e!important;
+}
+
+html:not([data-theme="light"]) .org-name,
+html:not([data-theme="light"]) .org-card h3,
+html:not([data-theme="light"]) .pillar h3{
+  color:#ffffff!important;
+}
+html:not([data-theme="light"]) .org-type,
+html:not([data-theme="light"]) .org-status{
+  color:#9ff5d0!important;
+  border-color:#3d7a5c!important;
+}
+
+/* Ghost buttons = high contrast chips */
+html:not([data-theme="light"]) .btn-ghost,
+html:not([data-theme="light"]) a.btn-ghost{
+  color:#ffffff!important;
+  background:#0a1f16!important;
+  border:1px solid #3d7a5c!important;
+  font-weight:600!important;
+}
+html:not([data-theme="light"]) .btn-ghost:hover,
+html:not([data-theme="light"]) a.btn-ghost:hover{
+  color:#ffffff!important;
+  background:#145c3f!important;
+  border-color:#3de0a8!important;
+}
+html:not([data-theme="light"]) .btn-primary,
+html:not([data-theme="light"]) a.btn-primary{
+  color:#02140c!important;
+  background:#3de0a8!important;
+  border:1px solid #9ff5d0!important;
+  font-weight:800!important;
+}
+
+/* CTA secondary used in org join */
+html:not([data-theme="light"]) .cta-sec{
+  color:#ffffff!important;
+  background:#0f2a1e!important;
+  border:2px solid #3de0a8!important;
+}
+html:not([data-theme="light"]) .cta-main{
+  color:#02140c!important;
+}
+
+/* Inline style traps (var(--text2/3) on dark wash) */
+html:not([data-theme="light"]) #main-content [style*="color:var(--text2)"],
+html:not([data-theme="light"]) #main-content [style*="color: var(--text2)"],
+html:not([data-theme="light"]) #main-content [style*="color:var(--text3)"],
+html:not([data-theme="light"]) #main-content [style*="color: var(--text3)"],
+html:not([data-theme="light"]) footer [style*="color:var(--text2)"],
+html:not([data-theme="light"]) footer [style*="color: var(--text2)"],
+html:not([data-theme="light"]) footer [style*="color:var(--text3)"],
+html:not([data-theme="light"]) footer [style*="color: var(--text3)"]{
+  color:#e8f0e8!important;
+  -webkit-text-fill-color:#e8f0e8!important;
+}
+
+/* Inputs readable */
+html:not([data-theme="light"]) input,
+html:not([data-theme="light"]) select,
+html:not([data-theme="light"]) textarea,
+html:not([data-theme="light"]) .sign-input,
+html:not([data-theme="light"]) .calc-select,
+html:not([data-theme="light"]) .faq-search,
+html:not([data-theme="light"]) .amend-search{
+  color:#ffffff!important;
+  background:#06140f!important;
+  border-color:#2a6b4f!important;
+}
+html:not([data-theme="light"]) input::placeholder,
+html:not([data-theme="light"]) textarea::placeholder{
+  color:#a8c4b4!important;
+  opacity:1!important;
+}
+
+/* Sections with alternating bg still dark enough */
+html:not([data-theme="light"]) .section,
+html:not([data-theme="light"]) #orgs,
+html:not([data-theme="light"]) #faq,
+html:not([data-theme="light"]) #sign,
+html:not([data-theme="light"]) #donate,
+html:not([data-theme="light"]) #pillars{
+  background-color:#050c09!important;
+}
+html:not([data-theme="light"]) #orgs,
+html:not([data-theme="light"]) section[style*="background:var(--bg2)"],
+html:not([data-theme="light"]) .section[style*="background:var(--bg2)"]{
+  background:#0a1410!important;
+}
+
+/* Press cards names always white */
+html:not([data-theme="light"]) .press-card-name{color:#ffffff!important}
+html:not([data-theme="light"]) .press-card-tag{color:#c8dccf!important}
+html:not([data-theme="light"]) .press-disclaimer{color:#d4e8d8!important}
+html:not([data-theme="light"]) .press-disclaimer a{color:#9ff5d0!important}
+
+/* FAQ open answers */
+html:not([data-theme="light"]) .faq-a.open,
+html:not([data-theme="light"]) .faq-a{
+  color:#eef4ee!important;
+}
+html:not([data-theme="light"]) .faq-item.active .faq-q{
+  color:#9ff5d0!important;
+}
+
+/* Cookie / status / float */
+html:not([data-theme="light"]) #cookie-banner{
+  background:#0a1f16!important;
+  border-top:2px solid #3de0a8!important;
+  color:#fff!important;
+}
+html:not([data-theme="light"]) #cookie-banner p{color:#eef4ee!important}
+html:not([data-theme="light"]) #status-dock{
+  background:#0a1f16!important;
+  color:#9ff5d0!important;
+  border-color:#2a6b4f!important;
+}
+html:not([data-theme="light"]) .build-badge,
+html:not([data-theme="light"]) .net-badge{
+  color:#9ff5d0!important;
+}
+
+/* Light theme remains dark-ink (already in 790) — reinforce org join */
+html[data-theme="light"] .org-join-cta{
+  background:#e8eee4!important;
+  border:1px solid #2a6b4f!important;
+}
+html[data-theme="light"] .org-join-cta p{
+  color:#0f1a12!important;
+  -webkit-text-fill-color:#0f1a12!important;
+}
+html[data-theme="light"] .org-join-cta strong{
+  color:#047857!important;
+  -webkit-text-fill-color:#047857!important;
+}
+html[data-theme="light"] .org-join-cta .cta-sec{
+  color:#0f1a12!important;
+  background:#fff!important;
+  border:1px solid #047857!important;
+}
