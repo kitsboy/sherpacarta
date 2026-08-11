@@ -1,6 +1,6 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ `10d2801` (goodbye 2026-08-11)  
+**Version:** main @ `bbc38e6` (goodbye 2026-08-11)  
 **Last Updated:** 2026-08-11  
 **Domain:** https://sherpacarta.org  
 **productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)  

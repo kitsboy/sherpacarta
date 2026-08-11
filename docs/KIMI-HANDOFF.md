@@ -17,7 +17,7 @@
 - Cam deferred GTM / LN / bot to later sessions
 
 **Git State:**
-- Tip SHA: `10d2801e0df3dab946b48501bf083e01c7e41a0c` (headers) · feature tip `5602f11` BUILD 860 · Nostr `66204a6`
+- Tip SHA: 
 - Unpushed: none (align at commit)
 - Key commits: `a582219` 840 · `47d0e32` Kokoro · `66204a6` NIP-05 · `5602f11` 860 · `10d2801` video headers
 

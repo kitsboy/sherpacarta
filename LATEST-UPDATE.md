@@ -1,5 +1,5 @@
 # sherpacarta — Last Updated 2026-08-11 by Grok
 
-Brief: BUILD 860 technical finish — cache, summaries, film lazy/poster, relay health, i18n honesty (no marketing/LN/Nostr-bot/MP)
-Commit: 5602f111e652d288a5613a9d560b19de9927756f
-Deploy: https://sherpacarta.org
+Brief: Session goodbye — film+Kokoro, NIP-05, BUILD 840/860 technical finish; marketing/LN/Nostr-bot/MP deferred
+Commit: bbc38e6c45d2480376d2c168b1f738677baa8e1b
+Deploy: https://sherpacarta.org · bust ?v=860 · NIP-05 /.well-known/nostr.json
