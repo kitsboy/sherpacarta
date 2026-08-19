@@ -1,3 +1,30 @@
+## 2026-08-19 (Kimi/THOR — Standard Project Kit adopted + debrief + repo re-sync)
+
+**Scope:** Standard Project Kit rollout + first machine-readable session debrief + repo sync check.
+
+**Done:**
+- Adopted the senior-engineer **Standard Project Kit** (skill `standard-project-kit`): investigate → bounded implement → verify real system → milestone tag → handoff; two-actor loop (Kimi assistant + Grok/Aider coder). Now the default build/handoff method for ALL projects.
+- Session debrief now runs **automatically at session end** (silent, machine-readable YAML) via the `/goodbye` pipeline.
+- Wrote first debrief: `docs/debriefs/session-2026-08-19-001.yaml` — captures AD-001 (THOR copy = live/deployable + handoff home; M3/M4 sync via git push/pull only), OQ-001/002 (now resolved: debrief on meaningful sessions; commit debriefs to repo).
+- Re-synced `/root/ref/sherpacarta` from origin — was 19 commits behind; now at `9b5339d`.
+
+**Git State:**
+- Tip SHA: `9b5339d` (debrief commit); repo in sync with origin/main.
+- Prior tip recorded in the 2026-08-11 entry (`bf96f4e`) is superseded.
+
+**Open (unchanged, still live):**
+| Who | Item |
+|-----|------|
+| Cam/Kimi | Lightning payments (P0) |
+| Kimi | Nostr bot THOR + seed |
+| Cam/Kimi | Product NIP-65 kind 10002 with nsec |
+| Cam | MP e-### |
+| Later | Marketing / 9:16 |
+
+**Do not regress:** CSP YouTube + 4 relays · NIP-05 JSON · content-visibility visible · film max-height none · Kokoro VO · no nsec in git.
+
+---
+
 ## Session — 2026-08-11 (Grok M3 — GOODBYE final)
 
 **Scope this session:** Film on site · site bugfixes · Nostr NIP-05 · BUILD 860 technical polish.  
