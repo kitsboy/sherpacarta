@@ -1946,7 +1946,11 @@ function buildSigners(){
     all.forEach((s)=>{
       const pill=document.createElement('div');
       pill.className='signer-pill';
-      pill.textContent=`${s.c||''} ${s.name}`.trim();
+      pill.setAttribute('data-tip-title', s.c ? 'A voice from ' + (s.name||'').split(' ').pop() : 'A supporter');
+      pill.setAttribute('data-tip', s.c
+        ? `${s.name} added their name to the living record. Privacy-first — this is stored on your device only.`
+        : 'Every signature strengthens the movement. Stored locally, zero tracking.');
+      pill.innerHTML=`${s.c?`<span class="sig-flag">${s.c}</span>`:''}<span>${escapeHtml(s.name||'')}</span>`;
       wall.appendChild(pill);
     });
     if(!local.length){
@@ -2682,6 +2686,55 @@ function initFilmLazyLoad(){
 }
 
 // ═══════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════
+// TOOLTIPS — family-standard data-tip / data-tip-title binder
+// (design-tokens: hover-follow on desktop, tap on touch)
+// ═══════════════════════════════════════════════════════════
+let _tipEl=null;
+function ensureTipEl(){
+  if(_tipEl)return _tipEl;
+  _tipEl=document.createElement('div');
+  _tipEl.className='tip-bubble';
+  _tipEl.setAttribute('aria-hidden','true');
+  document.body.appendChild(_tipEl);
+  return _tipEl;
+}
+function bindTooltips(root){
+  const scope=root||document;
+  scope.querySelectorAll('[data-tip]').forEach((el)=>{
+    if(el.dataset.tipBound)return;
+    el.dataset.tipBound='1';
+    const show=(e)=>{
+      const tip=ensureTipEl();
+      const t=el.dataset.tip||'';
+      const tt=el.dataset.tipTitle;
+      tip.innerHTML=(tt?`<div class="tip-b-title">${escapeHtml(tt)}</div>`:'')+t;
+      tip.classList.add('show');
+      const r=el.getBoundingClientRect();
+      const tw=tip.offsetWidth||280, th=tip.offsetHeight||80;
+      let x=r.left+r.width/2-tw/2;
+      let y=r.top-th-12;
+      if(x<8)x=8;
+      if(x+tw>window.innerWidth-8)x=window.innerWidth-tw-8;
+      if(y<8)y=r.bottom+12;
+      tip.style.left=x+'px';
+      tip.style.top=y+'px';
+    };
+    const hide=()=>{const tip=ensureTipEl();tip.classList.remove('show');};
+    el.addEventListener('mouseenter',show);
+    el.addEventListener('mousemove',show);
+    el.addEventListener('mouseleave',hide);
+    el.addEventListener('focus',show);
+    el.addEventListener('blur',hide);
+    el.addEventListener('click',(e)=>{
+      if('ontouchstart' in window){e.preventDefault();show(e);setTimeout(hide,2500);}
+    },false);
+  });
+}
+// Re-bind when dynamic content swaps in (signers wall, amendments)
+const _origBuildSigners=buildSigners;
+buildSigners=function(){_origBuildSigners.apply(this,arguments);bindTooltips(document);};
+
 // DOMContentLoaded INIT
 // ═══════════════════════════════════════════════════════════
 document.addEventListener('DOMContentLoaded',()=>{
@@ -2693,6 +2746,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   buildLanguages();
   initQuotes();
   initFilmLazyLoad();
+  bindTooltips(document);
 
   // Show cookie banner if not accepted
   if(!localStorage.getItem('sc_cookie_accepted')){

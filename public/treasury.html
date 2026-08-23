@@ -29,12 +29,8 @@
 <meta name="description" content="Bitcoin-funded only. Live on-chain transparency. No VC, no ads, no government grants. Fund digital human rights.">
 <link rel="image_src" href="https://sherpacarta.org/og/treasury.jpg">
 <!-- ═══ /SOCIAL PREVIEW META ═══ -->
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
-<link rel="image_src" href="https://sherpacarta.org/og/treasury.jpg">
-
-<!-- ═══ SOCIAL PREVIEW META (auto) ═══ -->
 <link rel="canonical" href="https://sherpacarta.org/treasury">
-<meta name="theme-color" content="#050806">
+<meta name="theme-color" content="#1a100c">
 <link rel="icon" href="/favicon.png?v=738" type="image/png" sizes="48x48">
 <link rel="icon" href="/brand-mark.png?v=738" type="image/png" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=738">
@@ -42,33 +38,67 @@
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=734">
 <link rel="stylesheet" href="/sc-main.css?v=860">
 <style>
-body.tr{max-width:720px;margin:0 auto;padding:1.5rem 1.15rem 3rem;font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6}
-.tr h1{font-family:var(--serif);color:var(--em2);font-size:clamp(1.75rem,4vw,2.15rem);margin:.25rem 0}
+/* ═══ TREASURY — jewel-tone warm redesign (Mimi, 2026-08-23) ═══ */
+body.tr{max-width:760px;margin:0 auto;padding:1.5rem 1.15rem 3rem;font-family:var(--sans);background:radial-gradient(ellipse 90% 60% at 15% -5%,rgba(251,146,60,.16),transparent),radial-gradient(ellipse 70% 50% at 90% 5%,rgba(232,192,64,.12),transparent),radial-gradient(ellipse 80% 60% at 50% 110%,rgba(20,212,146,.1),transparent),var(--bg);color:var(--text);line-height:1.6}
+.tr h1{font-family:var(--serif);background:linear-gradient(120deg,#f5d76a,#fb923c 55%,#45e8b0);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:clamp(1.9rem,5vw,2.4rem);margin:.25rem 0;letter-spacing:-.02em}
 .sub{font-family:var(--mono);font-size:.68rem;color:var(--text3);letter-spacing:.08em;margin-bottom:1.5rem}
 .tr-ribbon{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
 .tr-ribbon .live{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border-radius:99px;color:#86efac;border:1px solid rgba(34,197,94,.4);background:rgba(34,197,94,.1)}
 .tr-ribbon .mark{font-family:var(--serif);font-size:.78rem;color:var(--gold2)}
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:1rem;padding:1.25rem;margin-bottom:1rem}
-.stat{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:.8rem}
+/* Cards — gradient surface, warm jewel tone, left accent bar */
+.card{position:relative;overflow:hidden;background:linear-gradient(160deg,#241a10,#120c07 70%);border:1px solid rgba(245,215,106,.22);border-radius:1.25rem;padding:1.4rem 1.4rem 1.4rem 1.6rem;margin-bottom:1rem;box-shadow:0 18px 50px rgba(0,0,0,.45),0 0 0 1px rgba(251,146,60,.05),inset 0 1px 0 rgba(255,255,255,.05)}
+.card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#f5d76a,#fb923c 60%,#e04f3a)}
+.card::after{content:'';position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(251,146,60,.12),transparent 70%);pointer-events:none}
+.card h2.card-h{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#fb923c;margin:0 0 .9rem;display:flex;align-items:center;gap:.5rem}
+.card h2.card-h::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(251,146,60,.35),transparent)}
+/* Stat rows */
+.stat{display:flex;justify-content:space-between;gap:1rem;padding:.6rem 0;border-bottom:1px solid rgba(245,215,106,.12);font-family:var(--mono);font-size:.8rem}
 .stat:last-child{border:none}
-.stat span:last-child{color:var(--em);text-align:right}
+.stat span:first-child{color:var(--text2)}
+.stat span:last-child{color:var(--em);text-align:right;font-weight:600}
 .addr{font-size:.65rem;word-break:break-all;color:var(--text2)}
+/* Buttons */
+.btns{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
+.btns a,.btns button{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.05rem;border-radius:100px;border:1px solid rgba(245,215,106,.35);background:linear-gradient(160deg,rgba(245,215,106,.12),rgba(251,146,60,.06));color:var(--gold2);font-size:.8rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:44px;font-family:var(--sans);transition:all .18s}
+.btns a:hover,.btns button:hover{background:linear-gradient(160deg,rgba(245,215,106,.22),rgba(251,146,60,.12));border-color:var(--gold2);box-shadow:0 0 20px rgba(245,215,106,.18);transform:translateY(-1px)}
+.btns a.primary{background:linear-gradient(135deg,#f5d76a,#fb923c);color:#1a100c;border:none;font-weight:700}
+.btns a.primary:hover{box-shadow:0 0 26px rgba(251,146,60,.4);transform:translateY(-1px)}
+/* Funding rails */
+.rails{display:grid;gap:.65rem;margin-top:.5rem}
+.rail{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.7rem .9rem;border-radius:.85rem;border:1px solid rgba(245,215,106,.22);background:linear-gradient(160deg,rgba(20,212,146,.06),rgba(251,146,60,.04));font-size:.82rem;transition:all .18s}
+.rail:hover{border-color:rgba(245,215,106,.5);box-shadow:0 0 18px rgba(245,215,106,.12)}
+.rail .tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.22rem .55rem;border-radius:100px;border:1px solid var(--border2)}
+.rail .tag.live{color:var(--em);border-color:var(--em);background:rgba(20,212,146,.1)}
+.rail .tag.pend{color:var(--gold);border-color:rgba(232,192,64,.5);background:rgba(232,192,64,.08)}
+.rail .tag.plan{color:var(--text3)}
+.warn-box{font-size:.78rem;color:var(--gold);border:1px solid rgba(212,175,55,.3);background:rgba(212,175,55,.07);padding:.8rem .95rem;border-radius:.85rem;margin-top:.75rem;line-height:1.55}
+/* ═══ INTERACTIVE TX CHART — hover bars with tooltips ═══ */
+.chart-wrap{position:relative;margin-top:.75rem;background:rgba(0,0,0,.2);border:1px solid rgba(245,215,106,.14);border-radius:.85rem;padding:.9rem .9rem .5rem}
+.chart-hint{font-family:var(--mono);font-size:.55rem;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;text-align:center;margin-bottom:.35rem}
+.chart-svg{display:block;width:100%;height:auto;touch-action:manipulation}
+.tx-bar{transition:opacity .15s ease}
+.chart-svg:hover .tx-bar{opacity:.55}
+.chart-svg:hover .tx-bar:hover{opacity:1}
+.bar-tip{position:fixed;z-index:99999;pointer-events:none;opacity:0;transform:translateY(6px);transition:opacity .14s ease,transform .14s ease;max-width:min(280px,calc(100vw - 1.5rem))}
+.bar-tip.show{opacity:1;transform:translateY(0)}
+.bar-tip .bt-inner{padding:.65rem .8rem;border-radius:.7rem;background:linear-gradient(160deg,#2b1f10,#170e06);border:1px solid rgba(245,215,106,.5);color:#fdf3e3;font-size:.74rem;line-height:1.5;box-shadow:0 10px 28px rgba(0,0,0,.5),0 0 18px rgba(251,146,60,.18)}
+.bar-tip .bt-t{font-family:var(--serif);font-weight:700;color:#f5d76a;font-size:.85rem;margin-bottom:.1rem}
+.bar-tip .bt-v{font-family:var(--mono);color:#8af5cc;font-size:.72rem}
+/* TX list */
 .tx-list{margin-top:.5rem;font-size:.78rem}
-.tx-item{padding:.55rem 0;border-bottom:1px solid var(--border)}
+.tx-item{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.55rem .7rem;border-bottom:1px solid rgba(245,215,106,.1);border-radius:.5rem;transition:background .15s}
+.tx-item:hover{background:rgba(251,146,60,.06)}
 .tx-item:last-child{border:none}
+.tx-item .tx-val{font-family:var(--mono);color:var(--em);white-space:nowrap}
+.tx-item a{color:var(--em2);word-break:break-all}
 a{color:var(--em2)}
 .note{font-size:.75rem;color:var(--text3);margin-top:1.25rem;line-height:1.65}
-.back{display:inline-block;margin-bottom:1.25rem;font-size:.85rem}
-.rails{display:grid;gap:.65rem;margin-top:.5rem}
-.rail{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.65rem .85rem;border-radius:.75rem;border:1px solid var(--border2);background:var(--bg3);font-size:.82rem}
-.rail .tag{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .5rem;border-radius:100px;border:1px solid var(--border2)}
-.rail .tag.live{color:var(--em);border-color:var(--em)}
-.rail .tag.pend{color:var(--gold);border-color:var(--gold)}
-.rail .tag.plan{color:var(--text3)}
-.btns{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
-.btns a,.btns button{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1rem;border-radius:100px;border:1px solid var(--border2);background:var(--bg3);color:var(--em2);font-size:.8rem;font-weight:600;cursor:pointer;text-decoration:none;min-height:42px;font-family:var(--sans)}
-.btns a.primary{background:linear-gradient(135deg,var(--em),var(--em2));color:#041208;border:none}
-.warn-box{font-size:.78rem;color:var(--gold);border:1px solid rgba(212,175,55,.3);background:rgba(212,175,55,.07);padding:.75rem .9rem;border-radius:.75rem;margin-top:.75rem;line-height:1.55}
+.back{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1.25rem;font-size:.85rem;color:var(--gold2);text-decoration:none}
+.back:hover{color:var(--em2)}
+@media (max-width:520px){
+  .tx-item{flex-direction:column;align-items:flex-start;gap:.2rem}
+  .stat{font-size:.72rem}
+}
 </style>
 <!-- suite analytics: first-party Umami (sherpacarta) -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
@@ -81,7 +111,7 @@ a{color:var(--em2)}
   <span class="live">on-chain live</span>
   <span class="live" style="color:var(--gold2);border-color:rgba(212,175,55,.4);background:rgba(212,175,55,.08)">BUILD 734</span>
 </div>
-<h1><i class="fas fa-scale-balanced" style="color:var(--em)"></i> Treasury</h1>
+<h1><i class="fas fa-scale-balanced" style="color:var(--gold2)"></i> Treasury</h1>
 <p class="sub">ON-CHAIN TRANSPARENCY · BITCOIN ONLY · ZERO ADS</p>
 
 <div class="card">
@@ -97,7 +127,16 @@ a{color:var(--em2)}
 </div>
 
 <div class="card">
-  <h2 style="font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em);margin:0 0 .85rem">Funding rails</h2>
+  <h2 class="card-h"><i class="fas fa-chart-column"></i> Donation flow</h2>
+  <p class="note" style="margin-top:0;margin-bottom:.5rem">Every bar is one on-chain transaction — <strong>hover or tap a bar</strong> to inspect it. Honest proof, not a marketing chart.</p>
+  <div class="chart-wrap">
+    <div class="chart-hint">← older · amount (BTC) · newer →</div>
+    <svg class="chart-svg" id="tx-chart" viewBox="0 0 640 180" role="img" aria-label="Recent on-chain donations bar chart"></svg>
+  </div>
+</div>
+
+<div class="card">
+  <h2 class="card-h"><i class="fas fa-route"></i> Funding rails</h2>
   <div class="rails" id="rails">
     <div class="rail"><span><i class="fab fa-bitcoin"></i> On-chain Bitcoin</span><span class="tag live">Live</span></div>
     <div class="rail"><span><i class="fas fa-bolt"></i> Lightning (LNURL / address)</span><span class="tag pend">Pending</span></div>
@@ -112,7 +151,7 @@ a{color:var(--em2)}
 </div>
 
 <div class="card">
-  <h2 style="font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--em);margin:0 0 .85rem">Recent transactions</h2>
+  <h2 class="card-h"><i class="fas fa-receipt"></i> Recent transactions</h2>
   <div id="tx-list" class="tx-list">Loading…</div>
 </div>
 
@@ -165,6 +204,77 @@ document.getElementById('copy-btc').addEventListener('click', async () => {
   } catch (_) {}
 });
 
+/* ── Interactive bar chart: hover/tap a bar to inspect a tx ── */
+const tip = document.createElement('div');
+tip.className = 'bar-tip';
+tip.innerHTML = '<div class="bt-inner"><div class="bt-t"></div><div class="bt-v"></div></div>';
+document.body.appendChild(tip);
+const tipT = tip.querySelector('.bt-t'), tipV = tip.querySelector('.bt-v');
+function showTip(el, ev) {
+  tipT.textContent = el.dataset.label || '';
+  tipV.textContent = el.dataset.value || '';
+  tip.classList.add('show');
+  const r = el.getBBox ? el.getBBox() : null;
+  const cx = r ? r.x + r.width / 2 : ev.clientX;
+  const cy = r ? r.y : ev.clientY;
+  const rect = tip.getBoundingClientRect();
+  let x = cx - rect.width / 2;
+  let y = (ev.clientY - 70);
+  if (x < 8) x = 8;
+  if (x + rect.width > window.innerWidth - 8) x = window.innerWidth - rect.width - 8;
+  if (y < 8) y = ev.clientY + 18;
+  tip.style.left = x + 'px';
+  tip.style.top = y + 'px';
+}
+function hideTip() { tip.classList.remove('show'); }
+
+function drawChart(txs) {
+  const svg = document.getElementById('tx-chart');
+  if (!svg || !txs.length) { svg.innerHTML = ''; return; }
+  const W = 640, H = 180, padL = 10, padR = 10, padT = 14, padB = 26;
+  const vals = txs.slice(0, 12).map((tx) => {
+    const val = tx.vout?.filter((o) => o.scriptpubkey_address === BTC).reduce((s, o) => s + (o.value || 0), 0)
+      || tx.vout?.reduce((s, o) => s + (o.value || 0), 0) || 0;
+    return { txid: tx.txid, val: val / 1e8, date: tx.status?.block_time ? new Date(tx.status.block_time * 1000).toLocaleDateString() : 'mempool' };
+  }).reverse();
+  const max = Math.max(...vals.map(v => v.val), 0.0001);
+  const n = vals.length;
+  const slot = (W - padL - padR) / n;
+  const barW = Math.max(8, slot * 0.6);
+  const innerH = H - padT - padB;
+  let bars = '';
+  vals.forEach((v, i) => {
+    const h = Math.max(3, (v.val / max) * innerH);
+    const x = padL + i * slot + (slot - barW) / 2;
+    const y = padT + innerH - h;
+    const id = v.txid.slice(0, 12);
+    bars += `<rect class="tx-bar" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${barW.toFixed(1)}" height="${h.toFixed(1)}" rx="3"
+      fill="url(#barGrad)" data-label="${v.date}" data-value="${v.val.toFixed(6)} BTC · ${id}…"
+      data-txid="${v.txid}" style="cursor:pointer;stroke:#1a100c;stroke-width:.5"></rect>`;
+    bars += `<text x="${(x + barW / 2).toFixed(1)}" y="${H - 8}" text-anchor="middle" font-size="7" fill="#8a7a55">${v.date.slice(0, 4)}</text>`;
+  });
+  svg.innerHTML = `
+    <defs><linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#8a5a1e"/><stop offset=".55" stop-color="#f5d76a"/><stop offset="1" stop-color="#fb923c"/>
+    </linearGradient></defs>${bars}`;
+  svg.querySelectorAll('.tx-bar').forEach((bar) => {
+    const open = (e) => {
+      showTip(bar, e);
+      if (bar.dataset.txid) {
+        window.open('https://mempool.space/tx/' + bar.dataset.txid, '_blank', 'noopener');
+      }
+    };
+    bar.addEventListener('mouseenter', (e) => showTip(bar, e));
+    bar.addEventListener('mousemove', (e) => showTip(bar, e));
+    bar.addEventListener('mouseleave', hideTip);
+    bar.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (bar.dataset.txid) window.open('https://mempool.space/tx/' + bar.dataset.txid, '_blank', 'noopener');
+    });
+    bar.addEventListener('touchstart', (e) => { e.preventDefault(); showTip(bar, e); }, { passive: false });
+  });
+}
+
 async function load() {
   await initWallets();
   try {
@@ -181,13 +291,14 @@ async function load() {
     document.getElementById('bal').textContent = balance.toFixed(8) + ' BTC';
     document.getElementById('txs').textContent = String(count);
     document.getElementById('updated').textContent = new Date().toLocaleString();
+    drawChart(txs);
     const list = document.getElementById('tx-list');
     if (!txs.length) { list.textContent = 'No transactions yet.'; return; }
     list.innerHTML = txs.slice(0, 12).map((tx) => {
       const val = tx.vout?.filter((o) => o.scriptpubkey_address === BTC).reduce((s, o) => s + (o.value || 0), 0)
         || tx.vout?.reduce((s, o) => s + (o.value || 0), 0) || 0;
       const t = tx.status?.block_time ? new Date(tx.status.block_time * 1000).toLocaleDateString() : 'mempool';
-      return `<div class="tx-item"><a href="https://mempool.space/tx/${tx.txid}" target="_blank" rel="noopener">${tx.txid.slice(0, 16)}…</a> · ${(val / 1e8).toFixed(8)} BTC · ${t}</div>`;
+      return `<div class="tx-item"><a href="https://mempool.space/tx/${tx.txid}" target="_blank" rel="noopener">${tx.txid.slice(0, 16)}…</a><span>${t}</span><span class="tx-val">${(val / 1e8).toFixed(8)} BTC</span></div>`;
     }).join('');
   } catch (e) {
     document.getElementById('bal').textContent = 'Unavailable';
