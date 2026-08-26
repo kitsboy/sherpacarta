@@ -1,5 +1,7 @@
-# sherpacarta — Last Updated 2026-08-11 by Grok
+# sherpacarta — Last Updated 2026-08-26 by Ziggy (kanban t_4aede6a3)
 
-Brief: Session goodbye — film+Kokoro, NIP-05, BUILD 840/860 technical finish; marketing/LN/Nostr-bot/MP deferred
-Commit: bf96f4e3908ec9c2a932da799684ab6efcf4e036
-Deploy: https://sherpacarta.org · bust ?v=860 · NIP-05 /.well-known/nostr.json
+Brief: wired the two dead email inputs to a real capture backend — #newsletter-email (Rights Dispatch waitlist)
+and #coalition-contact (coalition endorsement interest) now POST to /api/capture (CF Pages Function + KV),
+with success/error states and mailto fallback. Both inputs previously fired no network request.
+Commit: (see git log — pushed to origin/main)
+Deploy: https://sherpacarta.org · CF Pages auto-deploy via GitHub Actions (deploy.yml)

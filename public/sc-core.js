@@ -2451,10 +2451,32 @@ function toggleFaq(q){
 // NEWSLETTER (Feature 45)
 // ═══════════════════════════════════════════════════════════
 function subscribeNewsletter(){
-  const email=document.getElementById('newsletter-email').value.trim();
-  if(!email||!email.includes('@')){toast('Please enter a valid email address','error');return;}
-  // No mail server yet — do not pretend to subscribe
-  toast('Rights Dispatch is not live yet. Email hello@giveabit.io with subject “Sherpacarta Dispatch” to join the waitlist.','info');
+  const input=document.getElementById('newsletter-email');
+  const email=(input?.value||'').trim();
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){toast('Please enter a valid email address','error');input?.focus();return;}
+  const btn=document.querySelector('.newsletter-form .sign-submit');
+  const gotcha=document.getElementById('newsletter-gotcha')?.value||'';
+  const busy=(on)=>{if(!btn)return;btn.disabled=on;btn.style.opacity=on?'0.6':'1';
+    if(on)btn.dataset.html=btn.innerHTML;
+    else if(btn.dataset.html){btn.innerHTML=btn.dataset.html;}
+    if(on)btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Adding…';};
+  busy(true);
+  fetch('/api/capture',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({kind:'waitlist',email,_gotcha:gotcha})})
+    .then(r=>r.json().then(d=>({ok:r.ok,d})).catch(()=>({ok:r.ok,d:{error:'Bad response'}})))
+    .then(({ok,d})=>{
+      if(!ok||!d.ok)throw new Error(d?.error||'Request failed');
+      if(input)input.value='';
+      toast(d.deduped?'You\u2019re already on the waitlist — thank you!':'You\u2019re on the waitlist. We\u2019ll email you when the Rights Dispatch launches.','success');
+    })
+    .catch(()=>{
+      // Graceful fallback: keep the original waitlist path (mailto)
+      const subject=encodeURIComponent('SherpaCarta Dispatch waitlist');
+      const body=encodeURIComponent('Please add '+email+' to the Rights Dispatch waitlist.');
+      location.href='mailto:hello@giveabit.io?subject='+subject+'&body='+body;
+      toast('Couldn\u2019t reach the server — email draft opened instead.','error');
+    })
+    .finally(()=>busy(false));
 }
 
 // ═══════════════════════════════════════════════════════════

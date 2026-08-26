@@ -155,12 +155,32 @@
       const org = $('coalition-org')?.value?.trim();
       const email = $('coalition-contact')?.value?.trim();
       if (!org) { toast('Enter organization name', 'error'); return; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { toast('Enter a valid contact email', 'error'); return; }
+      const btn = $('coalition-submit');
+      const busy = (on) => { if (!btn) return; btn.disabled = on; btn.style.opacity = on ? '0.6' : '1';
+        if (on) { btn.dataset.html = btn.innerHTML; btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…'; }
+        else if (btn.dataset.html) btn.innerHTML = btn.dataset.html; };
+      // Local-first backup (existing behavior) — kept regardless of network result
       const list = JSON.parse(localStorage.getItem('sc_coalition_interest') || '[]');
       list.push({ org, email, at: Date.now() });
       localStorage.setItem('sc_coalition_interest', JSON.stringify(list));
-      const mail = `mailto:hello@giveabit.io?subject=${encodeURIComponent('Coalition Endorsement: ' + org)}&body=${encodeURIComponent(`Organization: ${org}\nContact: ${email || 'not provided'}\n\nInterested in endorsing SherpaCarta Canada/BC Challenge.`)}`;
-      location.href = mail;
-      toast('Interest saved locally — email draft opened', 'success');
+      busy(true);
+      fetch('/api/capture', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ kind: 'coalition', org, email }) })
+        .then(r => r.json().then(d => ({ ok: r.ok, d })).catch(() => ({ ok: r.ok, d: { error: 'Bad response' } })))
+        .then(({ ok, d }) => {
+          if (!ok || !d.ok) throw new Error(d?.error || 'Request failed');
+          if ($('coalition-org')) $('coalition-org').value = '';
+          if ($('coalition-contact')) $('coalition-contact').value = '';
+          toast(d.deduped ? 'Interest already recorded — we\u2019ll be in touch. Thank you!' : 'Interest recorded — we\u2019ll be in touch. Thank you!', 'success');
+        })
+        .catch(() => {
+          // Graceful fallback: mailto draft (previous working path)
+          const mail = `mailto:hello@giveabit.io?subject=${encodeURIComponent('Coalition Endorsement: ' + org)}&body=${encodeURIComponent(`Organization: ${org}\nContact: ${email || 'not provided'}\n\nInterested in endorsing SherpaCarta Canada/BC Challenge.`)}`;
+          location.href = mail;
+          toast('Couldn\u2019t reach the server — email draft opened instead. Interest saved locally.', 'error');
+        })
+        .finally(() => busy(false));
     });
   });
 

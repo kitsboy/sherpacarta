@@ -746,9 +746,10 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <div class="newsletter-section reveal">
       <div class="section-label" style="margin-bottom:.5rem"><span>Stay Informed</span></div>
       <h3 style="font-family:var(--serif);font-size:2rem;font-weight:700;letter-spacing:-.025em">Rights Dispatch</h3>
-      <p style="font-size:.85rem;color:var(--text2);margin-top:.4rem;max-width:500px">Monthly briefing on digital rights victories, new articles, and threats to privacy worldwide. <strong>Email list is not live yet</strong> — use the button to get waitlist instructions. No tracking.</p>
+      <p style="font-size:.85rem;color:var(--text2);margin-top:.4rem;max-width:500px">Monthly briefing on digital rights victories, new articles, and threats to privacy worldwide. <strong>Join the waitlist</strong> — we'll email you when the Dispatch launches. No tracking.</p>
       <div class="newsletter-form">
         <input class="newsletter-input" id="newsletter-email" type="email" placeholder="your@email.com" aria-label="Email address" autocomplete="email">
+        <input type="text" id="newsletter-gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
         <button type="button" class="sign-submit" onclick="subscribeNewsletter()"><i class="fas fa-envelope"></i> Join waitlist</button>
       </div>
     </div>
