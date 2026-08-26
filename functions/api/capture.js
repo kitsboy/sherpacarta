@@ -7,7 +7,7 @@
  * (email, optional org, timestamp) in PETITION_KV — no IPs, no analytics, no cookies.
  *
  * Bot defense: optional honeypot (_gotcha) + per-IP rate limit (reuses canada _shared).
- * Notification: best-effort Mailchannels alert to the family inbox (non-fatal).
+ * Retrieval: family reads captured entries via CF KV API (see FIXES-LOG 2026-08-26).
  *
  * Body: { kind: 'waitlist' | 'coalition', email: string, org?: string, _gotcha?: string }
  */
@@ -39,44 +39,6 @@ async function appendEntry(kv, key, entry, cap) {
   list.unshift(entry);
   await kv.put(key, JSON.stringify(list.slice(0, cap)));
   return list.length;
-}
-
-/** Best-effort email alert (never blocks the capture). Uses giveabit-proven from/to. */
-async function notifyMailchannels(kind, email, org) {
-  try {
-    const label = kind === 'coalition' ? 'Coalition endorsement interest' : 'Rights Dispatch waitlist';
-    const orgLine = org ? `Organization: ${org}\n` : '';
-    const text = [
-      `New SherpaCarta ${label}`,
-      ``,
-      `Email: ${email}`,
-      orgLine,
-      `Captured: ${new Date().toISOString()}`,
-      ``,
-      `Source: sherpacarta.org`,
-    ]
-      .filter(Boolean)
-      .join('\n');
-
-    const controller = new AbortController();
-    const t = setTimeout(() => controller.abort(), 4000);
-    const res = await fetch('https://api.mailchannels.net/tx/v1/send', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        personalizations: [{ to: [{ email: 'kitsboy@gmail.com' }] }],
-        from: { email: 'hello@giveabit.io', name: 'SherpaCarta' },
-        reply_to: { email },
-        subject: `[sherpacarta.org] ${label}: ${email}`,
-        content: [{ type: 'text/plain', value: text }],
-      }),
-      signal: controller.signal,
-    });
-    clearTimeout(t);
-    return res.ok;
-  } catch {
-    return false; // never fail the capture over a mail hiccup
-  }
 }
 
 export async function onRequest(context) {
@@ -154,9 +116,6 @@ export async function onRequest(context) {
       METHODS
     );
   }
-
-  // Non-blocking alert to the family (best-effort)
-  notifyMailchannels(kind, email, org);
 
   return json(
     request,
