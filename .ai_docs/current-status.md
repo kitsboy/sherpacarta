@@ -10,6 +10,7 @@
 - Added secular/nonpartisan/nonreligious digital-rights framing guidance and current-law boundaries.
 - Added educational rights taxonomy and article-reference checks.
 - Added `docs/VIDEO-ONE-MINUTE-HANDOFF.md` with enhanced civic/history and technical Bitcoin/Satohash/OpenTimestamps scripts for later production.
+- Added `docs/VIDEO-SHERPA-ONE-MINUTE-BRIEF.md` with a realistic young British male presenter concept, 60-second script, visual direction, and consent/review gates.
 - Added `/rights.html` secular plain-language digital-rights education page.
 - Added `check:next100` covering the new rights, SEO, social, and video package.
 - Connected the educational rights taxonomy to the article reader with local progress, category filtering, citation copy, provenance labels, and share context.

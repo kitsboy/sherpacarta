@@ -144,6 +144,7 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 - [x] Secular rights education page and rights taxonomy links
 - [x] Sitemap/offline coverage for rights education
 - [x] Two one-minute video scripts handed off for later production
+- [x] SherpaCarta one-minute realistic-presenter brief and script prepared for Kimi
 - [x] Article reader taxonomy filter, provenance labels, citation copy, and share context
 - [x] Reader integration contract check (`check:reader`)
 

@@ -39,6 +39,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `scripts/check-reader-contract.mjs` — reader/data/cache integration contract
 - `public/data/rights-taxonomy.json` — educational rights categories and article references
 - `docs/VIDEO-ONE-MINUTE-HANDOFF.md` — later civic and technical video scripts
+- `docs/VIDEO-SHERPA-ONE-MINUTE-BRIEF.md` — realistic-presenter concept, 60-second script, visual direction, and production gates
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted
 - `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/

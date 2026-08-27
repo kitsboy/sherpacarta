@@ -1,3 +1,14 @@
+## Session — 2026-08-27 (Buffy M3 — SHERPA ONE-MINUTE PRESENTER BRIEF)
+
+**Canonical brief:** `docs/VIDEO-SHERPA-ONE-MINUTE-BRIEF.md`
+
+- Planned the first SherpaCarta one-minute film around a realistic young adult English male presenter with a warm contemporary British accent.
+- The presenter is a distinct SherpaCarta guide, not a copy or impersonation of Kimi; working label: “The Guide.”
+- The brief contains the 60-second script, visual direction, Give A Bit continuity notes, consent requirements, demo-data rules, accessibility deliverables, and review gates.
+- Production is pending: do not claim the presenter, voice, likeness, footage, approvals, or final video exists until obtained and reviewed.
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — SEO/I18N + VIDEO SCRIPT PACKAGE)
 
 **Done:**
