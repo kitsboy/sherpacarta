@@ -1997,6 +1997,9 @@ function signCharter(){
       const title=document.createElement('strong'); title.textContent='Your commitment is saved locally.'; post.appendChild(title);
       const meta=document.createElement('span'); meta.textContent=` Signatory #${state.signCount.toLocaleString()} · ${new Date(record.ts).toLocaleString()}`; post.appendChild(meta);
       const receipt=document.createElement('button'); receipt.type='button'; receipt.className='btn btn-ghost'; receipt.textContent='Download receipt'; receipt.onclick=()=>window.downloadLocalSignatureReceipt?.(record,state.signCount); post.appendChild(receipt);
+      const copy=document.createElement('button'); copy.type='button'; copy.className='btn btn-ghost'; copy.textContent='Copy receipt'; copy.onclick=()=>window.copyLocalSignatureReceipt?.(record,state.signCount); post.appendChild(copy);
+      const print=document.createElement('button'); print.type='button'; print.className='btn btn-ghost'; print.textContent='Print certificate'; print.onclick=()=>window.printLocalSignatureCertificate?.(record,state.signCount); post.appendChild(print);
+      const undo=document.createElement('button'); undo.type='button'; undo.className='btn btn-ghost'; undo.textContent='Undo'; undo.onclick=()=>window.undoLastLocalSignature?.(); post.appendChild(undo);
       const share=document.createElement('button'); share.type='button'; share.className='btn btn-ghost'; share.textContent='Share'; share.onclick=()=>window.shareLocalSignature?.(record); post.appendChild(share);
     }
     const lc=document.getElementById('live-counter');

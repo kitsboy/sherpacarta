@@ -45,10 +45,15 @@
         try {
           const data = JSON.parse(reader.result);
           if (!data || typeof data !== 'object' || !Array.isArray(data.signers) || data.signers.some((item) => !item || typeof item.name !== 'string')) throw new Error('invalid');
-          localStorage.setItem('sc_signers', JSON.stringify(data.signers.slice(0, 100)));
-          localStorage.setItem('sc_count', String(Math.max(data.signers.length, Number(data.count) || 0)));
-          if (data.draft) localStorage.setItem(SIGN_DRAFT_KEY, JSON.stringify({ name: String(data.draft.name || '').slice(0, 40), country: String(data.draft.country || '').slice(0, 30), savedAt: Date.now() }));
-          signStatus('Local data imported. Reloading…', 'success'); setTimeout(() => location.reload(), 350);
+          const incoming = data.signers.slice(0, 100);
+          const preview = $('sign-import-preview');
+          if (preview) {
+            preview.hidden = false;
+            preview.innerHTML = '';
+            const label = document.createElement('strong'); label.textContent = `Import ${incoming.length} local signature(s)?`; preview.appendChild(label);
+            const detail = document.createElement('span'); detail.textContent = 'Choose whether to merge with or replace current local data.'; preview.appendChild(detail);
+            [['Merge', false], ['Replace', true]].forEach(([text, replace]) => { const button = document.createElement('button'); button.type = 'button'; button.className = 'btn btn-ghost'; button.textContent = text; button.onclick = () => { const current = replace ? [] : JSON.parse(localStorage.getItem('sc_signers') || '[]'); const names = new Set(current.map((item) => String(item.name).toLocaleLowerCase())); const merged = [...current, ...incoming.filter((item) => !names.has(String(item.name).toLocaleLowerCase()))].slice(0, 100); localStorage.setItem('sc_signers', JSON.stringify(merged)); localStorage.setItem('sc_count', String(merged.length)); if (data.draft) localStorage.setItem(SIGN_DRAFT_KEY, JSON.stringify({ name: String(data.draft.name || '').slice(0, 40), country: String(data.draft.country || '').slice(0, 30), savedAt: Date.now() })); preview.hidden = true; signStatus('Local data imported. Reloading…', 'success'); setTimeout(() => location.reload(), 350); }; preview.appendChild(button); });
+          }
         } catch (_) { signStatus('That file is not a valid SherpaCarta local-data export.', 'error'); }
       };
       reader.readAsText(file);
@@ -59,11 +64,6 @@
     const el = $('sign-storage-info'); if (!el) return;
     let size = 0; for (const key in localStorage) if (key.startsWith('sc_')) size += String(localStorage[key]).length * 2;
     el.textContent = `~${(size / 1024).toFixed(1)} KB local`;
-  }
-
-  function signStatus(message, tone = '') {
-    const status = $('sign-flow-status');
-    if (status) { status.textContent = message; status.dataset.tone = tone; }
   }
 
   function normalizeName(value) { return String(value || '').replace(/\s+/g, ' ').trim().slice(0, 40); }
@@ -199,6 +199,16 @@
     const payload = { type: 'SherpaCarta local signature receipt', name: record.name, countryFlag: record.c, signedAt: new Date(record.ts).toISOString(), localNumber: number, site: 'https://sherpacarta.org', note: 'Stored locally on this device. This is a voluntary civic commitment, not legislation or identity verification.' };
     downloadText('sherpacarta-signature-receipt.json', JSON.stringify(payload, null, 2), 'application/json');
     signStatus('Local signature receipt downloaded.', 'success');
+  };
+  window.copyLocalSignatureReceipt = async function copyLocalSignatureReceipt(record, number) {
+    const text = JSON.stringify({ type: 'SherpaCarta local signature receipt', name: record.name, signedAt: new Date(record.ts).toISOString(), localNumber: number, site: 'https://sherpacarta.org' }, null, 2);
+    try { await navigator.clipboard.writeText(text); signStatus('Receipt copied to clipboard.', 'success'); } catch (_) { signStatus('Receipt could not be copied.', 'error'); }
+  };
+  window.printLocalSignatureCertificate = function printLocalSignatureCertificate(record, number) {
+    const popup = window.open('', '_blank', 'noopener,noreferrer,width=700,height=700');
+    if (!popup) { signStatus('Allow pop-ups to print your certificate.', 'error'); return; }
+    popup.document.write(`<title>SherpaCarta Signature Certificate</title><style>body{font-family:Georgia,serif;padding:12%;text-align:center;color:#142014}h1{font-size:2.5rem}p{font:1.1rem system-ui;line-height:1.7}.box{border:2px solid #168b63;padding:3rem}</style><div class="box"><h1>SherpaCarta</h1><p>This certifies that</p><h2>${String(record.name).replace(/[<&>]/g, '')}</h2><p>made a local civic commitment to the Global Digital Magna Carta.</p><p>Local signature #${number}<br>${new Date(record.ts).toLocaleString()}</p><small>Stored only on the signer’s device. Not legislation or identity verification.</small></div>`);
+    popup.document.close(); popup.focus(); popup.print();
   };
   window.shareLocalSignature = async function shareLocalSignature(record) {
     const text = `I made a local commitment to SherpaCarta — digital privacy is a human right. ${record.name ? '— ' + record.name : ''}`;

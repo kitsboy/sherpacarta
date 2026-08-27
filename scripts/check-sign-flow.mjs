@@ -32,6 +32,12 @@ const checks = [
   ['storage size feedback exists', next.includes('updateStorageInfo')],
   ['import validates structure', next.includes('Array.isArray(data.signers)')],
   ['post-sign metadata is visible', core.includes('toLocaleString()') && core.includes('Your commitment is saved locally')],
+  ['receipt copy and print actions exist', core.includes('Copy receipt') && core.includes('Print certificate') && next.includes('copyLocalSignatureReceipt') && next.includes('printLocalSignatureCertificate')],
+  ['undo action is visible after signing', core.includes("undo.textContent='Undo'")],
+  ['import preview supports merge and replace', next.includes('Import ${incoming.length}') && next.includes("['Merge', false]") && next.includes("['Replace', true]")],
+  ['Nostr publishing is explicitly optional', html.includes('public and optional') && html.includes('nothing is sent automatically')],
+  ['receipt output escapes display name', next.includes("replace(/[<&>]/g, '')")],
+  ['storage failures announce status', next.includes('Draft could not be saved on this device')],
 ];
 const failures = checks.filter(([, ok]) => !ok);
 if (failures.length) { console.error(failures.map(([name]) => `FAIL: ${name}`).join('\n')); process.exit(1); }
