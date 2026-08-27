@@ -2,7 +2,7 @@
 
 **Owner:** Cam (decisions) · Kimi/M4 (orchestration/docs) · Grok/M3 (code when unblocked)  
 **Updated:** 2026-08-26 (priority next-100 execution and implementation map)
-**Implementation map:** `docs/IMPLEMENTATION-MAP.md` · **Execution map:** `docs/NEXT-100-FULL-EXECUTION.md`
+**Implementation map:** `docs/IMPLEMENTATION-MAP.md` · **Execution map:** `docs/NEXT-100-FULL-EXECUTION.md` · **Gap register:** `docs/DEEP-GAP-REGISTER.md`
 **Live site:** https://sherpacarta.org  
 **Session summaries:** `SESSION-SUMMARY-2026-07-09-security-audit.md` · `SESSION-SUMMARY-2026-07-09.md`  
 **Public registries:** `/data/wallets.json` · `/data/jurisdictions.json` · `/status` · `/treasury` · `/jurisdictions`
@@ -128,6 +128,10 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 - [x] Accessible journey context and offline guidance
 - [x] Amendment lifecycle and release-review documentation
 - [x] Machine-readable release approval boundaries
+- [x] DEMO DATA disclosure bar and demo catalog
+- [x] Social/press share surface for WhatsApp, X/Facebook, and Nostr
+- [x] External counsel/audit/government/endorsement/custody/translation/archive templates
+- [x] Existing-dependency endpoint fixture checks and full repository contract workflow
 
 ## 📋 TODO (ready / next up)
 
