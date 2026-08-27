@@ -16,6 +16,8 @@ const staticUrls = [
   { loc: 'https://sherpacarta.org/comparison.html', priority: '0.75', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/press.html', priority: '0.75', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/press-kit.html', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://sherpacarta.org/share.html', priority: '0.8', changefreq: 'monthly' },
+  { loc: 'https://sherpacarta.org/rights.html', priority: '0.9', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/briefing.html', priority: '0.9', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/briefing-fr.html', priority: '0.85', changefreq: 'monthly' },
   { loc: 'https://sherpacarta.org/leave-behind.html', priority: '0.9', changefreq: 'monthly' },

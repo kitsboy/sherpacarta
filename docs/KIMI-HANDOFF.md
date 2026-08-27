@@ -13,8 +13,14 @@
 - Scripts are planning artifacts only. No video is rendered or approved.
 - Future footage must use current evidence; pending Satohash status must never be narrated as Bitcoin-confirmed.
 
+**Additional completion:**
+- Added `/rights.html` as a secular, nonpartisan, plain-language digital-rights education page.
+- Added sitemap generation and offline cache coverage for the rights page.
+- Added `check:next100` covering rights, SEO, social, and video handoff surfaces.
+- Full repository checks and build pass; generated artifacts excluded.
+
 **Git State:**
-- SHA: pending SEO/video package commit
+- SHA: pending SEO/video/rights package commit
 - Unpushed: pending
 
 ---

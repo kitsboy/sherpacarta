@@ -34,6 +34,8 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/data/seo-i18n.json` — multilingual SEO metadata and review states
 - `public/data/rights-taxonomy.json` — educational rights categories and article references
 - `public/data/seo-i18n.json` — eight-locale SEO metadata and human-review states
+- `public/rights.html` — secular plain-language digital-rights education
+- `public/data/rights-taxonomy.json` — educational rights categories and article references
 - `docs/VIDEO-ONE-MINUTE-HANDOFF.md` — later civic and technical video scripts
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted

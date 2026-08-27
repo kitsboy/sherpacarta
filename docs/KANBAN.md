@@ -141,6 +141,9 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 - [x] Rights taxonomy and educational discovery map
 - [x] Enhanced one-minute civic and technical video scripts in Kimi handoff
 - [x] Full repository contract checks for SEO and rights metadata
+- [x] Secular rights education page and rights taxonomy links
+- [x] Sitemap/offline coverage for rights education
+- [x] Two one-minute video scripts handed off for later production
 
 ## 📋 TODO (ready / next up)
 

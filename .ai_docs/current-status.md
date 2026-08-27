@@ -10,6 +10,8 @@
 - Added secular/nonpartisan/nonreligious digital-rights framing guidance and current-law boundaries.
 - Added educational rights taxonomy and article-reference checks.
 - Added `docs/VIDEO-ONE-MINUTE-HANDOFF.md` with enhanced civic/history and technical Bitcoin/Satohash/OpenTimestamps scripts for later production.
+- Added `/rights.html` secular plain-language digital-rights education page.
+- Added `check:next100` covering the new rights, SEO, social, and video package.
 - Added `check:seo-i18n` and `check:rights`.
 
 
