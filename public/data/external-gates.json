@@ -1,0 +1,18 @@
+{
+  "schema": "sherpacarta.external-gates.v1",
+  "updated": "2026-08-26",
+  "disclosure": "These records are planning/status metadata, not approvals or endorsements.",
+  "gates": [
+    {"id":"legal-counsel","label":"Independent legal counsel","status":"requires-action","owner":"Cam / qualified counsel","evidence":null},
+    {"id":"jurisdiction-review","label":"Canada/UK/EU jurisdictional review","status":"requires-action","owner":"qualified jurisdiction-specific counsel","evidence":null},
+    {"id":"security-audit","label":"Independent security audit","status":"requires-action","owner":"independent security firm","evidence":null},
+    {"id":"deployed-testing","label":"Deployed endpoint and browser automation","status":"requires-action","owner":"authorized deployment/test operator","evidence":null},
+    {"id":"approval-authority","label":"Formal approval authority","status":"decision-required","owner":"Cam / Give A Bit governance","evidence":null},
+    {"id":"canada-epetition","label":"Government MP sponsorship and official e-petition identifier","status":"requires-external-authority","owner":"Canadian MP and Parliament","evidence":null},
+    {"id":"endorsements","label":"Verified organizational endorsements","status":"requires-direct-confirmation","owner":"each named organization","evidence":null},
+    {"id":"treasury-custody","label":"Treasury custody/multisig decision","status":"decision-required","owner":"authorized treasury custodians","evidence":null},
+    {"id":"nostr-operations","label":"Protected Nostr bot and product-key operations","status":"requires-secure-ops","owner":"authorized operator on THOR/HQ","evidence":null},
+    {"id":"translation-review","label":"Human translation approval","status":"requires-human-review","owner":"qualified language reviewers","evidence":null},
+    {"id":"independent-archive","label":"Independent archival publication and recovery drill","status":"requires-external-system","owner":"archive operator and records owner","evidence":null}
+  ]
+}

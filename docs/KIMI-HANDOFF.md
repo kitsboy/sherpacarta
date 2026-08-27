@@ -1,3 +1,26 @@
+## Session — 2026-08-26 (Buffy M3 — EXTERNAL-GATE DISCLOSURE PASS)
+
+**Done:**
+- Added reusable high-contrast disclosure system with `DEMO DATA`, `REQUIRES YOUR ACTION`, `PENDING VERIFICATION`, and `LIVE / REPOSITORY VERIFIED` states.
+- Added explicit action-required messaging to Treasury, Security, Jurisdictions, and Nostr surfaces.
+- Added machine-readable `public/data/external-gates.json` for all eleven external requirements.
+- Added `docs/EXTERNAL-GATES-PACKET.md`, `docs/LEGAL-COUNSEL-REQUEST-TEMPLATE.md`, `docs/SECURITY-AUDIT-RFP.md`, and `docs/OPERATIONS-EVIDENCE-PACKET.md`.
+- Added disclosure contract checks and service-worker coverage.
+- Updated source-of-truth, Kanban, status, and latest update records.
+
+**Truth boundary:**
+- No lawyers, auditors, MPs, organizations, custodians, translators, operators, or archive providers were invented.
+- No external gate is marked complete without evidence.
+
+**Verification:**
+- Release, public, security, accessibility, disclosure, syntax, and diff checks pass.
+
+**Git State:**
+- SHA: pending disclosure release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — FULL BACKLOG + DOCS/MAPS PASS)
 
 **Done:**

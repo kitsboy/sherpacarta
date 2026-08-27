@@ -28,6 +28,8 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/release-manifest.json` — machine-readable release claims
 - `public/data/release-approvals.json` — explicit technical/legal/endorsement approval boundaries
 - `public/amendments.html` — public amendment lifecycle explanation
+- `public/js/sc-disclosure.js` — reusable DEMO DATA / action-required / pending / verified disclosure bar
+- `public/data/external-gates.json` — machine-readable external evidence gates
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted
 - `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/
@@ -54,7 +56,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `SESSION-SUMMARY-2026-07-09.md` — earlier jurisdictions session
 - `docs/CANADA-PETITION-LEGAL.md`, `docs/ROADMAP.md`
 - `docs/FORMAL-DOCUMENT-PACKET.md`, `docs/LEGAL-TRUTH-GUIDE.md`, `docs/TECHNICAL-ARCHITECTURE.md`
-- `docs/THREAT-MODEL.md`, `docs/QA-RELEASE-GATE.md`, `docs/RELEASE-REVIEW-GATE.md`, `docs/SECURITY-TEST-MATRIX.md`, `docs/NEXT-100-FULL-EXECUTION.md`, `docs/IMPLEMENTATION-MAP.md`
+- `docs/THREAT-MODEL.md`, `docs/QA-RELEASE-GATE.md`, `docs/RELEASE-REVIEW-GATE.md`, `docs/SECURITY-TEST-MATRIX.md`, `docs/NEXT-100-FULL-EXECUTION.md`, `docs/IMPLEMENTATION-MAP.md`, `docs/EXTERNAL-GATES-PACKET.md`, `docs/LEGAL-COUNSEL-REQUEST-TEMPLATE.md`, `docs/SECURITY-AUDIT-RFP.md`, `docs/OPERATIONS-EVIDENCE-PACKET.md`
 
 ### Build & Deploy
 - `npm run build` → `dist/`
@@ -96,7 +98,7 @@ Bitcoin sovereignty, privacy, human dignity. Rights only expand (Art. 114).
 - Recovery: `/whatsup` in new chat
 - **Do not sync M4 until Cam says go**
 
-— Updated 2026-08-26 · priority next-100 execution, contract checks, governance boundaries, and handoff map
+— Updated 2026-08-26 · external-gate disclosure system, evidence packets, contract checks, and handoff map
 
 
 ## Diligence Pack (partner + technical disclosure)
