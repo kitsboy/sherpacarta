@@ -5,7 +5,9 @@
 - Planned the first SherpaCarta one-minute film around a realistic young adult English male presenter with a warm contemporary British accent.
 - The presenter is a distinct SherpaCarta guide, not a copy or impersonation of Kimi; working label: “The Guide.”
 - The brief contains the 60-second script, visual direction, Give A Bit continuity notes, consent requirements, demo-data rules, accessibility deliverables, and review gates.
-- Production is pending: do not claim the presenter, voice, likeness, footage, approvals, or final video exists until obtained and reviewed.
+- A visual-only one-minute draft has now been rendered and added to the landing page as the third film: `/video/sherpacarta-one-minute-draft.mp4`.
+- The draft uses a geometric presenter stand-in and no narration/music; it is visibly marked `DEMO DATA · DRAFT PREVIEW`.
+- Production is still pending: do not claim the presenter, voice, likeness, footage, approvals, or final video exists until obtained and reviewed.
 
 ---
 

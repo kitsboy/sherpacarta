@@ -1,0 +1,1 @@
+No presenter, voice, or music assets have been resolved yet. Planned sources: licensed realistic presenter; warm contemporary British male voice; upbeat instrumental shanty-inspired music with no lyrics. Any temporary stand-in must remain labeled DEMO DATA.

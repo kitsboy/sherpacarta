@@ -1,7 +1,7 @@
 # SherpaCarta — one-minute film brief
 
-**Status:** CONCEPT / HUMAN REVIEW REQUIRED  
-**Production:** Not recorded, rendered, or approved  
+**Status:** DRAFT PREVIEW PUBLISHED / HUMAN REVIEW REQUIRED
+**Production:** Visual stand-in draft rendered and published for review; final presenter, voice, music, and approval remain pending
 **Voice direction:** Young adult English male, warm contemporary British accent, approximately 25–35; calm, intelligent, grounded, never theatrical  
 **Presenter direction:** Realistic human presenter or licensed generated presenter; distinct from Kimi and never presented as a real named person  
 **Working label:** “The Guide” (not a public character name)  

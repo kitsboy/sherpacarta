@@ -7,7 +7,7 @@ const ASSETS = [
   '/data/wallets.json', '/data/jurisdictions.json', '/data/releases.json', '/data/external-gates.json', '/data/seo-i18n.json', '/data/rights-taxonomy.json',
   '/canada/index.html', '/canada/sign', '/canada/proof', '/canada/about', '/canada/bc/index.html',
   '/canada/paper', '/canada/official', '/canada/join', '/canada/organizer',
-  '/canada/qr/join-federal.png', '/canada/qr/join-bc.png', '/canada/qr/join.png',
+  '/canada/qr/join-federal.png', '/canada/qr/join-bc.png', '/canada/qr/join.png', '/video/sherpacarta-one-minute-draft.mp4', '/video/sherpacarta-one-minute-contact-sheet.jpg',
   '/js/sc-petition-canada.js', '/js/sc-press-outlets.js', '/data/campaign-canada.json', '/data/proof-canada.json',
   '/data/satohash-templates/sherpacarta-canada-referendum.json',
   '/favicon.svg', '/og-image.svg', '/og-image.png',

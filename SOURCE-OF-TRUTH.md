@@ -43,6 +43,8 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted
 - `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/
+- `public/video/sherpacarta-one-minute-draft.mp4` — first-look one-minute visual draft (DEMO DATA; temporary stand-ins)
+- `public/video/sherpacarta-one-minute-contact-sheet.jpg` — draft review contact sheet
 - `public/jurisdictions.html`, `status.html`, `treasury.html`
 
 ### Data & API
