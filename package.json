@@ -16,6 +16,7 @@
     "check:release": "node scripts/check-release-integrity.mjs",
     "check:public": "node scripts/check-public-contracts.mjs",
     "check:security": "node scripts/check-security-contracts.mjs",
+    "check:a11y": "node scripts/check-accessibility-contracts.mjs",
     "analytics:inject": "node scripts/inject-analytics.mjs",
     "build": "node scripts/generate-charter.mjs && node scripts/inject-charter.mjs && node scripts/generate-campaign.mjs && node scripts/generate-metrics.mjs && node scripts/inject-analytics.mjs && node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-charter-txt.mjs && node scripts/generate-og-cards.mjs && vite build",
     "publish:packages": "node scripts/publish-packages.mjs",
