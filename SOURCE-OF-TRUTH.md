@@ -35,6 +35,8 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/data/rights-taxonomy.json` — educational rights categories and article references
 - `public/data/seo-i18n.json` — eight-locale SEO metadata and human-review states
 - `public/rights.html` — secular plain-language digital-rights education
+- `public/js/sc-rights-reader.js` — taxonomy-filtered reader, local progress, provenance, citation, and share context
+- `scripts/check-reader-contract.mjs` — reader/data/cache integration contract
 - `public/data/rights-taxonomy.json` — educational rights categories and article references
 - `docs/VIDEO-ONE-MINUTE-HANDOFF.md` — later civic and technical video scripts
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
@@ -105,7 +107,7 @@ Bitcoin sovereignty, privacy, human dignity. Rights only expand (Art. 114).
 - Recovery: `/whatsup` in new chat
 - **Do not sync M4 until Cam says go**
 
-— Updated 2026-08-26 · external-gate disclosure system, evidence packets, contract checks, and handoff map
+— Updated 2026-08-26 · article reader taxonomy integration, metadata safeguards, external-gate disclosure system, evidence packets, contract checks, and handoff map
 
 
 ## Diligence Pack (partner + technical disclosure)

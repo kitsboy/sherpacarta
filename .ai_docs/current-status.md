@@ -2,7 +2,7 @@
 
 **Updated:** 2026-08-26 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** `51fdba9`; current next-100 gap package pending push
+**Latest pushed release:** pending this session; reader taxonomy integration and metadata safeguards are in verification
 
 ## Delivered this session
 
@@ -12,6 +12,8 @@
 - Added `docs/VIDEO-ONE-MINUTE-HANDOFF.md` with enhanced civic/history and technical Bitcoin/Satohash/OpenTimestamps scripts for later production.
 - Added `/rights.html` secular plain-language digital-rights education page.
 - Added `check:next100` covering the new rights, SEO, social, and video package.
+- Connected the educational rights taxonomy to the article reader with local progress, category filtering, citation copy, provenance labels, and share context.
+- Added `check:reader` for the reader/data/cache integration contract.
 - Added `check:seo-i18n` and `check:rights`.
 
 

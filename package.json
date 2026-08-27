@@ -23,6 +23,7 @@
     "check:seo-i18n": "node scripts/check-seo-i18n.mjs",
     "check:rights": "node scripts/check-rights-taxonomy.mjs",
     "check:next100": "node scripts/check-next100-surface.mjs",
+    "check:reader": "node scripts/check-reader-contract.mjs",
     "analytics:inject": "node scripts/inject-analytics.mjs",
     "build": "node scripts/generate-charter.mjs && node scripts/inject-charter.mjs && node scripts/generate-campaign.mjs && node scripts/generate-metrics.mjs && node scripts/inject-analytics.mjs && node scripts/bundle-js.mjs && node scripts/generate-api.mjs && node scripts/generate-sitemap.mjs && node scripts/generate-charter-txt.mjs && node scripts/generate-og-cards.mjs && vite build",
     "publish:packages": "node scripts/publish-packages.mjs",
