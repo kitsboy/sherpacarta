@@ -103,13 +103,14 @@
 <link rel="stylesheet" href="/fonts/fonts.css?v=830">
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=830">
 
-<link rel="stylesheet" href="/sc-main.css?v=862">
-<link rel="preload" href="/js/sc-nostr-lib.js?v=862" as="script">
-<link rel="preload" href="/sc-core.js?v=862" as="script">
-<link rel="preload" href="/sc-bundle.js?v=862" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=863">
+<link rel="stylesheet" href="/sc-top20-polish.css?v=863">
+<link rel="preload" href="/js/sc-nostr-lib.js?v=863" as="script">
+<link rel="preload" href="/sc-core.js?v=863" as="script">
+<link rel="preload" href="/sc-bundle.js?v=863" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=862"></script>
+<script defer src="/js/sc-analytics.js?v=863"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -178,9 +179,10 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 
     <!-- Desktop primary links (hidden on mobile — in sheet) -->
     <div class="nav-primary" aria-label="Primary">
-      <button type="button" class="nav-link" onclick="openCharterModal()">Charter</button>
+      <a class="nav-link" href="#articles">Read</a>
+      <a class="nav-link" href="#sign">Sign</a>
+      <a class="nav-link" href="#proof">Verify</a>
       <a class="nav-link" href="/jurisdictions">World</a>
-      <a class="nav-link" href="/nostr">Discuss</a>
     </div>
 
     <div class="nav-end">
@@ -202,8 +204,10 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <button type="button" class="nav-sheet-link" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> Full Charter</button>
       <a class="nav-sheet-link" href="/jurisdictions"><i class="fas fa-globe" aria-hidden="true"></i> Jurisdictions worldwide</a>
       <a class="nav-sheet-link" href="/canada/"><i class="fas fa-flag" aria-hidden="true"></i> Canada offering</a>
-      <a class="nav-sheet-link" href="/nostr"><i class="fas fa-comments" aria-hidden="true"></i> Live Discuss</a>
-      <button type="button" class="nav-sheet-link nav-sheet-sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'})"><i class="fas fa-signature" aria-hidden="true"></i> Sign &amp; Assert Rights</button>
+      <a class="nav-sheet-link" href="#articles"><i class="fas fa-book-open" aria-hidden="true"></i> Read the charter</a>
+      <a class="nav-sheet-link" href="#sign"><i class="fas fa-signature" aria-hidden="true"></i> Sign the charter</a>
+      <a class="nav-sheet-link" href="#proof"><i class="fas fa-shield-halved" aria-hidden="true"></i> Verify a proof</a>
+      <a class="nav-sheet-link" href="/nostr"><i class="fas fa-comments" aria-hidden="true"></i> Discuss on Nostr</a>
       <div class="nav-sheet-tools">
         <div class="lang-switcher-nav" title="Switch language">
           <select id="nav-lang" onchange="switchNavLang(this.value)" aria-label="Select language">
@@ -268,6 +272,13 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <a class="hero-path-link hero-path-ca" href="/canada/" id="cta-canada-btn">Canada offering <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
     </p>
     <p class="hero-urgency"><strong>30 seconds</strong> · For every person on Earth · Local-first · CC0 · No account</p>
+    <div class="journey-rail" aria-label="SherpaCarta journey">
+      <a class="journey-step is-current" href="#articles"><span>01</span><strong>Read</strong><small>114 articles</small></a>
+      <span class="journey-arrow" aria-hidden="true">→</span>
+      <a class="journey-step" href="#sign"><span>02</span><strong>Sign</strong><small>Your commitment</small></a>
+      <span class="journey-arrow" aria-hidden="true">→</span>
+      <a class="journey-step" href="#proof"><span>03</span><strong>Verify</strong><small>Bitcoin proof</small></a>
+    </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">
     <i class="fas fa-chevron-down"></i>
@@ -714,6 +725,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         <div style="font-size:.83rem;color:var(--text2)">signatures on this device · join the movement</div>
       </div>
       <p style="font-size:.85rem;color:var(--em2);margin-bottom:1rem;max-width:520px;line-height:1.65">Your name becomes a moral commitment — private by default, shareable if you choose. <strong style="color:var(--text)">No account. No email required. No surveillance.</strong></p>
+      <div class="trust-callout" role="note"><i class="fas fa-shield-halved" aria-hidden="true"></i><div><strong>Before you sign</strong><span>This is a civic commitment, not legislation. Your signature stays in this browser unless you choose an optional public action. Review your details before submitting.</span></div></div>
       <div class="signers-wall" id="signers-wall" aria-label="Recent signatories" aria-live="polite"></div>
       <div class="sign-form">
         <input class="sign-input" id="sign-name" type="text" placeholder="Your name (or pseudonym)" maxlength="40" aria-label="Your name" autocomplete="nickname">
@@ -739,6 +751,18 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           <button class="sign-submit" onclick="submitAmendment()"><i class="fas fa-pen-fancy"></i> Submit Proposal</button>
         </div>
         <div class="amend-list" id="amend-list" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- PROOF PATH -->
+    <div class="proof-path" id="proof" aria-labelledby="proof-heading">
+      <div class="section-label"><span>Independent verification</span></div>
+      <h3 id="proof-heading">A stamp is proof of a document version — not a promise of law</h3>
+      <p>When a charter release is stamped through <strong>Satohash.io</strong>, its SHA-256 hash can be checked independently. A submission may remain pending until Bitcoin confirmation. We never label pending work confirmed.</p>
+      <div class="proof-actions">
+        <button class="btn btn-primary" type="button" onclick="stampCharterOnBitcoin()"><i class="fas fa-stamp" aria-hidden="true"></i> Stamp this charter</button>
+        <a class="btn btn-ghost" href="https://satohash.io/stamp?ref=sherpacarta" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Satohash</a>
+        <a class="btn btn-ghost" href="/security.html"><i class="fas fa-lock" aria-hidden="true"></i> Security model</a>
       </div>
     </div>
 
@@ -906,6 +930,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </section>
 
 </main><!-- end #main-content -->
+
+<div class="mobile-action-bar" aria-label="Primary actions">
+  <a href="#articles"><i class="fas fa-book-open" aria-hidden="true"></i><span>Read</span></a>
+  <a href="#sign" class="is-primary"><i class="fas fa-signature" aria-hidden="true"></i><span>Sign</span></a>
+  <a href="#proof"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>Verify</span></a>
+</div>
 
 <!-- ════════════════════════════════════════════════════════
      FOOTER — BUILD 811 centered institutional

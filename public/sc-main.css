@@ -91,6 +91,29 @@ input,select,textarea{font-family:var(--sans)}
 ::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--em3),var(--em2))}
 
 /* ═══════════════════════════════════════════════════════════
+   TOP-20 UX POLISH — clear Read → Sign → Verify journey
+═══════════════════════════════════════════════════════════ */
+.journey-rail{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:2rem auto 0;max-width:640px}
+.journey-step{display:grid;grid-template-columns:auto 1fr;column-gap:.45rem;align-items:center;min-width:132px;padding:.7rem .85rem;text-align:left;border:1px solid var(--border2);border-radius:var(--radius-md);background:rgba(3,6,5,.45);transition:transform .2s,border-color .2s,background .2s}
+.journey-step:hover,.journey-step:focus-visible{transform:translateY(-2px);border-color:var(--em);background:rgba(20,212,146,.1)}
+.journey-step span{grid-row:span 2;font-family:var(--mono);font-size:.65rem;color:var(--em)}
+.journey-step strong{font-size:.8rem;color:var(--text)}
+.journey-step small{font-size:.62rem;line-height:1.2;color:var(--text3)}
+.journey-step.is-current{border-color:var(--gold2);box-shadow:0 0 0 1px rgba(245,215,106,.18)}
+.journey-step.is-current span{color:var(--gold2)}
+.journey-arrow{color:var(--gold2);font-size:1.2rem}
+.trust-callout{display:flex;gap:.75rem;align-items:flex-start;padding:1rem 1.1rem;margin:1rem 0 1.25rem;border:1px solid var(--border-gold);border-left:3px solid var(--gold2);border-radius:var(--radius-md);background:rgba(232,192,64,.08);max-width:650px}
+.trust-callout i{color:var(--gold2);font-size:1rem;margin-top:.25rem}
+.trust-callout div{display:flex;flex-direction:column;gap:.2rem}
+.trust-callout strong{color:var(--gold2);font-size:.78rem}
+.trust-callout span{color:var(--text2);font-size:.74rem;line-height:1.55}
+.proof-path{margin-top:2.5rem;padding:1.5rem;border:1px solid var(--border-gold);border-radius:var(--radius-lg);background:linear-gradient(145deg,rgba(232,192,64,.1),rgba(20,212,146,.05));max-width:760px}
+.proof-path h3{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.1;margin-bottom:.65rem}
+.proof-path p{color:var(--text2);font-size:.82rem;line-height:1.7;max-width:680px}
+.proof-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.mobile-action-bar{display:none}
+
+/* ═══════════════════════════════════════════════════════════
    CURSOR
 ═══════════════════════════════════════════════════════════ */
 /* Custom cursor — high contrast on dark emerald bg (no mix-blend; was vanishing black-on-black) */
