@@ -7,6 +7,7 @@
   const BUILD = '20260709-720';
   const toast = (msg, type) => window.toast?.(msg, type || 'info');
 
+  document.documentElement.classList.add('sc-reveal-ready');
   window.SHERPA_UPGRADES = window.SHERPA_UPGRADES || {};
   SHERPA_UPGRADES.b14 = { BUILD, items: [] };
 
@@ -360,7 +361,7 @@
     s.id = 'sc-touch-css';
     s.textContent = `@media(pointer:coarse){
       .btn,.cta-main,.cta-sec,.art-action-btn,.sign-submit,.pay-tab,.pay-copy,.lang-btn,.mbn-btn{min-height:44px;min-width:44px}
-      .dot-link{width:12px;height:12px}
+      .dot-link,.section-dot{width:6.5rem;min-height:44px;height:auto;padding:.3rem .42rem;font-size:.5rem}
     }`;
     document.head.appendChild(s);
   });
