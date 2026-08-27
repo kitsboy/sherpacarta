@@ -1,8 +1,8 @@
-const CACHE = 'sherpacarta-v8.0';
+const CACHE = 'sherpacarta-v8.1';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/briefing.html', '/briefing-fr.html', '/leave-behind.html',
-  '/report/2026-report.html', '/status.html', '/accessibility.html', '/verify.html', '/start.html', '/support.html', '/archive.html', '/cite.html', '/release-manifest.json', '/security.html',
+  '/report/2026-report.html', '/status.html', '/accessibility.html', '/verify.html', '/start.html', '/support.html', '/archive.html', '/cite.html', '/amendments.html', '/release-manifest.json', '/data/release-approvals.json', '/security.html',
   '/treasury.html', '/security.html', '/jurisdictions.html',
   '/data/wallets.json', '/data/jurisdictions.json', '/data/releases.json',
   '/canada/index.html', '/canada/sign', '/canada/proof', '/canada/about', '/canada/bc/index.html',

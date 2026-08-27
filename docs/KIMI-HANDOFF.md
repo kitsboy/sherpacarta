@@ -1,3 +1,23 @@
+## Session — 2026-08-26 (Buffy M3 — PRIORITY NEXT-100 RELEASE)
+
+**Done:**
+- Batch 1: bounded public Satohash lifecycle polling with explicit pending/confirmed/error states, public ID validation, and proof evidence copy/download actions.
+- Batch 2: security/privacy contract checker, CI workflow, and security test-boundary matrix.
+- Batch 3: accessible route journey context, current-step/offline messaging, and accessibility contract checks.
+- Batch 4: amendment lifecycle page, machine-readable release approval record, formal release-review gate, and service-worker coverage.
+- Verified release integrity, public contracts, security contracts, accessibility contracts, build, syntax, and diff checks.
+
+**Decisions:**
+- Repository checks are evidence of source invariants only; they do not claim legal approval, external security review, government adoption, or Bitcoin confirmation.
+- Public proof status remains pending until Satohash reports confirmed.
+- No private keys, organizer secrets, identity documents, or unnecessary PII are added.
+
+**Git State:**
+- SHA: pending final staged release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — NEXT-50 PROOF/ARCHIVE BATCH)
 
 **Done:**

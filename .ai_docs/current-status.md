@@ -1,28 +1,30 @@
-# Current Status — Sherpacarta
+# SherpaCarta current status
 
-**Version:** main @ pending next-50 release
-**Last Updated:** 2026-08-26
-**User journey:** Start here → Read / Sign / Organize / Verify
+**Updated:** 2026-08-26 · Buffy M3
+**Branch:** `main`
+**Latest pushed release:** `fdedfa4` plus the current staged release pending push
 
-## Session summary — next 50 proof/archive batch
+## Delivered this session
 
-**Implemented:**
-- Added visible receipt inspection with local structure validation and current-release hash comparison.
-- Added redacted proof receipt export that excludes signer/private/local-only fields.
-- Added verifier recovery actions for missing, expired, or unavailable proofs.
-- Added archive/citation breadcrumb navigation.
-- Added mobile-safe comparison-table overflow guidance.
-- Added `scripts/check-release-integrity.mjs` and `npm run check:release` as the release metadata integrity gate.
-- Corrected service-worker asset-list syntax and bumped cache to `v7.8`.
-- Prepared `docs/NEXT-50-AFTER-ANOTHER-50.md` for the following wave.
+- Batch 1: bounded public Satohash lifecycle polling, explicit pending/confirmed/error states, public stamp-ID validation, copy/download proof evidence actions.
+- Batch 2: security/privacy contract checks, CI workflow, and test-boundary matrix.
+- Batch 3: accessible route journey context, current-step messaging, offline guidance, and accessibility contracts.
+- Batch 4: amendment lifecycle page, machine-readable release approval boundaries, formal release-review gate, and cache coverage.
 
-**Verification:**
-- `npm run check:release` passed.
-- `npm run build` passed.
-- New/changed JavaScript syntax checks passed.
-- `git diff --check` passed.
-- Generated build artifacts reviewed and excluded from source commit.
+## Verification
 
-## Still outstanding
+- `npm run check:release` ✅
+- `npm run check:public` ✅
+- `npm run check:security` ✅
+- `npm run check:a11y` ✅
+- `npm run build` ✅
+- JavaScript syntax checks ✅
+- `git diff --check` ✅
 
-- Full proof polling/status history, QR receipt rendering, archive diff UI, signed release approvals, article provenance, complete endpoint/browser automation, external legal/security review, official government adoption, formal treasury/Nostr governance, and independent archive publication.
+## Truth boundaries
+
+Satohash proof status remains distinct from legal validity, government adoption, signer identity verification, and organizational endorsement. Repository checks are not an external security audit, legal review, or production synthetic monitor. No private keys or organizer secrets belong in this repository.
+
+## Still open
+
+External legal/security review, deployed endpoint authorization/CSRF/rate-limit tests, full browser and screen-reader automation, historical release preservation/signing, formal approval authority, government e-petition sponsorship, treasury custody decisions, protected Nostr operations, human translation review, and independent archival publication.

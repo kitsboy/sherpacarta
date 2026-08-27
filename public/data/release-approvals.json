@@ -1,0 +1,25 @@
+{
+  "schema": "sherpacarta.release-approval.v1",
+  "product": "sherpacarta",
+  "release": "2.0",
+  "documentHashEndpoint": "/api/v1/hash.json",
+  "approvalStatus": "published-without-formal-legal-approval",
+  "technicalReview": {
+    "status": "repository-checks",
+    "checks": ["release-integrity", "public-contracts", "security-contracts", "accessibility-contracts"],
+    "evidence": "npm scripts listed in package.json"
+  },
+  "legalReview": {
+    "status": "not-completed",
+    "statement": "No legal adviser, court, government, or regulator has approved this document."
+  },
+  "organizationalEndorsements": {
+    "status": "not-verified",
+    "statement": "Published participation and local receipts must not be described as official endorsements."
+  },
+  "proof": {
+    "service": "Satohash",
+    "statusMeaning": "A confirmed timestamp supports existence of a hash; it does not establish legal validity."
+  },
+  "updated": "2026-08-26"
+}
