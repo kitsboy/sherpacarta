@@ -1980,10 +1980,13 @@ function signCharter(){
     const c=flags[country]||'🌐';
     // Strip angle brackets from stored display names (XSS defense if ever re-rendered unsafely)
     const safeName=name.replace(/[<>]/g,'').slice(0,40);
-    state.signers.push({name:safeName,c});state.signCount++;
+    const record={name:safeName,c,ts:Date.now()};
+    state.signers.push(record);state.signCount++;
     localStorage.setItem('sc_signers',JSON.stringify(state.signers));
     localStorage.setItem('sc_count',state.signCount);
     localStorage.setItem('sc_last_signer',safeName);
+    localStorage.setItem('sc_last_signer_record',JSON.stringify(record));
+    localStorage.removeItem('sc_sign_draft');
     buildSigners();
     document.getElementById('sign-name').value='';document.getElementById('sign-country').value='';
     toast(`Welcome, ${safeName}! You are signatory #${state.signCount.toLocaleString()}.`,'success');

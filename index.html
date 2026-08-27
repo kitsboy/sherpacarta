@@ -707,7 +707,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <div class="section-label"><span>Assert Your Rights</span></div>
     <h2 class="section-h2 reveal" id="sign-heading">Sign the Charter</h2>
     <p class="reveal" style="color:var(--text2);font-size:.875rem;max-width:500px;margin-bottom:0">Add your name to the living record. Every signature strengthens the movement.</p>
-    <div class="sign-section reveal">
+    <div class="sign-section reveal" id="sign-panel" aria-describedby="sign-flow-status">
       <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:.4rem;flex-wrap:wrap">
         <div class="sign-count" id="sign-count">0</div>
         <div style="font-size:.83rem;color:var(--text2)">signatures on this device · join the movement</div>
@@ -715,13 +715,14 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <p style="font-size:.85rem;color:var(--em2);margin-bottom:1rem;max-width:520px;line-height:1.65">Your name becomes a moral commitment — private by default, shareable if you choose. <strong style="color:var(--text)">No account. No email required. No surveillance.</strong></p>
       <div class="trust-callout" role="note"><i class="fas fa-shield-halved" aria-hidden="true"></i><div><strong>Before you sign</strong><span>This is a civic commitment, not legislation. Your signature stays in this browser unless you choose an optional public action. Review your details before submitting.</span></div></div>
       <div class="signers-wall" id="signers-wall" aria-label="Recent signatories" aria-live="polite"></div>
-      <div class="sign-form">
-        <input class="sign-input" id="sign-name" type="text" placeholder="Your name (or pseudonym)" maxlength="40" aria-label="Your name" autocomplete="nickname">
-        <input class="sign-input" id="sign-country" type="text" placeholder="Country / Region (e.g. Canada, BC)" maxlength="30" aria-label="Your country" autocomplete="country-name">
-        <button class="sign-submit" id="sign-submit" onclick="reviewSignCharter()"><i class="fas fa-signature"></i> Review before signing</button>
-        <button class="btn btn-ghost sign-reset" type="button" onclick="resetSignDraft()"><i class="fas fa-rotate-left"></i> Reset</button>
+      <div class="sign-flow-step"><span>01</span><strong>Enter your details</strong><small>Only your name is required</small></div>
+      <div class="sign-form" id="sign-form" novalidate>
+        <div class="sign-field"><label for="sign-name">Name or pseudonym <span aria-hidden="true">*</span></label><input class="sign-input" id="sign-name" type="text" placeholder="Your name (or pseudonym)" maxlength="40" aria-describedby="sign-name-help sign-name-error" autocomplete="nickname" required><small id="sign-name-help">Use any name you want displayed locally.</small><span class="sign-field-error" id="sign-name-error" role="alert"></span><span class="sign-char-count" id="sign-name-count">0 / 40</span></div>
+        <div class="sign-field"><label for="sign-country">Country / region <span class="optional">optional</span></label><input class="sign-input" id="sign-country" type="text" placeholder="e.g. Canada, BC" maxlength="30" aria-describedby="sign-country-help sign-country-error" autocomplete="country-name"><small id="sign-country-help">Helps add a regional flag to your local display.</small><span class="sign-field-error" id="sign-country-error" role="alert"></span><span class="sign-char-count" id="sign-country-count">0 / 30</span></div>
+        <button class="sign-submit" id="sign-submit" type="button" disabled onclick="reviewSignCharter()"><i class="fas fa-signature"></i> Review before signing</button>
+        <button class="btn btn-ghost sign-reset" id="sign-reset" type="button" onclick="resetSignDraft()"><i class="fas fa-rotate-left"></i> Clear draft</button>
       </div>
-      <p class="sign-honesty"><i class="fas fa-shield-halved"></i> Privacy-first: stored only in your browser. Optional Nostr publish. We never collect signatures on our servers.</p>
+      <p class="sign-honesty"><i class="fas fa-shield-halved"></i> Privacy-first: stored only in your browser. Optional Nostr publish. We never collect signatures on our servers.</p><p class="sign-flow-status" id="sign-flow-status" role="status" aria-live="polite"></p>
       <div id="sign-review" class="sign-review" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="sign-review-title" aria-describedby="sign-review-description"><div class="sign-review-card"><button type="button" class="sign-review-close" aria-label="Close review" title="Close review" onclick="cancelSignReview(event)"><i class="fas fa-xmark" aria-hidden="true"></i></button><div class="sign-review-step" aria-label="Step 1 of 2"><span class="is-current">01</span><i class="fas fa-arrow-right" aria-hidden="true"></i><span>02</span><b>Review</b></div><h3 id="sign-review-title">Review your commitment</h3><p id="sign-review-description">This will save the following details only on this device.</p><dl><dt>Name or pseudonym</dt><dd id="review-name"></dd><dt>Country / region</dt><dd id="review-country"></dd></dl><p class="sign-review-note"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>This is a voluntary civic commitment, not legislation or identity verification. You can cancel before saving.</span></p><div class="sign-review-actions"><button type="button" class="btn btn-primary" id="sign-review-confirm" onclick="confirmSignCharter()"><i class="fas fa-signature" aria-hidden="true"></i> Confirm and sign</button><button type="button" class="btn btn-ghost" id="sign-review-cancel" onclick="cancelSignReview(event)"><i class="fas fa-arrow-left" aria-hidden="true"></i> Change details</button></div><p class="sign-review-local"><i class="fas fa-mobile-screen-button" aria-hidden="true"></i> Saved only on this device</p></div></div>
 
       <!-- NOSTR IDENTITY + AMENDMENTS -->

@@ -12,6 +12,45 @@
 
   let reviewReturnFocus = null;
   let reviewCloseTimer = null;
+  const SIGN_DRAFT_KEY = 'sc_sign_draft';
+  const SIGN_UNDO_KEY = 'sc_last_signer_record';
+
+  function signStatus(message, tone = '') {
+    const status = $('sign-flow-status');
+    if (status) { status.textContent = message; status.dataset.tone = tone; }
+  }
+
+  function updateSignForm() {
+    const name = $('sign-name');
+    const country = $('sign-country');
+    const submit = $('sign-submit');
+    if (!name || !submit) return;
+    const valid = name.value.trim().length > 0;
+    submit.disabled = !valid;
+    [['sign-name', 'sign-name-count'], ['sign-country', 'sign-country-count']].forEach(([input, counter]) => {
+      const el = $(input); const out = $(counter);
+      if (el && out) out.textContent = `${el.value.length} / ${el.maxLength}`;
+    });
+    name.setAttribute('aria-invalid', valid ? 'false' : 'true');
+    try { localStorage.setItem(SIGN_DRAFT_KEY, JSON.stringify({ name: name.value, country: country?.value || '' })); } catch (_) {}
+  }
+
+  function restoreSignDraft() {
+    try {
+      const draft = JSON.parse(localStorage.getItem(SIGN_DRAFT_KEY) || 'null');
+      if (draft) { if ($('sign-name')) $('sign-name').value = draft.name || ''; if ($('sign-country')) $('sign-country').value = draft.country || ''; signStatus('Unsaved local draft restored.'); }
+    } catch (_) {}
+    updateSignForm();
+  }
+
+  function initSignFlow() {
+    ['sign-name', 'sign-country'].forEach((id) => $(id)?.addEventListener('input', updateSignForm));
+    $('sign-name')?.addEventListener('keydown', (event) => { if (event.key === 'Enter') { event.preventDefault(); if (!$('sign-submit').disabled) window.reviewSignCharter(); } });
+    $('sign-country')?.addEventListener('keydown', (event) => { if (event.key === 'Enter') { event.preventDefault(); if (!$('sign-submit').disabled) window.reviewSignCharter(); } });
+    restoreSignDraft();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSignFlow); else initSignFlow();
 
   function closeSignReview(review, restoreFocus = true) {
     if (!review) return;
@@ -57,7 +96,7 @@
   window.reviewSignCharter = function reviewSignCharter() {
     const name = ($('sign-name')?.value || '').trim();
     const country = ($('sign-country')?.value || '').trim();
-    if (!name) { window.toast?.('Please enter your name or pseudonym', 'error'); $('sign-name')?.focus(); return; }
+    if (!name) { signStatus('Please enter your name or pseudonym.', 'error'); window.toast?.('Please enter your name or pseudonym', 'error'); $('sign-name')?.focus(); return; }
     if ($('review-name')) $('review-name').textContent = name;
     if ($('review-country')) $('review-country').textContent = country || 'Not provided';
     const review = $('sign-review');
@@ -98,11 +137,15 @@
     if (review?.classList.contains('open') && event.target === review) window.cancelSignReview(event);
   }, true);
   window.resetSignDraft = function resetSignDraft() {
-    $('sign-name') && ($('sign-name').value = '');
-    $('sign-country') && ($('sign-country').value = '');
-    localStorage.removeItem('sc_sign_draft');
+    if (!($('sign-name')?.value || $('sign-country')?.value)) return;
+    $('sign-name').value = '';
+    $('sign-country').value = '';
+    localStorage.removeItem(SIGN_DRAFT_KEY);
     document.querySelector('.sign-draft-note')?.remove();
+    updateSignForm();
+    signStatus('Draft cleared. Nothing was submitted.', 'info');
     window.toast?.('Local sign draft cleared. Nothing was submitted.', 'info');
+    $('sign-name')?.focus({ preventScroll: true });
   };
 
   function addReceiptTools() {
