@@ -151,7 +151,8 @@
   window.reviewSignCharter = function reviewSignCharter() {
     const name = normalizeName($('sign-name')?.value);
     const country = normalizeCountry($('sign-country')?.value);
-    if (!name) { signStatus('Please enter your name or pseudonym.', 'error'); window.toast?.('Please enter your name or pseudonym', 'error'); $('sign-name')?.focus(); return; }
+    const meaningful = name.length >= 2 && /[\p{L}\p{N}]/u.test(name);
+    if (!meaningful) { signStatus('Please enter your name or pseudonym.', 'error'); window.toast?.('Please enter your name or pseudonym', 'error'); $('sign-name')?.focus(); return; }
     if ($('review-name')) $('review-name').textContent = name;
     if ($('review-country')) $('review-country').textContent = country || 'Not provided';
     const review = $('sign-review');
