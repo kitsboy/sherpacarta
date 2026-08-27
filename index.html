@@ -103,14 +103,15 @@
 <link rel="stylesheet" href="/fonts/fonts.css?v=830">
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=830">
 
-<link rel="stylesheet" href="/sc-main.css?v=865">
+<link rel="stylesheet" href="/sc-main.css?v=866">
 <link rel="preload" href="/js/sc-nostr-lib.js?v=865" as="script">
 <link rel="preload" href="/sc-core.js?v=865" as="script">
 <link rel="preload" href="/sc-bundle.js?v=865" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
 <script defer src="/js/sc-analytics.js?v=864"></script>
-<script defer src="/js/sc-top30.js?v=865"></script>
+<script defer src="/js/sc-top30.js?v=866"></script>
+<script defer src="/js/sc-next100.js?v=866"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -154,6 +155,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 
 <!-- TOAST STACK -->
 <div id="toast-stack" aria-live="polite"></div>
+<div id="offline-status" class="offline-status" role="status" aria-live="polite" hidden><i class="fas fa-wifi-slash" aria-hidden="true"></i> Offline mode: reading and local drafts still work; network actions are paused.</div>
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" role="dialog" aria-label="Privacy notice">
@@ -184,6 +186,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <a class="nav-link" href="/verify.html">Verify</a>
       <a class="nav-link" href="/jurisdictions">World</a>
       <a class="nav-link" href="/start.html">Start here</a>
+      <a class="nav-link" href="/support.html">Help</a>
     </div>
 
     <div class="nav-end">
@@ -732,9 +735,11 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <div class="sign-form">
         <input class="sign-input" id="sign-name" type="text" placeholder="Your name (or pseudonym)" maxlength="40" aria-label="Your name" autocomplete="nickname">
         <input class="sign-input" id="sign-country" type="text" placeholder="Country / Region (e.g. Canada, BC)" maxlength="30" aria-label="Your country" autocomplete="country-name">
-        <button class="sign-submit" onclick="signCharter()"><i class="fas fa-signature"></i> Sign the Charter</button>
+        <button class="sign-submit" id="sign-submit" onclick="reviewSignCharter()"><i class="fas fa-signature"></i> Review before signing</button>
+        <button class="btn btn-ghost sign-reset" type="button" onclick="resetSignDraft()"><i class="fas fa-rotate-left"></i> Reset</button>
       </div>
       <p class="sign-honesty"><i class="fas fa-shield-halved"></i> Privacy-first: stored only in your browser. Optional Nostr publish. We never collect signatures on our servers.</p>
+      <div id="sign-review" class="sign-review" hidden role="dialog" aria-modal="true" aria-labelledby="sign-review-title"><div class="sign-review-card"><h3 id="sign-review-title">Review your commitment</h3><p>This will save the following details only on this device:</p><dl><dt>Name or pseudonym</dt><dd id="review-name"></dd><dt>Country / region</dt><dd id="review-country"></dd></dl><p class="sign-review-note">This is a voluntary civic commitment, not legislation or identity verification. You can cancel before saving.</p><div><button type="button" class="btn btn-primary" onclick="confirmSignCharter()">Confirm and sign</button><button type="button" class="btn btn-ghost" onclick="cancelSignReview()">Cancel</button></div></div></div>
 
       <!-- NOSTR IDENTITY + AMENDMENTS -->
       <div class="nostr-panel">
