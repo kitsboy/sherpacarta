@@ -30,6 +30,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/amendments.html` — public amendment lifecycle explanation
 - `public/js/sc-disclosure.js` — reusable DEMO DATA / action-required / pending / verified disclosure bar
 - `public/data/external-gates.json` — machine-readable external evidence gates
+- `public/share.html` — platform-ready social sharing copy and evidence links
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted
 - `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/
@@ -56,7 +57,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `SESSION-SUMMARY-2026-07-09.md` — earlier jurisdictions session
 - `docs/CANADA-PETITION-LEGAL.md`, `docs/ROADMAP.md`
 - `docs/FORMAL-DOCUMENT-PACKET.md`, `docs/LEGAL-TRUTH-GUIDE.md`, `docs/TECHNICAL-ARCHITECTURE.md`
-- `docs/THREAT-MODEL.md`, `docs/QA-RELEASE-GATE.md`, `docs/RELEASE-REVIEW-GATE.md`, `docs/SECURITY-TEST-MATRIX.md`, `docs/NEXT-100-FULL-EXECUTION.md`, `docs/IMPLEMENTATION-MAP.md`, `docs/EXTERNAL-GATES-PACKET.md`, `docs/LEGAL-COUNSEL-REQUEST-TEMPLATE.md`, `docs/SECURITY-AUDIT-RFP.md`, `docs/OPERATIONS-EVIDENCE-PACKET.md`
+- `docs/THREAT-MODEL.md`, `docs/QA-RELEASE-GATE.md`, `docs/RELEASE-REVIEW-GATE.md`, `docs/SECURITY-TEST-MATRIX.md`, `docs/NEXT-100-FULL-EXECUTION.md`, `docs/IMPLEMENTATION-MAP.md`, `docs/EXTERNAL-GATES-PACKET.md`, `docs/LEGAL-COUNSEL-REQUEST-TEMPLATE.md`, `docs/SECURITY-AUDIT-RFP.md`, `docs/OPERATIONS-EVIDENCE-PACKET.md`, `docs/SOCIAL-PRESS-SYSTEM.md`, `docs/DEMO-DATA-CATALOG.md`, `docs/DEEP-GAP-REGISTER.md`, `docs/DEMO-SHOWCASE-CHECKLIST.md`
 
 ### Build & Deploy
 - `npm run build` → `dist/`

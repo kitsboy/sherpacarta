@@ -1,3 +1,41 @@
+## Session — 2026-08-26 (Buffy M3 — NEXT-100 GAP PACKAGE + PRESS/SOCIAL PASS)
+
+**Final verification:**
+- `npm run check:security` passes across production files.
+- `npm run check:release`, `check:public`, `check:a11y`, `check:disclosure`, `check:demo`, and `check:endpoints` pass.
+- JavaScript syntax checks, build, and diff check pass.
+- Generated build churn was reviewed and excluded.
+
+**Git State:**
+- SHA: pending final next-100 package commit
+- Unpushed: pending
+
+---
+
+## Session — 2026-08-26 (Buffy M3 — NEXT-100 GAP PACKAGE + PRESS/SOCIAL PASS)
+
+**Done:**
+- Added platform-ready `/share.html` for WhatsApp, X/Twitter, Facebook, and Nostr with canonical preview metadata and evidence links.
+- Added explicit DEMO DATA warnings to press room, press kit, and social sharing surfaces.
+- Added safe fictional/demo catalog and showcase checklist; Steve Jobs is explicitly fictional and not a real reviewer, endorser, lawyer, MP, or contact.
+- Added existing-dependency-only endpoint fixture checks and consolidated repository CI workflow.
+- Added templates for legal counsel, security audit, formal authority, government sponsorship, endorsements, treasury custody, Nostr operations, translation review, and independent archive/recovery.
+- Added `docs/DEEP-GAP-REGISTER.md` showing repository-verified, demo-template, and external-evidence categories.
+- Updated source-of-truth, Kanban, and handoff maps.
+
+**Truth boundary:**
+- No external person, authority, organization, auditor, custodian, translator, or archive was invented as real.
+- Demo values remain labeled and cannot be treated as evidence.
+
+**Verification:**
+- Full repository contract suite and build pending final run.
+
+**Git State:**
+- SHA: pending final release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — EXTERNAL-GATE DISCLOSURE PASS)
 
 **Done:**

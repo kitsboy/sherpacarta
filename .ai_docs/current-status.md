@@ -2,20 +2,16 @@
 
 **Updated:** 2026-08-26 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** `9c5bb26` plus current disclosure/evidence packet release pending push
+**Latest pushed release:** `51fdba9`; current next-100 gap package pending push
 
 ## Delivered this session
 
-- Added reusable high-contrast disclosure bar: `DEMO DATA`, `REQUIRES YOUR ACTION`, `PENDING VERIFICATION`, and `LIVE / REPOSITORY VERIFIED`.
-- Added machine-readable `public/data/external-gates.json` covering all eleven external requirements.
-- Added legal counsel, security audit, and operations evidence-request packets.
-- Updated Treasury, Security, Jurisdictions, Nostr, and homepage surfaces with explicit action-required messaging.
-
-
-- Batch 1: bounded public Satohash lifecycle polling, explicit pending/confirmed/error states, public stamp-ID validation, copy/download proof evidence actions.
-- Batch 2: security/privacy contract checks, CI workflow, and test-boundary matrix.
-- Batch 3: accessible route journey context, current-step messaging, offline guidance, and accessibility contracts.
-- Batch 4: amendment lifecycle page, machine-readable release approval boundaries, formal release-review gate, and cache coverage.
+- Added `/share.html` with professional WhatsApp, X/Twitter, Facebook, and Nostr-ready copy, canonical Open Graph/Twitter metadata, evidence links, and native-share fallback.
+- Added explicit `DEMO DATA` warnings to press and press-kit surfaces.
+- Added demo catalog, showcase checklist, and deep gap register.
+- Added clearly labeled fictional templates for legal counsel, MP/e-###, endorsements, audit, formal authority, treasury custody/multisig, Nostr operations, translation review, and independent archive/recovery.
+- Added existing-dependency-only endpoint fixture checks and consolidated repository-contract CI workflow.
+- Updated source-of-truth, Kanban, and Kimi handoff maps.
 
 ## Verification
 
@@ -23,18 +19,17 @@
 - `npm run check:public` ✅
 - `npm run check:security` ✅
 - `npm run check:a11y` ✅
-- `npm run build` ✅
+- `npm run check:disclosure` ✅
+- `npm run check:demo` ✅
+- `npm run check:endpoints` ✅
 - JavaScript syntax checks ✅
+- `npm run build` ✅
 - `git diff --check` ✅
 
-## Truth boundaries
+## Demo policy
 
-Satohash proof status remains distinct from legal validity, government adoption, signer identity verification, and organizational endorsement. Repository checks are not an external security audit, legal review, or production synthetic monitor. No private keys or organizer secrets belong in this repository.
+“Steve Jobs” appears only in explicitly marked DEMO DATA documentation as a fictional example. It is not a real endorsement, lawyer, MP, reviewer, translator, custodian, operator, or contact. Public records contain no invented external evidence.
 
-## Still open
+## External gates still require real action
 
-The eleven external gates remain uncompleted until evidence is supplied: independent counsel, Canada/UK/EU review, independent audit, authorized deployed testing, formal authority, MP sponsorship/e-###, direct endorsements, custody decision, protected Nostr operations, human translation approval, and independent archive/recovery.
-
-
-
-External legal/security review, deployed endpoint authorization/CSRF/rate-limit tests, full browser and screen-reader automation, historical release preservation/signing, formal approval authority, government e-petition sponsorship, treasury custody decisions, protected Nostr operations, human translation review, and independent archival publication.
+Independent legal counsel, Canada/UK/EU review, independent security audit, authorized deployed testing, formal approval authority, MP sponsorship/e-###, direct organizational endorsements, treasury custody decision, protected Nostr operations, human translation approval, and independent archive/recovery all remain uncompleted until evidence is supplied.
