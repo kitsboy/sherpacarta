@@ -34,7 +34,15 @@
     if ($('sign-review')) $('sign-review').hidden = false;
     $('sign-review')?.querySelector('button')?.focus();
   };
-  window.cancelSignReview = function cancelSignReview() { if ($('sign-review')) $('sign-review').hidden = true; };
+  window.cancelSignReview = function cancelSignReview(event) {
+    event?.preventDefault();
+    event?.stopPropagation();
+    const review = $('sign-review');
+    if (!review) return;
+    review.hidden = true;
+    document.body.style.overflow = '';
+    $('sign-submit')?.focus();
+  };
   window.confirmSignCharter = function confirmSignCharter() {
     if ($('sign-review')) $('sign-review').hidden = true;
     const original = window.signCharter;
