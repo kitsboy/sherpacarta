@@ -1,0 +1,34 @@
+name: Security audit
+
+on:
+  schedule:
+    - cron: '17 4 * * 1'
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Dependency audit
+        run: npm audit --audit-level=high
+      - name: Repository secret scan
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE --exclude-dir=.git --exclude='*.lock' '(BEGIN (RSA|OPENSSH|EC|PGP) PRIVATE KEY|\bnsec1?[a-z0-9]{20,}|macaroon|-----BEGIN)' .; then
+            echo 'Potential private-key material found.' >&2
+            exit 1
+          fi
+      - name: Security policy exists
+        run: test -f public/security.html && test -f public/.well-known/security.txt

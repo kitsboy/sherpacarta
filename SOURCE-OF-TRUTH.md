@@ -1,8 +1,8 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-07-13  
-**BUILD:** asset cache v732 · SW **v6.3** · organizer token + PoW + rich share  
+**Date:** 2026-08-26
+**BUILD:** current trust/onboarding release · SW **v7.6** · Read → Sign → Verify
 **Live:** https://sherpacarta.org  
 **GitHub:** https://github.com/kitsboy/sherpacarta.git  
 **Last goodbye base:** `17b3336` + goodbye commit  
@@ -20,7 +20,12 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/sc-core.js` — Core UI + CHARTER inject + safe toast/signers/amendments
 - `public/sc-bundle.js` — enhancements + upgrades b1–b14
 - `public/js/sc-petition-canada.js` — Canada campaign petition (no private key storage)
-- `public/sw.js` — Service worker **v6.3** (network-first HTML; no cache for `/api/canada/*`)
+- `public/sw.js` — Service worker **v7.6** (network-first HTML; no cache for `/api/canada/*`)
+- `public/start.html` — universal onboarding and role paths
+- `public/verify.html` — local SHA-256 proof verification guide/tool
+- `public/archive.html`, `public/cite.html`, `public/data/releases.json` — release archive and citations
+- `public/support.html` — support/security/accessibility/press triage
+- `public/release-manifest.json` — machine-readable release claims
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted
 - `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/
@@ -46,6 +51,8 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `SESSION-SUMMARY-2026-07-09-security-audit.md` — this audit session
 - `SESSION-SUMMARY-2026-07-09.md` — earlier jurisdictions session
 - `docs/CANADA-PETITION-LEGAL.md`, `docs/ROADMAP.md`
+- `docs/FORMAL-DOCUMENT-PACKET.md`, `docs/LEGAL-TRUTH-GUIDE.md`, `docs/TECHNICAL-ARCHITECTURE.md`
+- `docs/THREAT-MODEL.md`, `docs/QA-RELEASE-GATE.md`, `docs/NEXT-100-REMAINING.md`
 
 ### Build & Deploy
 - `npm run build` → `dist/`
@@ -87,7 +94,7 @@ Bitcoin sovereignty, privacy, human dignity. Rights only expand (Art. 114).
 - Recovery: `/whatsup` in new chat
 - **Do not sync M4 until Cam says go**
 
-— Updated 2026-07-09 goodbye · security audit session (Grok M3)
+— Updated 2026-08-26 · staged next-100 UX/trust/security/documentation release
 
 
 ## Diligence Pack (partner + technical disclosure)

@@ -1,0 +1,28 @@
+{
+  "product": "sherpacarta",
+  "current": {
+    "version": "2.0",
+    "articleCount": 114,
+    "source": "/data/charter.json",
+    "plainText": "/charter.txt",
+    "hash": "/api/v1/hash.json",
+    "manifest": "/release-manifest.json",
+    "publishedAt": "2026-08-26"
+  },
+  "releases": [
+    {
+      "version": "2.0",
+      "status": "current",
+      "articleCount": 114,
+      "source": "/data/charter.json",
+      "plainText": "/charter.txt",
+      "hash": "/api/v1/hash.json",
+      "citation": "SherpaCarta, The Global Digital Magna Carta, version 2.0, 114 articles, published 2026-08-26, https://sherpacarta.org"
+    }
+  ],
+  "notes": [
+    "This index identifies published document representations; it is not a legal registry.",
+    "A hash or timestamp provides integrity/time evidence and does not establish legal validity.",
+    "Historical releases will be added only when their source and hash are reproducibly preserved."
+  ]
+}

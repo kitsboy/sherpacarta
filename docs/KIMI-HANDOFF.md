@@ -1,3 +1,23 @@
+## Session — 2026-08-26 (Buffy M3 — NEXT-100 STAGED RELEASE)
+
+**Done:**
+- Executed the next 100 as four bounded workstreams.
+- Batch 1: onboarding/offline status/sign review/reset/receipt inspection foundations.
+- Batch 2: `/archive.html`, `/cite.html`, `/data/releases.json`, navigation, and cache coverage.
+- Batch 3: security audit workflow, secret/dependency checks, threat model, security-page link.
+- Batch 4: reliability helper, QA release gate, and explicit remaining-work map.
+- Updated `SOURCE-OF-TRUTH.md`, `.ai_docs/current-status.md`, and formal/legal/technical documentation.
+- Build, syntax, diff, stale-claim checks pass; generated artifacts reviewed separately.
+
+**Remaining:**
+- Full receipt/hash comparison/QR/proof polling UI; complete endpoint/browser test automation; external legal/security review; government adoption and formal approval work. See `docs/NEXT-100-REMAINING.md`.
+
+**Git State:**
+- SHA: pending next-100 release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — DOCUMENTATION OVERHAUL)
 
 **Done:**
