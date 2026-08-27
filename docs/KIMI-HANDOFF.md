@@ -19,7 +19,7 @@
 - `npm run check:endpoints` ✅
 - `git diff --check` ✅
 
-**Follow-up:** Removed the broken official two-minute player from the landing page after `videos.giveabit.io` returned a 404/object-access error. The page now explains that the film is temporarily offline pending a verified audio-bearing MP4.
+**Follow-up:** Removed both the broken official two-minute player and the silent one-minute draft player from the landing page. The page now explains that the films are temporarily offline pending verified audio-bearing MP4 files. The one-minute draft remains in the repository for future audio production.
 
 **Files:** `index.html`, `public/_headers`, `public/sc-core.js`, `public/sc-main.css`
 

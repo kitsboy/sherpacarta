@@ -1,7 +1,7 @@
 # sherpacarta — Last Updated 2026-08-27 by Buffy
 
-Brief: temporarily removed the broken two-minute landing-page player after its external object URL returned 404/access denied.
+Brief: temporarily removed both landing-page videos because neither currently provides a verified audio-bearing public film.
 
-The one-minute asset remains an explicitly labeled silent visual draft. The official two-minute film is offline pending restoration of a verified, public, audio-bearing MP4; no dead player or inaccessible download link is shown.
+The official two-minute film remains offline pending restoration of a verified public MP4 with audio. The one-minute HyperFrames asset is an explicitly labeled silent visual draft and is also no longer shown on the landing page; it remains in the repository for future audio production.
 
-The desktop article-browser grid repair remains in `index.html`, `public/sc-main.css`; the media/CSP source changes remain documented in the current handoff and can be finalized when the real media host is confirmed.
+The desktop article-browser grid repair remains in `index.html` and `public/sc-main.css`. Updated handoffs: `docs/KIMI-HANDOFF.md` and `.ai_docs/current-status.md`.

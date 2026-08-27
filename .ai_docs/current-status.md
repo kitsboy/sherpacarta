@@ -6,13 +6,13 @@
 
 ## Landing-page repair (2026-08-27)
 
-- Temporarily removed the broken official two-minute film player after the external object URL returned 404/access-denied. The landing page now states that the film is offline pending restoration; no dead player remains.
+- Removed both landing-page film players while verified, audio-bearing public media files are restored. The landing page now states that the films are offline; no dead or silent player remains.
 
 - Confirmed `sherpacarta.org/video/sherpacarta-2min.mp4` returns the SPA HTML fallback, not media bytes.
 - Confirmed `https://videos.giveabit.io/video/sherpacarta-2min.mp4` returns a real MP4; the landing page now keeps that source and explicitly permits it in `media-src`.
 - Increased the official film lazy-load viewport margin so the source attaches before the user reaches the film section.
 - Fixed the desktop article browser grid with a shrink-safe `minmax(0, 1fr)` content column; the sidebar and article panel remain side-by-side instead of creating a large blank/second-row area.
-- The one-minute asset remains intentionally a **silent visual draft**. It was not falsely presented as audio-complete or replaced without approved voice/music.
+- The one-minute asset remains available in the repository as an intentionally **silent visual draft**, but is no longer shown on the landing page. It was not falsely presented as audio-complete or replaced without approved voice/music.
 
 
 ## Delivered this session
