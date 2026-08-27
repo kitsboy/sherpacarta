@@ -1,7 +1,8 @@
 # SherpaCarta Kanban — Finish Later
 
 **Owner:** Cam (decisions) · Kimi/M4 (orchestration/docs) · Grok/M3 (code when unblocked)  
-**Updated:** 2026-07-13 (organizer + share + bot guard goodbye)  
+**Updated:** 2026-08-26 (priority next-100 execution and implementation map)
+**Implementation map:** `docs/IMPLEMENTATION-MAP.md` · **Execution map:** `docs/NEXT-100-FULL-EXECUTION.md`
 **Live site:** https://sherpacarta.org  
 **Session summaries:** `SESSION-SUMMARY-2026-07-09-security-audit.md` · `SESSION-SUMMARY-2026-07-09.md`  
 **Public registries:** `/data/wallets.json` · `/data/jurisdictions.json` · `/status` · `/treasury` · `/jurisdictions`
@@ -118,6 +119,16 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 
 ---
 
+## ✅ CURRENT REPOSITORY RELEASE
+
+- [x] Bounded proof lifecycle/status polling and recovery messaging
+- [x] Public receipt comparison and redacted evidence export
+- [x] Release/public/security/accessibility contract checks
+- [x] CI enforcement for repository contracts
+- [x] Accessible journey context and offline guidance
+- [x] Amendment lifecycle and release-review documentation
+- [x] Machine-readable release approval boundaries
+
 ## 📋 TODO (ready / next up)
 
 Ordered for Cam + Kimi focus:
@@ -133,6 +144,17 @@ Ordered for Cam + Kimi focus:
 10. **E1** — Human i18n review
 
 ---
+
+## 🚧 DOING (external evidence required)
+
+- [ ] Independent legal review and jurisdiction-specific counsel
+- [ ] Independent security audit and deployed endpoint testing
+- [ ] Government MP sponsorship and official e-###
+- [ ] Formal approval authority and verified endorsements
+- [ ] Treasury custody/multisig decision
+- [ ] Protected Nostr bot/product-key operations
+- [ ] Human translation review
+- [ ] Independent archive publication and recovery drill
 
 ## 🚧 DOING (empty until next session)
 
@@ -189,4 +211,4 @@ CODE      Site healthy · most remaining work is human decisions
 
 ---
 
-*Safe Harbour · Give A Bit family · rights only expand.*
+*Safe Harbour · Give A Bit family · rights only expand. Repository checks are not external approval.*

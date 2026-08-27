@@ -1,3 +1,25 @@
+## Session — 2026-08-26 (Buffy M3 — FULL BACKLOG + DOCS/MAPS PASS)
+
+**Done:**
+- Implemented the repository-completable portion of the full 100-item backlog across proof lifecycle, receipts, security/privacy contracts, accessibility, route context, reliability, governance, and release evidence.
+- Added bounded Satohash status polling with explicit pending/confirmed/error states and local-safe evidence actions.
+- Added `check:release`, `check:public`, `check:security`, and `check:a11y` verification commands with CI coverage.
+- Added amendment lifecycle, release approval boundaries, formal release-review gate, security test matrix, implementation map, and full execution map.
+- Reconciled `SOURCE-OF-TRUTH.md` and `docs/KANBAN.md` with the actual SW/build/release state and external gates.
+- Updated current status and latest update files.
+
+**External gates intentionally not claimed complete:**
+- Legal counsel, independent security audit, deployed browser/API tests, government sponsorship, formal authority, verified endorsements, treasury custody, protected Nostr operations, human translation approval, and independent archival publication.
+
+**Verification:**
+- Release integrity, public contracts, security contracts, accessibility contracts, build, JavaScript syntax, and diff checks pass.
+
+**Git State:**
+- SHA: pending final docs/maps commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — PRIORITY NEXT-100 RELEASE)
 
 **Done:**
