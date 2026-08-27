@@ -10,13 +10,33 @@
   window.addEventListener('online', () => setOffline(false));
   window.addEventListener('offline', () => setOffline(true));
 
-  function closeSignReview(review) {
+  let reviewReturnFocus = null;
+  let reviewCloseTimer = null;
+
+  function closeSignReview(review, restoreFocus = true) {
     if (!review) return;
     review.hidden = true;
     review.setAttribute('aria-hidden', 'true');
     review.classList.remove('open');
     document.body.classList.remove('sign-review-open');
     document.body.style.overflow = '';
+    clearTimeout(reviewCloseTimer);
+    if (restoreFocus) {
+      const target = reviewReturnFocus || $('sign-submit');
+      reviewReturnFocus = null;
+      target?.focus({ preventScroll: true });
+    }
+  }
+
+  function trapReviewFocus(event) {
+    const review = $('sign-review');
+    if (!review || review.hidden || !review.classList.contains('open') || event.key !== 'Tab') return;
+    const focusable = [...review.querySelectorAll('button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')];
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+    else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
 
   function onboarding() {
@@ -40,8 +60,15 @@
     if (!name) { window.toast?.('Please enter your name or pseudonym', 'error'); $('sign-name')?.focus(); return; }
     if ($('review-name')) $('review-name').textContent = name;
     if ($('review-country')) $('review-country').textContent = country || 'Not provided';
-    if ($('sign-review')) { $('sign-review').hidden = false; $('sign-review').removeAttribute('aria-hidden'); $('sign-review').classList.add('open'); document.body.classList.add('sign-review-open'); }
-    $('sign-review')?.querySelector('button')?.focus();
+    const review = $('sign-review');
+    if (review) {
+      reviewReturnFocus = document.activeElement;
+      review.hidden = false;
+      review.removeAttribute('aria-hidden');
+      review.classList.add('open');
+      document.body.classList.add('sign-review-open');
+      review.querySelector('#sign-review-confirm')?.focus();
+    }
   };
   window.cancelSignReview = function cancelSignReview(event) {
     event?.preventDefault();
@@ -49,13 +76,27 @@
     event?.stopPropagation();
     const review = $('sign-review');
     closeSignReview(review);
-    $('sign-submit')?.focus({ preventScroll: true });
   };
   window.confirmSignCharter = function confirmSignCharter() {
-    closeSignReview($('sign-review'));
+    const confirm = $('sign-review-confirm');
+    if (confirm) { confirm.disabled = true; confirm.setAttribute('aria-busy', 'true'); }
+    closeSignReview($('sign-review'), false);
     const original = window.signCharter;
     if (typeof original === 'function') original();
+    if (confirm) { confirm.disabled = false; confirm.removeAttribute('aria-busy'); }
   };
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && $('sign-review')?.classList.contains('open')) {
+      event.preventDefault();
+      window.cancelSignReview(event);
+    } else trapReviewFocus(event);
+  }, true);
+
+  document.addEventListener('click', (event) => {
+    const review = $('sign-review');
+    if (review?.classList.contains('open') && event.target === review) window.cancelSignReview(event);
+  }, true);
   window.resetSignDraft = function resetSignDraft() {
     $('sign-name') && ($('sign-name').value = '');
     $('sign-country') && ($('sign-country').value = '');
