@@ -1,3 +1,21 @@
+## Session — 2026-08-26 (Buffy M3 — ANOTHER-50 PROOF INTEGRITY)
+
+**Done:**
+- Added `npm run check:release` with manifest/release-index/hash consistency validation.
+- Updated verifier to compare locally calculated SHA-256 against the current public release hash.
+- Refreshed verifier cache-busting and service-worker cache to `v7.7`.
+- Prepared `docs/NEXT-50-AFTER-ANOTHER-50.md`.
+- Checks pass: release integrity, build, syntax, and diff check.
+
+**Still open:**
+- Full receipt redaction/QR/polling UI; endpoint/browser automation; formal release approval; external legal/security review; government adoption; treasury/Nostr ops; independent archive.
+
+**Git State:**
+- SHA: pending proof-integrity release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — NEXT-100 STAGED RELEASE)
 
 **Done:**

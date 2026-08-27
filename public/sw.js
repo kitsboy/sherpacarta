@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v7.6';
+const CACHE = 'sherpacarta-v7.7';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/briefing.html', '/briefing-fr.html', '/leave-behind.html',
@@ -28,7 +28,7 @@ const ASSETS = [
   '/locales/de.json', '/locales/pt.json', '/locales/sw.json',
   '/locales/es-charter.json', '/locales/fr-charter.json', '/locales/ar-charter.json',
   '/bc/model-bill.html', '/bc/safe-harbour.html', '/bc/indigenous-data.html', '/bc/town-hall-kit.html',
-  '/api/v1/charter.json', '/api/v1/hash.json', '/api/v1/openapi.json', '/api/v1/index.json',
+  '/api/v1/charter.json', '/api/v1/hash.json', '/api/v1/openapi.json', '/api/v1/index.json',,
   '/embed/sign-widget.html',
 ];
 

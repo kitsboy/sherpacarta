@@ -14,7 +14,7 @@
 </style>
 <!-- suite analytics: first-party Umami (sherpacarta) -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=733"></script>
+<script defer src="/js/sc-analytics.js?v=867"></script>
 </head>
 <body>
 <main class="verify-page">
@@ -39,12 +39,13 @@
 <script>
 (function(){
   const text=document.getElementById('verify-text');
+  fetch('/api/v1/hash.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(data=>{if(data)document.getElementById('verify-hash-result').dataset.currentHash=data.hash||''}).catch(()=>{});
   const btn=document.getElementById('verify-hash-btn');
   const result=document.getElementById('verify-hash-result');
   btn.addEventListener('click',async function(){
     if(!text.value){result.className='verify-result bad';result.textContent='Paste the exact document text first.';text.focus();return;}
     btn.disabled=true;result.className='verify-result';result.textContent='Calculating locally…';
-    try{const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text.value));const hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');result.className='verify-result ok';result.textContent=hash;}
+    try{const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text.value));const hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');result.className='verify-result ok';const current=result.dataset.currentHash;result.textContent=current?(hash===current?'MATCHES CURRENT RELEASE · ':'DOES NOT MATCH CURRENT RELEASE · ')+hash:hash;}
     catch(_){result.className='verify-result bad';result.textContent='This browser could not calculate SHA-256.';}
     finally{btn.disabled=false;}
   });

@@ -1,41 +1,26 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ pending next-100 release
+**Version:** main @ pending proof-integrity release
 **Last Updated:** 2026-08-26
 **Domain:** https://sherpacarta.org
 **User journey:** Start here → Read / Sign / Organize / Verify
 
-## Session summary — next 100 staged completion
+## Session summary — another 50
 
 **Implemented:**
-- Batch 1: onboarding/offline/sign-review/reset/receipt inspection foundations.
-- Batch 2: public release archive, machine-readable release records, citation generator, and navigation/cache coverage.
-- Batch 3: security audit workflow, secret-pattern checks, dependency audit, and threat model link.
-- Batch 4: reliability helper, offline/retry documentation, and QA release gate.
-- Documentation now includes `docs/NEXT-100-COMPLETION.md` and `docs/NEXT-100-REMAINING.md`.
-- Current product documentation remains plain-language, executive, technical, legal-safe, and formal-document ready.
+- Added `npm run check:release` and `scripts/check-release-integrity.mjs`.
+- Validated release manifest, release index, hash algorithm, article count, and honest pending/confirmed claims.
+- Updated `/verify.html` to compare a locally calculated hash with the current public release hash.
+- Updated verifier analytics/cache-busting and service-worker cache to `v7.7`.
+- Prepared `docs/NEXT-50-AFTER-ANOTHER-50.md`.
 
 **Verification:**
+- `npm run check:release` passed.
 - `npm run build` passed.
-- Node syntax checks passed for new/changed scripts.
+- Node syntax checks passed.
 - `git diff --check` passed.
-- Stale-claim scan passed.
-- Generated artifacts reviewed and excluded unless intentionally sourced.
+- Generated outputs reviewed and excluded from the source release.
 
 ## Still outstanding
 
-- Full receipt import UI/current hash comparison/QR export/proof polling.
-- Complete endpoint authorization, CSRF, boundary, rate-limit, and PII test suites.
-- Automated browser viewport, screen-reader, zoom, contrast, synthetic journey, and release-dashboard checks.
-- External legal review, external security audit, official government adoption, formal approval authority, and historical release preservation.
-
-See `docs/NEXT-100-REMAINING.md` for the full inventory.
-
-## Do not regress
-
-- Satohash canonical stamp contract: `/stamp?hash=&ref=`.
-- Pending stamps must never be described as Bitcoin-confirmed.
-- No nsec, invoice key, organizer token, or other secret in git/client.
-- CSP YouTube domains and four Nostr relays.
-- Honest campaign metrics and Canada dual-track language.
-- Formal documents must retain source, version, date, proof status, and legal qualification.
+Full receipt redaction/QR/polling UI, full endpoint and browser automation suites, formal release signatures, external legal/security review, official government adoption, treasury governance, protected Nostr operations, and independent archival publication remain open.
