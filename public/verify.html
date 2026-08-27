@@ -14,7 +14,8 @@
 </style>
 <!-- suite analytics: first-party Umami (sherpacarta) -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=867"></script>
+<script defer src="/js/sc-analytics.js?v=868"></script>
+<script defer src="/js/sc-proof-tools.js?v=868"></script>
 </head>
 <body>
 <main class="verify-page">
@@ -34,6 +35,7 @@
   <section class="verify-tool" aria-labelledby="hash-tool-heading"><div class="verify-kicker">Local browser tool</div><h2 id="hash-tool-heading" style="font-family:var(--serif);font-size:2rem;margin:.5rem 0">Check a SHA-256 hash</h2><p style="color:var(--text2);font-size:.8rem;line-height:1.7;margin-bottom:1rem">Paste the exact document text you received. Hashing happens in your browser; this tool does not upload the text.</p><label for="verify-text">Document text</label><textarea id="verify-text" spellcheck="false" placeholder="Paste the exact document text here…"></textarea><div class="verify-tool-row"><button type="button" class="btn btn-primary" id="verify-hash-btn"><i class="fas fa-fingerprint" aria-hidden="true"></i> Calculate SHA-256</button><span class="verify-result" id="verify-hash-result" role="status" aria-live="polite"></span></div></section>
   <section style="margin-top:3rem" aria-labelledby="check-heading"><div class="verify-kicker">A quick checklist</div><h2 id="check-heading" style="font-family:var(--serif);font-size:2rem;margin:.5rem 0 1rem">Before you rely on a proof</h2><ul class="verify-list"><li>Confirm the document title and version match the material you received.</li><li>Compare the complete SHA-256 hash, not only a shortened display.</li><li>Check whether Satohash reports <strong>confirmed</strong> or <strong>pending</strong>.</li><li>Keep the proof URL and downloaded evidence with the document.</li><li>Remember: integrity and timestamp evidence are not the same as legal validity.</li></ul></section>
   <p style="margin-top:1.5rem;font-size:.75rem;color:var(--text3)"><a href="/release-manifest.json">Open the machine-readable release manifest →</a> · <a href="/support.html">Support and contact →</a></p>
+  <section class="verify-tool" aria-labelledby="recovery-heading"><div class="verify-kicker">Recovery</div><h2 id="recovery-heading" style="font-family:var(--serif);font-size:2rem;margin:.5rem 0">If your proof is missing</h2><p>If a proof link is expired, unavailable, or still pending, keep the original document, its complete hash, and any receipt ID. Recalculate the hash locally, check the live Satohash page, and contact support without sending private keys or identity documents.</p><div class="verify-actions" style="margin:1rem 0 0"><a class="btn btn-ghost" href="https://satohash.io/verify" target="_blank" rel="noopener noreferrer">Retry Satohash verification</a><a class="btn btn-ghost" href="/support.html">Contact support</a></div></section>
   <footer class="verify-footer">SherpaCarta is part of the Give A Bit family. Satohash is the family proof service. This page explains technical verification and does not provide legal advice.</footer>
 </main>
 <script>

@@ -108,6 +108,7 @@ input,select,textarea{font-family:var(--sans)}
 .trust-callout strong{color:var(--gold2);font-size:.78rem}
 .trust-callout span{color:var(--text2);font-size:.74rem;line-height:1.55}
 .proof-path{margin-top:2.5rem;padding:1.5rem;border:1px solid var(--border-gold);border-radius:var(--radius-lg);background:linear-gradient(145deg,rgba(232,192,64,.1),rgba(20,212,146,.05));max-width:760px}
+@media(max-width:640px){.comparison-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}.comparison-table .cmp-head,.comparison-table .cmp-row{min-width:620px}.comparison-table::after{content:'Swipe horizontally to compare';display:block;color:var(--text3);font:.6rem var(--mono);padding:.5rem 0}}
 .proof-path h3{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.1;margin-bottom:.65rem}
 .proof-path p{color:var(--text2);font-size:.82rem;line-height:1.7;max-width:680px}
 .proof-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}

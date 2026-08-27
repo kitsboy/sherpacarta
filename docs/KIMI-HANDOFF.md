@@ -1,3 +1,23 @@
+## Session — 2026-08-26 (Buffy M3 — NEXT-50 PROOF/ARCHIVE BATCH)
+
+**Done:**
+- Added visible receipt inspection and current-release hash comparison.
+- Added redacted proof receipt export excluding signer/private/local-only fields.
+- Added verifier recovery actions for missing, expired, or unavailable proofs.
+- Added archive/citation breadcrumbs and mobile comparison-table guidance.
+- Corrected service-worker asset syntax and bumped cache to `v7.8`.
+- Checks pass: `npm run check:release`, build, syntax, and diff check.
+- Prepared `docs/NEXT-50-AFTER-ANOTHER-50.md`.
+
+**Still open:**
+- Full proof polling/history, QR rendering, archive diff UI, signed release approvals, provenance, endpoint/browser automation, external legal/security review, government adoption, formal treasury/Nostr governance, and independent archive publication.
+
+**Git State:**
+- SHA: pending next-50 release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — ANOTHER-50 PROOF INTEGRITY)
 
 **Done:**

@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v7.7';
+const CACHE = 'sherpacarta-v7.8';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/briefing.html', '/briefing-fr.html', '/leave-behind.html',
@@ -16,7 +16,7 @@ const ASSETS = [
   '/giveabit-logo.png', '/giveabit-parent-logo.jpg', '/manifest.json', '/mcp.json',
   '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',
   '/humans.txt', '/charter.txt', '/offline.html',
-  '/sc-main.css', '/js/sc-top30.js', '/js/sc-next100.js', '/js/sc-reliability.js', '/sc-core.js', '/sc-bundle.js', '/embed.js', '/data/charter.json',
+  '/sc-main.css', '/js/sc-top30.js', '/js/sc-next100.js', '/js/sc-reliability.js', '/js/sc-proof-tools.js', '/sc-core.js', '/sc-bundle.js', '/embed.js', '/data/charter.json',
   '/fonts/fonts.css',
   '/fonts/outfit-400.woff2', '/fonts/outfit-600.woff2', '/fonts/outfit-700.woff2',
   '/fonts/cormorant-400.woff2', '/fonts/cormorant-700.woff2', '/fonts/cormorant-400i.woff2',
@@ -28,7 +28,7 @@ const ASSETS = [
   '/locales/de.json', '/locales/pt.json', '/locales/sw.json',
   '/locales/es-charter.json', '/locales/fr-charter.json', '/locales/ar-charter.json',
   '/bc/model-bill.html', '/bc/safe-harbour.html', '/bc/indigenous-data.html', '/bc/town-hall-kit.html',
-  '/api/v1/charter.json', '/api/v1/hash.json', '/api/v1/openapi.json', '/api/v1/index.json',,
+  '/api/v1/charter.json', '/api/v1/hash.json', '/api/v1/openapi.json', '/api/v1/index.json',
   '/embed/sign-widget.html',
 ];
 

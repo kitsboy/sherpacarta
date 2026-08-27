@@ -1,26 +1,28 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ pending proof-integrity release
+**Version:** main @ pending next-50 release
 **Last Updated:** 2026-08-26
-**Domain:** https://sherpacarta.org
 **User journey:** Start here → Read / Sign / Organize / Verify
 
-## Session summary — another 50
+## Session summary — next 50 proof/archive batch
 
 **Implemented:**
-- Added `npm run check:release` and `scripts/check-release-integrity.mjs`.
-- Validated release manifest, release index, hash algorithm, article count, and honest pending/confirmed claims.
-- Updated `/verify.html` to compare a locally calculated hash with the current public release hash.
-- Updated verifier analytics/cache-busting and service-worker cache to `v7.7`.
-- Prepared `docs/NEXT-50-AFTER-ANOTHER-50.md`.
+- Added visible receipt inspection with local structure validation and current-release hash comparison.
+- Added redacted proof receipt export that excludes signer/private/local-only fields.
+- Added verifier recovery actions for missing, expired, or unavailable proofs.
+- Added archive/citation breadcrumb navigation.
+- Added mobile-safe comparison-table overflow guidance.
+- Added `scripts/check-release-integrity.mjs` and `npm run check:release` as the release metadata integrity gate.
+- Corrected service-worker asset-list syntax and bumped cache to `v7.8`.
+- Prepared `docs/NEXT-50-AFTER-ANOTHER-50.md` for the following wave.
 
 **Verification:**
 - `npm run check:release` passed.
 - `npm run build` passed.
-- Node syntax checks passed.
+- New/changed JavaScript syntax checks passed.
 - `git diff --check` passed.
-- Generated outputs reviewed and excluded from the source release.
+- Generated build artifacts reviewed and excluded from source commit.
 
 ## Still outstanding
 
-Full receipt redaction/QR/polling UI, full endpoint and browser automation suites, formal release signatures, external legal/security review, official government adoption, treasury governance, protected Nostr operations, and independent archival publication remain open.
+- Full proof polling/status history, QR receipt rendering, archive diff UI, signed release approvals, article provenance, complete endpoint/browser automation, external legal/security review, official government adoption, formal treasury/Nostr governance, and independent archive publication.
