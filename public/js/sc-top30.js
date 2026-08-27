@@ -44,23 +44,26 @@
 
   window.exportProofReceipt = function exportProofReceipt(proof = {}) {
     const receipt = {
-      service: 'Satohash',
-      product: 'sherpacarta',
-      hashAlgorithm: 'SHA-256',
-      hash: proof.hash || window.state?.charterHash || null,
-      stampId: proof.id || null,
-      status: proof.status || 'unknown',
-      confirmed: proof.confirmed === true,
-      verifyUrl: proof.verifyUrl || null,
-      exportedAt: new Date().toISOString(),
+      service: 'Satohash', product: 'sherpacarta', hashAlgorithm: 'SHA-256',
+      hash: proof.hash || window.state?.charterHash || null, stampId: proof.id || null,
+      status: proof.status || 'unknown', confirmed: proof.confirmed === true,
+      verifyUrl: proof.verifyUrl || null, exportedAt: new Date().toISOString(),
       note: 'Pending is not Bitcoin-confirmed. A timestamp proves document integrity/time evidence, not legal validity.'
     };
     const blob = new Blob([JSON.stringify(receipt, null, 2)], { type: 'application/json' });
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
-    link.download = 'sherpacarta-proof-receipt.json';
-    link.click();
-    URL.revokeObjectURL(link.href);
+    const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'sherpacarta-proof-receipt.json'; link.click(); URL.revokeObjectURL(link.href);
     if (typeof window.toast === 'function') window.toast('Proof receipt exported', 'success');
+  };
+
+  window.importProofReceipt = function importProofReceipt(file, onResult) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const receipt = JSON.parse(String(reader.result));
+        const valid = receipt && receipt.product === 'sherpacarta' && receipt.hashAlgorithm === 'SHA-256' && /^[a-f0-9]{64}$/.test(receipt.hash || '');
+        onResult?.({ valid, receipt, message: valid ? 'Receipt structure looks valid. Confirm status at the linked Satohash page.' : 'This is not a valid SherpaCarta proof receipt.' });
+      } catch (_) { onResult?.({ valid: false, receipt: null, message: 'Could not read that receipt file.' }); }
+    };
+    reader.readAsText(file);
   };
 })();

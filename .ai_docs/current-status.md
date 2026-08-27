@@ -1,30 +1,31 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ `2565035` + next-30 working tree
+**Version:** main @ pending next-40 release
 **Last Updated:** 2026-08-26
 **Domain:** https://sherpacarta.org
 **productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)
-**Site asset bust:** homepage CSS / JS `?v=864`
+**Site asset bust:** homepage CSS / JS `?v=865`; service worker `v7.1`
 
-## Session summary — next-30 UX and trust release
+## Session summary — next-40 trust/reliability release
 
 **Implemented:**
-- Dedicated `/verify.html` explainer for independent Satohash/Bitcoin proof verification.
-- Clear distinction between document integrity, timestamp evidence, pending/confirmed state, and legal validity.
-- Homepage Verify navigation now points to the dedicated verifier.
-- Local unfinished signing forms restore on the same device with an explicit “nothing was sent” message.
-- Article reader receives left/right keyboard navigation when article tabs are available.
-- Added proof receipt JSON export helper for hash, stamp ID, status, verification URL, and honest proof limitations.
-- Service worker bumped to `v7.0` and pre-caches the verification page and new helper.
+- Extended `/verify.html` with a local browser SHA-256 calculator; document text is never uploaded.
+- Added explicit recovery guidance and a proof checklist for ordinary users.
+- Added receipt import validation helper for locally downloaded SherpaCarta proof receipts.
+- Added stronger receipt fields and honest status/proof limitation language.
+- Bumped service-worker cache and kept verification assets in the offline set.
+- Audited the previous 40-item queue against existing features rather than duplicating already-shipped glossary, onboarding, diff, and rate-limit work.
 
 **Verification:**
-- `npm run build` passed after removing a stale reference to the removed polish stylesheet.
+- `npm run build` passed.
 - `node --check public/js/sc-top30.js public/sw.js` passed.
 - `git diff --check` passed.
-- Build-generated artifacts were reverted before release review.
+- Generated build artifacts were reverted before release review.
 
-## Next 40
-See `docs/NEXT-40-UX-SECURITY.md` for the complete queue covering onboarding, governance, receipts, endpoint security, accessibility, mobile, offline behavior, and synthetic monitoring.
+## Next 50
+Full queue: `docs/NEXT-50-UX-SECURITY.md`
+
+Priorities include onboarding and role-based navigation, release manifests and archives, receipt review/import/integrity, endpoint and privacy tests, secret/dependency scanning, accessibility and viewport checks, offline messaging, retry states, synthetic journey monitoring, and a release dashboard.
 
 ## Do not regress
 - Satohash canonical stamp contract: `/stamp?hash=&ref=`.
@@ -33,15 +34,3 @@ See `docs/NEXT-40-UX-SECURITY.md` for the complete queue covering onboarding, go
 - CSP YouTube domains and four Nostr relays.
 - Honest campaign metrics and Canada dual-track language.
 - Film `max-height:none`, Kokoro VO, and visible section rendering.
-
-## Existing live surfaces
-| Surface | Notes |
-|---------|-------|
-| Verify | `/verify.html` · independent proof explainer |
-| Articles | `/#articles` · `#art-114` · body-derived summaries |
-| Sign | `/#sign` · local-first commitment + draft recovery |
-| Proof | `/#proof` · Satohash handoff and honest status language |
-| Stamp | `https://satohash.io/stamp?hash=&ref=sherpacarta` |
-| Metrics | `/metrics.json` · `raw.demo: false` |
-| Canada | `/canada/sign` · dual-track honesty |
-| Discuss | `/nostr` wall (read-only) |

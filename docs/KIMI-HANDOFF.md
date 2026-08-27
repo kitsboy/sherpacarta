@@ -1,3 +1,21 @@
+## Session — 2026-08-26 (Buffy M3 — NEXT-40 TRUST/RELIABILITY CLOSE-OUT)
+
+**Done:**
+- Extended `/verify.html` with local browser SHA-256 calculation and stronger recovery/checklist guidance.
+- Added receipt import validation to `public/js/sc-top30.js`.
+- Refreshed service-worker cache version to `v7.1` and retained verification assets.
+- Audited existing functionality to avoid duplicating already-shipped glossary, onboarding, diff, rate-limit, and fallback features.
+- `npm run build`, `node --check`, and `git diff --check` pass.
+
+**Next 50:**
+- Full queue is in `docs/NEXT-50-UX-SECURITY.md`.
+
+**Git State:**
+- SHA: pending next-40 release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — NEXT-30 UX/TRUST BATCH)
 
 **Done:**
