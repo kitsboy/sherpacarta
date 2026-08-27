@@ -2708,7 +2708,7 @@ function initFilmLazyLoad(){
   if(!('IntersectionObserver' in window)){attach();return;}
   const io=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{if(e.isIntersecting){attach();io.disconnect();}});
-  },{rootMargin:'240px 0px'});
+  },{rootMargin:'1200px 0px'});
   io.observe(v);
 }
 

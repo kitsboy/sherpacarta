@@ -1,3 +1,30 @@
+## Session — 2026-08-27 (Buffy M3 — LANDING MEDIA + DESKTOP ARTICLES REPAIR)
+
+**Done:**
+- Pulled `origin/main`; repository was already up to date at `aea67ab`.
+- Verified the reported origin problem: `sherpacarta.org/video/sherpacarta-2min.mp4` returns HTML fallback bytes, while `videos.giveabit.io/video/sherpacarta-2min.mp4` returns the real MP4.
+- Kept the known-good `videos.giveabit.io` source, added it to Cloudflare Pages `media-src`, and updated download/fallback links.
+- Increased official-film lazy-load margin from 240px to 1200px so the source is attached before viewers reach the section.
+- Fixed desktop article layout using `minmax(0, 1fr)` and `min-width: 0`; sidebar and article content now share one row instead of producing the reported blank desktop area.
+- Kept the later one-minute film as an explicitly labeled silent draft; no production audio was invented or claimed.
+
+**Verification:**
+- `npm run build` ✅
+- `npm run check:reader` ✅
+- `npm run check:release` ✅
+- `npm run check:public` ✅
+- `npm run check:a11y` ✅
+- `npm run check:disclosure` ✅
+- `npm run check:demo` ✅
+- `npm run check:endpoints` ✅
+- `git diff --check` ✅
+
+**Follow-up:** Removed the broken official two-minute player from the landing page after `videos.giveabit.io` returned a 404/object-access error. The page now explains that the film is temporarily offline pending a verified audio-bearing MP4.
+
+**Files:** `index.html`, `public/_headers`, `public/sc-core.js`, `public/sc-main.css`
+
+---
+
 ## Session — 2026-08-27 (Buffy M3 — SILENT VIDEO DRAFT STATUS CORRECTION)
 
 **Current truth:** Commit `07eb446` is pushed to `origin/main`. The third landing-page video is a **DEMO DATA · SILENT DRAFT PREVIEW**. The published MP4 contains no embedded narration or music and uses a temporary geometric presenter stand-in.

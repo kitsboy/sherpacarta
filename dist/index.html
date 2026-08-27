@@ -103,13 +103,19 @@
 <link rel="stylesheet" href="/fonts/fonts.css?v=830">
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=830">
 
-<link rel="stylesheet" href="/sc-main.css?v=861">
-<link rel="preload" href="/js/sc-nostr-lib.js?v=861" as="script">
-<link rel="preload" href="/sc-core.js?v=861" as="script">
-<link rel="preload" href="/sc-bundle.js?v=861" as="script">
+<link rel="stylesheet" href="/sc-main.css?v=867">
+<link rel="preload" href="/js/sc-nostr-lib.js?v=865" as="script">
+<link rel="preload" href="/sc-core.js?v=865" as="script">
+<link rel="preload" href="/sc-bundle.js?v=865" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=861"></script>
+<script defer src="/js/sc-analytics.js?v=864"></script>
+<script defer src="/js/sc-top30.js?v=866"></script>
+<script defer src="/js/sc-next100.js?v=869"></script>
+<script defer src="/js/sc-disclosure.js?v=869"></script>
+<script defer src="/js/sc-route-ux.js?v=869"></script>
+<script defer src="/js/sc-rights-reader.js?v=1"></script>
+<script defer src="/js/sc-reliability.js?v=867"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -153,6 +159,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 
 <!-- TOAST STACK -->
 <div id="toast-stack" aria-live="polite"></div>
+<div id="offline-status" class="offline-status" role="status" aria-live="polite" hidden><i class="fas fa-wifi-slash" aria-hidden="true"></i> Offline mode: reading and local drafts still work; network actions are paused.</div>
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" role="dialog" aria-label="Privacy notice">
@@ -178,9 +185,13 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 
     <!-- Desktop primary links (hidden on mobile — in sheet) -->
     <div class="nav-primary" aria-label="Primary">
-      <button type="button" class="nav-link" onclick="openCharterModal()">Charter</button>
+      <a class="nav-link" href="#articles">Read</a>
+      <a class="nav-link" href="#sign">Sign</a>
+      <a class="nav-link" href="/verify.html">Verify</a>
       <a class="nav-link" href="/jurisdictions">World</a>
-      <a class="nav-link" href="/nostr">Discuss</a>
+      <a class="nav-link" href="/start.html">Start here</a>
+      <a class="nav-link" href="/archive.html">Archive</a>
+      <a class="nav-link" href="/support.html">Help</a>
     </div>
 
     <div class="nav-end">
@@ -202,8 +213,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <button type="button" class="nav-sheet-link" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> Full Charter</button>
       <a class="nav-sheet-link" href="/jurisdictions"><i class="fas fa-globe" aria-hidden="true"></i> Jurisdictions worldwide</a>
       <a class="nav-sheet-link" href="/canada/"><i class="fas fa-flag" aria-hidden="true"></i> Canada offering</a>
-      <a class="nav-sheet-link" href="/nostr"><i class="fas fa-comments" aria-hidden="true"></i> Live Discuss</a>
-      <button type="button" class="nav-sheet-link nav-sheet-sign" onclick="document.getElementById('sign')?.scrollIntoView({behavior:'smooth'})"><i class="fas fa-signature" aria-hidden="true"></i> Sign &amp; Assert Rights</button>
+      <a class="nav-sheet-link" href="#articles"><i class="fas fa-book-open" aria-hidden="true"></i> Read the charter</a>
+      <a class="nav-sheet-link" href="#sign"><i class="fas fa-signature" aria-hidden="true"></i> Sign the charter</a>
+      <a class="nav-sheet-link" href="/verify.html"><i class="fas fa-shield-halved" aria-hidden="true"></i> Verify a proof</a>
+      <a class="nav-sheet-link" href="/nostr"><i class="fas fa-comments" aria-hidden="true"></i> Discuss on Nostr</a>
+      <a class="nav-sheet-link" href="/start.html"><i class="fas fa-route" aria-hidden="true"></i> Start here</a>
+      <a class="nav-sheet-link" href="/archive.html"><i class="fas fa-clock-rotate-left" aria-hidden="true"></i> Version archive</a>
       <div class="nav-sheet-tools">
         <div class="lang-switcher-nav" title="Switch language">
           <select id="nav-lang" onchange="switchNavLang(this.value)" aria-label="Select language">
@@ -268,6 +283,13 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <a class="hero-path-link hero-path-ca" href="/canada/" id="cta-canada-btn">Canada offering <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
     </p>
     <p class="hero-urgency"><strong>30 seconds</strong> · For every person on Earth · Local-first · CC0 · No account</p>
+    <div class="journey-rail" aria-label="SherpaCarta journey">
+      <a class="journey-step is-current" href="#articles"><span>01</span><strong>Read</strong><small>114 articles</small></a>
+      <span class="journey-arrow" aria-hidden="true">→</span>
+      <a class="journey-step" href="#sign"><span>02</span><strong>Sign</strong><small>Your commitment</small></a>
+      <span class="journey-arrow" aria-hidden="true">→</span>
+      <a class="journey-step" href="/verify.html"><span>03</span><strong>Verify</strong><small>Bitcoin proof</small></a>
+    </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">
     <i class="fas fa-chevron-down"></i>
@@ -593,30 +615,21 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 <section class="section" id="film" aria-labelledby="video-heading">
   <div class="section-max">
     <div class="section-label"><span>Watch</span></div>
-    <h2 class="section-h2 reveal" id="video-heading">SherpaCarta in two minutes<br><em class="mission-em">The charter the platforms were never forced to sign</em></h2>
-    <p class="reveal sc-film-intro">A short film on why digital rights need a living Magna Carta — 114 articles, international-first, open and honest. Narrated · captioned · free to share (CC0 movement).</p>
+    <h2 class="section-h2 reveal" id="video-heading">SherpaCarta films<br><em class="mission-em">A first invitation for the digital age</em></h2>
+    <p class="reveal sc-film-intro">A short film on why digital rights need a living Magna Carta — 114 articles, international-first, open and honest. The official two-minute film is temporarily offline while its public media file is restored.</p>
 
-    <div class="video-wrapper reveal sc-film-primary" id="sherpacarta-film">
+    <div class="video-wrapper reveal sc-film-secondary" style="margin-top:1.75rem">
       <div class="video-header">
-        <div class="video-title">OFFICIAL — SHERPACARTA · 2 MIN · 16:9</div>
-        <a class="video-live" href="https://videos.giveabit.io/video/sherpacarta-2min.mp4?v=861" download style="text-decoration:none">Download MP4 ↗</a>
+        <div class="video-title">FIRST LOOK — SHERPACARTA · 1 MIN · DRAFT PREVIEW</div>
+        <a class="video-live" href="/video/sherpacarta-one-minute-draft.mp4" download style="text-decoration:none">Download draft ↗</a>
       </div>
       <div class="video-embed sc-film-player">
-        <video
-          id="sherpacarta-film-video"
-          controls
-          playsinline
-          preload="none"
-          poster="/video/sherpacarta-2min-poster.jpg?v=861"
-          title="SherpaCarta — 2 minute introduction"
-          controlslist="nodownload"
-        >
-          <!-- src set when near viewport — saves LCP bandwidth -->
-          <source data-src="https://videos.giveabit.io/video/sherpacarta-2min.mp4?v=861" type="video/mp4">
-          Your browser does not support HTML5 video. <a href="https://videos.giveabit.io/video/sherpacarta-2min.mp4?v=861">Download the film</a>.
+        <video controls playsinline preload="metadata" poster="/video/sherpacarta-one-minute-contact-sheet.jpg" title="SherpaCarta — one-minute draft preview">
+          <source src="/video/sherpacarta-one-minute-draft.mp4" type="video/mp4">
+          Your browser does not support HTML5 video. <a href="/video/sherpacarta-one-minute-draft.mp4">Download the draft</a>.
         </video>
       </div>
-      <div class="video-caption">Official SherpaCarta film · international-first · Canada as a live national offering · no fake metrics · <a href="https://github.com/kitsboy/sherpacarta/blob/main/docs/VIDEO-HERMES-HYPERFRAMES.md" target="_blank" rel="noopener" style="color:var(--em)">production notes</a></div>
+      <div class="video-caption"><strong style="color:var(--gold2)">DEMO DATA · DRAFT PREVIEW</strong> · Presenter and audio are temporary stand-ins; this is not a final published film.</div>
     </div>
 
     <div class="video-wrapper reveal sc-film-secondary" style="margin-top:1.75rem">
@@ -714,13 +727,16 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         <div style="font-size:.83rem;color:var(--text2)">signatures on this device · join the movement</div>
       </div>
       <p style="font-size:.85rem;color:var(--em2);margin-bottom:1rem;max-width:520px;line-height:1.65">Your name becomes a moral commitment — private by default, shareable if you choose. <strong style="color:var(--text)">No account. No email required. No surveillance.</strong></p>
+      <div class="trust-callout" role="note"><i class="fas fa-shield-halved" aria-hidden="true"></i><div><strong>Before you sign</strong><span>This is a civic commitment, not legislation. Your signature stays in this browser unless you choose an optional public action. Review your details before submitting.</span></div></div>
       <div class="signers-wall" id="signers-wall" aria-label="Recent signatories" aria-live="polite"></div>
       <div class="sign-form">
         <input class="sign-input" id="sign-name" type="text" placeholder="Your name (or pseudonym)" maxlength="40" aria-label="Your name" autocomplete="nickname">
         <input class="sign-input" id="sign-country" type="text" placeholder="Country / Region (e.g. Canada, BC)" maxlength="30" aria-label="Your country" autocomplete="country-name">
-        <button class="sign-submit" onclick="signCharter()"><i class="fas fa-signature"></i> Sign the Charter</button>
+        <button class="sign-submit" id="sign-submit" onclick="reviewSignCharter()"><i class="fas fa-signature"></i> Review before signing</button>
+        <button class="btn btn-ghost sign-reset" type="button" onclick="resetSignDraft()"><i class="fas fa-rotate-left"></i> Reset</button>
       </div>
       <p class="sign-honesty"><i class="fas fa-shield-halved"></i> Privacy-first: stored only in your browser. Optional Nostr publish. We never collect signatures on our servers.</p>
+      <div id="sign-review" class="sign-review" hidden role="dialog" aria-modal="true" aria-labelledby="sign-review-title"><div class="sign-review-card"><h3 id="sign-review-title">Review your commitment</h3><p>This will save the following details only on this device:</p><dl><dt>Name or pseudonym</dt><dd id="review-name"></dd><dt>Country / region</dt><dd id="review-country"></dd></dl><p class="sign-review-note">This is a voluntary civic commitment, not legislation or identity verification. You can cancel before saving.</p><div><button type="button" class="btn btn-primary" onclick="confirmSignCharter()">Confirm and sign</button><button type="button" class="btn btn-ghost" onclick="cancelSignReview()">Cancel</button></div></div></div>
 
       <!-- NOSTR IDENTITY + AMENDMENTS -->
       <div class="nostr-panel">
@@ -739,6 +755,19 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           <button class="sign-submit" onclick="submitAmendment()"><i class="fas fa-pen-fancy"></i> Submit Proposal</button>
         </div>
         <div class="amend-list" id="amend-list" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <!-- PROOF PATH -->
+    <div class="proof-path" id="proof" aria-labelledby="proof-heading">
+      <div class="section-label"><span>Independent verification</span></div>
+      <h3 id="proof-heading">A stamp is proof of a document version — not a promise of law</h3>
+      <p>When a charter release is stamped through <strong>Satohash.io</strong>, its SHA-256 hash can be checked independently. A submission may remain pending until Bitcoin confirmation. We never label pending work confirmed.</p>
+      <div class="proof-actions">
+        <button class="btn btn-primary" type="button" onclick="stampCharterOnBitcoin()"><i class="fas fa-stamp" aria-hidden="true"></i> Stamp this charter</button>
+        <a class="btn btn-ghost" href="https://satohash.io/stamp?ref=sherpacarta" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Satohash</a>
+        <a class="btn btn-ghost" href="/verify.html"><i class="fas fa-shield-halved" aria-hidden="true"></i> What a proof means</a>
+        <a class="btn btn-ghost" href="/security.html"><i class="fas fa-lock" aria-hidden="true"></i> Security model</a>
       </div>
     </div>
 
@@ -895,7 +924,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           <p class="pay-note">On-chain only. All donations published transparently.</p>
         </div>
         <div id="donate-pane-ln" hidden>
-          <div class="pay-note" style="margin-bottom:.5rem"><i class="fas fa-bolt" style="color:var(--em)"></i> Public LNURL-pay live · <code>sherpa@api.satohash.io:8443</code></div>
+          <div class="pay-note" style="margin-bottom:.5rem"><i class="fas fa-bolt" style="color:var(--em)"></i> Public Lightning live · <code>sherpacarta@breez.tips</code></div>
           <div class="btc-address" id="donate-ln-address"></div>
           <button class="copy-btn" id="copy-ln-btn" onclick="copyPayAddress('ln',document.getElementById('donate-ln-address'),document.getElementById('copy-ln-btn'),'<i class=\'fas fa-bolt\'></i> COPY LIGHTNING')"><i class="fas fa-bolt"></i> COPY LIGHTNING</button>
           <button class="pay-qr-btn" type="button" onclick="showQRModal('ln')"><i class="fas fa-qrcode"></i> SHOW QR CODE</button>
@@ -906,6 +935,12 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 </section>
 
 </main><!-- end #main-content -->
+
+<div class="mobile-action-bar" aria-label="Primary actions">
+  <a href="#articles"><i class="fas fa-book-open" aria-hidden="true"></i><span>Read</span></a>
+  <a href="#sign" class="is-primary"><i class="fas fa-signature" aria-hidden="true"></i><span>Sign</span></a>
+  <a href="/verify.html"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>Verify</span></a>
+</div>
 
 <!-- ════════════════════════════════════════════════════════
      FOOTER — BUILD 811 centered institutional
@@ -1100,13 +1135,13 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=861" defer></script>
-<script src="/js/sc-a11y.js?v=861" defer></script>
-<script src="/js/sc-nostr-lib.js?v=861" defer></script>
-<script src="/js/sc-petition-canada.js?v=861" defer></script>
-<script src="/js/sc-press-outlets.js?v=861" defer></script>
-<script src="/sc-core.js?v=861" defer></script>
-<script src="/sc-bundle.js?v=861" defer></script>
+<script src="/js/sc-share.js?v=862" defer></script>
+<script src="/js/sc-a11y.js?v=862" defer></script>
+<script src="/js/sc-nostr-lib.js?v=862" defer></script>
+<script src="/js/sc-petition-canada.js?v=862" defer></script>
+<script src="/js/sc-press-outlets.js?v=862" defer></script>
+<script src="/sc-core.js?v=862" defer></script>
+<script src="/sc-bundle.js?v=862" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {

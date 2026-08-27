@@ -1,9 +1,7 @@
 # sherpacarta — Last Updated 2026-08-27 by Buffy
 
-Brief: corrected the published one-minute asset status across documentation and handoffs.
+Brief: temporarily removed the broken two-minute landing-page player after its external object URL returned 404/access denied.
 
-Current release: `07eb446` is pushed to `origin/main`. The third landing-page video is a **DEMO DATA · SILENT DRAFT PREVIEW**: a visual-only MP4 with a geometric presenter stand-in and no embedded voiceover or music.
+The one-minute asset remains an explicitly labeled silent visual draft. The official two-minute film is offline pending restoration of a verified, public, audio-bearing MP4; no dead player or inaccessible download link is shown.
 
-Pending before an audio-bearing replacement: licensed/consented young English male voiceover, cleared lyric-free shanty-inspired music, human caption/truth review, audio mix verification, and preview approval.
-
-Updated records: `SOURCE-OF-TRUTH.md`, `docs/KANBAN.md`, `docs/KIMI-HANDOFF.md`, `.ai_docs/current-status.md`, `docs/VIDEO-SHERPA-ONE-MINUTE-BRIEF.md`, `videos/sherpacarta-one-minute/BRIEF.md`, and `videos/sherpacarta-one-minute/assets/README.md`.
+The desktop article-browser grid repair remains in `index.html`, `public/sc-main.css`; the media/CSP source changes remain documented in the current handoff and can be finalized when the real media host is confirmed.

@@ -297,14 +297,14 @@ body.no-custom-cursor #cursor,body.no-custom-cursor #cursor-ring{display:none!im
 /* ═══════════════════════════════════════════════════════════
    ARTICLES BROWSER
 ═══════════════════════════════════════════════════════════ */
-.articles-layout{display:grid;grid-template-columns:270px 1fr;gap:0;background:var(--border);margin-top:2.5rem;min-height:580px}
+.articles-layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:0;background:var(--border);margin-top:2.5rem;min-height:580px}
 .articles-sidebar{background:var(--bg2);overflow-y:auto;max-height:660px}
 .articles-sidebar::-webkit-scrollbar{width:2px}
 .article-tab{display:block;padding:.7rem 1.1rem;font-size:.75rem;border-bottom:1px solid var(--border);color:var(--text2);cursor:none;transition:all .15s;font-family:var(--mono)}
 .article-tab:hover{background:rgba(16,185,129,.05);color:var(--em)}
 .article-tab.active{background:rgba(16,185,129,.1);color:var(--em);border-left:2px solid var(--em)}
 .article-tab .art-num{color:var(--text3);font-size:.58rem;display:block;margin-bottom:.15rem}
-.articles-main{background:var(--bg3);padding:2rem;overflow-y:auto;max-height:660px}
+.articles-main{background:var(--bg3);padding:2rem;overflow-y:auto;max-height:660px;min-width:0}
 .article-display{display:none;animation:fade-in .25s ease}
 .article-display.active{display:block}
 .art-title{font-family:var(--serif);font-size:1.9rem;font-weight:700;letter-spacing:-.025em;margin-bottom:.4rem}
@@ -4347,6 +4347,7 @@ section.section,
 }
 .articles-main{
   max-height:min(78vh,760px);
+  min-width:0;
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
 }
