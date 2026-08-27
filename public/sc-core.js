@@ -1990,6 +1990,15 @@ function signCharter(){
     buildSigners();
     document.getElementById('sign-name').value='';document.getElementById('sign-country').value='';
     toast(`Welcome, ${safeName}! You are signatory #${state.signCount.toLocaleString()}.`,'success');
+    const post=document.getElementById('sign-post-success');
+    if(post){
+      post.hidden=false;
+      post.innerHTML='';
+      const title=document.createElement('strong'); title.textContent='Your commitment is saved locally.'; post.appendChild(title);
+      const meta=document.createElement('span'); meta.textContent=` Signatory #${state.signCount.toLocaleString()} · ${new Date(record.ts).toLocaleString()}`; post.appendChild(meta);
+      const receipt=document.createElement('button'); receipt.type='button'; receipt.className='btn btn-ghost'; receipt.textContent='Download receipt'; receipt.onclick=()=>window.downloadLocalSignatureReceipt?.(record,state.signCount); post.appendChild(receipt);
+      const share=document.createElement('button'); share.type='button'; share.className='btn btn-ghost'; share.textContent='Share'; share.onclick=()=>window.shareLocalSignature?.(record); post.appendChild(share);
+    }
     const lc=document.getElementById('live-counter');
     if(lc){lc.style.transform='scale(1.3)';lc.style.color='var(--em2)';setTimeout(()=>{lc.style.transform='';lc.style.color='';},400);}
   }finally{

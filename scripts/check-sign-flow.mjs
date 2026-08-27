@@ -24,6 +24,14 @@ const checks = [
   ['disabled state is styled', css.includes('.sign-submit:disabled')],
   ['reduced motion is covered', css.includes('prefers-reduced-motion')],
   ['no server submission in home sign flow', !next.includes('fetch(')],
+  ['local export and import controls exist', html.includes('exportLocalSignData') && html.includes('importLocalSignData')],
+  ['local clear control exists', html.includes('clearLocalSignData')],
+  ['local receipt action exists', core.includes('sign-post-success') && next.includes('downloadLocalSignatureReceipt')],
+  ['local sharing remains optional', next.includes('shareLocalSignature') && next.includes('navigator.share')],
+  ['undo path exists', next.includes('undoLastLocalSignature')],
+  ['storage size feedback exists', next.includes('updateStorageInfo')],
+  ['import validates structure', next.includes('Array.isArray(data.signers)')],
+  ['post-sign metadata is visible', core.includes('toLocaleString()') && core.includes('Your commitment is saved locally')],
 ];
 const failures = checks.filter(([, ok]) => !ok);
 if (failures.length) { console.error(failures.map(([name]) => `FAIL: ${name}`).join('\n')); process.exit(1); }

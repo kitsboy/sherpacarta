@@ -15,6 +15,52 @@
   const SIGN_DRAFT_KEY = 'sc_sign_draft';
   const SIGN_UNDO_KEY = 'sc_last_signer_record';
 
+  function downloadText(filename, text, type = 'text/plain') {
+    const url = URL.createObjectURL(new Blob([text], { type }));
+    const link = document.createElement('a'); link.href = url; link.download = filename; link.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function localData() {
+    return { version: 1, exportedAt: new Date().toISOString(), signers: state?.signers || [], count: state?.signCount || 0, draft: JSON.parse(localStorage.getItem(SIGN_DRAFT_KEY) || 'null') };
+  }
+
+  window.exportLocalSignData = function exportLocalSignData() {
+    try { downloadText('sherpacarta-local-data.json', JSON.stringify(localData(), null, 2), 'application/json'); signStatus('Local data exported.'); }
+    catch (_) { signStatus('Local data could not be exported.', 'error'); }
+  };
+  window.importLocalSignData = function importLocalSignData() { $('sign-import-file')?.click(); };
+  window.clearLocalSignData = function clearLocalSignData() {
+    if (!window.confirm('Clear local drafts, signatures, and signing preferences on this device?')) return;
+    Object.keys(localStorage).filter((key) => key.startsWith('sc_sign') || key === 'sc_count').forEach((key) => localStorage.removeItem(key));
+    signStatus('Local signing data cleared. Reloading…', 'info');
+    setTimeout(() => location.reload(), 350);
+  };
+
+  function initLocalTools() {
+    $('sign-import-file')?.addEventListener('change', () => {
+      const file = $('sign-import-file').files?.[0]; if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          if (!data || typeof data !== 'object' || !Array.isArray(data.signers) || data.signers.some((item) => !item || typeof item.name !== 'string')) throw new Error('invalid');
+          localStorage.setItem('sc_signers', JSON.stringify(data.signers.slice(0, 100)));
+          localStorage.setItem('sc_count', String(Math.max(data.signers.length, Number(data.count) || 0)));
+          if (data.draft) localStorage.setItem(SIGN_DRAFT_KEY, JSON.stringify({ name: String(data.draft.name || '').slice(0, 40), country: String(data.draft.country || '').slice(0, 30), savedAt: Date.now() }));
+          signStatus('Local data imported. Reloading…', 'success'); setTimeout(() => location.reload(), 350);
+        } catch (_) { signStatus('That file is not a valid SherpaCarta local-data export.', 'error'); }
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  function updateStorageInfo() {
+    const el = $('sign-storage-info'); if (!el) return;
+    let size = 0; for (const key in localStorage) if (key.startsWith('sc_')) size += String(localStorage[key]).length * 2;
+    el.textContent = `~${(size / 1024).toFixed(1)} KB local`;
+  }
+
   function signStatus(message, tone = '') {
     const status = $('sign-flow-status');
     if (status) { status.textContent = message; status.dataset.tone = tone; }
@@ -55,6 +101,8 @@
     $('sign-name')?.addEventListener('keydown', (event) => { if (event.key === 'Enter') { event.preventDefault(); if (!$('sign-submit').disabled) window.reviewSignCharter(); } });
     $('sign-country')?.addEventListener('keydown', (event) => { if (event.key === 'Enter') { event.preventDefault(); if (!$('sign-submit').disabled) window.reviewSignCharter(); } });
     restoreSignDraft();
+    initLocalTools();
+    updateStorageInfo();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSignFlow); else initSignFlow();
@@ -146,6 +194,27 @@
     const review = $('sign-review');
     if (review?.classList.contains('open') && event.target === review) window.cancelSignReview(event);
   }, true);
+  window.downloadLocalSignatureReceipt = function downloadLocalSignatureReceipt(record, number) {
+    const payload = { type: 'SherpaCarta local signature receipt', name: record.name, countryFlag: record.c, signedAt: new Date(record.ts).toISOString(), localNumber: number, site: 'https://sherpacarta.org', note: 'Stored locally on this device. This is a voluntary civic commitment, not legislation or identity verification.' };
+    downloadText('sherpacarta-signature-receipt.json', JSON.stringify(payload, null, 2), 'application/json');
+    signStatus('Local signature receipt downloaded.', 'success');
+  };
+  window.shareLocalSignature = async function shareLocalSignature(record) {
+    const text = `I made a local commitment to SherpaCarta — digital privacy is a human right. ${record.name ? '— ' + record.name : ''}`;
+    const data = { title: 'SherpaCarta commitment', text, url: 'https://sherpacarta.org/#sign' };
+    try { if (navigator.share) await navigator.share(data); else { await navigator.clipboard.writeText(`${text} ${data.url}`); signStatus('Share text copied.', 'success'); } } catch (error) { if (error?.name !== 'AbortError') signStatus('Sharing was not completed.', 'error'); }
+  };
+  window.undoLastLocalSignature = function undoLastLocalSignature() {
+    try {
+      const record = JSON.parse(localStorage.getItem(SIGN_UNDO_KEY) || 'null');
+      if (!record || !window.confirm('Undo your most recent local commitment?')) return;
+      const signers = JSON.parse(localStorage.getItem('sc_signers') || '[]');
+      const index = signers.findIndex((item) => item.ts === record.ts && item.name === record.name);
+      if (index < 0) return;
+      signers.splice(index, 1); localStorage.setItem('sc_signers', JSON.stringify(signers)); localStorage.setItem('sc_count', String(signers.length)); localStorage.removeItem(SIGN_UNDO_KEY); location.reload();
+    } catch (_) { signStatus('The local signature could not be undone.', 'error'); }
+  };
+
   window.resetSignDraft = function resetSignDraft() {
     if (!($('sign-name')?.value || $('sign-country')?.value)) return;
     $('sign-name').value = '';
