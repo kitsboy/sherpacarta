@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v7.8';
+const CACHE = 'sherpacarta-v7.9';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/briefing.html', '/briefing-fr.html', '/leave-behind.html',
@@ -16,7 +16,7 @@ const ASSETS = [
   '/giveabit-logo.png', '/giveabit-parent-logo.jpg', '/manifest.json', '/mcp.json',
   '/.well-known/security.txt', '/feed/podcast.xml', '/sitemap.xml',
   '/humans.txt', '/charter.txt', '/offline.html',
-  '/sc-main.css', '/js/sc-top30.js', '/js/sc-next100.js', '/js/sc-reliability.js', '/js/sc-proof-tools.js', '/sc-core.js', '/sc-bundle.js', '/embed.js', '/data/charter.json',
+  '/sc-main.css', '/js/sc-top30.js', '/js/sc-next100.js', '/js/sc-reliability.js', '/js/sc-proof-tools.js', '/js/sc-proof-lifecycle.js', '/sc-core.js', '/sc-bundle.js', '/embed.js', '/data/charter.json',
   '/fonts/fonts.css',
   '/fonts/outfit-400.woff2', '/fonts/outfit-600.woff2', '/fonts/outfit-700.woff2',
   '/fonts/cormorant-400.woff2', '/fonts/cormorant-700.woff2', '/fonts/cormorant-400i.woff2',
