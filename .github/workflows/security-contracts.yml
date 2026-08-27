@@ -1,0 +1,27 @@
+name: Security and public contracts
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run check:release
+      - run: npm run check:public
+      - run: npm run check:security
+      - run: node --check public/sw.js
+        shell: bash
+      - run: git diff --check
