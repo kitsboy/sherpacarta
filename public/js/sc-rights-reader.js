@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  if (document.currentScript?.dataset.readerDisabled === 'true') return;
   const taxonomyUrl = '/data/rights-taxonomy.json';
   const stateKey = 'sc_reader_progress_v1';
   const read = () => { try { return JSON.parse(localStorage.getItem(stateKey) || '{}'); } catch (_) { return {}; } };

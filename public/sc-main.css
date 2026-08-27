@@ -297,14 +297,14 @@ body.no-custom-cursor #cursor,body.no-custom-cursor #cursor-ring{display:none!im
 /* ═══════════════════════════════════════════════════════════
    ARTICLES BROWSER
 ═══════════════════════════════════════════════════════════ */
-.articles-layout{display:grid;grid-template-columns:270px minmax(0,1fr);align-items:stretch;gap:0;background:var(--border);margin-top:2.5rem;min-height:580px}
+.articles-layout{display:grid;grid-template-columns:270px minmax(0,1fr);align-items:stretch;gap:0;background:var(--border);margin-top:2.5rem;min-height:0}
 .articles-sidebar{background:var(--bg2);overflow-y:auto;max-height:660px}
 .articles-sidebar::-webkit-scrollbar{width:2px}
 .article-tab{display:block;padding:.7rem 1.1rem;font-size:.75rem;border-bottom:1px solid var(--border);color:var(--text2);cursor:none;transition:all .15s;font-family:var(--mono)}
 .article-tab:hover{background:rgba(16,185,129,.05);color:var(--em)}
 .article-tab.active{background:rgba(16,185,129,.1);color:var(--em);border-left:2px solid var(--em)}
 .article-tab .art-num{color:var(--text3);font-size:.58rem;display:block;margin-bottom:.15rem}
-.articles-main{background:var(--bg3);padding:2rem;min-width:0;min-height:0;overflow-y:auto;max-height:660px}
+.articles-main{background:var(--bg3);padding:2rem;min-width:0;min-height:0;overflow-y:auto;max-height:660px;height:fit-content}
 .article-display{display:none;animation:fade-in .25s ease}
 .article-display.active{display:block}
 .art-title{font-family:var(--serif);font-size:1.9rem;font-weight:700;letter-spacing:-.025em;margin-bottom:.4rem}
@@ -553,7 +553,7 @@ body.high-contrast{--border:rgba(16,185,129,.5);--text:#fff;--text2:#e0e0e0}
     transparent 100%);
   box-shadow:0 0 10px rgba(18,199,138,.25);
 }
-.section-dots.near-footer{opacity:.22;pointer-events:none;transform:translateY(-50%) scale(.96)}
+.section-dots.near-footer{opacity:1;pointer-events:auto;transform:translateY(-50%)}
 .dot-link,.section-dot{
   position:relative;z-index:1;
   width:7.5rem;min-height:2.15rem;border-radius:.7rem;
@@ -831,7 +831,11 @@ a.press-card:hover .press-card-link-hint{opacity:1;color:var(--press-accent,var(
 @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}}
 .reveal{opacity:1;transform:none;transition:opacity .6s ease,transform .6s ease}
 /* Reveal only animates elements once the runtime has explicitly opted in. */
-html.sc-reveal-ready .reveal:not(.visible){opacity:0;transform:translateY(18px)}
+html.sc-reveal-ready .reveal:not(.visible){opacity:1;transform:none}
+/* Runtime/script animation classes must never make readable page copy disappear. */
+#main-content .hero-kicker,#main-content .hero-h1,#main-content .hero-sub,#main-content .hero-proof,#main-content .hero-ctas,#main-content .hero-paths,#main-content .hero-urgency,#main-content .hero-share,#main-content .video-cta-banner,
+#main-content > section:not(#hero) .reveal,
+#main-content > section:not(#hero) .reveal *{opacity:1!important;filter:none!important}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* ═══ MOBILE NAV ══════════════════════════════════════════ */
@@ -894,7 +898,7 @@ html.sc-reveal-ready .reveal:not(.visible){opacity:0;transform:translateY(18px)}
   .hero-share{margin-top:1rem}
   .articles-layout{display:flex;flex-direction:column;min-height:0}
   .articles-sidebar{max-height:200px;border-bottom:1px solid var(--border);flex:0 0 auto}
-  .articles-main{max-height:none;min-height:280px;padding:1.25rem;flex:1 1 auto}
+  .articles-main{max-height:none;min-height:320px;padding:1.25rem;flex:0 0 auto;height:auto}
   #float-assert{font-size:.58rem;padding:.55rem .9rem}
 }
 @media(max-width:640px){
@@ -4310,7 +4314,7 @@ section.section,
 
 /* Articles browser: room for last articles (113–114 + extension) */
 .articles-layout{
-  min-height:580px;
+  min-height:0;
 }
 .articles-sidebar{
   max-height:min(78vh,760px);
@@ -4394,7 +4398,7 @@ section.section,
     gap:.35rem;
   }
   .articles-sidebar{max-height:200px}
-  .articles-main{max-height:none;min-height:320px}
+  .articles-main{max-height:none;min-height:320px;height:auto}
 }
 #nostr-relay-health{white-space:nowrap}
 
