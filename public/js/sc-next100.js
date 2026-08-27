@@ -10,6 +10,15 @@
   window.addEventListener('online', () => setOffline(false));
   window.addEventListener('offline', () => setOffline(true));
 
+  function closeSignReview(review) {
+    if (!review) return;
+    review.hidden = true;
+    review.setAttribute('aria-hidden', 'true');
+    review.classList.remove('open');
+    document.body.classList.remove('sign-review-open');
+    document.body.style.overflow = '';
+  }
+
   function onboarding() {
     if (localStorage.getItem('sc_start_seen')) return;
     const overlay = document.createElement('div');
@@ -31,20 +40,19 @@
     if (!name) { window.toast?.('Please enter your name or pseudonym', 'error'); $('sign-name')?.focus(); return; }
     if ($('review-name')) $('review-name').textContent = name;
     if ($('review-country')) $('review-country').textContent = country || 'Not provided';
-    if ($('sign-review')) $('sign-review').hidden = false;
+    if ($('sign-review')) { $('sign-review').hidden = false; $('sign-review').removeAttribute('aria-hidden'); $('sign-review').classList.add('open'); document.body.classList.add('sign-review-open'); }
     $('sign-review')?.querySelector('button')?.focus();
   };
   window.cancelSignReview = function cancelSignReview(event) {
     event?.preventDefault();
+    event?.stopImmediatePropagation?.();
     event?.stopPropagation();
     const review = $('sign-review');
-    if (!review) return;
-    review.hidden = true;
-    document.body.style.overflow = '';
-    $('sign-submit')?.focus();
+    closeSignReview(review);
+    $('sign-submit')?.focus({ preventScroll: true });
   };
   window.confirmSignCharter = function confirmSignCharter() {
-    if ($('sign-review')) $('sign-review').hidden = true;
+    closeSignReview($('sign-review'));
     const original = window.signCharter;
     if (typeof original === 'function') original();
   };
