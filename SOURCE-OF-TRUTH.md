@@ -1,7 +1,7 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-08-26
+**Date:** 2026-08-27
 **BUILD:** priority next-100 release · SW **v8.1** · Read → Sign → Verify
 **Live:** https://sherpacarta.org  
 **GitHub:** https://github.com/kitsboy/sherpacarta.git  
@@ -43,7 +43,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted
 - `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/
-- `public/video/sherpacarta-one-minute-draft.mp4` — first-look one-minute visual draft (DEMO DATA; temporary stand-ins)
+- `public/video/sherpacarta-one-minute-draft.mp4` — first-look one-minute **silent visual draft** (DEMO DATA; temporary geometric presenter; no embedded voiceover or music)
 - `public/video/sherpacarta-one-minute-contact-sheet.jpg` — draft review contact sheet
 - `public/jurisdictions.html`, `status.html`, `treasury.html`
 
@@ -110,7 +110,7 @@ Bitcoin sovereignty, privacy, human dignity. Rights only expand (Art. 114).
 - Recovery: `/whatsup` in new chat
 - **Do not sync M4 until Cam says go**
 
-— Updated 2026-08-26 · article reader taxonomy integration, metadata safeguards, external-gate disclosure system, evidence packets, contract checks, and handoff map
+— Updated 2026-08-27 · published one-minute asset corrected to silent visual draft; voiceover/music remain pending; article reader taxonomy integration, metadata safeguards, external-gate disclosure system, evidence packets, contract checks, and handoff map
 
 
 ## Diligence Pack (partner + technical disclosure)

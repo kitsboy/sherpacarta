@@ -1,8 +1,8 @@
 # SherpaCarta current status
 
-**Updated:** 2026-08-26 · Buffy M3
+**Updated:** 2026-08-27 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** pending this session; reader taxonomy integration and metadata safeguards are in verification
+**Latest pushed release:** `07eb446`; documentation correction for silent video draft pending commit
 
 ## Delivered this session
 
@@ -11,7 +11,7 @@
 - Added educational rights taxonomy and article-reference checks.
 - Added `docs/VIDEO-ONE-MINUTE-HANDOFF.md` with enhanced civic/history and technical Bitcoin/Satohash/OpenTimestamps scripts for later production.
 - Added `docs/VIDEO-SHERPA-ONE-MINUTE-BRIEF.md` with a realistic young British male presenter concept, 60-second script, visual direction, and consent/review gates.
-- Rendered and published the first one-minute visual draft at `/video/sherpacarta-one-minute-draft.mp4`, with a visible DEMO DATA notice and temporary geometric presenter stand-in.
+- Rendered and published the first one-minute **silent visual draft** at `/video/sherpacarta-one-minute-draft.mp4`, with a visible DEMO DATA notice and temporary geometric presenter stand-in; the MP4 has no embedded voiceover or music.
 - Added `/rights.html` secular plain-language digital-rights education page.
 - Added `check:next100` covering the new rights, SEO, social, and video package.
 - Connected the educational rights taxonomy to the article reader with local progress, category filtering, citation copy, provenance labels, and share context.
@@ -42,6 +42,10 @@
 ## Demo policy
 
 “Steve Jobs” appears only in explicitly marked DEMO DATA documentation as a fictional example. It is not a real endorsement, lawyer, MP, reviewer, translator, custodian, operator, or contact. Public records contain no invented external evidence.
+
+## Video audio gate
+
+The published one-minute asset is not an audio-complete film. Voiceover, music, rights/consent, mix verification, caption review, and replacement preview remain pending. Do not describe the current MP4 as narrated, scored, or finished.
 
 ## External gates still require real action
 

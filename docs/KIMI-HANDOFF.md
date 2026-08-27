@@ -1,4 +1,10 @@
-## Session — 2026-08-27 (Buffy M3 — SHERPA ONE-MINUTE PRESENTER BRIEF)
+## Session — 2026-08-27 (Buffy M3 — SILENT VIDEO DRAFT STATUS CORRECTION)
+
+**Current truth:** Commit `07eb446` is pushed to `origin/main`. The third landing-page video is a **DEMO DATA · SILENT DRAFT PREVIEW**. The published MP4 contains no embedded narration or music and uses a temporary geometric presenter stand-in.
+
+**Docs synchronized:** `SOURCE-OF-TRUTH.md`, `docs/KANBAN.md`, `.ai_docs/current-status.md`, `LATEST-UPDATE.md`, `docs/VIDEO-SHERPA-ONE-MINUTE-BRIEF.md`, `videos/sherpacarta-one-minute/BRIEF.md`, and `videos/sherpacarta-one-minute/assets/README.md`.
+
+**Required before replacement:** licensed/consented young English male voiceover; cleared lyric-free upbeat shanty-inspired music; human caption/truth review; audio mix and mobile intelligibility verification; proof that the replacement MP4 contains an audio stream; preview approval.
 
 **Canonical brief:** `docs/VIDEO-SHERPA-ONE-MINUTE-BRIEF.md`
 

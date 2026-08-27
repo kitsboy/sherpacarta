@@ -1,7 +1,9 @@
 # SherpaCarta — one-minute film brief
 
-**Status:** DRAFT PREVIEW PUBLISHED / HUMAN REVIEW REQUIRED
-**Production:** Visual stand-in draft rendered and published for review; final presenter, voice, music, and approval remain pending
+**Status:** SILENT DRAFT PREVIEW PUBLISHED / HUMAN REVIEW REQUIRED
+**Published asset:** `/video/sherpacarta-one-minute-draft.mp4`
+**Current media truth:** The published MP4 is a visual-only draft with no embedded voiceover or music. It uses a temporary geometric presenter stand-in and must not be described as a finished film.
+**Production:** Final presenter, voice, music, audio mix, captions, permissions, and approval remain pending.
 **Voice direction:** Young adult English male, warm contemporary British accent, approximately 25–35; calm, intelligent, grounded, never theatrical  
 **Presenter direction:** Realistic human presenter or licensed generated presenter; distinct from Kimi and never presented as a real named person  
 **Working label:** “The Guide” (not a public character name)  
@@ -31,6 +33,31 @@ It is secular, nonpartisan, and open to challenge. It is not current law. It is 
 
 **[0:51–1:00]**  
 Read the articles. Question them. Share the conversation. SherpaCarta dot org—digital rights are human rights.
+
+## Audio production status
+
+The current published MP4 has **no audio stream**. Audio production is a separate, not-yet-completed step:
+
+1. Record or generate the approved voiceover with documented performer/voice rights.
+2. Human-review pronunciation, timing, captions, and legal/truth wording.
+3. Resolve lyric-free upbeat shanty-inspired instrumental music with documented rights.
+4. Mix music quietly beneath speech and test intelligibility on phone speakers.
+5. Render a replacement MP4 and verify that it contains an audio stream, synchronized speech, and acceptable loudness.
+6. Only then remove or revise the silent-draft disclosure.
+
+## On-screen boundary
+
+Keep this visible during the charter reveal and close:
+
+`PUBLIC CHARTER · NOT CURRENT LAW`
+
+Until the audio-bearing replacement is verified, also show:
+
+`DEMO DATA · SILENT DRAFT PREVIEW`
+
+If illustrative people, interfaces, places, or numbers appear, show:
+
+`DEMO DATA`
 
 ## Performance direction
 
@@ -95,5 +122,5 @@ Read the articles. Question them. Share the conversation. SherpaCarta dot org—
 - [ ] Media/music rights cleared
 - [ ] Current product screenshots approved
 - [ ] Demo-data audit passed
+- [ ] Audio stream and mix verified
 - [ ] Preview approved before final render
-

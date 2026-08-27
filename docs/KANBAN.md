@@ -1,7 +1,7 @@
 # SherpaCarta Kanban — Finish Later
 
 **Owner:** Cam (decisions) · Kimi/M4 (orchestration/docs) · Grok/M3 (code when unblocked)  
-**Updated:** 2026-08-26 (priority next-100 execution and implementation map)
+**Updated:** 2026-08-27 (silent one-minute video draft status correction)
 **Implementation map:** `docs/IMPLEMENTATION-MAP.md` · **Execution map:** `docs/NEXT-100-FULL-EXECUTION.md` · **Gap register:** `docs/DEEP-GAP-REGISTER.md`
 **Live site:** https://sherpacarta.org  
 **Session summaries:** `SESSION-SUMMARY-2026-07-09-security-audit.md` · `SESSION-SUMMARY-2026-07-09.md`  
@@ -145,8 +145,17 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 - [x] Sitemap/offline coverage for rights education
 - [x] Two one-minute video scripts handed off for later production
 - [x] SherpaCarta one-minute realistic-presenter brief and script prepared for Kimi
+- [x] Silent visual draft published as third landing-page video with explicit DEMO DATA disclosure
 - [x] Article reader taxonomy filter, provenance labels, citation copy, and share context
 - [x] Reader integration contract check (`check:reader`)
+
+## 🎬 VIDEO AUDIO GATE
+
+- [ ] Resolve licensed/consented young English male voiceover
+- [ ] Resolve licensed lyric-free upbeat shanty-inspired music
+- [ ] Mix and test intelligibility on mobile speakers
+- [ ] Verify replacement MP4 contains an audio stream and synchronized captions
+- [ ] Replace the silent draft only after preview approval and rights review
 
 ## 📋 TODO (ready / next up)
 
