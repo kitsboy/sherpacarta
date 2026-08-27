@@ -139,13 +139,13 @@ a{color:var(--em2)}
   <h2 class="card-h"><i class="fas fa-route"></i> Funding rails</h2>
   <div class="rails" id="rails">
     <div class="rail"><span><i class="fab fa-bitcoin"></i> On-chain Bitcoin</span><span class="tag live">Live</span></div>
-    <div class="rail"><span><i class="fas fa-bolt"></i> Lightning (LNURL / address)</span><span class="tag pend">Pending</span></div>
+    <div class="rail"><span><i class="fas fa-bolt"></i> Lightning (LNURL / address)</span><span class="tag live">Live</span></div>
     <div class="rail"><span><i class="fas fa-user-secret"></i> Silent Payments (BIP-352)</span><span class="tag plan">Planned</span></div>
   </div>
   <div class="warn-box" id="ln-note">
-    <strong>Public Lightning receive is not published yet.</strong> Do not send to any TEMP placeholder on the homepage.
-    Ops balance is tracked on <a href="https://hq.giveabit.io" rel="noopener">HQ</a> under LNbits wallet id <code>sherpacarta</code> (invoice key in Vault only).
-    When a public LNURL-pay or Lightning Address is published, it will appear here and in <code>/data/wallets.json</code>.
+    <strong>Lightning live via Breez Spark.</strong> Send to <code>sherpacarta@breez.tips</code>.
+    On-chain: the address on this page. Canonical registry: <code>/data/wallets.json</code>.
+    LND/LNbits is retired from the public rail (Config A).
     Product metrics: <a href="/metrics.json"><code>/metrics.json</code></a> · productId <code>sherpacarta</code>.
   </div>
 </div>
@@ -165,7 +165,7 @@ a{color:var(--em2)}
 </p>
 
 <script>
-let BTC = 'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad';
+let BTC = 'bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq';
 let explorer = 'https://mempool.space/address/' + BTC;
 
 async function initWallets() {

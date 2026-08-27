@@ -4,7 +4,7 @@
 (function SCUpgradesB10() {
   'use strict';
   const BUILD = '20260707-627';
-  const BTC = 'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad';
+  const BTC = 'bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq';
   const $ = (id) => document.getElementById(id);
   const toast = (msg, type) => window.toast?.(msg, type || 'info');
 

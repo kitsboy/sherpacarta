@@ -58,8 +58,8 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 
 | Rail | Status | Where |
 |------|--------|--------|
-| BTC on-chain | **Live** | `bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad` |
-| Lightning | **Pending on SC site** | giveabit LNURL for `kimi@` / `cam@` — Cam picks official |
+| BTC on-chain | **Live** | `bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq` |
+| Lightning | **Live** | `sherpacarta@breez.tips` (Breez Spark, Config A) |
 | Silent Payments | Planned | — |
 | NIP-05 | **Live** | `sherpa@sherpacarta.org` + `kimi@sherpacarta.org` on `/.well-known/nostr.json` (aliases on giveabit.io) |
 

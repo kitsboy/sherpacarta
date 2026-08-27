@@ -54,7 +54,12 @@
       if (origShow) origShow(type);
       setTimeout(() => {
         const addr = window.qrCurrentAddress || (type === 'btc' ? window.SHERPA_WALLETS?.btc : window.SHERPA_WALLETS?.lnTemp);
-        if (addr) window.renderQRCode(addr);
+        if (addr) {
+          const payload = type === 'btc'
+            ? (String(addr).startsWith('bitcoin:') ? addr : `bitcoin:${addr}`)
+            : (String(addr).includes('@') && !String(addr).startsWith('lightning:') ? `lightning:${addr}` : addr);
+          window.renderQRCode(payload);
+        }
       }, 50);
     };
 

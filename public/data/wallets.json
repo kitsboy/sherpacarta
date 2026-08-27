@@ -7,23 +7,22 @@
   "bitcoin": {
     "status": "live",
     "network": "mainnet",
-    "address": "bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad",
-    "type": "P2WSH-or-descriptor-native-segwit",
+    "address": "bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq",
+    "type": "taproot (P2TR)",
     "label": "SherpaCarta on-chain treasury",
-    "explorer": "https://mempool.space/address/bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad",
-    "policy": "Voluntary donations only. No VC, no ads, no government grants. Balance and txs are public on-chain."
+    "explorer": "https://mempool.space/address/bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq",
+    "policy": "Voluntary donations only. No VC, no ads, no government grants. Balance and txs are public on-chain. Breez Spark deposit (Config A, 2026-08-27)."
   },
   "lightning": {
     "status": "live",
-    "address": null,
-    "lnurl": "LNURL1DP68GURN8GHJ7CTSDYH8XCT5DA5XZUMG9E5K7W3CXS6RXTMVDE6HYMRS9AJ4JW2CD4CQTG8YJR",
-    "lud16": "sherpa@api.satohash.io:8443",
-    "lud16Alternate": "sherpa@thor.giveabit.io",
-    "discovery": "https://api.satohash.io:8443/.well-known/lnurlp/sherpa",
+    "address": "sherpacarta@breez.tips",
+    "lnurl": "https://breez.tips/lnurlp/sherpacarta",
+    "lud16": "sherpacarta@breez.tips",
+    "discovery": "https://breez.tips/lnurlp/sherpacarta",
     "hqWalletId": "sherpacarta",
-    "minSendableSats": 1000,
-    "maxSendableSats": 100000000,
-    "note": "Public LNURL-pay live (Kimi handback 2026-07-28). Prefer lud16 or lnurl on this site. Invoice keys stay in HQ Vault only \u2014 never in git. Alternate lud16 sherpa@thor.giveabit.io needs DNS. Node still isolated (0 channels) until peers/capital \u2014 discovery works; large inbound may fail until channels open."
+    "minSendableSats": 1,
+    "maxSendableSats": 4000000000,
+    "note": "Breez Spark LNURL-pay (Config A, 2026-08-27). Non-custodial. LND/LNbits retired from the public rail."
   },
   "silentPayments": {
     "status": "planned",

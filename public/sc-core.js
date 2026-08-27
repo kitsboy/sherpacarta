@@ -4,9 +4,9 @@
 // WALLETS & INTEGRATIONS
 // ═══════════════════════════════════════════════════════════
 const SHERPA_WALLETS = {
-  btc: 'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad',
-  lnTemp: 'TEMP-LIGHTNING-DO-NOT-SEND@sherpacarta.temp.giveabit.io',
-  lnUrl: null,
+  btc: 'bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq',
+  lnTemp: 'sherpacarta@breez.tips',
+  lnUrl: 'sherpacarta@breez.tips',
   silentPayments: null,
   /** Public registry (single source of truth for status/treasury). Load optional. */
   registryUrl: '/data/wallets.json',
@@ -2182,13 +2182,18 @@ function showQRModal(type){
   const display=document.getElementById('qr-address-display');
   const lnIsLive=type==='ln'&&!!lnLive;
   title.textContent=type==='btc'?'Bitcoin Donation':(lnIsLive?'Lightning Donation':'Lightning (TEMP)');
-  sub.textContent=type==='btc'?'ON-CHAIN · SCAN TO DONATE':(lnIsLive?'LNURL-PAY · SCAN TO DONATE':'TEST PLACEHOLDER ONLY');
+  sub.textContent=type==='btc'?'ON-CHAIN · SCAN TO DONATE':(lnIsLive?'LIGHTNING ADDRESS · SCAN TO DONATE':'TEST PLACEHOLDER ONLY');
   warn.style.display=type==='ln'&&!lnIsLive?'block':'none';
   warn.innerHTML=type==='ln'&&!lnIsLive?'<i class="fas fa-triangle-exclamation"></i> <strong>TEMP ADDRESS — DO NOT SEND.</strong> Lightning is not live yet.':'';
   display.textContent=qrCurrentAddress;
   modal.classList.add('open');
   document.body.style.overflow='hidden';
-  if(typeof window.renderQRCode==='function') window.renderQRCode(qrCurrentAddress);
+  const qrPayload=type==='btc'
+    ? (String(qrCurrentAddress).startsWith('bitcoin:')?qrCurrentAddress:`bitcoin:${qrCurrentAddress}`)
+    : (String(qrCurrentAddress).includes('@') && !String(qrCurrentAddress).startsWith('lightning:')
+        ? `lightning:${qrCurrentAddress}`
+        : qrCurrentAddress);
+  if(typeof window.renderQRCode==='function') window.renderQRCode(qrPayload);
 }
 
 function closeQRModal(){

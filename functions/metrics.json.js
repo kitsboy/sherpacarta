@@ -16,7 +16,7 @@ const ARTICLES = 114;
 const LANGUAGES = 8;
 const LANGUAGE_IDS = ['en', 'zh', 'es', 'ar', 'fr', 'de', 'pt', 'sw'];
 const BTC_ADDRESS =
-  'bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad';
+  'bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq';
 
 function cors() {
   return {
