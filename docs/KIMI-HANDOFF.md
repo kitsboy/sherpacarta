@@ -1,3 +1,22 @@
+## Session — 2026-08-26 (Buffy M3 — TOP-20 UX POLISH)
+
+**Done:**
+- Shipped commit `2565035` and pushed `main`.
+- Reframed homepage navigation around **Read → Sign → Verify**.
+- Added hero journey rail, pre-sign trust notice, dedicated Satohash proof explanation, and mobile Read/Sign/Verify action bar.
+- Preserved honest pending-versus-confirmed language, canonical Satohash family links, privacy-first signing, and no-secret rules.
+- `npm run build` and `git diff --check` pass.
+- `npm run lint` remains blocked by existing legacy/global-browser lint debt (1,649 errors); no new isolated issue from this batch.
+
+**Queued next 30:**
+- Dedicated verify landing page; durable release manifest; receipt/proof exports; stable article links and reader controls; sign review/recovery; QR and visibility choices; endpoint security tests; mobile/a11y/zoom snapshots; offline and retry states; synthetic journey monitoring; trust/security/governance explainer.
+
+**Git State:**
+- SHA: `2565035`
+- Unpushed: none
+
+---
+
 ## 2026-08-19 (Kimi/THOR — Standard Project Kit adopted + debrief + repo re-sync)
 
 **Scope:** Standard Project Kit rollout + first machine-readable session debrief + repo sync check.

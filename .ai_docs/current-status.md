@@ -1,82 +1,73 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ `bf96f4e` (goodbye 2026-08-11)  
-**Last Updated:** 2026-08-11  
+**Version:** main @ `2565035`
+**Last Updated:** 2026-08-26
 **Domain:** https://sherpacarta.org  
 **productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)  
-**Site asset bust:** CSS / JS / film / poster **`?v=860`**
+**Site asset bust:** homepage CSS / JS **`?v=863`**
 
-## Session close summary (2026-08-11 — GOODBYE)
+## Session close summary (2026-08-26 — TOP-20 UX POLISH)
 
-**Shipped this session (technical only):**
-- Official 2-min film on `#film` (Kokoro VO; poster + lazy load)
-- BUILD 840: YouTube CSP, 16:9 film fit, Art. 114 below-fold blank fixed
-- Nostr NIP-05 live on **sherpacarta.org** (`kimi` + `sherpa` + `_` + `sherpacarta`)
-- `sc-nostr-lib.js` multi-relay fan-out + NIP-65 helpers (product key signing deferred)
-- BUILD 860: cache-bust unify, full article summaries, hash jumps, relay health, i18n honesty
+**Shipped:**
+- Reframed primary navigation around the user journey: **Read → Sign → Verify**.
+- Added a hero journey rail linking directly to the article browser, signing flow, and proof flow.
+- Added an explicit pre-sign trust notice explaining civic status, local storage, optional public actions, and review expectations.
+- Added a dedicated independent-verification section explaining Satohash, SHA-256, pending versus confirmed Bitcoin status, and the limits of what a stamp proves.
+- Added a compact mobile bottom action bar for Read / Sign / Verify with safe-area spacing.
+- Bumped homepage asset cache-busters to `?v=863`.
 
-**Explicitly deferred by Cam (do not start without ask):**
-- Marketing / social / 9:16 film push  
-- MP e-###  
-- Lightning payments setup  
-- Nostr bot THOR + product nsec NIP-65 publish  
-
-Canada dual-track + honest metrics unchanged. Zero tracking ethos preserved.
-
-## Recent Milestones
-- **2026-08-11 goodbye:** BUILD 860 technical finish (`5602f11`+) · video MIME headers (`10d2801`)
-- **2026-08-11:** Nostr NIP-05 on domain · `docs/NOSTR.md` (`66204a6`)
-- **2026-08-11:** Kokoro film VO re-render · live MP4 (`47d0e32`)
-- **2026-08-11:** BUILD 840 CSP/film/Art.114 (`a582219`)
-- **2026-08-11:** Film embedded on home (`cd7f16f`)
-- **2026-07-27:** Canada join/sign polish · HQ metrics · stamp smoke
-
-## Live surfaces
-| Surface | Notes |
-|---------|--------|
-| Home film | `#film` · `/video/sherpacarta-2min.mp4?v=860` · poster JPG · Kokoro · lazy source |
-| HRF companion | YouTube nocookie · CSP frame-src |
-| NIP-05 | `https://sherpacarta.org/.well-known/nostr.json` · JSON + CORS |
-| Product NIP-05 | `sherpa@sherpacarta.org` (primary `_` / sherpacarta names) |
-| Ops NIP-05 | `kimi@sherpacarta.org` |
-| Articles | `/#articles` · `#art-114` · body-derived summaries all articles |
-| Metrics | `/metrics.json` · `raw.demo: false` |
-| Canada | `/canada/sign` mandate · dual-track honesty |
-| Stamp | `satohash.io/stamp?hash=&ref=sherpacarta` |
-| Discuss | `/nostr` wall (read-only) |
-
-## Labels
-- productId / LNbits: **`sherpacarta`**
-- Umami: `9b6f05bf-286e-4b21-9094-1d675f9b4442`
-- Stamp refs: `sherpacarta` · `sherpacarta-canada`
-- NIP-05 product: `sherpa@sherpacarta.org` · ops: `kimi@sherpacarta.org`
-- Film: `public/video/sherpacarta-2min.mp4` (+ poster); source `video/sherpacarta-2min/` gitignored media
+**Verification:**
+- `npm run build` passed.
+- `git diff --check` passed.
+- `npm run lint` remains blocked by the repository’s existing legacy/global-browser lint debt (1,649 errors across unrelated files); no new lint-specific issue was isolated for this batch.
 
 ## Do not regress
-| Item | Note |
-|------|------|
-| CSP frame-src | YouTube domains required for HRF companion |
-| CSP connect-src | Keep 4 Nostr relays |
-| content-visibility | Stay **visible** on sections |
-| Film CSS | `.sc-film-player video { max-height: none }` |
-| Film VO | Kokoro only — never macOS `say` |
-| NIP-05 | `/.well-known/nostr.json` must stay `application/json` |
-| Honest metrics | No fake signers / “127 countries” |
-| nsec | Never in git or client |
+- Satohash canonical stamp contract: `/stamp?hash=&ref=`.
+- Pending stamps must never be described as Bitcoin-confirmed.
+- No nsec, invoice key, organizer token, or other secret in git/client.
+- CSP YouTube domains and four Nostr relays.
+- Honest campaign metrics and Canada dual-track language.
+- Film `max-height:none`, Kokoro VO, and visible section rendering.
 
-## Open (later — not this session)
-| Who | Item | Doc |
-|-----|------|-----|
-| **Cam / Kimi** | Lightning payments polish | KIMI-REQUEST-LNURL |
-| **Kimi** | Nostr bot THOR + seed | GOAL-SHERPA-NOSTR-BUZZ · KIMI-REQUEST-SHERPA-BOT |
-| **Cam/Kimi** | Product NIP-65 kind 10002 sign | `data/nostr-nip65-recommended.json` |
-| **Cam** | MP e-### when ready | CANADA-JOURNEY |
-| **Later** | Marketing / 9:16 social | VIDEO-HERMES |
-| — | Umami visitors_monthly | HQ |
-| Optional | Thin sc-bundle feature soup | code |
+## Next 30 queued
+1. Add a dedicated `/verify` landing page for nontechnical users.
+2. Add a durable document version and release manifest to the hero/proof flow.
+3. Add a proof receipt export containing hash, version, status, and canonical URLs.
+4. Add stable deep links for every article and chapter.
+5. Add visible article table-of-contents progress state.
+6. Add previous/next article controls to the reader.
+7. Add search-result empty, loading, and keyboard states.
+8. Add a first-visit “Start here” onboarding panel.
+9. Add a return-user resume-reading control.
+10. Add a staged sign review screen before submission.
+11. Add explicit duplicate-signature prevention feedback.
+12. Add a post-sign receipt recovery path.
+13. Add QR export for receipts and proof pages.
+14. Add a public/private visibility choice with plain-language consequences.
+15. Add server-side validation tests for every state-changing endpoint.
+16. Add CSRF coverage for browser state-changing requests.
+17. Add route-level abuse/rate-limit regression tests.
+18. Add a security event audit schema without PII.
+19. Add dependency and asset integrity scanning.
+20. Add document/content hash consistency checks in CI.
+21. Add mobile tests at 320/360/390px widths.
+22. Add keyboard and screen-reader journey tests.
+23. Add 200% and 400% zoom visual checks.
+24. Add reduced-motion coverage for every new interaction.
+25. Add high-contrast visual snapshots for sign/proof states.
+26. Convert comparison tables to mobile-safe cards.
+27. Add resilient offline/read-only charter behavior.
+28. Add API timeout/retry states for Satohash and campaign services.
+29. Add synthetic read → sign → receipt → stamp → verify monitoring.
+30. Publish a concise trust, privacy, security, and governance explainer.
 
-## Hard rules
-- No secrets in git  
-- Public mandate ≠ Parliamentary e-petition counts  
-- pending ≠ Bitcoin confirmed on stamps  
-- HQ metrics: no PII  
+## Existing live surfaces
+| Surface | Notes |
+|---------|-------|
+| Articles | `/#articles` · `#art-114` · body-derived summaries |
+| Sign | `/#sign` · local-first commitment |
+| Proof | `/#proof` · Satohash handoff and honest status language |
+| Stamp | `https://satohash.io/stamp?hash=&ref=sherpacarta` |
+| Metrics | `/metrics.json` · `raw.demo: false` |
+| Canada | `/canada/sign` · dual-track honesty |
+| Discuss | `/nostr` wall (read-only) |
