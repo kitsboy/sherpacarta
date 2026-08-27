@@ -20,19 +20,26 @@
     if (status) { status.textContent = message; status.dataset.tone = tone; }
   }
 
+  function normalizeName(value) { return String(value || '').replace(/\s+/g, ' ').trim().slice(0, 40); }
+  function normalizeCountry(value) { return String(value || '').replace(/\s+/g, ' ').trim().slice(0, 30); }
+
   function updateSignForm() {
     const name = $('sign-name');
     const country = $('sign-country');
     const submit = $('sign-submit');
     if (!name || !submit) return;
-    const valid = name.value.trim().length > 0;
+    const normalizedName = normalizeName(name.value);
+    const meaningful = normalizedName.length >= 2 && /[\p{L}\p{N}]/u.test(normalizedName);
+    const valid = meaningful;
     submit.disabled = !valid;
     [['sign-name', 'sign-name-count'], ['sign-country', 'sign-country-count']].forEach(([input, counter]) => {
       const el = $(input); const out = $(counter);
       if (el && out) out.textContent = `${el.value.length} / ${el.maxLength}`;
     });
     name.setAttribute('aria-invalid', valid ? 'false' : 'true');
-    try { localStorage.setItem(SIGN_DRAFT_KEY, JSON.stringify({ name: name.value, country: country?.value || '' })); } catch (_) {}
+    const error = $('sign-name-error');
+    if (error) error.textContent = name.value && !valid ? 'Enter at least two letters or numbers.' : '';
+    try { localStorage.setItem(SIGN_DRAFT_KEY, JSON.stringify({ name: name.value, country: country?.value || '', savedAt: Date.now() })); } catch (_) { signStatus('Draft could not be saved on this device.', 'error'); }
   }
 
   function restoreSignDraft() {
@@ -94,8 +101,8 @@
   if (location.pathname === '/' && !location.hash && !new URLSearchParams(location.search).has('help')) setTimeout(onboarding, 900);
 
   window.reviewSignCharter = function reviewSignCharter() {
-    const name = ($('sign-name')?.value || '').trim();
-    const country = ($('sign-country')?.value || '').trim();
+    const name = normalizeName($('sign-name')?.value);
+    const country = normalizeCountry($('sign-country')?.value);
     if (!name) { signStatus('Please enter your name or pseudonym.', 'error'); window.toast?.('Please enter your name or pseudonym', 'error'); $('sign-name')?.focus(); return; }
     if ($('review-name')) $('review-name').textContent = name;
     if ($('review-country')) $('review-country').textContent = country || 'Not provided';
@@ -123,6 +130,9 @@
     const original = window.signCharter;
     if (typeof original === 'function') original();
     if (confirm) { confirm.disabled = false; confirm.removeAttribute('aria-busy'); }
+    setTimeout(() => {
+      if ($('sign-name')?.value === '' && $('sign-country')?.value === '') signStatus('Commitment saved locally on this device.', 'success');
+    }, 0);
   };
 
   document.addEventListener('keydown', (event) => {
