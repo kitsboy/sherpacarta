@@ -1,5 +1,5 @@
 # sherpacarta — Last Updated 2026-08-26 by Buffy
 
-Brief: shipped the top-20 UX polish batch with a clear Read → Sign → Verify journey, stronger signing/proof trust language, and a mobile action bar.
-Commit: 2565035
+Brief: implemented the next-30 trust and UX batch: dedicated verification explainer, local sign-draft recovery, article keyboard navigation, proof receipt export, and service-worker coverage.
+Commit: pending next-30 release commit
 Deploy: https://sherpacarta.org · CF Pages auto-deploy via GitHub Actions (deploy.yml)

@@ -1,3 +1,22 @@
+## Session — 2026-08-26 (Buffy M3 — NEXT-30 UX/TRUST BATCH)
+
+**Done:**
+- Added `/verify.html`, a nontechnical Satohash/Bitcoin proof explainer with honest pending/confirmed and legal-validity distinctions.
+- Connected homepage Verify navigation to the dedicated verifier.
+- Added same-device sign-form draft recovery with explicit local-only messaging.
+- Added article left/right keyboard navigation and proof receipt JSON export helper.
+- Bumped service worker to `v7.0` and cached verification/helper assets.
+- `npm run build`, `node --check`, and `git diff --check` pass; generated artifacts reviewed separately.
+
+**Next 40:**
+- Full queue is in `docs/NEXT-40-UX-SECURITY.md`.
+
+**Git State:**
+- SHA: pending next-30 release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — TOP-20 UX POLISH)
 
 **Done:**

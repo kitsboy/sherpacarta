@@ -103,14 +103,14 @@
 <link rel="stylesheet" href="/fonts/fonts.css?v=830">
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=830">
 
-<link rel="stylesheet" href="/sc-main.css?v=863">
-<link rel="stylesheet" href="/sc-top20-polish.css?v=863">
+<link rel="stylesheet" href="/sc-main.css?v=864">
 <link rel="preload" href="/js/sc-nostr-lib.js?v=863" as="script">
 <link rel="preload" href="/sc-core.js?v=863" as="script">
 <link rel="preload" href="/sc-bundle.js?v=863" as="script">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=863"></script>
+<script defer src="/js/sc-analytics.js?v=864"></script>
+<script defer src="/js/sc-top30.js?v=864"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -181,7 +181,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <div class="nav-primary" aria-label="Primary">
       <a class="nav-link" href="#articles">Read</a>
       <a class="nav-link" href="#sign">Sign</a>
-      <a class="nav-link" href="#proof">Verify</a>
+      <a class="nav-link" href="/verify.html">Verify</a>
       <a class="nav-link" href="/jurisdictions">World</a>
     </div>
 
@@ -206,7 +206,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <a class="nav-sheet-link" href="/canada/"><i class="fas fa-flag" aria-hidden="true"></i> Canada offering</a>
       <a class="nav-sheet-link" href="#articles"><i class="fas fa-book-open" aria-hidden="true"></i> Read the charter</a>
       <a class="nav-sheet-link" href="#sign"><i class="fas fa-signature" aria-hidden="true"></i> Sign the charter</a>
-      <a class="nav-sheet-link" href="#proof"><i class="fas fa-shield-halved" aria-hidden="true"></i> Verify a proof</a>
+      <a class="nav-sheet-link" href="/verify.html"><i class="fas fa-shield-halved" aria-hidden="true"></i> Verify a proof</a>
       <a class="nav-sheet-link" href="/nostr"><i class="fas fa-comments" aria-hidden="true"></i> Discuss on Nostr</a>
       <div class="nav-sheet-tools">
         <div class="lang-switcher-nav" title="Switch language">
@@ -277,7 +277,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <span class="journey-arrow" aria-hidden="true">→</span>
       <a class="journey-step" href="#sign"><span>02</span><strong>Sign</strong><small>Your commitment</small></a>
       <span class="journey-arrow" aria-hidden="true">→</span>
-      <a class="journey-step" href="#proof"><span>03</span><strong>Verify</strong><small>Bitcoin proof</small></a>
+      <a class="journey-step" href="/verify.html"><span>03</span><strong>Verify</strong><small>Bitcoin proof</small></a>
     </div>
   </div>
   <div class="scroll-hint" aria-hidden="true">
@@ -762,6 +762,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <div class="proof-actions">
         <button class="btn btn-primary" type="button" onclick="stampCharterOnBitcoin()"><i class="fas fa-stamp" aria-hidden="true"></i> Stamp this charter</button>
         <a class="btn btn-ghost" href="https://satohash.io/stamp?ref=sherpacarta" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i> Open Satohash</a>
+        <a class="btn btn-ghost" href="/verify.html"><i class="fas fa-shield-halved" aria-hidden="true"></i> What a proof means</a>
         <a class="btn btn-ghost" href="/security.html"><i class="fas fa-lock" aria-hidden="true"></i> Security model</a>
       </div>
     </div>
@@ -934,7 +935,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 <div class="mobile-action-bar" aria-label="Primary actions">
   <a href="#articles"><i class="fas fa-book-open" aria-hidden="true"></i><span>Read</span></a>
   <a href="#sign" class="is-primary"><i class="fas fa-signature" aria-hidden="true"></i><span>Sign</span></a>
-  <a href="#proof"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>Verify</span></a>
+  <a href="/verify.html"><i class="fas fa-shield-halved" aria-hidden="true"></i><span>Verify</span></a>
 </div>
 
 <!-- ════════════════════════════════════════════════════════
