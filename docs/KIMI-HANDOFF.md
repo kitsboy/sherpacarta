@@ -1,3 +1,24 @@
+## Session — 2026-08-26 (Buffy M3 — SEO/I18N + VIDEO SCRIPT PACKAGE)
+
+**Done:**
+- Added multilingual SEO metadata matrix for eight locales with explicit human-review states.
+- Added secular, nonpartisan, nonreligious, and current-law boundary guidance.
+- Added educational rights taxonomy and article references.
+- Added `docs/SEO-IMPLEMENTATION-PLAN.md` and `public/data/seo-i18n.json`.
+- Added `docs/VIDEO-ONE-MINUTE-HANDOFF.md` with enhanced civic/history and technical proof scripts, visual plans, captions, formats, and production gates.
+- Added `check:seo-i18n` and `check:rights` repository checks.
+- Preserved all earlier handoff history, including both duplicate NEXT-100 headings.
+
+**Video decision:**
+- Scripts are planning artifacts only. No video is rendered or approved.
+- Future footage must use current evidence; pending Satohash status must never be narrated as Bitcoin-confirmed.
+
+**Git State:**
+- SHA: pending SEO/video package commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — NEXT-100 GAP PACKAGE + PRESS/SOCIAL PASS)
 
 **Final verification:**

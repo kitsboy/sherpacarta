@@ -132,6 +132,15 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 - [x] Social/press share surface for WhatsApp, X/Facebook, and Nostr
 - [x] External counsel/audit/government/endorsement/custody/translation/archive templates
 - [x] Existing-dependency endpoint fixture checks and full repository contract workflow
+- [x] Multilingual SEO metadata matrix with human-review states
+- [x] Secular/nonpartisan digital-rights framing guidance
+- [x] Educational rights taxonomy and article references
+- [x] Two enhanced one-minute video scripts and Kimi handoff
+- [x] Social/press platform metadata and sharing guidance
+- [x] Eight-locale SEO/i18n metadata matrix and review flags
+- [x] Rights taxonomy and educational discovery map
+- [x] Enhanced one-minute civic and technical video scripts in Kimi handoff
+- [x] Full repository contract checks for SEO and rights metadata
 
 ## 📋 TODO (ready / next up)
 

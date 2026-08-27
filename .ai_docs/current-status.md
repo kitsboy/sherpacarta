@@ -6,6 +6,13 @@
 
 ## Delivered this session
 
+- Added multilingual SEO metadata for English, French, Spanish, German, Portuguese, Swahili, Arabic, and Chinese with human-review states.
+- Added secular/nonpartisan/nonreligious digital-rights framing guidance and current-law boundaries.
+- Added educational rights taxonomy and article-reference checks.
+- Added `docs/VIDEO-ONE-MINUTE-HANDOFF.md` with enhanced civic/history and technical Bitcoin/Satohash/OpenTimestamps scripts for later production.
+- Added `check:seo-i18n` and `check:rights`.
+
+
 - Added `/share.html` with professional WhatsApp, X/Twitter, Facebook, and Nostr-ready copy, canonical Open Graph/Twitter metadata, evidence links, and native-share fallback.
 - Added explicit `DEMO DATA` warnings to press and press-kit surfaces.
 - Added demo catalog, showcase checklist, and deep gap register.

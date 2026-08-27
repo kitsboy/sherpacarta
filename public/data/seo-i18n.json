@@ -1,0 +1,16 @@
+{
+  "schema": "sherpacarta.seo-i18n.v1",
+  "updated": "2026-08-26",
+  "claimStatus": "metadata-planning",
+  "framing": "Secular, nonpartisan public charter about digital rights; Magna Carta is historical analogy, not religion or current law.",
+  "locales": {
+    "en": {"title":"SherpaCarta — Digital Rights Charter","description":"Read a public-domain charter of digital rights covering privacy, data control, expression, access, and algorithmic accountability.","review":"source-language"},
+    "fr": {"title":"SherpaCarta — Charte des droits numériques","description":"Découvrez une charte civique publique sur les droits numériques. Ce document n’est pas une loi en vigueur.","review":"human-review-required"},
+    "es": {"title":"SherpaCarta — Carta de derechos digitales","description":"Conozca una carta cívica pública sobre privacidad, datos, expresión y derechos digitales. No es ley vigente.","review":"human-review-required"},
+    "de": {"title":"SherpaCarta — Charta der digitalen Rechte","description":"Eine öffentliche, säkulare Charta für Datenschutz, Datenkontrolle und digitale Rechte. Keine geltende Gesetzgebung.","review":"human-review-required"},
+    "pt": {"title":"SherpaCarta — Carta de direitos digitais","description":"Uma carta pública e cívica sobre privacidade, dados e direitos digitais. Não é legislação vigente.","review":"human-review-required"},
+    "sw": {"title":"SherpaCarta — Mkataba wa haki za kidijitali","description":"Hati ya umma kuhusu faragha, data na haki za kidijitali. Si sheria ya sasa.","review":"human-review-required"},
+    "ar": {"title":"SherpaCarta — ميثاق الحقوق الرقمية","description":"ميثاق مدني عام للحقوق الرقمية والخصوصية؛ ليس قانوناً نافذاً.","review":"human-rtl-review-required"},
+    "zh": {"title":"SherpaCarta — 数字权利宪章","description":"面向数字时代的公共、公民权利倡议，关注隐私、数据控制与算法责任；不是现行法律。","review":"human-review-required"}
+  }
+}

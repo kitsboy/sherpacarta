@@ -31,6 +31,10 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/js/sc-disclosure.js` — reusable DEMO DATA / action-required / pending / verified disclosure bar
 - `public/data/external-gates.json` — machine-readable external evidence gates
 - `public/share.html` — platform-ready social sharing copy and evidence links
+- `public/data/seo-i18n.json` — multilingual SEO metadata and review states
+- `public/data/rights-taxonomy.json` — educational rights categories and article references
+- `public/data/seo-i18n.json` — eight-locale SEO metadata and human-review states
+- `docs/VIDEO-ONE-MINUTE-HANDOFF.md` — later civic and technical video scripts
 - `public/_headers` — CSP, X-Frame-Options DENY, nosniff
 - `public/fonts/` + `public/vendor/fontawesome/` — self-hosted
 - `public/canada/*` — hub, sign, join, paper, official, organizer, proof, about, bc/
@@ -57,7 +61,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `SESSION-SUMMARY-2026-07-09.md` — earlier jurisdictions session
 - `docs/CANADA-PETITION-LEGAL.md`, `docs/ROADMAP.md`
 - `docs/FORMAL-DOCUMENT-PACKET.md`, `docs/LEGAL-TRUTH-GUIDE.md`, `docs/TECHNICAL-ARCHITECTURE.md`
-- `docs/THREAT-MODEL.md`, `docs/QA-RELEASE-GATE.md`, `docs/RELEASE-REVIEW-GATE.md`, `docs/SECURITY-TEST-MATRIX.md`, `docs/NEXT-100-FULL-EXECUTION.md`, `docs/IMPLEMENTATION-MAP.md`, `docs/EXTERNAL-GATES-PACKET.md`, `docs/LEGAL-COUNSEL-REQUEST-TEMPLATE.md`, `docs/SECURITY-AUDIT-RFP.md`, `docs/OPERATIONS-EVIDENCE-PACKET.md`, `docs/SOCIAL-PRESS-SYSTEM.md`, `docs/DEMO-DATA-CATALOG.md`, `docs/DEEP-GAP-REGISTER.md`, `docs/DEMO-SHOWCASE-CHECKLIST.md`
+- `docs/THREAT-MODEL.md`, `docs/QA-RELEASE-GATE.md`, `docs/RELEASE-REVIEW-GATE.md`, `docs/SECURITY-TEST-MATRIX.md`, `docs/NEXT-100-FULL-EXECUTION.md`, `docs/IMPLEMENTATION-MAP.md`, `docs/EXTERNAL-GATES-PACKET.md`, `docs/LEGAL-COUNSEL-REQUEST-TEMPLATE.md`, `docs/SECURITY-AUDIT-RFP.md`, `docs/OPERATIONS-EVIDENCE-PACKET.md`, `docs/SOCIAL-PRESS-SYSTEM.md`, `docs/DEMO-DATA-CATALOG.md`, `docs/DEEP-GAP-REGISTER.md`, `docs/DEMO-SHOWCASE-CHECKLIST.md`, `docs/SEO-I18N-MATRIX.md`, `docs/SEO-IMPLEMENTATION-PLAN.md`, `docs/VIDEO-ONE-MINUTE-HANDOFF.md`, `docs/DEMO-DATA-CATALOG.md``
 
 ### Build & Deploy
 - `npm run build` → `dist/`

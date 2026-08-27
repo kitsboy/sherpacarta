@@ -1,0 +1,19 @@
+{
+  "schema": "sherpacarta.rights-taxonomy.v1",
+  "release": "2.0",
+  "disclosure": "Educational categorization; not a legal classification or advice.",
+  "categories": [
+    {"id":"privacy","label":"Privacy and private life","description":"Protection from unnecessary observation, collection, profiling, and exposure.","articles":[11,13,47]},
+    {"id":"data-control","label":"Data control and sovereignty","description":"People’s ability to understand, access, correct, delete, and move data about them.","articles":[12,47]},
+    {"id":"expression","label":"Expression and participation","description":"The ability to communicate, associate, access information, and appeal platform decisions.","articles":[24,61]},
+    {"id":"access","label":"Access and inclusion","description":"Fair access to essential digital infrastructure and accessible interfaces.","articles":[1,2]},
+    {"id":"algorithmic-accountability","label":"Algorithmic accountability","description":"Explanation, non-discrimination, human review, and responsibility for consequential automated decisions.","articles":[61,62]},
+    {"id":"community","label":"Community and collective rights","description":"Protection for children, vulnerable people, Indigenous communities, and shared cultural/data interests.","articles":[70,114]}
+  ],
+  "articleMetadata": {
+    "source": "data/charter.json",
+    "reviewStatus": "editorial-categorization",
+    "legalReview": "not-completed",
+    "translationReview": "not-completed"
+  }
+}
