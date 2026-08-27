@@ -1,0 +1,32 @@
+name: Trust checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  static-trust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: node --check public/sw.js
+      - run: node --check public/js/sc-top30.js
+      - name: Reject private-key material
+        run: |
+          ! grep -RInE --exclude-dir=.git --exclude='*.lock' --exclude='trust-checks.yml' '(BEGIN (RSA|OPENSSH|EC|PGP) PRIVATE KEY|\bnsec1?[a-z0-9]{20,}|macaroon|ORGANIZER_TOKEN=)' .
+      - name: Require honest proof language
+        run: |
+          grep -q 'pendingIsConfirmed.*false' public/release-manifest.json
+          grep -q 'Pending is not Bitcoin-confirmed' public/verify.html
+      - name: Build
+        run: npm run build

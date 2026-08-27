@@ -1,3 +1,20 @@
+## Session — 2026-08-26 (Buffy M3 — CURRENT-50 ONBOARDING/TRUST RELEASE)
+
+**Done:**
+- Added `/start.html` with Citizen, Participant, Organizer, and Verifier journeys.
+- Added `/support.html` contact triage and safety boundary.
+- Added public `/release-manifest.json` describing document/proof/version claims.
+- Added browser-local proof verification/receipt paths and service-worker cache coverage.
+- Added `.github/workflows/trust-checks.yml` for syntax, secret-pattern, honest-proof, and build checks.
+- Prepared `docs/NEXT-50-AFTER-THIS.md`.
+- Build and syntax checks pass; generated outputs reviewed separately.
+
+**Git State:**
+- SHA: pending current-50 release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — NEXT-40 TRUST/RELIABILITY CLOSE-OUT)
 
 **Done:**

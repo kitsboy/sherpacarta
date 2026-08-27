@@ -1,31 +1,28 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ pending next-40 release
+**Version:** main @ pending current-50 release
 **Last Updated:** 2026-08-26
 **Domain:** https://sherpacarta.org
-**productId:** `sherpacarta` (HQ / Umami / LNbits wallet id)
-**Site asset bust:** homepage CSS / JS `?v=865`; service worker `v7.1`
+**productId:** `sherpacarta`
+**Site asset bust:** homepage `?v=865`; service worker `v7.2`
 
-## Session summary — next-40 trust/reliability release
+## Session summary — current 50 trust/onboarding release
 
 **Implemented:**
-- Extended `/verify.html` with a local browser SHA-256 calculator; document text is never uploaded.
-- Added explicit recovery guidance and a proof checklist for ordinary users.
-- Added receipt import validation helper for locally downloaded SherpaCarta proof receipts.
-- Added stronger receipt fields and honest status/proof limitation language.
-- Bumped service-worker cache and kept verification assets in the offline set.
-- Audited the previous 40-item queue against existing features rather than duplicating already-shipped glossary, onboarding, diff, and rate-limit work.
+- Added `/start.html`, a universal onboarding page with Citizen, Participant, Organizer, and Verifier paths.
+- Added `/support.html` contact triage for security, accessibility, press, organizing, and general support.
+- Added `/release-manifest.json` with document version, hash endpoint, proof provider, honest-status claims, and secret-handling assertions.
+- Extended `/verify.html` with local SHA-256 verification and proof/recovery links.
+- Added receipt import validation helper and retained local-only behavior.
+- Added `trust-checks.yml` for syntax, private-key pattern rejection, proof-language assertions, and build verification.
+- Added service-worker coverage for onboarding/support/manifest and bumped cache to `v7.2`.
+- Prepared the next 50-item queue in `docs/NEXT-50-AFTER-THIS.md`.
 
 **Verification:**
 - `npm run build` passed.
 - `node --check public/js/sc-top30.js public/sw.js` passed.
 - `git diff --check` passed.
-- Generated build artifacts were reverted before release review.
-
-## Next 50
-Full queue: `docs/NEXT-50-UX-SECURITY.md`
-
-Priorities include onboarding and role-based navigation, release manifests and archives, receipt review/import/integrity, endpoint and privacy tests, secret/dependency scanning, accessibility and viewport checks, offline messaging, retry states, synthetic journey monitoring, and a release dashboard.
+- Generated build artifacts are reviewed separately and must not be committed unless intentionally regenerated.
 
 ## Do not regress
 - Satohash canonical stamp contract: `/stamp?hash=&ref=`.

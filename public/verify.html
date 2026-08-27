@@ -18,7 +18,7 @@
 </head>
 <body>
 <main class="verify-page">
-  <header class="verify-top"><a class="verify-brand" href="/">Sherpa<span>Carta</span></a><a class="btn btn-ghost" href="/">Back to site</a></header>
+  <header class="verify-top"><a class="verify-brand" href="/">Sherpa<span>Carta</span></a><a class="btn btn-ghost" href="/start.html">Start here</a><a class="btn btn-ghost" href="/">Back to site</a></header>
   <section class="verify-hero" aria-labelledby="verify-title">
     <div class="verify-kicker">Independent verification · Give A Bit suite</div>
     <h1 id="verify-title">Know what the proof <em>actually says.</em></h1>
@@ -33,6 +33,7 @@
   <aside class="verify-note"><strong>Important distinction:</strong> a Bitcoin timestamp helps prove that a particular hash existed by a particular point in time. It does not prove that SherpaCarta is legislation, that every signer is verified, or that a pending stamp is confirmed. The site must always show those distinctions plainly.</aside>
   <section class="verify-tool" aria-labelledby="hash-tool-heading"><div class="verify-kicker">Local browser tool</div><h2 id="hash-tool-heading" style="font-family:var(--serif);font-size:2rem;margin:.5rem 0">Check a SHA-256 hash</h2><p style="color:var(--text2);font-size:.8rem;line-height:1.7;margin-bottom:1rem">Paste the exact document text you received. Hashing happens in your browser; this tool does not upload the text.</p><label for="verify-text">Document text</label><textarea id="verify-text" spellcheck="false" placeholder="Paste the exact document text here…"></textarea><div class="verify-tool-row"><button type="button" class="btn btn-primary" id="verify-hash-btn"><i class="fas fa-fingerprint" aria-hidden="true"></i> Calculate SHA-256</button><span class="verify-result" id="verify-hash-result" role="status" aria-live="polite"></span></div></section>
   <section style="margin-top:3rem" aria-labelledby="check-heading"><div class="verify-kicker">A quick checklist</div><h2 id="check-heading" style="font-family:var(--serif);font-size:2rem;margin:.5rem 0 1rem">Before you rely on a proof</h2><ul class="verify-list"><li>Confirm the document title and version match the material you received.</li><li>Compare the complete SHA-256 hash, not only a shortened display.</li><li>Check whether Satohash reports <strong>confirmed</strong> or <strong>pending</strong>.</li><li>Keep the proof URL and downloaded evidence with the document.</li><li>Remember: integrity and timestamp evidence are not the same as legal validity.</li></ul></section>
+  <p style="margin-top:1.5rem;font-size:.75rem;color:var(--text3)"><a href="/release-manifest.json">Open the machine-readable release manifest →</a> · <a href="/support.html">Support and contact →</a></p>
   <footer class="verify-footer">SherpaCarta is part of the Give A Bit family. Satohash is the family proof service. This page explains technical verification and does not provide legal advice.</footer>
 </main>
 <script>

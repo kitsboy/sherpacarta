@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "product": "sherpacarta",
+  "suite": "Give A Bit",
+  "release": "2026-08-26-ux-trust",
+  "document": {
+    "title": "SherpaCarta — The Global Digital Magna Carta",
+    "version": "2.0",
+    "articleCount": 114,
+    "hashAlgorithm": "SHA-256",
+    "hashEndpoint": "/api/v1/hash.json",
+    "download": "/charter.txt"
+  },
+  "proof": {
+    "provider": "Satohash",
+    "stampGuide": "https://satohash.io/stamp?ref=sherpacarta",
+    "verifyGuide": "/verify.html",
+    "pendingIsConfirmed": false
+  },
+  "claims": {
+    "signaturesAreLegislation": false,
+    "campaignTotalsAreOfficialParliamentTotals": false,
+    "localFirstSigning": true,
+    "privateKeysInRepository": false
+  },
+  "publishedAt": "2026-08-26T00:00:00Z"
+}
