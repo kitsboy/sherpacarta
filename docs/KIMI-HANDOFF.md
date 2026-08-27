@@ -1,3 +1,22 @@
+## Session — 2026-08-26 (Buffy M3 — DOCUMENTATION OVERHAUL)
+
+**Done:**
+- Reconciled README and executive-summary claims with current evidence; removed stale momentum/implementation language.
+- Added `docs/FORMAL-DOCUMENT-PACKET.md`: letterhead-ready cover, one-page executive brief, plain-language summary, technical disclosure, legal qualification, signature block, and circulation rules.
+- Added `docs/LEGAL-TRUTH-GUIDE.md`: mandatory status vocabulary, Canada distinctions, proof boundaries, privacy rules, and review checklist.
+- Added `docs/TECHNICAL-ARCHITECTURE.md`: source hierarchy, user/data boundaries, build/release, security invariants, recovery, and change protocol.
+- Recorded remaining engineering and legal-review gaps in `.ai_docs/current-status.md`.
+- Full checks pass: build, node syntax, diff check, stale-claim scan.
+
+**Next 50:**
+- Continue from `docs/NEXT-50-AFTER-THIS.md`; priority gaps include sign review, receipt UI/integrity, proof polling, endpoint tests, browser accessibility automation, and release dashboard.
+
+**Git State:**
+- SHA: pending documentation release commit
+- Unpushed: pending
+
+---
+
 ## Session — 2026-08-26 (Buffy M3 — CURRENT-50 ONBOARDING/TRUST RELEASE)
 
 **Done:**

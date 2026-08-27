@@ -1,28 +1,33 @@
 # Current Status — Sherpacarta
 
-**Version:** main @ pending current-50 release
+**Version:** main @ pending documentation release
 **Last Updated:** 2026-08-26
 **Domain:** https://sherpacarta.org
 **productId:** `sherpacarta`
-**Site asset bust:** homepage `?v=865`; service worker `v7.2`
+**User journey:** Start here → Read / Sign / Organize / Verify
 
-## Session summary — current 50 trust/onboarding release
+## Session summary — documentation overhaul
 
-**Implemented:**
-- Added `/start.html`, a universal onboarding page with Citizen, Participant, Organizer, and Verifier paths.
-- Added `/support.html` contact triage for security, accessibility, press, organizing, and general support.
-- Added `/release-manifest.json` with document version, hash endpoint, proof provider, honest-status claims, and secret-handling assertions.
-- Extended `/verify.html` with local SHA-256 verification and proof/recovery links.
-- Added receipt import validation helper and retained local-only behavior.
-- Added `trust-checks.yml` for syntax, private-key pattern rejection, proof-language assertions, and build verification.
-- Added service-worker coverage for onboarding/support/manifest and bumped cache to `v7.2`.
-- Prepared the next 50-item queue in `docs/NEXT-50-AFTER-THIS.md`.
+**Completed:**
+- Reconciled README and executive claims with current evidence and release state.
+- Added `docs/FORMAL-DOCUMENT-PACKET.md` for letterhead-ready circulation, executive briefing, plain-language summary, technical disclosure, legal qualification, signature block, and formal-document handling.
+- Added `docs/LEGAL-TRUTH-GUIDE.md` with mandatory claim vocabulary and legal/status boundaries.
+- Added `docs/TECHNICAL-ARCHITECTURE.md` with source hierarchy, data boundaries, build/deploy flow, security invariants, and recovery model.
+- Confirmed current onboarding, support, release manifest, browser proof tools, and CI trust checks from the previous release.
+- Prepared `docs/NEXT-50-AFTER-THIS.md` for the next engineering wave.
 
-**Verification:**
-- `npm run build` passed.
-- `node --check public/js/sc-top30.js public/sw.js` passed.
-- `git diff --check` passed.
-- Generated build artifacts are reviewed separately and must not be committed unless intentionally regenerated.
+**Documentation rule:** formal presentation, letterhead, signatures, seals, PDFs, and executive language do not create legal force. Keep source links, version, date, proof status, and legal qualification attached.
+
+## Current known gaps
+
+- Full route-aware breadcrumbs and universal error/recovery components remain unfinished.
+- Two-step sign review, receipt import UI, QR receipt export, proof polling, and current-release hash comparison remain unfinished.
+- Endpoint authorization/CSRF/boundary/privacy tests remain unfinished.
+- Automated browser viewport, screen-reader, zoom, contrast, synthetic journey, and release-dashboard checks remain unfinished.
+- Formal legal review and jurisdiction-specific validation are still required before external legal submission.
+
+## Next 50
+See `docs/NEXT-50-AFTER-THIS.md`.
 
 ## Do not regress
 - Satohash canonical stamp contract: `/stamp?hash=&ref=`.

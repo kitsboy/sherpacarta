@@ -41,17 +41,18 @@ It synthesizes:
 
 ---
 
-## Current Momentum (as of BUILD 688 — July 2026)
+## Current status (26 August 2026)
 
-- **114** articles live in `data/charter.json` with full API + sitemap (143 URLs)
-- **Canada petition** — moral sign, passkey, Nostr, Satohash proof at `/canada/`
-- **4,271+** global signatories (local + simulated momentum)
-- **127** countries reached
-- **40+** language UI translations in progress (community)
-- **811** years of rights tradition (1215 → 2026)
-- Public API, npm SDK, MCP server (packages ready; npm publish pending)
-- Treasury dashboard, bug bounty page, press outlet grid with linked media cards
-- 100% open source, Bitcoin-funded, zero tracking, CC0 public domain
+- **114** articles live in `data/charter.json` with generated API, exports, and sitemap
+- **Start here** onboarding separates citizen, participant, organizer, and verifier journeys
+- **Canada offering** keeps public mandate, federal paper, and official e-petition paths separate
+- **Local-first signing** stores the general commitment in the browser by default
+- **Satohash proof guide** explains SHA-256, pending/confirmed status, and independent checking
+- **Public release manifest** records document/proof claims at `/release-manifest.json`
+- Public API, npm SDK, MCP server, treasury, security, support, and accessibility surfaces
+- Open source, CC0 public domain, Bitcoin-funded, with claims constrained by published evidence
+
+Counts, endorsements, official status, and Bitcoin confirmation must be read from current source records—not marketing copy.
 
 ---
 
@@ -95,7 +96,7 @@ Full strategy: [docs/CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md)
 | Read & sign | Local browser | Zero-tracking default |
 | Edit drafts | localStorage | Living document (Art. 114) |
 | Public discourse | Nostr (NIP-07) | Amendments & comments |
-| Proof of existence | OpenTimestamps / Satohash | Court-ready charter versions |
+| Proof of existence | Satohash / Bitcoin timestamp workflow | Hash/time evidence; not a legal certification |
 | Funding | Bitcoin on-chain | Sovereign, transparent |
 
 ---
@@ -103,7 +104,7 @@ Full strategy: [docs/CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md)
 ## Call to Action
 
 1. **Sign the Charter** at sherpacarta.org (local + optional Nostr)
-2. **Stamp** the charter hash on Bitcoin (Satohash button)
+2. **Stamp** the charter hash through Satohash when desired; pending is not Bitcoin-confirmed
 3. **Propose amendments** — rights only expand (Art. 114)
 4. **Share** — especially with BC/Canada policymakers
 5. **Fund** via Bitcoin (`bc1qhm5ndfjhqxdk3cx0pngyps4f5nnwdckulmge6c8keyf2pk0neqtshjn8ad`)
@@ -112,7 +113,7 @@ Full strategy: [docs/CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md)
 
 ## Governance & Funding
 
-- Volunteer-run across 24 countries
+- Volunteer-run; current geographic claims must be independently documented before publication
 - Bitcoin donations only (published on-chain)
 - CC0 1.0 Universal — No rights reserved. Copy, translate, adapt freely.
 - Annual global review + 90-day public amendment process with supermajority ratification

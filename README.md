@@ -7,7 +7,7 @@ A living charter of **114 articles** protecting privacy, data sovereignty, freed
 > Privacy is not a feature. It is a birthright.
 
 **Live site:** [https://sherpacarta.org](https://sherpacarta.org)  
-**BUILD:** 720 · **Design sprint:** conversion UX, self-hosted fonts, honest local signing
+**Current release:** 2026-08-26 trust/onboarding release · **Design principle:** Read → Sign → Verify
 
 ---
 
@@ -75,9 +75,17 @@ sherpacarta/
 
 ## Documentation
 
+Start with [Start here](https://sherpacarta.org/start.html) for the user journey, then use the formal packet, legal/truth guide, or technical architecture depending on your audience.
+
 | Doc | Purpose |
 |-----|---------|
 | [Executive Summary](docs/EXECUTIVE_SUMMARY.md) | Problem, solution, pillars, strategy |
+| [Formal Document Packet](docs/FORMAL-DOCUMENT-PACKET.md) | Letterhead-ready, executive, technical, and legal-safe material |
+| [Legal & Truth Guide](docs/LEGAL-TRUTH-GUIDE.md) | Required claims and status vocabulary |
+| [Technical Architecture](docs/TECHNICAL-ARCHITECTURE.md) | Current stack, data boundaries, security invariants |
+| [Formal Document Packet](docs/FORMAL-DOCUMENT-PACKET.md) | Letterhead-ready, executive, technical, and legal-safe material |
+| [Legal & Truth Guide](docs/LEGAL-TRUTH-GUIDE.md) | Required claims and status vocabulary |
+| [Technical Architecture](docs/TECHNICAL-ARCHITECTURE.md) | Current stack, data boundaries, security invariants |
 | [Mission](docs/MISSION.md) | Purpose, values, audience |
 | [Marketing & Press](docs/MARKETING.md) | Voice, templates, press boilerplate |
 | [Canada & BC Challenge](docs/CANADA-BC-CHALLENGE.md) | First jurisdiction strategy |
@@ -124,7 +132,9 @@ See [CONTRIBUTING.md](CONTRIBUTING.md).
 - Vite for dev server + production bundling to `dist/`
 - Charter content in `data/charter.json`, injected into `sc-core.js` at build
 - All signatures and prefs in `localStorage` only
-- Fonts (Google) and icons (Font Awesome CDN) — intentional for simplicity
+- Fonts and icons are self-hosted public assets
+- Optional analytics is first-party Umami; no advertising trackers
+- See [Technical Architecture](docs/TECHNICAL-ARCHITECTURE.md) for system boundaries
 
 ---
 
