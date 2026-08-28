@@ -5,13 +5,15 @@
 **How to use:** [USAGE.md](USAGE.md)
 
 ## Group 1 — Critical + Core UX (1–25)
-QR fix, Escape close, a11y toolbar, auto theme, BUILD badge, charter hash footer, online badge, PWA manifest, service worker, export JSON/MD, import draft, BTC URI, jump to article, bookmarks, copy article, deep links, announcement banner, sticky BC CTA, FAQ search, scroll spy, copy summary, dynamic theme-color
+QR fix, Escape close, a11y toolbar, auto theme, BUILD badge, charter hash footer, online badge, PWA manifest, service worker, export JSON/MD, import draft, BTC URI, jump to article, bookmarks, copy article, deep links, announcement banner, sticky BC CTA, FAQ search, scroll spy, copy summary, dynamic theme-color## Group 2 — Engagement (26–50)
 
-## Group 2 — Engagement (26–50)
-Confetti on sign, signature certificate, BC quick-fill, amendment upvotes, Nostr sign publish, random article, reading time, calculator share, email share, embed code, volunteer/org forms, press kit download, article of the day, quote share, lazy video, donate/sign scroll, hashtags, Nostr profile, timeline clicks, pillar expand, newsletter note, GitHub link, contact mailto
+Confetti on sign, signature certificate, BC quick-fill, amendment upvotes, Nostr sign publish (opt-in), random article, reading time, calculator share, email share, embed code, volunteer/org forms, press kit download, article of the day, quote share, lazy video, donate/sign scroll, hashtags, Nostr profile, timeline clicks, pillar expand, newsletter note, GitHub link, contact mailto## Group 3 — Power (51–75)
 
-## Group 3 — Power (51–75)
 Expanded ⌘K, keyboard shortcuts (G/H/D/C/T), shortcuts modal, features modal (click BUILD badge), charter TOC, search highlight, word counts, AI summary helper, related articles, restore draft, version snapshots, Konami code, smooth anchors, modal tools, native share, scroll persist, clear all data
+
+## Group 19 — Signing Flow (BUILD 870+)
+
+Local-first signing journey: validation, draft persistence, accessible review modal, post-sign success panel, receipt copy/download/print, undo, import/export with merge/replace preview, clear-all with confirmation, storage size feedback, Nostr opt-in disclosure, 33 automated contract checks
 
 ## Group 4 — Polish + Marketing (76–100)
 JSON-LD schemas, pulse CTA, stagger animations, hero parallax, map BC dot, footer links wired, legal anchors, title blink on sign, Satohash link copy, welcome tour, performance mark, 100-features loaded toast

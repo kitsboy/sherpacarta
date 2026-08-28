@@ -1,15 +1,26 @@
-## Session — 2026-08-27 (Buffy M3 — LANDING MEDIA + DESKTOP ARTICLES REPAIR)
+## Session — 2026-08-27 (Buffy M3 — SIGNING FLOW + LANDING PAGE + UI POLISH)
 
 **Done:**
-- Pulled `origin/main`; repository was already up to date at `aea67ab`.
-- Verified the reported origin problem: `sherpacarta.org/video/sherpacarta-2min.mp4` returns HTML fallback bytes, while `videos.giveabit.io/video/sherpacarta-2min.mp4` returns the real MP4.
-- Kept the known-good `videos.giveabit.io` source, added it to Cloudflare Pages `media-src`, and updated download/fallback links.
-- Increased official-film lazy-load margin from 240px to 1200px so the source is attached before viewers reach the section.
-- Fixed desktop article layout using `minmax(0, 1fr)` and `min-width: 0`; sidebar and article content now share one row instead of producing the reported blank desktop area.
-- Kept the later one-minute film as an explicitly labeled silent draft; no production audio was invented or claimed.
+- Complete local-first signing journey: validation, draft persistence, accessible review modal, post-sign success panel, receipt copy/download/print, undo, sharing, import/export, clear-all.
+- Landing page: both video players temporarily removed pending verified audio-bearing MP4s.
+- Desktop article browser grid fixed.
+- Side navigation upgraded from dots to labeled rail.
+- Commitment modal polished with better contrast and hierarchy.
+- GitHub trust scan fixed (documentation false positives).
+- Cancel button hardened with all modal state cleanup.
+- Added `check:sign-flow` with 33 automated checks.
+
+**Key commits:**
+- `83643df` — Finish signing flow quick wins
+- `8e3c24a` — Harden signing input validation
+- `58a3545` — Complete local signature tools
+- `96bc66a` — make sign review cancellation definitive
+- `612dbca` — fix sign review cancel interaction
+- `d1908e9` — fix trust scans to ignore documentation examples
 
 **Verification:**
 - `npm run build` ✅
+- `npm run check:sign-flow` ✅ (33 checks)
 - `npm run check:reader` ✅
 - `npm run check:release` ✅
 - `npm run check:public` ✅
@@ -17,11 +28,18 @@
 - `npm run check:disclosure` ✅
 - `npm run check:demo` ✅
 - `npm run check:endpoints` ✅
+- `npm run check:next100` ✅
 - `git diff --check` ✅
 
-**Follow-up:** Removed both the broken official two-minute player and the silent one-minute draft player from the landing page. The page now explains that the films are temporarily offline pending verified audio-bearing MP4 files. The one-minute draft remains in the repository for future audio production.
+**Do not regress:**
+- Local-first privacy (no server submission in home sign flow)
+- No automatic Nostr publishing
+- Accessible modal behavior
+- Desktop article grid
+- Side navigation labels
+- Trust scan documentation exclusions
 
-**Files:** `index.html`, `public/_headers`, `public/sc-core.js`, `public/sc-main.css`
+**Files:** `index.html`, `public/js/sc-next100.js`, `public/sc-core.js`, `public/sc-main.css`, `scripts/check-sign-flow.mjs`, `.github/workflows/trust-checks.yml`, `.github/workflows/security-audit.yml`
 
 ---
 

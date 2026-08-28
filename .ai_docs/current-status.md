@@ -2,17 +2,53 @@
 
 **Updated:** 2026-08-27 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** `aea67ab`; landing media/CSP/article-layout repair pending commit
+**Latest pushed release:** `83643df`
 
-## Landing-page repair (2026-08-27)
+## Signing-flow upgrade (2026-08-27)
 
-- Removed both landing-page film players while verified, audio-bearing public media files are restored. The landing page now states that the films are offline; no dead or silent player remains.
+Complete local-first signing journey shipped across multiple commits.
 
-- Confirmed `sherpacarta.org/video/sherpacarta-2min.mp4` returns the SPA HTML fallback, not media bytes.
-- Confirmed `https://videos.giveabit.io/video/sherpacarta-2min.mp4` returns a real MP4; the landing page now keeps that source and explicitly permits it in `media-src`.
-- Increased the official film lazy-load viewport margin so the source attaches before the user reaches the film section.
-- Fixed the desktop article browser grid with a shrink-safe `minmax(0, 1fr)` content column; the sidebar and article panel remain side-by-side instead of creating a large blank/second-row area.
-- The one-minute asset remains available in the repository as an intentionally **silent visual draft**, but is no longer shown on the landing page. It was not falsely presented as audio-complete or replaced without approved voice/music.
+### What was done
+
+- **Validation:** Meaningful name validation (2+ letters/numbers), Unicode-safe normalization, duplicate detection, character counters, inline errors.
+- **Draft persistence:** Auto-save, restore, debounce, timestamp, failure notification, discard confirmation.
+- **Review modal:** Accessible description, step indicator, close button, Escape/backdrop cancellation, focus trapping, explicit "nothing is published automatically" badge.
+- **Post-sign success:** Timestamped panel with receipt copy/download/print, undo, and share actions.
+- **Local data management:** Export, import with merge/replace preview, clear-all with confirmation, storage size indicator.
+- **Nostr:** Explicit public-and-optional disclosure, relay health check, no automatic publishing.
+- **Accessibility:** Reduced-motion coverage, keyboard-only flow, live announcements, visible focus states.
+- **Mobile:** Full-width buttons, stacked layout, touch-friendly targets.
+- **Contracts:** `check:sign-flow` now covers 33 automated checks.
+
+### Key commits
+
+- `83643df` — Finish signing flow quick wins
+- `8e3c24a` — Harden signing input validation
+- `58a3545` — Complete local signature tools
+- `96bc66a` — make sign review cancellation definitive
+- `612dbca` — fix sign review cancel interaction
+
+### Landing-page repair
+
+- Both video players temporarily removed pending verified audio-bearing MP4s.
+- Desktop article browser grid fixed.
+- Side navigation upgraded to labeled rail.
+- Commitment modal polished.
+- GitHub trust scan fixed.
+
+### Verification
+
+- `npm run build` ✅
+- `npm run check:sign-flow` ✅ (33 checks)
+- `npm run check:reader` ✅
+- `npm run check:release` ✅
+- `npm run check:public` ✅
+- `npm run check:a11y` ✅
+- `npm run check:disclosure` ✅
+- `npm run check:demo` ✅
+- `npm run check:endpoints` ✅
+- `npm run check:next100` ✅
+- `git diff --check` ✅
 
 
 ## Delivered this session
