@@ -23,7 +23,7 @@ jobs:
       - run: node --check public/js/sc-top30.js
       - name: Reject private-key material
         run: |
-          ! grep -RInE --exclude-dir=.git --exclude='*.lock' --exclude='trust-checks.yml' --exclude='security-audit.yml' --exclude='*.md' --exclude-dir=docs --exclude='*.local' '(BEGIN (RSA|OPENSSH|EC|PGP) PRIVATE KEY|\bnsec1?[a-z0-9]{20,}|macaroon|ORGANIZER_TOKEN=)' .
+          ! grep -RInE --exclude-dir=.git --exclude-dir=node_modules --exclude='*.lock' --exclude='trust-checks.yml' --exclude='security-audit.yml' --exclude='*.md' --exclude-dir=docs --exclude='*.local' '(BEGIN (RSA|OPENSSH|EC|PGP) PRIVATE KEY|\bnsec1?[a-z0-9]{20,}|macaroon|ORGANIZER_TOKEN=)' .
       - name: Require honest proof language
         run: |
           grep -q 'pendingIsConfirmed.*false' public/release-manifest.json
