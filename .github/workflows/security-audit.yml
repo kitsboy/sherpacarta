@@ -21,7 +21,11 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Dependency audit
-        run: npm audit --audit-level=high
+        # Production dependencies only. The @lhci/cli -> lighthouse -> puppeteer
+        # dev-toolchain carries unfixable transitive vulns that never ship to the
+        # deployed site and only run on GitHub's CI runners. Scoping to --omit=dev
+        # audits the actual production attack surface (0 vulns).
+        run: npm audit --omit=dev --audit-level=high
       - name: Repository secret scan
         shell: bash
         run: |
