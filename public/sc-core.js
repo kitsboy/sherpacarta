@@ -2169,6 +2169,37 @@ async function stampCharterViaApi(){
 window.stampCharterViaApi = stampCharterViaApi;
 window.stampCharterOnBitcoin = stampCharterOnBitcoin;
 
+/**
+ * Live release status widget (proof path, home page).
+ * Honest pending vs confirmed; never fabricates a confirmed stamp.
+ */
+window.initStampStatusWidget = async function initStampStatusWidget() {
+  const hashEl = document.getElementById('ss-hash');
+  const apiEl = document.getElementById('ss-api');
+  const stampEl = document.getElementById('ss-stamp');
+  if (!hashEl || !apiEl || !stampEl) return;
+  try {
+    const res = await fetch('/api/v1/hash.json', { cache: 'no-store' });
+    const data = res.ok ? await res.json() : null;
+    const h = data && data.hash;
+    hashEl.textContent = h ? h.slice(0, 16) + '…' + h.slice(-8) : 'unavailable';
+    hashEl.title = h || '';
+    if (!data || !data.hash) stampEl.textContent = 'No release stamped yet';
+    else stampEl.textContent = 'Hashed · stamp via Satohash';
+  } catch (_) {
+    hashEl.textContent = 'unavailable';
+  }
+  const health = await window.satohashGetApiHealth ? window.satohashGetApiHealth(false) : null;
+  if (health) {
+    if (health.ok) { apiEl.textContent = health.status === 'degraded' ? 'Degraded' : 'Online'; apiEl.classList.add('is-ok'); }
+    else { apiEl.textContent = 'Unreachable'; apiEl.classList.add('is-warn'); apiEl.title = health.error || 'API offline'; }
+  } else {
+    apiEl.textContent = 'Not checked';
+  }
+};
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', window.initStampStatusWidget);
+else window.initStampStatusWidget();
+
 function initWalletAddresses(){
   const els={
     btc:['btc-address','footer-btc-address'],

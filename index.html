@@ -333,10 +333,42 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     <div class="trust-item"><i class="fas fa-file-contract"></i> 114 Articles</div>
     <div class="trust-item"><i class="fas fa-history"></i> Est. 1215 AD</div>
     <div class="trust-item"><i class="fas fa-pen-fancy"></i> Living Document</div>
-    <div class="trust-item"><i class="fas fa-code"></i> Built in Public</div>
-    <div class="trust-item"><i class="fas fa-certificate"></i> No VC Funding</div>
+    <div class="trust-item"><i class="fas fa-code"></i> Built in Public</div>      <div class="trust-item"><i class="fas fa-certificate"></i> No VC Funding</div>
   </div>
 </div>
+
+<!-- TRANSPARENCY CARD — what this site can and cannot do -->
+<section class="transparency-card reveal" aria-labelledby="transparency-heading">
+  <div class="transparency-inner">
+    <div class="transparency-head">
+      <div class="section-label"><span>Before you rely on anything here</span></div>
+      <h3 id="transparency-heading">What this site can and cannot do</h3>
+    </div>
+    <div class="transparency-grid">
+      <div class="transparency-col can">
+        <div class="tc-title"><i class="fas fa-circle-check" aria-hidden="true"></i> It can</div>
+        <ul>
+          <li>Let you read all 114 charter articles, free and locally.</li>
+          <li>Record your signature privately on this device — no account, no server.</li>
+          <li>Stamp a document hash on Bitcoin through Satohash, with pending vs confirmed shown honestly.</li>
+          <li>Let you verify a hash locally, without uploading the text anywhere.</li>
+          <li>Publish your amendment or discussion to Nostr, only when you choose.</li>
+        </ul>
+      </div>
+      <div class="transparency-col cannot">
+        <div class="tc-title"><i class="fas fa-circle-xmark" aria-hidden="true"></i> It cannot</div>
+        <ul>
+          <li>Make itself law. A signature here is a civic commitment, not legislation.</li>
+          <li>Verify that signers are real people, or count them as official totals.</li>
+          <li>Guarantee a stamp is Bitcoin-confirmed — a pending stamp is pending until it isn't.</li>
+          <li>Give legal advice or claim coverage by any press outlet.</li>
+          <li>Collect your data. If it ever needs data, it asks first and explains why.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="transparency-note">These boundaries are a promise: every feature on this site is designed inside them, and the source is open for anyone to check.</p>
+  </div>
+</section>
 
 <!-- STATS -->
 <div class="stats-strip" aria-label="Key statistics">
@@ -761,6 +793,15 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         <a class="btn btn-ghost" href="/verify.html"><i class="fas fa-shield-halved" aria-hidden="true"></i> What a proof means</a>
         <a class="btn btn-ghost" href="/security.html"><i class="fas fa-lock" aria-hidden="true"></i> Security model</a>
       </div>
+      <div class="stamp-status" id="stamp-status" role="status" aria-live="polite">
+        <div class="ss-head"><i class="fas fa-fingerprint" aria-hidden="true"></i> Live release status</div>
+        <div class="ss-rows">
+          <div class="ss-row"><span>Release hash</span><code id="ss-hash">…</code></div>
+          <div class="ss-row"><span>Satohash API</span><span class="ss-badge" id="ss-api">Checking…</span></div>
+          <div class="ss-row"><span>Stamp state</span><span class="ss-badge" id="ss-stamp">—</span></div>
+        </div>
+        <p class="ss-note">Honest status only: pending is pending until Bitcoin confirms. <a href="/verify.html">Learn what a stamp proves →</a></p>
+      </div>
     </div>
 
     <!-- NEWSLETTER (Feature 35) -->
@@ -1050,6 +1091,25 @@ setTimeout(kill,0);setTimeout(kill,500);}());
     </div>
   </div>
 </footer>
+
+<!-- GIVE A BIT SUITE STRIP -->
+<section class="suite-strip" aria-label="Part of the Give A Bit family of services">
+  <div class="suite-inner">
+    <div class="suite-head">
+      <img src="/giveabit-logo.png" alt="" class="giveabit-brand-logo" width="32" height="32" decoding="async">
+      <div>
+        <strong>Part of the Give A Bit family of services</strong>
+        <span>Open tools for digital rights — Bitcoin for money, Nostr for speech, Satohash for proof.</span>
+      </div>
+    </div>
+    <div class="suite-links">
+      <a href="https://giveabit.io" target="_blank" rel="noopener noreferrer"><i class="fas fa-hand-holding-heart" aria-hidden="true"></i> Give A Bit</a>
+      <a href="https://satohash.io" target="_blank" rel="noopener noreferrer"><i class="fas fa-stamp" aria-hidden="true"></i> Satohash</a>
+      <a href="/treasury"><i class="fab fa-bitcoin" aria-hidden="true"></i> Treasury</a>
+      <a href="/nostr"><i class="fas fa-bolt" aria-hidden="true"></i> Nostr</a>
+    </div>
+  </div>
+</section>
 
 <!-- ════════════════════════════════════════════════════════
      FLOATING ELEMENTS
