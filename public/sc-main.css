@@ -4474,3 +4474,102 @@ section.section,
   .pillar{padding:1.75rem}
   .stat-block:hover{transform:none}
 }
+
+/* ═══════════════════════════════════════════════════════════
+   UX AUDIT PASS — quiet first visit · mobile chrome · polish
+   (Buffy M3, 2026-09-08)
+═══════════════════════════════════════════════════════════ */
+
+/* Cookie banner: never cover the mobile bottom nav */
+#cookie-banner{
+  z-index:700;
+  border-radius:1rem 1rem 0 0;
+  box-shadow:0 -12px 40px rgba(0,0,0,.4);
+}
+@media(max-width:768px){
+  #cookie-banner{
+    bottom:calc(var(--bottom-nav-h) + env(safe-area-inset-bottom,0) + .5rem);
+    left:.5rem;right:.5rem;
+    padding:.75rem .9rem calc(.75rem + env(safe-area-inset-bottom,0));
+    border:1px solid var(--border);
+    border-radius:1rem;
+  }
+  #cookie-banner p{font-size:.7rem;line-height:1.5}
+  #cookie-banner .cookie-actions .btn{min-height:40px;font-size:.68rem}
+  /* a11y chip sits above the bottom nav too */
+  #a11y-chip{
+    bottom:calc(var(--bottom-nav-h) + .75rem + env(safe-area-inset-bottom,0)) !important;
+  }
+}
+
+/* Journey rail: never clip on small screens */
+@media(max-width:640px){
+  .journey-rail{
+    gap:.35rem;max-width:100%;padding:0 .25rem;
+  }
+  .journey-step{
+    min-width:0;flex:1;padding:.55rem .3rem;
+    grid-template-columns:1fr;row-gap:.05rem;text-align:center;
+  }
+  .journey-step span{grid-row:auto}
+  .journey-step strong{font-size:.72rem}
+  .journey-step small{font-size:.55rem}
+  .journey-arrow{font-size:.85rem;flex-shrink:0}
+}
+
+/* Canada nudge — make the local signature honest about impact */
+.sign-canada-nudge{
+  display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;
+  margin:1.15rem 0 0;padding:1rem 1.15rem;
+  border:1px solid var(--border-gold);border-left:3px solid var(--gold2);
+  border-radius:var(--radius-md);
+  background:linear-gradient(145deg,rgba(232,192,64,.09),rgba(20,212,146,.04));
+  max-width:760px;
+}
+.scn-flag{font-size:1.7rem;line-height:1;flex-shrink:0}
+.scn-body{display:flex;flex-direction:column;gap:.15rem;flex:1;min-width:200px}
+.scn-body strong{color:var(--gold2);font-size:.8rem;letter-spacing:.02em}
+.scn-body span{color:var(--text2);font-size:.74rem;line-height:1.55}
+.sign-canada-nudge .btn{min-height:44px;white-space:nowrap}
+@media(max-width:480px){
+  .sign-canada-nudge{align-items:flex-start;flex-direction:column;gap:.6rem}
+  .sign-canada-nudge .btn{width:100%;justify-content:center}
+}
+
+/* Press section honest framing */
+.press-honest{
+  max-width:640px;margin:.6rem auto 0;
+  font-size:.72rem;color:var(--text3);line-height:1.6;
+  font-family:var(--mono);letter-spacing:.01em;
+}
+
+/* Sign flow polish — visible focus everywhere */
+.sign-submit:focus-visible,
+#sign-review .btn:focus-visible,
+.mbn-btn:focus-visible,
+#back-top:focus-visible,
+#a11y-chip:focus-visible{
+  outline:3px solid var(--gold2);outline-offset:3px;
+}
+
+/* Confetti respects reduced motion */
+@media(prefers-reduced-motion:reduce){
+  .confetti-piece{display:none!important}
+  .trust-scroll{animation:none}
+}
+
+/* Back-to-top never collides with the bottom nav */
+#back-top{z-index:489}
+@media(max-width:768px){
+  #back-top{
+    bottom:calc(var(--bottom-nav-h) + .75rem + env(safe-area-inset-bottom,0)) !important;
+    right:.75rem;
+  }
+}
+
+/* Toast stack sits above the bottom nav on mobile */
+@media(max-width:768px){
+  #toast-stack{
+    bottom:calc(var(--bottom-nav-h) + env(safe-area-inset-bottom,0) + 1rem) !important;
+  }
+}
