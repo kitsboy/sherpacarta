@@ -1833,6 +1833,7 @@ function buildArticlesBrowser(){
       <div class="art-actions">
         <button type="button" class="art-action-btn${signed?' signed':''}" id="sign-art-${idx}" onclick="signArticle(${idx})"><i class="fas fa-signature"></i> ${signed?'Signed ✓':'Sign this article'}</button>
         <button type="button" class="art-action-btn" onclick="shareArticle('${safeTitle}')"><i class="fas fa-share-nodes"></i> Share</button>
+        <button type="button" class="art-action-btn" onclick="stampArticle(${idx})"><i class="fas fa-stamp"></i> Stamp on Bitcoin</button>
         <button type="button" class="art-action-btn" onclick="nostrArticle(${idx})"><i class="fas fa-bolt"></i> Publish to Nostr</button>
         <button type="button" class="art-action-btn" onclick="aiSummarize(${idx})"><i class="fas fa-sparkles"></i> AI Summary</button>
         <button type="button" class="art-action-btn" onclick="copyArticle(${idx})"><i class="fas fa-copy"></i> Copy</button>
@@ -1900,6 +1901,32 @@ function shareArticle(title){
 function copyArticle(i){
   navigator.clipboard.writeText(document.querySelector('#art-'+i+' .art-body').textContent);
   toast('Article text copied','success');
+}
+
+/**
+ * Stamp an article on Bitcoin via Satohash — hashes the exact article text
+ * locally, then opens the canonical Satohash stamp page for that hash.
+ */
+async function stampArticle(i){
+  const art=getArticleByFlatIndex(i);
+  if(!art){toast('Article not found','error');return;}
+  const btn=document.querySelector('#art-'+i+' .art-action-btn[onclick^="stampArticle"]');
+  if(btn){btn.disabled=true;btn.setAttribute('aria-busy','true');}
+  toast('Hashing article locally…','info');
+  try{
+    const title=`${art.num||'Article '+(i+1)} — ${art.title||''}`;
+    const text=String(art.body||'').replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]+>/g,'').trim();
+    const payload=`${title}\n\n${text}`;
+    const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(payload));
+    const hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');
+    const url=window.satohashStampGuideUrl(hash,{ref:'sherpacarta-article',filename:(art.num||'article').replace(/\W+/g,'-').toLowerCase()});
+    window.open(url,'_blank','noopener');
+    toast('Article hashed · opening Satohash stamp page…','success');
+  }catch(e){
+    toast('Hashing failed in this browser','error');
+  }finally{
+    if(btn){setTimeout(()=>{btn.disabled=false;btn.removeAttribute('aria-busy');},800);}
+  }
 }
 
 /**
@@ -2488,6 +2515,32 @@ function downloadCharter(){
   const blob=new Blob([`SHERPACARTA v2.0 — THE GLOBAL DIGITAL MAGNA CARTA\nPublished under CC0 1.0 Universal (Public Domain)\nhttps://sherpacarta.org\n${content}\n\n--- END OF CHARTER ---`],{type:'text/plain'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SherpaCarta-v2.0.txt';a.click();
   toast('Charter downloaded as .txt','success');
+}
+
+/**
+ * "Verify hash" — the verified-by-you widget. Builds the canonical charter
+ * text (same source the release hash was computed from), hashes it locally,
+ * and compares against /api/v1/hash.json. Never uploads anything.
+ */
+async function verifyCharterHash(){
+  // Must mirror scripts/generate-api.mjs exactly: SHA-256 of `${num}: ${title}` lines,
+  // with preamble (P.*) articles excluded.
+  const text=CHARTER.flatMap(ch=>ch.articles.filter(a=>!String(a.num).startsWith('P.')).map(a=>`${a.num}: ${a.title}`)).join('\n');
+  toast('Hashing charter locally…','info');
+  try{
+    const [digest,res]=await Promise.all([
+      crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)),
+      fetch('/api/v1/hash.json',{cache:'no-store'}).then(r=>r.ok?r.json():null),
+    ]);
+    const hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');
+    const release=res&&res.hash;
+    if(!release){toast('Local hash: '+hash.slice(0,16)+'… · release hash unavailable','info');return;}
+    const match=hash===release.toLowerCase();
+    toast((match?'✓ MATCHES':'✗ DOES NOT MATCH')+' the release hash — '+hash.slice(0,16)+'…','success');
+    if(!match)console.warn('Charter hash mismatch. Local:',hash,'Release:',release);
+  }catch(e){
+    toast('Hashing failed in this browser','error');
+  }
 }
 
 let searchVisible=false;
