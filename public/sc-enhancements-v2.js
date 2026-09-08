@@ -1048,7 +1048,7 @@
     const bb = document.querySelector('.build-badge');
     if (bb) {
       bb.textContent = 'BUILD ' + BUILD;
-      bb.title = '200 features — click for list';
+      bb.title = 'Product build';
     }
     const origShow = window.SC?.showFeatures;
     window.SC = window.SC || {};

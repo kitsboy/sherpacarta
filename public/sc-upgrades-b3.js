@@ -240,7 +240,7 @@
     const bb = document.querySelector('.build-badge');
     if (bb) {
       bb.textContent = 'BUILD ' + BUILD;
-      bb.title = '487 features + 60 upgrades';
+      bb.title = 'Product build';
     }
     const orig = SC.showFeatures;
     SC.showFeatures = function () {

@@ -360,7 +360,7 @@
 
   feat(221, 'BUILD badge tooltip', () => {
     const bb = document.querySelector('.build-badge');
-    if (bb) bb.title = '300 features — click for list · right-click for guide';
+    if (bb) bb.title = 'Product build';
     document.addEventListener('contextmenu', (e) => {
       if (e.target.classList?.contains('build-badge')) {
         e.preventDefault();
@@ -1263,7 +1263,7 @@
     const bb = document.querySelector('.build-badge');
     if (bb) {
       bb.textContent = 'BUILD ' + BUILD;
-      bb.title = '300 features — click for list · right-click for guide';
+      bb.title = 'Product build';
     }
   });
 

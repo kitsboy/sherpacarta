@@ -559,14 +559,9 @@
     const bb = document.querySelector('.build-badge');
     if (bb) {
       bb.textContent = 'BUILD ' + BUILD;
-      bb.title = '375 features — click for list · right-click for guide';
+      bb.title = 'Product build';
     }
-    setTimeout(() => {
-      if (!sessionStorage.getItem('sc_375_loaded')) {
-        sessionStorage.setItem('sc_375_loaded', '1');
-        toast('375 features — giveaBit.io centered in footer at 2× size 🧡', 'success');
-      }
-    }, 5000);
+    // (init toast removed — quiet first visit)
   });
 
   console.log(`SherpaCarta v3.2 — features 326–375 loaded (${FEATURES.length})`);
