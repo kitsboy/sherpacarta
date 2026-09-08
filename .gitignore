@@ -37,3 +37,6 @@ video/sherpacarta-2min/work-*/
 .tools/
 video/sherpacarta-2min/narration.*
 video/sherpacarta-2min/*.aiff
+
+# Lighthouse CI local output
+.lighthouseci/

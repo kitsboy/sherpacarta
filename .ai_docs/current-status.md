@@ -4,6 +4,20 @@
 **Branch:** `main`
 **Latest pushed release:** CI trust-gate fix + v=911 cache-bust (2026-09-08, `d80c117`)
 
+## Lighthouse sweep after v911 (2026-09-08, evening)
+
+Confirmed today's v911 changes did **not** regress performance beyond noise. Lighthouse CI assertion scores across the day (home / treasury; security stable ~0.99–1.00, never warned):
+
+| Commit state | Home | Treasury |
+|---|---|---|
+| pre-v910 era (`34268407580`, 19:20Z) | 0.46 | 0.64 |
+| post-reader, pre-v911 (`34271667779`, 19:54Z) | 0.47 | 0.66 |
+| v911 + guards (`34275558751`, 20:34Z) | 0.45 | 0.64 |
+
+Home perf ≈0.45–0.47 and treasury ≈0.64–0.66 are the established local-runner baseline (dev `vite preview`, throttled); both sit below the 0.7 warn threshold but the workflow is `continue-on-error`, so CI stays green. No v911-attributable regression — the −0.02 drift is within run-to-run noise (±0.02 typical for single-run LHCI).
+
+**Pre-existing issue found (not from today):** `lighthouse.yml` artifact upload always warns `No files were found with the provided path: .lighthouseci/` — lhci writes reports *after* assertions in autorun, but the upload step still misses them in CI (works locally). Fix separately: add `temporary-public-storage` upload target or move upload before assert; masked by `continue-on-error: true`.
+
 ## CI trust-gate fix (2026-09-08, later)
 
 `static-trust` failed on run #38 of Trust checks. Root cause: the "Require honest proof language" step greps **two** files (GitHub shows only the first line as the step name, which pointed at the manifest that was actually fine). The real failure was the second grep — the exact string `Pending is not Bitcoin-confirmed` was missing from `public/verify.html` after the audit reader rewrite. Also fixed in the same commit: a stray `+` rebase artifact in verify.html, the interrupted funnel-analytics work in `sc-analytics.js` (handlers now wrapped on window `load` so later-loaded sc-core/sc-next100 definitions can't clobber them), cache-bust re-unified to `v=911` (had regressed to a 869/860/910/73x mix), SW cache → `v9.1`. Rebased over parallel hot-fix `9e1dd8d` (same sentence, kept the stray `+`). CI green on `d80c117`.
