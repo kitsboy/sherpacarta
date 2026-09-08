@@ -8,6 +8,8 @@
 - SW cache `v9.0` → `v9.1`.
 - Rebased over parallel hot-fix `9e1dd8d` (Kimi/other agent restored the same sentence but kept the stray `+`); resolved keeping the fuller fix. Their run passing independently confirmed the diagnosis.
 - Follow-up `e6ce558`: made `static-trust` failures name the real failing file — each honesty invariant now prints `FAIL [file]` + missing pattern + meaning (GitHub only shows the first line of a multi-line step as the step name, which is what misdirected today's diagnosis); secret-scan step got an explicit failure label too. Tested happy + failure paths locally; CI green.
+- Follow-up `f8bfe86`: swept all six workflows — only `security-audit.yml` had a bare message left; aligned to the same `FAIL [file]` convention. Others have no grep steps (self-describing failures).
+- Follow-up `6244577`: new `check:markers` (`scripts/check-conflict-markers.mjs`) rejects stray diff/conflict markers (`<<<<<<<`/`>>>>>>>`/`=======`/`+ `/`- ` at line start) in `index.html` + `public/**` html/js — because `git diff --check` only inspects staged diffs, not committed tree content, which is how the `+` artifact on verify.html shipped in the first place. Wired into repository-contracts CI; scans 78 files in ms; convention `FAIL [file:line]`.
 
 **Verification:** build + all 12 check suites + secret-pattern scan + `git diff --check` pass locally; Trust checks run 34273644269 success on origin.
 
