@@ -59,6 +59,34 @@
 
   ensureUmami();
 
+  // ── Home conversion funnel (no PII) ─────────────────────────
+  // sc-core.js / sc-bundle.js / sc-next100.js are deferred and execute AFTER
+  // this file, so funnel handlers can only be wrapped once they exist —
+  // on window load. Wrapping earlier is clobbered by the real definitions
+  // (or worse, stubs a not-yet-defined function into a no-op).
+  function hookFunnel() {
+    function hook(name, event) {
+      var original = window[name];
+      if (typeof original !== 'function') return;
+      if (original.__scFunnel === event) return; // idempotent
+      var wrapped = function () {
+        track(event, { path: location.pathname });
+        return original.apply(this, arguments);
+      };
+      wrapped.__scFunnel = event;
+      window[name] = wrapped;
+    }
+    // hero-cta → sign-started → review → confirmed → share
+    hook('reviewSignCharter', 'funnel_sign_started');
+    hook('confirmSignCharter', 'funnel_sign_confirmed');
+    hook('stampCharterOnBitcoin', 'stamp_cta');
+    hook('nostrConnect', 'nostr_connect_click');
+    hook('submitAmendment', 'amendment_submit');
+    hook('shareArticle', 'funnel_share');
+  }
+  if (document.readyState === 'complete') hookFunnel();
+  else window.addEventListener('load', hookFunnel);
+
   // Lightweight auto-events (no PII)
   document.addEventListener(
     'click',
