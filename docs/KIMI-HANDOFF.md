@@ -9,6 +9,8 @@
 
 **Verification:** build + all 12 check suites pass (release, public, security, a11y, disclosure, demo, endpoints, seo-i18n, rights, next100, sign-flow 33, reader) + `git diff --check`.
 
+**Final live QA (2026-09-08):** fresh-profile browser audit on production confirms zero load-time toasts on mobile and desktop, no onboarding overlay / announce banner / float-assert, cookie banner above the mobile bottom nav, journey rail un-clipped, sc-core fetched exactly once (double-fetch fixed), Canada nudge and press-honesty line live. Asset cache-bust unified at `?v=910`; bundle 309→292.5 KB with zero user-facing announcement toasts.
+
 **Do not regress:**
 - No auto-toasts/modals in first seconds of a fresh visit
 - Enter key opens sign review (never signs directly)
