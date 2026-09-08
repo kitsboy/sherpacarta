@@ -2,7 +2,7 @@
 
 ## Summary
 
-Full site-wide UX audit executed end-to-end: quieted the first-visit experience, fixed sign-flow consistency, de-cluttered the mobile bottom chrome, fixed a double-download perf bug, and made the honesty copy match the project's own truth rules. All repo checks pass.
+Full site-wide UX audit executed end-to-end: quieted the first-visit experience, fixed sign-flow consistency, de-cluttered the mobile bottom chrome, fixed a double-download perf bug, and made the honesty copy match the project's own truth rules. All repo checks pass. Follow-up same day (`d80c117`): fixed the `static-trust` CI failure (restore `Pending is not Bitcoin-confirmed` on /verify.html + stray rebase artifact), finished the interrupted funnel-analytics hooks (window-load wrapping), re-unified cache-bust at `v=911`, SW `v9.1`.
 
 ## What shipped
 

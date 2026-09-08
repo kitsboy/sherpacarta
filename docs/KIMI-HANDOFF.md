@@ -1,3 +1,27 @@
+## Session — 2026-09-08 (Buffy M3 — CI TRUST-GATE FIX + CONTINUATION AFTER DISCONNECT)
+
+**Done (CI green on `d80c117`, pushed):**
+- Diagnosed `static-trust` failure (Trust checks #38): the "Require honest proof language" step greps TWO files — GitHub shows only the first line (`release-manifest.json`, which was fine). Real failure: `Pending is not Bitcoin-confirmed` was missing from `public/verify.html` after the audit reader rewrite. Never present in any commit of that file — the CI grep and the string lived in different rebase lines of the interrupted session.
+- Restored the sentence (bolded, inline after the pending-stamp clause) and removed a stray `+` rebase artifact from the verify checklist line.
+- Finished the interrupted funnel-analytics work in `public/js/sc-analytics.js`: wrapping must happen on window `load`, because sc-analytics.js loads at line 109 while sc-core.js loads at 1188 and sc-next100.js at 111 — earlier wrappers are clobbered by `window.x = x` definitions (or stub not-yet-defined functions into no-ops). Hooks: reviewSignCharter → funnel_sign_started, confirmSignCharter → funnel_sign_confirmed, stampCharterOnBitcoin → stamp_cta, nostrConnect → nostr_connect_click, submitAmendment → amendment_submit, shareArticle → funnel_share. Idempotent via `__scFunnel` tag.
+- Re-unified HTML cache-bust to `v=911` (had regressed to 869×29 / 910×18 / 860×18 / 731/733/738 mix — the handoff's "preload and script ?v= must stay identical" rule was broken by later commits).
+- SW cache `v9.0` → `v9.1`.
+- Rebased over parallel hot-fix `9e1dd8d` (Kimi/other agent restored the same sentence but kept the stray `+`); resolved keeping the fuller fix. Their run passing independently confirmed the diagnosis.
+
+**Verification:** build + all 12 check suites + secret-pattern scan + `git diff --check` pass locally; Trust checks run 34273644269 success on origin.
+
+**Do not regress (additions):**
+- `public/verify.html` must contain the exact string `Pending is not Bitcoin-confirmed` (CI-grepped)
+- No stray `+`/conflict markers in production HTML (now checked by `git diff --check` habit)
+- Funnel wrappers only on window load; never before sc-core/sc-next100 definitions
+- All HTML `?v=` stay unified; next bump = `912`, SW `v9.2` together
+
+**Git State:**
+- SHA: `d80c117` — Fix trust-gate honesty sentence and unify cache-bust at v=911
+- Unpushed: none
+
+---
+
 ## Session — 2026-09-08 (Buffy M3 — SITE-WIDE UX AUDIT EXECUTION)
 
 **Done (all checks green, pushed):**

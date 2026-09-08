@@ -2,7 +2,11 @@
 
 **Updated:** 2026-09-08 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** UX audit pass (2026-09-08)
+**Latest pushed release:** CI trust-gate fix + v=911 cache-bust (2026-09-08, `d80c117`)
+
+## CI trust-gate fix (2026-09-08, later)
+
+`static-trust` failed on run #38 of Trust checks. Root cause: the "Require honest proof language" step greps **two** files (GitHub shows only the first line as the step name, which pointed at the manifest that was actually fine). The real failure was the second grep — the exact string `Pending is not Bitcoin-confirmed` was missing from `public/verify.html` after the audit reader rewrite. Also fixed in the same commit: a stray `+` rebase artifact in verify.html, the interrupted funnel-analytics work in `sc-analytics.js` (handlers now wrapped on window `load` so later-loaded sc-core/sc-next100 definitions can't clobber them), cache-bust re-unified to `v=911` (had regressed to a 869/860/910/73x mix), SW cache → `v9.1`. Rebased over parallel hot-fix `9e1dd8d` (same sentence, kept the stray `+`). CI green on `d80c117`.
 
 ## Site-wide UX audit pass (2026-09-08)
 
