@@ -219,7 +219,7 @@
     SC.totalFeatures = 627;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Sprint 7 trust & transparency live — BUILD 627', 'success'), 3400);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Sprint 7 — BUILD ${BUILD}`);
   });
 })();

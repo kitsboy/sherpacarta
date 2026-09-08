@@ -278,14 +278,7 @@
     if (bb) bb.textContent = 'BUILD ' + BUILD;
   });
 
-  feat(405, 'v6 init toast', () => {
-    setTimeout(() => {
-      if (!sessionStorage.getItem('sc_425_loaded')) {
-        sessionStorage.setItem('sc_425_loaded', '1');
-        toast('Sidebar removed — BUILD 426. Hard refresh if layout looks stale.', 'success');
-      }
-    }, 5200);
-  });
+  // (v6 init toast removed — quiet first visit)
 
   feat(406, 'Left dock card chrome reinforce', () => {
     const dock = $('left-ui-dock');

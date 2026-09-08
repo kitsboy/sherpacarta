@@ -380,7 +380,7 @@
     SC.totalFeatures = 567;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Sprint 4 Canada & BC legal tools live — BUILD 567', 'success'), 3000);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Sprint 4 — BUILD ${BUILD}`);
   });
 })();

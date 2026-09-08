@@ -281,18 +281,11 @@
     const bb = document.querySelector('.build-badge');
     if (bb) {
       bb.textContent = 'BUILD ' + BUILD;
-      bb.title = '325 features — click for list · right-click for guide';
+      bb.title = 'Product build';
     }
   });
 
-  feat(325, 'v4 init toast', () => {
-    setTimeout(() => {
-      if (!sessionStorage.getItem('sc_325_loaded')) {
-        sessionStorage.setItem('sc_325_loaded', '1');
-        toast('325 features — wave backdrop + giveaBit.io parent logo live', 'success');
-      }
-    }, 4500);
-  });
+  // (v4 init toast removed — quiet first visit)
 
   console.log(`SherpaCarta v3.1 — features 301–325 loaded (${FEATURES.length})`);
 })();

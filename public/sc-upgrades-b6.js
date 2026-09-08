@@ -500,7 +500,7 @@
     SC.totalFeatures = 547;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Sprint 3 Nostr & participation live — BUILD 547', 'success'), 2800);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Sprint 3 — BUILD ${BUILD}`);
   });
 })();

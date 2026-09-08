@@ -327,7 +327,7 @@
     SC.totalFeatures = 587;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Sprint 5 i18n expansion live — BUILD 587', 'success'), 3200);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Sprint 5 — BUILD ${BUILD}`);
   });
 })();

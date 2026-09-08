@@ -229,9 +229,9 @@
   });
 
   feat(209, 'Signing walkthrough', () => {
+    // (auto how-to toast removed — the form is self-explanatory; action stays available)
     SC3.signWalkthrough = () => {
       document.getElementById('sign')?.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => toast('1) Enter name 2) Pick country 3) Click Sign 4) Optional: Nostr publish', 'info'), 600);
     };
   });
 
@@ -343,23 +343,14 @@
     };
   });
 
-  feat(218, 'Feature spotlight rotation', () => {
-    const spots = [
-      'Try ⌘K → Legislative Brief for BC outreach',
-      'Star articles in the charter — they appear on sign page',
-      'Press BUILD badge to browse all 300 features',
-      'Zen mode: ⌘K → Presentation Mode for clean charter view',
-    ];
-    const idx = parseInt(localStorage.getItem('sc_spot_idx') || '0', 10) % spots.length;
-    setTimeout(() => toast('💡 ' + spots[idx], 'info'), 8000);
-    localStorage.setItem('sc_spot_idx', String(idx + 1));
-  });
+  // (Feature spotlight toast removed — quiet first visit)
 
   feat(219, 'First-visit guide auto-open', () => {
+    // Auto-open removed — quiet first visit. Usage guide stays available via ?help=1 and ⌘K.
     const params = new URLSearchParams(location.search);
-    if (params.get('help') === '1' || (!localStorage.getItem('sc_guide_seen') && !sessionStorage.getItem('sc_guide_session'))) {
+    if (params.get('help') === '1') {
       sessionStorage.setItem('sc_guide_session', '1');
-      setTimeout(() => SC3.showUsageGuide(), 2000);
+      setTimeout(() => SC3.showUsageGuide(), 500);
     }
   });
 

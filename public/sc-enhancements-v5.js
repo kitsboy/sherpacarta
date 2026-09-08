@@ -411,11 +411,7 @@
     }
   });
 
-  feat(365, 'Timezone-aware greeting', () => {
-    const h = new Date().getHours();
-    const greet = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
-    setTimeout(() => toast(greet + ' — ready to assert your digital rights?', 'info'), 6000);
-  });
+  // (Timezone greeting toast removed — quiet first visit)
 
   feat(366, 'Seasonal wave tint', () => {
     const m = new Date().getMonth();

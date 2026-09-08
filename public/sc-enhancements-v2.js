@@ -944,11 +944,7 @@
     }
   });
 
-  feat(186, 'Referrer thank you', () => {
-    if (document.referrer && !document.referrer.includes('sherpacarta')) {
-      setTimeout(() => toast('Welcome from ' + new URL(document.referrer).hostname, 'info'), 2000);
-    }
-  });
+  // (Referrer toast removed — quiet first visit)
 
   feat(187, 'Privacy-friendly pageview counter', () => {
     const views = parseInt(localStorage.getItem('sc_pageviews') || '0', 10) + 1;

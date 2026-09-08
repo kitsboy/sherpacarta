@@ -152,7 +152,7 @@
     SC.totalFeatures = 607;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Sprint 6 architecture & performance live — BUILD 607', 'success'), 3200);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Sprint 6 — BUILD ${BUILD}`);
   });
 })();
