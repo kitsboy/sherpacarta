@@ -144,7 +144,7 @@
     const b = document.createElement('span');
     b.className = 'build-badge';
     b.textContent = 'BUILD ' + BUILD;
-    b.title = '100 features loaded';
+    b.title = 'Product build';
     statusDock().appendChild(b);
   });
 
@@ -301,14 +301,7 @@
     if (q) setTimeout(() => openCommandPalette && (openCommandPalette(), $('cmd-input') && ($('cmd-input').value = q, cmdSearch(q))), 1200);
   });
 
-  feat(20, 'Announcement banner', () => {
-    if (localStorage.getItem('sc_banner_dismissed')) return;
-    const b = document.createElement('div');
-    b.id = 'announce-banner';
-    b.className = 'announce-banner';
-    b.innerHTML = `<span class="announce-copy">🌍 <strong>A global digital rights charter</strong> — 114 articles for every person on Earth. <a href="#mission">Read the mission →</a> · <a href="/jurisdictions">Jurisdictions</a> · <a href="/canada/">Canada path</a></span><button type="button" class="announce-dismiss" aria-label="Dismiss" onclick="this.parentElement.remove();localStorage.setItem('sc_banner_dismissed','1')"><i class="fas fa-times" aria-hidden="true"></i></button>`;
-    document.body.insertBefore(b, document.body.firstChild);
-  });
+  // (Announcement banner removed — quiet first visit; hero + journey rail carry the message)
 
   feat(21, 'Sticky BC CTA removed (BUILD 426)', () => {
     document.querySelectorAll('.sticky-bc-cta, #sticky-bc-cta').forEach((el) => el.remove());
@@ -389,12 +382,7 @@
       a.download = 'SherpaCarta-Signature.txt';
       a.click();
     };
-    const origSign = window.signCharter;
-    window.signCharter = function () {
-      const name = $('sign-name')?.value?.trim();
-      origSign();
-      setTimeout(() => downloadSignatureCert(name, window.state?.signCount), 300);
-    };
+    // (auto-download removed — receipt/cert actions are user-triggered from the success panel)
   });
 
   feat(28, 'BC quick-fill country', () => {
@@ -1051,16 +1039,6 @@
     });
   });
 
-  feat(91, 'Document title blink on sign', () => {
-    const orig = window.signCharter;
-    window.signCharter = function () {
-      orig();
-      const t = document.title;
-      document.title = '✓ Signed — SherpaCarta';
-      setTimeout(() => document.title = t, 2000);
-    };
-  });
-
   feat(92, 'Favicon badge via title', () => {});
 
   feat(93, 'Local storage size display', () => {
@@ -1085,17 +1063,6 @@
     };
   });
 
-  feat(95, 'Welcome tour steps', () => {
-    if (localStorage.getItem('sc_tour_done')) return;
-    const steps = [
-      [2000, 'Press ⌘K for instant search'],
-      [5000, 'Sign the charter — strengthen the movement'],
-      [9000, 'Stamp on Bitcoin via Satohash for proof']
-    ];
-    steps.forEach(([delay, msg]) => setTimeout(() => toast(msg, 'info'), delay));
-    setTimeout(() => localStorage.setItem('sc_tour_done', '1'), 12000);
-  });
-
   feat(96, 'RC chapter expand', () => {
     document.querySelectorAll('.charter-chapter')?.forEach?.(() => {});
   });
@@ -1114,13 +1081,6 @@
     SC.BUILD = BUILD;
   });
 
-  feat(100, 'Init complete toast', () => {
-    setTimeout(() => {
-      if (!sessionStorage.getItem('sc_100_loaded')) {
-        sessionStorage.setItem('sc_100_loaded', '1');
-        toast(`${FEATURES.length} enhancements loaded — press ⌘K`, 'success');
-      }
-    }, 2500);
-  });
+  // (init toast removed — quiet first visit)
 
 })();

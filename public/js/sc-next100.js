@@ -133,21 +133,6 @@
     else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
   }
 
-  function onboarding() {
-    if (localStorage.getItem('sc_start_seen')) return;
-    const overlay = document.createElement('div');
-    overlay.className = 'sign-review';
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-labelledby', 'start-dialog-title');
-    overlay.innerHTML = '<div class="sign-review-card"><div class="section-label"><span>Start here</span></div><h3 id="start-dialog-title">Choose your next step</h3><p>SherpaCarta is a living civic charter. Read the source, make a local commitment, or verify what a Bitcoin timestamp actually proves.</p><div class="proof-actions"><a class="btn btn-primary" href="#articles">Read the charter</a><a class="btn btn-ghost" href="#sign">Sign locally</a><a class="btn btn-ghost" href="/verify.html">Verify a proof</a></div><button type="button" class="btn btn-ghost" id="start-dismiss">Skip for now</button></div>';
-    document.body.appendChild(overlay);
-    const close = () => { localStorage.setItem('sc_start_seen', '1'); overlay.remove(); };
-    $('start-dismiss').addEventListener('click', close);
-    overlay.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
-  }
-  if (location.pathname === '/' && !location.hash && !new URLSearchParams(location.search).has('help')) setTimeout(onboarding, 900);
-
   window.reviewSignCharter = function reviewSignCharter() {
     const name = normalizeName($('sign-name')?.value);
     const country = normalizeCountry($('sign-country')?.value);

@@ -1523,8 +1523,8 @@ window.addEventListener('scroll',()=>{
   document.getElementById('main-nav').classList.toggle('shrunk',window.scrollY>60);
   const fa=document.getElementById('float-assert');
   const bt=document.getElementById('back-top');
-  fa.style.display=window.scrollY>500?'flex':'none';
-  bt.style.display=window.scrollY>500?'flex':'none';
+  if(fa)fa.style.display=window.scrollY>500?'flex':'none';
+  if(bt)bt.style.display=window.scrollY>500?'flex':'none';
 },{passive:true});
 
 // ═══════════════════════════════════════════════════════════
@@ -2795,9 +2795,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     setTimeout(()=>{document.getElementById('cookie-banner').style.display='flex';},2000);
   }
 
-  // Welcome toast
-  setTimeout(()=>toast('Welcome to SherpaCarta. Privacy is your birthright.','info'),1200);
-
   // Signer stat animates on view
   const ss=document.getElementById('signer-stat');
   if(ss&&ss.dataset.count){
@@ -2821,12 +2818,6 @@ if('serviceWorker' in navigator){
     window.addEventListener('offline',()=>toast('You are offline. SherpaCarta still works locally.','info'));
     window.addEventListener('online',()=>toast('Back online.','success'));
   });
-}
-
-// Feature 49: Detect first visit, show brief onboarding hint
-if(!localStorage.getItem('sc_visited')){
-  localStorage.setItem('sc_visited','true');
-  setTimeout(()=>toast('Tip: Press ⌘K to search all articles and commands','info'),3500);
 }
 
 // Feature 50: Simulated auto-increment removed BUILD 507 — real local signatures only

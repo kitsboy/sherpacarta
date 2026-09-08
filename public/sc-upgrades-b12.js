@@ -146,7 +146,7 @@
     SC.totalFeatures = 667;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Full 114-article charter live — BUILD 667', 'success'), 3800);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta — BUILD ${BUILD} — 114 articles complete`);
   });
 })();

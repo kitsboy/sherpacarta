@@ -255,7 +255,7 @@
         if (featTitle) featTitle.textContent = '487 Features';
       }
     };
-    setTimeout(() => toast('SherpaCarta upgraded — 60 enhancements live. BUILD 487.', 'success'), 2000);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta B3 upgrades — BUILD ${BUILD}`);
   });
 })();

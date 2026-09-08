@@ -80,66 +80,7 @@
   });
 
   /* ── 691: First-visit onboarding ── */
-  feat(691, 'First-visit onboarding tour', () => {
-    if (localStorage.getItem('sc_onboard_v1') === '1') return;
-    if (document.getElementById('onboard-overlay')) return;
-    const steps = [
-      {
-        title: 'Privacy is a birthright',
-        body: 'SherpaCarta is a living Magna Carta for the digital age — 114 articles protecting every person on Earth. Zero tracking. CC0 public domain.',
-        cta: 'Next',
-      },
-      {
-        title: 'Read the charter',
-        body: 'Browse every article, stamp the hash on Bitcoin via Satohash, and propose amendments. Rights may only expand — never contract.',
-        cta: 'Next',
-      },
-      {
-        title: 'Sign & assert your rights',
-        body: 'Add your name (or a pseudonym). Your signature stays local. Optional Nostr publish. Canadians: take the petition path to change law.',
-        cta: 'Sign the Charter',
-      },
-    ];
-    let i = 0;
-    const overlay = document.createElement('div');
-    overlay.id = 'onboard-overlay';
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-labelledby', 'onboard-title');
-    function render() {
-      const s = steps[i];
-      overlay.innerHTML = `
-        <div class="onboard-card">
-          <div class="onboard-steps">${steps.map((_, n) => `<span class="onboard-dot${n === i ? ' active' : ''}"></span>`).join('')}</div>
-          <h3 id="onboard-title">${s.title}</h3>
-          <p>${s.body}</p>
-          <div class="onboard-actions">
-            <button type="button" class="cta-main" id="onboard-next">${s.cta}</button>
-            ${i < steps.length - 1 ? '<button type="button" class="cta-sec" id="onboard-sign-now">Skip to Sign</button>' : '<a class="cta-canada" href="/canada/sign">Canada Petition →</a>'}
-          </div>
-          <button type="button" class="onboard-skip" id="onboard-skip">Dismiss</button>
-        </div>`;
-      overlay.querySelector('#onboard-next')?.addEventListener('click', () => {
-        if (i < steps.length - 1) { i++; render(); }
-        else finish(true);
-      });
-      overlay.querySelector('#onboard-sign-now')?.addEventListener('click', () => finish(true));
-      overlay.querySelector('#onboard-skip')?.addEventListener('click', () => finish(false));
-    }
-    function finish(goSign) {
-      localStorage.setItem('sc_onboard_v1', '1');
-      overlay.classList.remove('open');
-      setTimeout(() => overlay.remove(), 300);
-      if (goSign) {
-        document.getElementById('sign')?.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(() => document.getElementById('sign-name')?.focus(), 600);
-      }
-    }
-    document.body.appendChild(overlay);
-    render();
-    // Delay so page paints first
-    setTimeout(() => overlay.classList.add('open'), 900);
-  });
+  // (First-visit onboarding tour removed — quiet first visit; journey rail + /start.html cover onboarding)
 
   /* ── 692: Deep link ?article= + hash ── */
   feat(692, 'Deep link article open + scroll', () => {
@@ -335,24 +276,7 @@
   });
 
   /* ── 701: Sign form confetti + share prompt ── */
-  feat(701, 'Post-sign share encouragement', () => {
-    const orig = window.signCharter;
-    if (typeof orig !== 'function' || orig._b14) return;
-    window.signCharter = function () {
-      const before = typeof state !== 'undefined' ? state.signCount : 0;
-      orig.apply(this, arguments);
-      const after = typeof state !== 'undefined' ? state.signCount : 0;
-      if (after > before) {
-        setTimeout(() => {
-          toast('Share your commitment — privacy needs witnesses', 'success');
-          if (navigator.share) {
-            /* optional — don't force */
-          }
-        }, 1200);
-      }
-    };
-    window.signCharter._b14 = true;
-  });
+  // (Post-sign share toast removed — the success panel already offers share actions)
 
   /* ── 702: Touch targets min 44px audit fix ── */
   feat(702, 'Touch target CSS inject', () => {
@@ -549,7 +473,7 @@
       document.getElementById(id)?.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
           e.preventDefault();
-          window.signCharter?.();
+          window.reviewSignCharter?.();
         }
       });
     });
@@ -594,7 +518,7 @@
     if (typeof buildSigners === 'function') {
       try { buildSigners(); } catch (_) { /* */ }
     }
-    setTimeout(() => toast('Design upgrade live — world-class sign experience — BUILD 720', 'success'), 3500);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Design Sprint — BUILD ${BUILD} · ${SHERPA_UPGRADES.b14.items.length} features`);
   });
 })();

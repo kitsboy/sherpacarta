@@ -196,7 +196,7 @@
     SC.totalFeatures = 647;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Sprint 8 distribution & integrations live — BUILD 647', 'success'), 3600);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Sprint 8 — BUILD ${BUILD}`);
   });
 })();

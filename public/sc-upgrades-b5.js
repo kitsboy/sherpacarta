@@ -272,7 +272,7 @@
     SC.totalFeatures = 527;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Sprint 2 SEO & growth upgrades live — BUILD 527', 'success'), 2500);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Sprint 2 — BUILD ${BUILD}`);
   });
 })();

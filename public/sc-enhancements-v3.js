@@ -1226,7 +1226,9 @@
   feat(296, 'Weekly share reminder', () => {
     const last = parseInt(localStorage.getItem('sc_last_share_reminder') || '0', 10);
     const week = 7 * 24 * 60 * 60 * 1000;
-    if (Date.now() - last > week) {
+    // Only nudge visitors who have already engaged (signed locally)
+    const engaged = (typeof state !== 'undefined' && state.signCount > 0);
+    if (Date.now() - last > week && engaged) {
       setTimeout(() => {
         toast('Share SherpaCarta with one person this week — copy link in hero', 'info');
         localStorage.setItem('sc_last_share_reminder', String(Date.now()));
@@ -1275,12 +1277,7 @@
   });
 
   feat(300, 'v3 init complete toast', () => {
-    setTimeout(() => {
-      if (!sessionStorage.getItem('sc_300_loaded')) {
-        sessionStorage.setItem('sc_300_loaded', '1');
-        toast('300 features active — tap ? for usage guide · ⌘K for commands', 'success');
-      }
-    }, 4000);
+    // (init toast removed — quiet first visit)
     document.addEventListener('keydown', (e) => {
       if (e.key === '?' && !e.target.matches('input,textarea')) {
         e.preventDefault();

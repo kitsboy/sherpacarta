@@ -1076,14 +1076,7 @@
     SC.totalFeatures = 200;
   });
 
-  feat(200, 'v2 init complete toast', () => {
-    setTimeout(() => {
-      if (!sessionStorage.getItem('sc_200_loaded')) {
-        sessionStorage.setItem('sc_200_loaded', '1');
-        toast('200 features active — ⌘K for all commands', 'success');
-      }
-    }, 3500);
-  });
+  // (v2 init toast removed — quiet first visit)
 
   console.log(`SherpaCarta v2.3 — features 101–200 loaded (${FEATURES.length})`);
 })();

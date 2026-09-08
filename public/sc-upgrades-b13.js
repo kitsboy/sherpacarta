@@ -167,7 +167,7 @@
     SC.totalFeatures = 687;
     const bb = document.querySelector('.build-badge');
     if (bb) bb.textContent = 'BUILD ' + BUILD;
-    setTimeout(() => toast('Canada petition system live — all signs auto-Canadian — BUILD 687', 'success'), 4000);
+    // (upgrade toast removed — quiet first visit)
     console.log(`SherpaCarta Canada — BUILD ${BUILD}`);
   });
 })();

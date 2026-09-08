@@ -296,7 +296,7 @@
     cta.href = 'mailto:hello@giveabit.io?subject=Sherpacarta%20Volunteer';
     cta.className = 'btn btn-ghost';
     cta.style.marginTop = '1rem';
-    cta.innerHTML = '<i class="fas fa-hands-helping"></i> Volunteer — join 24 countries';
+    cta.innerHTML = '<i class="fas fa-hands-helping"></i> Volunteer with us';
     mission.querySelector('.mission-inner')?.appendChild(cta);
   });
 
