@@ -22,11 +22,31 @@ jobs:
       - run: node --check public/sw.js
       - run: node --check public/js/sc-top30.js
       - name: Reject private-key material
+        shell: bash
         run: |
-          ! grep -RInE --exclude-dir=.git --exclude-dir=node_modules --exclude='*.lock' --exclude='trust-checks.yml' --exclude='security-audit.yml' --exclude='*.md' --exclude-dir=docs --exclude='*.local' --exclude='check-endpoints-fixture.mjs' --exclude='check-security-contracts.mjs' '(BEGIN (RSA|OPENSSH|EC|PGP) PRIVATE KEY|\bnsec1?[a-z0-9]{20,}|macaroon|ORGANIZER_TOKEN=)' .
+          set -euo pipefail
+          # grep prints file:line:match itself; the labels below just say WHY it failed.
+          if grep -RInE --exclude-dir=.git --exclude-dir=node_modules --exclude='*.lock' --exclude='trust-checks.yml' --exclude='security-audit.yml' --exclude='*.md' --exclude-dir=docs --exclude='*.local' --exclude='check-endpoints-fixture.mjs' --exclude='check-security-contracts.mjs' '(BEGIN (RSA|OPENSSH|EC|PGP) PRIVATE KEY|\bnsec1?[a-z0-9]{20,}|macaroon|ORGANIZER_TOKEN=)' .; then
+            echo 'FAIL: private-key material found above (file:line:match). Remove it from the repository — keys belong in the HQ Vault only.' >&2
+            exit 1
+          fi
       - name: Require honest proof language
+        shell: bash
         run: |
-          grep -q 'pendingIsConfirmed.*false' public/release-manifest.json
-          grep -q 'Pending is not Bitcoin-confirmed' public/verify.html
+          set -euo pipefail
+          # Each invariant names its file on failure, so CI errors point at the
+          # real offender instead of the first line of the step.
+          check() { # check <file> <pattern> <why>
+            if ! grep -q -- "$2" "$1"; then
+              echo "FAIL [$1]: required string not found — pattern: $2" >&2
+              echo "     Invariant: $3" >&2
+              exit 1
+            fi
+          }
+          check public/release-manifest.json 'pendingIsConfirmed.*false' \
+            'proof.pendingIsConfirmed must be false — a pending stamp is never Bitcoin-confirmed.'
+          check public/verify.html 'Pending is not Bitcoin-confirmed' \
+            'The verify page must state the exact sentence "Pending is not Bitcoin-confirmed" (honesty copy, verify-note aside).'
+          echo 'Honest proof language: all invariants present (release-manifest.json, verify.html).'
       - name: Build
         run: npm run build
