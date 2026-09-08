@@ -283,6 +283,25 @@
     this.sockets = [];
   };
 
+  /** Switch the wall to a different hashtag filter and reconnect. */
+  Wall.prototype.refilter = function (tag) {
+    tag = String(tag || '').replace(/^#/, '').trim();
+    if (!tag) return;
+    if (!this.cfg.wall) this.cfg.wall = {};
+    this.cfg.wall.includeHashtag = tag;
+    this.events.clear();
+    try {
+      var c = document.getElementById('nw-count');
+      if (c) c.textContent = '0';
+    } catch (_) {}
+    this.render();
+    this.connect();
+    var pill = document.querySelector('[data-nw-filter].is-active');
+    if (pill) { pill.classList.remove('is-active'); pill.setAttribute('aria-pressed', 'false'); }
+    var next = document.querySelector('[data-nw-filter="' + tag + '"]');
+    if (next) { next.classList.add('is-active'); next.setAttribute('aria-pressed', 'true'); }
+  };
+
   Wall.prototype.start = function () {
     var self = this;
     this.connect();
@@ -322,7 +341,10 @@
       });
   }
 
-  window.SCNostrWall = { mount: mount };
+  window.SCNostrWall = { mount: mount, refilter: function (tag) {
+    var root = document.querySelector('[data-sc-nostr-wall]');
+    if (root && root._scNostrWall && typeof root._scNostrWall.refilter === 'function') root._scNostrWall.refilter(tag);
+  } };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {

@@ -1833,6 +1833,7 @@ function buildArticlesBrowser(){
       <div class="art-actions">
         <button type="button" class="art-action-btn${signed?' signed':''}" id="sign-art-${idx}" onclick="signArticle(${idx})"><i class="fas fa-signature"></i> ${signed?'Signed ✓':'Sign this article'}</button>
         <button type="button" class="art-action-btn" onclick="shareArticle('${safeTitle}')"><i class="fas fa-share-nodes"></i> Share</button>
+        <button type="button" class="art-action-btn" onclick="nostrArticle(${idx})"><i class="fas fa-bolt"></i> Publish to Nostr</button>
         <button type="button" class="art-action-btn" onclick="aiSummarize(${idx})"><i class="fas fa-sparkles"></i> AI Summary</button>
         <button type="button" class="art-action-btn" onclick="copyArticle(${idx})"><i class="fas fa-copy"></i> Copy</button>
       </div>
@@ -1899,6 +1900,43 @@ function shareArticle(title){
 function copyArticle(i){
   navigator.clipboard.writeText(document.querySelector('#art-'+i+' .art-body').textContent);
   toast('Article text copied','success');
+}
+
+/**
+ * Publish an article to Nostr as a NIP-23 long-form note (kind 30023)
+ * via NIP-07 (browser extension). Nothing is sent without explicit consent.
+ */
+async function nostrArticle(i){
+  const art=getArticleByFlatIndex(i);
+  if(!art){toast('Article not found','error');return;}
+  if(!window.nostr||typeof window.nostr.signEvent!=='function'){
+    toast('Connect a Nostr extension first (Alby, nos2x, Primal)','error');
+    const t=document.getElementById('sign');
+    if(t)t.scrollIntoView({behavior:'smooth'});
+    return;
+  }
+  try{
+    const pk=await window.nostr.getPublicKey();
+    const num=art.num||('Art. '+(i+1));
+    const title=`${num}: ${art.title||'Untitled'}`;
+    const body=String(art.body||'').replace(/<br\s*\/?>/gi,'\n').replace(/<[^>]+>/g,'').trim();
+    const tags=[['d',num.replace(/[^A-Za-z0-9]+/g,'-').toLowerCase()],['title',title]];
+    (art.tags||[]).slice(0,4).forEach(t=>tags.push(['t',t]));
+    if(!tags.some(t=>t[0]==='t'&&t[1]==='sherpacarta'))tags.push(['t','sherpacarta']);
+    tags.push(['t','digitalrights']);
+    tags.push(['r','https://sherpacarta.org/?article='+i]);
+    const draft={kind:30023,created_at:Math.floor(Date.now()/1000),tags:tags,content:body+'\n\n— via SherpaCarta (https://sherpacarta.org/?article='+i+')',pubkey:pk};
+    toast('Waiting for your signature in the extension…','info');
+    const signed=await window.nostr.signEvent(draft);
+    const lib=window.SCNostr||null;
+    if(!lib){toast('Nostr helpers not loaded','error');return;}
+    toast('Publishing to relays…','info');
+    const res=await lib.publishEvent(signed);
+    if(res&&res.ok)toast('Published to '+res.successCount+' relay(s) — '+title,'success');
+    else toast('Publish failed — no relay accepted it. Try again.','error');
+  }catch(e){
+    toast('Nostr publish cancelled or failed','error');
+  }
 }
 function aiSummarize(i){
   const spin=document.getElementById('ai-spin-'+i),res=document.getElementById('ai-res-'+i);

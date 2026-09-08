@@ -278,6 +278,31 @@ body.nw-page{
 .nw-x-fallback a{color:var(--em2)}
 /* X embeds inject light chrome — keep readable */
 .nw-x-frame iframe{max-width:100%!important}
+/* NIP-05 identity card */
+.nw-identity{margin:1.15rem 0;padding:1.2rem 1.25rem;border-radius:1rem;border:1px solid rgba(16,185,129,.28);background:linear-gradient(160deg,rgba(16,185,129,.07),rgba(16,185,129,.02) 65%)}
+.nw-id-main{display:flex;align-items:flex-start;gap:.8rem}
+.nw-id-main>i{color:var(--em);font-size:1.5rem;margin-top:.1rem}
+.nw-id-main strong{display:block;font-family:var(--serif);font-size:1.1rem;color:var(--text)}
+.nw-id-main span{display:block;font-size:.82rem;color:var(--text2);line-height:1.6;margin-top:.25rem;max-width:640px}
+.nw-id-main code{font-family:var(--mono);font-size:.8rem;color:var(--em2)}
+.nw-id-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:1.1rem}
+@media(max-width:760px){.nw-id-cols{grid-template-columns:1fr}}
+.nw-id-col{display:flex;flex-direction:column;gap:.3rem;padding:.85rem .95rem;border:1px solid var(--border);border-radius:.8rem;background:var(--bg)}
+.nw-id-lab{font-family:var(--mono);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)}
+.nw-id-val{font-family:var(--mono);font-size:.75rem;color:var(--text);word-break:break-all}
+.nw-id-status{font-family:var(--mono);font-size:.56rem;letter-spacing:.05em;display:inline-flex;align-items:center;gap:.3rem}
+.nw-id-status.live{color:#86efac}
+.nw-id-copy{font-family:var(--mono);font-size:.58rem;padding:.28rem .6rem;border-radius:99px;border:1px solid var(--border2);background:var(--bg3);color:var(--em2);cursor:pointer;align-self:flex-start;margin-top:.15rem;min-height:36px}
+.nw-id-copy:hover{border-color:var(--em)}
+.nw-id-note{margin:.9rem 0 0;font-size:.72rem;color:var(--text3);line-height:1.6}
+.nw-id-note a{color:var(--em2)}
+/* Wall filter pills */
+.nw-filters{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;margin-bottom:.85rem}
+.nw-filters-lab{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-right:.2rem}
+.nw-filter{font-family:var(--mono);font-size:.6rem;padding:.3rem .7rem;border-radius:99px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);cursor:pointer;transition:all .15s;min-height:34px}
+.nw-filter:hover{border-color:var(--em);color:var(--em)}
+.nw-filter.is-active{color:#041208;background:linear-gradient(135deg,var(--em),#0d9668);border-color:transparent;font-weight:600}
+.nw-empty{border:1px dashed var(--border)}
 .nw-epetition{
   margin-top:1.5rem;padding:1.15rem 1.25rem;border-radius:1rem;
   border:1px solid rgba(212,175,55,.3);
@@ -314,9 +339,39 @@ body.nw-page{
 
 <div class="nw-actions" style="margin-top:1.25rem">
   <button type="button" class="btn btn-primary" id="btn-copy-nip"><i class="fas fa-copy"></i> Copy sherpa@sherpacarta.org</button>
+  <button type="button" class="btn" id="btn-copy-npub"><i class="fas fa-key"></i> Copy Sherpa npub</button>
   <a class="btn" href="https://x.com/intent/tweet?text=Supporting%20digital%20rights%20%23Sherpacarta%20https%3A%2F%2Fsherpacarta.org" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Post #Sherpacarta</a>
   <a class="btn" href="https://x.com/give_bit" target="_blank" rel="noopener"><i class="fas fa-user"></i> @give_bit</a>
   <a class="btn" href="#live-wall"><i class="fas fa-radio"></i> Jump to live walls</a>
+</div>
+
+<!-- NIP-05 + identity status card -->
+<div class="nw-identity" aria-label="Nostr identity status">
+  <div class="nw-id-main">
+    <i class="fas fa-badge-check" aria-hidden="true"></i>
+    <div>
+      <strong>NIP-05 is live on this domain</strong>
+      <span>The product guide <code>sherpa@sherpacarta.org</code> resolves to a verified public key over HTTPS — no central identity company in the middle.</span>
+    </div>
+  </div>
+  <div class="nw-id-cols">
+    <div class="nw-id-col">
+      <span class="nw-id-lab">Product guide</span>
+      <code class="nw-id-val" id="nw-id-product">sherpa@sherpacarta.org</code>
+      <span class="nw-id-status live"><i class="fas fa-circle-check" aria-hidden="true"></i> Live · verified</span>
+    </div>
+    <div class="nw-id-col">
+      <span class="nw-id-lab">Suite ops</span>
+      <code class="nw-id-val" id="nw-id-ops">kimi@sherpacarta.org</code>
+      <span class="nw-id-status live"><i class="fas fa-circle-check" aria-hidden="true"></i> Live · verified</span>
+    </div>
+    <div class="nw-id-col">
+      <span class="nw-id-lab">Sherpa public key</span>
+      <code class="nw-id-val" id="nw-id-npub">npub10k63r…</code>
+      <button type="button" class="nw-id-copy" id="btn-copy-npub-2"><i class="fas fa-copy" aria-hidden="true"></i> Copy npub</button>
+    </div>
+  </div>
+  <p class="nw-id-note">Check it yourself: <a href="/.well-known/nostr.json" target="_blank" rel="noopener">/.well-known/nostr.json</a> is the machine-readable mapping. Any Nostr client can resolve it.</p>
 </div>
 
 <div class="nw-epetition">
@@ -481,6 +536,14 @@ body.nw-page{
         <span class="live" style="font-size:.52rem">relays · open</span>
         <div class="sub">#sherpacarta · sherpa@sherpacarta.org · public notes only</div>
       </div>
+      <div class="nw-filters" role="group" aria-label="Filter the Nostr wall by hashtag">
+        <span class="nw-filters-lab"><i class="fas fa-filter" aria-hidden="true"></i> Filter</span>
+        <button type="button" class="nw-filter is-active" data-nw-filter="sherpacarta" aria-pressed="true" onclick="window.SCNostrWall && SCNostrWall.refilter('sherpacarta')">#sherpacarta</button>
+        <button type="button" class="nw-filter" data-nw-filter="digitalrights" aria-pressed="false" onclick="window.SCNostrWall && SCNostrWall.refilter('digitalrights')">#digitalrights</button>
+        <button type="button" class="nw-filter" data-nw-filter="privacy" aria-pressed="false" onclick="window.SCNostrWall && SCNostrWall.refilter('privacy')">#privacy</button>
+        <button type="button" class="nw-filter" data-nw-filter="bitcoin" aria-pressed="false" onclick="window.SCNostrWall && SCNostrWall.refilter('bitcoin')">#bitcoin</button>
+        <button type="button" class="nw-filter" data-nw-filter="canada" aria-pressed="false" onclick="window.SCNostrWall && SCNostrWall.refilter('canada')">#canada</button>
+      </div>
       <section id="sc-nostr-wall" data-sc-nostr-wall aria-label="Live Nostr notes">
         <div data-nw-status>Connecting to relays…</div>
         <div data-nw-meta></div>
@@ -553,6 +616,12 @@ body.nw-page{
   document.getElementById('btn-copy-npub')?.addEventListener('click', function () {
     copy(npub, 'Copied npub');
   });
+  document.getElementById('btn-copy-npub-2')?.addEventListener('click', function () {
+    copy(npub, 'Copied npub');
+  });
+  var idNpub = document.getElementById('nw-id-npub');
+  if (idNpub) idNpub.textContent = npub;
+  idNpub && idNpub.setAttribute('title', npub);
 
   // Animate compare bars when visible
   function animateBars() {
