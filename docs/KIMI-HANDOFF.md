@@ -7,6 +7,7 @@
 - Re-unified HTML cache-bust to `v=911` (had regressed to 869×29 / 910×18 / 860×18 / 731/733/738 mix — the handoff's "preload and script ?v= must stay identical" rule was broken by later commits).
 - SW cache `v9.0` → `v9.1`.
 - Rebased over parallel hot-fix `9e1dd8d` (Kimi/other agent restored the same sentence but kept the stray `+`); resolved keeping the fuller fix. Their run passing independently confirmed the diagnosis.
+- Follow-up `e6ce558`: made `static-trust` failures name the real failing file — each honesty invariant now prints `FAIL [file]` + missing pattern + meaning (GitHub only shows the first line of a multi-line step as the step name, which is what misdirected today's diagnosis); secret-scan step got an explicit failure label too. Tested happy + failure paths locally; CI green.
 
 **Verification:** build + all 12 check suites + secret-pattern scan + `git diff --check` pass locally; Trust checks run 34273644269 success on origin.
 
