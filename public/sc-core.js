@@ -1763,6 +1763,9 @@ function buildArticlesBrowser(){
   const main=document.getElementById('articles-main');
   if(!sidebar||!main||!Array.isArray(CHARTER))return;
   sidebar.innerHTML='';main.innerHTML='';
+  // Map article number → flat index once (needed by cross-article links)
+  window._artIdxByNum={};
+  {let n=0;for(const ch0 of (CHARTER||[])){for(const a0 of (ch0.articles||[])){window._artIdxByNum[String(a0.num)]=n;n++;}}}
   let i=0;
   const totalArts=CHARTER.reduce((n,ch)=>n+(ch.articles||[]).length,0);
   CHARTER.forEach((ch)=>{
@@ -1817,16 +1820,17 @@ function buildArticlesBrowser(){
     const sub=art.subtitle?`<div class="art-subtitle-line" style="font-size:.8rem;color:var(--text3);margin:.25rem 0 .75rem;font-family:var(--serif);font-style:italic">${art.subtitle}</div>`:'';
     const extHtml=art.sherpa_ext
       ?`<div class="ca-sherpa"><strong>SHERPACARTA EXTENSION</strong>${art.sherpa_ext}</div>`
-      :'';
-    div.innerHTML=`
+      :'';    div.innerHTML=`
       <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;flex-wrap:wrap">
         <div style="flex:1;min-width:0">
+          <div class="art-chapter-line">${String(ch.chapter||'').replace(/^Chapter [^—]+ — /,'')}</div>
           <div class="art-title">${art.title||''}</div>
           <div class="art-subtitle">${art.num||''}${art.sherpa?' · SherpaCarta Extension':''}</div>
           ${sub}
         </div>
         ${art.sherpa?'<span class="art-tag" style="background:rgba(16,185,129,.15);border-color:var(--em)">SHERPA EXT.</span>':''}
       </div>
+
       <div class="art-body"><p>${bodyHtml}</p></div>
       ${extHtml}
       <div class="art-tags">${(art.tags||[]).map(t=>`<span class="art-tag">#${t}</span>`).join('')}</div>
@@ -1840,11 +1844,43 @@ function buildArticlesBrowser(){
       </div>
       <div class="ai-spinner" id="ai-spin-${idx}">✦ Generating summary...</div>
       <div class="ai-result" id="ai-res-${idx}"></div>
+      <nav class="art-nav" aria-label="Article navigation">
+        ${idx>0?`<button type="button" class="art-nav-btn" data-prev="${idx-1}"><i class="fas fa-arrow-left" aria-hidden="true"></i><span><small>Previous</small>${getArticleByFlatIndex(idx-1)?.num||''} · ${getArticleByFlatIndex(idx-1)?.title||''}</span></button>`:'<span></span>'}
+        ${idx<totalArts-1?`<button type="button" class="art-nav-btn is-next" data-next="${idx+1}"><span><small>Next</small>${getArticleByFlatIndex(idx+1)?.num||''} · ${getArticleByFlatIndex(idx+1)?.title||''}</span><i class="fas fa-arrow-right" aria-hidden="true"></i></button>`:'<span></span>'}
+      </nav>
+      <div class="art-more"><div class="art-more-lab">More from this chapter</div><div class="art-more-links">${(ch.articles||[]).filter(a2=>a2!==art).slice(0,4).map(a2=>{const realIdx=window._artIdxByNum&&window._artIdxByNum[String(a2.num)];return `<button type="button" class="art-more-link" data-more="${typeof realIdx==='number'?realIdx:idx}">${a2.num} · ${a2.title}</button>`;}).join('')}</div></div>
     `;
     main.appendChild(div);
     i++;
     });
   });
+  // Article nav + reading progress
+  main.addEventListener('click',(e)=>{
+    const prev=e.target.closest('[data-prev]');
+    const next=e.target.closest('[data-next]');
+    const more=e.target.closest('[data-more]');
+    if(prev){window.jumpToArticle(prev.dataset.prev);}
+    else if(next){window.jumpToArticle(next.dataset.next);}
+    else if(more){window.jumpToArticle(more.dataset.more);}
+  });
+  // Reading progress bar (scroll within articles-main)
+  const prog=document.createElement('div');
+  prog.className='art-progress';
+  prog.innerHTML='<span></span>';
+  prog.setAttribute('role','progressbar');
+  prog.setAttribute('aria-label','Article reading progress');
+  main.insertBefore(prog,main.firstChild);
+  let progTimer=null;
+  main.addEventListener('scroll',()=>{
+    if(progTimer)return;
+    progTimer=requestAnimationFrame(()=>{
+      progTimer=null;
+      const max=main.scrollHeight-main.clientHeight;
+      const pct=max>0?Math.min(100,Math.round((main.scrollTop/max)*100)):0;
+      prog.firstElementChild.style.width=pct+'%';
+      prog.setAttribute('aria-valuenow',String(pct));
+    });
+  },{passive:true});
   // Jump helpers for deep-links / resume
   window.jumpToArticle=function(numOrIdx){
     const raw=String(numOrIdx||'').trim();
