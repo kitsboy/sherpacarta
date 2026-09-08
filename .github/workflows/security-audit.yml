@@ -31,7 +31,7 @@ jobs:
         run: |
           set -euo pipefail
           if grep -RInE --exclude-dir=.git --exclude-dir=node_modules --exclude='*.lock' --exclude='*.md' --exclude-dir=docs --exclude='*.local' --exclude='security-audit.yml' --exclude='trust-checks.yml' --exclude='check-endpoints-fixture.mjs' --exclude='check-security-contracts.mjs' '(BEGIN (RSA|OPENSSH|EC|PGP) PRIVATE KEY|\bnsec1?[a-z0-9]{20,}|macaroon|-----BEGIN)' .; then
-            echo 'Potential private-key material found.' >&2
+            echo 'FAIL [secret-scan]: private-key material found above (file:line:match). Remove it from the repository — keys belong in the HQ Vault only.' >&2
             exit 1
           fi
       - name: Security policy exists
