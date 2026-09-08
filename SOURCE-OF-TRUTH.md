@@ -1,11 +1,11 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-08-27
-**BUILD:** priority next-100 release · SW **v8.1** · Read → Sign → Verify
+**Date:** 2026-09-08
+**BUILD:** site-wide UX audit pass · SW **v9.0** · Read → Sign → Verify
 **Live:** https://sherpacarta.org  
 **GitHub:** https://github.com/kitsboy/sherpacarta.git  
-**Last goodbye base:** `17b3336` + goodbye commit  
+**Last goodbye base:** 2026-09-08 UX audit release  
 
 ## Project Overview (Simple Pitch)
 SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights. Moral/political declaration (CC0). Canada is the first law-change beachhead; UK & EU are planned next. Bitcoin-funded. Zero tracking. Local-first signing.
@@ -20,7 +20,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/sc-core.js` — Core UI + CHARTER inject + safe toast/signers/amendments
 - `public/sc-bundle.js` — enhancements + upgrades b1–b14
 - `public/js/sc-petition-canada.js` — Canada campaign petition (no private key storage)
-- `public/sw.js` — Service worker **v8.1** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
+- `public/sw.js` — Service worker **v9.0** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
 - `public/start.html` — universal onboarding and role paths
 - `public/verify.html` — local SHA-256 proof verification guide/tool
 - `public/archive.html`, `public/cite.html`, `public/data/releases.json` — release archive and citations

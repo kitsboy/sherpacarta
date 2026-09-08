@@ -2,16 +2,16 @@
   "schema": "gab.product-metrics.v1",
   "productId": "sherpacarta",
   "name": "SherpaCarta",
-  "updatedAt": "2026-08-26T18:18:53.114Z",
+  "updatedAt": "2026-09-08T19:00:11.036Z",
   "window": {
     "label": "7d",
-    "from": "2026-08-19T18:18:53.114Z",
-    "to": "2026-08-26T18:18:53.114Z"
+    "from": "2026-09-01T19:00:11.036Z",
+    "to": "2026-09-08T19:00:11.036Z"
   },
   "health": {
     "status": "green",
     "message": "Live public sources — Canada campaign KV, on-chain treasury, charter data. LN balance via HQ wallet id sherpacarta.",
-    "latencyMs": 314,
+    "latencyMs": 1130,
     "uptimePct24h": null,
     "dependencies": [
       {
@@ -27,7 +27,7 @@
       {
         "id": "on-chain-treasury",
         "status": "green",
-        "detail": "mempool.space · 12884 sats · 1 txs"
+        "detail": "mempool.space · 0 sats · 0 txs"
       },
       {
         "id": "lightning",
@@ -63,16 +63,16 @@
     {
       "key": "donations_btc",
       "label": "Donations (BTC on-chain)",
-      "value": 0.00012884,
+      "value": 0,
       "unit": "BTC",
       "format": "number",
       "priority": 1,
-      "hint": "On-chain treasury balance (12884 sats). LN sats on HQ Money tab (wallet sherpacarta)."
+      "hint": "On-chain treasury balance (0 sats). LN sats on HQ Money tab (wallet sherpacarta)."
     },
     {
       "key": "donations_sats",
       "label": "Treasury sats (on-chain)",
-      "value": 12884,
+      "value": 0,
       "unit": "sats",
       "format": "number",
       "priority": 1,
@@ -117,7 +117,7 @@
     {
       "key": "treasury_txs",
       "label": "Treasury txs",
-      "value": 1,
+      "value": 0,
       "unit": "txs",
       "format": "number",
       "priority": 3,
@@ -141,7 +141,7 @@
       "color": "#c45f00",
       "points": [
         {
-          "t": "2026-08-26T00:00:00.000Z",
+          "t": "2026-09-08T00:00:00.000Z",
           "v": 4
         }
       ]
@@ -153,8 +153,8 @@
       "color": "#f7931a",
       "points": [
         {
-          "t": "2026-08-26T00:00:00.000Z",
-          "v": 12884
+          "t": "2026-09-08T00:00:00.000Z",
+          "v": 0
         }
       ]
     }
@@ -263,7 +263,7 @@
         {
           "id": "onchain",
           "label": "On-chain BTC",
-          "value": 12884,
+          "value": 0,
           "meta": {
             "status": "live",
             "unit": "sats"
@@ -400,10 +400,10 @@
       "pt",
       "sw"
     ],
-    "donations_sats": 12884,
-    "donations_btc": 0.00012884,
+    "donations_sats": 0,
+    "donations_btc": 0,
     "treasury_address": "bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq",
-    "treasury_tx_count": 1,
+    "treasury_tx_count": 0,
     "lightning_public_status": "live",
     "umami_website_id": "9b6f05bf-286e-4b21-9094-1d675f9b4442",
     "umami_host": "https://analytics.giveabit.io",

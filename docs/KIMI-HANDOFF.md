@@ -1,3 +1,25 @@
+## Session — 2026-09-08 (Buffy M3 — SITE-WIDE UX AUDIT EXECUTION)
+
+**Done (all checks green, pushed):**
+- First-visit quiet: removed every stale build-announcement toast (BUILD 487/527/647/667/687/720), welcome/init toasts, both onboarding systems (b14 blocking overlay + sc-next100 invisible undismissable dialog), and the announcement banner.
+- Sign flow: Enter now opens the review modal (was bypassing it), removed the auto-download of `SherpaCarta-Signature.txt` on confirm, removed title-blink and post-sign share toast; added a "Make your signature count" Canada nudge card in the sign section.
+- Mobile chrome: cookie banner now floats above the bottom nav; journey rail un-clipped at small widths; removed the floating "I Assert My Rights" button and dead `.mobile-action-bar`; back-to-top/toast-stack/a11y-chip repositioned above the nav; confetti disabled under `prefers-reduced-motion`.
+- Performance: unified all `?v=` cache-busts to `v=900` (preload `865` vs scripts `862` caused double downloads of sc-core/sc-bundle/sc-nostr-lib); bundle 309→295 KB; SW `v9.0` (draft-video + duplicate entries removed).
+- Honesty copy: trust bar "8+ Languages" / "Every Person on Earth"; hero "Bitcoin-verifiable"; press section explicit "references, not coverage claims"; FAQ softened on legal panels / 24 countries; volunteer copy fixed; duplicate OG meta block removed.
+
+**Verification:** build + all 12 check suites pass (release, public, security, a11y, disclosure, demo, endpoints, seo-i18n, rights, next100, sign-flow 33, reader) + `git diff --check`.
+
+**Do not regress:**
+- No auto-toasts/modals in first seconds of a fresh visit
+- Enter key opens sign review (never signs directly)
+- No auto file downloads on sign confirm
+- Cookie banner must never cover the mobile bottom nav
+- Preload and script `?v=` versions must stay identical
+
+**Files:** `index.html`, `public/sc-core.js`, `public/sc-bundle.js` (+ 21 legacy sources), `public/sc-main.css`, `public/sw.js`, `public/js/sc-next100.js`, `LATEST-UPDATE.md`, `.ai_docs/current-status.md`, `SOURCE-OF-TRUTH.md`
+
+---
+
 ## Session — 2026-08-27 (Buffy M3 — SIGNING FLOW + LANDING PAGE + UI POLISH)
 
 **Done:**

@@ -1,8 +1,35 @@
 # SherpaCarta current status
 
-**Updated:** 2026-08-27 · Buffy M3
+**Updated:** 2026-09-08 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** `83643df`
+**Latest pushed release:** UX audit pass (2026-09-08)
+
+## Site-wide UX audit pass (2026-09-08)
+
+Executed the full findings list from the 2026-09-08 review: first-visit noise, sign-flow consistency, mobile chrome collisions, a double-download perf bug, and honesty copy mismatches.
+
+### What was done
+
+- **First-visit quiet:** Removed all stale build-announcement toasts (BUILD 487/527/647/667/687/720), welcome/init toasts, both onboarding systems (blocking overlay + invisible undismissable dialog), and the announcement banner. Fresh visits are now clean.
+- **Sign flow:** Enter opens the review modal (no direct-sign bypass), no auto-download of signature cert on confirm, no title-blink, no post-sign share toast; added a "Make your signature count" Canada nudge card making local-sign vs real-campaign explicit.
+- **Mobile chrome:** Cookie banner floats above the bottom nav; journey rail no longer clips; removed the floating "I Assert My Rights" button and dead `.mobile-action-bar`; back-to-top/toasts/a11y-chip cleared of the nav; confetti respects reduced motion.
+- **Performance:** Unified all `?v=` cache-busts to `v=900` (preload was `865`, scripts `862` → sc-core/sc-bundle/sc-nostr-lib downloaded twice); bundle 309→295 KB; SW `v9.0` with draft-video/dupe entries removed.
+- **Honesty copy:** Trust bar "8+ Languages" and "Every Person on Earth"; hero "Bitcoin-verifiable"; press section "references, not coverage claims" line; FAQ softened on legal panels/24 countries; volunteer copy fixed.
+- **Housekeeping:** Duplicate OG meta block removed; focus-visible rings across sign flow, bottom nav, floating buttons.
+
+### Verification
+
+- `npm run build` ✅
+- All 12 check suites pass (release, public, security, a11y, disclosure, demo, endpoints, seo-i18n, rights, next100, sign-flow 33, reader) ✅
+- `git diff --check` ✅
+- Bundle noise grep clean (no BUILD-announcement toasts) ✅
+
+**Do not regress:**
+- No auto-toasts/modals in the first seconds of a fresh visit
+- Enter key must open sign review, never sign directly
+- No auto file downloads on sign confirm
+- Cookie banner must never cover the mobile bottom nav
+- Preload and script `?v=` versions must stay identical
 
 ## Signing-flow upgrade (2026-08-27)
 
