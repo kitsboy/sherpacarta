@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-/** Concatenate enhancement + upgrade scripts → public/sc-bundle.js (per-file minify) */
+/** Concatenate enhancement + upgrade scripts → public/sc-bundle.js (per-file minify).
+ *  Home must load this one file, never sc-upgrades-b1.js … b15.js as script tags. */
 import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
