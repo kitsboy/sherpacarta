@@ -2,7 +2,7 @@
 
 **Project Name:** SherpaCarta  
 **Date:** 2026-09-08
-**BUILD:** first-choice journey · SW **v9.2** · local sign vs Canada campaign
+**BUILD:** first-choice journey · SW **v9.3** · local sign vs Canada campaign
 **Live:** https://sherpacarta.org  
 **GitHub:** https://github.com/kitsboy/sherpacarta.git  
 **Last goodbye base:** 2026-09-08 UX audit release  
@@ -20,7 +20,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/sc-core.js` — Core UI + CHARTER inject + safe toast/signers/amendments
 - `public/sc-bundle.js` — enhancements + upgrades b1–b14
 - `public/js/sc-petition-canada.js` — Canada campaign petition (no private key storage)
-- `public/sw.js` — Service worker **v9.2** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
+- `public/sw.js` — Service worker **v9.3** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
 - `public/start.html` — universal onboarding and role paths
 - `public/verify.html` — local SHA-256 proof verification guide/tool
 - `public/archive.html`, `public/cite.html`, `public/data/releases.json` — release archive and citations

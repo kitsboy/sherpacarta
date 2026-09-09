@@ -120,9 +120,7 @@
   });
 
   feat(114, 'Slow network toast', () => {
-    if (navigator.connection?.effectiveType === '2g' || navigator.connection?.effectiveType === 'slow-2g') {
-      setTimeout(() => toast('Slow connection — core charter still works offline', 'info'), 3000);
-    }
+    // First-visit quiet: no auto-toast on 2g. Offline banner still covers connectivity.
   });
 
   feat(115, 'Prefetch charter modal on hover', () => {
@@ -590,7 +588,7 @@
       localStorage.setItem('sc_streak', streak);
     }
     localStorage.setItem('sc_last_visit', today);
-    if (streak > 2) setTimeout(() => toast(`🔥 ${streak}-day streak — rights warrior`, 'success'), 4000);
+    if (streak > 2) localStorage.setItem('sc_streak_noted', '1');
   });
 
   feat(155, 'Charter completion progress', () => {

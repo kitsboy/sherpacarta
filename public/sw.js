@@ -1,4 +1,4 @@
-const CACHE = 'sherpacarta-v9.2';
+const CACHE = 'sherpacarta-v9.3';
 const ASSETS = [
   '/', '/index.html', '/changelog.html', '/comparison.html', '/press.html', '/press-kit.html',
   '/briefing.html', '/briefing-fr.html', '/leave-behind.html',

@@ -221,11 +221,7 @@
   });
 
   feat(208, 'Mobile tip on first visit', () => {
-    if (localStorage.getItem('sc_mobile_tip') || window.innerWidth > 768) return;
-    setTimeout(() => {
-      toast('Tip: tap ☰ for menu, ? for help, BUILD badge for features', 'info');
-      localStorage.setItem('sc_mobile_tip', '1');
-    }, 4000);
+    // First-visit quiet: no auto-toast. The menu and help remain discoverable.
   });
 
   feat(209, 'Signing walkthrough', () => {

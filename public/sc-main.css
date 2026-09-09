@@ -4495,7 +4495,7 @@ section.section,
     border-radius:1rem;
   }
   #cookie-banner p{font-size:.7rem;line-height:1.5}
-  #cookie-banner .cookie-actions .btn{min-height:40px;font-size:.68rem}
+  #cookie-banner .cookie-actions .btn{min-height:44px;font-size:.68rem}
   /* a11y chip sits above the bottom nav too */
   #a11y-chip{
     bottom:calc(var(--bottom-nav-h) + .75rem + env(safe-area-inset-bottom,0)) !important;
@@ -4778,4 +4778,30 @@ section.section,
 [data-theme="light"] .hero-choice-card.is-canada{
   background:linear-gradient(160deg,#fff8e4,#f3eee0);
   border-color:rgba(180,140,20,.4);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   390px sign/hero chrome — cards + review above bottom nav
+═══════════════════════════════════════════════════════════ */
+.hero-choice-card{min-height:44px}
+@media(max-width:768px){
+  #pwa-install-bar{
+    bottom:calc(var(--bottom-nav-h) + env(safe-area-inset-bottom,0) + .75rem) !important;
+    left:.75rem;right:.75rem;transform:none;width:auto;
+  }
+}
+@media(max-width:640px){
+  .sign-review{
+    align-items:end;
+    padding:0;
+  }
+  .sign-review-card{
+    width:100%;
+    max-height:min(92dvh, calc(100dvh - env(safe-area-inset-bottom,0)));
+    overflow:auto;
+    border-radius:1.2rem 1.2rem 0 0;
+    padding:1.25rem 1.25rem calc(1.35rem + env(safe-area-inset-bottom,0));
+  }
+  .sign-review-close{width:44px;height:44px;min-width:44px;min-height:44px;top:.65rem;right:.65rem}
+  .sign-review-card .btn,.sign-review-actions .btn{min-height:44px;width:100%;justify-content:center}
 }

@@ -1,3 +1,20 @@
+## Session — 2026-09-09 (Buffy M3 — LOAD + BUNDLE + MOBILE + TRUST)
+
+**Done:**
+- Contracted the remaining four tracks in `check-next100` (27) and `check:sign-flow` (35): unified home `?v=`, no `sc-upgrades-b*.js` script tags, first-visit quiet, Explore rail hidden ≤768px, cookie/toast clear of the bottom nav, 44px cookie + review-close, can/cannot surface, pending≠confirmed, export/delete.
+- Home already executed one `sc-bundle.js`; documented that in `bundle-js.mjs`. Removed leftover first-visit auto-toasts (mobile tip, streak, slow-2g).
+- 390px: sign-review is a bottom sheet; review close 44px; cookie actions 44px; PWA bar sits above the bottom nav.
+- Transparency card now says a stamp is not law and a local signature is not a House of Commons petition.
+- Cache-bust `v=914` · SW `v9.3`.
+
+**Do not regress:**
+- `index.html` must not `<script src="/sc-upgrades-b*.js">`
+- Home `?v=` on css/js must stay a single token
+- `#cookie-banner` / `#toast-stack` / `#pwa-install-bar` stay above `--bottom-nav-h` on mobile
+- Transparency heading + House of Commons boundary stay on home
+
+---
+
 ## Session — 2026-09-09 (Buffy M3 — FIRST-CHOICE JOURNEY)
 
 **Done (pushed):**

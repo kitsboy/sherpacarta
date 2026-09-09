@@ -2,7 +2,7 @@
 
 **Updated:** 2026-09-09 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** first-choice journey (local vs Canada) · v=913 · SW v9.2
+**Latest pushed release:** load + bundle + mobile chrome + trust contracts · v=914 · SW v9.3
 
 ## First-choice journey (2026-09-09)
 
