@@ -24,3 +24,5 @@ jobs:
         with:
           name: lighthouse-report
           path: .lighthouseci/
+          # .lighthouseci is a dot-directory; v4 skips hidden paths without this
+          include-hidden-files: true

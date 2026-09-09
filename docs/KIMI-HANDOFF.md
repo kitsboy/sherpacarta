@@ -1,3 +1,19 @@
+## Session — 2026-09-09 (Buffy M3 — HOME LCP INVESTIGATION + CI TRUSTWORTHINESS)
+
+**Done (CI green on `3ec744b` + follow-up):**
+- Identified the home LCP element: `h1#hero-heading > span.accent` ("Magna Carta", Cormorant 700 italic 36px). It paints **with FCP** — element render delay is only ~200–430ms (Lighthouse 13 `lcp-breakdown-insight`), so LCP cost == the render-blocking critical path, not the element itself. TTFB is 7ms locally; not a factor.
+- Applied the cut (`3ec744b`): inlined all 8 `@font-face` rules into the home page head — `/fonts/fonts.css` was render-blocking (~154ms slow-4G) and delaying `sc-main.css` (no other page references it; it still exists for them). Removed the three `link rel=preload as=script` tags (`sc-nostr-lib`/`sc-core`/`sc-bundle`, ~82KB gz) that competed with render-blocking CSS for slow-4G bandwidth — defer scripts are discovered early without preload. Verified post-change: fonts.css absent from the waterfall, all 10 font files still load (incl. cormorant-400i for the accent span).
+- Honest measurement (do not trust single-run Lighthouse): a first A/B suggested 0.48→0.62 — that was run noise. Identical-tooling A/B (repo `lhci autorun`, old vs new build, same machine/hour) gives old 0.62 vs new 0.62 on both Lighthouse 12.1.0 and 13.4.1; the real effect is the ~150ms fonts.css request inside ±0.1 noise. CI's home 0.25 the same night was a single-run outlier (`numberOfRuns: 1`); treasury/security stayed stable (0.66 / pass).
+- Root-caused the always-broken artifact upload: `actions/upload-artifact@v4` skips dot-directories — `.lighthouseci/` needs `include-hidden-files: true`. That is why every run logged "No files were found with the provided path: .lighthouseci/". Fixed in lighthouse.yml.
+- Made CI trustworthy: `numberOfRuns: 3` (lhci asserts the median) with a comment documenting the 0.25-vs-0.62 outlier.
+
+**Do not regress (additions):**
+- `index.html` must NOT link `/fonts/fonts.css` — its font-face rules are inlined in the home head; keep that on any head rework
+- `lighthouserc.cjs` `numberOfRuns` stays ≥ 3; a single-run CI perf score is noise on shared runners
+- LCP element is the hero accent span — if hero copy is restyled, re-run `lcp-breakdown-insight`, not just the score
+
+---
+
 ## Session — 2026-09-08 (Buffy M3 — CI TRUST-GATE FIX + CONTINUATION AFTER DISCONNECT)
 
 **Done (CI green on `d80c117`, pushed):**
