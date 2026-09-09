@@ -4,13 +4,13 @@ Source: full site audit executed 2026-09-08 (first-visit noise, sign-flow consis
 
 ## Phase 1 — Experience & Flow (do first)
 
-1. Rebuild the article reader into a proper reading experience (typographic scale, chapter nav, progress, related articles) — the 114 articles are the product.
-2. Decide the canonical journey: personal local sign vs Canada campaign — consider a single "What do you want to do?" split at the hero for Canadians vs everyone else.
-3. Add a real, tracked conversion funnel: Umami events for hero-CTA → sign-started → review → confirmed → share, then act on the data.
+1. Rebuild the article reader into a proper reading experience (typographic scale, chapter nav, progress, related articles) — the 114 articles are the product. ✅ 2026-09-08
+2. Decide the canonical journey: personal local sign vs Canada campaign — consider a single "What do you want to do?" split at the hero for Canadians vs everyone else. ✅ 2026-09-09 (hero cards + `/start.html` roles)
+3. Add a real, tracked conversion funnel: Umami events for hero-CTA → sign-started → review → confirmed → share, then act on the data. ✅ hooks live; hero_path_local / hero_path_canada added
 4. Replace the canned "AI summary" template with a genuinely useful generated digest or remove the label.
-5. Add a proper `/start.html` gate: role picker (Visitor / Canadian / Organizer / Verifier / Media) that routes to the right flow.
+5. Add a proper `/start.html` gate: role picker (Visitor / Canadian / Organizer / Verifier / Media) that routes to the right flow. ✅ plus Sign locally as a first-class path
 6. First-run language detection (navigator.language) with a subtle, non-blocking language suggestion.
-7. Empty states everywhere: signers wall, amendments, press room, archive — each with a next-step CTA.
+7. Empty states everywhere: signers wall, amendments, press room, archive — each with a next-step CTA. ✅ 2026-09-09
 8. Sticky section awareness: highlight the active journey-rail step as you scroll.
 9. Progress persistence for long readers (last-read article, resume chip — exists, needs polish + tests).
 10. Share-to-story flows: generate quote/OG cards per article (existing `?article=` deep links need visual cards).

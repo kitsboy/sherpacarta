@@ -12,6 +12,9 @@ const checks = [
   ['share page has platform copy', ['WhatsApp', 'Nostr', 'X / Facebook'].every((value) => read('public/share.html').includes(value))],
   ['disclosure script is loaded on share page', read('public/share.html').includes('/js/sc-disclosure.js')],
   ['sitemap generator includes rights route', read('scripts/generate-sitemap.mjs').includes('/rights.html')],
+  ['hero splits local sign vs Canada campaign', read('index.html').includes('hero-choice') && read('index.html').includes('/canada/sign') && read('index.html').includes('House of Commons')],
+  ['start page includes Canadian and Media roles', ['CANADIAN', 'MEDIA', '/canada/sign', '/press-kit.html'].every((value) => read('public/start.html').includes(value))],
+  ['empty-state styles exist', read('public/sc-main.css').includes('.sc-empty')],
 ];
 const failures = checks.filter(([, ok]) => !ok);
 if (failures.length) { console.error(failures.map(([name]) => `FAIL: ${name}`).join('\n')); process.exit(1); }

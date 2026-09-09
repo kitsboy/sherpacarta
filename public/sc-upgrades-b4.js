@@ -227,10 +227,11 @@
   // 500 — PWA install prompt
   feat(500, 'PWA install prompt', () => {
     let deferred;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferred = e;
-      if (localStorage.getItem('sc_pwa_dismissed')) return;
+    let shown = false;
+    const showBar = () => {
+      if (shown || !deferred || localStorage.getItem('sc_pwa_dismissed')) return;
+      if (document.getElementById('pwa-install-bar')) return;
+      shown = true;
       const bar = document.createElement('div');
       bar.id = 'pwa-install-bar';
       bar.style.cssText = 'position:fixed;bottom:4.5rem;left:50%;transform:translateX(-50%);z-index:470;background:var(--bg2);border:1px solid var(--border2);border-radius:100px;padding:.5rem 1rem;display:flex;gap:.75rem;align-items:center;font-size:.72rem;box-shadow:var(--shadow)';
@@ -240,6 +241,20 @@
       bar.querySelector('.btn-primary').onclick = () => { deferred?.prompt(); bar.remove(); };
       bar.querySelector('.btn-ghost').onclick = () => { localStorage.setItem('sc_pwa_dismissed', '1'); bar.remove(); };
       document.body.appendChild(bar);
+    };
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferred = e;
+      if (localStorage.getItem('sc_pwa_dismissed')) return;
+      const onScroll = () => {
+        const hero = document.getElementById('hero');
+        const heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
+        if (heroBottom < 80) {
+          showBar();
+          window.removeEventListener('scroll', onScroll);
+        }
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
     });
   });
 

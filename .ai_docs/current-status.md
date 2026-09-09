@@ -1,8 +1,12 @@
 # SherpaCarta current status
 
-**Updated:** 2026-09-08 · Buffy M3
+**Updated:** 2026-09-09 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** CI trust-gate fix + v=911 cache-bust (2026-09-08, `d80c117`)
+**Latest pushed release:** first-choice journey (local vs Canada) · v=913 · SW v9.2
+
+## First-choice journey (2026-09-09)
+
+Hero split is live: Sign locally vs Join the Canada campaign, plus `/start.html` roles and empty-state CTAs. Fake seed signers removed from the wall. Mobile Explore rail hidden; PWA install deferred until the hero leaves the viewport.
 
 ## Lighthouse sweep after v911 (2026-09-08, evening)
 

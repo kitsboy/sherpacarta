@@ -29,7 +29,6 @@
       note.className = 'pay-note pay-note-live';
       note.innerHTML = '<i class="fas fa-check" style="color:var(--em)"></i> Live Lightning wallet active.';
       $('donate-pane-ln')?.appendChild(note);
-      toast('Lightning wallet live', 'success');
     };
   });
 

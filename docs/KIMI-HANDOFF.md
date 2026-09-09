@@ -1,3 +1,27 @@
+## Session — 2026-09-09 (Buffy M3 — FIRST-CHOICE JOURNEY)
+
+**Done (pushed):**
+- Hero now asks **What do you want to do?** with two equal cards: **Sign locally** (`#sign`) vs **Join the campaign** (`/canada/sign`). Honesty line on the Canada card: not a House of Commons e-petition yet. Local sign ≠ Parliamentary petition.
+- `/start.html` is a six-role gate: Visitor, Sign locally, Canadian, Organizer, Verifier, Media.
+- Empty states with next-step CTAs: signers wall (no more fake seed names), amendments, press room, archive error/empty.
+- First-visit quiet: Lightning “wallet live” toast removed; cookie accept no longer toasts; PWA install waits until the hero is off-screen; Explore rail hidden on mobile so it cannot cover the new CTAs.
+- Cache-bust `v=913` · SW `v9.2`.
+
+**Verified in browser:** desktop 1440×900 and mobile 390×844. Local-sign card focuses the name field; Canada card lands on `/canada/sign`. Both mobile cards sit above the bottom nav.
+
+**Do not regress (additions):**
+- Keep the two-path hero (local vs Canada). Do not collapse back to a single “Sign & Assert” button that hides the campaign.
+- Do not show decorative seed signers on the wall.
+- PWA install bar must not appear on the first-fold hero.
+- `.section-dots` stays hidden at `max-width: 768px`.
+- Next cache bump = `914`, SW `v9.3` together.
+
+**Git State:**
+- SHA: `6131f1b` — Split the hero into local sign vs Canada campaign
+- Unpushed: none after push
+
+---
+
 ## Session — 2026-09-09 (Buffy M3 — HOME LCP INVESTIGATION + CI TRUSTWORTHINESS)
 
 **Done (CI green on `3ec744b` + follow-up):**

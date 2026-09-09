@@ -848,13 +848,25 @@
     const orig = window.renderAmendments;
     if (!orig) return;
     window.renderAmendments = function () {
+      orig();
       const list = $('amend-list');
-      if (!list || !window.state) return;
+      if (!list || !window.state || list.querySelector('.sc-empty')) return;
       const items = [...state.amendments].reverse().slice(0, 12);
-      list.innerHTML = items.length ? items.map((a, i) => {
+      list.querySelectorAll('.amend-item').forEach((el, i) => {
+        if (el.querySelector('.amend-upvote')) return;
+        const a = items[i];
+        if (!a) return;
         const idx = state.amendments.length - 1 - i;
-        return `<div class="amend-item"><strong>${a.article || 'General'}</strong> — ${a.text}<div class="amend-meta">${a.author || 'Anonymous'} · ${new Date(a.ts).toLocaleDateString()}${a.nostr ? ' · Nostr' : ''} · <button type="button" class="amend-upvote" data-idx="${idx}">▲ ${a.votes || 0}</button></div></div>`;
-      }).join('') : '<div class="amend-item" style="color:var(--text3)">No proposals yet.</div>';
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'amend-upvote';
+        btn.dataset.idx = String(idx);
+        btn.textContent = `▲ ${a.votes || 0}`;
+        const meta = el.querySelector('.amend-meta') || el.appendChild(document.createElement('div'));
+        meta.className = 'amend-meta';
+        meta.appendChild(document.createTextNode(' · '));
+        meta.appendChild(btn);
+      });
     };
   });
 

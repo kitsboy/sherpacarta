@@ -175,7 +175,8 @@
     navigator.serviceWorker.addEventListener('controllerchange', () => {
       if (sessionStorage.getItem('sc_sw_reload')) return;
       const bar = document.createElement('div');
-      bar.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:9999;background:var(--em);color:#000;padding:.75rem 1rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;font-weight:600';
+      bar.id = 'sw-update-bar';
+      bar.style.cssText = 'position:fixed;top:calc(var(--nav-h,68px) + env(safe-area-inset-top,0px));left:0;right:0;z-index:9999;background:var(--em);color:#000;padding:.65rem 1rem;display:flex;justify-content:space-between;align-items:center;gap:.75rem;font-size:.8rem;font-weight:600';
       bar.innerHTML = '<span>New version available</span><button style="background:#000;color:#fff;border:none;padding:.4rem .75rem;border-radius:100px;cursor:pointer" onclick="sessionStorage.setItem(\'sc_sw_reload\',1);location.reload()">Refresh</button>';
       document.body.appendChild(bar);
     });

@@ -194,36 +194,36 @@ const TRANSLATIONS = {
   en: {
     heroH1: 'A <span class="accent">Magna Carta</span><br>for the Digital Age',
     heroSub: 'Privacy as a Fundamental Human Right. A living charter for every person on Earth — enforceable, editable, and evolving.',
-    ctaCharter: 'Open the Full Charter',
-    ctaSign: 'Sign & Assert Rights',
+    ctaCharter: 'Read the 114 articles',
+    ctaSign: 'Sign locally',
     langName: '🇬🇧 English',
   },
   zh: {
     heroH1: '数字时代的<span class="accent">大宪章</span>',
     heroSub: '隐私权是基本人权。一份为全球每一个人制定的活文件——可执行、可编辑、持续演进。',
-    ctaCharter: '打开完整宪章',
-    ctaSign: '签署并主张权利',
+    ctaCharter: '阅读 114 条款',
+    ctaSign: '本地签署',
     langName: '🇨🇳 中文',
   },
   es: {
     heroH1: 'Una <span class="accent">Carta Magna</span><br>para la Era Digital',
     heroSub: 'La privacidad como derecho humano fundamental. Una carta viva para cada persona en la Tierra — aplicable, editable y en evolución.',
-    ctaCharter: 'Abrir la Carta Completa',
-    ctaSign: 'Firmar y Afirmar Derechos',
+    ctaCharter: 'Leer los 114 artículos',
+    ctaSign: 'Firmar en este dispositivo',
     langName: '🇪🇸 Español',
   },
   ar: {
     heroH1: 'الماغنا كارتا<br>للعصر <span class="accent">الرقمي</span>',
     heroSub: 'الخصوصية حق إنساني أساسي. ميثاق حيّ لكل إنسان على وجه الأرض — قابل للتطبيق والتعديل والتطور.',
-    ctaCharter: 'فتح الميثاق الكامل',
-    ctaSign: 'توقيع والمطالبة بالحقوق',
+    ctaCharter: 'اقرأ المواد الـ114',
+    ctaSign: 'وقّع محلياً',
     langName: '🇸🇦 العربية',
   },
   fr: {
     heroH1: 'Une <span class="accent">Magna Carta</span><br>pour l\'Ère Numérique',
     heroSub: 'La vie privée comme droit humain fondamental. Une charte vivante pour chaque personne sur Terre — applicable, modifiable et en évolution.',
-    ctaCharter: 'Ouvrir la Charte Complète',
-    ctaSign: 'Signer et Affirmer les Droits',
+    ctaCharter: 'Lire les 114 articles',
+    ctaSign: 'Signer localement',
     langName: '🇫🇷 Français',
   },
 };
@@ -259,6 +259,13 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nav-lang').value = lang;
     applyTranslation(lang);
   }
+  document.getElementById('cta-sign-card')?.addEventListener('click', (event) => {
+    const sign = document.getElementById('sign');
+    if (!sign) return;
+    event.preventDefault();
+    sign.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => document.getElementById('sign-name')?.focus(), 500);
+  });
 });
 
 // ═══════════════════════════════════════════════════════════
@@ -1425,17 +1432,6 @@ const LANGUAGES = ['English','Español','Français','Deutsch','中文','العر
 // ═══════════════════════════════════════════════════════════
 // SEED SIGNERS
 // ═══════════════════════════════════════════════════════════
-const SEED_SIGNERS = [
-  {name:'Björn Eriksson',c:'🇸🇪'},{name:'Aiko Tanaka',c:'🇯🇵'},{name:'Priya Sharma',c:'🇮🇳'},
-  {name:'Carlos Mendez',c:'🇲🇽'},{name:'Fatima Al-Rashid',c:'🇦🇪'},{name:'James Okafor',c:'🇳🇬'},
-  {name:'Elena Kowalski',c:'🇵🇱'},{name:'Lars Andersen',c:'🇩🇰'},{name:'Amara Diallo',c:'🇸🇳'},
-  {name:'Yuki Watanabe',c:'🇯🇵'},{name:'Sophie Müller',c:'🇩🇪'},{name:'Ali Hassan',c:'🇪🇬'},
-  {name:'Mei Lin',c:'🇨🇳'},{name:'Thomas Osei',c:'🇬🇭'},{name:'Natasha Ivanova',c:'🇷🇺'},
-  {name:'David Cohen',c:'🇮🇱'},{name:'Amina Berber',c:'🇲🇦'},{name:'Luca Romano',c:'🇮🇹'},
-  {name:'Astrid Svensson',c:'🇸🇪'},{name:'Chen Wei',c:'🇹🇼'},{name:'Oluwaseun A.',c:'🇳🇬'},
-  {name:'Ana Ferreira',c:'🇧🇷'},{name:'Hamid Karimi',c:'🇮🇷'},{name:'Ingrid Halvorsen',c:'🇳🇴'},
-];
-
 // ═══════════════════════════════════════════════════════════
 // QUOTES (Feature 41)
 // ═══════════════════════════════════════════════════════════
@@ -2037,29 +2033,58 @@ function calcRights(){
 // ═══════════════════════════════════════════════════════════
 // SIGNERS
 // ═══════════════════════════════════════════════════════════
+function scEmptyState(opts){
+  const wrap=document.createElement('div');
+  wrap.className='sc-empty';
+  wrap.setAttribute('role','status');
+  const title=document.createElement('strong');
+  title.textContent=opts.title||'';
+  const note=document.createElement('span');
+  note.textContent=opts.note||'';
+  wrap.append(title,note);
+  const actions=opts.actions||[];
+  if(actions.length){
+    const row=document.createElement('div');
+    row.className='sc-empty-actions';
+    actions.forEach((action)=>{
+      const el=action.href?document.createElement('a'):document.createElement('button');
+      el.className=action.primary?'btn btn-primary':'btn btn-ghost';
+      if(action.href){el.href=action.href;el.style.textDecoration='none';}
+      else{el.type='button';if(typeof action.onClick==='function')el.addEventListener('click',action.onClick);}
+      el.textContent=action.label||'';
+      row.appendChild(el);
+    });
+    wrap.appendChild(row);
+  }
+  return wrap;
+}
+
 function buildSigners(){
   const wall=document.getElementById('signers-wall');
-  // Show real local signatures first; decorative seeds only if wall empty
   const local=state.signers||[];
-  const all=local.length?local:SEED_SIGNERS.slice(0,6).map(s=>({...s,name:s.name+' · example'}));
   if(wall){
     wall.replaceChildren();
-    all.forEach((s)=>{
-      const pill=document.createElement('div');
-      pill.className='signer-pill';
-      pill.setAttribute('data-tip-title', s.c ? 'A voice from ' + (s.name||'').split(' ').pop() : 'A supporter');
-      pill.setAttribute('data-tip', s.c
-        ? `${s.name} added their name to the living record. Privacy-first — this is stored on your device only.`
-        : 'Every signature strengthens the movement. Stored locally, zero tracking.');
-      pill.innerHTML=`${s.c?`<span class="sig-flag">${s.c}</span>`:''}<span>${escapeHtml(s.name||'')}</span>`;
-      wall.appendChild(pill);
-    });
     if(!local.length){
-      const empty=document.createElement('div');
-      empty.className='signer-pill';
-      empty.style.borderStyle='dashed';
-      empty.textContent='Be the first on this device';
-      wall.appendChild(empty);
+      wall.appendChild(scEmptyState({
+        title:'No signatures on this device yet',
+        note:'A local signature is a personal civic commitment. It is not a House of Commons petition.',
+        actions:[
+          {label:'Sign locally',primary:true,onClick:()=>document.getElementById('sign-name')?.focus()},
+          {label:'Canada campaign',href:'/canada/sign'},
+        ],
+      }));
+    }else{
+      local.forEach((s)=>{
+        const pill=document.createElement('div');
+        pill.className='signer-pill';
+        pill.setAttribute('data-tip-title', s.c ? 'A voice from ' + (s.name||'').split(' ').pop() : 'A supporter');
+        pill.setAttribute('data-tip', s.c
+          ? `${s.name} added their name to the living record. Privacy-first — this is stored on your device only.`
+          : 'Every signature strengthens the movement. Stored locally, zero tracking.');
+        const flag=s.c?`<span class="sig-flag">${s.c}</span>`:'';
+        pill.innerHTML=`${flag}<span>${escapeHtml(s.name||'')}</span>`;
+        wall.appendChild(pill);
+      });
     }
   }
   const countEl=document.getElementById('sign-count');if(countEl)countEl.textContent=state.signCount.toLocaleString();
@@ -2502,11 +2527,14 @@ function renderAmendments(){
   const items=[...state.amendments].reverse().slice(0,12);
   list.replaceChildren();
   if(!items.length){
-    const empty=document.createElement('div');
-    empty.className='amend-item';
-    empty.style.color='var(--text3)';
-    empty.textContent='No proposals yet. Be the first to suggest an expansion of rights.';
-    list.appendChild(empty);
+    list.appendChild(scEmptyState({
+      title:'No amendment proposals yet',
+      note:'Rights may only expand, never contract (Art. 114). Draft a proposal here — nothing is published automatically.',
+      actions:[
+        {label:'Propose an expansion',primary:true,onClick:()=>document.getElementById('amend-text')?.focus()},
+        {label:'How amendments work',href:'/amendments.html'},
+      ],
+    }));
     return;
   }
   items.forEach((a)=>{
@@ -2836,7 +2864,6 @@ function toggleAmbient(){ /* removed */ }
 function acceptCookies(){
   localStorage.setItem('sc_cookie_accepted','true');
   document.getElementById('cookie-banner').style.display='none';
-  toast('Noted. (We still collect nothing.)','success');
 }
 
 // ═══════════════════════════════════════════════════════════

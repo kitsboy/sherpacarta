@@ -34,11 +34,11 @@
 <meta name="author" content="SherpaCarta Global Movement">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#030605">
-<link rel="icon" href="/favicon.png?v=911" type="image/png" sizes="48x48">
-<link rel="icon" href="/favicon-32.png?v=911" type="image/png" sizes="32x32">
-<link rel="icon" href="/brand-mark.png?v=911" type="image/png" sizes="any">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=911">
-<link rel="shortcut icon" href="/favicon.png?v=911">
+<link rel="icon" href="/favicon.png?v=913" type="image/png" sizes="48x48">
+<link rel="icon" href="/favicon-32.png?v=913" type="image/png" sizes="32x32">
+<link rel="icon" href="/brand-mark.png?v=913" type="image/png" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=913">
+<link rel="shortcut icon" href="/favicon.png?v=913">
 <link rel="canonical" href="https://sherpacarta.org/">
 <link rel="alternate" hreflang="en" href="https://sherpacarta.org/">
 <link rel="alternate" hreflang="es" href="https://sherpacarta.org/?lang=es">
@@ -108,18 +108,18 @@
 @font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dmmono-400.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'DM Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/dmmono-500.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 </style>
-<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=911">
+<link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=913">
 
-<link rel="stylesheet" href="/sc-main.css?v=911">
+<link rel="stylesheet" href="/sc-main.css?v=913">
 <!-- Suite ops analytics: first-party Umami (no third-party ads). -->
 <script defer src="https://analytics.giveabit.io/script.js" data-website-id="9b6f05bf-286e-4b21-9094-1d675f9b4442"></script>
-<script defer src="/js/sc-analytics.js?v=911"></script>
-<script defer src="/js/sc-top30.js?v=911"></script>
-<script defer src="/js/sc-next100.js?v=911"></script>
-<script defer src="/js/sc-disclosure.js?v=911"></script>
-<script defer src="/js/sc-route-ux.js?v=911"></script>
-<script defer src="/js/sc-rights-reader.js?v=911" data-reader-disabled="true"></script>
-<script defer src="/js/sc-reliability.js?v=911"></script>
+<script defer src="/js/sc-analytics.js?v=913"></script>
+<script defer src="/js/sc-top30.js?v=913"></script>
+<script defer src="/js/sc-next100.js?v=913"></script>
+<script defer src="/js/sc-disclosure.js?v=913"></script>
+<script defer src="/js/sc-route-ux.js?v=913"></script>
+<script defer src="/js/sc-rights-reader.js?v=913" data-reader-disabled="true"></script>
+<script defer src="/js/sc-reliability.js?v=913"></script>
 <script>
 /* kill-ambient: remove legacy Ambient control if present (stale SW / cache) */
 (function(){function kill(){var el=document.getElementById('audio-indicator');if(el)el.remove();}
@@ -277,16 +277,27 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <span><i class="fas fa-check" aria-hidden="true"></i> Zero tracking</span>
       <span><i class="fas fa-check" aria-hidden="true"></i> Bitcoin-verifiable</span>
     </div>
-    <div class="hero-ctas">
-      <button type="button" class="cta-main" onclick="document.getElementById('sign').scrollIntoView({behavior:'smooth'});setTimeout(()=>document.getElementById('sign-name')?.focus(),500)"><i class="fas fa-signature" aria-hidden="true"></i> <span id="cta-sign-text">Sign &amp; Assert Rights</span></button>
-      <button type="button" class="cta-sec" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> <span id="cta-charter-text">Read the Full Charter</span></button>
+    <p class="hero-choice-label" id="hero-choice-label">What do you want to do?</p>
+    <div class="hero-ctas hero-choice" role="group" aria-labelledby="hero-choice-label">
+      <a class="hero-choice-card" href="#sign" id="cta-sign-card" data-sc-track="hero_path_local">
+        <span class="hero-choice-kicker">Anywhere</span>
+        <strong><i class="fas fa-signature" aria-hidden="true"></i> <span id="cta-sign-text">Sign locally</span></strong>
+        <span class="hero-choice-note">A personal civic commitment. Stays on this device unless you choose to share.</span>
+      </a>
+      <a class="hero-choice-card is-canada" href="/canada/sign" id="cta-canada-btn" data-sc-track="hero_path_canada">
+        <span class="hero-choice-kicker">Canada</span>
+        <strong><i class="fas fa-flag" aria-hidden="true"></i> Join the campaign</strong>
+        <span class="hero-choice-note">Public mandate for law change. Not a House of Commons e-petition — yet.</span>
+      </a>
     </div>
-    <p class="hero-paths">
-      <a class="hero-path-link" href="/jurisdictions">Jurisdictions worldwide <i class="fas fa-globe" aria-hidden="true"></i></a>
+    <p class="hero-choice-more">
+      <button type="button" class="hero-choice-read" onclick="openCharterModal()"><i class="fas fa-scroll" aria-hidden="true"></i> <span id="cta-charter-text">Read the 114 articles</span></button>
       <span class="hero-path-sep" aria-hidden="true">·</span>
-      <a class="hero-path-link hero-path-ca" href="/canada/" id="cta-canada-btn">Canada offering <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+      <a href="/jurisdictions">Other jurisdictions</a>
+      <span class="hero-path-sep" aria-hidden="true">·</span>
+      <a href="/start.html">Choose a role</a>
     </p>
-    <p class="hero-urgency"><strong>30 seconds</strong> · For every person on Earth · Local-first · CC0 · No account</p>
+    <p class="hero-urgency"><strong>30 seconds</strong> · Local-first · CC0 · No account · Local sign ≠ Parliamentary petition</p>
     <div class="journey-rail" aria-label="SherpaCarta journey">
       <a class="journey-step is-current" href="#articles"><span>01</span><strong>Read</strong><small>114 articles</small></a>
       <span class="journey-arrow" aria-hidden="true">→</span>
@@ -835,6 +846,14 @@ setTimeout(kill,0);setTimeout(kill,500);}());
       <h2 class="press-heading" id="press-heading">As Discussed In</h2>
       <p class="press-sub">The outlets and communities where digital rights, privacy, and algorithmic accountability are debated — the conversation SherpaCarta joins.</p>
       <p class="press-honest">These links point to outlets and communities we recommend for the digital-rights conversation — they are references, not claims of coverage or endorsement of SherpaCarta.</p>
+      <div class="sc-empty sc-empty-inline" role="note">
+        <strong>No coverage claimed</strong>
+        <span>SherpaCarta has not been placed in these outlets. Journalists: start with the kit, then pitch.</span>
+        <div class="sc-empty-actions">
+          <a class="btn btn-primary" href="/press-kit.html">Press kit</a>
+          <a class="btn btn-ghost" href="mailto:hello@giveabit.io?subject=Sherpacarta%20Press">Pitch a story</a>
+        </div>
+      </div>
     </div>
     <div class="press-marquee" aria-hidden="true">
       <div class="press-marquee-track"></div>
@@ -1187,13 +1206,13 @@ setTimeout(kill,0);setTimeout(kill,500);}());
   </div>
 </div>
 
-<script src="/js/sc-share.js?v=911" defer></script>
-<script src="/js/sc-a11y.js?v=911" defer></script>
-<script src="/js/sc-nostr-lib.js?v=911" defer></script>
-<script src="/js/sc-petition-canada.js?v=911" defer></script>
-<script src="/js/sc-press-outlets.js?v=911" defer></script>
-<script src="/sc-core.js?v=911" defer></script>
-<script src="/sc-bundle.js?v=911" defer></script>
+<script src="/js/sc-share.js?v=913" defer></script>
+<script src="/js/sc-a11y.js?v=913" defer></script>
+<script src="/js/sc-nostr-lib.js?v=913" defer></script>
+<script src="/js/sc-petition-canada.js?v=913" defer></script>
+<script src="/js/sc-press-outlets.js?v=913" defer></script>
+<script src="/sc-core.js?v=913" defer></script>
+<script src="/sc-bundle.js?v=913" defer></script>
 <script>
   // Lazy-load QR only when a donate/QR action is first used
   document.addEventListener('click', function scLazyQR(e) {
