@@ -2,7 +2,7 @@
 
 **Updated:** 2026-09-09 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** load + bundle + mobile chrome + trust contracts · v=914 · SW v9.3
+**Latest pushed release:** sign-review sits above mobile bottom nav · v=916 · SW v9.5
 
 ## First-choice journey (2026-09-09)
 

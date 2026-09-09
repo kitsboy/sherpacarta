@@ -2,7 +2,7 @@
 
 ## Summary
 
-Locked the remaining four tracks: unified home cache-bust, one production JS bundle on home, 390px sign/hero chrome above the bottom nav, and a can/cannot trust surface. First-choice local-vs-Canada hero kept. `v=914`, SW `v9.3`.
+Locked the remaining four tracks: unified home cache-bust, one production JS bundle on home, 390px sign/hero chrome above the bottom nav, and a can/cannot trust surface. Sign-review is a document-level bottom sheet that stops at `--bottom-nav-h`. `v=916`, SW `v9.5`.
 
 ## Tests passed
 

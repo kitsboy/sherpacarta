@@ -4790,17 +4790,20 @@ section.section,
     left:.75rem;right:.75rem;transform:none;width:auto;
   }
 }
+body.sign-review-open .reveal{transform:none!important}
 @media(max-width:640px){
   .sign-review{
     align-items:end;
     padding:0;
+    top:0;left:0;right:0;
+    bottom:calc(var(--bottom-nav-h) + env(safe-area-inset-bottom,0));
   }
   .sign-review-card{
     width:100%;
-    max-height:min(92dvh, calc(100dvh - env(safe-area-inset-bottom,0)));
+    max-height:min(92dvh, calc(100dvh - var(--bottom-nav-h) - env(safe-area-inset-bottom,0)));
     overflow:auto;
     border-radius:1.2rem 1.2rem 0 0;
-    padding:1.25rem 1.25rem calc(1.35rem + env(safe-area-inset-bottom,0));
+    padding:1.25rem 1.25rem 1.35rem;
   }
   .sign-review-close{width:44px;height:44px;min-width:44px;min-height:44px;top:.65rem;right:.65rem}
   .sign-review-card .btn,.sign-review-actions .btn{min-height:44px;width:100%;justify-content:center}

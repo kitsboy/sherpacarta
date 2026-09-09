@@ -38,7 +38,9 @@ const checks = [
   ['Nostr publishing is explicitly optional', html.includes('public and optional') && html.includes('nothing is sent automatically')],
   ['receipt output escapes display name', next.includes("replace(/[<&>]/g, '')")],
   ['storage failures announce status', next.includes('Draft could not be saved on this device')],
+  ['sign-review is a document-level dialog', html.indexOf('id="sign-review"') > html.indexOf('id="cmd-overlay"')],
   ['mobile sign-review is a bottom sheet', css.includes('border-radius:1.2rem 1.2rem 0 0')],
+  ['mobile sign-review sits above the bottom nav', /@media\(max-width:640px\)\{[\s\S]*\.sign-review\{[^}]*--bottom-nav-h/.test(css) && /@media\(max-width:640px\)\{[\s\S]*\.sign-review-card\{[^}]*--bottom-nav-h/.test(css)],
   ['mobile review close is at least 44px', css.includes('.sign-review-close{width:44px;height:44px')],
 ];
 const failures = checks.filter(([, ok]) => !ok);

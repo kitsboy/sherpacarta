@@ -5,7 +5,8 @@
 - Home already executed one `sc-bundle.js`; documented that in `bundle-js.mjs`. Removed leftover first-visit auto-toasts (mobile tip, streak, slow-2g).
 - 390px: sign-review is a bottom sheet; review close 44px; cookie actions 44px; PWA bar sits above the bottom nav.
 - Transparency card now says a stamp is not law and a local signature is not a House of Commons petition.
-- Cache-bust `v=914` · SW `v9.3`.
+- Cache-bust `v=916` · SW `v9.5`.
+- Sign-review is a document-level dialog; at 390px it is a bottom sheet whose overlay bottom is `calc(var(--bottom-nav-h) + safe-area)` so it does not cover the mobile nav.
 
 **Do not regress:**
 - `index.html` must not `<script src="/sc-upgrades-b*.js">`
