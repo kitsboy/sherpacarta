@@ -56,7 +56,7 @@ Source: full site audit executed 2026-09-08 (first-visit noise, sign-flow consis
 
 ## Phase 5 — Performance & Architecture
 
-41. Collapse the 21-file bundle stack: audit b1–b15 superseded features, keep a curated `sc-app.js` of ~30 active features.
+41. Collapse the 21-file bundle stack: audit b1–b15 superseded features, keep a curated `sc-app.js` of ~30 active features. ✅ 2026-09-09 (7-file curated `sc-bundle.js`; dropped sources remain in `public/` for restore)
 42. Remove dead assets: legacy `sc-upgrades-b*.js` sources (keep only what the bundle needs), unused OG/social PNGs, old fonts.
 43. CSS: de-duplicate the repeated `.sc-disclosure`/`.sc-journey-context`/media blocks (~8 copies each) into one design-system layer.
 44. One versioning scheme: single `?v=` + SW cache name aligned per release (v9.x); script the bump.

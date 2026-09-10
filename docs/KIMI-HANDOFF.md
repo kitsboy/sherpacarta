@@ -1,3 +1,16 @@
+## Session — 2026-09-09 (Buffy M3 — CURATED HOME BUNDLE)
+
+**Done:**
+- Audited 21-file / 707-feat soup. Production `sc-bundle.js` is now **7 files, 114 KB** (was 294 KB).
+- Keep: enhancements + v2, b1 (Lightning/FAQ JSON-LD), b3 (SW banner), b4 (PWA after hero), b14 (bottom nav + honest counts), b15 (share).
+- Dropped from the live bundle (sources remain in `public/`): v3–v6, b2, b5–b13 — including Google Fonts prefetch and self-preload of `sc-bundle.js` that fought the LCP cut.
+- Contracts: curated file list, no Google Fonts in the bundle, no self-preload, bottom nav + `local-first` still present.
+- Cache-bust `v=917` · SW `v9.6`.
+
+**Do not regress:** `scripts/bundle-js.mjs` must not re-add `sc-upgrades-b9.js` (preload + fonts.gstatic). Home still loads only `sc-bundle.js`, never per-batch tags.
+
+---
+
 ## Session — 2026-09-09 (Buffy M3 — LOAD + BUNDLE + MOBILE + TRUST)
 
 **Done:**

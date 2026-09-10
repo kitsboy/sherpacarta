@@ -1,6 +1,18 @@
 #!/usr/bin/env node
-/** Concatenate enhancement + upgrade scripts → public/sc-bundle.js (per-file minify).
- *  Home must load this one file, never sc-upgrades-b1.js … b15.js as script tags. */
+/**
+ * Concatenate the curated home JS path → public/sc-bundle.js (per-file minify).
+ *
+ * Home must load this one file, never sc-upgrades-b1.js … b15.js as script tags.
+ *
+ * 2026-09-09 audit: 21 files / 707 numbered feats were concatenated. Most were
+ * sprint markers, duplicate HTML, Google Fonts hints, or self-preloads that
+ * fought the LCP cut. Live home keeps seven files that still own behavior:
+ * QR/a11y/theme/sign wrap, toast queue, Lightning, SW/PWA, bottom nav, share.
+ *
+ * Dropped from the production bundle (sources stay in public/ for restore):
+ *   sc-enhancements-v3.js … v6.js
+ *   sc-upgrades-b2.js, b5–b13.js
+ */
 import { readFileSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -11,23 +23,9 @@ const publicDir = join(root, 'public');
 const files = [
   'sc-enhancements.js',
   'sc-enhancements-v2.js',
-  'sc-enhancements-v3.js',
-  'sc-enhancements-v4.js',
-  'sc-enhancements-v5.js',
-  'sc-enhancements-v6.js',
   'sc-upgrades-b1.js',
-  'sc-upgrades-b2.js',
   'sc-upgrades-b3.js',
   'sc-upgrades-b4.js',
-  'sc-upgrades-b5.js',
-  'sc-upgrades-b6.js',
-  'sc-upgrades-b7.js',
-  'sc-upgrades-b8.js',
-  'sc-upgrades-b9.js',
-  'sc-upgrades-b10.js',
-  'sc-upgrades-b11.js',
-  'sc-upgrades-b12.js',
-  'sc-upgrades-b13.js',
   'sc-upgrades-b14.js',
   'sc-upgrades-b15.js',
 ];
@@ -39,7 +37,7 @@ try {
   console.warn('terser not available — writing unminified bundle');
 }
 
-let out = `/* SherpaCarta bundled enhancements — generated ${new Date().toISOString()} */\n`;
+let out = `/* SherpaCarta curated home bundle — generated ${new Date().toISOString()} */\n`;
 let total = 0;
 let rawBytes = 0;
 let outBytes = 0;

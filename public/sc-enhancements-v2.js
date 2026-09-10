@@ -17,7 +17,7 @@
   // ═══ GROUP 5: Performance (101–125) ════════════════════
 
   feat(101, 'Preconnect CDNs', () => {
-    ['https://cdn.jsdelivr.net', 'https://fonts.gstatic.com'].forEach((href) => {
+    ['https://cdn.jsdelivr.net'].forEach((href) => {
       if (!document.querySelector(`link[rel="preconnect"][href="${href}"]`)) {
         const l = document.createElement('link');
         l.rel = 'preconnect'; l.href = href; l.crossOrigin = 'anonymous';
