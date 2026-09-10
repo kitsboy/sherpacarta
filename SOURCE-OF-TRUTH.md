@@ -1,11 +1,11 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-09-08
-**BUILD:** curated home bundle · SW **v9.7** · local sign vs Canada campaign
+**Date:** 2026-09-10
+**BUILD:** curated home bundle · SW **v9.7** · `v=918` · local sign vs Canada campaign
 **Live:** https://sherpacarta.org  
 **GitHub:** https://github.com/kitsboy/sherpacarta.git  
-**Last goodbye base:** 2026-09-08 UX audit release  
+**Last goodbye:** 2026-09-10 · HEAD `764c79e`  
 
 ## Project Overview (Simple Pitch)
 SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights. Moral/political declaration (CC0). Canada is the first law-change beachhead; UK & EU are planned next. Bitcoin-funded. Zero tracking. Local-first signing.
@@ -15,10 +15,10 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 ## Core Files
 
 ### Site
-- `index.html` — Main landing (hero, Canada first, jurisdictions link, donate, briefings)
-- `public/sc-main.css` — Design system (`--text3` AA-friendly)
-- `public/sc-core.js` — Core UI + CHARTER inject + safe toast/signers/amendments
-- `public/sc-bundle.js` — enhancements + upgrades b1–b14
+- `index.html` — First-choice hero (local sign vs Canada campaign), articles, sign, donate
+- `public/sc-main.css` — Design system; 390px chrome; `--kb-inset`
+- `public/sc-core.js` — CHARTER inject, sign, In brief, visualViewport keyboard
+- `public/sc-bundle.js` — curated 7-file minify (~114 KB): enhancements, v2, b1, b3, b4, b14, b15
 - `public/js/sc-petition-canada.js` — Canada campaign petition (no private key storage)
 - `public/sw.js` — Service worker **v9.7** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
 - `public/start.html` — universal onboarding and role paths
@@ -95,7 +95,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 
 ## Current Gaps (Cam-gated) — see docs/KANBAN.md
 1. ~~Set `ORGANIZER_TOKEN`~~ **Done** — see `docs/ORGANIZER-TOKEN.md` + `.organizer-token.local` (M3, gitignored)
-2. Choose Lightning Address → wire `wallets.json`
+2. ~~Choose Lightning Address → wire `wallets.json`~~ **Live** `sherpacarta@breez.tips` — custody/backup still Cam
 3. Confirm BTC key custody / multi-sig plan
 4. Confirm official Nostr pubkey story
 5. MP sponsor + e-### + paper field collection

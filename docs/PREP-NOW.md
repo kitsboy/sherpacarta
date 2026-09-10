@@ -1,7 +1,7 @@
 # Prep now — deferred vs done
 
-**Date:** 2026-08-11 (goodbye BUILD 860)  
-**Focus:** Site is technically ready; Cam deferred go-to-market and ops keys work
+**Date:** 2026-09-10 (goodbye `764c79e`)  
+**Focus:** Site is technically ready; Cam deferred go-to-market and politics
 
 ## Explicitly deferred (do not start without Cam)
 
@@ -9,7 +9,7 @@
 |------|--------|
 | Marketing / social / 9:16 film push | Later (days–weeks) |
 | MP e-### / Parliamentary track | Cam politics |
-| Lightning payments setup / LNbits Vault | Later session |
+| Lightning custody / multisig | Public rail is live (`sherpacarta@breez.tips`); custody still Cam |
 | Nostr bot THOR + product nsec NIP-65 | Later session · nsec never in git |
 | Coalition org name collection | Honesty — no invented endorsements |
 
@@ -36,17 +36,17 @@
 
 | Session | Work |
 |---------|------|
-| Lightning | Public lud16/LNURL polish · docs/KIMI-REQUEST-LNURL.md |
+| Lightning custody | Public rail live; Cam still owns backup/multisig |
 | Nostr ops | Bot THOR + seed · NIP-65 for product keys · GOAL-SHERPA-NOSTR-BUZZ |
 | Politics | MP e-### → campaign-canada.json flip |
 | Marketing | Film social · press · 9:16 crop |
 
 ## Optional tech (anytime, low priority)
 
-- Thin sc-bundle feature soup  
-- Umami → visitors_monthly  
+- Delete unused upgrade *sources* (already out of the live bundle)
+- Slim CSS / font subset (next LCP cut)
+- Umami → visitors_monthly
 - Province stats when signs exist  
-- Lighthouse CI watch  
 
 ## Do not invent
 

@@ -1,3 +1,26 @@
+## Latest Session Summary (from 2026-09-10 goodbye)
+
+**Chat Topic:** Recover context, ship the first-choice journey, then finish unblocked home/bundle/mobile/trust work.
+
+**Finished in this session:**
+- Hero: Sign locally vs Join the Canada campaign; `/start.html` roles; empty states
+- Contracts + 390px chrome; sign-review above the bottom nav
+- Curated bundle 294 KB → 114 KB (7 files)
+- Lazy share/Nostr/press; In brief (not AI); iOS `--kb-inset`
+- HEAD `764c79e` · `v=918` · SW `v9.7` · pushed `origin/main`
+
+**Still to do:**
+- LCP CSS/font subset
+- Cam: MP/e-###, film audio, human i18n, custody, Nostr bot nsec
+
+**Next for Kimi:** Integrate into MASTER-BRAIN / Kanban. No invented endorsements. Do not sync M4 until Cam says go.
+
+**Git State:**
+- SHA: `764c79e9104b796cd1acb107cb9da71430619b5d`
+- Unpushed: none (docs commit may follow this goodbye)
+
+---
+
 ## Session — 2026-09-10 (Buffy M3 — LAZY MODULES + HONEST BRIEF + iOS KB)
 
 **Done:**

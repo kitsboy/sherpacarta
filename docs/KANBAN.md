@@ -1,7 +1,7 @@
 # SherpaCarta Kanban — Finish Later
 
 **Owner:** Cam (decisions) · Kimi/M4 (orchestration/docs) · Grok/M3 (code when unblocked)  
-**Updated:** 2026-08-27 (silent one-minute video draft status correction)
+**Updated:** 2026-09-10 (goodbye: first-choice journey + curated bundle + lazy modules)
 **Implementation map:** `docs/IMPLEMENTATION-MAP.md` · **Execution map:** `docs/NEXT-100-FULL-EXECUTION.md` · **Gap register:** `docs/DEEP-GAP-REGISTER.md`
 **Live site:** https://sherpacarta.org  
 **Session summaries:** `SESSION-SUMMARY-2026-07-09-security-audit.md` · `SESSION-SUMMARY-2026-07-09.md`  
@@ -161,15 +161,15 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 
 Ordered for Cam + Kimi focus:
 
-1. **A1** — Decide Lightning Address (`kimi@` / `cam@` / new)
-3. **A3** — Confirm BTC key backup/custody
-4. **B1** — Confirm official Nostr pubkey story
-5. **C1–C4** — MP + e-### + 5 supporters
-6. **C5** — Print & collect paper (local organizer backup works without token)
-7. **A2** — Code: wire Lightning (blocked on A1)
-8. **F8** — Optional Turnstile keys (PoW works today)
-9. **D1** — UK legal brief (after Canada traction)
-10. **E1** — Human i18n review
+1. **A3** — Confirm BTC key backup/custody (public address is live)
+2. **C1–C4** — MP + e-### + 5 supporters
+3. **C5** — Print & collect paper (local organizer backup works without token)
+4. **F8** — Optional Turnstile keys (PoW works today)
+5. **D1** — UK legal brief (after Canada traction)
+6. **E1** — Human i18n review
+7. **Film** — licensed voice, music, captions; replace silent one-minute draft
+
+Shipped (do not re-open): Lightning `sherpacarta@breez.tips` · NIP-05 `sherpa@sherpacarta.org` · first-choice hero · curated `sc-bundle.js` · lazy share/Nostr/press
 
 ---
 

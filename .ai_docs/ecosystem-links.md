@@ -1,6 +1,6 @@
 # Ecosystem Links — Sherpacarta
 
-**Last Updated:** 2026-07-27
+**Last Updated:** 2026-09-10
 
 ## Connections to Other Projects
 | Project | Relationship |
@@ -17,7 +17,8 @@
 - Nostr NIP-05 → giveabit.io/.well-known/nostr.json  
 - GitHub → kitsboy/sherpacarta  
 - On-chain treasury → `public/data/wallets.json`  
-- LNbits balances → HQ Vault invoice keys only  
+- Lightning public rail → `sherpacarta@breez.tips` (Breez Spark; LNbits retired from public)  
+- LNbits / HQ Vault → ops only, not the public donate path  
 
 ## Contracts
 - Metrics: `gab.product-metrics.v1`  

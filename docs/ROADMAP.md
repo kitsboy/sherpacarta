@@ -40,7 +40,7 @@ Build the defining civic document of the 21st century: a **living, editable, tim
 | Full 114-article charter | ✅ | BUILD 667 — `data/charter.json` |
 | Press section (linked outlets) | ✅ | BUILD 688 — icons + mobile marquee |
 | Press kit PDF | ⏳ | Export from MARKETING.md |
-| FAQPage JSON-LD | ⏳ | Rich SERP |
+| FAQPage JSON-LD | ✅ | Home JSON-LD + DOM sync |
 
 **Nostr architecture:**
 - Identity: NIP-07 (Alby, nos2x, Primal)
@@ -83,7 +83,7 @@ See **[CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md)**.
 | Public signature ledger | ⏳ | Privacy-preserving aggregate counts |
 | Organization endorsement portal | ⏳ | Verified institutional signers |
 | Annual global council (Art. 114) | ⏳ | Nostr + on-chain minutes |
-| Lightning LNURL live | ⏳ | Cam provides address/LNURL |
+| Lightning LNURL live | ✅ | `sherpacarta@breez.tips` |
 | Silent Payments address | ⏳ | Optional privacy-preserving donate path |
 
 ---
