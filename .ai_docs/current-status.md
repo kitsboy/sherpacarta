@@ -2,7 +2,7 @@
 
 **Updated:** 2026-09-09 · Buffy M3
 **Branch:** `main`
-**Latest pushed release:** curated 7-file home bundle (114 KB) · v=917 · SW v9.6
+**Latest pushed release:** lazy share/nostr/press · honest article brief · iOS kb inset · v=918 · SW v9.7
 
 ## First-choice journey (2026-09-09)
 

@@ -7,7 +7,7 @@ Source: full site audit executed 2026-09-08 (first-visit noise, sign-flow consis
 1. Rebuild the article reader into a proper reading experience (typographic scale, chapter nav, progress, related articles) — the 114 articles are the product. ✅ 2026-09-08
 2. Decide the canonical journey: personal local sign vs Canada campaign — consider a single "What do you want to do?" split at the hero for Canadians vs everyone else. ✅ 2026-09-09 (hero cards + `/start.html` roles)
 3. Add a real, tracked conversion funnel: Umami events for hero-CTA → sign-started → review → confirmed → share, then act on the data. ✅ hooks live; hero_path_local / hero_path_canada added
-4. Replace the canned "AI summary" template with a genuinely useful generated digest or remove the label.
+4. Replace the canned "AI summary" template with a genuinely useful generated digest or remove the label. ✅ 2026-09-10 (local excerpt, not a model)
 5. Add a proper `/start.html` gate: role picker (Visitor / Canadian / Organizer / Verifier / Media) that routes to the right flow. ✅ plus Sign locally as a first-class path
 6. First-run language detection (navigator.language) with a subtle, non-blocking language suggestion.
 7. Empty states everywhere: signers wall, amendments, press room, archive — each with a next-step CTA. ✅ 2026-09-09
@@ -17,10 +17,10 @@ Source: full site audit executed 2026-09-08 (first-visit noise, sign-flow consis
 
 ## Phase 2 — Mobile GUI
 
-11. One bottom nav system only — delete dead `.mobile-action-bar` CSS + the legacy duplicate nav source.
+11. One bottom nav system only — delete dead `.mobile-action-bar` CSS + the legacy duplicate nav source. ✅ 2026-09-10
 12. Bottom-sheet sign review on mobile (aligns with existing sheet CSS for other modals).
 13. Reach audit: every tap target ≥ 44px, every fixed element inventoried once (single "floating chrome registry").
-14. Safe-area + dynamic toolbar handling on iOS (keyboard overlap on sign form).
+14. Safe-area + dynamic toolbar handling on iOS (keyboard overlap on sign form). ✅ 2026-09-10 (`--kb-inset` via visualViewport)
 15. Mobile table/compare views beyond swipe-hint (sticky first column option).
 16. Font-size clamp pass at 320px; test all sections at 320/360/390/430.
 17. Pull-to-refresh friendly (avoid accidental reloads on sign).
@@ -60,7 +60,7 @@ Source: full site audit executed 2026-09-08 (first-visit noise, sign-flow consis
 42. Remove dead assets: legacy `sc-upgrades-b*.js` sources (keep only what the bundle needs), unused OG/social PNGs, old fonts.
 43. CSS: de-duplicate the repeated `.sc-disclosure`/`.sc-journey-context`/media blocks (~8 copies each) into one design-system layer.
 44. One versioning scheme: single `?v=` + SW cache name aligned per release (v9.x); script the bump.
-45. Lazy-load non-critical JS (share/nostr/wall) only on interaction; code-split the bundle.
+45. Lazy-load non-critical JS (share/nostr/wall) only on interaction; code-split the bundle. ✅ 2026-09-10 (share on click, press on near-viewport, nostr on connect/publish)
 46. Font budget: subset woff2 or system-first fallback for non-Latin locales.
 47. Image budget: AVIF/WebP for og/share/brand; `width`/`height` everywhere (mostly done).
 48. Add `<link rel="preload">` only for the critical path; verify no preload/script mismatch again (contract check).

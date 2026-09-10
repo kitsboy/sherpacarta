@@ -1835,10 +1835,9 @@ function buildArticlesBrowser(){
         <button type="button" class="art-action-btn" onclick="shareArticle('${safeTitle}')"><i class="fas fa-share-nodes"></i> Share</button>
         <button type="button" class="art-action-btn" onclick="stampArticle(${idx})"><i class="fas fa-stamp"></i> Stamp on Bitcoin</button>
         <button type="button" class="art-action-btn" onclick="nostrArticle(${idx})"><i class="fas fa-bolt"></i> Publish to Nostr</button>
-        <button type="button" class="art-action-btn" onclick="aiSummarize(${idx})"><i class="fas fa-sparkles"></i> AI Summary</button>
+        <button type="button" class="art-action-btn" onclick="showArticleBrief(${idx})"><i class="fas fa-align-left"></i> In brief</button>
         <button type="button" class="art-action-btn" onclick="copyArticle(${idx})"><i class="fas fa-copy"></i> Copy</button>
       </div>
-      <div class="ai-spinner" id="ai-spin-${idx}">✦ Generating summary...</div>
       <div class="ai-result" id="ai-res-${idx}"></div>
       <nav class="art-nav" aria-label="Article navigation">
         ${idx>0?`<button type="button" class="art-nav-btn" data-prev="${idx-1}"><i class="fas fa-arrow-left" aria-hidden="true"></i><span><small>Previous</small>${getArticleByFlatIndex(idx-1)?.num||''} · ${getArticleByFlatIndex(idx-1)?.title||''}</span></button>`:'<span></span>'}
@@ -1966,6 +1965,7 @@ async function stampArticle(i){
  * via NIP-07 (browser extension). Nothing is sent without explicit consent.
  */
 async function nostrArticle(i){
+  if(typeof window.scLoadNostr==='function')await window.scLoadNostr();
   const art=getArticleByFlatIndex(i);
   if(!art){toast('Article not found','error');return;}
   if(!window.nostr||typeof window.nostr.signEvent!=='function'){
@@ -1997,18 +1997,15 @@ async function nostrArticle(i){
     toast('Nostr publish cancelled or failed','error');
   }
 }
-function aiSummarize(i){
-  const spin=document.getElementById('ai-spin-'+i),res=document.getElementById('ai-res-'+i);
-  if(!spin||!res)return;
-  if(res.classList.contains('visible')){res.classList.remove('visible');spin.classList.remove('visible');return;}
-  spin.classList.add('visible');res.classList.remove('visible');
-  setTimeout(()=>{
-    spin.classList.remove('visible');
-    const art=getArticleByFlatIndex(i);
-    res.textContent=buildArticleSummary(art,i);
-    res.classList.add('visible');
-  },400);
+function showArticleBrief(i){
+  const res=document.getElementById('ai-res-'+i);
+  if(!res)return;
+  if(res.classList.contains('visible')){res.classList.remove('visible');return;}
+  const art=getArticleByFlatIndex(i);
+  res.textContent='Local excerpt — not a model. '+buildArticleSummary(art,i);
+  res.classList.add('visible');
 }
+window.aiSummarize=showArticleBrief;
 
 // ═══════════════════════════════════════════════════════════
 // RIGHTS CALCULATOR
@@ -2992,6 +2989,22 @@ document.addEventListener('DOMContentLoaded',()=>{
     const sel=document.getElementById('nav-lang');
     if(sel)sel.value=state.lang;
     applyTranslation(state.lang);
+  }
+
+  // iOS/Android keyboard: keep the sign fields above the bottom nav
+  if(window.visualViewport){
+    const vv=window.visualViewport;
+    const syncKb=()=>{
+      const covered=Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+      document.documentElement.style.setProperty('--kb-inset', (covered>60?covered:0)+'px');
+      const active=document.activeElement;
+      if(active && active.closest && active.closest('#sign')){
+        try{active.scrollIntoView({block:'center',behavior:'smooth'});}catch(_){}
+      }
+    };
+    vv.addEventListener('resize',syncKb);
+    vv.addEventListener('scroll',syncKb);
+    document.getElementById('sign')?.addEventListener('focusin',syncKb);
   }
 });
 

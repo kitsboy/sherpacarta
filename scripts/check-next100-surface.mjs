@@ -39,6 +39,12 @@ const checks = [
   ['transparency names the House of Commons boundary', /id="transparency-heading"[\s\S]{0,1200}House of Commons/.test(home)],
   ['pending is not Bitcoin-confirmed on verify', read('public/verify.html').includes('Pending is not Bitcoin-confirmed')],
   ['local export and delete remain on home sign', home.includes('exportLocalSignData') && home.includes('clearLocalSignData')],
+  ['home does not eagerly load share nostr or press scripts', !/src="\/js\/sc-share\.js/.test(home) && !/src="\/js\/sc-nostr-lib\.js/.test(home) && !/src="\/js\/sc-press-outlets\.js/.test(home)],
+  ['home lazy-loads share nostr and press', home.includes('scLoadShare') && home.includes('scLoadNostr') && home.includes('scLoadPress')],
+  ['articles intro does not promise an AI summary', !/AI summary/i.test(home)],
+  ['article brief is not labeled as AI', !core.includes('AI Summary') && core.includes('showArticleBrief') && core.includes('Local excerpt — not a model')],
+  ['dead mobile-action-bar is gone', !css.includes('mobile-action-bar')],
+  ['sign form accounts for the software keyboard', css.includes('--kb-inset') && core.includes('visualViewport')],
 ];
 const failures = checks.filter(([, ok]) => !ok);
 if (failures.length) { console.error(failures.map(([name]) => `FAIL: ${name}`).join('\n')); process.exit(1); }

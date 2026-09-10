@@ -750,9 +750,7 @@
   });
 
   feat(58, 'Template AI summary per article', () => {
-    window.articleSummary = function (title, tags) {
-      return `This article establishes ${title.toLowerCase()} as a fundamental digital right. Key themes: ${(tags || []).join(', ')}. Core to SherpaCarta's mission of expanding — never restricting — human dignity online.`;
-    };
+    // Retired: no canned "AI" copy. Local brief lives in sc-core showArticleBrief.
   });
 
   feat(59, 'Related articles by tag', () => {

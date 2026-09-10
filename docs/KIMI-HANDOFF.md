@@ -1,3 +1,14 @@
+## Session — 2026-09-10 (Buffy M3 — LAZY MODULES + HONEST BRIEF + iOS KB)
+
+**Done:**
+- Home no longer eagerly loads `sc-share.js`, `sc-nostr-lib.js`, or `sc-press-outlets.js`. Share loads on click, press on near-viewport, Nostr on connect/publish.
+- Removed dead `.mobile-action-bar` CSS.
+- Article "AI Summary" is now **In brief** — local excerpt, labeled not a model. No fake generating spinner.
+- Sign fields use `--kb-inset` from `visualViewport` so iOS keyboard + bottom nav do not cover the name field or review CTA.
+- Cache-bust `v=918` · SW `v9.7`.
+
+---
+
 ## Session — 2026-09-09 (Buffy M3 — CURATED HOME BUNDLE)
 
 **Done:**
