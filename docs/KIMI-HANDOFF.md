@@ -16,8 +16,9 @@
 **Next for Kimi:** Integrate into MASTER-BRAIN / Kanban. No invented endorsements. Do not sync M4 until Cam says go.
 
 **Git State:**
-- SHA: `764c79e9104b796cd1acb107cb9da71430619b5d`
-- Unpushed: none (docs commit may follow this goodbye)
+- SHA: `6b1ba73` (knowledge-base goodbye)
+- Product: `764c79e` lazy modules / In brief / iOS kb
+- Unpushed: none after push
 
 ---
 
