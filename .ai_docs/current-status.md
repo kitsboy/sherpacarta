@@ -1,9 +1,22 @@
 # SherpaCarta current status
 
-**Updated:** 2026-09-10 · Buffy M3
+**Updated:** 2026-09-11 · Grok M3
 **Branch:** `main`
-**Latest pushed release:** lazy share/nostr/press · honest article brief · iOS kb inset · `v=918` · SW `v9.7`
-**HEAD:** `764c79e` — Lazy-load share, Nostr, and press; drop fake AI summaries
+**Latest pushed release:** Stamp widget clickable above cookie banner · `v=918` · SW `v9.7`
+**HEAD:** `3c2abc9` — Keep Stamp widget clickable above the cookie banner
+
+## This session (2026-09-11)
+
+Live QA: Satohash `stamp.js` hashed, but a real Stamp click was covered by `#cookie-banner` (`position:fixed; bottom:0; z-index:700–800`) plus hero/cursor overlays. Cookie still shows after 2s. Banner was not removed.
+
+| Commit | What |
+|--------|------|
+| `9eeb648` | Drop in Satohash stamp widget on the homepage proof path |
+| `3c2abc9` | Pad `.satohash-stamp-wrap` when banner is `display:flex`; `pointer-events:none` on `#cursor` and hero overlays |
+
+### Do not regress (stamp overlay)
+- Ironic cookie banner stays. Do not change `/api`.
+- `.satohash-stamp-wrap` / `[data-satohash-stamp]` must remain clickable while the banner is visible (padding, not z-index stacking — in-flow widget cannot paint above `position:fixed` because `#main-content` is `z-index:2`).
 
 ## This session (2026-09-09 → 2026-09-10)
 

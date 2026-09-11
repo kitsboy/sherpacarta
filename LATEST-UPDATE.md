@@ -1,6 +1,4 @@
-# sherpacarta — Last Updated 2026-09-10 by Grok
-
-Brief: First-choice journey, curated 114 KB bundle, lazy share/Nostr/press, honest In brief, iOS keyboard inset.
-Product: `764c79e`
-Docs goodbye: `6b1ba73`
+# sherpacarta — Last Updated 2026-09-11 by Grok
+Brief: Stamp widget stays clickable above the ironic cookie banner (padding + pointer-events).
+Commit: `3c2abc9`
 Cache: `v=918` · SW `v9.7`

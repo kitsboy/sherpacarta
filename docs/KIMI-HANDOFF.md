@@ -1,3 +1,20 @@
+## Session — 2026-09-11
+
+**Done:**
+- Stamp widget in `.satohash-stamp-wrap` / `[data-satohash-stamp]` is clickable while the ironic cookie banner is visible.
+- CSS: padding-bottom on the wrap (and body on mobile) when `#cookie-banner` is `display:flex`; `scroll-margin-bottom` for scroll-into-view.
+- `#cursor` / `#cursor-ring` and hero overlays (`hero-grid`, atmosphere, glow, seal, canvas, wave-bg) are `pointer-events: none`.
+- Cookie banner kept. `/api` untouched. `.qa/` left untracked.
+
+**Decisions:**
+- In-flow widget cannot stack above `position:fixed` banner (`#main-content` is `z-index:2`). Padding, not z-index.
+
+**Git State:**
+- SHA: `3c2abc9`
+- Unpushed: `git log --oneline origin/main..HEAD` (this commit until push)
+
+---
+
 ## Latest Session Summary (from 2026-09-10 goodbye)
 
 **Chat Topic:** Recover context, ship the first-choice journey, then finish unblocked home/bundle/mobile/trust work.
