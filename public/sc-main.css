@@ -127,7 +127,7 @@ input,select,textarea{font-family:var(--sans)}
 ═══════════════════════════════════════════════════════════ */
 /* Custom cursor — high contrast on dark emerald bg (no mix-blend; was vanishing black-on-black) */
 #cursor{
-  position:fixed;width:12px;height:12px;border-radius:50%;pointer-events:none;z-index:99999;
+  position:fixed;width:12px;height:12px;border-radius:50%;pointer-events:none!important;z-index:99999;
   transform:translate(-50%,-50%);
   background:radial-gradient(circle at 35% 30%,#fff 0%,var(--em2) 45%,var(--em) 100%);
   border:1.5px solid #f0fff7;
@@ -135,7 +135,7 @@ input,select,textarea{font-family:var(--sans)}
   transition:transform .08s,width .12s,height .12s;
 }
 #cursor-ring{
-  position:fixed;width:30px;height:30px;border-radius:50%;pointer-events:none;z-index:99998;
+  position:fixed;width:30px;height:30px;border-radius:50%;pointer-events:none!important;z-index:99998;
   transform:translate(-50%,-50%);
   border:1.5px solid rgba(110,231,183,.85);
   box-shadow:0 0 0 1px rgba(5,8,6,.35),0 0 12px rgba(16,185,129,.35);
@@ -200,7 +200,7 @@ body:has(button:hover,a:hover) #cursor-ring{width:52px;height:52px;opacity:.95;b
    HERO
 ═══════════════════════════════════════════════════════════ */
 #hero{position:relative;min-height:100svh;min-height:100dvh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:calc(68px + var(--announce-h,0px) + env(safe-area-inset-top,0)) 0 5rem}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.4}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.4;pointer-events:none}
 .hero-glow{position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(16,185,129,.1) 0%,transparent 70%);pointer-events:none}
 .hero-inner{max-width:980px;margin:0 auto;padding:clamp(1rem,4vw,2rem);text-align:center;position:relative;z-index:2;width:100%}
 .hero-badge{display:inline-flex;align-items:center;gap:.625rem;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);border-radius:100px;padding:.4rem 1.1rem;margin-bottom:2.5rem;animation:fade-up .6s .1s both}
@@ -4816,3 +4816,51 @@ body.sign-review-open .reveal{transform:none!important}
   .sign-review-close{width:44px;height:44px;min-width:44px;min-height:44px;top:.65rem;right:.65rem}
   .sign-review-card .btn,.sign-review-actions .btn{min-height:44px;width:100%;justify-content:center}
 }
+
+/* ═══════════════════════════════════════════════════════════
+   Satohash stamp widget vs ironic cookie banner
+   Banner is position:fixed (z-index 700–800). In-flow widget
+   cannot paint above it — pad so Stamp sits clear on mobile.
+═══════════════════════════════════════════════════════════ */
+.satohash-stamp-wrap{
+  margin-top:1.25rem;
+  max-width:360px;
+  position:relative;
+  z-index:2;
+  isolation:isolate;
+  pointer-events:auto;
+  scroll-margin-bottom:calc(var(--bottom-nav-h,64px) + 9rem + env(safe-area-inset-bottom,0px));
+}
+.satohash-stamp-note{
+  font-size:.78rem;color:var(--text2);line-height:1.5;margin:0 0 .65rem;
+}
+.satohash-stamp-wrap [data-satohash-stamp]{
+  position:relative;
+  z-index:2;
+  pointer-events:auto;
+}
+
+/* sc-core.js sets #cookie-banner { display:flex } after 2s */
+body:has(#cookie-banner[style*="flex"]) .satohash-stamp-wrap{
+  padding-bottom:calc(8.5rem + env(safe-area-inset-bottom,0px));
+}
+body:has(#cookie-banner[style*="flex"]){
+  padding-bottom:calc(8.5rem + env(safe-area-inset-bottom,0px));
+}
+@media(max-width:768px){
+  body:has(#cookie-banner[style*="flex"]){
+    padding-bottom:calc(var(--bottom-nav-h,64px) + 12.5rem + env(safe-area-inset-bottom,0px))!important;
+  }
+  body:has(#cookie-banner[style*="flex"]) .satohash-stamp-wrap{
+    padding-bottom:calc(var(--bottom-nav-h,64px) + 12.5rem + env(safe-area-inset-bottom,0px));
+  }
+  .satohash-stamp-wrap{
+    scroll-margin-bottom:calc(var(--bottom-nav-h,64px) + 12.5rem + env(safe-area-inset-bottom,0px));
+  }
+}
+
+/* Decorative overlays must never steal Stamp clicks */
+#cursor,#cursor-ring{pointer-events:none!important}
+.hero-atmosphere,.hero-grid,.hero-glow,.hero-seal,.hero-parchment,
+.hero-vignette,.hero-shaft,.hero-bg-base,.hero-bg-aurora,.hero-bg-orb,
+#particle-canvas,#wave-bg{pointer-events:none!important}
