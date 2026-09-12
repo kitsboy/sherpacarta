@@ -180,7 +180,9 @@ async function main() {
         ? 'Live public sources — Canada campaign KV, on-chain treasury, charter data. LN balance via HQ wallet id sherpacarta.'
         : `Partial metrics: stats=${statsOk ? 'ok' : 'fail'} mempool=${mempoolOk ? 'ok' : 'fail'}`,
       latencyMs,
-      uptimePct24h: null,
+      // uptimePct24h is deliberately OMITTED (not null): the schema types it as
+      // `number` with no null variant, and contract §3 forbids null typed-number
+      // fields. This origin has no 24h uptime probe; omit the key instead.
       dependencies: [
         {
           id: 'charter-data',
@@ -423,7 +425,7 @@ async function main() {
         id: 'canada_campaign',
         title: 'Canada campaign stats',
         for: ['hq'],
-        status: 'live',
+        status: 'ga',
         endpoint: 'GET /api/canada/stats',
         hint: 'Honest campaign totals (not e-petition)',
       },
@@ -431,7 +433,7 @@ async function main() {
         id: 'metrics_v1',
         title: 'Product metrics v1',
         for: ['hq'],
-        status: 'live',
+        status: 'ga',
         endpoint: 'GET /metrics.json',
         hint: 'gab.product-metrics.v1 — live CF Function + static fallback',
       },

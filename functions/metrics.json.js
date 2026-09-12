@@ -271,7 +271,9 @@ function buildEnvelope({ stats, treasury, updatedAt, latencyMs }) {
           ? `Live CF Function — mandate total=${stats.total} · 24h=${stats.signers24h} · store=${stats.store}. LN via HQ wallet ${HQ_WALLET_ID}.`
           : `Partial: stats=${stats.ok} mempool=${treasury.ok}`,
       latencyMs,
-      uptimePct24h: null,
+      // uptimePct24h is deliberately OMITTED (not null): the schema types it as
+      // `number` with no null variant, and contract §3 forbids null typed-number
+      // fields. This origin has no 24h uptime probe; omit the key instead.
       dependencies: [
         {
           id: 'charter-data',
@@ -538,7 +540,7 @@ function buildEnvelope({ stats, treasury, updatedAt, latencyMs }) {
         id: 'metrics_v1',
         title: 'Product metrics v1',
         for: ['hq'],
-        status: 'live',
+        status: 'ga',
         endpoint: 'GET /metrics.json',
         hint: 'Live CF Function — poll for HQ cards',
       },
@@ -546,7 +548,7 @@ function buildEnvelope({ stats, treasury, updatedAt, latencyMs }) {
         id: 'canada_stats',
         title: 'Canada mandate stats + activity',
         for: ['hq'],
-        status: 'live',
+        status: 'ga',
         endpoint: 'GET /api/canada/stats',
         hint: 'Totals, daily series, activity stream, recent wall',
       },
@@ -554,7 +556,7 @@ function buildEnvelope({ stats, treasury, updatedAt, latencyMs }) {
         id: 'canada_sign',
         title: 'Canada mandate sign intake',
         for: ['hq'],
-        status: 'live',
+        status: 'ga',
         endpoint: 'POST /api/canada/sign',
         hint: 'Privacy-first; updates KV stats for this envelope',
       },
