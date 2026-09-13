@@ -2124,6 +2124,8 @@ function signCharter(){
       const print=document.createElement('button'); print.type='button'; print.className='btn btn-ghost'; print.textContent='Print certificate'; print.onclick=()=>window.printLocalSignatureCertificate?.(record,state.signCount); post.appendChild(print);
       const undo=document.createElement('button'); undo.type='button'; undo.className='btn btn-ghost'; undo.textContent='Undo'; undo.onclick=()=>window.undoLastLocalSignature?.(); post.appendChild(undo);
       const share=document.createElement('button'); share.type='button'; share.className='btn btn-ghost'; share.textContent='Share'; share.onclick=()=>window.shareLocalSignature?.(record); post.appendChild(share);
+      // Real end of the sign flow — a page that states what just happened and the next step.
+      const next=document.createElement('a'); next.href='/thank-you?from=sign'; next.className='btn btn-primary'; next.textContent='What happens next →'; post.appendChild(next);
     }
     const lc=document.getElementById('live-counter');
     if(lc){lc.style.transform='scale(1.3)';lc.style.color='var(--em2)';setTimeout(()=>{lc.style.transform='';lc.style.color='';},400);}

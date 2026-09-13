@@ -48,6 +48,13 @@ const PAGES = {
     image: '/og/canada.jpg',
     path: '/canada/',
   },
+  'public/thank-you.html': {
+    title: 'Thank you — what happens next · SherpaCarta',
+    description:
+      'Your SherpaCarta action completed. What happened, where your signature or support went, and the four steps that come next — receipt, share, law path, verify.',
+    image: '/share.jpg',
+    path: '/thank-you',
+  },
   'public/canada/sign.html': {
     title: 'Sign for Canada — SherpaCarta Campaign',
     description:
