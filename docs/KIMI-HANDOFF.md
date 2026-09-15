@@ -1,3 +1,18 @@
+## Session — 2026-09-15 · Truth fix: the stats strip served zero
+
+**Done:**
+- `index.html` stats strip shipped **`0` as the visible text** for two facts and relied on JavaScript to count up: `<div class="stat-num" data-count="114">0</div>` and `data-count="811">0`. The page **source** — what a crawler, a no-JS reader, a screen reader or a slow phone sees first — said the charter has **zero articles**.
+- Now ships the true values: `data-count="114">114` and `data-count="811">811`. The counter still animates; it starts from a true figure instead of from zero.
+- Build tag `20260727-734` → `20260915-735` in `public/sc-upgrades-b15.js` and `public/sc-bundle.js`, so the deployed build is identifiable.
+
+**Decisions:**
+- The third tile (`#signer-stat`, "On This Device", `data-count="0"`) legitimately reads 0 and was left alone. A runtime script relabels it "Movement momentum counter (local + illustrative seed)".
+- The earlier "NaN in the momentum tile" report is **not reproducible** — a real headless Chromium on a fresh profile renders 114 / 811 / 0 / CC0 with zero NaN nodes in the DOM. Not treated as a live defect; screenshots from a user session would be needed to chase it.
+
+**Verified live:** served HTML now carries `data-count="114">114<` and `data-count="811">811<`, and zero occurrences of `data-count="114">0<`.
+
+**Git State:** HEAD == `origin/main` (`9a8a531`).
+
 ## Session — 2026-09-11
 
 **Done:**
