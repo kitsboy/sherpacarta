@@ -168,7 +168,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" role="dialog" aria-label="Privacy notice">
-  <p><strong>🍪 Ironic notice:</strong> SherpaCarta uses zero tracking cookies. This banner exists to acknowledge that irony. We store only your preferences and signatures — locally in your browser, never on our servers.</p>
+  <p><strong>🍪 Ironic notice:</strong> SherpaCarta uses zero tracking cookies. This banner exists to acknowledge that irony. We store only your preferences and signatures — locally in your browser, never on our servers. No cookies. We use self-hosted, cookie-less analytics. Nothing to consent to.</p>
   <div class="cookie-actions">
     <button class="btn btn-primary" onclick="acceptCookies()">Accept (Nothing to Accept)</button>
     <button class="btn btn-ghost" onclick="document.getElementById('cookie-banner').style.display='none'">Dismiss</button>
@@ -1110,12 +1110,14 @@ setTimeout(kill,0);setTimeout(kill,500);}());
           <span class="parent-tagline">A Give A Bit project</span>
         </a>
         <div class="legal-links">
-          <a href="#legal-privacy" onclick="document.getElementById('legal-privacy')?.scrollIntoView({behavior:'smooth'});return false">Privacy</a>
-          <a href="#legal-terms" onclick="document.getElementById('legal-terms')?.scrollIntoView({behavior:'smooth'});return false">Terms</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="#legal-terms" onclick="document.getElementById('legal-terms')?.scrollIntoView({behavior:'smooth'});return false">Terms of the charter</a>
           <a href="#" onclick="focusA11yToolbar();return false">Accessibility</a>
           <a href="mailto:hello@giveabit.io?subject=Sherpacarta">Contact</a>
           <a href="/press-kit.html">Press Kit</a>
         </div>
+        <p class="legal-cookie-notice">No cookies. We use self-hosted, cookie-less analytics. Nothing to consent to.</p>
       </div>
 
       <p class="legal-tagline">SHERPACARTA IS A GLOBAL MOVEMENT, NOT A CORPORATION · BUILT WITH ❤ BY VOLUNTEERS · POWERED BY BITCOIN · GUIDED BY CONSCIENCE</p>
