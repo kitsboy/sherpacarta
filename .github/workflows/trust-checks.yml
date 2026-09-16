@@ -45,7 +45,7 @@ jobs:
           }
           check public/release-manifest.json 'pendingIsConfirmed.*false' \
             'proof.pendingIsConfirmed must be false — a pending stamp is never Bitcoin-confirmed.'
-          check public/verify.html 'Pending is not Bitcoin-confirmed' \
+          check verify.html 'Pending is not Bitcoin-confirmed' \
             'The verify page must state the exact sentence "Pending is not Bitcoin-confirmed" (honesty copy, verify-note aside).'
           echo 'Honest proof language: all invariants present (release-manifest.json, verify.html).'
       - name: Build

@@ -1,0 +1,53 @@
+/* Verify-surface stylesheet for SherpaCarta.
+ *
+ * Tailwind v4 theme + utilities, WITHOUT preflight (so the static explainer
+ * sections styled by sc-main.css keep their exact look) and WITHOUT a cascade
+ * layer for utilities — sc-main.css ships an unlayered `*{padding:0;margin:0}`
+ * reset that would otherwise beat layered utilities. Loading this stylesheet
+ * after sc-main.css makes the utility classes win on equal specificity.
+ */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css";
+
+.verify-surface {
+  /* family design tokens — the shared trust card reads these via var() */
+  --accent-gold: #B8893A;            /* brass */
+  --accent-success: #2F8F5B;         /* family success green */
+  --accent-alert: #C2410C;           /* family alert orange */
+  --border: rgba(14, 27, 42, 0.16);  /* ink border on paper */
+  --border-bright: rgba(184, 137, 58, 0.35);
+  --text-primary: #0E1B2A;           /* ink */
+  --text-secondary: rgba(14, 27, 42, 0.74);
+  --bg-secondary: #F4EFE4;           /* paper */
+  --surface-raised: #FDFBF5;         /* raised paper */
+
+  border-radius: 1.25rem;
+  border: 1px solid rgba(184, 137, 58, 0.35);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.verify-surface .verify-kicker {
+  font-family: var(--mono, 'DM Mono', monospace);
+  font-size: 0.65rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #B8893A;
+}
+
+.verify-surface input[type="text"] {
+  font-family: var(--mono, 'DM Mono', monospace);
+  font-size: 0.78rem;
+}
+
+.verify-surface .btn-verify {
+  background: #B8893A;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  transition: opacity 0.15s ease;
+}
+
+.verify-surface .btn-verify:hover { opacity: 0.9; }
+.verify-surface .btn-verify:disabled { opacity: 0.55; cursor: not-allowed; }

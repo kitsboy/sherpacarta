@@ -2,17 +2,16 @@
   "schema": "gab.product-metrics.v1",
   "productId": "sherpacarta",
   "name": "SherpaCarta",
-  "updatedAt": "2026-09-08T20:12:34.385Z",
+  "updatedAt": "2026-09-16T20:14:18.381Z",
   "window": {
     "label": "7d",
-    "from": "2026-09-01T20:12:34.385Z",
-    "to": "2026-09-08T20:12:34.385Z"
+    "from": "2026-09-09T20:14:18.381Z",
+    "to": "2026-09-16T20:14:18.381Z"
   },
   "health": {
     "status": "green",
     "message": "Live public sources — Canada campaign KV, on-chain treasury, charter data. LN balance via HQ wallet id sherpacarta.",
-    "latencyMs": 947,
-    "uptimePct24h": null,
+    "latencyMs": 461,
     "dependencies": [
       {
         "id": "charter-data",
@@ -141,7 +140,7 @@
       "color": "#c45f00",
       "points": [
         {
-          "t": "2026-09-08T00:00:00.000Z",
+          "t": "2026-09-16T00:00:00.000Z",
           "v": 4
         }
       ]
@@ -153,7 +152,7 @@
       "color": "#f7931a",
       "points": [
         {
-          "t": "2026-09-08T00:00:00.000Z",
+          "t": "2026-09-16T00:00:00.000Z",
           "v": 0
         }
       ]
@@ -312,7 +311,7 @@
       "for": [
         "hq"
       ],
-      "status": "live",
+      "status": "ga",
       "endpoint": "GET /api/canada/stats",
       "hint": "Honest campaign totals (not e-petition)"
     },
@@ -322,7 +321,7 @@
       "for": [
         "hq"
       ],
-      "status": "live",
+      "status": "ga",
       "endpoint": "GET /metrics.json",
       "hint": "gab.product-metrics.v1 — live CF Function + static fallback"
     }

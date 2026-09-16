@@ -7,6 +7,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
+        verify: 'verify.html',
       },
     },
     cssCodeSplit: true,

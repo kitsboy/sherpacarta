@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 
 const files = {
-  verify: fs.readFileSync('public/verify.html', 'utf8'),
+  verify: fs.readFileSync('verify.html', 'utf8'),
   lifecycle: fs.readFileSync('public/js/sc-proof-lifecycle.js', 'utf8'),
   tools: fs.readFileSync('public/js/sc-proof-tools.js', 'utf8'),
   sw: fs.readFileSync('public/sw.js', 'utf8'),

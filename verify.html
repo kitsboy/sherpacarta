@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Verify a SherpaCarta proof — Satohash</title>
-<meta name="description" content="Learn what a SherpaCarta document hash and Satohash Bitcoin timestamp prove, and verify a proof independently.">
+<meta name="description" content="Check any SHA-256 proof live against Bitcoin — no account, no trust required. Learn what a SherpaCarta document hash and Satohash Bitcoin timestamp prove.">
 <link rel="canonical" href="https://sherpacarta.org/verify.html">
 <link rel="stylesheet" href="/fonts/fonts.css?v=918">
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=918">
@@ -28,6 +28,14 @@
     <p>A SherpaCarta stamp links a specific document version to a cryptographic hash. Satohash.io can anchor that hash through Bitcoin. Anyone can inspect the proof; no account or trust in this page is required.</p>
     <div class="verify-actions"><a class="btn btn-primary" href="https://satohash.io/stamp?ref=sherpacarta" target="_blank" rel="noopener noreferrer"><i class="fas fa-stamp" aria-hidden="true"></i> Stamp a document</a><a class="btn btn-ghost" href="https://satohash.io/verify" target="_blank" rel="noopener noreferrer"><i class="fas fa-shield-halved" aria-hidden="true"></i> Open Satohash verify</a><a class="btn btn-ghost" href="/security.html"><i class="fas fa-lock" aria-hidden="true"></i> Security model</a></div>
   </section>
+
+  <!-- Live "Verify this proof" surface (React mount). Checks the fingerprint
+       directly against Bitcoin via the family verify API; the shared
+       HowProofWorks explainer renders the honest verdict. -->
+  <section aria-labelledby="verify-surface-title">
+    <div id="verify-root"></div>
+  </section>
+
   <section class="verify-grid" aria-label="Verification steps">
     <article class="verify-card"><div class="num">01 · CONTENT</div><h2>Hash the version</h2><p>A SHA-256 hash is a compact fingerprint of the exact text or file. Change the content and the fingerprint changes.</p></article>
     <article class="verify-card"><div class="num">02 · ANCHOR</div><h2>Stamp through Satohash</h2><p>Satohash records the hash and submits timestamp evidence. The first result may be <strong>pending</strong> while Bitcoin confirmation is processed.</p></article>
@@ -56,5 +64,6 @@
   });
 })();
 </script>
+<script type="module" src="/src/verify-main.jsx"></script>
 </body>
 </html>

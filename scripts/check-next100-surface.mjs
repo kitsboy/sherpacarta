@@ -37,7 +37,7 @@ const checks = [
   ['toast stack clears the mobile bottom nav', /#toast-stack\{[^}]*--bottom-nav-h/.test(css)],
   ['home transparency surface exists', home.includes('transparency-heading') && home.includes('What this site can and cannot do')],
   ['transparency names the House of Commons boundary', /id="transparency-heading"[\s\S]{0,1200}House of Commons/.test(home)],
-  ['pending is not Bitcoin-confirmed on verify', read('public/verify.html').includes('Pending is not Bitcoin-confirmed')],
+  ['pending is not Bitcoin-confirmed on verify', read('verify.html').includes('Pending is not Bitcoin-confirmed')],
   ['local export and delete remain on home sign', home.includes('exportLocalSignData') && home.includes('clearLocalSignData')],
   ['home does not eagerly load share nostr or press scripts', !/src="\/js\/sc-share\.js/.test(home) && !/src="\/js\/sc-nostr-lib\.js/.test(home) && !/src="\/js\/sc-press-outlets\.js/.test(home)],
   ['home lazy-loads share nostr and press', home.includes('scLoadShare') && home.includes('scLoadNostr') && home.includes('scLoadPress')],
