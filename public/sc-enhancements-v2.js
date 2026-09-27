@@ -748,7 +748,6 @@
     };
     const orig = window.signCharter;
     window.signCharter = function () {
-      const before = window.state?.signCount;
       orig?.();
       check(window.state?.signCount);
     };
@@ -996,7 +995,7 @@
 
   feat(192, 'Embed widget expanded snippet', () => {
     window.copyWidgetSnippet = () => {
-      const s = `<script src="https://sherpacarta.org/embed.js" data-theme="dark"><\/script><div class="sherpacarta-embed"></div>`;
+      const s = `<script src="https://sherpacarta.org/embed.js" data-theme="dark"></script><div class="sherpacarta-embed"></div>`;
       navigator.clipboard.writeText(s);
       toast('Widget snippet copied (embed.js coming soon)', 'success');
     };

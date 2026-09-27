@@ -329,7 +329,6 @@
         document.body.appendChild(s);
       });
     };
-    const orig = window.showQRModal || window.openQRModal;
     // Hook common QR openers if present
     if (typeof window.showDonationQR === 'function' && !window.showDonationQR._b14) {
       const o = window.showDonationQR;

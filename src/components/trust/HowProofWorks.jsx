@@ -36,6 +36,8 @@
  */
 import { useCallback, useState } from 'react'
 
+/* eslint-disable react-refresh/only-export-components -- shared constants + pure state-deriver
+   intentionally live beside the component; VerifySurface imports both. Dev-only HMR rule. */
 export const DEFAULT_LABELS = {
   title: 'How does this work?',
   subtitle: 'You do not have to trust us. Here is what to check, in one minute.',

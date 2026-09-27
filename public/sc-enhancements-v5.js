@@ -404,7 +404,6 @@
     const fmt = (n) => n.toLocaleString();
     const counter = $('live-counter');
     if (counter && window.state) {
-      const orig = Object.getOwnPropertyDescriptor(window.state, 'signCount');
       setInterval(() => {
         if ($('live-counter')) $('live-counter').textContent = fmt(window.state.signCount || 0);
       }, 5000);

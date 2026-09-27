@@ -4,7 +4,6 @@
 (function SCUpgradesB11() {
   'use strict';
   const BUILD = '20260707-647';
-  const $ = (id) => document.getElementById(id);
   const toast = (msg, type) => window.toast?.(msg, type || 'info');
 
   window.SHERPA_UPGRADES = window.SHERPA_UPGRADES || {};
@@ -76,7 +75,7 @@
       const s = String(num).trim();
       const slug = /^\d+$/.test(s) ? `art-${s}` : s.toLowerCase().replace(/\s+/g, '-').replace(/\./g, '');
       const res = await fetch(`/api/v1/articles/${slug}.json`);
-      if (!res.ok) throw new Error(`Article ${n} not found`);
+      if (!res.ok) throw new Error(`Article ${s} not found`);
       return res.json();
     };
   });

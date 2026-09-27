@@ -5,8 +5,6 @@
   'use strict';
   const BUILD = '20260707-627';
   const BTC = 'bc1p2e4c0pnyvkm5dx4c22zkve3f5wtnwhyx496k95a2vwjhy04wg4ds8nj5xq';
-  const $ = (id) => document.getElementById(id);
-  const toast = (msg, type) => window.toast?.(msg, type || 'info');
 
   window.SHERPA_UPGRADES = window.SHERPA_UPGRADES || {};
   SHERPA_UPGRADES.b10 = { BUILD, items: [] };

@@ -238,7 +238,6 @@
   });
 
   feat(323, 'Brand assets manifest parent logo', () => {
-    const orig = window.brandAssets;
     window.brandAssets = function () {
       const manifest = {
         movementLogo: '/giveabit-logo.png',

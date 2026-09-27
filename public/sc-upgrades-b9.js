@@ -4,8 +4,6 @@
 (function SCUpgradesB9() {
   'use strict';
   const BUILD = '20260707-607';
-  const $ = (id) => document.getElementById(id);
-  const toast = (msg, type) => window.toast?.(msg, type || 'info');
 
   window.SHERPA_UPGRADES = window.SHERPA_UPGRADES || {};
   SHERPA_UPGRADES.b9 = { BUILD, items: [] };

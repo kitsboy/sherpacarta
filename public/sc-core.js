@@ -1422,8 +1422,6 @@ window.CHARTER = [
 
 const CHARTER = window.CHARTER;
 
-const KEY_ARTICLES = CHARTER.flatMap(ch => ch.articles);
-
 // ═══════════════════════════════════════════════════════════
 // LANGUAGES LIST
 // ═══════════════════════════════════════════════════════════
@@ -1901,8 +1899,8 @@ function buildArticlesBrowser(){
       const hash=(location.hash||'').replace(/^#/,'').trim();
       if(!hash)return;
       // #art-114 | #art114 | #articles/114 | #article-11
-      let m=hash.match(/^art(?:icle)?s?[\/\-]?(\d+)$/i)
-        ||hash.match(/^art(?:icle)?[\/\-]?(\d+)$/i)
+      let m=hash.match(/^art(?:icle)?s?[/-]?(\d+)$/i)
+        ||hash.match(/^art(?:icle)?[/-]?(\d+)$/i)
         ||hash.match(/^articles?$/i);
       if(m&&m[1])window.jumpToArticle(m[1]);
       else if(/^articles?$/i.test(hash)){
@@ -1953,7 +1951,7 @@ async function stampArticle(i){
     const url=window.satohashStampGuideUrl(hash,{ref:'sherpacarta-article',filename:(art.num||'article').replace(/\W+/g,'-').toLowerCase()});
     window.open(url,'_blank','noopener');
     toast('Article hashed · opening Satohash stamp page…','success');
-  }catch(e){
+  }catch(_){
     toast('Hashing failed in this browser','error');
   }finally{
     if(btn){setTimeout(()=>{btn.disabled=false;btn.removeAttribute('aria-busy');},800);}
@@ -1993,7 +1991,7 @@ async function nostrArticle(i){
     const res=await lib.publishEvent(signed);
     if(res&&res.ok)toast('Published to '+res.successCount+' relay(s) — '+title,'success');
     else toast('Publish failed — no relay accepted it. Try again.','error');
-  }catch(e){
+  }catch(_){
     toast('Nostr publish cancelled or failed','error');
   }
 }
@@ -2263,7 +2261,7 @@ async function stampCharterOnBitcoin(){
     });
     toast('Charter hashed. Opening Satohash stamp page…','info');
     window.open(url,'_blank','noopener');
-  }catch(e){toast('Could not compute charter hash','error');}
+  }catch(_){toast('Could not compute charter hash','error');}
 }
 
 /**
@@ -2436,7 +2434,7 @@ async function nostrConnect(){
     localStorage.setItem('sc_nostr_pk',pk);
     updateNostrUI();
     toast('Connected via Nostr — your keys never touch our servers','success');
-  }catch(e){toast('Nostr connection declined','error');}
+  }catch(_){toast('Nostr connection declined','error');}
 }
 
 /** Probe CSP-allowlisted relays; show N/M reachable (no tracking). */
@@ -2500,7 +2498,7 @@ async function publishToNostr(content,tags=[]){
       }catch(_){}
     }
     return true;
-  }catch(e){return false;}
+  }catch(_){return false;}
 }
 
 /** Optional: publish caller's NIP-65 (kind 10002) relay list via NIP-07 */
@@ -2601,7 +2599,7 @@ async function verifyCharterHash(){
     const match=hash===release.toLowerCase();
     toast((match?'✓ MATCHES':'✗ DOES NOT MATCH')+' the release hash — '+hash.slice(0,16)+'…','success');
     if(!match)console.warn('Charter hash mismatch. Local:',hash,'Release:',release);
-  }catch(e){
+  }catch(_){
     toast('Hashing failed in this browser','error');
   }
 }
@@ -2837,23 +2835,6 @@ function copyPayAddress(kind, addrEl, btnEl, resetHtml){
   });
 })();
 
-// ═══════════════════════════════════════════════════════════
-// ASSERT RIGHTS
-// ═══════════════════════════════════════════════════════════
-function assertRights(){
-  const assertions=[
-    'I assert my right to privacy under SherpaCarta Article 11.',
-    'My data belongs to me. Article 12 is my shield.',
-    'No algorithm may judge me without explanation. Article 61.',
-    'I am a signatory. My rights are inviolable.',
-    'Surveillance capitalism violates my dignity. Article 13.',
-    'Internet access is my right, not a privilege. Article 22.',
-    'I have the right to be forgotten. Article 47.',
-    'Digital dignity is human dignity. Article 1.',
-  ];
-  toast(assertions[Math.floor(Math.random()*assertions.length)],'success');
-}
-
 // Ambient mode UI removed — keep no-op for any stale onclick/bookmark
 function toggleAmbient(){ /* removed */ }
 
@@ -2930,7 +2911,7 @@ function bindTooltips(root){
   scope.querySelectorAll('[data-tip]').forEach((el)=>{
     if(el.dataset.tipBound)return;
     el.dataset.tipBound='1';
-    const show=(e)=>{
+    const show=(_)=>{
       const tip=ensureTipEl();
       const t=el.dataset.tip||'';
       const tt=el.dataset.tipTitle;
@@ -2959,7 +2940,9 @@ function bindTooltips(root){
 }
 // Re-bind when dynamic content swaps in (signers wall, amendments)
 const _origBuildSigners=buildSigners;
+/* eslint-disable no-func-assign -- intentional monkey-patch to re-bind tooltips on dynamic swaps */
 buildSigners=function(){_origBuildSigners.apply(this,arguments);bindTooltips(document);};
+/* eslint-enable no-func-assign */
 
 // DOMContentLoaded INIT
 // ═══════════════════════════════════════════════════════════

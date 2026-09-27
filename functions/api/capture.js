@@ -32,15 +32,6 @@ function sanitize(raw, max = 200) {
     .slice(0, max);
 }
 
-/** Prepend entry to a KV list, capped. */
-async function appendEntry(kv, key, entry, cap) {
-  const raw = await kv.get(key);
-  const list = raw ? JSON.parse(raw) : [];
-  list.unshift(entry);
-  await kv.put(key, JSON.stringify(list.slice(0, cap)));
-  return list.length;
-}
-
 export async function onRequest(context) {
   const { request, env } = context;
   const kv = env.PETITION_KV;
@@ -93,7 +84,7 @@ export async function onRequest(context) {
   }
 
   const entry = { email, org, at: Date.now() };
-  let total = 0;
+    let total;
   let deduped = false;
 
   if (kv) {

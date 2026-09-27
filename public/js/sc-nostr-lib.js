@@ -49,16 +49,16 @@
       (typeof localStorage !== 'undefined' &&
         (localStorage.getItem('sc_preferred_relay') || localStorage.getItem('sc_nostr_relay'))) ||
       null;
-    var extra = [];
-    try {
-      extra = JSON.parse(
-        (typeof localStorage !== 'undefined' && localStorage.getItem('sc_nostr_relays_extra')) || '[]'
-      );
-    } catch (_) {
-      extra = [];
-    }
-    var nip65 = [];
-    try {
+    var extra;
+        try {
+          extra = JSON.parse(
+            (typeof localStorage !== 'undefined' && localStorage.getItem('sc_nostr_relays_extra')) || '[]'
+          );
+        } catch (_) {
+          extra = [];
+        }
+        var nip65;
+        try {
       nip65 = JSON.parse(
         (typeof localStorage !== 'undefined' && localStorage.getItem('sc_nip65_relays')) || '[]'
       );

@@ -6,7 +6,6 @@
   const read = () => { try { return JSON.parse(localStorage.getItem(stateKey) || '{}'); } catch (_) { return {}; } };
   const write = (value) => { try { localStorage.setItem(stateKey, JSON.stringify(value)); } catch (_) {} };
   const articleNumber = (article) => Number(String(article.num || '').replace(/\D/g, '')) || null;
-  const cleanText = (html) => String(html || '').replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
   const categoryFor = (number, taxonomy) => taxonomy.categories.filter((category) => category.articles.includes(number));
 
   async function mount() {
@@ -37,7 +36,7 @@
       });
     }
     function renderArticle(article) {
-      const number = articleNumber(article); const categories = categoryFor(number, taxonomy); const text = cleanText(article.body);
+      const number = articleNumber(article); const categories = categoryFor(number, taxonomy);
       progress.lastArticle = number; write(progress); main.dataset.readerMounted = '1';
       main.replaceChildren();
       const meta = document.createElement('div'); meta.className = 'article-provenance'; meta.innerHTML = `<span>Article ${number}</span><span>${categories.map((category) => category.label).join(' · ') || 'Digital rights'}</span><span>Source release 2.0</span>`;

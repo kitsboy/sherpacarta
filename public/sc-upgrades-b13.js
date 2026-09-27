@@ -4,7 +4,6 @@
 (function SCUpgradesB13() {
   'use strict';
   const BUILD = '20260707-687';
-  const toast = (msg, type) => window.toast?.(msg, type || 'info');
 
   window.SHERPA_UPGRADES = window.SHERPA_UPGRADES || {};
   SHERPA_UPGRADES.b13 = { BUILD, items: [] };

@@ -17,7 +17,6 @@
     try { fn(); } catch (e) { console.warn(`B8 #${id}:`, e); }
   }
 
-  const EXTRA_LANGS = ['de', 'pt', 'sw'];
   const UI_KEYS = ['navSign', 'navDonate', 'missionLabel', 'signHeading', 'donateHeading', 'faqHeading'];
 
   // 568 — Add de, pt, sw to nav select

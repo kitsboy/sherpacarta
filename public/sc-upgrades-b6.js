@@ -243,8 +243,8 @@
       if (!window.PublicKeyCredential) { toast('Passkeys not supported in this browser', 'error'); return; }
       try {
         const id = crypto.randomUUID();
-        const cred = await navigator.credentials.create({
-          publicKey: {
+                await navigator.credentials.create({
+                  publicKey: {
             challenge: crypto.getRandomValues(new Uint8Array(32)),
             rp: { name: 'SherpaCarta', id: location.hostname },
             user: { id: new TextEncoder().encode(id), name: 'signer@local', displayName: 'SherpaCarta Signer' },
