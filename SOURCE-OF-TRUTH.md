@@ -1,16 +1,56 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-09-10
-**BUILD:** curated home bundle · SW **v9.7** · `v=918` · local sign vs Canada campaign
-**Live:** https://sherpacarta.org  
-**GitHub:** https://github.com/kitsboy/sherpacarta.git  
-**Last goodbye:** 2026-09-10 · HEAD `764c79e`  
+**Date:** 2026-09-10 (last updated 2026-09-27 — deploy-process + Vite reality)
+**BUILD:** Vite/React app + static `public/` set · SW **v9.8** · asset `v=919` · local sign vs Canada campaign
+**Live:** https://sherpacarta.org  **GitHub:** https://github.com/kitsboy/sherpacarta.git  
+**Repo-HEAD reference:** see latest confirmed deployed SHA in `LATEST-UPDATE.md` (this doc's
+"Last goodbye" line below is historical, superseded by that file).
 
 ## Project Overview (Simple Pitch)
 SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights. Moral/political declaration (CC0). Canada is the first law-change beachhead; UK & EU are planned next. Bitcoin-funded. Zero tracking. Local-first signing.
 
 This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single source of truth** on M3.
+
+## BUILD SYSTEM — READ BEFORE DEPLOYING (deploy process, so any LLM can ship cleanly)
+
+**This repo is now a Vite + React app.** Entry `src/main.jsx` → built to `dist/` via `npm run
+build`. The classic hand-authored pages in `public/` are also copied into the build and remain
+served (dual-layout: React mounts on `/verify` alongside the static pages). Quote the build
+string you **personally verified on the served DOM**, never a remembered one.
+
+### How a deploy actually happens (ONE deployer, no token)
+The **Cloudflare Pages ↔ GitHub integration** auto-builds and publishes **every push to `main`**.
+That is the only normal deployer — there is no `wrangler` step and no deployed credential.
+`.github/workflows/deploy.yml` builds the commit and **polls production until the new SHA is live**
+(it is a verification guard, NOT the deployer). `.github/workflows/repository-contracts.yml` +
+`security-contracts.yml` + `trust-checks.yml` + `lighthouse.yml` run the honesty gates on push.
+
+**Deploy flow (cold, repeatable):**
+```bash
+cd <checkout> && git pull                     # main, clean
+# …make edits, bump SW + v= (Rule 2)…
+npm run check:*  &&  npm run lint             # leave nothing red
+git add -A && git commit -m "…" && git push origin main   # CF Pages builds + publishes
+# verify the NEW build string is served, never trust "action was green":
+curl -s https://sherpacarta.org/ | grep -oE "BUILD [0-9]+|v=[0-9]+"
+curl -s https://sherpacarta.org/sw.js | grep -oE "sherpacarta-v[0-9.]+"
+```
+
+**Version stamps are hand-managed** — `v=919` in the HTML `?v=` query stamps and the SW cache
+name `sherpacarta-v9.8` in `public/sw.js`. The `generate-*`/`inject-*` scripts do NOT rewrite the
+`v=` stamp (only `inject-analytics` touches `<head>`, not the version). **Bump both together on any
+JS/CSS/HTML change** or returning visitors on the old service-worker cache keep the stale bundle.
+
+**Break-glass (manual, `workflow_dispatch` only, never on push):** Deploy workflow → mode
+`break-glass-deploy`; needs repo secret `CLOUDFLARE_PAGES_TOKEN` (Pages:Edit) — fallback, do not
+make it a habit. `deploy.sh` is a rare local helper (now secret-free, refuses without
+`CLOUDFLARE_API_TOKEN`) and `cd ~/projects/sherpacarta` (Mac path) — it is NOT the THOR flow.
+
+**Verify API note:** the "Verify this proof" surface (`src/components/verify/VerifySurface.jsx`)
+POSTs the pasted SHA-256 hash to the **hosted family API** `https://api.satohash.io/api/verify`
+(no local `/api/verify` function exists). A forged/hit-less hash returns HTTP 404 + a JSON
+`{verified:false}` body — the component renders that as **"Not proven"**, never as a network error.
 
 ## Core Files
 
@@ -20,7 +60,7 @@ This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single sourc
 - `public/sc-core.js` — CHARTER inject, sign, In brief, visualViewport keyboard
 - `public/sc-bundle.js` — curated 7-file minify (~114 KB): enhancements, v2, b1, b3, b4, b14, b15
 - `public/js/sc-petition-canada.js` — Canada campaign petition (no private key storage)
-- `public/sw.js` — Service worker **v9.7** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
+- `public/sw.js` — Service worker **v9.8** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
 - `public/start.html` — universal onboarding and role paths
 - `public/verify.html` — local SHA-256 proof verification guide/tool
 - `public/archive.html`, `public/cite.html`, `public/data/releases.json` — release archive and citations
