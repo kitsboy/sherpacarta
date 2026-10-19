@@ -110,6 +110,7 @@
 @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:700;font-display:swap;src:url('/fonts/cormorant-700.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'DM Mono';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/dmmono-400.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 @font-face{font-family:'DM Mono';font-style:normal;font-weight:500;font-display:swap;src:url('/fonts/dmmono-500.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+.rss-chip{display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(251,146,60,.45);background:rgba(251,146,60,.12);color:#fdba74;border-radius:999px;padding:1px 8px;font-size:10px;font-weight:700;text-decoration:none}
 </style>
 <link rel="stylesheet" href="/vendor/fontawesome/css/all.min.css?v=920">
 
@@ -1113,6 +1114,7 @@ setTimeout(kill,0);setTimeout(kill,500);}());
         </a>
         <div class="legal-links">
           <a href="/privacy">Privacy</a>
+          <a href="/feed.xml" class="rss-chip" title="Subscribe via RSS" aria-label="Subscribe via RSS"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.18 17.82a2.18 2.18 0 1 0 0 4.36 2.18 2.18 0 0 0 0-4.36zM4 4.44v3.6C12.9 8.04 20 15.1 20 24h3.6C23.6 14.6 13.4 4.44 4 4.44zM4 10.1v3.6c5.7 0 10.3 4.6 10.3 10.3h3.6C17.9 14.9 9.1 10.1 4 10.1z"/></svg> RSS</a>
           <a href="/terms">Terms</a>
           <a href="#legal-terms" onclick="document.getElementById('legal-terms')?.scrollIntoView({behavior:'smooth'});return false">Terms of the charter</a>
           <a href="#" onclick="focusA11yToolbar();return false">Accessibility</a>
