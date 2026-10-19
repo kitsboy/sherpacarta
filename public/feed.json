@@ -1,0 +1,49 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "SherpaCarta \u2014 charter and briefings",
+  "home_page_url": "https://sherpacarta.org",
+  "feed_url": "https://sherpacarta.org/feed.json",
+  "description": "The charter pages and the short Rights Dispatch notes. Own pages only. Sibling news is not mixed in.",
+  "items": [
+    {
+      "id": "https://sherpacarta.org/#mission",
+      "url": "https://sherpacarta.org/#mission",
+      "title": "Welcome to SherpaCarta \u2014 Why a Digital Magna Carta?",
+      "content_text": "Introduction to the 114-article charter, the Canada/BC Challenge, and how to sign.",
+      "date_published": "Sat, 04 Jul 2026 12:00:00 GMT",
+      "tags": [
+        "own-page"
+      ]
+    },
+    {
+      "id": "https://sherpacarta.org/?article=11",
+      "url": "https://sherpacarta.org/?article=11",
+      "title": "Article 11 \u2014 The Right to Privacy",
+      "content_text": "The cornerstone privacy article. Read it on the charter.",
+      "date_published": "Sat, 04 Jul 2026 12:00:00 GMT",
+      "tags": [
+        "own-page"
+      ]
+    },
+    {
+      "id": "https://sherpacarta.org/#canada-bc",
+      "url": "https://sherpacarta.org/#canada-bc",
+      "title": "Canada and BC Challenge \u2014 Change Law First",
+      "content_text": "Why British Columbia is the first place the charter asks the law to move.",
+      "date_published": "Sat, 04 Jul 2026 12:00:00 GMT",
+      "tags": [
+        "own-page"
+      ]
+    },
+    {
+      "id": "https://sherpacarta.org/changelog.html",
+      "url": "https://sherpacarta.org/changelog.html",
+      "title": "Changelog",
+      "content_text": "Version history of the site and the charter releases.",
+      "date_published": "Sat, 04 Jul 2026 12:00:00 GMT",
+      "tags": [
+        "own-page"
+      ]
+    }
+  ]
+}
