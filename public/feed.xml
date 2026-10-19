@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>SherpaCarta — charter and briefings</title>
+    <link>https://sherpacarta.org</link>
+    <description>The charter pages and the short Rights Dispatch notes. Own pages only. Sibling news is not mixed in.</description>
+    <language>en</language>
+    <item>
+      <title>Welcome to SherpaCarta — Why a Digital Magna Carta?</title>
+      <link>https://sherpacarta.org/#mission</link>
+      <guid isPermaLink="true">https://sherpacarta.org/#mission</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Introduction to the 114-article charter, the Canada/BC Challenge, and how to sign.</description>
+    </item>
+    <item>
+      <title>Article 11 — The Right to Privacy</title>
+      <link>https://sherpacarta.org/?article=11</link>
+      <guid isPermaLink="true">https://sherpacarta.org/?article=11</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 GMT</pubDate>
+      <description>The cornerstone privacy article. Read it on the charter.</description>
+    </item>
+    <item>
+      <title>Canada and BC Challenge — Change Law First</title>
+      <link>https://sherpacarta.org/#canada-bc</link>
+      <guid isPermaLink="true">https://sherpacarta.org/#canada-bc</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Why British Columbia is the first place the charter asks the law to move.</description>
+    </item>
+    <item>
+      <title>Changelog</title>
+      <link>https://sherpacarta.org/changelog.html</link>
+      <guid isPermaLink="true">https://sherpacarta.org/changelog.html</guid>
+      <pubDate>Sat, 04 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Version history of the site and the charter releases.</description>
+    </item>
+  </channel>
+</rss>
