@@ -15,7 +15,7 @@ It is a moral and political declaration and modern successor to the 1215 Magna C
 
 The project ships a stunning, fully self-contained, interactive single-page website with custom cursor, ⌘K command palette, full article browser (local signing + sharing + "AI" summaries), Rights Protection Calculator, historical comparison timeline, Bitcoin donation flow, rich social sharing across X/WhatsApp/Telegram/LinkedIn/etc., multi-language support, print/read-aloud/download charter features, and excellent SEO. 
 
-Everything is CC0 public domain. The site practices extreme privacy: zero tracking, zero cookies (ironic banner only), zero analytics. Funded only by voluntary Bitcoin (on-chain transparent). Tagline: "Privacy is not a feature. It is a birthright."
+Everything is CC0 public domain. The site practices privacy by design: no ad trackers. Page counts go to our own counter. Your IP address is not saved there. Funded only by voluntary Bitcoin (on-chain transparent). Tagline: "Privacy is not a feature. It is a birthright."
 
 ## Current State (as of BUILD-20260610-001)
 - Single source of truth folder: `/Users/cam/projects/sherpacarta/`
@@ -69,10 +69,10 @@ Thank you — this keeps everything automatic, organized, and moving forward sea
 - Real production deployment to https://sherpacarta.org/ (Cloudflare Pages recommended) + final assets like og-image.png.
 - Prune legacy React dependencies from package.json (the delivered product is pure self-contained HTML/JS + Vite for dev convenience only).
 - Outreach and adoption using the new MARKETING.md (press, organizations, community translations, local chapters).
-- Evolve living charter features (amendment UI, optional lightweight public signature ledger while preserving the strong local-first zero-tracking default).
+- Evolve living charter features (amendment UI, optional lightweight public signature ledger while preserving the strong local-first default: no ad trackers, and no IP address saved with page counts).
 - Keep SOURCE-OF-TRUTH.md, hand-off files, and BUILD numbers updated on every meaningful change.
 
-**Update / Status**: As of 2026-06-10, SherpaCarta has a production-ready, privacy-maximalist, self-contained interactive website for the 114-article Global Digital Magna Carta for the 21st Century. The project fully follows the Give A Bit two-machine hand-off discipline with clean, structured records. The experience is immediately workable with `npm run dev`. All user-requested documentation is in place. The site itself models the mission: zero tracking, CC0, Bitcoin-funded, empowering normal people with digital rights tools.
+**Update / Status**: As of 2026-06-10, SherpaCarta has a production-ready, privacy-maximalist, self-contained interactive website for the 114-article Global Digital Magna Carta for the 21st Century. The project fully follows the Give A Bit two-machine hand-off discipline with clean, structured records. The experience is immediately workable with `npm run dev`. All user-requested documentation is in place. The site itself models the mission: no ad trackers, CC0, Bitcoin-funded, empowering normal people with digital rights tools.
 
 **Key Decisions / Notes**:
 - Kept the core experience as a single rich `index.html` (Vite wrapper only for dev/build) because it perfectly matches the "living public document" + CC0 philosophy and makes sharing/hosting trivial.

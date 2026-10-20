@@ -93,7 +93,7 @@ Full strategy: [docs/CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md)
 
 | Layer | Technology | Purpose |
 |-------|------------|---------|
-| Read & sign | Local browser | Zero-tracking default |
+| Read & sign | Local browser | No ad trackers. Page counts go to our own counter. IP not saved. |
 | Edit drafts | localStorage | Living document (Art. 114) |
 | Public discourse | Nostr (NIP-07) | Amendments & comments |
 | Proof of existence | Satohash / Bitcoin timestamp workflow | Hash/time evidence; not a legal certification |

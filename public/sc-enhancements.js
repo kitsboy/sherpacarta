@@ -88,14 +88,24 @@
       bar = document.createElement('div');
       bar.id = 'a11y-toolbar';
       bar.className = 'a11y-toolbar';
+      bar.setAttribute('role', 'region');
+      bar.setAttribute('aria-labelledby', 'a11y-panel-title');
+      bar.hidden = true;
       bar.innerHTML = `
-        <button type="button" title="Font size +" onclick="SC.fontUp()">A+</button>
-        <button type="button" title="Font size -" onclick="SC.fontDown()">A−</button>
-        <button type="button" title="Reading mode" onclick="SC.toggleReading()"><i class="fas fa-book-open"></i></button>
-        <button type="button" title="High contrast" onclick="SC.toggleContrast()"><i class="fas fa-circle-half-stroke"></i></button>
-        <button type="button" title="Keyboard shortcuts" onclick="SC.showShortcuts()"><i class="fas fa-keyboard"></i></button>
+        <div class="a11y-panel-head">
+          <p id="a11y-panel-title">Accessibility</p>
+          <button type="button" class="a11y-close" aria-label="Close accessibility panel">
+            <i class="fas fa-xmark" aria-hidden="true"></i><span>Close</span>
+          </button>
+        </div>
+        <div class="a11y-panel-actions">
+          <button type="button" onclick="SC.fontUp()"><i class="fas fa-plus" aria-hidden="true"></i><span>Larger text</span></button>
+          <button type="button" onclick="SC.fontDown()"><i class="fas fa-minus" aria-hidden="true"></i><span>Smaller text</span></button>
+          <button type="button" onclick="SC.toggleReading()"><i class="fas fa-book-open" aria-hidden="true"></i><span>Reading mode</span></button>
+          <button type="button" onclick="SC.toggleContrast()"><i class="fas fa-circle-half-stroke" aria-hidden="true"></i><span>High contrast</span></button>
+          <button type="button" onclick="SC.showShortcuts()"><i class="fas fa-keyboard" aria-hidden="true"></i><span>Shortcuts</span></button>
+        </div>
       `;
-      bar.style.display = 'none';
       document.body.appendChild(bar);
     } else if (bar.parentElement !== document.body) {
       document.body.appendChild(bar);
@@ -122,6 +132,35 @@
       toast('High contrast ' + (document.body.classList.contains('high-contrast') ? 'on' : 'off'));
     };
     if (localStorage.getItem('sc_contrast') === 'true') document.body.classList.add('high-contrast');
+
+    function setA11yOpen(open) {
+      const panel = $('a11y-toolbar');
+      const chip = $('a11y-chip');
+      if (!panel) {
+        toast('Reload the page to enable the accessibility panel', 'info');
+        return;
+      }
+      panel.classList.toggle('visible', open);
+      panel.hidden = !open;
+      panel.style.display = '';
+      if (chip) chip.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) {
+        (panel.querySelector('.a11y-close') || panel.querySelector('button'))?.focus();
+      } else if (chip) {
+        chip.focus();
+      }
+    }
+    window.focusA11yToolbar = () => setA11yOpen(true);
+    window.closeA11yToolbar = () => setA11yOpen(false);
+    bar.querySelector('.a11y-close')?.addEventListener('click', () => setA11yOpen(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      const panel = $('a11y-toolbar');
+      if (!panel || panel.hidden || !panel.classList.contains('visible')) return;
+      if ($('qr-modal')?.classList.contains('open')) return;
+      e.preventDefault();
+      setA11yOpen(false);
+    });
   });
 
   feat(5, 'Theme toggle (dark-first — no auto light wash)', () => {
@@ -513,7 +552,7 @@
 
   feat(38, 'Press kit download txt', () => {
     window.downloadPressKit = function () {
-      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: sherpa@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\nBuilt by: https://giveabit.io\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
+      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. No ad trackers or tracking cookies.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: sherpa@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\nBuilt by: https://giveabit.io\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.`;
       const blob = new Blob([kit], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -1015,13 +1054,14 @@
 
   feat(85, 'Privacy policy anchor', () => {
     document.querySelectorAll('.legal-links a').forEach((a) => {
-      if (a.textContent.includes('Privacy')) a.href = '#', a.onclick = (e) => { e.preventDefault(); toast('We collect nothing. Zero analytics. Zero cookies. Art. 11 in practice.', 'info'); };
+      if (!a.textContent.includes('Privacy')) return;
+      if (!a.getAttribute('href') || a.getAttribute('href') === '#') a.href = '/privacy';
     });
   });
 
   feat(86, 'Accessibility statement', () => {
     document.querySelectorAll('.legal-links a').forEach((a) => {
-      if (a.textContent.trim() === 'Accessibility') a.onclick = (e) => { e.preventDefault(); SC.showShortcuts(); };
+      if (a.textContent.trim() === 'Accessibility') a.onclick = (e) => { e.preventDefault(); window.focusA11yToolbar?.(); };
     });
   });
 

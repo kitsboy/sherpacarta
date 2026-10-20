@@ -65,7 +65,7 @@ Site is **healthy and structured**. Core product path works. Remaining work is a
 
 ## Mission Tie-in
 
-Privacy is a birthright. Canada first, then UK/EU with jurisdiction-specific honesty. Bitcoin-funded, zero-tracking, rights only expand.
+Privacy is a birthright. Canada first, then UK/EU with jurisdiction-specific honesty. Bitcoin-funded, no ad trackers, rights only expand.
 
 ---
 

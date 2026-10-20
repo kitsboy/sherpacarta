@@ -19,7 +19,7 @@ It is:
 - A **moral and political declaration** (not yet legislation)
 - **CC0 public domain** — copy, translate, adapt, and build on it freely
 - Funded exclusively by Bitcoin donations from citizens (published on-chain)
-- 100% open source, zero tracking, zero analytics, zero cookies
+- 100% open source. No ad trackers. Page counts go to our own counter. Your IP address is not saved there.
 - A **living document** — rights may only expand, never contract
 
 ---

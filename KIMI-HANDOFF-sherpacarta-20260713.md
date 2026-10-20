@@ -5,7 +5,7 @@
 
 ## Pitch (remember)
 
-SherpaCarta is the Global Digital Magna Carta — 114 articles for digital privacy and sovereignty. Canada-first law-change beachhead. Bitcoin-funded, zero tracking, local-first signing. Part of Give A Bit.
+SherpaCarta is the Global Digital Magna Carta — 114 articles for digital privacy and sovereignty. Canada-first law-change beachhead. Bitcoin-funded, no ad trackers, local-first signing. Part of Give A Bit.
 
 ## What changed this session
 

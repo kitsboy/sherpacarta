@@ -110,7 +110,7 @@ Use this board in Obsidian / Linear / GitHub Projects. Do **not** invent endorse
 |----|------|-------|
 | F1 | **Monitor `hello@giveabit.io`** | Public contact + security.txt. |
 | F2 | **Tighten CSP further** | Baseline CSP shipped; refine without breaking YouTube/embed/jsDelivr QR. |
-| F3 | **Keep zero-tracking promise** | No sneaky analytics without ethics decision. |
+| F3 | **Keep the no-ad-tracker promise** | Page counts go to our own counter. Do not save an IP address with them. |
 | F4 | **PETITION_KV hygiene** | Minimal data only; campaign ≠ Parliament IDs. |
 | F5 | ~~**Set ORGANIZER_TOKEN**~~ ✅ | Set 2026-07-13 · see `docs/ORGANIZER-TOKEN.md` |
 | F6 | ~~**PoW on campaign sign**~~ ✅ | Turnstile optional when keys added · `security.json` |

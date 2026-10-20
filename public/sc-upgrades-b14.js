@@ -50,7 +50,7 @@
     if (note2 && !note2.querySelector('.stat-note')) {
       const sn = document.createElement('div');
       sn.className = 'stat-note';
-      sn.textContent = 'Local · zero tracking';
+      sn.textContent = 'Stays on this device';
       note2.appendChild(sn);
     }
   });
@@ -224,11 +224,11 @@
       const wrap = document.createElement('div');
       wrap.className = 'theme-chips';
       wrap.innerHTML = `
-        <button type="button" class="theme-chip" data-theme="dark" title="Dark" onclick="setSherpaTheme('dark')">Dark</button>
-        <button type="button" class="theme-chip" data-theme="light" title="Light" onclick="setSherpaTheme('light')">Light</button>
-        <button type="button" class="theme-chip" data-theme="high-contrast" title="High contrast" onclick="setSherpaTheme('high-contrast')">HC</button>
-        <button type="button" class="theme-chip" data-theme="dyslexia" title="Dyslexia-friendly" onclick="setSherpaTheme('dyslexia')">Aa</button>`;
-      tb.appendChild(wrap);
+        <button type="button" class="theme-chip" data-theme="dark" onclick="setSherpaTheme('dark')">Dark</button>
+        <button type="button" class="theme-chip" data-theme="light" onclick="setSherpaTheme('light')">Light</button>
+        <button type="button" class="theme-chip" data-theme="high-contrast" onclick="setSherpaTheme('high-contrast')">Contrast</button>
+        <button type="button" class="theme-chip" data-theme="dyslexia" onclick="setSherpaTheme('dyslexia')">Dyslexia</button>`;
+      (tb.querySelector('.a11y-panel-actions') || tb).appendChild(wrap);
     }
     if (typeof CMD_ITEMS !== 'undefined') {
       CMD_ITEMS.push(
@@ -453,7 +453,7 @@
     if (!hero || hero.querySelector('.hero-urgency')) return;
     const el = document.createElement('p');
     el.className = 'hero-urgency';
-    el.innerHTML = '⚡ <strong>114 articles</strong> live · Zero cookies · Bitcoin-funded · Sign in under 30 seconds';
+    el.innerHTML = '⚡ <strong>114 articles</strong> live · No ad trackers · Bitcoin-funded · Sign in under 30 seconds';
     hero.querySelector('.hero-ctas')?.insertAdjacentElement('afterend', el);
   });
 

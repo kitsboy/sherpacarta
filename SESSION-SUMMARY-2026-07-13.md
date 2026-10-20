@@ -48,7 +48,7 @@ SherpaCarta is live and healthy at https://sherpacarta.org (BUILD 732). Organize
 
 ## Mission Tie-in
 
-Privacy-first civic infrastructure for Canada → UK/EU. Bitcoin-funded, zero tracking, rights only expand.
+Privacy-first civic infrastructure for Canada → UK/EU. Bitcoin-funded, no ad trackers, rights only expand.
 
 ## Recovery
 

@@ -17,7 +17,7 @@ SherpaCarta exists because eight billion people live under digital systems that 
 ## Core Values
 
 1. **Bitcoin Sovereignty First** — The movement is funded only by voluntary on-chain Bitcoin donations. No venture capital, no ad revenue, no paywalls on rights.
-2. **Privacy by Design** — Zero tracking, zero analytics, zero cookies. Signatures and preferences stay local unless a signer chooses otherwise.
+2. **Privacy by Design** — No ad trackers. Page counts go to our own counter at analytics.giveabit.io. Your IP address is not saved there. A country and city can be. Counts stay until we delete them. Signatures and preferences stay local unless a signer chooses otherwise.
 3. **Open Source** — CC0 public domain. Copy, translate, adapt, fork. Rights may only expand, never contract (Art. 114).
 4. **Safe Harbour** — SherpaCarta is a moral and political declaration, not legal advice. We urge adopters to consult qualified counsel in their jurisdiction.
 

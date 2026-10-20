@@ -15,7 +15,7 @@ const PAGES = {
   'index.html': {
     title: 'SherpaCarta — The Global Digital Magna Carta',
     description:
-      '114 living articles protecting privacy, data sovereignty, and freedom online for every person on Earth. Zero tracking. Bitcoin-funded. Sign the charter.',
+      '114 living articles protecting privacy, data sovereignty, and freedom online for every person on Earth. No ad trackers or tracking cookies. Bitcoin-funded. Sign the charter.',
     // Clean JPEG URL (no query string) — most reliable for X/Twitter cards
     image: '/share.jpg',
     path: '/',
@@ -100,7 +100,7 @@ const PAGES = {
   'public/canada/about.html': {
     title: 'About SherpaCarta Canada',
     description:
-      'Global Digital Magna Carta. Canada first. Dual-track petition. Zero tracking. Living document — rights only expand.',
+      'Global Digital Magna Carta. Canada first. Dual-track petition. No ad trackers or tracking cookies. Living document — rights only expand.',
     image: '/og/canada.jpg',
     path: '/canada/about',
   },

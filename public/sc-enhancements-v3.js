@@ -1089,7 +1089,7 @@
   feat(284, 'Bluesky thread starter', () => {
     window.composeBlueskyThread = () => {
       const posts = [
-        '1/ SherpaCarta is a living Magna Carta for the digital age — 114 articles, CC0, zero tracking.',
+        '1/ SherpaCarta is a living Magna Carta for the digital age — 114 articles, CC0, no ad trackers.',
         '2/ Privacy is Art. 11. Data sovereignty is Art. 12. No surveillance capitalism (Art. 13).',
         '3/ Sign at sherpacarta.org — BC can lead Canada on digital rights law. 🇨🇦',
       ];
@@ -1100,7 +1100,7 @@
 
   feat(285, 'Press release download', () => {
     window.downloadPressRelease = () => {
-      const pr = `FOR IMMEDIATE RELEASE\n\nSherpaCarta Launches Global Digital Magna Carta — 114 Articles for 8 Billion People\n\n${new Date().toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}\n\nsherpacarta.org — A living charter protecting privacy, data sovereignty, and algorithmic rights. CC0 public domain. Bitcoin-funded. Zero tracking.\n\nContact: hello@giveabit.io (subject: Sherpacarta)\nTwitter: @give_bit\nGitHub: github.com/kitsboy/sherpacarta`;
+      const pr = `FOR IMMEDIATE RELEASE\n\nSherpaCarta Launches Global Digital Magna Carta — 114 Articles for 8 Billion People\n\n${new Date().toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' })}\n\nsherpacarta.org — A living charter protecting privacy, data sovereignty, and algorithmic rights. CC0 public domain. Bitcoin-funded. No ad trackers.\n\nContact: hello@giveabit.io (subject: Sherpacarta)\nTwitter: @give_bit\nGitHub: github.com/kitsboy/sherpacarta`;
       const blob = new Blob([pr], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);

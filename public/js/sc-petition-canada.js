@@ -1,7 +1,7 @@
 /**
  * SherpaCarta Canada Petition Engine v2
  * Dual-track: campaign (local + optional API + Nostr) vs official (Parliament / paper)
- * Zero tracking · privacy-first
+ * No ad trackers · privacy-first
  */
 (function SCPetitionCanada() {
   'use strict';

@@ -42,7 +42,7 @@ Do not edit the injected CHARTER array in `sc-core.js` directly.
 - One logical change per PR
 - Update `CHANGELOG.md` for user-visible changes
 - Update `SOURCE-OF-TRUTH.md` for architectural changes
-- No tracking, analytics, or cookies — ever
+- No ad trackers. Page counts go to our own counter. Do not store an IP address with them.
 
 ## Movement Contributions (non-code)
 

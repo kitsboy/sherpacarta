@@ -1,6 +1,6 @@
 /**
  * SherpaCarta — shared Nostr helpers (browser)
- * No nsec. NIP-07 only when user connects. Zero tracking.
+ * No nsec. NIP-07 only when user connects. No ad trackers.
  *
  * Used by: sc-core publish path (if loaded), wall, petition (optional), docs.
  * Safe to load after or without sc-core.

@@ -137,10 +137,15 @@
     const chip = document.createElement('button');
     chip.id = 'a11y-chip';
     chip.type = 'button';
-    chip.setAttribute('aria-label', 'Accessibility tools');
-    chip.innerHTML = '<i class="fas fa-universal-access"></i>';
-    chip.style.cssText = 'position:fixed;bottom:calc(1.25rem + env(safe-area-inset-bottom,0));left:max(.5rem,env(safe-area-inset-left,0));z-index:454;width:40px;height:40px;border-radius:50%;border:1px solid var(--border2);background:rgba(11,17,11,.92);color:var(--em);cursor:pointer;font-size:.9rem';
-    chip.onclick = () => window.focusA11yToolbar?.() || window.SC6?.toggleA11yDock?.();
+    chip.className = 'a11y-chip';
+    chip.setAttribute('aria-controls', 'a11y-toolbar');
+    chip.setAttribute('aria-expanded', 'false');
+    chip.innerHTML = '<i class="fas fa-universal-access" aria-hidden="true"></i><span>Accessibility</span>';
+    chip.addEventListener('click', () => {
+      const open = $('a11y-toolbar')?.classList.contains('visible');
+      if (open) window.closeA11yToolbar?.();
+      else window.focusA11yToolbar?.();
+    });
     document.body.appendChild(chip);
   });
 
@@ -219,7 +224,7 @@
 
   feat(486, 'Press boilerplate generator', () => {
     window.genPressBoilerplate = () => {
-      const text = `FOR IMMEDIATE RELEASE\n\nSherpaCarta publishes 114 articles of digital human rights — a living Magna Carta for the algorithmic age. CC0. Bitcoin-funded. Zero tracking.\n\nhttps://sherpacarta.org\nhello@giveabit.io`;
+      const text = `FOR IMMEDIATE RELEASE\n\nSherpaCarta publishes 114 articles of digital human rights — a living Magna Carta for the algorithmic age. CC0. Bitcoin-funded. No ad trackers or tracking cookies.\n\nhttps://sherpacarta.org\nhello@giveabit.io`;
       navigator.clipboard.writeText(text);
       toast('Press boilerplate copied', 'success');
     };

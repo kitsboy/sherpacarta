@@ -60,7 +60,7 @@ As of **2026-07-07**, SherpaCarta is at **BUILD 688** on `main`, fully pushed an
 
 ## Mission Tie-in
 
-SherpaCarta keeps practicing what it preaches: zero tracking, local-first rights, Bitcoin-funded sovereignty. The press section now honestly links to the discourse landscape; Canada petition gives a real beachhead for law change.
+SherpaCarta keeps practicing what it preaches: no ad trackers, local-first rights, Bitcoin-funded sovereignty. The press section now honestly links to the discourse landscape; Canada petition gives a real beachhead for law change.
 
 ---
 

@@ -1,3 +1,15 @@
+## Session — 2026-10-20 · Honest page-count claim and share cards
+
+**Done:**
+- Homepage, press, video, Nostr reply, and dormant scripts no longer say "zero tracking."
+- The public line is: no ad trackers; page counts go to analytics.giveabit.io, our own counter; the IP address is not saved; a country and city can be; counts stay until deleted.
+- Share pictures redrawn: `public/og/sign.png`, `public/og-image.png`, `public/share.jpg`.
+- Accessibility panel text is readable and has a Close control. Desktop Explore can slide to the edge. Phones still hide that rail.
+
+**Not on the public page:** the Umami counter was restarting because its database at 172.18.0.2:5432 was unreachable. Retention was read from config, not from a live row.
+
+**Stamps:** asset `v=921`, service worker `sherpacarta-v9.10`.
+
 ## Session — 2026-09-15 · Truth fix: the stats strip served zero
 
 **Done:**
@@ -1382,7 +1394,7 @@ Kimi pushed HQ `365ceb9` (and related). Pipeline is **end-to-end live**. Grok pu
 
 - Signatures are browser-local only; marketing must not invent global counts
 - Organizational grid is aspirational seats, never fake endorsements
-- Self-host type/icons to match zero-tracking claim
+- Self-host type/icons so the no-ad-tracker claim stays true
 
 ### What's Next
 

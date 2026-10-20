@@ -35,7 +35,7 @@
     {
       "id": "what",
       "match": ["what is sherpacarta", "what is this", "about sherpa", "digital magna", "what do you do"],
-      "reply": "SherpaCarta is a living Digital Magna Carta — 114 articles of digital human rights (privacy, data sovereignty, free expression, fair algorithms). Not law yet: a moral + civic charter people can read, sign, and organize around. Free (CC0). Zero tracking. Bitcoin-funded.\n\n→ https://sherpacarta.org"
+      "reply": "SherpaCarta is a living Digital Magna Carta — 114 articles of digital human rights (privacy, data sovereignty, free expression, fair algorithms). Not law yet: a moral + civic charter people can read, sign, and organize around. Free (CC0). No ad trackers. Page counts go to our own counter. Your IP address is not saved there. Bitcoin-funded.\n\n→ https://sherpacarta.org"
     },
     {
       "id": "sign",

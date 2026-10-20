@@ -167,7 +167,7 @@ And no one asked humanity to sign the terms.
 SherpaCarta is a living charter of digital human rights — one hundred fourteen articles.  
 Privacy as a birthright. Data sovereignty. Freedom of expression online.  
 Algorithmic accountability. Rights that may only expand — never contract.  
-Published under CC0. Bitcoin-funded. Zero tracking. Built in the open.  
+Published under CC0. Bitcoin-funded. No ad trackers. Built in the open.
 Not a corporation. A global civic movement.
 
 ### [1:38–1:52] How it works
@@ -201,7 +201,7 @@ Sign. Share. Stamp. Assert.
 | 11 | 1:08–1:16 | `charter-wordmark` | Logo + title | **SherpaCarta** · Digital Magna Carta | Charter |
 | 12 | 1:16–1:24 | `charter-114` | Big number card | **114 articles** · living charter | … |
 | 13 | 1:24–1:32 | `charter-pillars` | Four pillars | Privacy · Access · Expression · Data | … |
-| 14 | 1:32–1:38 | `charter-trust` | Badge row | **CC0 · Zero tracking · Bitcoin-funded · Open source** | … |
+| 14 | 1:32–1:38 | `charter-trust` | Badge row | **CC0 · No ad trackers · Bitcoin-funded · Open source** | … |
 | 15 | 1:38–1:42 | `how-sign` | Sign UI still or HTML mock | **Sign · no account** | How it works |
 | 16 | 1:42–1:46 | `how-stamp` | Stamp / hash still | **Stamp on Bitcoin** | … |
 | 17 | 1:46–1:52 | `how-world` | World tracks / map | **One charter · many legal paths** · Canada live offering · UK/EU next | … |

@@ -19,7 +19,7 @@
   // 21 — Press kit download (enhanced)
   feat(447, 'Press kit PDF-ready export', () => {
     window.downloadPressKitPDF = () => {
-      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. Zero tracking.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: sherpa@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.\n\nPrint this page to PDF (Cmd+P) for press distribution.`;
+      const kit = `SHERPACARTA PRESS KIT\n\nBoilerplate:\nSherpaCarta is a global civic movement publishing a living charter of digital human rights. 114 articles. CC0. Bitcoin-funded. No ad trackers.\n\nSite: https://sherpacarta.org\nEmail: hello@giveabit.io (subject: Sherpacarta)\nBitcoin: ${window.SHERPA_WALLETS?.btc || ''}\nX: @give_bit\nNostr NIP-05: sherpa@giveabit.io\nGitHub: https://github.com/kitsboy/sherpacarta\n\nKey facts: 114 articles, 811 years of rights tradition, Canada/BC Challenge launch market.\n\nPrint this page to PDF (Cmd+P) for press distribution.`;
       const blob = new Blob([kit], { type: 'text/plain' });
       const a = document.createElement('a');
       a.href = URL.createObjectURL(blob);
@@ -59,7 +59,7 @@
         <h2>Why BC</h2>
         <p>Strong privacy foundations (PIPEDA) with gaps in algorithmic accountability and platform power.</p>
         <h2>Proof</h2>
-        <p>114-article charter · OpenTimestamp on Bitcoin via Satohash · Zero tracking site</p>
+        <p>114-article charter · OpenTimestamp on Bitcoin via Satohash · No ad trackers</p>
         <h2>Contact</h2>
         <p>hello@giveabit.io (subject: Sherpacarta BC)</p>
         <p><em>Print this page (Cmd+P) for your meeting folder.</em></p></body></html>`);

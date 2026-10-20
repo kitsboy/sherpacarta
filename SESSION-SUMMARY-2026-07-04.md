@@ -76,7 +76,7 @@ As of 2026-07-04, SherpaCarta was at **BUILD 587** on `main`. **Superseded** by 
 
 ## Mission Tie-in
 
-SherpaCarta is the Global Digital Magna Carta — privacy by design, CC0, Bitcoin-funded, zero tracking. Sprint 5 extends that mission to more languages and accessibility (RTL, TTS), making the charter reachable beyond English-first audiences while keeping official text review in English.
+SherpaCarta is the Global Digital Magna Carta — privacy by design, CC0, Bitcoin-funded, no ad trackers. Sprint 5 extends that mission to more languages and accessibility (RTL, TTS), making the charter reachable beyond English-first audiences while keeping official text review in English.
 
 ---
 

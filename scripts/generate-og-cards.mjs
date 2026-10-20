@@ -5,6 +5,7 @@
  * Includes brand mark when public/brand-mark.png is present.
  */
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'fs';
+import { execFileSync } from 'child_process';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { Resvg } from '@resvg/resvg-js';
@@ -50,7 +51,7 @@ const CARDS = [
     eyebrow: '30-SECOND COMMITMENT',
     title: 'Assert your rights',
     subtitle: 'Sign the living digital charter',
-    line: 'Local-first  ·  Optional Nostr  ·  Zero tracking',
+    line: 'Local-first  ·  No ad trackers  ·  IP not saved',
     cta: 'SHERPACARTA.ORG  ·  SIGN NOW',
   },
   {
@@ -162,13 +163,13 @@ function cardSvg(c) {
   <rect x="188" y="360" width="40" height="5" rx="2" fill="#f7931a"/>
 
   <!-- Supporting line -->
-  <text x="60" y="420" fill="#b8c4b8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="19" letter-spacing="0.5">${line}</text>
+  <text x="60" y="420" fill="#e4efe6" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" letter-spacing="0.4">${line}</text>
 
   <!-- Bottom bar -->
   <rect x="0" y="530" width="1200" height="100" fill="#07100b"/>
   <rect x="0" y="530" width="1200" height="3" fill="#10b981"/>
   <text x="60" y="590" fill="#34d399" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="23" letter-spacing="4" font-weight="600">${cta}</text>
-  <text x="1140" y="590" text-anchor="end" fill="#6a7a6a" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="2">GIVE A BIT</text>
+  <text x="1140" y="590" text-anchor="end" fill="#c5d0c6" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="2">GIVE A BIT</text>
 </svg>`;
 }
 
@@ -189,4 +190,11 @@ const defPng = new Resvg(cardSvg(CARDS[0]), {
 }).render().asPng();
 writeFileSync(join(root, 'public', 'og-image.png'), defPng);
 console.log('Updated public/og-image.png');
+const shareJpg = join(root, 'public', 'share.jpg');
+try {
+  execFileSync('ffmpeg', ['-y', '-i', join(root, 'public', 'og-image.png'), '-q:v', '3', shareJpg], { stdio: 'ignore' });
+  console.log('Updated public/share.jpg');
+} catch {
+  console.warn('share.jpg left as committed — ffmpeg missing or failed');
+}
 console.log('OG cards ready (brand mark:', markDataUri ? 'yes' : 'no', ')');

@@ -76,7 +76,7 @@ S14_BODY = """
   <div id="s14-head">Built Different</div>
   <div id="s14-row">
     <div class="s14-badge gold">CC0</div>
-    <div class="s14-badge">ZERO TRACKING</div>
+    <div class="s14-badge">NO AD TRACKERS</div>
     <div class="s14-badge">BITCOIN-FUNDED</div>
     <div class="s14-badge">OPEN SOURCE</div>
   </div>
@@ -110,7 +110,7 @@ S15_CSS = """
 S15_BODY = """
   <div id="s15-card">
     <div id="s15-title">Read it. Sign it.</div>
-    <div id="s15-sub">No account. No tracking. Locally, on your own device.</div>
+    <div id="s15-sub">No account. Signed locally, on your own device.</div>
     <div id="s15-btn">SIGN&nbsp;&#9998;</div>
   </div>
 """

@@ -18,7 +18,8 @@ Magna Carta 1215 · Icelandic Constitutional Bill 2011 · UDHR 1948
 Everyone who asserts their digital rights.
 
 /* PRIVACY */
-Zero tracking. Zero analytics cookies. Zero server-side signature ledger.
+No ad trackers. Page counts go to analytics.giveabit.io, our own counter.
+Your IP address is not saved there. A country and city can be. Counts stay until we delete them.
 Signatures stay in your browser unless you publish via Nostr.
 
 /* NOTE */

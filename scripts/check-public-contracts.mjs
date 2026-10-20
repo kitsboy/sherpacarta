@@ -16,6 +16,14 @@ const required = [
   ['private keys excluded from export', files.tools.includes('private key')],
   ['service worker caches lifecycle helper', files.sw.includes('/js/sc-proof-lifecycle.js')],
   ['canonical Satohash stamp route remains documented', fs.readFileSync('docs/LEARN-STAMP-FAMILY.md', 'utf8').includes('/stamp?hash=&ref=')],
+  ['homepage does not claim zero tracking', !/zero tracking/i.test(fs.readFileSync('index.html', 'utf8'))],
+  ['homepage does not deny analytics', !/no analytics/i.test(fs.readFileSync('index.html', 'utf8')) && !/zero analytics/i.test(fs.readFileSync('index.html', 'utf8'))],
+  ['homepage privacy claim links to the policy', fs.readFileSync('index.html', 'utf8').includes('No ad trackers') && fs.readFileSync('index.html', 'utf8').includes('href="/privacy"')],
+  ['homepage names our counter and the IP boundary', fs.readFileSync('index.html', 'utf8').includes('analytics.giveabit.io') && fs.readFileSync('index.html', 'utf8').includes('Your IP address is not saved there')],
+  ['social meta source matches the homepage claim', fs.readFileSync('scripts/apply-social-meta.mjs', 'utf8').includes('No ad trackers or tracking cookies') && !fs.readFileSync('scripts/apply-social-meta.mjs', 'utf8').includes('Earth. Zero tracking.')],
+  ['high-impact pages do not claim zero tracking', ['index.html', 'public/press.html', 'public/press-kit.html', 'public/briefing.html', 'public/leave-behind.html', 'public/canada/about.html', 'public/canada/join.html', 'public/canada/proof.html', 'public/report/2026-report.html', 'public/humans.txt', 'public/js/sc-share.js', 'public/og-image.svg'].every((file) => !/zero tracking/i.test(fs.readFileSync(file, 'utf8')))],
+  ['live bundle copy does not claim zero tracking', !/zero tracking/i.test(fs.readFileSync('public/sc-enhancements.js', 'utf8') + fs.readFileSync('public/sc-upgrades-b3.js', 'utf8') + fs.readFileSync('public/sc-upgrades-b14.js', 'utf8'))],
+  ['phone explore rail stays hidden', fs.readFileSync('public/sc-main.css', 'utf8').includes('@media(max-width:768px)') && fs.readFileSync('public/sc-main.css', 'utf8').includes('.section-dots{display:none!important}')],
 ];
 const failed = required.filter(([, ok]) => !ok);
 if (failed.length) {

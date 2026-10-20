@@ -48,7 +48,7 @@
 - "114 articles. 8 billion people. One living document."
 - "Successor to the Magna Carta for the digital age."
 - "Not a law. A movement that can become law."
-- "No VC. No governments. No tracking. Pure people power, funded by Bitcoin."
+- "No VC. No governments. No ad trackers. Pure people power, funded by Bitcoin."
 
 ---
 
@@ -66,7 +66,7 @@ It is open source, CC0 public domain, funded only by Bitcoin donations, and desi
 
 **Boilerplate (use verbatim where possible):**
 
-"SherpaCarta is a global civic movement publishing a living charter of digital human rights. The 114-article document synthesizes 811 years of rights tradition into enforceable principles for the digital age, with explicit protections against surveillance capitalism and algorithmic discrimination. It is published under CC0 (public domain), funded exclusively by citizen Bitcoin donations, and contains zero tracking or analytics. More at sherpacarta.org."
+"SherpaCarta is a global civic movement publishing a living charter of digital human rights. The 114-article document synthesizes 811 years of rights tradition into enforceable principles for the digital age, with explicit protections against surveillance capitalism and algorithmic discrimination. It is published under CC0 (public domain), funded exclusively by citizen Bitcoin donations, and contains no ad trackers. Page counts go to our own counter. Your IP address is not saved there. More at sherpacarta.org."
 
 **Key Facts:**
 - 114 Articles
@@ -110,7 +110,7 @@ See [CANADA-BC-CHALLENGE.md](CANADA-BC-CHALLENGE.md) for MLA outreach, coalition
 - **Nostr sign-in** — publish amendments without accounts on our servers
 - **Bitcoin timestamp** — stamp charter hash via Satohash / OpenTimestamps
 - **QR donations** — scan Bitcoin address from any phone
-- **Zero tracking** — practice what we preach
+- **No ad trackers** — page counts go to our own counter; your IP address is not saved there
 
 ---
 
@@ -168,7 +168,7 @@ Subject ideas:
 - "The document we needed 15 years ago is here"
 - "1215 → 2026: The new Magna Carta is live"
 - "You now have 114 new rights. (Use them.)"
-- "No tracking. No VC. Just the charter."
+- "No ad trackers. No VC. Just the charter."
 
 Tone: Short, powerful, one clear ask per email. Link to signing or a specific article.
 

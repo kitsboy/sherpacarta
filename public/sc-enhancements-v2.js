@@ -526,8 +526,11 @@
   feat(151, 'Section nav dots', () => {
     const nav = document.createElement('nav');
     nav.className = 'section-dots';
-    nav.setAttribute('aria-label', 'Section navigation');
-    nav.setAttribute('role', 'navigation');
+    nav.id = 'explore-rail';
+    nav.setAttribute('aria-label', 'Explore sections');
+    const body = document.createElement('div');
+    body.id = 'explore-links';
+    body.className = 'explore-links';
     const sections = [
       { id: 'hero', label: 'Hero' },
       { id: 'mission', label: 'Mission' },
@@ -536,10 +539,10 @@
       { id: 'sign', label: 'Sign' },
       { id: 'faq', label: 'FAQ' },
     ];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     sections.forEach(({ id, label }) => {
       const a = document.createElement('a');
       a.href = '#' + id;
-      a.title = label;
       a.className = 'dot-link section-dot';
       a.dataset.section = id;
       a.dataset.label = label;
@@ -547,11 +550,71 @@
       a.addEventListener('click', (e) => {
         e.preventDefault();
         const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (el) el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
       });
-      nav.appendChild(a);
+      body.appendChild(a);
     });
+    const hideBtn = document.createElement('button');
+    hideBtn.type = 'button';
+    hideBtn.className = 'explore-collapse';
+    hideBtn.setAttribute('aria-controls', 'explore-links');
+    hideBtn.setAttribute('aria-expanded', 'true');
+    hideBtn.innerHTML = '<i class="fas fa-chevron-right" aria-hidden="true"></i><span>Hide</span>';
+    const handle = document.createElement('button');
+    handle.type = 'button';
+    handle.className = 'explore-handle';
+    handle.id = 'explore-handle';
+    handle.hidden = true;
+    handle.setAttribute('aria-controls', 'explore-links');
+    handle.setAttribute('aria-expanded', 'false');
+    handle.innerHTML = '<i class="fas fa-compass" aria-hidden="true"></i><span>Explore</span>';
+    function setCollapsed(collapsed, persist) {
+      nav.classList.toggle('is-collapsed', collapsed);
+      body.hidden = collapsed;
+      hideBtn.hidden = collapsed;
+      handle.hidden = !collapsed;
+      hideBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      handle.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+      if (!persist) return;
+      try { localStorage.setItem('sc_explore_collapsed', collapsed ? '1' : '0'); } catch (_) {}
+    }
+    hideBtn.addEventListener('click', () => {
+      setCollapsed(true, true);
+      handle.focus();
+    });
+    handle.addEventListener('click', () => {
+      setCollapsed(false, true);
+      hideBtn.focus();
+    });
+    try {
+      if (localStorage.getItem('sc_explore_collapsed') === '1') setCollapsed(true, false);
+    } catch (_) {}
+    nav.appendChild(handle);
+    nav.appendChild(hideBtn);
+    nav.appendChild(body);
     document.body.appendChild(nav);
+    const sectionIds = sections.map((s) => s.id);
+    const updateActive = () => {
+      const marker = window.scrollY + window.innerHeight * 0.33;
+      let current = sectionIds[0];
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= marker) current = id;
+      });
+      body.querySelectorAll('.dot-link, .section-dot').forEach((d) => {
+        const on = d.dataset.section === current;
+        d.classList.toggle('active', on);
+        if (on) d.setAttribute('aria-current', 'true');
+        else d.removeAttribute('aria-current');
+      });
+    };
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => { updateActive(); ticking = false; });
+    }, { passive: true });
+    updateActive();
   });
 
   feat(152, 'Scroll progress in nav', () => {
@@ -668,16 +731,19 @@
     const bar = $('a11y-toolbar');
     if (!bar) return;
     const extras = [
-      ['Zen', 'SC2.toggleZen()'],
-      ['Sepia', 'SC2.toggleSepia()'],
-      ['Dyslexia', 'SC2.toggleDyslexia()'],
-      ['↕', 'SC2.setLineHeight(0.1)'],
-      ['↔', 'SC2.setLetterSpacing(0.02)']
+      ['Zen', 'SC2.toggleZen()', 'Zen mode'],
+      ['Sepia', 'SC2.toggleSepia()', 'Sepia tint'],
+      ['Dyslexia', 'SC2.toggleDyslexia()', 'Dyslexia font'],
+      ['Line height', 'SC2.setLineHeight(0.1)', 'Increase line height'],
+      ['Spacing', 'SC2.setLetterSpacing(0.02)', 'Increase letter spacing']
     ];
-    extras.forEach(([label, fn]) => {
+    extras.forEach(([label, fn, name]) => {
       const b = document.createElement('button');
-      b.type = 'button'; b.textContent = label; b.setAttribute('onclick', fn);
-      bar.appendChild(b);
+      b.type = 'button';
+      b.textContent = label;
+      b.setAttribute('aria-label', name);
+      b.setAttribute('onclick', fn);
+      (bar.querySelector('.a11y-panel-actions') || bar).appendChild(b);
     });
   });
 
@@ -1003,7 +1069,7 @@
 
   feat(193, 'Lighthouse hints console', () => {
     console.log('%cSherpaCarta Performance Tips', 'color:#10b981;font-weight:bold');
-    console.log('• Zero analytics — privacy by design');
+    console.log('• No ad trackers — page counts go to our own counter');
     console.log('• Service worker cached — offline ready');
     console.log('• Content-visibility on sections');
   });

@@ -2,13 +2,13 @@
 
 **Project Name:** SherpaCarta  
 **Date:** 2026-09-10 (last updated 2026-09-27 — deploy-process + Vite reality)
-**BUILD:** Vite/React app + static `public/` set · SW **v9.9** · asset `v=920` · local sign vs Canada campaign
+**BUILD:** Vite/React app + static `public/` set · SW **v9.10** · asset `v=921` · local sign vs Canada campaign
 **Live:** https://sherpacarta.org  **GitHub:** https://github.com/kitsboy/sherpacarta.git  
 **Repo-HEAD reference:** see latest confirmed deployed SHA in `LATEST-UPDATE.md` (this doc's
 "Last goodbye" line below is historical, superseded by that file).
 
 ## Project Overview (Simple Pitch)
-SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights. Moral/political declaration (CC0). Canada is the first law-change beachhead; UK & EU are planned next. Bitcoin-funded. Zero tracking. Local-first signing.
+SherpaCarta is the Global Digital Magna Carta for the 21st Century — a living charter of 114 articles protecting digital privacy, data sovereignty, freedom of expression, and algorithmic rights. Moral/political declaration (CC0). Canada is the first law-change beachhead; UK & EU are planned next. Bitcoin-funded. No ad trackers. Page counts go to our own counter; your IP address is not saved there. Local-first signing.
 
 This folder (`/Users/cam/projects/sherpacarta/`) is the **canonical single source of truth** on M3.
 
@@ -37,8 +37,8 @@ curl -s https://sherpacarta.org/ | grep -oE "BUILD [0-9]+|v=[0-9]+"
 curl -s https://sherpacarta.org/sw.js | grep -oE "sherpacarta-v[0-9.]+"
 ```
 
-**Version stamps are hand-managed** — `v=920` in the HTML `?v=` query stamps and the SW cache
-name `sherpacarta-v9.9` in `public/sw.js`. The `generate-*`/`inject-*` scripts do NOT rewrite the
+**Version stamps are hand-managed** — `v=921` in the HTML `?v=` query stamps and the SW cache
+name `sherpacarta-v9.10` in `public/sw.js`. The `generate-*`/`inject-*` scripts do NOT rewrite the
 `v=` stamp (only `inject-analytics` touches `<head>`, not the version). **Bump both together on any
 JS/CSS/HTML change** or returning visitors on the old service-worker cache keep the stale bundle.
 
@@ -60,7 +60,7 @@ POSTs the pasted SHA-256 hash to the **hosted family API** `https://api.satohash
 - `public/sc-core.js` — CHARTER inject, sign, In brief, visualViewport keyboard
 - `public/sc-bundle.js` — curated 7-file minify (~114 KB): enhancements, v2, b1, b3, b4, b14, b15
 - `public/js/sc-petition-canada.js` — Canada campaign petition (no private key storage)
-- `public/sw.js` — Service worker **v9.9** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
+- `public/sw.js` — Service worker **v9.10** (network-first HTML; no cache for `/api/canada/*`; proof lifecycle and governance assets cached)
 - `public/start.html` — universal onboarding and role paths
 - `public/verify.html` — local SHA-256 proof verification guide/tool
 - `public/archive.html`, `public/cite.html`, `public/data/releases.json` — release archive and citations

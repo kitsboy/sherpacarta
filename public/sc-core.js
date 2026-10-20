@@ -2075,7 +2075,7 @@ function buildSigners(){
         pill.setAttribute('data-tip-title', s.c ? 'A voice from ' + (s.name||'').split(' ').pop() : 'A supporter');
         pill.setAttribute('data-tip', s.c
           ? `${s.name} added their name to the living record. Privacy-first — this is stored on your device only.`
-          : 'Every signature strengthens the movement. Stored locally, zero tracking.');
+          : 'Every signature strengthens the movement. Stored on this device only.');
         const flag=s.c?`<span class="sig-flag">${s.c}</span>`:'';
         pill.innerHTML=`${flag}<span>${escapeHtml(s.name||'')}</span>`;
         wall.appendChild(pill);
@@ -2396,15 +2396,32 @@ function contactEmail(){
 }
 
 function focusA11yToolbar(){
+  if (typeof window.closeA11yToolbar === 'function' && document.getElementById('a11y-toolbar')?.classList.contains('visible')) {
+    return;
+  }
   const bar=document.getElementById('a11y-toolbar');
+  const chip=document.getElementById('a11y-chip');
   if(bar){
     bar.classList.add('visible');
-    bar.style.display='flex';
-    const btn=bar.querySelector('button');
+    bar.hidden=false;
+    bar.style.display='';
+    if(chip) chip.setAttribute('aria-expanded','true');
+    const btn=bar.querySelector('.a11y-close')||bar.querySelector('button');
     if(btn) btn.focus();
-    toast('Accessibility toolbar — adjust font, contrast, and reading mode','info');
   }else{
-    toast('Reload the page to enable the accessibility toolbar','info');
+    toast('Reload the page to enable the accessibility panel','info');
+  }
+}
+function closeA11yToolbar(){
+  const bar=document.getElementById('a11y-toolbar');
+  const chip=document.getElementById('a11y-chip');
+  if(!bar) return;
+  bar.classList.remove('visible');
+  bar.hidden=true;
+  bar.style.display='';
+  if(chip){
+    chip.setAttribute('aria-expanded','false');
+    chip.focus();
   }
 }
 

@@ -9,7 +9,7 @@
     home: {
       url: 'https://sherpacarta.org/',
       title: 'SherpaCarta — Global Digital Magna Carta',
-      text: 'I signed SherpaCarta — 114 articles protecting privacy, data sovereignty, and freedom for all 8 billion people. Zero tracking. Bitcoin-funded. Privacy is a human right.',
+      text: 'I signed SherpaCarta — 114 articles protecting privacy, data sovereignty, and freedom for all 8 billion people. No ad trackers or tracking cookies. Bitcoin-funded. Privacy is a human right.',
       image: 'https://sherpacarta.org/og/default.png?v=732',
       hashtags: ['SherpaCarta', 'DigitalRights', 'PrivacyFirst'],
     },

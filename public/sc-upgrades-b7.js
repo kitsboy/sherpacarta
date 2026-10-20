@@ -322,7 +322,7 @@
           <li><strong>Hook:</strong> Magna Carta limited kings; SherpaCarta limits platforms.</li>
           <li><strong>Problem:</strong> PIPEDA/FIPPA gaps on algorithms and surveillance capitalism.</li>
           <li><strong>Solution:</strong> 114-article CC0 model — adopt subset as BC Digital Rights Act.</li>
-          <li><strong>Proof:</strong> OpenTimestamp on Bitcoin, Nostr public deliberation, zero-tracking site.</li>
+          <li><strong>Proof:</strong> OpenTimestamp on Bitcoin, Nostr public deliberation, no ad trackers.</li>
           <li><strong>Ask:</strong> Reference framework for committee study or model bill introduction.</li>
           <li><strong>Close:</strong> Adoption costs nothing; inaction costs public trust.</li>
         </ol>

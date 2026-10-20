@@ -101,7 +101,7 @@
     sec.innerHTML = `<div class="section-label" style="margin-bottom:.5rem"><span>For Journalists</span></div>
       <h3 style="font-family:var(--serif);font-size:1.5rem;margin-bottom:1rem">Media FAQ</h3>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the headline? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a">A living 114-article global charter of digital human rights — CC0, Bitcoin-funded, zero tracking — positioned as a Magna Carta for the algorithmic age.</div></div>
+        <div class="faq-a">A living 114-article global charter of digital human rights — CC0, Bitcoin-funded, no ad trackers — positioned as a Magna Carta for the algorithmic age.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Who can I interview? <i class="fas fa-chevron-down"></i></div>
         <div class="faq-a">Email hello@giveabit.io with subject "Sherpacarta Press". Response within 48 hours.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is this legally binding? <i class="fas fa-chevron-down"></i></div>

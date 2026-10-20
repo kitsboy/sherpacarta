@@ -36,7 +36,7 @@ As of 2026-07-02, SherpaCarta landing page has a reliable left sidebar: BC Chall
 - Reading/zen modes must not hide `#left-ui-dock`
 
 ## Mission Tie-in
-SherpaCarta practices what it preaches — accessible, privacy-first, zero-tracking UI. A stable sidebar keeps BC Challenge (Canada beachhead) and a11y tools reachable for every visitor, supporting the global digital rights movement under the Give A Bit family.
+SherpaCarta practices what it preaches — accessible, privacy-first UI with no ad trackers. A stable sidebar keeps BC Challenge (Canada beachhead) and a11y tools reachable for every visitor, supporting the global digital rights movement under the Give A Bit family.
 
 ---
 *Safe Harbour · giveabit.io*

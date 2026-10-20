@@ -21,7 +21,7 @@
 - Actual deployment of the site to https://sherpacarta.org/ (Cloudflare Pages recommended) + final assets (real og-image.png etc.).
 - Prune legacy React dependencies from package.json (the delivered product is pure HTML/JS + Vite for dev convenience).
 - Outreach using the new MARKETING.md (press, organizations, translations).
-- Future features: real signature ledger (while preserving local-first zero-tracking default), amendment UI, Lightning donations, etc.
+- Future features: real signature ledger (while preserving local-first signing and not saving an IP address with page counts), amendment UI, Lightning donations, etc.
 - Keep SOURCE-OF-TRUTH.md and hand-off files updated on every meaningful change.
 
 ## Update / Status

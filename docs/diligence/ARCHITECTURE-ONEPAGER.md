@@ -17,7 +17,7 @@ tags: [diligence, pitch, mvp, giveabit]
 **Live:** https://sherpacarta.org · **Repo:** https://github.com/kitsboy/sherpacarta · **Version:** `0.0.0+`
 
 ## Stack
-Web SPA · Cloudflare Pages · i18n · Bitcoin donate · zero-tracking ethos
+Web SPA · Cloudflare Pages · i18n · Bitcoin donate · no ad trackers
 
 ## System map (boxes)
 ```

@@ -11,11 +11,11 @@ owner: Cam / Give A Bit
 
 **Tagline:** Privacy is not a feature. It is a birthright.
 
-**Pitch:** SherpaCarta is a living global charter of 114 articles protecting digital privacy, data sovereignty, and freedom from algorithmic tyranny — for every person on Earth. It is CC0 public domain, funded only by Bitcoin, and built with zero tracking. Sign it, share it, translate it, and help turn moral force into law.
+**Pitch:** SherpaCarta is a living global charter of 114 articles protecting digital privacy, data sovereignty, and freedom from algorithmic tyranny — for every person on Earth. It is CC0 public domain, funded only by Bitcoin, and built with no ad trackers. Page counts go to our own counter. Your IP address is not saved there. Sign it, share it, translate it, and help turn moral force into law.
 
 **Call to Action:** Open the charter at [sherpacarta.org](https://sherpacarta.org), sign locally, and share with one person who needs to hear it today.
 
-**Extended one-liner (social):** 114 articles. 8 billion people. One living Magna Carta for the digital age. No VC. No tracking. Pure people power.
+**Extended one-liner (social):** 114 articles. 8 billion people. One living Magna Carta for the digital age. No VC. No ad trackers. Pure people power.
 
 ---
 
