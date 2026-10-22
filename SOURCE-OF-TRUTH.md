@@ -1,7 +1,7 @@
 # SOURCE-OF-TRUTH.md — sherpacarta
 
 **Project Name:** SherpaCarta  
-**Date:** 2026-09-10 (last updated 2026-09-27 — deploy-process + Vite reality)
+**Date:** 2026-09-10 (last updated 2026-10-22 — zero-tracking copy retire + own RSS feed; deploy log in `LATEST-UPDATE.md`)
 **BUILD:** Vite/React app + static `public/` set · SW **v9.10** · asset `v=921` · local sign vs Canada campaign
 **Live:** https://sherpacarta.org  **GitHub:** https://github.com/kitsboy/sherpacarta.git  
 **Repo-HEAD reference:** see latest confirmed deployed SHA in `LATEST-UPDATE.md` (this doc's
