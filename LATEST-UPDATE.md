@@ -1,6 +1,15 @@
 # sherpacarta — Last Updated 2026-10-22 by Sherpa (THOR weekly guide refresh)
 
-Two releases landed since the last log entry:
+- **2026-10-22 `54bd520`** (Sherpa, guide refresh) — docs-only push that went live this deploy:
+  prepended this log entry + untracked the stale committed `dist/index.html` snapshot that
+  carried the retired "zero tracking" copy (it no longer exists on `main`, so `git grep`
+  is clean; the Pages build regenerates `dist/` fresh). No JS/CSS change — cache stamps
+  unchanged: SW **v9.10**, asset **v=921**.
+  Live commit this run: **`54bd520`** (verified via Cloudflare Pages production deploy
+  `36aa6e42-d691-4e4d-b8c5-c5389a772dfc`, stage `deploy` status `success`).
+  Cache: `v=921` · SW `v9.10`
+
+Two releases landed since the previous log entry:
 
 - **2026-10-20 `ed9be12`** (Ziggy) — retired the absolute "zero tracking" claim repo-wide
   (homepage, press, video script, Nostr-bot knowledge, meta tags, share cards) and redrew
