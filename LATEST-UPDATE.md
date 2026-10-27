@@ -1,4 +1,13 @@
-# sherpacarta — Last Updated 2026-10-22 by Sherpa (THOR weekly guide refresh)
+# sherpacarta — Last Updated 2026-10-27 by Sherpa (THOR weekly guide refresh)
+
+- **2026-10-25 `538ab52`** (Ziggy) — docs-only: logged `54bd520` live (the deploy log had been
+  one release behind; this commit is the correction, not a product change). No JS/CSS change —
+  cache stamps unchanged: SW **v9.10**, asset **v=921**. HEAD of `main` this run: **`538ab52`**.
+  Live-verified this run: served asset `v=921`, SW `sherpacarta-v9.10`, `check:public` 17/17,
+  `check:release` pass, `/feed.xml` + feed.json live, no tracked "zero tracking" copy in
+  `git grep` (only `dist/`-untrack history + the contract gate that enforces absence).
+  FAQ bank Q1–Q8 all re-verified against live origin; no new real user question this week
+  (banked Q9 only happens on a genuine question).
 
 - **2026-10-22 `54bd520`** (Sherpa, guide refresh) — docs-only push that went live this deploy:
   prepended this log entry + untracked the stale committed `dist/index.html` snapshot that
